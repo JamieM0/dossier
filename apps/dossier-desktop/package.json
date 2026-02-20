@@ -1,0 +1,63 @@
+{
+  "name": "@dossier/dossier-desktop",
+  "productName": "Dossier",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "pnpm run preflight && pnpm run build:deps && pnpm run build && cross-env DOSSIER_UI_DEV_SERVER=http://localhost:5173 electron .",
+    "dev:desktop": "pnpm run preflight && cross-env DOSSIER_UI_DEV_SERVER=http://localhost:5173 electron .",
+    "preflight": "node ./scripts/check-electron.mjs",
+    "build:deps": "pnpm -C ../.. -r --filter @dossier/domain --filter @dossier/store --filter @dossier/local-server --filter @dossier/connectors-google-takeout build",
+    "build": "tsc -p tsconfig.json",
+    "dist": "electron-builder",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@dossier/connectors-google-takeout": "workspace:*",
+    "@dossier/local-server": "workspace:*",
+    "@dossier/store": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "cross-env": "^7.0.3",
+    "electron": "^40.6.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  },
+  "build": {
+    "appId": "com.dossier.desktop",
+    "productName": "Dossier",
+    "executableName": "Dossier",
+    "files": [
+      "dist/**/*",
+      "assets/**/*",
+      "../dossier-ui/build/**/*",
+      "../../packages/**/dist/**/*"
+    ],
+    "mac": {
+      "icon": "assets/logo.icns",
+      "extendInfo": {
+        "CFBundleDisplayName": "Dossier",
+        "CFBundleName": "Dossier"
+      },
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "icon": "assets/logo.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "icon": "assets/logo.png",
+      "target": [
+        "AppImage"
+      ]
+    }
+  }
+}

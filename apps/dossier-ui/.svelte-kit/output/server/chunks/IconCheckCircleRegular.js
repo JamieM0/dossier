@@ -1,0 +1,25 @@
+import { b as attributes } from "./index.js";
+function IconCheckCircleRegular($$renderer, $$props) {
+  const { $$slots, $$events, ...p } = $$props;
+  $$renderer.push(`<svg${attributes(
+    {
+      ...p,
+      "data-phosphor-icon": "check-circle",
+      "aria-hidden": "true",
+      width: "1em",
+      height: "1em",
+      "pointer-events": "none",
+      display: "inline-block",
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "currentColor",
+      viewBox: "0 0 256 256"
+    },
+    void 0,
+    void 0,
+    void 0,
+    3
+  )}><path d="M173.66 98.34a8 8 0 0 1 0 11.32l-56 56a8 8 0 0 1-11.32 0l-24-24a8 8 0 0 1 11.32-11.32L112 148.69l50.34-50.35a8 8 0 0 1 11.32 0M232 128A104 104 0 1 1 128 24a104.11 104.11 0 0 1 104 104m-16 0a88 88 0 1 0-88 88 88.1 88.1 0 0 0 88-88"></path></svg>`);
+}
+export {
+  IconCheckCircleRegular as I
+};

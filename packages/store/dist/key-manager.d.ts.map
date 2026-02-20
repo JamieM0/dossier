@@ -1,0 +1,1 @@
+{"version":3,"file":"key-manager.d.ts","sourceRoot":"","sources":["../src/key-manager.ts"],"names":[],"mappings":"AAOA,qBAAa,UAAU;IACrB,OAAO,CAAC,QAAQ,CAAC,OAAO,CAAS;gBAErB,QAAQ,EAAE,MAAM;IAItB,qBAAqB,IAAI,OAAO,CAAC,MAAM,CAAC;IAiB9C,eAAe,CAAC,UAAU,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,GAAG,MAAM;IAIzD,SAAS,CAAC,KAAK,EAAE,MAAM,GAAG,MAAM;YAIlB,qBAAqB;YASrB,oBAAoB;CAQnC"}
