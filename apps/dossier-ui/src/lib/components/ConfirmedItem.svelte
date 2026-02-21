@@ -12,6 +12,7 @@
     focused = false,
     onEdit,
     onDelete,
+    onDetail,
     onFocus
   } = $props<{
     text: string;
@@ -23,6 +24,7 @@
     focused?: boolean;
     onEdit: () => void;
     onDelete: () => void;
+    onDetail?: () => void;
     onFocus?: () => void;
   }>();
 
@@ -69,7 +71,11 @@
   onkeydown={handleKeydown}
 >
   <div class="item-content">
-    <span class="item-text">{text}</span>
+    {#if onDetail}
+      <button class="item-text clickable" onclick={onDetail}>{text}</button>
+    {:else}
+      <span class="item-text">{text}</span>
+    {/if}
 
     {#if showDetails}
       <div class="item-meta">
@@ -142,6 +148,20 @@
     font-size: 1.0625rem;
     line-height: 1.6;
     color: var(--text-primary);
+  }
+
+  .item-text.clickable {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .item-text.clickable:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--text-tertiary);
+    text-underline-offset: 2px;
   }
 
   .item-meta {

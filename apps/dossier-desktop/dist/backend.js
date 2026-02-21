@@ -16,6 +16,9 @@ let settingsCache = { ...defaultSettings };
 let storeService;
 let profileServer;
 let runGoogleTakeoutImport;
+let testLlmConnection = null;
+let inferFromChatMessage = null;
+let generateAlternatives = null;
 let shuttingDown = false;
 const controlToken = randomBytes(24).toString("base64url");
 const consentQueue = [];
@@ -261,6 +264,12 @@ async function shutdown(controlServer) {
             controlServer.close(() => resolve());
         })
     ]);
+}
+function getLlmConfig() {
+    if (settingsCache.localModelEndpoint && settingsCache.localModelName) {
+        return { endpoint: settingsCache.localModelEndpoint, model: settingsCache.localModelName };
+    }
+    return null;
 }
 export function createControlRequestHandler(options) {
     return async (req, res) => {
@@ -611,6 +620,104 @@ export function createControlRequestHandler(options) {
                 });
                 return;
             }
+            // LLM routes
+            if (method === "POST" && path === "/control/llm/test") {
+                const payload = (await readJsonBody(req));
+                if (!payload.endpoint || !payload.model) {
+                    fail(400, "BAD_REQUEST", "endpoint and model are required");
+                }
+                if (!testLlmConnection) {
+                    fail(500, "INTERNAL", "inference engine not loaded");
+                }
+                const result = await testLlmConnection({ endpoint: payload.endpoint, model: payload.model });
+                sendJson(res, 200, result);
+                return;
+            }
+            if (method === "POST" && path === "/control/llm/chat") {
+                const payload = (await readJsonBody(req));
+                if (!payload.userMessage?.trim()) {
+                    fail(400, "BAD_REQUEST", "userMessage is required");
+                }
+                const llmConfig = getLlmConfig();
+                if (!llmConfig || !inferFromChatMessage) {
+                    // Fallback: no LLM, just create a basic inference
+                    const created = options.storeService.repository.createInference({
+                        text: payload.userMessage.trim(),
+                        itemType: "preference",
+                        categoryId: null,
+                        createdVia: "CHAT",
+                        sourceLabel: "Chat",
+                        whyDossierThinksThis: "You explicitly asked Dossier to store this.",
+                        confidence: null
+                    });
+                    sendJson(res, 200, {
+                        reply: created
+                            ? "Noted! I've recorded that as a pending inference for your review."
+                            : "That suggestion was suppressed by your topic rules or a prior dismissal.",
+                        proposals: [],
+                        createdItems: created ? [toRouteItem(created)] : []
+                    });
+                    return;
+                }
+                const history = (payload.messages ?? [])
+                    .filter((msg) => msg.role === "user" || msg.role === "assistant")
+                    .map((msg) => ({ role: msg.role, content: msg.content }));
+                const result = await inferFromChatMessage(llmConfig, history, payload.userMessage.trim());
+                const createdItems = [];
+                for (const proposal of result.proposals) {
+                    const created = options.storeService.repository.createInference({
+                        text: proposal.text,
+                        itemType: proposal.itemType,
+                        categoryId: null,
+                        createdVia: "CHAT",
+                        sourceLabel: "Chat (AI)",
+                        whyDossierThinksThis: proposal.why,
+                        confidence: proposal.confidence
+                    });
+                    if (created) {
+                        createdItems.push(toRouteItem(created));
+                    }
+                }
+                sendJson(res, 200, {
+                    reply: result.reply,
+                    proposals: result.proposals,
+                    createdItems
+                });
+                return;
+            }
+            if (method === "POST" && path === "/control/llm/alternatives") {
+                const payload = (await readJsonBody(req));
+                if (!payload.text?.trim()) {
+                    fail(400, "BAD_REQUEST", "text is required");
+                }
+                const llmConfig = getLlmConfig();
+                if (!llmConfig || !generateAlternatives) {
+                    sendJson(res, 200, { alternatives: [] });
+                    return;
+                }
+                const result = await generateAlternatives(llmConfig, payload.text.trim(), payload.itemType ?? "preference", payload.why);
+                sendJson(res, 200, result);
+                return;
+            }
+            if (method === "GET" && path.match(/^\/control\/profile\/items\/[^/]+\/detail$/)) {
+                const itemId = routeParam(path, /^\/control\/profile\/items\/([^/]+)\/detail$/)[1];
+                const allDetails = options.storeService.repository.listItemDetailsViews();
+                const detail = allDetails.find((d) => {
+                    const item = d.item;
+                    return item?.item_id === itemId;
+                });
+                if (!detail) {
+                    fail(404, "NOT_FOUND", "item not found");
+                }
+                const auditEvents = options.storeService.repository.listAudit({ itemId });
+                const itemDetail = toRouteItemDetails(detail);
+                sendJson(res, 200, {
+                    ...itemDetail,
+                    auditEvents,
+                    editHistory: []
+                });
+                return;
+            }
             if (method === "GET" && path === "/control/data/backups") {
                 sendJson(res, 200, { backups: options.storeService.listLocalBackups() });
                 return;
@@ -667,7 +774,7 @@ export function createControlRequestHandler(options) {
                 if (!payload.importPath) {
                     fail(400, "BAD_REQUEST", "importPath is required");
                 }
-                const result = options.runGoogleTakeoutImport(options.storeService, payload.importPath);
+                const result = await options.runGoogleTakeoutImport(options.storeService, payload.importPath, getLlmConfig());
                 sendJson(res, 200, result);
                 return;
             }
@@ -727,6 +834,19 @@ async function bootstrap() {
         storeService = (await storeModule.DossierStoreService.init(dataDir));
         profileServer = new localServerModule.LocalProfileServer(storeService);
         runGoogleTakeoutImport = connectorModule.runGoogleTakeoutImport;
+        // Try to load inference engine (optional — won't block startup)
+        const inferenceEnginePath = join(packagesRoot, "inference-engine", "dist", "index.js");
+        if (existsSync(inferenceEnginePath)) {
+            try {
+                const inferenceModule = await import(pathToFileURL(inferenceEnginePath).href);
+                testLlmConnection = inferenceModule.testLlmConnection;
+                inferFromChatMessage = inferenceModule.inferFromChatMessage;
+                generateAlternatives = inferenceModule.generateAlternatives;
+            }
+            catch {
+                // Inference engine unavailable — LLM features will be disabled
+            }
+        }
         modulesLoaded = true;
         break;
     }

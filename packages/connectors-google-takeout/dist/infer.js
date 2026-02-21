@@ -5,7 +5,7 @@ function normalizeTokens(input) {
         .map((token) => token.trim())
         .filter((token) => token.length >= 4);
 }
-export function inferFromTakeoutArtifacts(artifacts) {
+function inferFromTakeoutArtifactsFallback(artifacts) {
     const tokenCounts = new Map();
     for (const artifact of artifacts) {
         const text = typeof artifact.content === "string" ? artifact.content : JSON.stringify(artifact.content);
@@ -23,5 +23,26 @@ export function inferFromTakeoutArtifacts(artifacts) {
         why: `Appears ${count} times across imported Google Takeout artifacts`,
         confidence: Math.min(0.92, 0.45 + count / 200)
     }));
+}
+export async function inferFromTakeoutArtifacts(artifacts, llmConfig) {
+    if (!llmConfig?.endpoint || !llmConfig?.model) {
+        return inferFromTakeoutArtifactsFallback(artifacts);
+    }
+    // Summarise artifacts for the LLM
+    const summaryParts = [];
+    for (const artifact of artifacts.slice(0, 30)) {
+        const text = typeof artifact.content === "string" ? artifact.content : JSON.stringify(artifact.content);
+        summaryParts.push(`[${artifact.kind}] ${text.slice(0, 500)}`);
+    }
+    const summary = summaryParts.join("\n---\n");
+    try {
+        // Dynamic import to avoid hard dependency on inference-engine
+        const { inferFromTakeoutText } = await import("@dossier/inference-engine");
+        return await inferFromTakeoutText({ endpoint: llmConfig.endpoint, model: llmConfig.model }, summary);
+    }
+    catch {
+        // Fall back to word-frequency approach on LLM failure
+        return inferFromTakeoutArtifactsFallback(artifacts);
+    }
 }
 //# sourceMappingURL=infer.js.map

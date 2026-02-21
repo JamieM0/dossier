@@ -1,10 +1,13 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
+  import AlternativesPanel from "$lib/components/AlternativesPanel.svelte";
   import CommentPopout from "$lib/components/CommentPopout.svelte";
+  import ItemDetailPanel from "$lib/components/ItemDetailPanel.svelte";
   import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
   import ConfirmedItem from "$lib/components/ConfirmedItem.svelte";
   import InferenceItem from "$lib/components/InferenceItem.svelte";
   import NotificationBanner from "$lib/components/NotificationBanner.svelte";
+  import ProcessingFeed from "$lib/components/ProcessingFeed.svelte";
   import PromptDialog from "$lib/components/PromptDialog.svelte";
   import IconPlusRegular from "phosphor-icons-svelte/IconPlusRegular.svelte";
   import IconUploadSimpleRegular from "phosphor-icons-svelte/IconUploadSimpleRegular.svelte";
@@ -26,10 +29,16 @@
   let statusTimer = $state<ReturnType<typeof setTimeout> | null>(null);
 
   let showWelcome = $state(false);
+  let llmHandled = $state(false);
   let topicsHandled = $state(false);
   let importHandled = $state(false);
   let setupSelectedTopics = $state<string[]>([]);
   let setupCustomTopic = $state("");
+
+  let llmEndpoint = $state("http://127.0.0.1:11434/v1");
+  let llmModel = $state("llama3.1");
+  let llmTesting = $state(false);
+  let llmTestResult = $state<{ ok: boolean; model: string; error?: string } | null>(null);
 
   let showAddItem = $state(false);
   let newItemText = $state("");
@@ -40,6 +49,8 @@
   let importPath = $state("");
   let isImporting = $state(false);
   let showImport = $state(false);
+  let importDiscoveries = $state<{ id: string; text: string; complete: boolean }[]>([]);
+  let importComplete = $state(false);
 
   let editTargetId = $state<string | null>(null);
   let editText = $state("");
@@ -49,6 +60,8 @@
 
   let deleteTargetId = $state<string | null>(null);
   let commentTarget = $state<ProfileItemView | null>(null);
+  let alternativesTarget = $state<ProfileItemView | null>(null);
+  let detailTargetId = $state<string | null>(null);
 
   let focusedIndex = $state(-1);
   let itemRefs = $state<HTMLElement[]>([]);
@@ -140,11 +153,14 @@
     compartments = nextCompartments;
     topicRules = nextRules;
 
-    const setupComplete = Boolean((nextSettings as Record<string, unknown>).blockedTopicsSetupComplete);
-    const nextShowWelcome = !setupComplete;
+    const settingsRecord = nextSettings as Record<string, unknown>;
+    const llmDone = Boolean(settingsRecord.llmSetupComplete);
+    const topicsDone = Boolean(settingsRecord.blockedTopicsSetupComplete);
+    const nextShowWelcome = !llmDone || !topicsDone;
     if (nextShowWelcome && !showWelcome) {
       // Entering welcome fresh (e.g. after profile deletion) — reset step states
-      topicsHandled = false;
+      llmHandled = llmDone;
+      topicsHandled = topicsDone;
       importHandled = false;
     }
     showWelcome = nextShowWelcome;
@@ -191,6 +207,25 @@
     if (!importPath.trim()) return;
     errorMessage = "";
     isImporting = true;
+    importComplete = false;
+    importDiscoveries = [
+      { id: "scan", text: "Scanning takeout directory...", complete: false },
+      { id: "parse", text: "Parsing artifacts...", complete: false },
+      { id: "infer", text: "Running inference on your data...", complete: false },
+      { id: "store", text: "Storing results...", complete: false }
+    ];
+
+    // Progressive updates
+    const progressTimer = setTimeout(() => {
+      importDiscoveries = importDiscoveries.map((d) =>
+        d.id === "scan" ? { ...d, complete: true } : d
+      );
+    }, 600);
+    const progressTimer2 = setTimeout(() => {
+      importDiscoveries = importDiscoveries.map((d) =>
+        d.id === "parse" ? { ...d, complete: true } : d
+      );
+    }, 1500);
 
     try {
       const result = await window.dossier?.data.runTakeoutImport(importPath.trim());
@@ -199,6 +234,19 @@
         inferencesCreated?: number;
         inferencesSuppressed?: number;
       };
+
+      // Mark all complete
+      importDiscoveries = importDiscoveries.map((d) => ({ ...d, complete: true }));
+      importComplete = true;
+
+      // Add discovery results
+      if (cast.inferencesCreated) {
+        importDiscoveries = [
+          ...importDiscoveries,
+          { id: "result", text: `${cast.inferencesCreated} inferences created from ${cast.artifactsScanned ?? 0} artifacts`, complete: true }
+        ];
+      }
+
       setStatus(`Import complete. ${cast.artifactsScanned ?? 0} artifacts scanned, ${cast.inferencesCreated ?? 0} inferences created, ${cast.inferencesSuppressed ?? 0} suppressed.`);
       showImport = false;
       importPath = "";
@@ -209,7 +257,10 @@
       await refresh();
     } catch (error) {
       setError(error);
+      importDiscoveries = [];
     } finally {
+      clearTimeout(progressTimer);
+      clearTimeout(progressTimer2);
       isImporting = false;
     }
   }
@@ -300,11 +351,37 @@
   }
 
   async function closeWelcomeIfComplete(): Promise<void> {
-    if (topicsHandled && importHandled) {
+    if (llmHandled && topicsHandled && importHandled) {
       await window.dossier?.settings.set({ blockedTopicsSetupComplete: true });
       showWelcome = false;
       uiSettings.showingWelcome = false;
     }
+  }
+
+  async function testLlmConnection(): Promise<void> {
+    if (!llmEndpoint.trim() || !llmModel.trim()) return;
+    llmTesting = true;
+    llmTestResult = null;
+    try {
+      const result = await window.dossier?.llm.test(llmEndpoint.trim(), llmModel.trim());
+      llmTestResult = result ?? { ok: false, model: llmModel, error: "Bridge unavailable" };
+    } catch (error) {
+      llmTestResult = { ok: false, model: llmModel, error: error instanceof Error ? error.message : "Connection failed" };
+    } finally {
+      llmTesting = false;
+    }
+  }
+
+  async function completeLlmSetup(): Promise<void> {
+    await window.dossier?.settings.set({
+      localModelEndpoint: llmEndpoint.trim(),
+      localModelName: llmModel.trim(),
+      llmSetupComplete: true
+    });
+    uiSettings.localModelEndpoint = llmEndpoint.trim();
+    uiSettings.localModelName = llmModel.trim();
+    llmHandled = true;
+    await closeWelcomeIfComplete();
   }
 
   async function completeTopicSetup(): Promise<void> {
@@ -410,6 +487,73 @@
             Everything stays on your device. Let's start by setting up some privacy boundaries.
           </p>
         </div>
+
+        {#if llmHandled}
+          <div class="welcome-card welcome-card-done">
+            <div class="welcome-done-row">
+              <h2 class="section-heading">Connect AI model</h2>
+              <span class="done-badge">Done</span>
+            </div>
+          </div>
+        {:else}
+          <div class="welcome-card">
+            <h2 class="section-heading">Connect AI model</h2>
+            <p class="section-desc">
+              Dossier uses a local LLM to analyse your data and generate profile inferences.
+              Point it at an OpenAI-compatible endpoint (e.g. Ollama running locally).
+            </p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="llm-endpoint">Endpoint</label>
+                <input
+                  id="llm-endpoint"
+                  class="text-input"
+                  type="text"
+                  bind:value={llmEndpoint}
+                  placeholder="http://127.0.0.1:11434/v1"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="llm-model">Model</label>
+                <input
+                  id="llm-model"
+                  class="text-input"
+                  type="text"
+                  bind:value={llmModel}
+                  placeholder="llama3.1"
+                />
+              </div>
+            </div>
+
+            <div class="llm-test-row">
+              <button
+                class="btn-secondary"
+                onclick={() => void testLlmConnection()}
+                disabled={llmTesting || !llmEndpoint.trim() || !llmModel.trim()}
+              >
+                {llmTesting ? "Testing..." : "Test connection"}
+              </button>
+              {#if llmTestResult}
+                {#if llmTestResult.ok}
+                  <span class="llm-test-ok">Connected to {llmTestResult.model}</span>
+                {:else}
+                  <span class="llm-test-err">{llmTestResult.error ?? "Connection failed"}</span>
+                {/if}
+              {/if}
+            </div>
+
+            <div class="welcome-actions">
+              <button
+                class="btn-primary"
+                onclick={() => void completeLlmSetup()}
+                disabled={!llmTestResult?.ok}
+              >
+                Save & continue
+              </button>
+            </div>
+          </div>
+        {/if}
 
         {#if topicsHandled}
           <div class="welcome-card welcome-card-done">
@@ -597,6 +741,11 @@
         </section>
       {/if}
 
+      <!-- Processing Feed (during import) -->
+      {#if isImporting && importDiscoveries.length > 0}
+        <ProcessingFeed discoveries={importDiscoveries} isComplete={importComplete} />
+      {/if}
+
       <!-- Pending Inferences Section -->
       {#if pendingInferences.length > 0}
         <section id="pending-inferences">
@@ -613,6 +762,7 @@
                   onConfirm={() => void confirmInference(inference.item_id)}
                   onDismiss={() => void dismissInference(inference.item_id)}
                   onComment={() => { commentTarget = inference; }}
+                  onAlternatives={() => { alternativesTarget = inference; }}
                   onFocus={() => { focusedIndex = i; }}
                 />
 
@@ -625,6 +775,20 @@
                       onClose={() => { commentTarget = null; }}
                     />
                   </div>
+                {/if}
+                {#if alternativesTarget?.item_id === inference.item_id}
+                  <AlternativesPanel
+                    text={alternativesTarget.text}
+                    itemType={alternativesTarget.item_type}
+                    why={alternativesTarget.provenance?.why_dossier_thinks_this}
+                    onSelect={async (selectedText) => {
+                      await window.dossier?.profile.inferenceEditConfirm(inference.item_id, selectedText);
+                      alternativesTarget = null;
+                      setStatus("Alternative selected and confirmed.");
+                      await refresh();
+                    }}
+                    onClose={() => { alternativesTarget = null; }}
+                  />
                 {/if}
               </div>
             {/each}
@@ -700,6 +864,7 @@
                       focused={focusedIndex === itemIndex}
                       onEdit={() => startEdit(item)}
                       onDelete={() => { deleteTargetId = item.item_id; }}
+                      onDetail={() => { detailTargetId = item.item_id; }}
                       onFocus={() => { focusedIndex = itemIndex; }}
                     />
                   {/if}
@@ -808,6 +973,25 @@
       if (deleteTargetId) void deleteItem(deleteTargetId);
     }}
     onCancel={() => { deleteTargetId = null; }}
+  />
+{/if}
+
+{#if detailTargetId}
+  <ItemDetailPanel
+    itemId={detailTargetId}
+    onClose={() => { detailTargetId = null; }}
+    onEdit={() => {
+      const item = items.find((i) => i.item_id === detailTargetId);
+      if (item) {
+        detailTargetId = null;
+        startEdit(item);
+      }
+    }}
+    onDelete={() => {
+      const id = detailTargetId;
+      detailTargetId = null;
+      if (id) deleteTargetId = id;
+    }}
   />
 {/if}
 
@@ -929,6 +1113,37 @@
     background: var(--secondary-accent);
     color: var(--secondary-accent-text);
     border-color: var(--secondary-accent);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .form-label {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .llm-test-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .llm-test-ok {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--success);
+  }
+
+  .llm-test-err {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--error);
   }
 
   /* Status */

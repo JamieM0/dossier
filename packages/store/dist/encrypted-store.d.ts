@@ -4,6 +4,7 @@ export declare class EncryptedStore {
     private readonly key;
     private readonly filePath;
     constructor(dataPath: string, key: Buffer);
+    private quarantineUnreadableStore;
     load(): PersistedState;
     save(state: PersistedState): void;
 }

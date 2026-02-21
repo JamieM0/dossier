@@ -229,7 +229,7 @@ beforeEach(async () => {
 
   handler = createControlRequestHandler({
     storeService,
-    runGoogleTakeoutImport: () => ({ artifactsScanned: 0, inferencesCreated: 0, inferencesSuppressed: 0 })
+    runGoogleTakeoutImport: async () => ({ artifactsScanned: 0, inferencesCreated: 0, inferencesSuppressed: 0 })
   });
 });
 

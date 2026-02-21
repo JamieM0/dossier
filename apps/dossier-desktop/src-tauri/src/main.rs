@@ -950,6 +950,70 @@ async fn server_health(state: State<'_, RuntimeState>) -> Result<Value, String> 
         .await
 }
 
+#[tauri::command]
+async fn llm_test(
+    endpoint: String,
+    model: String,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/llm/test",
+            Some(json!({ "endpoint": endpoint, "model": model })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn llm_chat(
+    messages: Value,
+    user_message: String,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/llm/chat",
+            Some(json!({ "messages": messages, "userMessage": user_message })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn llm_alternatives(
+    text: String,
+    item_type: Option<String>,
+    why: Option<String>,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/llm/alternatives",
+            Some(json!({ "text": text, "itemType": item_type, "why": why })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn profile_item_detail(
+    item_id: String,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::GET,
+            format!("/control/profile/items/{item_id}/detail").as_str(),
+            None,
+        )
+        .await
+}
+
 fn main() {
     let run_result = tauri::Builder::default()
         .setup(|app| {
@@ -1028,7 +1092,11 @@ fn main() {
             data_backup_restore,
             profile_delete_irreversible,
             data_run_takeout_import,
-            server_health
+            server_health,
+            llm_test,
+            llm_chat,
+            llm_alternatives,
+            profile_item_detail
         ])
         .run(tauri::generate_context!());
 

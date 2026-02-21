@@ -7,6 +7,11 @@ export type InferenceProposal = {
   confidence: number | null;
 };
 
+export type LlmConfig = {
+  endpoint: string;
+  model: string;
+};
+
 function normalizeTokens(input: string): string[] {
   return input
     .toLowerCase()
@@ -15,7 +20,7 @@ function normalizeTokens(input: string): string[] {
     .filter((token) => token.length >= 4);
 }
 
-export function inferFromTakeoutArtifacts(artifacts: TakeoutArtifact[]): InferenceProposal[] {
+function inferFromTakeoutArtifactsFallback(artifacts: TakeoutArtifact[]): InferenceProposal[] {
   const tokenCounts = new Map<string, number>();
 
   for (const artifact of artifacts) {
@@ -36,4 +41,30 @@ export function inferFromTakeoutArtifacts(artifacts: TakeoutArtifact[]): Inferen
     why: `Appears ${count} times across imported Google Takeout artifacts`,
     confidence: Math.min(0.92, 0.45 + count / 200)
   }));
+}
+
+export async function inferFromTakeoutArtifacts(
+  artifacts: TakeoutArtifact[],
+  llmConfig?: LlmConfig | null
+): Promise<InferenceProposal[]> {
+  if (!llmConfig?.endpoint || !llmConfig?.model) {
+    return inferFromTakeoutArtifactsFallback(artifacts);
+  }
+
+  // Summarise artifacts for the LLM
+  const summaryParts: string[] = [];
+  for (const artifact of artifacts.slice(0, 30)) {
+    const text = typeof artifact.content === "string" ? artifact.content : JSON.stringify(artifact.content);
+    summaryParts.push(`[${artifact.kind}] ${text.slice(0, 500)}`);
+  }
+  const summary = summaryParts.join("\n---\n");
+
+  try {
+    // Dynamic import to avoid hard dependency on inference-engine
+    const { inferFromTakeoutText } = await import("@dossier/inference-engine");
+    return await inferFromTakeoutText({ endpoint: llmConfig.endpoint, model: llmConfig.model }, summary);
+  } catch {
+    // Fall back to word-frequency approach on LLM failure
+    return inferFromTakeoutArtifactsFallback(artifacts);
+  }
 }

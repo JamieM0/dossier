@@ -1,7 +1,9 @@
-import { mkdtempSync } from "node:fs";
+import { mkdtempSync, readdirSync, writeFileSync } from "node:fs";
+import { randomBytes } from "node:crypto";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, test } from "vitest";
+import { encryptJson } from "./crypto.js";
 import { DossierStoreService } from "./index.js";
 import { createDefaultState } from "./defaults.js";
 import { migratePersistedState } from "./migrations.js";
@@ -216,6 +218,20 @@ describe("store repository policy behavior", () => {
     const past = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
     const filteredRange = store.repository.listAudit({ dateFrom: past, dateTo: future });
     expect(filteredRange.length).toBeGreaterThan(0);
+  });
+
+  test("recovers from unreadable encrypted store by quarantining file", async () => {
+    const dataDir = mkdtempSync(join(tmpdir(), "dossier-store-"));
+    await DossierStoreService.init(dataDir);
+
+    const corruptedBlob = encryptJson(createDefaultState(), randomBytes(32));
+    writeFileSync(join(dataDir, "store.enc.json"), JSON.stringify(corruptedBlob), "utf8");
+
+    const recovered = await DossierStoreService.init(dataDir);
+    const quarantinedFiles = readdirSync(dataDir).filter((file) => file.startsWith("store.enc.corrupt-"));
+
+    expect(quarantinedFiles).toHaveLength(1);
+    expect(recovered.repository.listItems()).toEqual([]);
   });
 
   test("dismissed inference suppresses resuggestion", async () => {

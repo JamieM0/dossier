@@ -13,6 +13,9 @@ importers:
       '@dossier/connectors-google-takeout':
         specifier: workspace:*
         version: link:../../packages/connectors-google-takeout
+      '@dossier/inference-engine':
+        specifier: workspace:*
+        version: link:../../packages/inference-engine
       '@dossier/local-server':
         specifier: workspace:*
         version: link:../../packages/local-server
@@ -89,6 +92,10 @@ importers:
         version: 2.1.9(@types/node@22.19.11)
 
   packages/connectors-google-takeout:
+    dependencies:
+      '@dossier/inference-engine':
+        specifier: workspace:*
+        version: link:../inference-engine
     devDependencies:
       '@types/node':
         specifier: ^22.10.2
@@ -112,6 +119,18 @@ importers:
       vitest:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@24.10.13)
+
+  packages/inference-engine:
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.19.11
+      typescript:
+        specifier: ^5.7.3
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.19.11)
 
   packages/local-server:
     dependencies:

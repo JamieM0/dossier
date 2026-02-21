@@ -1,1 +1,0 @@
-import{a as e,f as a}from"../chunks/BruAzle-.js";import{p as t,u as p,f as i}from"../chunks/TUqvhoEA.js";import{g as f}from"../chunks/Dca3cEG8.js";var n=a('<section class="screen"><h1>Loading Dossier...</h1></section>');function g(o,s){t(s,!0),p(()=>{f("/profile")});var r=n();e(o,r),i()}export{g as component};

@@ -212,7 +212,10 @@ class UiSettingsStore {
   dyslexiaMode = false;
   highFidelityEnabled = false;
   startOnLogin = false;
+  localModelEndpoint = "";
+  localModelName = "";
   sidebarCollapsed = false;
+  showingWelcome = false;
   applyTheme() {
     applyTheme(this.theme);
   }
@@ -233,6 +236,12 @@ class UiSettingsStore {
     this.dyslexiaMode = Boolean(desktopSettings.dyslexiaMode);
     this.highFidelityEnabled = Boolean(desktopSettings.highFidelityEnabled);
     this.startOnLogin = Boolean(desktopSettings.startOnLogin);
+    this.localModelEndpoint = typeof desktopSettings.localModelEndpoint === "string" ? desktopSettings.localModelEndpoint : "";
+    this.localModelName = typeof desktopSettings.localModelName === "string" ? desktopSettings.localModelName : "";
+    const osStartOnLogin = await window.dossier?.settings.getStartOnLogin();
+    if (typeof osStartOnLogin === "boolean") {
+      this.startOnLogin = osStartOnLogin;
+    }
     this.applyTheme();
     this.applyBodyMode();
   }
@@ -241,7 +250,9 @@ class UiSettingsStore {
       theme: this.theme,
       dyslexiaMode: this.dyslexiaMode,
       highFidelityEnabled: this.highFidelityEnabled,
-      startOnLogin: this.startOnLogin
+      startOnLogin: this.startOnLogin,
+      localModelEndpoint: this.localModelEndpoint,
+      localModelName: this.localModelName
     });
   }
 }

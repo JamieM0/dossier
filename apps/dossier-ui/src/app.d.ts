@@ -1,11 +1,16 @@
 import type {
+  AlternativeSet,
   AuditEvent,
   Category,
+  ChatMessage,
   Compartment,
   ConsentDecisionPayload,
   ConsentRequestView,
   DossierSettings,
   ItemCompartment,
+  ItemDetailView,
+  LlmChatResult,
+  LlmTestResult,
   LocalBackupSummary,
   ProfileItem,
   ProfileItemView,
@@ -45,6 +50,12 @@ declare global {
         inferenceDismiss: (itemId: string, dismissReason?: string) => Promise<unknown>;
         getItemCompartments: (itemId: string) => Promise<ItemCompartment[]>;
         setItemCompartments: (itemId: string, compartmentIds: string[]) => Promise<ItemCompartment[]>;
+        getItemDetail: (itemId: string) => Promise<ItemDetailView>;
+      };
+      llm: {
+        test: (endpoint: string, model: string) => Promise<LlmTestResult>;
+        chat: (messages: ChatMessage[], userMessage: string) => Promise<LlmChatResult>;
+        alternatives: (text: string, itemType?: string, why?: string) => Promise<AlternativeSet>;
       };
       topicRules: {
         list: () => Promise<TopicRule[]>;

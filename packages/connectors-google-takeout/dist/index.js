@@ -1,8 +1,8 @@
 import { inferFromTakeoutArtifacts } from "./infer.js";
 import { parseTakeoutDirectory } from "./parser.js";
-export function runGoogleTakeoutImport(store, rootPath) {
+export async function runGoogleTakeoutImport(store, rootPath, llmConfig) {
     const artifacts = parseTakeoutDirectory(rootPath);
-    const proposals = inferFromTakeoutArtifacts(artifacts);
+    const proposals = await inferFromTakeoutArtifacts(artifacts, llmConfig);
     store.repository.addEvidenceSummary({
         sourceLabel: "Google Takeout",
         summaryKind: "takeout_import",

@@ -1,18 +1,19 @@
-import { e as escape_html, a as ensure_array_like, g as getContext, b as attributes, c as attr_class, d as attr, s as store_get, f as stringify, h as unsubscribe_stores, i as derived } from "../../chunks/index.js";
-import { I as IconCheckRegular } from "../../chunks/IconCheckRegular.js";
+import { a as attr_class, e as escape_html, b as ensure_array_like, c as attr, g as getContext, d as attributes, s as store_get, f as stringify, h as unsubscribe_stores, i as derived } from "../../chunks/index.js";
 import "@sveltejs/kit/internal";
 import "../../chunks/exports.js";
 import "../../chunks/utils2.js";
 import "@sveltejs/kit/internal/server";
 import "../../chunks/root.js";
 import "../../chunks/state.svelte.js";
+import { I as IconCheckRegular, a as IconUserRegular } from "../../chunks/IconCheckRegular.js";
 import { u as uiSettings } from "../../chunks/ui-settings.svelte.js";
 import { listen } from "@tauri-apps/api/event";
 import { invoke } from "@tauri-apps/api/core";
 function BatchedConsentView($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let { requests } = $$props;
-    $$renderer2.push(`<div class="consent-backdrop svelte-197qvbs"><div class="batched-modal svelte-197qvbs" role="dialog" aria-modal="true" aria-labelledby="batched-consent-title"><h2 id="batched-consent-title" class="modal-title svelte-197qvbs">Pending access requests <span class="count-badge svelte-197qvbs">${escape_html(requests.length)}</span></h2> <div class="requests-list svelte-197qvbs"><!--[-->`);
+    let isExiting = false;
+    $$renderer2.push(`<div${attr_class("consent-backdrop svelte-197qvbs", void 0, { "exiting": isExiting })}><div${attr_class("batched-modal svelte-197qvbs", void 0, { "exiting": isExiting })} role="dialog" aria-modal="true" aria-labelledby="batched-consent-title"><h2 id="batched-consent-title" class="modal-title svelte-197qvbs">Pending access requests <span class="count-badge svelte-197qvbs">${escape_html(requests.length)}</span></h2> <div class="requests-list svelte-197qvbs"><!--[-->`);
     const each_array = ensure_array_like(requests);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
       let request = each_array[$$index];
@@ -23,19 +24,36 @@ function BatchedConsentView($$renderer, $$props) {
 }
 function ConsentModal($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
-    let { serviceName, requestedItems } = $$props;
-    $$renderer2.push(`<div class="consent-backdrop svelte-ys4ql"><div class="consent-modal svelte-ys4ql" role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-describedby="consent-desc"><h2 id="consent-title" class="modal-title svelte-ys4ql">${escape_html(
-      // Focus the decline button by default (spec: inaction = decline)
-      serviceName
-    )}</h2> <p id="consent-desc" class="modal-desc svelte-ys4ql">${escape_html(serviceName)} is requesting access to the following data:</p> <ul class="requested-items svelte-ys4ql"><!--[-->`);
-    const each_array = ensure_array_like(requestedItems);
+    let { serviceName, request } = $$props;
+    let selectedAllowedIds = [];
+    let blockedOverrides = [];
+    let isExiting = false;
+    function isSelected(itemId) {
+      return selectedAllowedIds.includes(itemId);
+    }
+    $$renderer2.push(`<div${attr_class("consent-backdrop svelte-ys4ql", void 0, { "exiting": isExiting })}><div${attr_class("consent-modal svelte-ys4ql", void 0, { "exiting": isExiting })} role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-describedby="consent-desc"><h2 id="consent-title" class="modal-title svelte-ys4ql">${escape_html(serviceName)}</h2> <p id="consent-desc" class="modal-desc svelte-ys4ql">${escape_html(serviceName)} requests access for: ${escape_html(request.purpose)}</p> <ul class="requested-items svelte-ys4ql"><!--[-->`);
+    const each_array = ensure_array_like(request.preview_items);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
       let item = each_array[$$index];
-      $$renderer2.push(`<li class="requested-item svelte-ys4ql">`);
-      IconCheckRegular($$renderer2, { class: "icon-16" });
-      $$renderer2.push(`<!----> <span>${escape_html(item)}</span></li>`);
+      $$renderer2.push(`<li${attr_class("requested-item svelte-ys4ql", void 0, { "blocked": item.is_topic_blocked })}><label class="item-main svelte-ys4ql"><input type="checkbox"${attr("checked", isSelected(item.item_id), true)}/> <span>${escape_html(item.text)}</span> `);
+      if (item.is_topic_blocked) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<span class="pill svelte-ys4ql">Blocked</span>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]--></label> `);
+      if (item.is_topic_blocked && isSelected(item.item_id)) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<label class="override-row svelte-ys4ql"><input type="checkbox"${attr("checked", blockedOverrides.includes(item.item_id), true)}/> <span>Share anyway this time (one-time override)</span></label>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]--></li>`);
     }
-    $$renderer2.push(`<!--]--></ul> <div class="modal-actions svelte-ys4ql"><button class="btn-secondary svelte-ys4ql">Decline</button> <button class="btn-primary svelte-ys4ql">Allow</button></div></div></div>`);
+    $$renderer2.push(`<!--]--></ul> <div class="modal-actions svelte-ys4ql"><button class="btn-secondary svelte-ys4ql">Decline</button> <button class="btn-primary svelte-ys4ql">`);
+    IconCheckRegular($$renderer2, { class: "icon-16" });
+    $$renderer2.push(`<!----> <span>Allow selected</span></button></div></div></div>`);
   });
 }
 const getStores = () => {
@@ -101,6 +119,27 @@ function IconGearSixRegular($$renderer, $$props) {
     3
   )}><path d="M128 80a48 48 0 1 0 48 48 48.05 48.05 0 0 0-48-48m0 80a32 32 0 1 1 32-32 32 32 0 0 1-32 32m109.94-52.79a8 8 0 0 0-3.89-5.4l-29.83-17-.12-33.62a8 8 0 0 0-2.83-6.08 111.9 111.9 0 0 0-36.72-20.67 8 8 0 0 0-6.46.59L128 41.85 97.88 25a8 8 0 0 0-6.47-.6 112.1 112.1 0 0 0-36.68 20.75 8 8 0 0 0-2.83 6.07l-.15 33.65-29.83 17a8 8 0 0 0-3.89 5.4 106.5 106.5 0 0 0 0 41.56 8 8 0 0 0 3.89 5.4l29.83 17 .12 33.62a8 8 0 0 0 2.83 6.08 111.9 111.9 0 0 0 36.72 20.67 8 8 0 0 0 6.46-.59L128 214.15 158.12 231a7.9 7.9 0 0 0 3.9 1 8.1 8.1 0 0 0 2.57-.42 112.1 112.1 0 0 0 36.68-20.73 8 8 0 0 0 2.83-6.07l.15-33.65 29.83-17a8 8 0 0 0 3.89-5.4 106.5 106.5 0 0 0-.03-41.52m-15 34.91-28.57 16.25a8 8 0 0 0-3 3c-.58 1-1.19 2.06-1.81 3.06a7.94 7.94 0 0 0-1.22 4.21l-.15 32.25a95.9 95.9 0 0 1-25.37 14.3L134 199.13a8 8 0 0 0-3.91-1h-3.83a8.1 8.1 0 0 0-4.1 1l-28.84 16.1A96 96 0 0 1 67.88 201l-.11-32.2a8 8 0 0 0-1.22-4.22c-.62-1-1.23-2-1.8-3.06a8.1 8.1 0 0 0-3-3.06l-28.6-16.29a90.5 90.5 0 0 1 0-28.26l28.52-16.28a8 8 0 0 0 3-3c.58-1 1.19-2.06 1.81-3.06a7.94 7.94 0 0 0 1.22-4.21l.15-32.25a95.9 95.9 0 0 1 25.37-14.3L122 56.87a8 8 0 0 0 4.1 1h3.64a8.1 8.1 0 0 0 4.1-1l28.84-16.1A96 96 0 0 1 188.12 55l.11 32.2a8 8 0 0 0 1.22 4.22c.62 1 1.23 2 1.8 3.06a8.1 8.1 0 0 0 3 3.06l28.6 16.29a90.5 90.5 0 0 1 .05 28.29Z"></path></svg>`);
 }
+function IconListMagnifyingGlassRegular($$renderer, $$props) {
+  const { $$slots, $$events, ...p } = $$props;
+  $$renderer.push(`<svg${attributes(
+    {
+      ...p,
+      "data-phosphor-icon": "list-magnifying-glass",
+      "aria-hidden": "true",
+      width: "1em",
+      height: "1em",
+      "pointer-events": "none",
+      display: "inline-block",
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "currentColor",
+      viewBox: "0 0 256 256"
+    },
+    void 0,
+    void 0,
+    void 0,
+    3
+  )}><path d="M32 64a8 8 0 0 1 8-8h176a8 8 0 0 1 0 16H40a8 8 0 0 1-8-8m8 72h72a8 8 0 0 0 0-16H40a8 8 0 0 0 0 16m88 48H40a8 8 0 0 0 0 16h88a8 8 0 0 0 0-16m109.66 13.66a8 8 0 0 1-11.32 0L206 177.36A40 40 0 1 1 217.36 166l20.3 20.3a8 8 0 0 1 0 11.36M184 168a24 24 0 1 0-24-24 24 24 0 0 0 24 24"></path></svg>`);
+}
 function IconLinkSimpleRegular($$renderer, $$props) {
   const { $$slots, $$events, ...p } = $$props;
   $$renderer.push(`<svg${attributes(
@@ -164,27 +203,6 @@ function IconSidebarSimpleRegular($$renderer, $$props) {
     3
   )}><path d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16M40 56h40v144H40Zm176 144H96V56h120z"></path></svg>`);
 }
-function IconUserRegular($$renderer, $$props) {
-  const { $$slots, $$events, ...p } = $$props;
-  $$renderer.push(`<svg${attributes(
-    {
-      ...p,
-      "data-phosphor-icon": "user",
-      "aria-hidden": "true",
-      width: "1em",
-      height: "1em",
-      "pointer-events": "none",
-      display: "inline-block",
-      xmlns: "http://www.w3.org/2000/svg",
-      fill: "currentColor",
-      viewBox: "0 0 256 256"
-    },
-    void 0,
-    void 0,
-    void 0,
-    3
-  )}><path d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0c-27.39 8.94-50.86 27.82-66.09 54.16a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8M72 96a56 56 0 1 1 56 56 56.06 56.06 0 0 1-56-56"></path></svg>`);
-}
 function Sidebar($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     var $$store_subs;
@@ -195,6 +213,11 @@ function Sidebar($$renderer, $$props) {
         href: "/connections",
         label: "Connections",
         icon: IconLinkSimpleRegular
+      },
+      {
+        href: "/audit",
+        label: "Audit",
+        icon: IconListMagnifyingGlassRegular
       },
       {
         href: "/settings",
@@ -238,7 +261,7 @@ function Sidebar($$renderer, $$props) {
       const each_array_1 = ensure_array_like(categories);
       for (let $$index_1 = 0, $$length = each_array_1.length; $$index_1 < $$length; $$index_1++) {
         let category = each_array_1[$$index_1];
-        $$renderer2.push(`<a${attr_class("category-item svelte-129hoe0", void 0, { "active": false })}${attr("href", `/profile#${stringify(category.id)}`)}><span class="svelte-129hoe0">${escape_html(category.label)}</span> `);
+        $$renderer2.push(`<a${attr_class("category-item svelte-129hoe0", void 0, { "active": false })}${attr("href", `/profile#category-${stringify(category.id)}`)}><span class="svelte-129hoe0">${escape_html(category.label)}</span> `);
         if (category.hasPending) {
           $$renderer2.push("<!--[-->");
           $$renderer2.push(`<span class="pending-dot svelte-129hoe0"></span>`);
@@ -275,18 +298,27 @@ function installDesktopApi() {
     },
     settings: {
       get: () => invoke("settings_get"),
-      set: (next) => invoke("settings_set", { next })
+      set: (next) => invoke("settings_set", { next }),
+      getStartOnLogin: () => invoke("settings_get_start_on_login"),
+      setStartOnLogin: (enabled) => invoke("settings_set_start_on_login", { enabled })
     },
     profile: {
       listItems: () => invoke("profile_list_items"),
       createManualItem: (payload) => invoke("profile_create_manual_item", { payload }),
+      proposeInference: (payload) => invoke("profile_propose_inference", { payload }),
       updateItem: (itemId, payload) => invoke("profile_update_item", { itemId, payload }),
       deleteItem: (itemId) => invoke("profile_delete_item", { itemId }),
       inferenceConfirm: (itemId) => invoke("inference_confirm", { itemId }),
       inferenceEditConfirm: (itemId, editedText) => invoke("inference_edit_confirm", { itemId, editedText }),
       inferenceDismiss: (itemId, dismissReason) => invoke("inference_dismiss", { itemId, dismissReason }),
       getItemCompartments: (itemId) => invoke("item_compartments_get", { itemId }),
-      setItemCompartments: (itemId, compartmentIds) => invoke("item_compartments_set", { itemId, compartmentIds })
+      setItemCompartments: (itemId, compartmentIds) => invoke("item_compartments_set", { itemId, compartmentIds }),
+      getItemDetail: (itemId) => invoke("profile_item_detail", { itemId })
+    },
+    llm: {
+      test: (endpoint, model) => invoke("llm_test", { endpoint, model }),
+      chat: (messages, userMessage) => invoke("llm_chat", { messages, userMessage }),
+      alternatives: (text, itemType, why) => invoke("llm_alternatives", { text, itemType, why })
     },
     topicRules: {
       list: () => invoke("topic_rules_list"),
@@ -309,7 +341,12 @@ function installDesktopApi() {
     data: {
       exportEncrypted: (passphrase) => invoke("data_export_encrypted", { passphrase }),
       importEncrypted: (artifact, passphrase) => invoke("data_import_encrypted", { artifact, passphrase }),
-      runTakeoutImport: (path) => invoke("data_run_takeout_import", { path })
+      runTakeoutImport: (path) => invoke("data_run_takeout_import", { path }),
+      listBackups: () => invoke("data_backups_list"),
+      createBackup: (passphrase) => invoke("data_backup_create", { passphrase }),
+      verifyBackup: (backupId) => invoke("data_backup_verify", { backupId }),
+      restoreBackup: (backupId, passphrase) => invoke("data_backup_restore", { backupId, passphrase }),
+      deleteProfileIrreversible: (confirmationText) => invoke("profile_delete_irreversible", { confirmationText })
     },
     server: {
       health: () => invoke("server_health")
@@ -334,14 +371,21 @@ function installDesktopApi() {
         };
       }
     },
+    services: {
+      list: () => invoke("services_list"),
+      revoke: (serviceId) => invoke("services_revoke", { serviceId })
+    },
     audit: {
-      list: (query = {}) => invoke("audit_list", {
-        service: query.service,
-        item: query.item,
-        eventType: query.eventType,
-        dateFrom: query.dateFrom,
-        dateTo: query.dateTo
-      })
+      list: (query = {}) => {
+        const eventType = Array.isArray(query.eventType) ? query.eventType.join(",") : query.eventType;
+        return invoke("audit_list", {
+          service: query.service,
+          item: query.item,
+          eventType,
+          dateFrom: query.dateFrom,
+          dateTo: query.dateTo
+        });
+      }
     }
   };
 }
@@ -350,36 +394,37 @@ function _layout($$renderer, $$props) {
     let { children } = $$props;
     let pendingCount = 0;
     let consentQueue = [];
+    let categories = [];
     installDesktopApi();
-    const categories = [
-      { id: "personal", label: "Personal", hasPending: false },
-      { id: "professional", label: "Professional", hasPending: false },
-      { id: "interests", label: "Interests", hasPending: false },
-      {
-        id: "communication",
-        label: "Communication",
-        hasPending: false
-      }
-    ];
     $$renderer2.push(`<div class="app-shell svelte-12qhfyh">`);
-    Sidebar($$renderer2, { pendingCount, categories });
-    $$renderer2.push(`<!----> `);
-    if (uiSettings.sidebarCollapsed) {
+    if (!uiSettings.showingWelcome) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<button class="sidebar-reopen svelte-12qhfyh" aria-label="Open sidebar">`);
-      IconSidebarSimpleRegular($$renderer2, { class: "icon-20" });
-      $$renderer2.push(`<!----></button>`);
+      Sidebar($$renderer2, { pendingCount, categories });
+      $$renderer2.push(`<!----> `);
+      if (uiSettings.sidebarCollapsed) {
+        $$renderer2.push("<!--[-->");
+        $$renderer2.push(`<button class="sidebar-reopen svelte-12qhfyh" aria-label="Open sidebar">`);
+        IconSidebarSimpleRegular($$renderer2, { class: "icon-20" });
+        $$renderer2.push(`<!----></button>`);
+      } else {
+        $$renderer2.push("<!--[!-->");
+      }
+      $$renderer2.push(`<!--]-->`);
     } else {
       $$renderer2.push("<!--[!-->");
     }
     $$renderer2.push(`<!--]--> <main class="content-area svelte-12qhfyh">`);
     children?.($$renderer2);
     $$renderer2.push(`<!----></main></div> `);
+    {
+      $$renderer2.push("<!--[!-->");
+    }
+    $$renderer2.push(`<!--]--> `);
     if (consentQueue.length === 1 && consentQueue[0]) {
       $$renderer2.push("<!--[-->");
       ConsentModal($$renderer2, {
         serviceName: consentQueue[0].serviceName,
-        requestedItems: consentQueue[0].requestedItems
+        request: consentQueue[0].request
       });
     } else if (consentQueue.length > 1) {
       $$renderer2.push("<!--[1-->");
@@ -387,7 +432,7 @@ function _layout($$renderer, $$props) {
         requests: consentQueue.map((entry) => ({
           id: entry.id,
           serviceName: entry.serviceName,
-          summary: `${entry.requestedItems.length} items requested`
+          summary: `${entry.request.preview_items.length} items requested`
         }))
       });
     } else {

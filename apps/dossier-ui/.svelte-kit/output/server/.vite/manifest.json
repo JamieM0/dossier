@@ -51,16 +51,20 @@
       "_internal.js"
     ]
   },
-  "_IconCheckCircleRegular.js": {
-    "file": "chunks/IconCheckCircleRegular.js",
-    "name": "IconCheckCircleRegular",
-    "imports": [
-      "_index.js"
-    ]
+  "_ConfirmDialog.CYR4r49t.css": {
+    "file": "_app/immutable/assets/ConfirmDialog.CYR4r49t.css",
+    "src": "_ConfirmDialog.CYR4r49t.css"
   },
   "_IconCheckRegular.js": {
     "file": "chunks/IconCheckRegular.js",
     "name": "IconCheckRegular",
+    "imports": [
+      "_index.js"
+    ]
+  },
+  "_IconSparkleRegular.js": {
+    "file": "chunks/IconSparkleRegular.js",
+    "name": "IconSparkleRegular",
     "imports": [
       "_index.js"
     ]
@@ -138,15 +142,15 @@
     "isEntry": true,
     "imports": [
       "_index.js",
-      "_IconCheckRegular.js",
       "_exports.js",
       "_utils2.js",
       "_root.js",
       "_state.svelte.js",
+      "_IconCheckRegular.js",
       "_ui-settings.svelte.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.CH766rA9.css"
+      "_app/immutable/assets/_layout.ChARKZNi.css"
     ]
   },
   "src/routes/+layout.ts": {
@@ -167,6 +171,18 @@
       "_state.svelte.js"
     ]
   },
+  "src/routes/audit/+page.svelte": {
+    "file": "entries/pages/audit/_page.svelte.js",
+    "name": "entries/pages/audit/_page.svelte",
+    "src": "src/routes/audit/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.CGde9aX6.css"
+    ]
+  },
   "src/routes/chat/+page.svelte": {
     "file": "entries/pages/chat/_page.svelte.js",
     "name": "entries/pages/chat/_page.svelte",
@@ -174,10 +190,11 @@
     "isEntry": true,
     "imports": [
       "_index.js",
-      "_IconCheckCircleRegular.js"
+      "_IconSparkleRegular.js",
+      "_ui-settings.svelte.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.AwK7z8k3.css"
+      "_app/immutable/assets/_page.1ldvyg-A.css"
     ]
   },
   "src/routes/connections/+page.svelte": {
@@ -189,7 +206,8 @@
       "_index.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.BK-Ah5Ga.css"
+      "_app/immutable/assets/_page.BdX3qJfz.css",
+      "_app/immutable/assets/ConfirmDialog.CYR4r49t.css"
     ]
   },
   "src/routes/help/+page.svelte": {
@@ -201,7 +219,7 @@
       "_index.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.D2RMYpF3.css"
+      "_app/immutable/assets/_page.nbTVNOaW.css"
     ]
   },
   "src/routes/profile/+page.svelte": {
@@ -212,10 +230,12 @@
     "imports": [
       "_index.js",
       "_IconCheckRegular.js",
-      "_IconCheckCircleRegular.js"
+      "_IconSparkleRegular.js",
+      "_ui-settings.svelte.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.DJ8D4jOd.css"
+      "_app/immutable/assets/_page.Dm3ZJ12j.css",
+      "_app/immutable/assets/ConfirmDialog.CYR4r49t.css"
     ]
   },
   "src/routes/settings/+page.svelte": {
@@ -225,10 +245,15 @@
     "isEntry": true,
     "imports": [
       "_index.js",
+      "_exports.js",
+      "_utils2.js",
+      "_root.js",
+      "_state.svelte.js",
       "_ui-settings.svelte.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.Cz5RsPc7.css"
+      "_app/immutable/assets/_page.S0QhxPjL.css",
+      "_app/immutable/assets/ConfirmDialog.CYR4r49t.css"
     ]
   }
 }

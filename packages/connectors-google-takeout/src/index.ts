@@ -1,4 +1,4 @@
-import { inferFromTakeoutArtifacts } from "./infer.js";
+import { inferFromTakeoutArtifacts, type LlmConfig } from "./infer.js";
 import { parseTakeoutDirectory } from "./parser.js";
 
 export type RunTakeoutImportResult = {
@@ -33,9 +33,13 @@ type TakeoutStorePort = {
   };
 };
 
-export function runGoogleTakeoutImport(store: TakeoutStorePort, rootPath: string): RunTakeoutImportResult {
+export async function runGoogleTakeoutImport(
+  store: TakeoutStorePort,
+  rootPath: string,
+  llmConfig?: LlmConfig | null
+): Promise<RunTakeoutImportResult> {
   const artifacts = parseTakeoutDirectory(rootPath);
-  const proposals = inferFromTakeoutArtifacts(artifacts);
+  const proposals = await inferFromTakeoutArtifacts(artifacts, llmConfig);
 
   store.repository.addEvidenceSummary({
     sourceLabel: "Google Takeout",

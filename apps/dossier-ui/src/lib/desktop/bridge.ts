@@ -1,14 +1,19 @@
 import { listen } from "@tauri-apps/api/event";
 import { invoke } from "@tauri-apps/api/core";
 import type {
+  AlternativeSet,
   AuditEvent,
   AuditQuery,
   Category,
+  ChatMessage,
   Compartment,
   ConsentDecisionPayload,
   ConsentRequestView,
   DossierSettings,
   ItemCompartment,
+  ItemDetailView,
+  LlmChatResult,
+  LlmTestResult,
   LocalBackupSummary,
   ProfileItem,
   ProfileItemView,
@@ -65,7 +70,17 @@ export function installDesktopApi(): void {
       getItemCompartments: (itemId: string): Promise<ItemCompartment[]> =>
         invoke("item_compartments_get", { itemId }),
       setItemCompartments: (itemId: string, compartmentIds: string[]): Promise<ItemCompartment[]> =>
-        invoke("item_compartments_set", { itemId, compartmentIds })
+        invoke("item_compartments_set", { itemId, compartmentIds }),
+      getItemDetail: (itemId: string): Promise<ItemDetailView> =>
+        invoke("profile_item_detail", { itemId })
+    },
+    llm: {
+      test: (endpoint: string, model: string): Promise<LlmTestResult> =>
+        invoke("llm_test", { endpoint, model }),
+      chat: (messages: ChatMessage[], userMessage: string): Promise<LlmChatResult> =>
+        invoke("llm_chat", { messages, userMessage }),
+      alternatives: (text: string, itemType?: string, why?: string): Promise<AlternativeSet> =>
+        invoke("llm_alternatives", { text, itemType, why })
     },
     topicRules: {
       list: (): Promise<TopicRule[]> => invoke("topic_rules_list"),

@@ -1,3 +1,4 @@
+import { type LlmConfig } from "./infer.js";
 export type RunTakeoutImportResult = {
     artifactsScanned: number;
     inferencesCreated: number;
@@ -28,6 +29,6 @@ type TakeoutStorePort = {
         }): unknown;
     };
 };
-export declare function runGoogleTakeoutImport(store: TakeoutStorePort, rootPath: string): RunTakeoutImportResult;
+export declare function runGoogleTakeoutImport(store: TakeoutStorePort, rootPath: string, llmConfig?: LlmConfig | null): Promise<RunTakeoutImportResult>;
 export {};
 //# sourceMappingURL=index.d.ts.map

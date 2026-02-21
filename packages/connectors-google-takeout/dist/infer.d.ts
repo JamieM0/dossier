@@ -5,5 +5,9 @@ export type InferenceProposal = {
     why: string;
     confidence: number | null;
 };
-export declare function inferFromTakeoutArtifacts(artifacts: TakeoutArtifact[]): InferenceProposal[];
+export type LlmConfig = {
+    endpoint: string;
+    model: string;
+};
+export declare function inferFromTakeoutArtifacts(artifacts: TakeoutArtifact[], llmConfig?: LlmConfig | null): Promise<InferenceProposal[]>;
 //# sourceMappingURL=infer.d.ts.map

@@ -136,7 +136,10 @@ type StoreServicePort = {
 };
 export declare function createControlRequestHandler(options: {
     storeService: StoreServicePort;
-    runGoogleTakeoutImport: (store: unknown, rootPath: string) => unknown;
+    runGoogleTakeoutImport: (store: unknown, rootPath: string, llmConfig?: {
+        endpoint: string;
+        model: string;
+    } | null) => Promise<unknown>;
 }): (req: IncomingMessage, res: ServerResponse) => Promise<void>;
 export {};
 //# sourceMappingURL=backend.d.ts.map

@@ -173,3 +173,42 @@ export type AuditQuery = {
   dateFrom?: string;
   dateTo?: string;
 };
+
+export type ChatMessage = {
+  role: "user" | "assistant" | "system";
+  content: string;
+};
+
+export type LlmTestResult = {
+  ok: boolean;
+  model: string;
+  error?: string;
+};
+
+export type LlmInferenceProposal = {
+  text: string;
+  itemType: string;
+  why: string;
+  confidence: number | null;
+};
+
+export type LlmChatResult = {
+  reply: string;
+  proposals: LlmInferenceProposal[];
+  createdItems: ProfileItem[];
+};
+
+export type AlternativeOption = {
+  text: string;
+  reason: string;
+};
+
+export type AlternativeSet = {
+  original: string;
+  alternatives: AlternativeOption[];
+};
+
+export type ItemDetailView = ProfileItemView & {
+  auditEvents: AuditEvent[];
+  editHistory: { edit_id: string; edited_at: string; editor: string; before_text: string; after_text: string }[];
+};

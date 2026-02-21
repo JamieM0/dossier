@@ -2,6 +2,7 @@
   import "../app.css";
   import { onMount } from "svelte";
   import BatchedConsentView from "$lib/components/BatchedConsentView.svelte";
+  import CommandPalette from "$lib/components/CommandPalette.svelte";
   import ConsentModal from "$lib/components/ConsentModal.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
   import { installDesktopApi } from "$lib/desktop/bridge";
@@ -14,6 +15,7 @@
   let pendingCount = $state(0);
   let consentQueue = $state<{ id: string; serviceName: string; request: ConsentRequestView }[]>([]);
   let categories = $state<{ id: string; label: string; hasPending: boolean }[]>([]);
+  let showCommandPalette = $state(false);
 
   installDesktopApi();
 
@@ -63,6 +65,12 @@
   }
 
   function handleGlobalKeydown(event: KeyboardEvent): void {
+    if (isMod(event) && event.key === "k") {
+      event.preventDefault();
+      showCommandPalette = !showCommandPalette;
+      return;
+    }
+
     if (isMod(event) && event.key === "/") {
       event.preventDefault();
       uiSettings.toggleSidebar();
@@ -152,6 +160,10 @@
     {@render children?.()}
   </main>
 </div>
+
+{#if showCommandPalette}
+  <CommandPalette onClose={() => { showCommandPalette = false; }} />
+{/if}
 
 {#if consentQueue.length === 1 && consentQueue[0]}
   <ConsentModal

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import IconArrowsSplitRegular from "phosphor-icons-svelte/IconArrowsSplitRegular.svelte";
   import IconChatCircleRegular from "phosphor-icons-svelte/IconChatCircleRegular.svelte";
   import IconCheckRegular from "phosphor-icons-svelte/IconCheckRegular.svelte";
   import IconInfoRegular from "phosphor-icons-svelte/IconInfoRegular.svelte";
@@ -14,6 +15,7 @@
     onConfirm,
     onDismiss,
     onComment,
+    onAlternatives,
     onFocus
   } = $props<{
     text: string;
@@ -24,6 +26,7 @@
     onConfirm: () => void;
     onDismiss: () => void;
     onComment: () => void;
+    onAlternatives?: () => void;
     onFocus?: () => void;
   }>();
 
@@ -97,6 +100,12 @@
         <IconChatCircleRegular class="icon-14" />
         <span>Comment</span>
       </button>
+      {#if onAlternatives}
+        <button class="ghost-action" onclick={onAlternatives} title="Alternatives">
+          <IconArrowsSplitRegular class="icon-14" />
+          <span>Alternatives</span>
+        </button>
+      {/if}
     </div>
   {/if}
 </article>
