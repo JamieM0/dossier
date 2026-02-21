@@ -18,24 +18,6 @@ const THEMES = [
     "border-subtle": "#E8E2D6"
   },
   {
-    name: "Linen",
-    mode: "light",
-    base: "#F5F2EE",
-    "base-secondary": "#EDEAE5",
-    "base-tertiary": "#E4E0DA",
-    "primary-accent": "#5F6B75",
-    "primary-accent-hover": "#4F5B65",
-    "primary-accent-text": "#FFFFFF",
-    "secondary-accent": "#7A9BB5",
-    "secondary-accent-hover": "#6889A3",
-    "secondary-accent-text": "#FFFFFF",
-    "text-primary": "#1E2328",
-    "text-secondary": "#5A6169",
-    "text-tertiary": "#9AA1A8",
-    border: "#D0CCC6",
-    "border-subtle": "#E2DED8"
-  },
-  {
     name: "Overcast",
     mode: "light",
     base: "#ECEDEE",

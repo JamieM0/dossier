@@ -1,7 +1,7 @@
 # Dossier
 
 Dossier MVP monorepo implementing:
-- Electron desktop shell
+- Tauri desktop shell
 - Svelte 5 + SvelteKit renderer (no React)
 - Local policy server on `127.0.0.1:34250`
 - Encrypted local store with erasure ledger semantics
@@ -11,7 +11,7 @@ Dossier MVP monorepo implementing:
 
 ## Workspace layout
 
-- `apps/dossier-desktop`: Electron main/preload integration
+- `apps/dossier-desktop`: Tauri shell + backend daemon bridge
 - `apps/dossier-ui`: SvelteKit renderer and design system
 - `packages/domain`: Canonical model, schemas, state machines, policy filters
 - `packages/store`: Encrypted persistence + backup/restore + erasure ledger
@@ -30,5 +30,6 @@ pnpm dev
 ## Notes
 
 - UI stack is strictly Svelte/SvelteKit.
-- Electron security flags are enabled (`contextIsolation`, `sandbox`, `nodeIntegration: false`).
+- Rust toolchain `>=1.88.0` is required for the Tauri desktop workspace.
+- Tauri capability allowlist is enforced for renderer-to-native access.
 - Local API enforces loopback bind, CORS allowlist, bearer auth, origin validation, nonce replay checks, and rate limiting.

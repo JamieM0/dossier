@@ -12,17 +12,27 @@
   }>();
 
   let declineAllBtn = $state<HTMLButtonElement | null>(null);
+  let isExiting = $state(false);
+
+  function animateExit(callback: () => void): void {
+    isExiting = true;
+    setTimeout(callback, 200);
+  }
+
+  function handleDeclineAll(): void {
+    animateExit(onDeclineAll);
+  }
 
   function handleKeydown(event: KeyboardEvent): void {
     if (event.key === "Escape") {
       event.preventDefault();
-      onDeclineAll();
+      handleDeclineAll();
     }
   }
 
   function handleBackdropClick(event: MouseEvent): void {
     if (event.target === event.currentTarget) {
-      onDeclineAll();
+      handleDeclineAll();
     }
   }
 
@@ -34,9 +44,10 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <!-- svelte-ignore a11y_click_events_have_key_events a11y_no_static_element_interactions -->
-<div class="consent-backdrop" onclick={handleBackdropClick}>
+<div class="consent-backdrop" class:exiting={isExiting} onclick={handleBackdropClick}>
   <div
     class="batched-modal"
+    class:exiting={isExiting}
     role="dialog"
     aria-modal="true"
     aria-labelledby="batched-consent-title"
@@ -65,7 +76,7 @@
       {/each}
     </div>
 
-    <button class="btn-danger" bind:this={declineAllBtn} onclick={onDeclineAll}>
+    <button class="btn-danger" bind:this={declineAllBtn} onclick={handleDeclineAll}>
       Decline all
     </button>
   </div>
@@ -82,6 +93,11 @@
     -webkit-backdrop-filter: var(--blur-backdrop);
     z-index: 100;
     animation: backdrop-enter var(--duration-spring) var(--ease-out);
+    transition: opacity 200ms var(--ease-out);
+  }
+
+  .consent-backdrop.exiting {
+    opacity: 0;
   }
 
   @keyframes backdrop-enter {
@@ -98,6 +114,12 @@
     padding: var(--space-8);
     box-shadow: var(--shadow-xl);
     animation: modal-enter var(--duration-spring) var(--ease-spring);
+    transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out);
+  }
+
+  .batched-modal.exiting {
+    opacity: 0;
+    transform: scale(0.95);
   }
 
   @keyframes modal-enter {
@@ -201,16 +223,19 @@
     font-family: var(--font-body);
     font-size: 0.8125rem;
     font-weight: 600;
-    transition: background-color var(--duration-standard) var(--ease-out);
+    transition: background-color var(--duration-standard) var(--ease-out),
+                box-shadow var(--duration-standard) var(--ease-out);
   }
 
   .btn-primary-sm {
     background: var(--primary-accent);
     color: var(--primary-accent-text);
+    box-shadow: var(--shadow-sm);
   }
 
   .btn-primary-sm:hover {
     background: var(--primary-accent-hover);
+    box-shadow: var(--shadow-md);
   }
 
   .btn-secondary-sm {
@@ -225,7 +250,7 @@
 
   .btn-danger {
     width: 100%;
-    min-height: 40px;
+    min-height: 44px;
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-sm);
     background: var(--error);
@@ -234,10 +259,12 @@
     font-size: 0.9375rem;
     font-weight: 600;
     box-shadow: var(--shadow-sm);
-    transition: background-color var(--duration-standard) var(--ease-out);
+    transition: background-color var(--duration-standard) var(--ease-out),
+                box-shadow var(--duration-standard) var(--ease-out);
   }
 
   .btn-danger:hover {
     background: color-mix(in srgb, var(--error) 85%, #000);
+    box-shadow: var(--shadow-md);
   }
 </style>

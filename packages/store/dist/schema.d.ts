@@ -1,4 +1,4 @@
-import type { AuditEvent, ConsentDecisionRecord, ConsentOverride, ConsentRequest, Disclosure, DismissedInference, ErasureLedgerEntry, EvidenceSummary, Item, ItemEditHistory, ItemProvenance, ItemTopicFlag, Profile, RawArtifact, ServicePairing, TopicBlockRule } from "@dossier/domain";
+import type { AuditEvent, Category, Compartment, ConsentDecisionRecord, ConsentOverride, ConsentRequest, Disclosure, DismissedInference, ErasureLedgerEntry, EvidenceSummary, Item, ItemCompartment, ItemEditHistory, ItemProvenance, ItemTopicFlag, Profile, RawArtifact, ServiceRegistryEntry, ServicePairing, TopicBlockRule } from "@dossier/domain";
 export type PersistedState = {
     profile: Profile;
     items: Item[];
@@ -9,6 +9,10 @@ export type PersistedState = {
     evidenceSummaries: EvidenceSummary[];
     rawArtifacts: RawArtifact[];
     topicBlockRules: TopicBlockRule[];
+    categories: Category[];
+    compartments: Compartment[];
+    itemCompartments: ItemCompartment[];
+    serviceRegistry: ServiceRegistryEntry[];
     pairings: ServicePairing[];
     consentRequests: ConsentRequest[];
     consentDecisions: ConsentDecisionRecord[];

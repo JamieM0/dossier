@@ -3,6 +3,9 @@
 		"src/routes/+layout.ts",
 		"src/routes/+layout.ts"
 	],
+	"/audit": [
+		"src/routes/+layout.ts"
+	],
 	"/chat": [
 		"src/routes/+layout.ts"
 	],

@@ -2,6 +2,7 @@
   import { page } from "$app/stores";
   import IconChatRegular from "phosphor-icons-svelte/IconChatRegular.svelte";
   import IconGearSixRegular from "phosphor-icons-svelte/IconGearSixRegular.svelte";
+  import IconListMagnifyingGlassRegular from "phosphor-icons-svelte/IconListMagnifyingGlassRegular.svelte";
   import IconLinkSimpleRegular from "phosphor-icons-svelte/IconLinkSimpleRegular.svelte";
   import IconQuestionRegular from "phosphor-icons-svelte/IconQuestionRegular.svelte";
   import IconSidebarSimpleRegular from "phosphor-icons-svelte/IconSidebarSimpleRegular.svelte";
@@ -19,6 +20,7 @@
   const nav = [
     { href: "/profile", label: "Profile", icon: IconUserRegular },
     { href: "/connections", label: "Connections", icon: IconLinkSimpleRegular },
+    { href: "/audit", label: "Audit", icon: IconListMagnifyingGlassRegular },
     { href: "/settings", label: "Settings", icon: IconGearSixRegular }
   ] as const;
 
@@ -74,7 +76,7 @@
           {#each categories as category}
             <a
               class="category-item"
-              href="/profile#{category.id}"
+              href="/profile#category-{category.id}"
               class:active={false}
             >
               <span>{category.label}</span>
@@ -100,15 +102,14 @@
   .sidebar {
     width: var(--sidebar-width);
     min-width: var(--sidebar-width);
-    height: 100vh;
-    position: sticky;
-    top: 0;
+    height: 100%;
     flex-shrink: 0;
     background: var(--base-secondary);
     border-right: 1px solid var(--border-subtle);
     transition: width var(--duration-moderate) var(--ease-in-out),
                 min-width var(--duration-moderate) var(--ease-in-out);
     overflow: hidden;
+    overscroll-behavior: none;
   }
 
   .sidebar.collapsed {
@@ -122,6 +123,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    overscroll-behavior: none;
   }
 
   .sidebar-header {
@@ -155,7 +157,6 @@
     color: var(--text-secondary);
     transition: background-color var(--duration-standard) var(--ease-out),
                 color var(--duration-standard) var(--ease-out);
-    /* 44px touch target via padding */
     padding: 4px;
   }
 
@@ -201,6 +202,7 @@
     flex: 1;
     overflow-y: auto;
     padding: var(--space-2) 0;
+    overscroll-behavior: none;
   }
 
   .nav-item {

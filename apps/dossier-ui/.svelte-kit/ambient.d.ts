@@ -63,6 +63,7 @@ declare module '$env/static/private' {
 	export const npm_lifecycle_event: string;
 	export const LANG: string;
 	export const npm_package_name: string;
+	export const NODE_PATH: string;
 	export const XPC_FLAGS: string;
 	export const npm_config_node_gyp: string;
 	export const _CE_M: string;
@@ -152,6 +153,7 @@ declare module '$env/dynamic/private' {
 		npm_lifecycle_event: string;
 		LANG: string;
 		npm_package_name: string;
+		NODE_PATH: string;
 		XPC_FLAGS: string;
 		npm_config_node_gyp: string;
 		_CE_M: string;

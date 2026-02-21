@@ -4,7 +4,7 @@
     "outDir": "dist",
     "rootDir": "src",
     "lib": ["ES2022", "DOM"],
-    "types": ["node", "electron"]
+    "types": ["node"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts"]
 }

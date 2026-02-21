@@ -21,6 +21,10 @@ type TakeoutStorePort = {
             itemType: string;
             categoryId: string | null;
             createdVia: "CONNECTOR" | "IMPORT" | "CHAT";
+            sourceLabel?: string;
+            whyDossierThinksThis?: string | null;
+            confidence?: number | null;
+            evidenceSummaryId?: string | null;
         }): unknown;
     };
 };

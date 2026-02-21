@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   let {
     itemText,
     provenance,
@@ -28,7 +30,7 @@
     }
   }
 
-  $effect(() => {
+  onMount(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   });
@@ -128,7 +130,7 @@
   }
 
   .btn-primary {
-    min-height: 40px;
+    min-height: 44px;
     min-width: 80px;
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-sm);

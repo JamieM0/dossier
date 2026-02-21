@@ -32,6 +32,17 @@ function randomToken(length = 48) {
 function hashNonce(nonce) {
     return createHash("sha256").update(nonce).digest("hex");
 }
+function toConsentPreviewItem(entry) {
+    return {
+        ...entry.item,
+        is_topic_blocked: entry.is_topic_blocked,
+        blocked_by_rule_id: entry.blocked_by_rule_id,
+        block_reason: entry.block_reason,
+        default_allowed: entry.default_allowed,
+        compartment_ids: entry.compartment_ids,
+        provenance: entry.provenance
+    };
+}
 export class LocalProfileServer extends EventEmitter {
     storeService;
     config;
@@ -151,7 +162,7 @@ export class LocalProfileServer extends EventEmitter {
                 }
                 this.usedNonces.set(nonceHash, now + 5 * 60 * 1000);
                 const request = this.storeService.repository.createConsentRequest(payload, auth.serviceId);
-                const preview = this.storeService.repository.buildConsentPreview(request);
+                const preview = this.storeService.repository.buildConsentPreviewView(request).map(toConsentPreviewItem);
                 this.emit("consent:request", { ...request, preview_items: preview });
                 sendJson(res, 201, { ...request, preview_items: preview });
                 return;
@@ -167,7 +178,7 @@ export class LocalProfileServer extends EventEmitter {
                     sendJson(res, 404, { error: "consent request not found" });
                     return;
                 }
-                const preview = this.storeService.repository.buildConsentPreview(request);
+                const preview = this.storeService.repository.buildConsentPreviewView(request).map(toConsentPreviewItem);
                 sendJson(res, 200, { ...request, preview_items: preview });
                 return;
             }

@@ -1,5 +1,7 @@
 import type {
   AuditEvent,
+  Category,
+  Compartment,
   ConsentDecisionRecord,
   ConsentOverride,
   ConsentRequest,
@@ -8,11 +10,13 @@ import type {
   ErasureLedgerEntry,
   EvidenceSummary,
   Item,
+  ItemCompartment,
   ItemEditHistory,
   ItemProvenance,
   ItemTopicFlag,
   Profile,
   RawArtifact,
+  ServiceRegistryEntry,
   ServicePairing,
   TopicBlockRule
 } from "@dossier/domain";
@@ -27,6 +31,10 @@ export type PersistedState = {
   evidenceSummaries: EvidenceSummary[];
   rawArtifacts: RawArtifact[];
   topicBlockRules: TopicBlockRule[];
+  categories: Category[];
+  compartments: Compartment[];
+  itemCompartments: ItemCompartment[];
+  serviceRegistry: ServiceRegistryEntry[];
   pairings: ServicePairing[];
   consentRequests: ConsentRequest[];
   consentDecisions: ConsentDecisionRecord[];

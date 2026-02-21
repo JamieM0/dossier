@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Dossier",
+  "version": "0.1.0",
+  "identifier": "com.dossier.desktop",
+  "build": {
+    "devUrl": "http://localhost:5173",
+    "frontendDist": "../dossier-ui/build"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Dossier",
+        "width": 1100,
+        "height": 750,
+        "minWidth": 800,
+        "minHeight": 600,
+        "visible": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' asset: data:; font-src 'self' data:; connect-src 'self' http://127.0.0.1:* http://localhost:* ws://127.0.0.1:* ws://localhost:*; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "../assets/logo.png",
+      "../assets/logo.icns"
+    ],
+    "resources": [
+      "../dist/backend.js",
+      "../../../packages/**/dist/**/*"
+    ]
+  }
+}

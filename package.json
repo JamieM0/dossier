@@ -2,7 +2,7 @@
   "name": "dossier",
   "version": "0.1.0",
   "private": true,
-  "description": "Dossier MVP monorepo (Electron + SvelteKit)",
+  "description": "Dossier MVP monorepo (Tauri + SvelteKit)",
   "packageManager": "pnpm@10.10.0",
   "workspaces": [
     "apps/*",
@@ -14,7 +14,7 @@
     "dev:ui": "pnpm --filter @dossier/dossier-ui dev",
     "dev:desktop": "pnpm --filter @dossier/dossier-desktop dev:desktop",
     "build": "pnpm -r build",
-    "dist": "pnpm --filter @dossier/dossier-ui build && pnpm --filter @dossier/dossier-desktop build && pnpm --filter @dossier/dossier-desktop dist",
+    "dist": "pnpm --filter @dossier/dossier-ui build && pnpm --filter @dossier/dossier-desktop dist",
     "typecheck": "pnpm -r typecheck",
     "test": "pnpm -r test"
   }

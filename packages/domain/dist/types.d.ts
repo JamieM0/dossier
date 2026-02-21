@@ -13,7 +13,7 @@ export declare const consentDecisionSchema: z.ZodEnum<["ALLOW", "DECLINE"]>;
 export type ConsentDecisionType = z.infer<typeof consentDecisionSchema>;
 export declare const overrideTypeSchema: z.ZodEnum<["ALLOW_BLOCKED_ITEM_ONCE"]>;
 export type OverrideType = z.infer<typeof overrideTypeSchema>;
-export declare const eventTypeSchema: z.ZodEnum<["ITEM_CREATED", "ITEM_EDITED", "ITEM_DELETED", "INFERENCE_CREATED", "INFERENCE_CONFIRMED", "INFERENCE_DISMISSED", "INFERENCE_SUPPRESSED", "TOPIC_BLOCK_ADDED", "TOPIC_BLOCK_REMOVED", "TOPIC_BLOCK_TOGGLED", "COMPARTMENT_CREATED", "COMPARTMENT_EDITED", "COMPARTMENT_DELETED", "ITEM_COMPARTMENT_CHANGED", "SERVICE_PAIRED", "SERVICE_REVOKED", "SERVICE_POLICY_CHANGED", "CONSENT_REQUEST_RECEIVED", "CONSENT_DECIDED", "DISCLOSURE_SENT", "DISCLOSURE_BLOCKED_ITEM_OVERRIDDEN", "OUTPUT_USED_ITEM", "BACKUP_CREATED", "BACKUP_VERIFIED", "BACKUP_RESTORED"]>;
+export declare const eventTypeSchema: z.ZodEnum<["ITEM_CREATED", "ITEM_EDITED", "ITEM_DELETED", "INFERENCE_CREATED", "INFERENCE_CONFIRMED", "INFERENCE_DISMISSED", "INFERENCE_SUPPRESSED", "TOPIC_BLOCK_ADDED", "TOPIC_BLOCK_REMOVED", "TOPIC_BLOCK_TOGGLED", "CATEGORY_CREATED", "CATEGORY_EDITED", "CATEGORY_DELETED", "COMPARTMENT_CREATED", "COMPARTMENT_EDITED", "COMPARTMENT_DELETED", "ITEM_COMPARTMENT_CHANGED", "SERVICE_PAIRED", "SERVICE_REVOKED", "SERVICE_POLICY_CHANGED", "CONSENT_REQUEST_RECEIVED", "CONSENT_DECIDED", "DISCLOSURE_SENT", "DISCLOSURE_BLOCKED_ITEM_OVERRIDDEN", "OUTPUT_USED_ITEM", "BACKUP_CREATED", "BACKUP_VERIFIED", "BACKUP_RESTORED"]>;
 export type AuditEventType = z.infer<typeof eventTypeSchema>;
 export declare const actorSchema: z.ZodEnum<["USER", "SYSTEM", "EXTERNAL_SERVICE"]>;
 export type ActorType = z.infer<typeof actorSchema>;
@@ -79,6 +79,69 @@ export declare const itemSchema: z.ZodObject<{
     source_visibility: "DETAILS_ONLY";
 }>;
 export type Item = z.infer<typeof itemSchema>;
+export declare const categorySchema: z.ZodObject<{
+    category_id: z.ZodString;
+    profile_id: z.ZodString;
+    name: z.ZodString;
+    sort_order: z.ZodNumber;
+    is_system: z.ZodBoolean;
+    created_at: z.ZodString;
+    updated_at: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    profile_id: string;
+    created_at: string;
+    updated_at: string;
+    category_id: string;
+    name: string;
+    sort_order: number;
+    is_system: boolean;
+}, {
+    profile_id: string;
+    created_at: string;
+    updated_at: string;
+    category_id: string;
+    name: string;
+    sort_order: number;
+    is_system: boolean;
+}>;
+export type Category = z.infer<typeof categorySchema>;
+export declare const compartmentSchema: z.ZodObject<{
+    compartment_id: z.ZodString;
+    profile_id: z.ZodString;
+    name: z.ZodString;
+    description: z.ZodNullable<z.ZodString>;
+    sort_order: z.ZodNumber;
+    created_at: z.ZodString;
+    updated_at: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    profile_id: string;
+    created_at: string;
+    updated_at: string;
+    name: string;
+    sort_order: number;
+    compartment_id: string;
+    description: string | null;
+}, {
+    profile_id: string;
+    created_at: string;
+    updated_at: string;
+    name: string;
+    sort_order: number;
+    compartment_id: string;
+    description: string | null;
+}>;
+export type Compartment = z.infer<typeof compartmentSchema>;
+export declare const itemCompartmentSchema: z.ZodObject<{
+    item_id: z.ZodString;
+    compartment_id: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    item_id: string;
+    compartment_id: string;
+}, {
+    item_id: string;
+    compartment_id: string;
+}>;
+export type ItemCompartment = z.infer<typeof itemCompartmentSchema>;
 export declare const itemTopicFlagSchema: z.ZodObject<{
     item_id: z.ZodString;
     is_topic_blocked: z.ZodBoolean;
@@ -275,6 +338,32 @@ export declare const servicePairingSchema: z.ZodObject<{
     allowed_origins_json: string[];
 }>;
 export type ServicePairing = z.infer<typeof servicePairingSchema>;
+export declare const serviceRegistryEntrySchema: z.ZodObject<{
+    service_id: z.ZodString;
+    identifier: z.ZodString;
+    display_name: z.ZodString;
+    icon_url: z.ZodNullable<z.ZodString>;
+    description: z.ZodNullable<z.ZodString>;
+    created_at: z.ZodString;
+    updated_at: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    created_at: string;
+    updated_at: string;
+    description: string | null;
+    service_id: string;
+    identifier: string;
+    display_name: string;
+    icon_url: string | null;
+}, {
+    created_at: string;
+    updated_at: string;
+    description: string | null;
+    service_id: string;
+    identifier: string;
+    display_name: string;
+    icon_url: string | null;
+}>;
+export type ServiceRegistryEntry = z.infer<typeof serviceRegistryEntrySchema>;
 export declare const consentRequestSchema: z.ZodObject<{
     consent_request_id: z.ZodString;
     service_id: z.ZodString;
@@ -371,7 +460,7 @@ export declare const auditEventSchema: z.ZodObject<{
     event_id: z.ZodString;
     profile_id: z.ZodString;
     timestamp: z.ZodString;
-    event_type: z.ZodEnum<["ITEM_CREATED", "ITEM_EDITED", "ITEM_DELETED", "INFERENCE_CREATED", "INFERENCE_CONFIRMED", "INFERENCE_DISMISSED", "INFERENCE_SUPPRESSED", "TOPIC_BLOCK_ADDED", "TOPIC_BLOCK_REMOVED", "TOPIC_BLOCK_TOGGLED", "COMPARTMENT_CREATED", "COMPARTMENT_EDITED", "COMPARTMENT_DELETED", "ITEM_COMPARTMENT_CHANGED", "SERVICE_PAIRED", "SERVICE_REVOKED", "SERVICE_POLICY_CHANGED", "CONSENT_REQUEST_RECEIVED", "CONSENT_DECIDED", "DISCLOSURE_SENT", "DISCLOSURE_BLOCKED_ITEM_OVERRIDDEN", "OUTPUT_USED_ITEM", "BACKUP_CREATED", "BACKUP_VERIFIED", "BACKUP_RESTORED"]>;
+    event_type: z.ZodEnum<["ITEM_CREATED", "ITEM_EDITED", "ITEM_DELETED", "INFERENCE_CREATED", "INFERENCE_CONFIRMED", "INFERENCE_DISMISSED", "INFERENCE_SUPPRESSED", "TOPIC_BLOCK_ADDED", "TOPIC_BLOCK_REMOVED", "TOPIC_BLOCK_TOGGLED", "CATEGORY_CREATED", "CATEGORY_EDITED", "CATEGORY_DELETED", "COMPARTMENT_CREATED", "COMPARTMENT_EDITED", "COMPARTMENT_DELETED", "ITEM_COMPARTMENT_CHANGED", "SERVICE_PAIRED", "SERVICE_REVOKED", "SERVICE_POLICY_CHANGED", "CONSENT_REQUEST_RECEIVED", "CONSENT_DECIDED", "DISCLOSURE_SENT", "DISCLOSURE_BLOCKED_ITEM_OVERRIDDEN", "OUTPUT_USED_ITEM", "BACKUP_CREATED", "BACKUP_VERIFIED", "BACKUP_RESTORED"]>;
     actor: z.ZodEnum<["USER", "SYSTEM", "EXTERNAL_SERVICE"]>;
     service_id: z.ZodNullable<z.ZodString>;
     item_id: z.ZodNullable<z.ZodString>;
@@ -384,7 +473,7 @@ export declare const auditEventSchema: z.ZodObject<{
     consent_request_id: string | null;
     event_id: string;
     timestamp: string;
-    event_type: "ITEM_CREATED" | "ITEM_EDITED" | "ITEM_DELETED" | "INFERENCE_CREATED" | "INFERENCE_CONFIRMED" | "INFERENCE_DISMISSED" | "INFERENCE_SUPPRESSED" | "TOPIC_BLOCK_ADDED" | "TOPIC_BLOCK_REMOVED" | "TOPIC_BLOCK_TOGGLED" | "COMPARTMENT_CREATED" | "COMPARTMENT_EDITED" | "COMPARTMENT_DELETED" | "ITEM_COMPARTMENT_CHANGED" | "SERVICE_PAIRED" | "SERVICE_REVOKED" | "SERVICE_POLICY_CHANGED" | "CONSENT_REQUEST_RECEIVED" | "CONSENT_DECIDED" | "DISCLOSURE_SENT" | "DISCLOSURE_BLOCKED_ITEM_OVERRIDDEN" | "OUTPUT_USED_ITEM" | "BACKUP_CREATED" | "BACKUP_VERIFIED" | "BACKUP_RESTORED";
+    event_type: "ITEM_CREATED" | "ITEM_EDITED" | "ITEM_DELETED" | "INFERENCE_CREATED" | "INFERENCE_CONFIRMED" | "INFERENCE_DISMISSED" | "INFERENCE_SUPPRESSED" | "TOPIC_BLOCK_ADDED" | "TOPIC_BLOCK_REMOVED" | "TOPIC_BLOCK_TOGGLED" | "CATEGORY_CREATED" | "CATEGORY_EDITED" | "CATEGORY_DELETED" | "COMPARTMENT_CREATED" | "COMPARTMENT_EDITED" | "COMPARTMENT_DELETED" | "ITEM_COMPARTMENT_CHANGED" | "SERVICE_PAIRED" | "SERVICE_REVOKED" | "SERVICE_POLICY_CHANGED" | "CONSENT_REQUEST_RECEIVED" | "CONSENT_DECIDED" | "DISCLOSURE_SENT" | "DISCLOSURE_BLOCKED_ITEM_OVERRIDDEN" | "OUTPUT_USED_ITEM" | "BACKUP_CREATED" | "BACKUP_VERIFIED" | "BACKUP_RESTORED";
     actor: "USER" | "SYSTEM" | "EXTERNAL_SERVICE";
     details_json: Record<string, unknown>;
 }, {
@@ -394,7 +483,7 @@ export declare const auditEventSchema: z.ZodObject<{
     consent_request_id: string | null;
     event_id: string;
     timestamp: string;
-    event_type: "ITEM_CREATED" | "ITEM_EDITED" | "ITEM_DELETED" | "INFERENCE_CREATED" | "INFERENCE_CONFIRMED" | "INFERENCE_DISMISSED" | "INFERENCE_SUPPRESSED" | "TOPIC_BLOCK_ADDED" | "TOPIC_BLOCK_REMOVED" | "TOPIC_BLOCK_TOGGLED" | "COMPARTMENT_CREATED" | "COMPARTMENT_EDITED" | "COMPARTMENT_DELETED" | "ITEM_COMPARTMENT_CHANGED" | "SERVICE_PAIRED" | "SERVICE_REVOKED" | "SERVICE_POLICY_CHANGED" | "CONSENT_REQUEST_RECEIVED" | "CONSENT_DECIDED" | "DISCLOSURE_SENT" | "DISCLOSURE_BLOCKED_ITEM_OVERRIDDEN" | "OUTPUT_USED_ITEM" | "BACKUP_CREATED" | "BACKUP_VERIFIED" | "BACKUP_RESTORED";
+    event_type: "ITEM_CREATED" | "ITEM_EDITED" | "ITEM_DELETED" | "INFERENCE_CREATED" | "INFERENCE_CONFIRMED" | "INFERENCE_DISMISSED" | "INFERENCE_SUPPRESSED" | "TOPIC_BLOCK_ADDED" | "TOPIC_BLOCK_REMOVED" | "TOPIC_BLOCK_TOGGLED" | "CATEGORY_CREATED" | "CATEGORY_EDITED" | "CATEGORY_DELETED" | "COMPARTMENT_CREATED" | "COMPARTMENT_EDITED" | "COMPARTMENT_DELETED" | "ITEM_COMPARTMENT_CHANGED" | "SERVICE_PAIRED" | "SERVICE_REVOKED" | "SERVICE_POLICY_CHANGED" | "CONSENT_REQUEST_RECEIVED" | "CONSENT_DECIDED" | "DISCLOSURE_SENT" | "DISCLOSURE_BLOCKED_ITEM_OVERRIDDEN" | "OUTPUT_USED_ITEM" | "BACKUP_CREATED" | "BACKUP_VERIFIED" | "BACKUP_RESTORED";
     actor: "USER" | "SYSTEM" | "EXTERNAL_SERVICE";
     details_json: Record<string, unknown>;
 }>;
@@ -454,4 +543,141 @@ export declare const consentDecisionInputSchema: z.ZodObject<{
     allowed_item_ids: string[];
     blocked_item_overrides?: string[] | undefined;
 }>;
+export declare const itemDetailsViewSchema: z.ZodObject<{
+    item: z.ZodObject<{
+        item_id: z.ZodString;
+        profile_id: z.ZodString;
+        state: z.ZodEnum<["CONFIRMED", "INFERENCE_PENDING"]>;
+        text: z.ZodString;
+        item_type: z.ZodString;
+        category_id: z.ZodNullable<z.ZodString>;
+        created_at: z.ZodString;
+        updated_at: z.ZodString;
+        created_via: z.ZodEnum<["MANUAL", "CONNECTOR", "CHAT", "IMPORT"]>;
+        source_visibility: z.ZodLiteral<"DETAILS_ONLY">;
+    }, "strip", z.ZodTypeAny, {
+        profile_id: string;
+        created_at: string;
+        updated_at: string;
+        item_id: string;
+        state: "CONFIRMED" | "INFERENCE_PENDING";
+        text: string;
+        item_type: string;
+        category_id: string | null;
+        created_via: "MANUAL" | "CONNECTOR" | "CHAT" | "IMPORT";
+        source_visibility: "DETAILS_ONLY";
+    }, {
+        profile_id: string;
+        created_at: string;
+        updated_at: string;
+        item_id: string;
+        state: "CONFIRMED" | "INFERENCE_PENDING";
+        text: string;
+        item_type: string;
+        category_id: string | null;
+        created_via: "MANUAL" | "CONNECTOR" | "CHAT" | "IMPORT";
+        source_visibility: "DETAILS_ONLY";
+    }>;
+    provenance: z.ZodNullable<z.ZodObject<{
+        item_id: z.ZodString;
+        source_label: z.ZodString;
+        source_kind: z.ZodEnum<["MANUAL", "CONNECTOR"]>;
+        why_dossier_thinks_this: z.ZodNullable<z.ZodString>;
+        confidence: z.ZodNullable<z.ZodNumber>;
+        evidence_summary_id: z.ZodNullable<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        item_id: string;
+        source_label: string;
+        source_kind: "MANUAL" | "CONNECTOR";
+        why_dossier_thinks_this: string | null;
+        confidence: number | null;
+        evidence_summary_id: string | null;
+    }, {
+        item_id: string;
+        source_label: string;
+        source_kind: "MANUAL" | "CONNECTOR";
+        why_dossier_thinks_this: string | null;
+        confidence: number | null;
+        evidence_summary_id: string | null;
+    }>>;
+    topic: z.ZodNullable<z.ZodObject<{
+        item_id: z.ZodString;
+        is_topic_blocked: z.ZodBoolean;
+        blocked_by_rule_id: z.ZodNullable<z.ZodString>;
+        block_reason: z.ZodNullable<z.ZodString>;
+        storage_override: z.ZodEnum<["NONE", "MANUAL_ALLOWED"]>;
+    }, "strip", z.ZodTypeAny, {
+        item_id: string;
+        is_topic_blocked: boolean;
+        blocked_by_rule_id: string | null;
+        block_reason: string | null;
+        storage_override: "NONE" | "MANUAL_ALLOWED";
+    }, {
+        item_id: string;
+        is_topic_blocked: boolean;
+        blocked_by_rule_id: string | null;
+        block_reason: string | null;
+        storage_override: "NONE" | "MANUAL_ALLOWED";
+    }>>;
+    compartment_ids: z.ZodArray<z.ZodString, "many">;
+}, "strip", z.ZodTypeAny, {
+    item: {
+        profile_id: string;
+        created_at: string;
+        updated_at: string;
+        item_id: string;
+        state: "CONFIRMED" | "INFERENCE_PENDING";
+        text: string;
+        item_type: string;
+        category_id: string | null;
+        created_via: "MANUAL" | "CONNECTOR" | "CHAT" | "IMPORT";
+        source_visibility: "DETAILS_ONLY";
+    };
+    provenance: {
+        item_id: string;
+        source_label: string;
+        source_kind: "MANUAL" | "CONNECTOR";
+        why_dossier_thinks_this: string | null;
+        confidence: number | null;
+        evidence_summary_id: string | null;
+    } | null;
+    topic: {
+        item_id: string;
+        is_topic_blocked: boolean;
+        blocked_by_rule_id: string | null;
+        block_reason: string | null;
+        storage_override: "NONE" | "MANUAL_ALLOWED";
+    } | null;
+    compartment_ids: string[];
+}, {
+    item: {
+        profile_id: string;
+        created_at: string;
+        updated_at: string;
+        item_id: string;
+        state: "CONFIRMED" | "INFERENCE_PENDING";
+        text: string;
+        item_type: string;
+        category_id: string | null;
+        created_via: "MANUAL" | "CONNECTOR" | "CHAT" | "IMPORT";
+        source_visibility: "DETAILS_ONLY";
+    };
+    provenance: {
+        item_id: string;
+        source_label: string;
+        source_kind: "MANUAL" | "CONNECTOR";
+        why_dossier_thinks_this: string | null;
+        confidence: number | null;
+        evidence_summary_id: string | null;
+    } | null;
+    topic: {
+        item_id: string;
+        is_topic_blocked: boolean;
+        blocked_by_rule_id: string | null;
+        block_reason: string | null;
+        storage_override: "NONE" | "MANUAL_ALLOWED";
+    } | null;
+    compartment_ids: string[];
+}>;
+export type ItemDetailsView = z.infer<typeof itemDetailsViewSchema>;
 //# sourceMappingURL=types.d.ts.map

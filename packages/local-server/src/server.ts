@@ -40,6 +40,31 @@ function hashNonce(nonce: string): string {
   return createHash("sha256").update(nonce).digest("hex");
 }
 
+function toConsentPreviewItem(entry: {
+  item: {
+    item_id: string;
+    item_type: string;
+    category_id: string | null;
+    text: string;
+  };
+  is_topic_blocked: boolean;
+  blocked_by_rule_id: string | null;
+  block_reason: string | null;
+  default_allowed: boolean;
+  compartment_ids: string[];
+  provenance: unknown | null;
+}): Record<string, unknown> {
+  return {
+    ...entry.item,
+    is_topic_blocked: entry.is_topic_blocked,
+    blocked_by_rule_id: entry.blocked_by_rule_id,
+    block_reason: entry.block_reason,
+    default_allowed: entry.default_allowed,
+    compartment_ids: entry.compartment_ids,
+    provenance: entry.provenance
+  };
+}
+
 export class LocalProfileServer extends EventEmitter {
   private readonly config: LocalServerConfig;
   private readonly pairings = new Map<string, PairingSession>();
@@ -182,7 +207,7 @@ export class LocalProfileServer extends EventEmitter {
         this.usedNonces.set(nonceHash, now + 5 * 60 * 1000);
 
         const request = this.storeService.repository.createConsentRequest(payload, auth.serviceId);
-        const preview = this.storeService.repository.buildConsentPreview(request);
+        const preview = this.storeService.repository.buildConsentPreviewView(request).map(toConsentPreviewItem);
         this.emit("consent:request", { ...request, preview_items: preview });
 
         sendJson(res, 201, { ...request, preview_items: preview });
@@ -203,7 +228,7 @@ export class LocalProfileServer extends EventEmitter {
           return;
         }
 
-        const preview = this.storeService.repository.buildConsentPreview(request);
+        const preview = this.storeService.repository.buildConsentPreviewView(request).map(toConsentPreviewItem);
         sendJson(res, 200, { ...request, preview_items: preview });
         return;
       }

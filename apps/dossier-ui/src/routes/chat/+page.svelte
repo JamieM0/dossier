@@ -1,6 +1,8 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import IconCheckCircleRegular from "phosphor-icons-svelte/IconCheckCircleRegular.svelte";
   import IconPaperPlaneRightRegular from "phosphor-icons-svelte/IconPaperPlaneRightRegular.svelte";
+  import type { ProposedInferenceResult } from "$lib/types";
 
   type Message = {
     id: string;
@@ -18,49 +20,89 @@
     }
   ]);
   let chatLogRef = $state<HTMLElement | null>(null);
+  let textareaRef = $state<HTMLTextAreaElement | null>(null);
+  let isSending = $state(false);
 
-  function send(): void {
-    if (!input.trim()) return;
+  async function send(): Promise<void> {
+    if (!input.trim() || isSending) return;
 
-    messages = [
-      ...messages,
-      { id: crypto.randomUUID(), role: "user", text: input.trim() }
-    ];
-    messages = [
-      ...messages,
-      {
-        id: crypto.randomUUID(),
-        role: "system",
-        text: "Suggestion recorded as a pending inference. Review it in Profile before it becomes a confirmed item.",
-        dataUpdate: "New inference added to your profile"
-      }
-    ];
-
+    const userText = input.trim();
     input = "";
+    isSending = true;
 
-    // Scroll to bottom after render
-    requestAnimationFrame(() => {
-      chatLogRef?.scrollTo({ top: chatLogRef.scrollHeight, behavior: "smooth" });
-    });
+    messages = [
+      ...messages,
+      { id: crypto.randomUUID(), role: "user", text: userText }
+    ];
+
+    try {
+      const result = (await window.dossier?.profile.proposeInference({
+        text: userText,
+        itemType: "preference",
+        categoryId: null,
+        sourceLabel: "Chat",
+        whyDossierThinksThis: "You explicitly asked Dossier to propose this profile update.",
+        confidence: null
+      })) as ProposedInferenceResult | undefined;
+
+      const suppressed = Boolean(result && "suppressed" in result && result.suppressed);
+      messages = [
+        ...messages,
+        suppressed
+          ? {
+              id: crypto.randomUUID(),
+              role: "system",
+              text: "Suggestion was suppressed by your current topic rules or a prior dismissal fingerprint."
+            }
+          : {
+              id: crypto.randomUUID(),
+              role: "system",
+              text: "Suggestion recorded as a pending inference. Review it in Profile before it becomes a confirmed item.",
+              dataUpdate: "New inference added to your profile"
+            }
+      ];
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Unable to submit suggestion.";
+      messages = [
+        ...messages,
+        {
+          id: crypto.randomUUID(),
+          role: "system",
+          text: `Failed to record suggestion: ${message}`
+        }
+      ];
+    } finally {
+      isSending = false;
+      requestAnimationFrame(() => {
+        chatLogRef?.scrollTo({ top: chatLogRef.scrollHeight, behavior: "smooth" });
+      });
+    }
   }
 
   function handleKeydown(event: KeyboardEvent): void {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
-      send();
+      void send();
     }
     if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
       event.preventDefault();
-      send();
+      void send();
+    }
+    if (event.key === "Escape" && !input.trim()) {
+      (event.target as HTMLElement)?.blur();
     }
   }
+
+  onMount(() => {
+    textareaRef?.focus();
+  });
 </script>
 
 <section class="chat-view">
   <div class="chat-content">
-    <h1 class="chat-title">Chat</h1>
+    <h1 class="page-heading">Chat</h1>
 
-    <div class="chat-log" bind:this={chatLogRef}>
+    <div class="chat-log" bind:this={chatLogRef} aria-live="polite" aria-relevant="additions">
       {#each messages as message (message.id)}
         <article class="message {message.role}">
           <div class="bubble {message.role}">
@@ -80,15 +122,17 @@
       <div class="input-wrapper">
         <textarea
           class="chat-textarea"
+          bind:this={textareaRef}
           bind:value={input}
           placeholder="Ask Dossier to propose profile updates"
           rows="3"
           onkeydown={handleKeydown}
+          disabled={isSending}
         ></textarea>
         <button
           class="send-btn"
-          onclick={send}
-          disabled={!input.trim()}
+          onclick={() => void send()}
+          disabled={!input.trim() || isSending}
           aria-label="Send message"
         >
           <IconPaperPlaneRightRegular class="icon-18" />
@@ -118,11 +162,11 @@
     height: calc(100vh - var(--space-10));
   }
 
-  .chat-title {
+  .page-heading {
     font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
     letter-spacing: -0.01em;
     color: var(--text-primary);
     margin-bottom: var(--space-6);
@@ -222,6 +266,10 @@
     outline: none;
     border-color: var(--primary-accent);
     background: var(--base);
+  }
+
+  .chat-textarea:disabled {
+    opacity: 0.6;
   }
 
   .send-btn {

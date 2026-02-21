@@ -1,101 +1,103 @@
 <script lang="ts">
+  import IconPencilSimpleRegular from "phosphor-icons-svelte/IconPencilSimpleRegular.svelte";
+  import IconTrashRegular from "phosphor-icons-svelte/IconTrashRegular.svelte";
+
   let {
     text,
+    itemType,
+    categoryName = null,
+    compartmentNames = [],
+    isTopicBlocked = false,
     updatedAt,
-    onEdit
+    focused = false,
+    onEdit,
+    onDelete,
+    onFocus
   } = $props<{
     text: string;
+    itemType: string;
+    categoryName?: string | null;
+    compartmentNames?: string[];
+    isTopicBlocked?: boolean;
     updatedAt: string;
+    focused?: boolean;
     onEdit: () => void;
+    onDelete: () => void;
+    onFocus?: () => void;
   }>();
 
   let hovered = $state(false);
-  let editing = $state(false);
-  let editValue = $state("");
   let flashing = $state(false);
+  let showDetails = $derived(hovered || focused);
 
-  function startEdit(): void {
-    editValue = text;
-    editing = true;
+  export function flash(): void {
+    flashing = true;
+    setTimeout(() => { flashing = false; }, 400);
   }
 
-  function cancelEdit(): void {
-    editing = false;
-    editValue = text;
-  }
-
-  function saveEdit(): void {
-    editing = false;
-    onEdit();
-  }
-
-  function handleEditKeydown(event: KeyboardEvent): void {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      saveEdit();
-    } else if (event.key === "Escape") {
-      event.preventDefault();
-      cancelEdit();
+  function formatDate(iso: string): string {
+    try {
+      return new Date(iso).toLocaleDateString(undefined, {
+        month: "short",
+        day: "numeric",
+        year: "numeric"
+      });
+    } catch {
+      return iso;
     }
   }
 
-  function handleItemKeydown(event: KeyboardEvent): void {
-    if (event.key === "e" && !editing) {
+  function handleKeydown(event: KeyboardEvent): void {
+    if (event.key === "e") {
       event.preventDefault();
-      startEdit();
-    } else if (event.key === "Escape" && editing) {
-      event.preventDefault();
-      cancelEdit();
+      onEdit();
     }
   }
-
-  const formattedDate = $derived(
-    new Date(updatedAt).toLocaleDateString(undefined, {
-      year: "numeric",
-      month: "short",
-      day: "numeric"
-    })
-  );
 </script>
 
-<!-- svelte-ignore a11y_no_noninteractive_tabindex a11y_no_noninteractive_element_interactions -->
 <article
   class="confirmed-item"
-  class:hovered
+  class:show-details={showDetails}
   class:flashing
   role="listitem"
   tabindex="0"
   aria-label="{text}. Confirmed. Press E to edit."
+  data-profile-item
   onmouseenter={() => (hovered = true)}
   onmouseleave={() => (hovered = false)}
-  onkeydown={handleItemKeydown}
+  onfocus={() => onFocus?.()}
+  onkeydown={handleKeydown}
 >
   <div class="item-content">
-    {#if editing}
-      <input
-        class="inline-edit"
-        type="text"
-        bind:value={editValue}
-        onkeydown={handleEditKeydown}
-        onblur={saveEdit}
-      />
-    {:else}
-      <p class="item-text">{text}</p>
-    {/if}
+    <span class="item-text">{text}</span>
 
-    {#if hovered && !editing}
-      <p class="metadata">Confirmed {formattedDate}</p>
+    {#if showDetails}
+      <div class="item-meta">
+        <span class="meta-date">Confirmed {formatDate(updatedAt)}</span>
+        {#if categoryName}
+          <span class="meta-badge">{categoryName}</span>
+        {/if}
+        <span class="meta-badge">{itemType}</span>
+        {#if isTopicBlocked}
+          <span class="meta-badge blocked">Blocked</span>
+        {/if}
+        {#each compartmentNames as name}
+          <span class="meta-badge">{name}</span>
+        {/each}
+      </div>
     {/if}
   </div>
 
-  {#if hovered && !editing}
+  {#if showDetails}
     <div class="actions">
-      <button class="ghost-action" onclick={startEdit}>Edit</button>
-    </div>
-  {:else if editing}
-    <div class="actions">
-      <button class="ghost-action save" onclick={saveEdit}>Save</button>
-      <button class="ghost-action" onclick={cancelEdit}>Cancel</button>
+      <button class="ghost-action" onclick={onEdit} title="Edit (E)">
+        <IconPencilSimpleRegular class="icon-14" />
+        <span>Edit</span>
+      </button>
+      <button class="ghost-action delete" onclick={onDelete} title="Delete">
+        <IconTrashRegular class="icon-14" />
+        <span>Delete</span>
+      </button>
     </div>
   {/if}
 </article>
@@ -113,7 +115,7 @@
                 border-bottom-color var(--duration-standard) var(--ease-out);
   }
 
-  .confirmed-item.hovered {
+  .confirmed-item.show-details {
     background: var(--base-tertiary);
     border-bottom-color: var(--border-subtle);
   }
@@ -122,6 +124,8 @@
     outline: 2px solid var(--primary-accent);
     outline-offset: 2px;
     border-radius: var(--radius-sm);
+    background: var(--base-tertiary);
+    border-bottom-color: var(--border-subtle);
   }
 
   .confirmed-item.flashing {
@@ -140,30 +144,35 @@
     color: var(--text-primary);
   }
 
-  .metadata {
+  .item-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
     margin-top: var(--space-1);
+    animation: entrance-fade-up var(--duration-standard) var(--ease-out);
+  }
+
+  .meta-date {
     font-family: var(--font-body);
     font-size: 0.8125rem;
     line-height: 1.4;
     color: var(--text-tertiary);
-    animation: entrance-fade-up var(--duration-standard) var(--ease-out);
   }
 
-  .inline-edit {
-    width: 100%;
+  .meta-badge {
     font-family: var(--font-body);
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    color: var(--text-primary);
-    background: transparent;
-    border: 1px solid var(--primary-accent);
-    border-radius: var(--radius-sm);
-    padding: var(--space-1);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    padding: 0 var(--space-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    color: var(--text-tertiary);
   }
 
-  .inline-edit:focus {
-    outline: none;
-    border-color: var(--primary-accent);
+  .meta-badge.blocked {
+    border-color: var(--error);
+    color: var(--error);
   }
 
   .actions {
@@ -193,14 +202,12 @@
     color: var(--text-primary);
   }
 
-  .ghost-action.save {
-    background: var(--primary-accent);
-    color: var(--primary-accent-text);
-    font-weight: 600;
-    padding: var(--space-1) var(--space-3);
+  .ghost-action.delete {
+    color: var(--error);
   }
 
-  .ghost-action.save:hover {
-    background: var(--primary-accent-hover);
+  .ghost-action.delete:hover {
+    color: var(--error);
+    background: var(--error-subtle);
   }
 </style>

@@ -8,6 +8,8 @@
   let {
     text,
     provenance,
+    why = null,
+    confidence = null,
     focused = false,
     onConfirm,
     onDismiss,
@@ -16,6 +18,8 @@
   } = $props<{
     text: string;
     provenance: string;
+    why?: string | null;
+    confidence?: number | null;
     focused?: boolean;
     onConfirm: () => void;
     onDismiss: () => void;
@@ -47,6 +51,7 @@
   role="listitem"
   tabindex="0"
   aria-label="Pending inference: {text}. Press Y to confirm, D to dismiss, C to comment."
+  data-profile-item
   onmouseenter={() => (hovered = true)}
   onmouseleave={() => (hovered = false)}
   onfocus={() => onFocus?.()}
@@ -63,6 +68,18 @@
         <IconInfoRegular class="icon-14" />
         <span>{provenance}</span>
       </p>
+      {#if why}
+        <p class="provenance">
+          <span>Why:</span>
+          <span>{why}</span>
+        </p>
+      {/if}
+      {#if confidence !== null}
+        <p class="provenance">
+          <span>Confidence:</span>
+          <span>{Math.round(confidence * 100)}%</span>
+        </p>
+      {/if}
     {/if}
   </div>
 

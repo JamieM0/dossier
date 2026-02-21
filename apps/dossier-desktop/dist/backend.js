@@ -1,0 +1,775 @@
+import { randomBytes, randomUUID } from "node:crypto";
+import { createServer } from "node:http";
+import { existsSync, mkdirSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { pathToFileURL } from "node:url";
+const defaultSettings = {
+    theme: "Parchment",
+    dyslexiaMode: false,
+    highFidelityEnabled: false,
+    startOnLogin: false,
+    localModelEndpoint: "",
+    localModelName: ""
+};
+const JSON_HEADERS = { "content-type": "application/json; charset=utf-8" };
+let settingsCache = { ...defaultSettings };
+let storeService;
+let profileServer;
+let runGoogleTakeoutImport;
+let shuttingDown = false;
+const controlToken = randomBytes(24).toString("base64url");
+const consentQueue = [];
+const consentWaiters = new Set();
+class ControlError extends Error {
+    statusCode;
+    code;
+    details;
+    constructor(statusCode, code, message, details) {
+        super(message);
+        this.statusCode = statusCode;
+        this.code = code;
+        this.details = details;
+    }
+}
+function toRouteItem(item) {
+    if (!item || typeof item !== "object") {
+        return item;
+    }
+    const cast = item;
+    return {
+        ...cast,
+        itemType: cast.item_type,
+        categoryId: cast.category_id
+    };
+}
+function toRouteItemRecord(item) {
+    const routed = toRouteItem(item);
+    if (!routed || typeof routed !== "object") {
+        return {};
+    }
+    return routed;
+}
+function toRouteItemDetails(payload) {
+    if (!payload || typeof payload !== "object") {
+        return toRouteItem(payload);
+    }
+    const cast = payload;
+    if (cast.item === undefined) {
+        return toRouteItem(payload);
+    }
+    return {
+        ...toRouteItemRecord(cast.item),
+        provenance: cast.provenance ?? null,
+        topic: cast.topic ?? null,
+        compartment_ids: cast.compartment_ids ?? []
+    };
+}
+function sendJson(res, statusCode, body) {
+    res.writeHead(statusCode, JSON_HEADERS);
+    res.end(JSON.stringify(body));
+}
+function sendControlError(res, error) {
+    sendJson(res, error.statusCode, {
+        error: {
+            code: error.code,
+            message: error.message,
+            ...(error.details !== undefined ? { details: error.details } : {})
+        }
+    });
+}
+function fail(statusCode, code, message, details) {
+    throw new ControlError(statusCode, code, message, details);
+}
+function writeReady(payload) {
+    process.stdout.write(`${JSON.stringify(payload)}\n`);
+}
+function getHeader(req, name) {
+    const value = req.headers[name];
+    if (!value) {
+        return undefined;
+    }
+    return Array.isArray(value) ? value[0] : value;
+}
+function requireControlAuth(req) {
+    const expectedToken = process.env.DOSSIER_CONTROL_TOKEN_OVERRIDE ?? controlToken;
+    const token = getHeader(req, "x-dossier-control-token");
+    if (token !== expectedToken) {
+        fail(401, "UNAUTHORIZED", "invalid control token");
+    }
+}
+function parseUrl(req) {
+    return new URL(req.url ?? "/", "http://127.0.0.1");
+}
+function routeParam(pathname, pattern) {
+    const match = pathname.match(pattern);
+    if (!match) {
+        fail(404, "NOT_FOUND", "not found");
+    }
+    return match;
+}
+function parseBoolean(value, fallback) {
+    if (typeof value === "boolean") {
+        return value;
+    }
+    return fallback;
+}
+function parseOptionalString(value, fieldName) {
+    if (value === undefined) {
+        return undefined;
+    }
+    if (typeof value !== "string") {
+        fail(400, "BAD_REQUEST", `${fieldName} must be a string`);
+    }
+    return value.trim();
+}
+function validateLocalModel(endpoint, model) {
+    if (!endpoint && !model) {
+        return;
+    }
+    if (!endpoint || !model) {
+        fail(400, "BAD_REQUEST", "localModelEndpoint and localModelName must both be set");
+    }
+    let parsed;
+    try {
+        parsed = new URL(endpoint);
+    }
+    catch {
+        fail(400, "BAD_REQUEST", "localModelEndpoint must be a valid URL");
+        return;
+    }
+    if (!["http:", "https:"].includes(parsed.protocol)) {
+        fail(400, "BAD_REQUEST", "localModelEndpoint must use http or https");
+    }
+    const host = parsed.hostname.toLowerCase();
+    const isLocalHost = host === "localhost" || host === "127.0.0.1" || host === "::1";
+    if (!isLocalHost) {
+        fail(400, "BAD_REQUEST", "localModelEndpoint must target a local host");
+    }
+}
+function normalizeSettingsPatch(payload) {
+    if (!payload || typeof payload !== "object") {
+        fail(400, "BAD_REQUEST", "settings payload is required");
+    }
+    const input = payload;
+    const next = input.next;
+    if (!next || typeof next !== "object") {
+        fail(400, "BAD_REQUEST", "next settings payload is required");
+    }
+    const theme = parseOptionalString(next.theme, "theme");
+    const localModelEndpoint = parseOptionalString(next.localModelEndpoint, "localModelEndpoint");
+    const localModelName = parseOptionalString(next.localModelName, "localModelName");
+    const passthrough = Object.fromEntries(Object.entries(next).filter(([key]) => ![
+        "theme",
+        "dyslexiaMode",
+        "highFidelityEnabled",
+        "startOnLogin",
+        "localModelEndpoint",
+        "localModelName"
+    ].includes(key)));
+    const normalized = {
+        ...settingsCache,
+        ...passthrough,
+        ...(theme !== undefined ? { theme: theme || defaultSettings.theme } : {}),
+        dyslexiaMode: parseBoolean(next.dyslexiaMode, settingsCache.dyslexiaMode),
+        highFidelityEnabled: parseBoolean(next.highFidelityEnabled, settingsCache.highFidelityEnabled),
+        startOnLogin: parseBoolean(next.startOnLogin, settingsCache.startOnLogin),
+        ...(localModelEndpoint !== undefined ? { localModelEndpoint } : {}),
+        ...(localModelName !== undefined ? { localModelName } : {})
+    };
+    validateLocalModel(normalized.localModelEndpoint, normalized.localModelName);
+    return normalized;
+}
+function parseTopicRuleInput(payload, profileId) {
+    if (!payload || typeof payload !== "object") {
+        fail(400, "BAD_REQUEST", "topic rule payload is required");
+    }
+    const input = payload;
+    if (!input.pattern?.trim()) {
+        fail(400, "BAD_REQUEST", "pattern is required");
+    }
+    return {
+        rule_id: input.ruleId ?? randomUUID(),
+        profile_id: input.profileId ?? profileId,
+        pattern: input.pattern.trim(),
+        match_mode: input.matchMode ?? "KEYWORD",
+        scope: input.scope ?? "STORAGE_AND_SHARING",
+        is_enabled: parseBoolean(input.isEnabled, true)
+    };
+}
+async function readJsonBody(req) {
+    return new Promise((resolve, reject) => {
+        const chunks = [];
+        req.on("data", (chunk) => chunks.push(Buffer.from(chunk)));
+        req.on("end", () => {
+            if (chunks.length === 0) {
+                resolve({});
+                return;
+            }
+            try {
+                resolve(JSON.parse(Buffer.concat(chunks).toString("utf8")));
+            }
+            catch {
+                reject(new ControlError(400, "BAD_REQUEST", "invalid JSON body"));
+            }
+        });
+        req.on("error", reject);
+    });
+}
+function shiftConsentEvent() {
+    const next = consentQueue.shift();
+    return next ?? null;
+}
+function pushConsentEvent(payload) {
+    const waiter = consentWaiters.values().next().value;
+    if (waiter) {
+        consentWaiters.delete(waiter);
+        waiter(payload);
+        return;
+    }
+    consentQueue.push(payload);
+}
+async function awaitConsentEvent(timeoutMs) {
+    const existing = shiftConsentEvent();
+    if (existing) {
+        return existing;
+    }
+    return new Promise((resolve) => {
+        const waiter = (payload) => {
+            clearTimeout(timeout);
+            consentWaiters.delete(waiter);
+            resolve(payload);
+        };
+        const timeout = setTimeout(() => {
+            consentWaiters.delete(waiter);
+            resolve(null);
+        }, timeoutMs);
+        consentWaiters.add(waiter);
+    });
+}
+async function shutdown(controlServer) {
+    if (shuttingDown) {
+        return;
+    }
+    shuttingDown = true;
+    for (const waiter of consentWaiters) {
+        waiter(null);
+    }
+    consentWaiters.clear();
+    await Promise.allSettled([
+        profileServer.stop(),
+        new Promise((resolve) => {
+            controlServer.close(() => resolve());
+        })
+    ]);
+}
+export function createControlRequestHandler(options) {
+    return async (req, res) => {
+        const method = req.method ?? "GET";
+        const reqUrl = parseUrl(req);
+        const path = reqUrl.pathname;
+        try {
+            if (method === "GET" && path === "/control/health") {
+                sendJson(res, 200, { ok: true });
+                return;
+            }
+            requireControlAuth(req);
+            if (method === "GET" && path === "/control/app/version") {
+                sendJson(res, 200, { version: process.env.DOSSIER_APP_VERSION ?? "0.1.0" });
+                return;
+            }
+            if (method === "GET" && path === "/control/settings") {
+                sendJson(res, 200, settingsCache);
+                return;
+            }
+            if (method === "PUT" && path === "/control/settings") {
+                settingsCache = normalizeSettingsPatch(await readJsonBody(req));
+                options.storeService.repository.setHighFidelityEnabled(settingsCache.highFidelityEnabled);
+                options.storeService.repository.updateProfileSettings({ ...settingsCache });
+                sendJson(res, 200, settingsCache);
+                return;
+            }
+            if (method === "POST" && path === "/control/profile/delete-irreversible") {
+                const payload = (await readJsonBody(req));
+                if (payload.confirmationText !== "DELETE MY PROFILE") {
+                    fail(400, "BAD_REQUEST", "confirmationText must match DELETE MY PROFILE");
+                }
+                const result = options.storeService.deleteProfileIrreversible();
+                settingsCache = { ...defaultSettings };
+                options.storeService.repository.updateProfileSettings({ ...settingsCache });
+                sendJson(res, 200, result);
+                return;
+            }
+            if (method === "GET" && path === "/control/profile/items") {
+                const items = options.storeService.repository.listItemDetailsViews().map(toRouteItemDetails);
+                sendJson(res, 200, items);
+                return;
+            }
+            if (method === "POST" && path === "/control/profile/items") {
+                const payload = (await readJsonBody(req));
+                if (!payload.text || !payload.itemType || !("categoryId" in payload)) {
+                    fail(400, "BAD_REQUEST", "text, itemType, and categoryId are required");
+                }
+                const item = options.storeService.repository.createManualItem({
+                    text: payload.text,
+                    itemType: payload.itemType,
+                    categoryId: payload.categoryId ?? null
+                });
+                sendJson(res, 201, toRouteItem(item));
+                return;
+            }
+            if (method === "PATCH" && path.match(/^\/control\/profile\/items\/[^/]+$/)) {
+                const itemId = routeParam(path, /^\/control\/profile\/items\/([^/]+)$/)[1];
+                const payload = (await readJsonBody(req));
+                const next = options.storeService.repository.updateItem(itemId, {
+                    ...(payload.text !== undefined ? { text: payload.text } : {}),
+                    ...(payload.itemType !== undefined ? { item_type: payload.itemType } : {}),
+                    ...(payload.categoryId !== undefined ? { category_id: payload.categoryId } : {})
+                });
+                if (!next) {
+                    fail(404, "NOT_FOUND", "item not found");
+                }
+                sendJson(res, 200, toRouteItem(next));
+                return;
+            }
+            if (method === "DELETE" && path.match(/^\/control\/profile\/items\/[^/]+$/)) {
+                const itemId = routeParam(path, /^\/control\/profile\/items\/([^/]+)$/)[1];
+                const deleted = options.storeService.repository.deleteItemIrreversible(itemId);
+                if (!deleted) {
+                    fail(404, "NOT_FOUND", "item not found");
+                }
+                sendJson(res, 200, { deleted: true, itemId });
+                return;
+            }
+            if (method === "POST" && path.match(/^\/control\/profile\/inferences\/[^/]+\/confirm$/)) {
+                const itemId = routeParam(path, /^\/control\/profile\/inferences\/([^/]+)\/confirm$/)[1];
+                const next = options.storeService.repository.confirmInference(itemId);
+                sendJson(res, 200, toRouteItem(next));
+                return;
+            }
+            if (method === "POST" && path.match(/^\/control\/profile\/inferences\/[^/]+\/edit-confirm$/)) {
+                const itemId = routeParam(path, /^\/control\/profile\/inferences\/([^/]+)\/edit-confirm$/)[1];
+                const payload = (await readJsonBody(req));
+                if (!payload.editedText?.trim()) {
+                    fail(400, "BAD_REQUEST", "editedText is required");
+                }
+                const next = options.storeService.repository.editThenConfirmInference(itemId, payload.editedText);
+                sendJson(res, 200, toRouteItem(next));
+                return;
+            }
+            if (method === "POST" && path.match(/^\/control\/profile\/inferences\/[^/]+\/dismiss$/)) {
+                const itemId = routeParam(path, /^\/control\/profile\/inferences\/([^/]+)\/dismiss$/)[1];
+                const payload = (await readJsonBody(req));
+                const next = options.storeService.repository.dismissInference(itemId, payload.dismissReason ?? null);
+                sendJson(res, 200, next);
+                return;
+            }
+            if (method === "POST" && path === "/control/profile/inferences") {
+                const payload = (await readJsonBody(req));
+                if (!payload.text?.trim() || !payload.itemType?.trim()) {
+                    fail(400, "BAD_REQUEST", "text and itemType are required");
+                }
+                const created = options.storeService.repository.createInference({
+                    text: payload.text.trim(),
+                    itemType: payload.itemType.trim(),
+                    categoryId: payload.categoryId ?? null,
+                    createdVia: "CHAT",
+                    ...(payload.sourceLabel !== undefined ? { sourceLabel: payload.sourceLabel } : {}),
+                    ...(payload.whyDossierThinksThis !== undefined
+                        ? { whyDossierThinksThis: payload.whyDossierThinksThis }
+                        : {}),
+                    ...(payload.confidence !== undefined ? { confidence: payload.confidence } : {})
+                });
+                if (!created) {
+                    sendJson(res, 200, {
+                        suppressed: true,
+                        reason: "RULE_SUPPRESSED_OR_DISMISSED"
+                    });
+                    return;
+                }
+                sendJson(res, 201, toRouteItem(created));
+                return;
+            }
+            if (method === "GET" && path === "/control/topic-rules") {
+                sendJson(res, 200, options.storeService.repository.listTopicRules());
+                return;
+            }
+            if (method === "POST" && path === "/control/topic-rules") {
+                const payload = await readJsonBody(req);
+                const parsed = parseTopicRuleInput(payload, options.storeService.repository.snapshot().profile.profile_id);
+                const created = options.storeService.repository.addTopicRule(parsed);
+                sendJson(res, 201, created);
+                return;
+            }
+            if (method === "PATCH" && path.match(/^\/control\/topic-rules\/[^/]+$/)) {
+                const ruleId = routeParam(path, /^\/control\/topic-rules\/([^/]+)$/)[1];
+                const payload = (await readJsonBody(req));
+                const next = options.storeService.repository.updateTopicRule(ruleId, {
+                    ...(payload.pattern !== undefined ? { pattern: payload.pattern } : {}),
+                    ...(payload.matchMode !== undefined ? { match_mode: payload.matchMode } : {}),
+                    ...(payload.scope !== undefined ? { scope: payload.scope } : {}),
+                    ...(payload.isEnabled !== undefined ? { is_enabled: payload.isEnabled } : {})
+                });
+                if (!next) {
+                    fail(404, "NOT_FOUND", "topic rule not found");
+                }
+                sendJson(res, 200, next);
+                return;
+            }
+            if (method === "DELETE" && path.match(/^\/control\/topic-rules\/[^/]+$/)) {
+                const ruleId = routeParam(path, /^\/control\/topic-rules\/([^/]+)$/)[1];
+                const deleted = options.storeService.repository.removeTopicRule(ruleId);
+                if (!deleted) {
+                    fail(404, "NOT_FOUND", "topic rule not found");
+                }
+                sendJson(res, 200, { deleted: true, ruleId });
+                return;
+            }
+            if (method === "GET" && path === "/control/categories") {
+                sendJson(res, 200, options.storeService.repository.listCategories());
+                return;
+            }
+            if (method === "POST" && path === "/control/categories") {
+                const payload = (await readJsonBody(req));
+                if (!payload.name?.trim()) {
+                    fail(400, "BAD_REQUEST", "name is required");
+                }
+                const created = options.storeService.repository.createCategory({
+                    name: payload.name.trim(),
+                    ...(payload.sortOrder !== undefined ? { sortOrder: payload.sortOrder } : {}),
+                    ...(payload.isSystem !== undefined ? { isSystem: payload.isSystem } : {})
+                });
+                sendJson(res, 201, created);
+                return;
+            }
+            if (method === "PATCH" && path.match(/^\/control\/categories\/[^/]+$/)) {
+                const categoryId = routeParam(path, /^\/control\/categories\/([^/]+)$/)[1];
+                const payload = (await readJsonBody(req));
+                const next = options.storeService.repository.updateCategory(categoryId, {
+                    ...(payload.name !== undefined ? { name: payload.name } : {}),
+                    ...(payload.sortOrder !== undefined ? { sort_order: payload.sortOrder } : {}),
+                    ...(payload.isSystem !== undefined ? { is_system: payload.isSystem } : {})
+                });
+                if (!next) {
+                    fail(404, "NOT_FOUND", "category not found");
+                }
+                sendJson(res, 200, next);
+                return;
+            }
+            if (method === "DELETE" && path.match(/^\/control\/categories\/[^/]+$/)) {
+                const categoryId = routeParam(path, /^\/control\/categories\/([^/]+)$/)[1];
+                const deleted = options.storeService.repository.deleteCategory(categoryId);
+                if (!deleted) {
+                    fail(404, "NOT_FOUND", "category not found");
+                }
+                sendJson(res, 200, { deleted: true, categoryId });
+                return;
+            }
+            if (method === "GET" && path === "/control/compartments") {
+                sendJson(res, 200, options.storeService.repository.listCompartments());
+                return;
+            }
+            if (method === "POST" && path === "/control/compartments") {
+                const payload = (await readJsonBody(req));
+                if (!payload.name?.trim()) {
+                    fail(400, "BAD_REQUEST", "name is required");
+                }
+                const created = options.storeService.repository.createCompartment({
+                    name: payload.name.trim(),
+                    ...(payload.description !== undefined ? { description: payload.description } : {}),
+                    ...(payload.sortOrder !== undefined ? { sortOrder: payload.sortOrder } : {})
+                });
+                sendJson(res, 201, created);
+                return;
+            }
+            if (method === "PATCH" && path.match(/^\/control\/compartments\/[^/]+$/)) {
+                const compartmentId = routeParam(path, /^\/control\/compartments\/([^/]+)$/)[1];
+                const payload = (await readJsonBody(req));
+                const updated = options.storeService.repository.updateCompartment(compartmentId, {
+                    ...(payload.name !== undefined ? { name: payload.name } : {}),
+                    ...(payload.description !== undefined ? { description: payload.description } : {}),
+                    ...(payload.sortOrder !== undefined ? { sort_order: payload.sortOrder } : {})
+                });
+                if (!updated) {
+                    fail(404, "NOT_FOUND", "compartment not found");
+                }
+                sendJson(res, 200, updated);
+                return;
+            }
+            if (method === "DELETE" && path.match(/^\/control\/compartments\/[^/]+$/)) {
+                const compartmentId = routeParam(path, /^\/control\/compartments\/([^/]+)$/)[1];
+                const deleted = options.storeService.repository.deleteCompartment(compartmentId);
+                if (!deleted) {
+                    fail(404, "NOT_FOUND", "compartment not found");
+                }
+                sendJson(res, 200, { deleted: true, compartmentId });
+                return;
+            }
+            if (method === "GET" && path.match(/^\/control\/profile\/items\/[^/]+\/compartments$/)) {
+                const itemId = routeParam(path, /^\/control\/profile\/items\/([^/]+)\/compartments$/)[1];
+                sendJson(res, 200, options.storeService.repository.listItemCompartments(itemId));
+                return;
+            }
+            if (method === "PUT" && path.match(/^\/control\/profile\/items\/[^/]+\/compartments$/)) {
+                const itemId = routeParam(path, /^\/control\/profile\/items\/([^/]+)\/compartments$/)[1];
+                const payload = (await readJsonBody(req));
+                if (!Array.isArray(payload.compartmentIds)) {
+                    fail(400, "BAD_REQUEST", "compartmentIds must be an array");
+                }
+                const memberships = options.storeService.repository.setItemCompartments(itemId, payload.compartmentIds);
+                sendJson(res, 200, memberships);
+                return;
+            }
+            if (method === "GET" && path.match(/^\/control\/consent\/[^/]+$/)) {
+                const requestId = routeParam(path, /^\/control\/consent\/([^/]+)$/)[1];
+                const rawRequest = options.storeService.repository.getConsentRequest(requestId);
+                if (!rawRequest) {
+                    fail(404, "NOT_FOUND", "consent request not found");
+                }
+                const request = rawRequest;
+                const service = options.storeService.repository
+                    .listServiceRegistry()
+                    .find((candidate) => candidate.service_id === request.service_id) ?? null;
+                const preview = options.storeService.repository.buildConsentPreviewView(request).map((entry) => ({
+                    ...toRouteItemRecord(entry.item),
+                    is_topic_blocked: entry.is_topic_blocked,
+                    blocked_by_rule_id: entry.blocked_by_rule_id,
+                    block_reason: entry.block_reason,
+                    default_allowed: entry.default_allowed,
+                    compartment_ids: entry.compartment_ids,
+                    provenance: entry.provenance ?? null
+                }));
+                sendJson(res, 200, { ...request, service, preview_items: preview });
+                return;
+            }
+            if (method === "GET" && path === "/control/services") {
+                const registry = options.storeService.repository.listServiceRegistry();
+                const pairings = options.storeService.repository.listPairings();
+                const now = Date.now();
+                const services = registry.map((service) => {
+                    const pairing = pairings.find((candidate) => candidate.service_id === service.service_id) ?? null;
+                    const tokenExpired = pairing?.token_expires_at
+                        ? new Date(pairing.token_expires_at).getTime() <= now
+                        : false;
+                    const status = !pairing
+                        ? "UNPAIRED"
+                        : pairing.revoked_at || tokenExpired
+                            ? "REVOKED"
+                            : "PAIRED";
+                    return {
+                        ...service,
+                        status,
+                        policy_mode: "ALWAYS_ASK",
+                        paired_at: pairing?.paired_at ?? null,
+                        revoked_at: pairing?.revoked_at ?? null,
+                        allowed_origins_json: pairing?.allowed_origins_json ?? []
+                    };
+                });
+                sendJson(res, 200, services);
+                return;
+            }
+            if (method === "POST" && path.match(/^\/control\/services\/[^/]+\/revoke$/)) {
+                const serviceId = routeParam(path, /^\/control\/services\/([^/]+)\/revoke$/)[1];
+                const active = options.storeService.repository
+                    .listPairings()
+                    .some((pairing) => pairing.service_id === serviceId && pairing.revoked_at === null);
+                if (!active) {
+                    fail(404, "NOT_FOUND", "active pairing not found");
+                }
+                options.storeService.repository.revokeService(serviceId);
+                sendJson(res, 200, { revoked: true, serviceId });
+                return;
+            }
+            if (method === "POST" && path.match(/^\/control\/consent\/[^/]+\/decision$/)) {
+                const requestId = routeParam(path, /^\/control\/consent\/([^/]+)\/decision$/)[1];
+                const payload = await readJsonBody(req);
+                const decision = options.storeService.repository.decideConsent(requestId, payload);
+                sendJson(res, 200, decision);
+                return;
+            }
+            if (method === "GET" && path === "/control/audit") {
+                const service = reqUrl.searchParams.get("service") ?? undefined;
+                const item = reqUrl.searchParams.get("item") ?? undefined;
+                const typeRaw = reqUrl.searchParams.get("type") ?? undefined;
+                const type = typeRaw
+                    ? typeRaw
+                        .split(",")
+                        .map((entry) => entry.trim())
+                        .filter((entry) => entry.length > 0)
+                    : undefined;
+                const dateFrom = reqUrl.searchParams.get("date_from") ?? undefined;
+                const dateTo = reqUrl.searchParams.get("date_to") ?? undefined;
+                const events = options.storeService.repository.listAudit({
+                    ...(service ? { serviceId: service } : {}),
+                    ...(item ? { itemId: item } : {}),
+                    ...(type && type.length > 0 ? { type: type.length === 1 ? type[0] : type } : {}),
+                    ...(dateFrom ? { dateFrom } : {}),
+                    ...(dateTo ? { dateTo } : {})
+                });
+                sendJson(res, 200, {
+                    count: events.length,
+                    events
+                });
+                return;
+            }
+            if (method === "GET" && path === "/control/data/backups") {
+                sendJson(res, 200, { backups: options.storeService.listLocalBackups() });
+                return;
+            }
+            if (method === "POST" && path === "/control/data/backups") {
+                const payload = (await readJsonBody(req));
+                if (!payload.passphrase) {
+                    fail(400, "BAD_REQUEST", "passphrase is required");
+                }
+                sendJson(res, 201, options.storeService.createLocalBackup(payload.passphrase));
+                return;
+            }
+            if (method === "POST" && path.match(/^\/control\/data\/backups\/[^/]+\/verify$/)) {
+                const backupId = routeParam(path, /^\/control\/data\/backups\/([^/]+)\/verify$/)[1];
+                const verified = options.storeService.verifyLocalBackup(backupId);
+                if (!verified) {
+                    fail(404, "NOT_FOUND", "backup not found");
+                }
+                sendJson(res, 200, verified);
+                return;
+            }
+            if (method === "POST" && path.match(/^\/control\/data\/backups\/[^/]+\/restore$/)) {
+                const backupId = routeParam(path, /^\/control\/data\/backups\/([^/]+)\/restore$/)[1];
+                const payload = (await readJsonBody(req));
+                if (!payload.passphrase) {
+                    fail(400, "BAD_REQUEST", "passphrase is required");
+                }
+                const restored = options.storeService.restoreLocalBackup(backupId, payload.passphrase);
+                if (!restored) {
+                    fail(404, "NOT_FOUND", "backup not found");
+                }
+                sendJson(res, 200, { restored: true, backup: restored });
+                return;
+            }
+            if (method === "POST" && path === "/control/data/export") {
+                const payload = (await readJsonBody(req));
+                if (!payload.passphrase) {
+                    fail(400, "BAD_REQUEST", "passphrase is required");
+                }
+                sendJson(res, 200, options.storeService.createEncryptedExport(payload.passphrase));
+                return;
+            }
+            if (method === "POST" && path === "/control/data/import") {
+                const payload = (await readJsonBody(req));
+                if (!payload.artifact || !payload.passphrase) {
+                    fail(400, "BAD_REQUEST", "artifact and passphrase are required");
+                }
+                options.storeService.importEncryptedExport(payload.artifact, payload.passphrase);
+                sendJson(res, 200, { ok: true });
+                return;
+            }
+            if (method === "POST" && path === "/control/data/takeout-import") {
+                const payload = (await readJsonBody(req));
+                if (!payload.importPath) {
+                    fail(400, "BAD_REQUEST", "importPath is required");
+                }
+                const result = options.runGoogleTakeoutImport(options.storeService, payload.importPath);
+                sendJson(res, 200, result);
+                return;
+            }
+            if (method === "GET" && path === "/control/server/health") {
+                const response = await fetch("http://127.0.0.1:34250/health");
+                sendJson(res, response.status, await response.json());
+                return;
+            }
+            if (method === "GET" && path === "/control/events/next") {
+                const timeoutMs = Math.min(Number(reqUrl.searchParams.get("timeout_ms") ?? "25000"), 60000);
+                const payload = await awaitConsentEvent(Math.max(timeoutMs, 1000));
+                sendJson(res, 200, { event: payload });
+                return;
+            }
+            if (method === "POST" && path === "/control/shutdown") {
+                sendJson(res, 200, { ok: true });
+                process.nextTick(() => process.exit(0));
+                return;
+            }
+            fail(404, "NOT_FOUND", "not found");
+        }
+        catch (error) {
+            if (error instanceof ControlError) {
+                sendControlError(res, error);
+                return;
+            }
+            sendControlError(res, new ControlError(500, "INTERNAL", "internal server error", {
+                reason: error instanceof Error ? error.message : "unknown"
+            }));
+        }
+    };
+}
+async function bootstrap() {
+    const inputDataDir = process.argv[2];
+    if (!inputDataDir) {
+        throw new Error("Backend bootstrap requires a data directory argument");
+    }
+    const dataDir = join(inputDataDir, "dossier");
+    mkdirSync(dirname(dataDir), { recursive: true });
+    const packageRootCandidates = [
+        process.env.DOSSIER_PACKAGES_ROOT,
+        join(process.cwd(), "packages"),
+        join(process.cwd(), "..", "packages"),
+        join(process.cwd(), "..", "..", "..", "packages")
+    ].filter((candidate) => Boolean(candidate));
+    let modulesLoaded = false;
+    for (const packagesRoot of packageRootCandidates) {
+        const storePath = join(packagesRoot, "store", "dist", "index.js");
+        const localServerPath = join(packagesRoot, "local-server", "dist", "index.js");
+        const connectorPath = join(packagesRoot, "connectors-google-takeout", "dist", "index.js");
+        if (!existsSync(storePath) || !existsSync(localServerPath) || !existsSync(connectorPath)) {
+            continue;
+        }
+        const storeModule = await import(pathToFileURL(storePath).href);
+        const localServerModule = await import(pathToFileURL(localServerPath).href);
+        const connectorModule = await import(pathToFileURL(connectorPath).href);
+        storeService = (await storeModule.DossierStoreService.init(dataDir));
+        profileServer = new localServerModule.LocalProfileServer(storeService);
+        runGoogleTakeoutImport = connectorModule.runGoogleTakeoutImport;
+        modulesLoaded = true;
+        break;
+    }
+    if (!modulesLoaded) {
+        throw new Error(`Unable to resolve backend package dist outputs. Checked: ${packageRootCandidates.join(", ")}`);
+    }
+    settingsCache = {
+        ...defaultSettings,
+        ...storeService.repository.snapshot().profile.profile_settings_json
+    };
+    storeService.repository.setHighFidelityEnabled(settingsCache.highFidelityEnabled);
+    await profileServer.start();
+    profileServer.on("consent:request", (payload) => {
+        pushConsentEvent(payload);
+    });
+    const controlServer = createServer(createControlRequestHandler({
+        storeService,
+        runGoogleTakeoutImport
+    }));
+    await new Promise((resolve, reject) => {
+        controlServer.once("error", reject);
+        controlServer.listen(0, "127.0.0.1", () => resolve());
+    });
+    const address = controlServer.address();
+    if (!address || typeof address === "string") {
+        throw new Error("Failed to start control server");
+    }
+    writeReady({
+        type: "ready",
+        controlPort: address.port,
+        controlToken
+    });
+    process.on("SIGINT", () => {
+        void shutdown(controlServer).finally(() => process.exit(0));
+    });
+    process.on("SIGTERM", () => {
+        void shutdown(controlServer).finally(() => process.exit(0));
+    });
+}
+if (process.env.DOSSIER_BACKEND_SKIP_BOOTSTRAP !== "1") {
+    void bootstrap().catch((error) => {
+        console.error("Failed to bootstrap Dossier backend daemon", error);
+        process.exit(1);
+    });
+}
+//# sourceMappingURL=backend.js.map

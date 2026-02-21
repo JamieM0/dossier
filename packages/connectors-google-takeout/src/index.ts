@@ -25,6 +25,10 @@ type TakeoutStorePort = {
       itemType: string;
       categoryId: string | null;
       createdVia: "CONNECTOR" | "IMPORT" | "CHAT";
+      sourceLabel?: string;
+      whyDossierThinksThis?: string | null;
+      confidence?: number | null;
+      evidenceSummaryId?: string | null;
     }): unknown;
   };
 };
@@ -56,7 +60,10 @@ export function runGoogleTakeoutImport(store: TakeoutStorePort, rootPath: string
       text: proposal.text,
       itemType: proposal.itemType,
       categoryId: null,
-      createdVia: "IMPORT"
+      createdVia: "IMPORT",
+      sourceLabel: "Google Takeout",
+      whyDossierThinksThis: proposal.why,
+      confidence: proposal.confidence
     });
 
     if (result) {

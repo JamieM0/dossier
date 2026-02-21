@@ -32,6 +32,9 @@ export const eventTypeSchema = z.enum([
   "TOPIC_BLOCK_ADDED",
   "TOPIC_BLOCK_REMOVED",
   "TOPIC_BLOCK_TOGGLED",
+  "CATEGORY_CREATED",
+  "CATEGORY_EDITED",
+  "CATEGORY_DELETED",
   "COMPARTMENT_CREATED",
   "COMPARTMENT_EDITED",
   "COMPARTMENT_DELETED",
@@ -82,6 +85,34 @@ export const itemSchema = z.object({
   source_visibility: z.literal("DETAILS_ONLY")
 });
 export type Item = z.infer<typeof itemSchema>;
+
+export const categorySchema = z.object({
+  category_id: z.string().uuid(),
+  profile_id: z.string().uuid(),
+  name: z.string().min(1),
+  sort_order: z.number().int(),
+  is_system: z.boolean(),
+  created_at: z.string().datetime(),
+  updated_at: z.string().datetime()
+});
+export type Category = z.infer<typeof categorySchema>;
+
+export const compartmentSchema = z.object({
+  compartment_id: z.string().uuid(),
+  profile_id: z.string().uuid(),
+  name: z.string().min(1),
+  description: z.string().nullable(),
+  sort_order: z.number().int(),
+  created_at: z.string().datetime(),
+  updated_at: z.string().datetime()
+});
+export type Compartment = z.infer<typeof compartmentSchema>;
+
+export const itemCompartmentSchema = z.object({
+  item_id: z.string().uuid(),
+  compartment_id: z.string().uuid()
+});
+export type ItemCompartment = z.infer<typeof itemCompartmentSchema>;
 
 export const itemTopicFlagSchema = z.object({
   item_id: z.string().uuid(),
@@ -167,6 +198,17 @@ export const servicePairingSchema = z.object({
 });
 export type ServicePairing = z.infer<typeof servicePairingSchema>;
 
+export const serviceRegistryEntrySchema = z.object({
+  service_id: z.string().uuid(),
+  identifier: z.string().min(1),
+  display_name: z.string().min(1),
+  icon_url: z.string().nullable(),
+  description: z.string().nullable(),
+  created_at: z.string().datetime(),
+  updated_at: z.string().datetime()
+});
+export type ServiceRegistryEntry = z.infer<typeof serviceRegistryEntrySchema>;
+
 export const consentRequestSchema = z.object({
   consent_request_id: z.string().uuid(),
   service_id: z.string().uuid(),
@@ -243,3 +285,11 @@ export const consentDecisionInputSchema = z.object({
   allowed_item_ids: z.array(z.string().uuid()),
   blocked_item_overrides: z.array(z.string().uuid()).default([])
 });
+
+export const itemDetailsViewSchema = z.object({
+  item: itemSchema,
+  provenance: itemProvenanceSchema.nullable(),
+  topic: itemTopicFlagSchema.nullable(),
+  compartment_ids: z.array(z.string().uuid())
+});
+export type ItemDetailsView = z.infer<typeof itemDetailsViewSchema>;

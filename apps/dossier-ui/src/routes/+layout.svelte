@@ -1,27 +1,53 @@
 <script lang="ts">
   import "../app.css";
+  import { onMount } from "svelte";
   import BatchedConsentView from "$lib/components/BatchedConsentView.svelte";
   import ConsentModal from "$lib/components/ConsentModal.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
+  import { installDesktopApi } from "$lib/desktop/bridge";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
   import { goto } from "$app/navigation";
-  import type { ProfileItem } from "$lib/types";
+  import type { Category, ConsentDecisionPayload, ConsentRequestView, ProfileItemView } from "$lib/types";
   import IconSidebarSimpleRegular from "phosphor-icons-svelte/IconSidebarSimpleRegular.svelte";
 
   let { children } = $props();
   let pendingCount = $state(0);
-  let consentQueue = $state<{ id: string; serviceName: string; requestedItems: string[] }[]>([]);
+  let consentQueue = $state<{ id: string; serviceName: string; request: ConsentRequestView }[]>([]);
+  let categories = $state<{ id: string; label: string; hasPending: boolean }[]>([]);
 
-  const categories = [
-    { id: "personal", label: "Personal", hasPending: false },
-    { id: "professional", label: "Professional", hasPending: false },
-    { id: "interests", label: "Interests", hasPending: false },
-    { id: "communication", label: "Communication", hasPending: false }
-  ];
+  installDesktopApi();
 
   async function refreshPending(): Promise<void> {
-    const items: ProfileItem[] = (await window.dossier?.profile.listItems()) ?? [];
-    pendingCount = items.filter((item) => item.state === "INFERENCE_PENDING").length;
+    const [items, cats] = await Promise.all([
+      window.dossier?.profile.listItems() ?? Promise.resolve([]) as Promise<ProfileItemView[]>,
+      window.dossier?.categories.list() ?? Promise.resolve([]) as Promise<Category[]>
+    ]);
+
+    pendingCount = items.filter((item: ProfileItemView) => item.state === "INFERENCE_PENDING").length;
+
+    categories = (cats as Category[]).map((cat: Category) => {
+      const hasPending = items.some(
+        (item: ProfileItemView) => item.category_id === cat.category_id && item.state === "INFERENCE_PENDING"
+      );
+      return { id: cat.category_id, label: cat.name, hasPending };
+    });
+  }
+
+  async function decideConsent(id: string, payload: ConsentDecisionPayload): Promise<void> {
+    await window.dossier?.consent.decide(id, payload);
+    consentQueue = consentQueue.filter((entry) => entry.id !== id);
+    await refreshPending();
+  }
+
+  function defaultAllowPayload(request: ConsentRequestView): ConsentDecisionPayload {
+    const allowed = request.preview_items
+      .filter((item) => item.default_allowed)
+      .map((item) => item.item_id);
+    return {
+      decision: "ALLOW",
+      allowed_item_ids: allowed,
+      blocked_item_overrides: []
+    };
   }
 
   function isMod(event: KeyboardEvent): boolean {
@@ -74,21 +100,29 @@
     }
   }
 
-  $effect(() => {
+  onMount(() => {
     void uiSettings.hydrateFromDesktop();
     void refreshPending();
 
     const unsubscribe = window.dossier?.consent.onRequest((request) => {
-      const payload = request as { consent_request_id: string; preview_items?: { text: string }[] };
-      consentQueue = [
-        ...consentQueue,
-        {
-          id: payload.consent_request_id,
-          serviceName: "Perspectives",
-          requestedItems: payload.preview_items?.map((item) => item.text) ?? []
-        }
-      ];
-      void refreshPending();
+      const payload = request as { consent_request_id?: string };
+      const requestId = payload.consent_request_id;
+      if (!requestId) return;
+
+      void (async () => {
+        const fullRequest = await window.dossier?.consent.get(requestId);
+        if (!fullRequest) return;
+
+        consentQueue = [
+          ...consentQueue.filter((entry) => entry.id !== requestId),
+          {
+            id: requestId,
+            serviceName: fullRequest.service?.display_name ?? "Perspectives",
+            request: fullRequest
+          }
+        ];
+        await refreshPending();
+      })();
     });
 
     return () => {
@@ -100,16 +134,18 @@
 <svelte:window on:keydown={handleGlobalKeydown} />
 
 <div class="app-shell">
-  <Sidebar {pendingCount} {categories} />
+  {#if !uiSettings.showingWelcome}
+    <Sidebar {pendingCount} {categories} />
 
-  {#if uiSettings.sidebarCollapsed}
-    <button
-      class="sidebar-reopen"
-      onclick={() => uiSettings.toggleSidebar()}
-      aria-label="Open sidebar"
-    >
-      <IconSidebarSimpleRegular class="icon-20" />
-    </button>
+    {#if uiSettings.sidebarCollapsed}
+      <button
+        class="sidebar-reopen"
+        onclick={() => uiSettings.toggleSidebar()}
+        aria-label="Open sidebar"
+      >
+        <IconSidebarSimpleRegular class="icon-20" />
+      </button>
+    {/if}
   {/if}
 
   <main class="content-area">
@@ -120,34 +156,64 @@
 {#if consentQueue.length === 1 && consentQueue[0]}
   <ConsentModal
     serviceName={consentQueue[0].serviceName}
-    requestedItems={consentQueue[0].requestedItems}
-    onAllow={() => (consentQueue = consentQueue.filter((entry) => entry.id !== consentQueue[0]?.id))}
-    onDecline={() => (consentQueue = consentQueue.filter((entry) => entry.id !== consentQueue[0]?.id))}
+    request={consentQueue[0].request}
+    onAllow={(payload) => {
+      const id = consentQueue[0]?.id;
+      if (!id) return;
+      void decideConsent(id, payload);
+    }}
+    onDecline={() => {
+      const id = consentQueue[0]?.id;
+      if (!id) return;
+      void decideConsent(id, {
+        decision: "DECLINE",
+        allowed_item_ids: [],
+        blocked_item_overrides: []
+      });
+    }}
   />
 {:else if consentQueue.length > 1}
   <BatchedConsentView
     requests={consentQueue.map((entry) => ({
       id: entry.id,
       serviceName: entry.serviceName,
-      summary: `${entry.requestedItems.length} items requested`
+      summary: `${entry.request.preview_items.length} items requested`
     }))}
-    onAllow={(id: string) => (consentQueue = consentQueue.filter((entry) => entry.id !== id))}
-    onDecline={(id: string) => (consentQueue = consentQueue.filter((entry) => entry.id !== id))}
-    onDeclineAll={() => (consentQueue = [])}
+    onAllow={(id: string) => {
+      const entry = consentQueue.find((candidate) => candidate.id === id);
+      if (!entry) return;
+      void decideConsent(id, defaultAllowPayload(entry.request));
+    }}
+    onDecline={(id: string) => void decideConsent(id, {
+      decision: "DECLINE",
+      allowed_item_ids: [],
+      blocked_item_overrides: []
+    })}
+    onDeclineAll={() => {
+      for (const entry of [...consentQueue]) {
+        void decideConsent(entry.id, {
+          decision: "DECLINE",
+          allowed_item_ids: [],
+          blocked_item_overrides: []
+        });
+      }
+    }}
   />
 {/if}
 
 <style>
   .app-shell {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
   }
 
   .content-area {
     flex: 1;
     min-width: 0;
     background: var(--base);
-    min-height: 100vh;
+    height: 100%;
+    overflow-y: auto;
     position: relative;
   }
 

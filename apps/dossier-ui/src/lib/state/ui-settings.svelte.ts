@@ -5,7 +5,10 @@ class UiSettingsStore {
   dyslexiaMode = $state(false);
   highFidelityEnabled = $state(false);
   startOnLogin = $state(false);
+  localModelEndpoint = $state("");
+  localModelName = $state("");
   sidebarCollapsed = $state(false);
+  showingWelcome = $state(false);
 
   applyTheme(): void {
     applyTheme(this.theme);
@@ -31,6 +34,15 @@ class UiSettingsStore {
     this.dyslexiaMode = Boolean(desktopSettings.dyslexiaMode);
     this.highFidelityEnabled = Boolean(desktopSettings.highFidelityEnabled);
     this.startOnLogin = Boolean(desktopSettings.startOnLogin);
+    this.localModelEndpoint =
+      typeof desktopSettings.localModelEndpoint === "string" ? desktopSettings.localModelEndpoint : "";
+    this.localModelName =
+      typeof desktopSettings.localModelName === "string" ? desktopSettings.localModelName : "";
+
+    const osStartOnLogin = await window.dossier?.settings.getStartOnLogin();
+    if (typeof osStartOnLogin === "boolean") {
+      this.startOnLogin = osStartOnLogin;
+    }
 
     this.applyTheme();
     this.applyBodyMode();
@@ -41,7 +53,9 @@ class UiSettingsStore {
       theme: this.theme,
       dyslexiaMode: this.dyslexiaMode,
       highFidelityEnabled: this.highFidelityEnabled,
-      startOnLogin: this.startOnLogin
+      startOnLogin: this.startOnLogin,
+      localModelEndpoint: this.localModelEndpoint,
+      localModelName: this.localModelName
     });
   }
 }

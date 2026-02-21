@@ -17,6 +17,9 @@ export const eventTypeSchema = z.enum([
     "TOPIC_BLOCK_ADDED",
     "TOPIC_BLOCK_REMOVED",
     "TOPIC_BLOCK_TOGGLED",
+    "CATEGORY_CREATED",
+    "CATEGORY_EDITED",
+    "CATEGORY_DELETED",
     "COMPARTMENT_CREATED",
     "COMPARTMENT_EDITED",
     "COMPARTMENT_DELETED",
@@ -55,6 +58,28 @@ export const itemSchema = z.object({
     updated_at: z.string().datetime(),
     created_via: createdViaSchema,
     source_visibility: z.literal("DETAILS_ONLY")
+});
+export const categorySchema = z.object({
+    category_id: z.string().uuid(),
+    profile_id: z.string().uuid(),
+    name: z.string().min(1),
+    sort_order: z.number().int(),
+    is_system: z.boolean(),
+    created_at: z.string().datetime(),
+    updated_at: z.string().datetime()
+});
+export const compartmentSchema = z.object({
+    compartment_id: z.string().uuid(),
+    profile_id: z.string().uuid(),
+    name: z.string().min(1),
+    description: z.string().nullable(),
+    sort_order: z.number().int(),
+    created_at: z.string().datetime(),
+    updated_at: z.string().datetime()
+});
+export const itemCompartmentSchema = z.object({
+    item_id: z.string().uuid(),
+    compartment_id: z.string().uuid()
 });
 export const itemTopicFlagSchema = z.object({
     item_id: z.string().uuid(),
@@ -124,6 +149,15 @@ export const servicePairingSchema = z.object({
     token_expires_at: z.string().datetime().nullable(),
     allowed_origins_json: z.array(z.string().url())
 });
+export const serviceRegistryEntrySchema = z.object({
+    service_id: z.string().uuid(),
+    identifier: z.string().min(1),
+    display_name: z.string().min(1),
+    icon_url: z.string().nullable(),
+    description: z.string().nullable(),
+    created_at: z.string().datetime(),
+    updated_at: z.string().datetime()
+});
 export const consentRequestSchema = z.object({
     consent_request_id: z.string().uuid(),
     service_id: z.string().uuid(),
@@ -186,5 +220,11 @@ export const consentDecisionInputSchema = z.object({
     decision: consentDecisionSchema,
     allowed_item_ids: z.array(z.string().uuid()),
     blocked_item_overrides: z.array(z.string().uuid()).default([])
+});
+export const itemDetailsViewSchema = z.object({
+    item: itemSchema,
+    provenance: itemProvenanceSchema.nullable(),
+    topic: itemTopicFlagSchema.nullable(),
+    compartment_ids: z.array(z.string().uuid())
 });
 //# sourceMappingURL=types.js.map

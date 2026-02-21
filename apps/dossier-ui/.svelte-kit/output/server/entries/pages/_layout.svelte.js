@@ -7,6 +7,8 @@ import "@sveltejs/kit/internal/server";
 import "../../chunks/root.js";
 import "../../chunks/state.svelte.js";
 import { u as uiSettings } from "../../chunks/ui-settings.svelte.js";
+import { listen } from "@tauri-apps/api/event";
+import { invoke } from "@tauri-apps/api/core";
 function BatchedConsentView($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let { requests } = $$props;
@@ -255,11 +257,100 @@ function Sidebar($$renderer, $$props) {
     if ($$store_subs) unsubscribe_stores($$store_subs);
   });
 }
+function isTauriRuntime() {
+  return typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
+}
+function installDesktopApi() {
+  if (!isTauriRuntime() || window.dossier) {
+    return;
+  }
+  window.dossier = {
+    app: {
+      getVersion: () => invoke("app_get_version")
+    },
+    window: {
+      show: () => invoke("window_show"),
+      hide: () => invoke("window_hide"),
+      quit: () => invoke("window_quit")
+    },
+    settings: {
+      get: () => invoke("settings_get"),
+      set: (next) => invoke("settings_set", { next })
+    },
+    profile: {
+      listItems: () => invoke("profile_list_items"),
+      createManualItem: (payload) => invoke("profile_create_manual_item", { payload }),
+      updateItem: (itemId, payload) => invoke("profile_update_item", { itemId, payload }),
+      deleteItem: (itemId) => invoke("profile_delete_item", { itemId }),
+      inferenceConfirm: (itemId) => invoke("inference_confirm", { itemId }),
+      inferenceEditConfirm: (itemId, editedText) => invoke("inference_edit_confirm", { itemId, editedText }),
+      inferenceDismiss: (itemId, dismissReason) => invoke("inference_dismiss", { itemId, dismissReason }),
+      getItemCompartments: (itemId) => invoke("item_compartments_get", { itemId }),
+      setItemCompartments: (itemId, compartmentIds) => invoke("item_compartments_set", { itemId, compartmentIds })
+    },
+    topicRules: {
+      list: () => invoke("topic_rules_list"),
+      create: (payload) => invoke("topic_rules_create", { payload }),
+      update: (ruleId, payload) => invoke("topic_rules_update", { ruleId, payload }),
+      delete: (ruleId) => invoke("topic_rules_delete", { ruleId })
+    },
+    categories: {
+      list: () => invoke("categories_list"),
+      create: (payload) => invoke("categories_create", { payload }),
+      update: (categoryId, payload) => invoke("categories_update", { categoryId, payload }),
+      delete: (categoryId) => invoke("categories_delete", { categoryId })
+    },
+    compartments: {
+      list: () => invoke("compartments_list"),
+      create: (payload) => invoke("compartments_create", { payload }),
+      update: (compartmentId, payload) => invoke("compartments_update", { compartmentId, payload }),
+      delete: (compartmentId) => invoke("compartments_delete", { compartmentId })
+    },
+    data: {
+      exportEncrypted: (passphrase) => invoke("data_export_encrypted", { passphrase }),
+      importEncrypted: (artifact, passphrase) => invoke("data_import_encrypted", { artifact, passphrase }),
+      runTakeoutImport: (path) => invoke("data_run_takeout_import", { path })
+    },
+    server: {
+      health: () => invoke("server_health")
+    },
+    consent: {
+      get: (requestId) => invoke("consent_get", { requestId }),
+      decide: (requestId, payload) => invoke("consent_decide", { requestId, payload }),
+      onRequest: (callback) => {
+        let stop = null;
+        let disposed = false;
+        void listen("consent:request", (event) => callback(event.payload)).then((unlisten) => {
+          if (disposed) {
+            unlisten();
+            return;
+          }
+          stop = unlisten;
+        });
+        return () => {
+          disposed = true;
+          stop?.();
+          stop = null;
+        };
+      }
+    },
+    audit: {
+      list: (query = {}) => invoke("audit_list", {
+        service: query.service,
+        item: query.item,
+        eventType: query.eventType,
+        dateFrom: query.dateFrom,
+        dateTo: query.dateTo
+      })
+    }
+  };
+}
 function _layout($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
     let { children } = $$props;
     let pendingCount = 0;
     let consentQueue = [];
+    installDesktopApi();
     const categories = [
       { id: "personal", label: "Personal", hasPending: false },
       { id: "professional", label: "Professional", hasPending: false },

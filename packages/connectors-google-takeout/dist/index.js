@@ -23,7 +23,10 @@ export function runGoogleTakeoutImport(store, rootPath) {
             text: proposal.text,
             itemType: proposal.itemType,
             categoryId: null,
-            createdVia: "IMPORT"
+            createdVia: "IMPORT",
+            sourceLabel: "Google Takeout",
+            whyDossierThinksThis: proposal.why,
+            confidence: proposal.confidence
         });
         if (result) {
             inferencesCreated += 1;

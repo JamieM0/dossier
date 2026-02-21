@@ -11,6 +11,7 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
+    "@tauri-apps/api": "latest",
     "phosphor-icons-svelte": "2.1.0",
     "svelte": "^5.19.0"
   },
