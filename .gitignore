@@ -1,8 +1,50 @@
-
+# dependencies
 node_modules/
 
+# SvelteKit / Vite
+.svelte-kit/
+.vite/
+dist/
+build/
+.vercel/
+.netlify/
+
+# environment variables (keep an example file instead)
+.env
+.env.*
+!.env.example
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# testing / coverage
+coverage/
+.playwright/
+test-results/
+
+# TypeScript build info
+*.tsbuildinfo
+
+# caches
+.eslintcache
+.stylelintcache
+
+# misc
+.DS_Store
+Thumbs.db
+
+# IDEs/editors
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+
+# existing project ignores
 design_docs/
-
-*.DS_Store
-
 .claude/
+apps/dossier-ui/.svelte-kit/

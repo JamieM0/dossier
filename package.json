@@ -10,7 +10,7 @@
     "tests/*"
   ],
   "scripts": {
-    "dev": "pnpm --parallel --filter @dossier/dossier-ui --filter @dossier/dossier-desktop dev",
+    "dev": "node ./scripts/dev.mjs",
     "dev:ui": "pnpm --filter @dossier/dossier-ui dev",
     "dev:desktop": "pnpm --filter @dossier/dossier-desktop dev:desktop",
     "build": "pnpm -r build",
