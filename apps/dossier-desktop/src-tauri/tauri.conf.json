@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "identifier": "com.dossier.desktop",
   "build": {
-    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "pnpm --filter @dossier/dossier-ui dev",
+    "devUrl": "http://127.0.0.1:5173",
     "frontendDist": "../dossier-ui/build"
   },
   "app": {
@@ -27,8 +28,11 @@
     "active": true,
     "targets": "all",
     "icon": [
-      "../assets/logo.png",
-      "../assets/logo.icns"
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
     ],
     "resources": [
       "../dist/backend.js",

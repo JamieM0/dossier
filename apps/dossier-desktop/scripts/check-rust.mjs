@@ -31,6 +31,20 @@ function isVersionAtLeast(version, minimum) {
 const minimum = { major: MIN_MAJOR, minor: MIN_MINOR, patch: MIN_PATCH };
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const tauriDir = resolve(scriptDir, "../src-tauri");
+const isWindows = process.platform === "win32";
+
+function commandExists(command) {
+  try {
+    execSync(command, {
+      cwd: tauriDir,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"]
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 let rustcVersionRaw = "";
 try {
@@ -53,4 +67,21 @@ if (!rustcVersion || !isVersionAtLeast(rustcVersion, minimum)) {
   console.error("  rustup toolchain install 1.88.0");
   console.error("  rustup default 1.88.0");
   process.exit(1);
+}
+
+if (isWindows) {
+  const hasRustup = commandExists("rustup --version");
+  const hasLinker = commandExists("where link");
+  const hasCl = commandExists("where cl");
+
+  if (!hasRustup) {
+    console.error("Windows Tauri builds require rustup-managed toolchains.");
+    console.error("Install rustup from https://rustup.rs and rerun `pnpm dev`.");
+    process.exit(1);
+  }
+
+  if (!hasLinker || !hasCl) {
+    console.warn("Warning: `cl`/`link` are not available in this terminal session.");
+    console.warn("Desktop dev will attempt to bootstrap the Visual Studio build environment automatically.");
+  }
 }

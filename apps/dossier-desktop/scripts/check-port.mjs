@@ -9,6 +9,27 @@ function printPortInUseHelp() {
   console.error(`Port ${HOST}:${PORT} is already in use.`);
   console.error("Stop the existing process, then rerun `pnpm dev`.");
 
+  if (process.platform === "win32") {
+    try {
+      const output = execSync(`netstat -ano | findstr :${PORT}`, {
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"]
+      }).trim();
+      if (output) {
+        console.error("");
+        console.error("Matching sockets (Windows):");
+        console.error(output);
+        console.error("");
+        console.error("Use Task Manager or:");
+        console.error("  taskkill /PID <pid> /F");
+      }
+      return;
+    } catch {
+      console.error(`Try: netstat -ano | findstr :${PORT}`);
+      return;
+    }
+  }
+
   try {
     const output = execSync(`lsof -nP -iTCP:${PORT} -sTCP:LISTEN`, {
       encoding: "utf8",

@@ -8,8 +8,8 @@
   "scripts": {
     "preflight:rust": "node ./scripts/check-rust.mjs",
     "preflight:port": "node ./scripts/check-port.mjs",
-    "dev": "pnpm run preflight:rust && pnpm run preflight:port && pnpm run build:deps && pnpm run build && cross-env DOSSIER_UI_DEV_SERVER=http://localhost:5173 DOSSIER_BACKEND_SCRIPT=dist/backend.js tauri dev --config ./src-tauri/tauri.conf.json",
-    "dev:desktop": "pnpm run preflight:rust && pnpm run preflight:port && pnpm run build:deps && pnpm run build && cross-env DOSSIER_UI_DEV_SERVER=http://localhost:5173 DOSSIER_BACKEND_SCRIPT=dist/backend.js tauri dev --config ./src-tauri/tauri.conf.json",
+    "dev": "node ./scripts/dev-desktop.mjs",
+    "dev:desktop": "node ./scripts/dev-desktop.mjs",
     "build:deps": "pnpm -C ../.. -r --filter @dossier/domain --filter @dossier/store --filter @dossier/local-server --filter @dossier/inference-engine --filter @dossier/connectors-google-takeout build",
     "build": "tsc -p tsconfig.json",
     "dist": "pnpm run preflight:rust && pnpm run build:deps && pnpm run build && tauri build --config ./src-tauri/tauri.conf.json",

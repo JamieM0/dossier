@@ -342,10 +342,9 @@ fn create_tray(app: &AppHandle) -> Result<(), String> {
         .build()
         .map_err(|error| format!("failed to create tray menu: {error}"))?;
 
-    let icon = app
-        .default_window_icon()
-        .ok_or_else(|| "default window icon is not available".to_string())?
-        .clone();
+    let Some(icon) = app.default_window_icon().cloned() else {
+        return Err("default window icon is not available for tray setup".to_string());
+    };
 
     let _tray = TrayIconBuilder::with_id("main-tray")
         .icon(icon)
@@ -1032,7 +1031,9 @@ fn main() {
             };
 
             app.manage(state.clone());
-            create_tray(&app_handle)?;
+            if let Err(error) = create_tray(&app_handle) {
+                eprintln!("Tray initialization disabled: {error}");
+            }
 
             tauri::async_runtime::spawn(poll_consent_requests(app_handle.clone(), state));
             show_main_window(&app_handle);
