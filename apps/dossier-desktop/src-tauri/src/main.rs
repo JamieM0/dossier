@@ -19,7 +19,7 @@ use tauri::{
     menu::{MenuBuilder, MenuItemBuilder},
     path::BaseDirectory,
     tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent},
-    AppHandle, Emitter, Manager, State, WindowEvent,
+    AppHandle, Emitter, Manager, RunEvent, State, WindowEvent,
 };
 use tokio::time::sleep;
 
@@ -303,6 +303,22 @@ fn show_main_window(app: &AppHandle) {
     if let Some(window) = app.get_webview_window("main") {
         let _ = window.show();
         let _ = window.set_focus();
+    }
+}
+
+fn force_stop_backend_if_running(app: &AppHandle) {
+    if let Some(state) = app.try_state::<RuntimeState>() {
+        state.is_quitting.store(true, Ordering::SeqCst);
+        if let Some(mut child) = state
+            .client
+            .child
+            .lock()
+            .ok()
+            .and_then(|mut guard| guard.take())
+        {
+            let _ = child.kill();
+            let _ = child.wait();
+        }
     }
 }
 
@@ -1028,7 +1044,7 @@ async fn profile_item_detail(
 }
 
 fn main() {
-    let run_result = tauri::Builder::default()
+    let app = match tauri::Builder::default()
         .setup(|app| {
             let app_handle = app.handle().clone();
             let backend_client = match spawn_backend(&app_handle) {
@@ -1114,10 +1130,18 @@ fn main() {
             llm_alternatives,
             profile_item_detail
         ])
-        .run(tauri::generate_context!());
+        .build(tauri::generate_context!())
+    {
+        Ok(app) => app,
+        Err(error) => {
+            eprintln!("error while building dossier desktop app: {error}");
+            std::process::exit(1);
+        }
+    };
 
-    if let Err(error) = run_result {
-        eprintln!("error while running dossier desktop app: {error}");
-        std::process::exit(1);
-    }
+    app.run(|app, event| {
+        if matches!(event, RunEvent::Exit | RunEvent::ExitRequested { .. }) {
+            force_stop_backend_if_running(app);
+        }
+    });
 }
