@@ -48,3 +48,5 @@ Thumbs.db
 design_docs/
 .claude/
 apps/dossier-ui/.svelte-kit/
+
+design-docs/

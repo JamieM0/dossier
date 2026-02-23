@@ -9,6 +9,7 @@
   import NotificationBanner from "$lib/components/NotificationBanner.svelte";
   import ProcessingFeed from "$lib/components/ProcessingFeed.svelte";
   import PromptDialog from "$lib/components/PromptDialog.svelte";
+  import LlmIntegrationPanel from "$lib/components/LlmIntegrationPanel.svelte";
   import IconPlusRegular from "phosphor-icons-svelte/IconPlusRegular.svelte";
   import IconUploadSimpleRegular from "phosphor-icons-svelte/IconUploadSimpleRegular.svelte";
   import IconFolderOpenRegular from "phosphor-icons-svelte/IconFolderOpenRegular.svelte";
@@ -34,11 +35,6 @@
   let importHandled = $state(false);
   let setupSelectedTopics = $state<string[]>([]);
   let setupCustomTopic = $state("");
-
-  let llmEndpoint = $state("http://127.0.0.1:11434/v1");
-  let llmModel = $state("llama3.1");
-  let llmTesting = $state(false);
-  let llmTestResult = $state<{ ok: boolean; model: string; error?: string } | null>(null);
 
   let showAddItem = $state(false);
   let newItemText = $state("");
@@ -358,32 +354,6 @@
     }
   }
 
-  async function testLlmConnection(): Promise<void> {
-    if (!llmEndpoint.trim() || !llmModel.trim()) return;
-    llmTesting = true;
-    llmTestResult = null;
-    try {
-      const result = await window.dossier?.llm.test(llmEndpoint.trim(), llmModel.trim());
-      llmTestResult = result ?? { ok: false, model: llmModel, error: "Bridge unavailable" };
-    } catch (error) {
-      llmTestResult = { ok: false, model: llmModel, error: error instanceof Error ? error.message : "Connection failed" };
-    } finally {
-      llmTesting = false;
-    }
-  }
-
-  async function completeLlmSetup(): Promise<void> {
-    await window.dossier?.settings.set({
-      localModelEndpoint: llmEndpoint.trim(),
-      localModelName: llmModel.trim(),
-      llmSetupComplete: true
-    });
-    uiSettings.localModelEndpoint = llmEndpoint.trim();
-    uiSettings.localModelName = llmModel.trim();
-    llmHandled = true;
-    await closeWelcomeIfComplete();
-  }
-
   async function completeTopicSetup(): Promise<void> {
     const setupRules = [...setupSelectedTopics];
     if (setupCustomTopic.trim()) {
@@ -497,61 +467,13 @@
           </div>
         {:else}
           <div class="welcome-card">
-            <h2 class="section-heading">Connect AI model</h2>
-            <p class="section-desc">
-              Dossier uses a local LLM to analyse your data and generate profile inferences.
-              Point it at an OpenAI-compatible endpoint (e.g. Ollama running locally).
-            </p>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="llm-endpoint">Endpoint</label>
-                <input
-                  id="llm-endpoint"
-                  class="text-input"
-                  type="text"
-                  bind:value={llmEndpoint}
-                  placeholder="http://127.0.0.1:11434/v1"
-                />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="llm-model">Model</label>
-                <input
-                  id="llm-model"
-                  class="text-input"
-                  type="text"
-                  bind:value={llmModel}
-                  placeholder="llama3.1"
-                />
-              </div>
-            </div>
-
-            <div class="llm-test-row">
-              <button
-                class="btn-secondary"
-                onclick={() => void testLlmConnection()}
-                disabled={llmTesting || !llmEndpoint.trim() || !llmModel.trim()}
-              >
-                {llmTesting ? "Testing..." : "Test connection"}
-              </button>
-              {#if llmTestResult}
-                {#if llmTestResult.ok}
-                  <span class="llm-test-ok">Connected to {llmTestResult.model}</span>
-                {:else}
-                  <span class="llm-test-err">{llmTestResult.error ?? "Connection failed"}</span>
-                {/if}
-              {/if}
-            </div>
-
-            <div class="welcome-actions">
-              <button
-                class="btn-primary"
-                onclick={() => void completeLlmSetup()}
-                disabled={!llmTestResult?.ok}
-              >
-                Save & continue
-              </button>
-            </div>
+            <LlmIntegrationPanel
+              mode="onboarding"
+              onComplete={async () => {
+                llmHandled = true;
+                await closeWelcomeIfComplete();
+              }}
+            />
           </div>
         {/if}
 
@@ -1113,37 +1035,6 @@
     background: var(--secondary-accent);
     color: var(--secondary-accent-text);
     border-color: var(--secondary-accent);
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-  }
-
-  .form-label {
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-  }
-
-  .llm-test-row {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-  }
-
-  .llm-test-ok {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    color: var(--success);
-  }
-
-  .llm-test-err {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    color: var(--error);
   }
 
   /* Status */

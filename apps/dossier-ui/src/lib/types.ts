@@ -1,3 +1,25 @@
+export type LlmProviderId =
+  | "ollama"
+  | "custom"
+  | "openai"
+  | "anthropic"
+  | "google"
+  | "openrouter"
+  | "grok";
+
+export type LlmAuthMethod = "apiKey" | "oauth";
+
+export type LlmProfile = {
+  id: string;
+  name: string;
+  provider: LlmProviderId;
+  endpoint: string;
+  model: string;
+  authMethod: LlmAuthMethod;
+  apiKey?: string;
+  oauthToken?: string;
+};
+
 export type ProfileItem = {
   item_id: string;
   state: "CONFIRMED" | "INFERENCE_PENDING";
@@ -17,6 +39,8 @@ export type DossierSettings = {
   startOnLogin: boolean;
   localModelEndpoint: string;
   localModelName: string;
+  llmProfiles?: LlmProfile[];
+  activeLlmProfileId?: string | null;
   [key: string]: unknown;
 };
 

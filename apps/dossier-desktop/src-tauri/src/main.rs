@@ -951,8 +951,7 @@ async fn server_health(state: State<'_, RuntimeState>) -> Result<Value, String> 
 
 #[tauri::command]
 async fn llm_test(
-    endpoint: String,
-    model: String,
+    payload: Value,
     state: State<'_, RuntimeState>,
 ) -> Result<Value, String> {
     state
@@ -960,7 +959,22 @@ async fn llm_test(
         .request(
             Method::POST,
             "/control/llm/test",
-            Some(json!({ "endpoint": endpoint, "model": model })),
+            Some(payload),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn llm_detect_ollama_models(
+    endpoint: String,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/llm/ollama-models",
+            Some(json!({ "endpoint": endpoint })),
         )
         .await
 }
@@ -1095,6 +1109,7 @@ fn main() {
             data_run_takeout_import,
             server_health,
             llm_test,
+            llm_detect_ollama_models,
             llm_chat,
             llm_alternatives,
             profile_item_detail

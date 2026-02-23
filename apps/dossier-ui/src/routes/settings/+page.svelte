@@ -6,6 +6,7 @@
   import type { LocalBackupSummary, TopicRule } from "$lib/types";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
   import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
+  import LlmIntegrationPanel from "$lib/components/LlmIntegrationPanel.svelte";
 
   let lifecycleStatus = $state("");
   let lifecycleStatusTimer = $state<ReturnType<typeof setTimeout> | null>(null);
@@ -34,7 +35,6 @@
 
   let restoreConfirmTarget = $state<string | null>(null);
 
-  let localModelStatus = $state("");
   let isBusy = $state(false);
 
   function setLifecycleStatus(msg: string): void {
@@ -74,17 +74,6 @@
         : "Start on login is disabled at the OS level.");
     } catch (error) {
       setLifecycleStatus(errorToMessage(error));
-    }
-  }
-
-  async function saveLocalModel(): Promise<void> {
-    localModelStatus = "";
-    try {
-      await uiSettings.persist();
-      localModelStatus = "Local model settings saved.";
-      setTimeout(() => { localModelStatus = ""; }, 4000);
-    } catch (error) {
-      localModelStatus = errorToMessage(error);
     }
   }
 
@@ -532,23 +521,8 @@
         </div>
 
         <div class="setting-group">
-          <span class="setting-label">Local model setup</span>
-          <div class="local-model-grid">
-            <input
-              class="text-input"
-              bind:value={uiSettings.localModelEndpoint}
-              placeholder="http://127.0.0.1:11434/v1"
-            />
-            <input
-              class="text-input"
-              bind:value={uiSettings.localModelName}
-              placeholder="Model name (e.g. llama3.1)"
-            />
-            <button class="btn-secondary" onclick={() => void saveLocalModel()}>Save local model</button>
-          </div>
-          {#if localModelStatus}
-            <p class="status-text" aria-live="polite">{localModelStatus}</p>
-          {/if}
+          <span class="setting-label">LLM configuration</span>
+          <LlmIntegrationPanel mode="settings" />
         </div>
       </section>
     </div>
@@ -961,12 +935,6 @@
     font-size: 0.8125rem;
   }
 
-  .local-model-grid {
-    display: grid;
-    gap: var(--space-2);
-    max-width: 520px;
-  }
-
   /* Danger Zone */
   .danger-zone {
     margin-top: var(--space-8);
@@ -1062,14 +1030,6 @@
   .btn-danger:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-  }
-
-  .status-text {
-    margin-top: var(--space-3);
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    line-height: 1.4;
-    color: var(--text-secondary);
   }
 
   @media (max-width: 768px) {

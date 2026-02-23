@@ -75,8 +75,17 @@ export function installDesktopApi(): void {
         invoke("profile_item_detail", { itemId })
     },
     llm: {
-      test: (endpoint: string, model: string): Promise<LlmTestResult> =>
-        invoke("llm_test", { endpoint, model }),
+      test: (payload: {
+        provider: "ollama" | "custom" | "openai" | "anthropic" | "google" | "openrouter" | "grok";
+        endpoint: string;
+        model: string;
+        authMethod?: "apiKey" | "oauth";
+        apiKey?: string;
+        oauthToken?: string;
+      }): Promise<LlmTestResult> =>
+        invoke("llm_test", { payload }),
+      detectOllamaModels: (endpoint: string): Promise<{ models: string[] }> =>
+        invoke("llm_detect_ollama_models", { endpoint }),
       chat: (messages: ChatMessage[], userMessage: string): Promise<LlmChatResult> =>
         invoke("llm_chat", { messages, userMessage }),
       alternatives: (text: string, itemType?: string, why?: string): Promise<AlternativeSet> =>

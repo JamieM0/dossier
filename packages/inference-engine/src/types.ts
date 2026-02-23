@@ -1,6 +1,17 @@
 export type InferenceEngineConfig = {
   endpoint: string;
   model: string;
+  provider?:
+    | "ollama"
+    | "custom"
+    | "openai"
+    | "anthropic"
+    | "google"
+    | "openrouter"
+    | "grok";
+  authMethod?: "apiKey" | "oauth";
+  apiKey?: string;
+  oauthToken?: string;
 };
 
 export type ChatMessage = {

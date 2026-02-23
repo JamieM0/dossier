@@ -53,7 +53,15 @@ declare global {
         getItemDetail: (itemId: string) => Promise<ItemDetailView>;
       };
       llm: {
-        test: (endpoint: string, model: string) => Promise<LlmTestResult>;
+        test: (payload: {
+          provider: "ollama" | "custom" | "openai" | "anthropic" | "google" | "openrouter" | "grok";
+          endpoint: string;
+          model: string;
+          authMethod?: "apiKey" | "oauth";
+          apiKey?: string;
+          oauthToken?: string;
+        }) => Promise<LlmTestResult>;
+        detectOllamaModels: (endpoint: string) => Promise<{ models: string[] }>;
         chat: (messages: ChatMessage[], userMessage: string) => Promise<LlmChatResult>;
         alternatives: (text: string, itemType?: string, why?: string) => Promise<AlternativeSet>;
       };

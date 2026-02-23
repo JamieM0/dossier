@@ -1,4 +1,10 @@
 import { applyTheme, type ThemeName } from "$lib/design/themes";
+import type { LlmProfile } from "$lib/types";
+import {
+  getActiveLlmProfile,
+  normalizeLlmProfiles,
+  toLegacyLocalModelSettings
+} from "$lib/llm/providers";
 
 class UiSettingsStore {
   theme = $state<ThemeName>("Parchment");
@@ -7,8 +13,22 @@ class UiSettingsStore {
   startOnLogin = $state(false);
   localModelEndpoint = $state("");
   localModelName = $state("");
+  llmProfiles = $state<LlmProfile[]>([]);
+  activeLlmProfileId = $state<string | null>(null);
   sidebarCollapsed = $state(false);
   showingWelcome = $state(false);
+
+  getActiveLlmProfile(): LlmProfile | null {
+    return getActiveLlmProfile(this.llmProfiles, this.activeLlmProfileId);
+  }
+
+  setLlmProfiles(profiles: LlmProfile[], activeLlmProfileId: string | null): void {
+    this.llmProfiles = profiles;
+    this.activeLlmProfileId = activeLlmProfileId;
+    const legacy = toLegacyLocalModelSettings(profiles, activeLlmProfileId);
+    this.localModelEndpoint = legacy.localModelEndpoint;
+    this.localModelName = legacy.localModelName;
+  }
 
   applyTheme(): void {
     applyTheme(this.theme);
@@ -34,10 +54,16 @@ class UiSettingsStore {
     this.dyslexiaMode = Boolean(desktopSettings.dyslexiaMode);
     this.highFidelityEnabled = Boolean(desktopSettings.highFidelityEnabled);
     this.startOnLogin = Boolean(desktopSettings.startOnLogin);
-    this.localModelEndpoint =
-      typeof desktopSettings.localModelEndpoint === "string" ? desktopSettings.localModelEndpoint : "";
-    this.localModelName =
-      typeof desktopSettings.localModelName === "string" ? desktopSettings.localModelName : "";
+    const normalizedLlmSettings = normalizeLlmProfiles({
+      llmProfiles: desktopSettings.llmProfiles,
+      activeLlmProfileId: desktopSettings.activeLlmProfileId,
+      localModelEndpoint: desktopSettings.localModelEndpoint,
+      localModelName: desktopSettings.localModelName
+    });
+    this.setLlmProfiles(
+      normalizedLlmSettings.profiles,
+      normalizedLlmSettings.activeLlmProfileId
+    );
 
     const osStartOnLogin = await window.dossier?.settings.getStartOnLogin();
     if (typeof osStartOnLogin === "boolean") {
@@ -49,13 +75,16 @@ class UiSettingsStore {
   }
 
   async persist(): Promise<void> {
+    const legacy = toLegacyLocalModelSettings(this.llmProfiles, this.activeLlmProfileId);
     await window.dossier?.settings.set({
       theme: this.theme,
       dyslexiaMode: this.dyslexiaMode,
       highFidelityEnabled: this.highFidelityEnabled,
       startOnLogin: this.startOnLogin,
-      localModelEndpoint: this.localModelEndpoint,
-      localModelName: this.localModelName
+      localModelEndpoint: legacy.localModelEndpoint,
+      localModelName: legacy.localModelName,
+      llmProfiles: this.llmProfiles,
+      activeLlmProfileId: this.activeLlmProfileId
     });
   }
 }

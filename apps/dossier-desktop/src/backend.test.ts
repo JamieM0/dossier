@@ -310,6 +310,7 @@ describe("control API routes", () => {
       ["POST", "/control/data/backups", { passphrase: "secret" }],
       ["POST", "/control/data/backups/b-1/verify", {}],
       ["POST", "/control/data/backups/b-1/restore", { passphrase: "secret" }],
+      ["POST", "/control/llm/ollama-models", { endpoint: "http://127.0.0.1:11434/v1" }],
       ["POST", "/control/profile/delete-irreversible", { confirmationText: "DELETE MY PROFILE" }]
     ] as const;
 
@@ -353,6 +354,7 @@ describe("control API routes", () => {
       ["POST", "/control/data/backups", { passphrase: "secret" }, 201],
       ["POST", "/control/data/backups/b-1/verify", {}, 200],
       ["POST", "/control/data/backups/b-1/restore", { passphrase: "secret" }, 200],
+      ["POST", "/control/llm/ollama-models", { endpoint: "http://127.0.0.1:11434/v1" }, 200],
       ["POST", "/control/profile/delete-irreversible", { confirmationText: "DELETE MY PROFILE" }, 200]
     ] as const;
 
@@ -373,14 +375,14 @@ describe("control API routes", () => {
     expect(typeof payload.error.message).toBe("string");
   });
 
-  test("validates local model settings payload", async () => {
+  test("validates local model endpoint URL format", async () => {
     const response = await request(
       "/control/settings",
       {
         method: "PUT",
         body: JSON.stringify({
           next: {
-            localModelEndpoint: "https://example.com/v1",
+            localModelEndpoint: "not-a-url",
             localModelName: "mistral"
           }
         })
@@ -391,7 +393,50 @@ describe("control API routes", () => {
     expect(response.status).toBe(400);
     const payload = response.body as { error: { code: string; message: string } };
     expect(payload.error.code).toBe("BAD_REQUEST");
-    expect(payload.error.message).toContain("local host");
+    expect(payload.error.message).toContain("valid URL");
+  });
+
+  test("accepts multiple llm profiles with active selection", async () => {
+    const response = await request(
+      "/control/settings",
+      {
+        method: "PUT",
+        body: JSON.stringify({
+          next: {
+            llmProfiles: [
+              {
+                id: "p1",
+                name: "Ollama",
+                provider: "ollama",
+                endpoint: "http://127.0.0.1:11434/v1",
+                model: "llama3.1",
+                authMethod: "apiKey",
+                apiKey: ""
+              },
+              {
+                id: "p2",
+                name: "OpenAI",
+                provider: "openai",
+                endpoint: "https://api.openai.com/v1",
+                model: "gpt-4o-mini",
+                authMethod: "apiKey",
+                apiKey: "secret"
+              }
+            ],
+            activeLlmProfileId: "p2"
+          }
+        })
+      },
+      true
+    );
+
+    expect(response.status).toBe(200);
+    const payload = response.body as {
+      activeLlmProfileId: string;
+      llmProfiles: Array<{ id: string }>;
+    };
+    expect(payload.activeLlmProfileId).toBe("p2");
+    expect(payload.llmProfiles).toHaveLength(2);
   });
 
   test("requires profile delete confirmation phrase", async () => {

@@ -4,6 +4,37 @@ import { existsSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { pathToFileURL } from "node:url";
 
+type LlmProviderId =
+  | "ollama"
+  | "custom"
+  | "openai"
+  | "anthropic"
+  | "google"
+  | "openrouter"
+  | "grok";
+
+type LlmAuthMethod = "apiKey" | "oauth";
+
+type LlmProfile = {
+  id: string;
+  name: string;
+  provider: LlmProviderId;
+  endpoint: string;
+  model: string;
+  authMethod: LlmAuthMethod;
+  apiKey?: string;
+  oauthToken?: string;
+};
+
+type LlmRuntimeConfig = {
+  endpoint: string;
+  model: string;
+  provider: LlmProviderId;
+  authMethod: LlmAuthMethod;
+  apiKey?: string;
+  oauthToken?: string;
+};
+
 type DossierSettings = {
   theme: string;
   dyslexiaMode: boolean;
@@ -11,6 +42,8 @@ type DossierSettings = {
   startOnLogin: boolean;
   localModelEndpoint: string;
   localModelName: string;
+  llmProfiles: LlmProfile[];
+  activeLlmProfileId: string | null;
   [key: string]: unknown;
 };
 
@@ -147,7 +180,9 @@ const defaultSettings: DossierSettings = {
   highFidelityEnabled: false,
   startOnLogin: false,
   localModelEndpoint: "",
-  localModelName: ""
+  localModelName: "",
+  llmProfiles: [],
+  activeLlmProfileId: null
 };
 
 const JSON_HEADERS = { "content-type": "application/json; charset=utf-8" };
@@ -159,10 +194,10 @@ let profileServer: {
   stop: () => Promise<void>;
   on: (event: string, listener: (payload: unknown) => void) => void;
 };
-let runGoogleTakeoutImport: (store: unknown, rootPath: string, llmConfig?: { endpoint: string; model: string } | null) => Promise<unknown>;
-let testLlmConnection: ((config: { endpoint: string; model: string }) => Promise<{ ok: boolean; model: string; error?: string }>) | null = null;
-let inferFromChatMessage: ((config: { endpoint: string; model: string }, history: { role: string; content: string }[], userMessage: string) => Promise<{ reply: string; proposals: { text: string; itemType: string; why: string; confidence: number | null }[] }>) | null = null;
-let generateAlternatives: ((config: { endpoint: string; model: string }, text: string, itemType: string, why?: string) => Promise<{ original: string; alternatives: { text: string; reason: string }[] }>) | null = null;
+let runGoogleTakeoutImport: (store: unknown, rootPath: string, llmConfig?: LlmRuntimeConfig | null) => Promise<unknown>;
+let testLlmConnection: ((config: LlmRuntimeConfig) => Promise<{ ok: boolean; model: string; error?: string }>) | null = null;
+let inferFromChatMessage: ((config: LlmRuntimeConfig, history: { role: string; content: string }[], userMessage: string) => Promise<{ reply: string; proposals: { text: string; itemType: string; why: string; confidence: number | null }[] }>) | null = null;
+let generateAlternatives: ((config: LlmRuntimeConfig, text: string, itemType: string, why?: string) => Promise<{ original: string; alternatives: { text: string; reason: string }[] }>) | null = null;
 let shuttingDown = false;
 
 const controlToken = randomBytes(24).toString("base64url");
@@ -297,32 +332,110 @@ function parseOptionalString(value: unknown, fieldName: string): string | undefi
   return value.trim();
 }
 
-function validateLocalModel(endpoint: string, model: string): void {
-  if (!endpoint && !model) {
-    return;
+function parseOptionalNullableString(
+  value: unknown,
+  fieldName: string
+): string | null | undefined {
+  if (value === undefined) {
+    return undefined;
   }
-
-  if (!endpoint || !model) {
-    fail(400, "BAD_REQUEST", "localModelEndpoint and localModelName must both be set");
+  if (value === null) {
+    return null;
   }
+  if (typeof value !== "string") {
+    fail(400, "BAD_REQUEST", `${fieldName} must be a string or null`);
+  }
+  return value.trim();
+}
 
+function parseRequiredString(value: unknown, fieldName: string): string {
+  if (typeof value !== "string" || !value.trim()) {
+    fail(400, "BAD_REQUEST", `${fieldName} is required`);
+  }
+  return value.trim();
+}
+
+function validateEndpointUrl(endpoint: string, fieldName: string): void {
   let parsed: URL;
   try {
     parsed = new URL(endpoint);
   } catch {
-    fail(400, "BAD_REQUEST", "localModelEndpoint must be a valid URL");
+    fail(400, "BAD_REQUEST", `${fieldName} must be a valid URL`);
     return;
   }
 
-  if (!["http:", "https:"].includes(parsed.protocol)) {
-    fail(400, "BAD_REQUEST", "localModelEndpoint must use http or https");
+  if (!parsed.protocol || !["http:", "https:"].includes(parsed.protocol)) {
+    fail(400, "BAD_REQUEST", `${fieldName} must use http or https`);
+  }
+}
+
+function toProviderId(value: unknown): LlmProviderId {
+  switch (value) {
+    case "ollama":
+    case "custom":
+    case "openai":
+    case "anthropic":
+    case "google":
+    case "openrouter":
+    case "grok":
+      return value;
+    default:
+      return "custom";
+  }
+}
+
+function toAuthMethod(value: unknown): LlmAuthMethod {
+  return value === "oauth" ? "oauth" : "apiKey";
+}
+
+function parseLlmProfile(value: unknown, index: number): LlmProfile {
+  if (!value || typeof value !== "object") {
+    fail(400, "BAD_REQUEST", `llmProfiles[${index}] must be an object`);
   }
 
-  const host = parsed.hostname.toLowerCase();
-  const isLocalHost = host === "localhost" || host === "127.0.0.1" || host === "::1";
-  if (!isLocalHost) {
-    fail(400, "BAD_REQUEST", "localModelEndpoint must target a local host");
+  const raw = value as Record<string, unknown>;
+  const provider = toProviderId(raw.provider);
+  const endpoint = parseRequiredString(raw.endpoint, `llmProfiles[${index}].endpoint`);
+  const model = parseRequiredString(raw.model, `llmProfiles[${index}].model`);
+  validateEndpointUrl(endpoint, `llmProfiles[${index}].endpoint`);
+
+  const apiKey = parseOptionalString(raw.apiKey, `llmProfiles[${index}].apiKey`) ?? "";
+  const oauthToken =
+    parseOptionalString(raw.oauthToken, `llmProfiles[${index}].oauthToken`) ?? "";
+
+  return {
+    id: parseOptionalString(raw.id, `llmProfiles[${index}].id`) || randomUUID(),
+    name:
+      parseOptionalString(raw.name, `llmProfiles[${index}].name`) ||
+      `${provider}-${index + 1}`,
+    provider,
+    endpoint,
+    model,
+    authMethod: toAuthMethod(raw.authMethod),
+    apiKey,
+    oauthToken
+  };
+}
+
+function parseLlmProfiles(value: unknown): LlmProfile[] | undefined {
+  if (value === undefined) {
+    return undefined;
   }
+  if (!Array.isArray(value)) {
+    fail(400, "BAD_REQUEST", "llmProfiles must be an array");
+  }
+
+  return value.map((profile, index) => parseLlmProfile(profile, index));
+}
+
+function validateLegacyModelSettings(endpoint: string, model: string): void {
+  if (!endpoint && !model) {
+    return;
+  }
+  if (!endpoint || !model) {
+    fail(400, "BAD_REQUEST", "localModelEndpoint and localModelName must both be set");
+  }
+  validateEndpointUrl(endpoint, "localModelEndpoint");
 }
 
 function normalizeSettingsPatch(payload: unknown): DossierSettings {
@@ -339,6 +452,11 @@ function normalizeSettingsPatch(payload: unknown): DossierSettings {
   const theme = parseOptionalString(next.theme, "theme");
   const localModelEndpoint = parseOptionalString(next.localModelEndpoint, "localModelEndpoint");
   const localModelName = parseOptionalString(next.localModelName, "localModelName");
+  const llmProfiles = parseLlmProfiles(next.llmProfiles);
+  const activeLlmProfileId = parseOptionalNullableString(
+    next.activeLlmProfileId,
+    "activeLlmProfileId"
+  );
   const passthrough = Object.fromEntries(
     Object.entries(next).filter(
       ([key]) =>
@@ -348,7 +466,9 @@ function normalizeSettingsPatch(payload: unknown): DossierSettings {
           "highFidelityEnabled",
           "startOnLogin",
           "localModelEndpoint",
-          "localModelName"
+          "localModelName",
+          "llmProfiles",
+          "activeLlmProfileId"
         ].includes(key)
     )
   );
@@ -361,10 +481,24 @@ function normalizeSettingsPatch(payload: unknown): DossierSettings {
     highFidelityEnabled: parseBoolean(next.highFidelityEnabled, settingsCache.highFidelityEnabled),
     startOnLogin: parseBoolean(next.startOnLogin, settingsCache.startOnLogin),
     ...(localModelEndpoint !== undefined ? { localModelEndpoint } : {}),
-    ...(localModelName !== undefined ? { localModelName } : {})
+    ...(localModelName !== undefined ? { localModelName } : {}),
+    ...(llmProfiles !== undefined ? { llmProfiles } : {}),
+    ...(activeLlmProfileId !== undefined ? { activeLlmProfileId } : {})
   };
 
-  validateLocalModel(normalized.localModelEndpoint, normalized.localModelName);
+  validateLegacyModelSettings(normalized.localModelEndpoint, normalized.localModelName);
+
+  if (
+    normalized.activeLlmProfileId &&
+    !normalized.llmProfiles.some((profile) => profile.id === normalized.activeLlmProfileId)
+  ) {
+    fail(400, "BAD_REQUEST", "activeLlmProfileId must reference an existing llmProfiles entry");
+  }
+
+  if (normalized.llmProfiles.length === 0) {
+    normalized.activeLlmProfileId = null;
+  }
+
   return normalized;
 }
 
@@ -471,16 +605,111 @@ async function shutdown(controlServer: ReturnType<typeof createServer>): Promise
   ]);
 }
 
-function getLlmConfig(): { endpoint: string; model: string } | null {
-  if (settingsCache.localModelEndpoint && settingsCache.localModelName) {
-    return { endpoint: settingsCache.localModelEndpoint, model: settingsCache.localModelName };
+function getLlmConfig(): LlmRuntimeConfig | null {
+  const activeProfile =
+    settingsCache.llmProfiles.find(
+      (profile) => profile.id === settingsCache.activeLlmProfileId
+    ) ?? settingsCache.llmProfiles[0];
+
+  if (activeProfile?.endpoint && activeProfile.model) {
+    return {
+      endpoint: activeProfile.endpoint,
+      model: activeProfile.model,
+      provider: activeProfile.provider,
+      authMethod: activeProfile.authMethod,
+      ...(activeProfile.apiKey?.trim() ? { apiKey: activeProfile.apiKey.trim() } : {}),
+      ...(activeProfile.oauthToken?.trim()
+        ? { oauthToken: activeProfile.oauthToken.trim() }
+        : {})
+    };
   }
+
+  if (settingsCache.localModelEndpoint && settingsCache.localModelName) {
+    return {
+      endpoint: settingsCache.localModelEndpoint,
+      model: settingsCache.localModelName,
+      provider: "custom",
+      authMethod: "apiKey"
+    };
+  }
+
   return null;
+}
+
+function parseLlmRuntimeConfig(value: unknown): LlmRuntimeConfig {
+  if (!value || typeof value !== "object") {
+    fail(400, "BAD_REQUEST", "llm payload is required");
+  }
+
+  const raw = value as Record<string, unknown>;
+  const endpoint = parseRequiredString(raw.endpoint, "endpoint");
+  const model = parseRequiredString(raw.model, "model");
+  validateEndpointUrl(endpoint, "endpoint");
+  const apiKey = parseOptionalString(raw.apiKey, "apiKey");
+  const oauthToken = parseOptionalString(raw.oauthToken, "oauthToken");
+
+  return {
+    endpoint,
+    model,
+    provider: toProviderId(raw.provider),
+    authMethod: toAuthMethod(raw.authMethod),
+    ...(apiKey ? { apiKey } : {}),
+    ...(oauthToken ? { oauthToken } : {})
+  };
+}
+
+async function detectOllamaModels(endpoint: string): Promise<string[]> {
+  const parsed = new URL(endpoint);
+  if (!["http:", "https:"].includes(parsed.protocol)) {
+    return [];
+  }
+
+  const origin = `${parsed.protocol}//${parsed.host}`;
+  const fromTags = await fetch(`${origin}/api/tags`, {
+    signal: AbortSignal.timeout(8_000)
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        return [] as string[];
+      }
+      const data = (await response.json()) as {
+        models?: Array<{ name?: string; model?: string }>;
+      };
+      return (
+        data.models
+          ?.map((entry) => entry.name ?? entry.model ?? "")
+          .filter((name) => Boolean(name?.trim()))
+          .map((name) => name.trim()) ?? []
+      );
+    })
+    .catch(() => [] as string[]);
+
+  const basePath = endpoint.replace(/\/+$/, "");
+  const fromOpenAiList = await fetch(`${basePath}/models`, {
+    signal: AbortSignal.timeout(8_000)
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        return [] as string[];
+      }
+      const data = (await response.json()) as {
+        data?: Array<{ id?: string }>;
+      };
+      return (
+        data.data
+          ?.map((entry) => entry.id ?? "")
+          .filter((name) => Boolean(name?.trim()))
+          .map((name) => name.trim()) ?? []
+      );
+    })
+    .catch(() => [] as string[]);
+
+  return [...new Set([...fromTags, ...fromOpenAiList])];
 }
 
 export function createControlRequestHandler(options: {
   storeService: StoreServicePort;
-  runGoogleTakeoutImport: (store: unknown, rootPath: string, llmConfig?: { endpoint: string; model: string } | null) => Promise<unknown>;
+  runGoogleTakeoutImport: (store: unknown, rootPath: string, llmConfig?: LlmRuntimeConfig | null) => Promise<unknown>;
 }): (req: IncomingMessage, res: ServerResponse) => Promise<void> {
   return async (req, res) => {
     const method = req.method ?? "GET";
@@ -906,15 +1135,26 @@ export function createControlRequestHandler(options: {
 
       // LLM routes
       if (method === "POST" && path === "/control/llm/test") {
-        const payload = (await readJsonBody(req)) as { endpoint?: string; model?: string };
-        if (!payload.endpoint || !payload.model) {
-          fail(400, "BAD_REQUEST", "endpoint and model are required");
-        }
+        const body = await readJsonBody(req);
+        const payload =
+          body && typeof body === "object" && "payload" in (body as Record<string, unknown>)
+            ? (body as { payload?: unknown }).payload
+            : body;
+        const config = parseLlmRuntimeConfig(payload);
         if (!testLlmConnection) {
           fail(500, "INTERNAL", "inference engine not loaded");
         }
-        const result = await testLlmConnection({ endpoint: payload.endpoint, model: payload.model });
+        const result = await testLlmConnection(config);
         sendJson(res, 200, result);
+        return;
+      }
+
+      if (method === "POST" && path === "/control/llm/ollama-models") {
+        const payload = (await readJsonBody(req)) as { endpoint?: string };
+        const endpoint = parseRequiredString(payload.endpoint, "endpoint");
+        validateEndpointUrl(endpoint, "endpoint");
+        const models = await detectOllamaModels(endpoint);
+        sendJson(res, 200, { models });
         return;
       }
 

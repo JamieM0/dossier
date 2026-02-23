@@ -10,6 +10,17 @@ export type InferenceProposal = {
 export type LlmConfig = {
   endpoint: string;
   model: string;
+  provider?:
+    | "ollama"
+    | "custom"
+    | "openai"
+    | "anthropic"
+    | "google"
+    | "openrouter"
+    | "grok";
+  authMethod?: "apiKey" | "oauth";
+  apiKey?: string;
+  oauthToken?: string;
 };
 
 function normalizeTokens(input: string): string[] {
@@ -62,7 +73,17 @@ export async function inferFromTakeoutArtifacts(
   try {
     // Dynamic import to avoid hard dependency on inference-engine
     const { inferFromTakeoutText } = await import("@dossier/inference-engine");
-    return await inferFromTakeoutText({ endpoint: llmConfig.endpoint, model: llmConfig.model }, summary);
+    return await inferFromTakeoutText(
+      {
+        endpoint: llmConfig.endpoint,
+        model: llmConfig.model,
+        ...(llmConfig.provider ? { provider: llmConfig.provider } : {}),
+        ...(llmConfig.authMethod ? { authMethod: llmConfig.authMethod } : {}),
+        ...(llmConfig.apiKey ? { apiKey: llmConfig.apiKey } : {}),
+        ...(llmConfig.oauthToken ? { oauthToken: llmConfig.oauthToken } : {})
+      },
+      summary
+    );
   } catch {
     // Fall back to word-frequency approach on LLM failure
     return inferFromTakeoutArtifactsFallback(artifacts);
