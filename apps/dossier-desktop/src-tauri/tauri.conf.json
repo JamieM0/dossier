@@ -13,10 +13,10 @@
       {
         "label": "main",
         "title": "Dossier",
-        "width": 1100,
-        "height": 750,
-        "minWidth": 800,
-        "minHeight": 600,
+        "width": 1440,
+        "height": 900,
+        "minWidth": 1200,
+        "minHeight": 760,
         "visible": false
       }
     ],

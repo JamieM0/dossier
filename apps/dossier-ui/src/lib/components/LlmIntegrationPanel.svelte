@@ -24,14 +24,31 @@
 
   let {
     mode = "settings",
-    onComplete
+    onComplete,
+    onCancel,
+    initialProfiles,
+    initialActiveLlmProfileId = null,
+    primaryActionLabel,
+    showSkipAction = true,
+    showTestAction = true,
+    requireSuccessfulTest,
+    persistOnSave = true
   } = $props<{
     mode?: LlmMode;
-    onComplete?: () => void | Promise<void>;
+    onComplete?: (result?: { profiles: LlmProfile[]; activeLlmProfileId: string }) => void | Promise<void>;
+    onCancel?: () => void;
+    initialProfiles?: LlmProfile[];
+    initialActiveLlmProfileId?: string | null;
+    primaryActionLabel?: string;
+    showSkipAction?: boolean;
+    showTestAction?: boolean;
+    requireSuccessfulTest?: boolean;
+    persistOnSave?: boolean;
   }>();
 
   let isLoading = $state(true);
   let isSaving = $state(false);
+  let isSkipping = $state(false);
   let isTesting = $state(false);
   let isDetecting = $state(false);
 
@@ -44,6 +61,7 @@
   let lastAutoDetectionKey = $state("");
   let lastSuccessfulTestProfileId = $state<string | null>(null);
   let addProviderId = $state<LlmProviderId>("openai");
+  let showLocalAdvanced = $state(false);
 
   let testResult = $state<{ ok: boolean; model: string; error?: string } | null>(null);
 
@@ -55,17 +73,34 @@
   const orderedRemoteProviders = LLM_PROVIDER_DEFINITIONS.filter(
     (provider) => provider.id !== "ollama" && provider.id !== "custom"
   );
+  const remoteProviderOptions = $derived([
+    getProviderDefinition("custom"),
+    ...orderedRemoteProviders
+  ]);
+  const isOnboarding = $derived(mode === "onboarding");
+  const shouldRequireSuccessfulTest = $derived(
+    requireSuccessfulTest ?? mode === "onboarding"
+  );
+  const needsSuccessfulTest = $derived(
+    shouldRequireSuccessfulTest &&
+      Boolean(activeProfile) &&
+      lastSuccessfulTestProfileId !== activeProfile?.id
+  );
+  const saveDisabled = $derived(
+    isSaving || !activeProfile || !profileReady(activeProfile) || needsSuccessfulTest
+  );
 
   $effect(() => {
     selectedProfileId;
     testResult = null;
     detectedOllamaModels = [];
     lastSuccessfulTestProfileId = null;
+    showLocalAdvanced = false;
   });
 
   $effect(() => {
     const profile = selectedProfile;
-    if (!profile || profile.provider !== "ollama") {
+    if (!profile || profile.provider !== "ollama" || mode === "onboarding") {
       return;
     }
     const endpoint = profile.endpoint.trim();
@@ -77,7 +112,7 @@
       return;
     }
     lastAutoDetectionKey = nextKey;
-    void detectOllamaModels();
+    void detectOllamaModels(false);
   });
 
   function isLocalHostEndpoint(endpoint: string): boolean {
@@ -124,6 +159,53 @@
     return `${provider.label} · ${model}`;
   }
 
+  function modelPlaceholder(profile: LlmProfile): string {
+    if (profile.provider === "ollama") {
+      return "llama3.1";
+    }
+    const provider = getProviderDefinition(profile.provider);
+    if (provider.defaultModel.trim()) {
+      return provider.defaultModel;
+    }
+    return "Enter model name";
+  }
+
+  function endpointReady(profile: LlmProfile): boolean {
+    return profile.endpoint.trim().length > 0;
+  }
+
+  function modelReady(profile: LlmProfile): boolean {
+    return profile.model.trim().length > 0;
+  }
+
+  function authReady(profile: LlmProfile): boolean {
+    if (!credentialRequired(profile)) {
+      return true;
+    }
+    return profile.authMethod === "oauth"
+      ? Boolean(profile.oauthToken?.trim())
+      : Boolean(profile.apiKey?.trim());
+  }
+
+  function nextStepHint(profile: LlmProfile | null): string {
+    if (!profile) {
+      return "Select a profile to continue.";
+    }
+    if (!endpointReady(profile)) {
+      return "Add the endpoint URL first.";
+    }
+    if (!modelReady(profile)) {
+      return "Set a model name before testing.";
+    }
+    if (!authReady(profile)) {
+      return "Add authentication credentials for this provider.";
+    }
+    if (shouldRequireSuccessfulTest && lastSuccessfulTestProfileId !== profile.id) {
+      return "Run Test connection to unlock Save & continue.";
+    }
+    return "Ready to save.";
+  }
+
   function updateSelectedProfile(patch: Partial<LlmProfile>): void {
     if (!selectedProfileId) {
       return;
@@ -139,6 +221,24 @@
     if (selectedProfileId === activeLlmProfileId) {
       lastSuccessfulTestProfileId = null;
     }
+  }
+
+  function setOnboardingSource(source: "local" | "remote"): void {
+    if (source === "local") {
+      setProvider("ollama");
+      return;
+    }
+    if (selectedProfile?.provider !== "ollama") {
+      return;
+    }
+    setProvider("openai");
+  }
+
+  function setOnboardingRemoteProvider(providerId: LlmProviderId): void {
+    if (providerId === "ollama") {
+      return;
+    }
+    setProvider(providerId);
   }
 
   function countProfiles(providerId: LlmProviderId): number {
@@ -221,7 +321,7 @@
     }
   }
 
-  async function detectOllamaModels(): Promise<void> {
+  async function detectOllamaModels(manual: boolean): Promise<void> {
     if (!selectedProfile || selectedProfile.provider !== "ollama") {
       return;
     }
@@ -250,7 +350,9 @@
         ? `Detected ${detectedOllamaModels.length} local model${
             detectedOllamaModels.length === 1 ? "" : "s"
           }.`
-        : "No Ollama models detected yet. Run `ollama pull <model>` first.";
+        : manual
+          ? "No Ollama models detected yet. Run `ollama pull <model>` first."
+          : "";
     } catch (error) {
       statusMessage = error instanceof Error ? error.message : "Failed to detect Ollama models.";
       detectedOllamaModels = [];
@@ -312,7 +414,7 @@
       statusMessage = "Your active profile is incomplete. Finish it before saving.";
       return;
     }
-    if (mode === "onboarding" && lastSuccessfulTestProfileId !== active.id) {
+    if (shouldRequireSuccessfulTest && lastSuccessfulTestProfileId !== active.id) {
       statusMessage = "Please run a successful connection test before continuing.";
       return;
     }
@@ -322,25 +424,32 @@
     isSaving = true;
     statusMessage = "";
     try {
-      await window.dossier?.settings.set({
-        llmProfiles: nextProfiles,
-        activeLlmProfileId: active.id,
-        localModelEndpoint: legacy.localModelEndpoint,
-        localModelName: legacy.localModelName,
-        llmSetupComplete: true
-      });
+      if (persistOnSave) {
+        await window.dossier?.settings.set({
+          llmProfiles: nextProfiles,
+          activeLlmProfileId: active.id,
+          localModelEndpoint: legacy.localModelEndpoint,
+          localModelName: legacy.localModelName,
+          llmSetupComplete: true
+        });
+      }
 
       profiles = nextProfiles;
       activeLlmProfileId = active.id;
-      uiSettings.setLlmProfiles(nextProfiles, active.id);
+      if (persistOnSave) {
+        uiSettings.setLlmProfiles(nextProfiles, active.id);
+      }
 
       statusMessage =
         mode === "onboarding"
           ? "LLM profile saved. Continuing setup..."
           : "LLM settings saved.";
 
-      if (mode === "onboarding" && onComplete) {
-        await onComplete();
+      if (onComplete) {
+        await onComplete({
+          profiles: nextProfiles,
+          activeLlmProfileId: active.id
+        });
       }
     } catch (error) {
       statusMessage = error instanceof Error ? error.message : "Failed to save LLM settings.";
@@ -349,8 +458,40 @@
     }
   }
 
+  async function skipOnboardingSetup(): Promise<void> {
+    if (!isOnboarding) {
+      return;
+    }
+    isSkipping = true;
+    statusMessage = "";
+    try {
+      await window.dossier?.settings.set({
+        llmSetupComplete: true
+      });
+      statusMessage = "Skipped for now. You can connect a model anytime in Settings.";
+      if (onComplete) {
+        await onComplete();
+      }
+    } catch (error) {
+      statusMessage = error instanceof Error ? error.message : "Failed to skip LLM setup.";
+    } finally {
+      isSkipping = false;
+    }
+  }
+
   onMount(() => {
     void (async () => {
+      if (initialProfiles && initialProfiles.length > 0) {
+        profiles = initialProfiles;
+        activeLlmProfileId =
+          initialProfiles.find((profile) => profile.id === initialActiveLlmProfileId)?.id ??
+          initialProfiles[0]?.id ??
+          null;
+        selectedProfileId = activeLlmProfileId ?? initialProfiles[0]?.id ?? null;
+        isLoading = false;
+        return;
+      }
+
       const settings = ((await window.dossier?.settings.get()) ?? {}) as Record<string, unknown>;
       const normalized = normalizeLlmProfiles({
         llmProfiles: settings["llmProfiles"],
@@ -360,7 +501,7 @@
       });
 
       if (normalized.profiles.length === 0) {
-        const first = createLlmProfile("ollama", "Ollama");
+        const first = createLlmProfile("ollama", "default");
         profiles = [first];
         activeLlmProfileId = first.id;
         selectedProfileId = first.id;
@@ -379,210 +520,418 @@
   <div class="llm-heading-row">
     <h3 class="llm-title">{mode === "onboarding" ? "Connect AI model" : "LLM Profiles"}</h3>
     <p class="llm-subtitle">
-      Set up multiple model profiles and choose one active profile for chat and inference.
+      {#if isOnboarding}
+        {#if showSkipAction}
+          Connect a model now or skip and finish setup. You can add profiles later in Settings.
+        {:else}
+          Configure this profile and continue.
+        {/if}
+      {:else}
+        Set up multiple model profiles and choose one active profile for chat and inference.
+      {/if}
     </p>
   </div>
 
   {#if isLoading}
     <p class="status-text">Loading LLM settings...</p>
   {:else}
-    <div class="layout-grid">
-      <aside class="profiles-panel">
-        <div class="profiles-list">
-          {#each profiles as profile (profile.id)}
-            <button
-              class="profile-item"
-              class:selected={selectedProfileId === profile.id}
-              onclick={() => {
-                selectedProfileId = profile.id;
-              }}
-            >
-              <div class="profile-top-row">
-                <span class="profile-name">{profile.name || "Untitled profile"}</span>
-                {#if activeLlmProfileId === profile.id}
-                  <span class="active-pill">Active</span>
-                {/if}
-              </div>
-              <span class="profile-meta">{profileSummary(profile)}</span>
-            </button>
-          {/each}
-        </div>
-
-        <div class="quick-add">
-          <button class="btn-secondary-sm" onclick={() => addProfile("ollama")}>+ Ollama</button>
-          <button class="btn-secondary-sm" onclick={() => addProfile("custom")}>+ Custom</button>
-        </div>
-
-        <div class="add-remote-row">
-          <select class="text-input" bind:value={addProviderId}>
-            {#each orderedRemoteProviders as provider}
-              <option value={provider.id}>{provider.label}</option>
+    <div class="layout-grid" class:onboarding-layout={isOnboarding}>
+      {#if !isOnboarding}
+        <aside class="profiles-panel">
+          <div class="profiles-list">
+            {#each profiles as profile (profile.id)}
+              <button
+                class="profile-item"
+                class:selected={selectedProfileId === profile.id}
+                onclick={() => {
+                  selectedProfileId = profile.id;
+                }}
+              >
+                <div class="profile-top-row">
+                  <span class="profile-name">{profile.name || "Untitled profile"}</span>
+                  {#if activeLlmProfileId === profile.id}
+                    <span class="active-pill">Active</span>
+                  {/if}
+                </div>
+                <span class="profile-meta">{profileSummary(profile)}</span>
+              </button>
             {/each}
-          </select>
-          <button class="btn-secondary-sm" onclick={() => addProfile(addProviderId)}>+ Provider</button>
-        </div>
-      </aside>
+          </div>
+
+          <div class="quick-add">
+            <button class="btn-secondary-sm" onclick={() => addProfile("ollama")}>+ Ollama</button>
+            <button class="btn-secondary-sm" onclick={() => addProfile("custom")}>+ Custom</button>
+          </div>
+
+          <div class="add-remote-row">
+            <select class="text-input" bind:value={addProviderId}>
+              {#each orderedRemoteProviders as provider}
+                <option value={provider.id}>{provider.label}</option>
+              {/each}
+            </select>
+            <button class="btn-secondary-sm" onclick={() => addProfile(addProviderId)}>+ Provider</button>
+          </div>
+        </aside>
+      {/if}
 
       {#if selectedProfile}
         <div class="editor-panel">
-          <div class="field-grid">
-            <div class="field-block">
-              <label class="field-label" for="llm-profile-name">Profile name</label>
-              <input
-                id="llm-profile-name"
-                class="text-input"
-                type="text"
-                value={selectedProfile.name}
-                oninput={(event) => {
-                  updateSelectedProfile({ name: (event.currentTarget as HTMLInputElement).value });
-                }}
-                placeholder="My preferred model"
-              />
-            </div>
-
-            <div class="field-block">
-              <label class="field-label" for="llm-provider">Provider</label>
-              <select
-                id="llm-provider"
-                class="text-input"
-                value={selectedProfile.provider}
-                onchange={(event) => {
-                  setProvider((event.currentTarget as HTMLSelectElement).value as LlmProviderId);
-                }}
+          {#if isOnboarding}
+            <div class="source-path">
+              <button
+                class="path-option"
+                class:active={selectedProfile.provider === "ollama"}
+                onclick={() => setOnboardingSource("local")}
               >
-                {#each LLM_PROVIDER_DEFINITIONS as provider}
-                  <option value={provider.id}>{provider.label}</option>
-                {/each}
-              </select>
-              <p class="field-help">{getProviderDefinition(selectedProfile.provider).description}</p>
+                <span class="path-title">Local</span>
+                <span class="path-copy">Ollama on this machine</span>
+              </button>
+              <button
+                class="path-option"
+                class:active={selectedProfile.provider !== "ollama"}
+                onclick={() => setOnboardingSource("remote")}
+              >
+                <span class="path-title">Remote</span>
+                <span class="path-copy">Hosted model provider</span>
+              </button>
             </div>
 
-            <div class="field-block">
-              <label class="field-label" for="llm-endpoint">Endpoint</label>
-              <input
-                id="llm-endpoint"
-                class="text-input"
-                type="text"
-                value={selectedProfile.endpoint}
-                oninput={(event) => {
-                  updateSelectedProfile({ endpoint: (event.currentTarget as HTMLInputElement).value });
-                }}
-                placeholder="https://api.openai.com/v1"
-              />
-            </div>
+            {#if selectedProfile.provider !== "ollama"}
+              <div class="onboarding-block">
+                <p class="field-label">Choose remote provider</p>
+                <div class="provider-picker">
+                  {#each remoteProviderOptions as provider}
+                    <button
+                      class="provider-choice"
+                      class:active={selectedProfile.provider === provider.id}
+                      onclick={() => setOnboardingRemoteProvider(provider.id)}
+                    >
+                      <span class="provider-title">{provider.label}</span>
+                      <span class="provider-help">{provider.description}</span>
+                    </button>
+                  {/each}
+                </div>
+              </div>
+            {/if}
 
-            <div class="field-block">
-              <label class="field-label" for="llm-model">Model</label>
-              <input
-                id="llm-model"
-                class="text-input"
-                type="text"
-                value={selectedProfile.model}
-                oninput={(event) => {
-                  updateSelectedProfile({ model: (event.currentTarget as HTMLInputElement).value });
-                }}
-                placeholder="gpt-4o-mini"
-              />
-
-              {#if selectedProfile.provider === "ollama" && detectedOllamaModels.length > 0}
-                <div class="detected-row">
-                  <label class="field-label" for="llm-detected-model">Detected local models</label>
-                  <select
-                    id="llm-detected-model"
+            <div class="field-grid onboarding-fields">
+              {#if selectedProfile.provider === "custom" || (selectedProfile.provider === "ollama" && showLocalAdvanced)}
+                <div class="field-block">
+                  <label class="field-label" for="llm-endpoint">Endpoint</label>
+                  <input
+                    id="llm-endpoint"
                     class="text-input"
-                    onchange={(event) => {
-                      updateSelectedProfile({ model: (event.currentTarget as HTMLSelectElement).value });
+                    type="text"
+                    value={selectedProfile.endpoint}
+                    oninput={(event) => {
+                      updateSelectedProfile({ endpoint: (event.currentTarget as HTMLInputElement).value });
                     }}
-                  >
-                    {#each detectedOllamaModels as model}
-                      <option value={model} selected={selectedProfile.model === model}>{model}</option>
-                    {/each}
-                  </select>
+                    placeholder={selectedProfile.provider === "custom" ? "https://my-gateway.example.com/v1" : "http://127.0.0.1:11434/v1"}
+                  />
                 </div>
               {/if}
-            </div>
-          </div>
 
-          {#if selectedProfile.provider === "ollama"}
-            <div class="ollama-note">
-              <p>Run Ollama locally before testing:</p>
-              <pre><code>ollama serve</code></pre>
-              <p>
-                Then pull a model (example): <code>ollama pull llama3.1</code>
-              </p>
-              <button class="btn-secondary-sm" onclick={() => void detectOllamaModels()} disabled={isDetecting}>
-                {isDetecting ? "Detecting models..." : "Detect local models"}
-              </button>
+              <div class="field-block">
+                <label class="field-label" for="llm-model">
+                  {selectedProfile.provider === "ollama" ? "Local model" : "Model"}
+                </label>
+                <input
+                  id="llm-model"
+                  class="text-input"
+                  type="text"
+                  value={selectedProfile.model}
+                  oninput={(event) => {
+                    updateSelectedProfile({ model: (event.currentTarget as HTMLInputElement).value });
+                  }}
+                  placeholder={modelPlaceholder(selectedProfile)}
+                />
+              </div>
+            </div>
+
+            {#if selectedProfile.provider === "ollama"}
+              <div class="onboarding-inline-note">
+                <span class="note-text">
+                  {#if showLocalAdvanced}
+                    Using custom local endpoint.
+                  {:else}
+                    Using default local endpoint: http://127.0.0.1:11434/v1
+                  {/if}
+                </span>
+                <button
+                  class="btn-secondary-sm"
+                  onclick={() => {
+                    if (showLocalAdvanced) {
+                      updateSelectedProfile({ endpoint: getProviderDefinition("ollama").defaultEndpoint });
+                      showLocalAdvanced = false;
+                    } else {
+                      showLocalAdvanced = true;
+                    }
+                  }}
+                >
+                  {showLocalAdvanced ? "Reset endpoint" : "Advanced endpoint"}
+                </button>
+              </div>
+            {/if}
+
+            {#if selectedProfile.provider === "ollama"}
+              <div class="ollama-note">
+                <p>Run Ollama locally before testing:</p>
+                <pre><code>ollama serve</code></pre>
+                <p>
+                  Then pull a model (example): <code>ollama pull llama3.1</code>
+                </p>
+
+                {#if detectedOllamaModels.length > 0}
+                  <div class="detected-row">
+                    <label class="field-label" for="llm-detected-model">Detected local models</label>
+                    <select
+                      id="llm-detected-model"
+                      class="text-input"
+                      onchange={(event) => {
+                        updateSelectedProfile({ model: (event.currentTarget as HTMLSelectElement).value });
+                      }}
+                    >
+                      {#each detectedOllamaModels as model}
+                        <option value={model} selected={selectedProfile.model === model}>{model}</option>
+                      {/each}
+                    </select>
+                  </div>
+                {/if}
+
+                <button class="btn-secondary-sm" onclick={() => void detectOllamaModels(true)} disabled={isDetecting}>
+                  {isDetecting ? "Detecting models..." : "Detect local models"}
+                </button>
+              </div>
+            {/if}
+
+            {#if credentialRequired(selectedProfile)}
+              <div class="auth-panel">
+                <p class="field-label">Authentication</p>
+                <div class="auth-methods">
+                  <button
+                    class="method-pill"
+                    class:active={selectedProfile.authMethod === "apiKey"}
+                    onclick={() => {
+                      updateSelectedProfile({ authMethod: "apiKey" });
+                    }}
+                  >
+                    API key
+                  </button>
+                  <button
+                    class="method-pill"
+                    class:active={selectedProfile.authMethod === "oauth"}
+                    onclick={() => {
+                      updateSelectedProfile({ authMethod: "oauth" });
+                    }}
+                  >
+                    OAuth token
+                  </button>
+                </div>
+
+                <label class="field-label" for="llm-credential">
+                  {selectedProfile.authMethod === "oauth" ? "OAuth access token" : "API key"}
+                </label>
+                <input
+                  id="llm-credential"
+                  class="text-input"
+                  type="password"
+                  value={selectedProfile.authMethod === "oauth" ? selectedProfile.oauthToken ?? "" : selectedProfile.apiKey ?? ""}
+                  oninput={(event) => {
+                    const value = (event.currentTarget as HTMLInputElement).value;
+                    if (selectedProfile.authMethod === "oauth") {
+                      updateSelectedProfile({ oauthToken: value });
+                    } else {
+                      updateSelectedProfile({ apiKey: value });
+                    }
+                  }}
+                  placeholder={selectedProfile.authMethod === "oauth" ? "Paste OAuth access token" : "Paste provider API key"}
+                />
+              </div>
+            {/if}
+          {:else}
+            <div class="field-grid">
+              <div class="field-block">
+                <label class="field-label" for="llm-profile-name">Profile name</label>
+                <input
+                  id="llm-profile-name"
+                  class="text-input"
+                  type="text"
+                  value={selectedProfile.name}
+                  oninput={(event) => {
+                    updateSelectedProfile({ name: (event.currentTarget as HTMLInputElement).value });
+                  }}
+                  placeholder="My preferred model"
+                />
+              </div>
+
+              <div class="field-block">
+                <label class="field-label" for="llm-provider">Provider</label>
+                <select
+                  id="llm-provider"
+                  class="text-input"
+                  value={selectedProfile.provider}
+                  onchange={(event) => {
+                    setProvider((event.currentTarget as HTMLSelectElement).value as LlmProviderId);
+                  }}
+                >
+                  {#each LLM_PROVIDER_DEFINITIONS as provider}
+                    <option value={provider.id}>{provider.label}</option>
+                  {/each}
+                </select>
+                <p class="field-help">{getProviderDefinition(selectedProfile.provider).description}</p>
+              </div>
+
+              <div class="field-block">
+                <label class="field-label" for="llm-endpoint">Endpoint</label>
+                <input
+                  id="llm-endpoint"
+                  class="text-input"
+                  type="text"
+                  value={selectedProfile.endpoint}
+                  oninput={(event) => {
+                    updateSelectedProfile({ endpoint: (event.currentTarget as HTMLInputElement).value });
+                  }}
+                  placeholder="https://api.openai.com/v1"
+                />
+              </div>
+
+              <div class="field-block">
+                <label class="field-label" for="llm-model">Model</label>
+                <input
+                  id="llm-model"
+                  class="text-input"
+                  type="text"
+                  value={selectedProfile.model}
+                  oninput={(event) => {
+                    updateSelectedProfile({ model: (event.currentTarget as HTMLInputElement).value });
+                  }}
+                  placeholder={modelPlaceholder(selectedProfile)}
+                />
+
+                {#if selectedProfile.provider === "ollama" && detectedOllamaModels.length > 0}
+                  <div class="detected-row">
+                    <label class="field-label" for="llm-detected-model">Detected local models</label>
+                    <select
+                      id="llm-detected-model"
+                      class="text-input"
+                      onchange={(event) => {
+                        updateSelectedProfile({ model: (event.currentTarget as HTMLSelectElement).value });
+                      }}
+                    >
+                      {#each detectedOllamaModels as model}
+                        <option value={model} selected={selectedProfile.model === model}>{model}</option>
+                      {/each}
+                    </select>
+                  </div>
+                {/if}
+              </div>
+            </div>
+
+            {#if selectedProfile.provider === "ollama"}
+              <div class="ollama-note">
+                <p>Run Ollama locally before testing:</p>
+                <pre><code>ollama serve</code></pre>
+                <p>
+                  Then pull a model (example): <code>ollama pull llama3.1</code>
+                </p>
+                <button class="btn-secondary-sm" onclick={() => void detectOllamaModels(true)} disabled={isDetecting}>
+                  {isDetecting ? "Detecting models..." : "Detect local models"}
+                </button>
+              </div>
+            {/if}
+
+            <div class="auth-panel">
+              <p class="field-label">Authentication</p>
+              <div class="auth-methods">
+                <button
+                  class="method-pill"
+                  class:active={selectedProfile.authMethod === "apiKey"}
+                  onclick={() => {
+                    updateSelectedProfile({ authMethod: "apiKey" });
+                  }}
+                >
+                  API key (primary)
+                </button>
+                <button
+                  class="method-pill"
+                  class:active={selectedProfile.authMethod === "oauth"}
+                  onclick={() => {
+                    updateSelectedProfile({ authMethod: "oauth" });
+                  }}
+                >
+                  OAuth token
+                </button>
+              </div>
+
+              <label class="field-label" for="llm-credential">
+                {selectedProfile.authMethod === "oauth" ? "OAuth access token" : "API key"}
+              </label>
+              <input
+                id="llm-credential"
+                class="text-input"
+                type="password"
+                value={selectedProfile.authMethod === "oauth" ? selectedProfile.oauthToken ?? "" : selectedProfile.apiKey ?? ""}
+                oninput={(event) => {
+                  const value = (event.currentTarget as HTMLInputElement).value;
+                  if (selectedProfile.authMethod === "oauth") {
+                    updateSelectedProfile({ oauthToken: value });
+                  } else {
+                    updateSelectedProfile({ apiKey: value });
+                  }
+                }}
+                placeholder={selectedProfile.authMethod === "oauth" ? "Paste OAuth access token" : "Paste provider API key"}
+              />
             </div>
           {/if}
 
-          <div class="auth-panel">
-            <p class="field-label">Authentication</p>
-            <div class="auth-methods">
-              <button
-                class="method-pill"
-                class:active={selectedProfile.authMethod === "apiKey"}
-                onclick={() => {
-                  updateSelectedProfile({ authMethod: "apiKey" });
-                }}
-              >
-                API key (primary)
-              </button>
-              <button
-                class="method-pill"
-                class:active={selectedProfile.authMethod === "oauth"}
-                onclick={() => {
-                  updateSelectedProfile({ authMethod: "oauth" });
-                }}
-              >
-                OAuth token
-              </button>
+          {#if isOnboarding}
+            <div class="setup-guide" aria-live="polite">
+              <span class="guide-title">Setup checklist</span>
+              <ul class="guide-list">
+                <li class:done={endpointReady(selectedProfile)}>Endpoint added</li>
+                <li class:done={modelReady(selectedProfile)}>Model selected</li>
+                <li class:done={authReady(selectedProfile)}>Authentication complete</li>
+                <li class:done={!needsSuccessfulTest}>Connection tested</li>
+              </ul>
+              <p class="guide-hint">{nextStepHint(selectedProfile)}</p>
             </div>
+          {/if}
 
-            <label class="field-label" for="llm-credential">
-              {selectedProfile.authMethod === "oauth" ? "OAuth access token" : "API key"}
-            </label>
-            <input
-              id="llm-credential"
-              class="text-input"
-              type="password"
-              value={selectedProfile.authMethod === "oauth" ? selectedProfile.oauthToken ?? "" : selectedProfile.apiKey ?? ""}
-              oninput={(event) => {
-                const value = (event.currentTarget as HTMLInputElement).value;
-                if (selectedProfile.authMethod === "oauth") {
-                  updateSelectedProfile({ oauthToken: value });
-                } else {
-                  updateSelectedProfile({ apiKey: value });
-                }
-              }}
-              placeholder={selectedProfile.authMethod === "oauth" ? "Paste OAuth access token" : "Paste provider API key"}
-            />
-          </div>
-
-          <div class="actions-row">
+          <div class="actions-row" class:onboarding-actions={isOnboarding}>
+            {#if onCancel}
+              <button class="btn-secondary" onclick={onCancel}>
+                Cancel
+              </button>
+            {/if}
             {#if activeLlmProfileId !== selectedProfile.id}
               <button class="btn-secondary" onclick={() => setActiveProfile(selectedProfile.id)}>
                 Set active
               </button>
             {/if}
-            <button class="btn-secondary" onclick={() => void testConnection()} disabled={isTesting || !profileReady(selectedProfile)}>
-              {isTesting ? "Testing..." : "Test connection"}
-            </button>
+            {#if isOnboarding && showSkipAction}
+              <button class="btn-secondary" onclick={() => void skipOnboardingSetup()} disabled={isSkipping || isSaving}>
+                {isSkipping ? "Skipping..." : "Skip model setup"}
+              </button>
+            {/if}
+            {#if showTestAction}
+              <button class="btn-secondary" onclick={() => void testConnection()} disabled={isTesting}>
+                {isTesting ? "Testing..." : "Test connection"}
+              </button>
+            {/if}
             <button
               class="btn-primary"
               onclick={() => void saveProfiles()}
-              disabled={
-                isSaving ||
-                !activeProfile ||
-                !profileReady(activeProfile) ||
-                (mode === "onboarding" && lastSuccessfulTestProfileId !== activeProfile.id)
-              }
+              disabled={saveDisabled}
             >
-              {isSaving ? "Saving..." : mode === "onboarding" ? "Save & continue" : "Save settings"}
+              {isSaving
+                ? "Saving..."
+                : primaryActionLabel ?? (mode === "onboarding" ? "Save & continue" : "Save settings")}
             </button>
-            <button class="btn-danger-quiet" onclick={removeSelectedProfile} disabled={profiles.length <= 1}>
-              Remove profile
-            </button>
+            {#if !isOnboarding}
+              <button class="btn-danger-quiet" onclick={removeSelectedProfile} disabled={profiles.length <= 1}>
+                Remove profile
+              </button>
+            {/if}
           </div>
 
           {#if testResult}
@@ -635,8 +984,118 @@
 
   .layout-grid {
     display: grid;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: minmax(220px, 240px) minmax(0, 1fr);
     gap: var(--space-4);
+  }
+
+  .layout-grid.onboarding-layout {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 940px;
+    margin: 0 auto;
+  }
+
+  .layout-grid > * {
+    min-width: 0;
+  }
+
+  .source-path {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .path-option {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--base);
+    min-height: 84px;
+    padding: var(--space-3) var(--space-4);
+    display: grid;
+    gap: 2px;
+    text-align: left;
+  }
+
+  .path-option.active {
+    border-color: var(--primary-accent);
+    box-shadow: inset 0 0 0 1px var(--primary-accent);
+    background: color-mix(in srgb, var(--primary-accent) 6%, var(--base));
+  }
+
+  .path-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .path-copy {
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+  }
+
+  .onboarding-block {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .provider-picker {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-2);
+  }
+
+  .provider-choice {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--base);
+    min-height: 72px;
+    padding: var(--space-2) var(--space-3);
+    display: grid;
+    gap: 2px;
+    text-align: left;
+  }
+
+  .provider-choice.active {
+    border-color: var(--primary-accent);
+    box-shadow: inset 0 0 0 1px var(--primary-accent);
+    background: color-mix(in srgb, var(--primary-accent) 6%, var(--base));
+  }
+
+  .provider-title {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .provider-help {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.3;
+  }
+
+  .onboarding-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .onboarding-inline-note {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--base);
+    padding: var(--space-2) var(--space-3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .note-text {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
   }
 
   .profiles-panel {
@@ -710,11 +1169,12 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
+    min-width: 0;
   }
 
   .field-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--space-3);
   }
 
@@ -722,6 +1182,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-1);
+    min-width: 0;
   }
 
   .field-label {
@@ -739,6 +1200,8 @@
 
   .text-input {
     min-height: 40px;
+    width: 100%;
+    min-width: 0;
     border-radius: var(--radius-sm);
     border: 1px solid var(--border-subtle);
     background: var(--base);
@@ -790,6 +1253,42 @@
     gap: var(--space-2);
   }
 
+  .setup-guide {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--success-subtle) 35%, var(--base));
+    padding: var(--space-3);
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .guide-title {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .guide-list {
+    margin: 0;
+    padding-left: 1rem;
+    display: grid;
+    gap: 2px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  .guide-list li.done {
+    color: var(--success);
+  }
+
+  .guide-hint {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
   .auth-methods {
     display: flex;
     flex-wrap: wrap;
@@ -817,6 +1316,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
+  }
+
+  .actions-row.onboarding-actions .btn-secondary,
+  .actions-row.onboarding-actions .btn-primary {
+    min-width: 180px;
   }
 
   .btn-primary,
@@ -906,6 +1410,14 @@
 
   @media (max-width: 860px) {
     .layout-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .source-path {
+      grid-template-columns: 1fr;
+    }
+
+    .provider-picker {
       grid-template-columns: 1fr;
     }
 

@@ -3,10 +3,16 @@
   import { goto } from "$app/navigation";
   import { THEMES } from "$lib/design/themes";
   import type { ThemeName } from "$lib/design/themes";
-  import type { LocalBackupSummary, TopicRule } from "$lib/types";
+  import type { LlmProfile, LocalBackupSummary, TopicRule } from "$lib/types";
+  import {
+    createLlmProfile,
+    normalizeLlmProfiles,
+    toLegacyLocalModelSettings
+  } from "$lib/llm/providers";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
   import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
   import LlmIntegrationPanel from "$lib/components/LlmIntegrationPanel.svelte";
+  import PromptDialog from "$lib/components/PromptDialog.svelte";
 
   let lifecycleStatus = $state("");
   let lifecycleStatusTimer = $state<ReturnType<typeof setTimeout> | null>(null);
@@ -36,6 +42,12 @@
   let restoreConfirmTarget = $state<string | null>(null);
 
   let isBusy = $state(false);
+  let llmProfiles = $state<LlmProfile[]>([]);
+  let primaryLlmProfileId = $state<string | null>(null);
+  let llmIsSaving = $state(false);
+  let showNewProfilePrompt = $state(false);
+  let showCreateProfileModal = $state(false);
+  let newProfileDraft = $state<LlmProfile | null>(null);
 
   function setLifecycleStatus(msg: string): void {
     lifecycleStatus = msg;
@@ -75,6 +87,124 @@
     } catch (error) {
       setLifecycleStatus(errorToMessage(error));
     }
+  }
+
+  function maybeDefaultLabel(profile: LlmProfile, index: number): string {
+    if (index === 0 && profile.name.trim().toLowerCase() === "ollama") {
+      return "default";
+    }
+    return profile.name.trim() || `Profile ${index + 1}`;
+  }
+
+  async function saveLlmProfiles(
+    profiles: LlmProfile[],
+    activeLlmProfileId: string
+  ): Promise<void> {
+    llmIsSaving = true;
+    try {
+      const legacy = toLegacyLocalModelSettings(profiles, activeLlmProfileId);
+      await window.dossier?.settings.set({
+        llmProfiles: profiles,
+        activeLlmProfileId,
+        localModelEndpoint: legacy.localModelEndpoint,
+        localModelName: legacy.localModelName,
+        llmSetupComplete: true
+      });
+      llmProfiles = profiles;
+      primaryLlmProfileId = activeLlmProfileId;
+      uiSettings.setLlmProfiles(profiles, activeLlmProfileId);
+      setLifecycleStatus("AI profile settings updated.");
+    } catch (error) {
+      setLifecycleStatus(errorToMessage(error));
+    } finally {
+      llmIsSaving = false;
+    }
+  }
+
+  async function refreshLlmProfiles(): Promise<void> {
+    try {
+      const settings = ((await window.dossier?.settings.get()) ?? {}) as Record<string, unknown>;
+      const normalized = normalizeLlmProfiles({
+        llmProfiles: settings["llmProfiles"],
+        activeLlmProfileId: settings["activeLlmProfileId"],
+        localModelEndpoint: settings["localModelEndpoint"],
+        localModelName: settings["localModelName"]
+      });
+
+      let profiles = normalized.profiles;
+      let activeId = normalized.activeLlmProfileId;
+
+      if (profiles.length === 0) {
+        const fallback = createLlmProfile("ollama", "default");
+        profiles = [fallback];
+        activeId = fallback.id;
+        await saveLlmProfiles(profiles, fallback.id);
+        return;
+      }
+
+      if (profiles[0] && profiles[0].name.trim().toLowerCase() === "ollama") {
+        profiles = profiles.map((profile, index) =>
+          index === 0
+            ? {
+                ...profile,
+                name: "default"
+              }
+            : profile
+        );
+        if (activeId) {
+          await saveLlmProfiles(profiles, activeId);
+          return;
+        }
+      }
+
+      llmProfiles = profiles;
+      primaryLlmProfileId = activeId;
+    } catch (error) {
+      setLifecycleStatus(errorToMessage(error));
+      llmProfiles = [];
+      primaryLlmProfileId = null;
+    }
+  }
+
+  function startCreateProfile(): void {
+    showNewProfilePrompt = true;
+  }
+
+  function openCreateModal(name: string): void {
+    const created = createLlmProfile("ollama", name.trim());
+    newProfileDraft = created;
+    showCreateProfileModal = true;
+  }
+
+  function cancelCreateProfile(): void {
+    showCreateProfileModal = false;
+    newProfileDraft = null;
+  }
+
+  async function handleCreateProfileContinue(result?: {
+    profiles: LlmProfile[];
+    activeLlmProfileId: string;
+  }): Promise<void> {
+    const created = result?.profiles[0];
+    if (!created) {
+      setLifecycleStatus("Could not create profile. Try again.");
+      return;
+    }
+    const nextProfiles = [...llmProfiles, created];
+    const active = primaryLlmProfileId ?? nextProfiles[0]?.id;
+    if (!active) {
+      setLifecycleStatus("Could not set a primary profile.");
+      return;
+    }
+    await saveLlmProfiles(nextProfiles, active);
+    cancelCreateProfile();
+  }
+
+  async function makePrimary(profileId: string): Promise<void> {
+    if (profileId === primaryLlmProfileId) {
+      return;
+    }
+    await saveLlmProfiles(llmProfiles, profileId);
   }
 
   async function exportEncrypted(): Promise<void> {
@@ -244,6 +374,7 @@
   onMount(() => {
     void refreshTopicRules();
     void refreshBackups();
+    void refreshLlmProfiles();
   });
 </script>
 
@@ -522,7 +653,32 @@
 
         <div class="setting-group">
           <span class="setting-label">LLM configuration</span>
-          <LlmIntegrationPanel mode="settings" />
+          <div class="ai-profiles-shell">
+            <div class="ai-profiles-list">
+              {#if llmProfiles.length === 0}
+                <p class="setting-desc">No AI profiles yet.</p>
+              {:else}
+                {#each llmProfiles as profile, index (profile.id)}
+                  <div class="ai-profile-item">
+                    <div class="ai-profile-meta">
+                      <span class="ai-profile-name">{maybeDefaultLabel(profile, index)}</span>
+                      {#if primaryLlmProfileId === profile.id}
+                        <span class="primary-pill">Primary</span>
+                      {/if}
+                    </div>
+                    {#if primaryLlmProfileId !== profile.id}
+                      <button class="btn-secondary-sm" onclick={() => void makePrimary(profile.id)} disabled={llmIsSaving}>
+                        Make Primary
+                      </button>
+                    {/if}
+                  </div>
+                {/each}
+              {/if}
+            </div>
+            <button class="btn-secondary create-profile-btn" onclick={startCreateProfile} disabled={llmIsSaving}>
+              Create new profile
+            </button>
+          </div>
         </div>
       </section>
     </div>
@@ -541,6 +697,46 @@
     }}
     onCancel={() => { restoreConfirmTarget = null; }}
   />
+{/if}
+
+{#if showNewProfilePrompt}
+  <PromptDialog
+    title="Create new profile"
+    message="Enter a profile name."
+    placeholder="Profile name"
+    onConfirm={(value) => {
+      showNewProfilePrompt = false;
+      openCreateModal(value);
+    }}
+    onCancel={() => {
+      showNewProfilePrompt = false;
+    }}
+  />
+{/if}
+
+{#if showCreateProfileModal && newProfileDraft}
+  <div
+    class="profile-modal-backdrop"
+    onclick={(event) => {
+      if (event.target === event.currentTarget) cancelCreateProfile();
+    }}
+    role="presentation"
+  >
+    <div class="profile-modal" role="dialog" aria-modal="true" aria-label="Create AI profile">
+      <LlmIntegrationPanel
+        mode="onboarding"
+        initialProfiles={[newProfileDraft]}
+        initialActiveLlmProfileId={newProfileDraft.id}
+        showSkipAction={false}
+        showTestAction={false}
+        requireSuccessfulTest={false}
+        persistOnSave={false}
+        primaryActionLabel="Continue"
+        onCancel={cancelCreateProfile}
+        onComplete={handleCreateProfileContinue}
+      />
+    </div>
+  </div>
 {/if}
 
 <style>
@@ -933,6 +1129,82 @@
     min-height: 36px;
     padding: var(--space-1) var(--space-3);
     font-size: 0.8125rem;
+  }
+
+  .ai-profiles-shell {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--base-secondary);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .ai-profiles-list {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .ai-profile-item {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--base);
+    min-height: 52px;
+    padding: var(--space-3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .ai-profile-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .ai-profile-name {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .primary-pill {
+    border-radius: var(--radius-full);
+    border: 1px solid var(--success);
+    color: var(--success);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    padding: 2px 8px;
+  }
+
+  .create-profile-btn {
+    align-self: flex-start;
+  }
+
+  .profile-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 110;
+    background: color-mix(in srgb, var(--text-primary) 30%, transparent);
+    backdrop-filter: var(--blur-backdrop);
+    -webkit-backdrop-filter: var(--blur-backdrop);
+    display: grid;
+    place-items: center;
+    padding: var(--space-6);
+  }
+
+  .profile-modal {
+    width: min(860px, 100%);
+    max-height: calc(100vh - var(--space-12));
+    overflow: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--base);
+    box-shadow: var(--shadow-xl);
+    padding: var(--space-4);
   }
 
   /* Danger Zone */

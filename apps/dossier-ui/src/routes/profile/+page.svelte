@@ -35,6 +35,7 @@
   let importHandled = $state(false);
   let setupSelectedTopics = $state<string[]>([]);
   let setupCustomTopic = $state("");
+  const pendingCustomTopic = $derived(setupCustomTopic.trim());
 
   let showAddItem = $state(false);
   let newItemText = $state("");
@@ -110,6 +111,23 @@
 
   function toggleId(current: string[], id: string): string[] {
     return current.includes(id) ? current.filter((c) => c !== id) : [...current, id];
+  }
+
+  function addCustomSetupTopic(): void {
+    const candidate = setupCustomTopic.trim();
+    if (!candidate) return;
+
+    const existing = setupSelectedTopics.find((topic) => topic.toLowerCase() === candidate.toLowerCase());
+    if (!existing) {
+      const presetMatch = TOPIC_PRESETS.find((preset) => preset.toLowerCase() === candidate.toLowerCase());
+      setupSelectedTopics = [...setupSelectedTopics, presetMatch ?? candidate];
+    }
+
+    setupCustomTopic = "";
+  }
+
+  function removeSetupTopic(topic: string): void {
+    setupSelectedTopics = setupSelectedTopics.filter((selected) => selected !== topic);
   }
 
   function categoryIdOrNull(value: string): string | null {
@@ -356,9 +374,6 @@
 
   async function completeTopicSetup(): Promise<void> {
     const setupRules = [...setupSelectedTopics];
-    if (setupCustomTopic.trim()) {
-      setupRules.push(setupCustomTopic.trim());
-    }
 
     for (const pattern of new Set(setupRules)) {
       await window.dossier?.topicRules.create({
@@ -454,7 +469,7 @@
           <h1 class="welcome-title">Welcome to Dossier</h1>
           <p class="welcome-desc">
             Dossier learns about your goals, preferences, and boundaries to personalise AI interactions.
-            Everything stays on your device. Let's start by setting up some privacy boundaries.
+            Everything stays on your device. Connect a model now or skip and set privacy boundaries first.
           </p>
         </div>
 
@@ -504,6 +519,11 @@
                   {preset}
                 </button>
               {/each}
+              {#each setupSelectedTopics.filter((topic) => !TOPIC_PRESETS.includes(topic)) as customTopic (customTopic)}
+                <button class="chip chip-custom-selected" onclick={() => removeSetupTopic(customTopic)}>
+                  {customTopic}
+                </button>
+              {/each}
             </div>
 
             <input
@@ -512,11 +532,16 @@
               placeholder="Add a custom blocked topic"
               onkeydown={(event) => {
                 if (event.key === "Enter" && setupCustomTopic.trim()) {
-                  setupSelectedTopics = [...setupSelectedTopics, setupCustomTopic.trim()];
-                  setupCustomTopic = "";
+                  event.preventDefault();
+                  addCustomSetupTopic();
                 }
               }}
             />
+            {#if pendingCustomTopic}
+              <button class="chip chip-pending-custom" onclick={addCustomSetupTopic}>
+                {pendingCustomTopic}
+              </button>
+            {/if}
 
             <div class="welcome-actions">
               <button class="btn-secondary" onclick={() => void skipTopicSetup()}>Skip for now</button>
@@ -924,7 +949,7 @@
   }
 
   .profile-content {
-    max-width: var(--content-max-width);
+    max-width: 1180px;
     margin: 0 auto;
     padding: var(--space-10) var(--space-8) var(--space-16);
   }
@@ -934,16 +959,18 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-8);
+    max-width: 1040px;
+    margin: 0 auto;
   }
 
   .welcome-header {
     text-align: center;
-    padding: var(--space-8) 0;
+    padding: var(--space-10) 0 var(--space-8);
   }
 
   .welcome-title {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 2.3rem;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.01em;
@@ -964,10 +991,11 @@
     border: 1px solid var(--border-subtle);
     background: var(--base-secondary);
     border-radius: var(--radius-md);
-    padding: var(--space-6);
+    padding: var(--space-8);
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
+    box-shadow: var(--shadow-sm);
   }
 
   .welcome-actions {
@@ -1035,6 +1063,19 @@
     background: var(--secondary-accent);
     color: var(--secondary-accent-text);
     border-color: var(--secondary-accent);
+  }
+
+  .chip-custom-selected {
+    background: var(--error-subtle);
+    color: var(--error);
+    border-color: color-mix(in srgb, var(--error) 35%, transparent);
+  }
+
+  .chip-pending-custom {
+    align-self: flex-start;
+    background: var(--base);
+    border-style: dashed;
+    border-color: var(--border);
   }
 
   /* Status */
