@@ -425,15 +425,28 @@ export async function runGoogleTakeoutImport(
     }
   });
 
-  const proposals = await inferFromTakeoutArtifacts(artifacts, llmConfig);
+  const inferenceResult = await inferFromTakeoutArtifacts(artifacts, llmConfig);
+  const proposals = inferenceResult.proposals;
+  const inferenceDiagnostics = inferenceResult.diagnostics;
 
   emitProgress(options.onProgress, {
     stage: "infer",
     status: "completed",
-    message: "Inference pass complete.",
+    message:
+      inferenceDiagnostics.mode === "llm"
+        ? "Inference pass complete with LLM-backed extraction."
+        : "Inference pass complete with deterministic fallback extraction.",
     metrics: {
       proposals: proposals.length,
-      llm_enabled: Boolean(llmConfig?.endpoint && llmConfig?.model)
+      llm_enabled: Boolean(llmConfig?.endpoint && llmConfig?.model),
+      context_artifacts: inferenceDiagnostics.contextArtifacts,
+      context_lines: inferenceDiagnostics.contextLines,
+      context_chars: inferenceDiagnostics.contextChars,
+      llm_chunks: inferenceDiagnostics.llmChunks,
+      llm_failed_chunks: inferenceDiagnostics.llmFailedChunks,
+      llm_raw_proposals: inferenceDiagnostics.llmRawProposals,
+      llm_accepted_proposals: inferenceDiagnostics.llmAcceptedProposals,
+      fallback_reason: inferenceDiagnostics.fallbackReason
     }
   });
 
@@ -484,6 +497,15 @@ export async function runGoogleTakeoutImport(
       included_products: normalizedScope.includedProducts,
       artifact_count: artifacts.length,
       proposal_count: proposals.length,
+      inference_mode: inferenceDiagnostics.mode,
+      inference_context_artifacts: inferenceDiagnostics.contextArtifacts,
+      inference_context_lines: inferenceDiagnostics.contextLines,
+      inference_context_chars: inferenceDiagnostics.contextChars,
+      inference_llm_chunks: inferenceDiagnostics.llmChunks,
+      inference_llm_failed_chunks: inferenceDiagnostics.llmFailedChunks,
+      inference_llm_raw_proposals: inferenceDiagnostics.llmRawProposals,
+      inference_llm_accepted_proposals: inferenceDiagnostics.llmAcceptedProposals,
+      inference_fallback_reason: inferenceDiagnostics.fallbackReason,
       parse_errors: parseErrors,
       generated_at: new Date().toISOString()
     }
@@ -569,6 +591,9 @@ export async function runGoogleTakeoutImport(
   const warnings = [...scan.warnings];
   if (!llmConfig?.endpoint || !llmConfig?.model) {
     warnings.push("No LLM configured; used deterministic extraction only. Connect a model in welcome flow for richer candidate facts.");
+  }
+  if (inferenceDiagnostics.fallbackReason) {
+    warnings.push(`Inference fallback used: ${inferenceDiagnostics.fallbackReason}.`);
   }
   if (artifacts.length === 0) {
     warnings.push("No artifacts matched the selected scope.");

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { marked } from "marked";
   import IconCheckCircleRegular from "phosphor-icons-svelte/IconCheckCircleRegular.svelte";
   import IconPaperPlaneRightRegular from "phosphor-icons-svelte/IconPaperPlaneRightRegular.svelte";
   import IconSparkleRegular from "phosphor-icons-svelte/IconSparkleRegular.svelte";
@@ -29,6 +30,49 @@
   let isSending = $state(false);
 
   const hasLlm = $derived(Boolean(uiSettings.localModelEndpoint && uiSettings.localModelName));
+
+  marked.setOptions({ gfm: true, breaks: true });
+
+  function sanitizeMarkdownHtml(html: string): string {
+    if (typeof document === "undefined") {
+      return html;
+    }
+
+    const template = document.createElement("template");
+    template.innerHTML = html;
+
+    const blockedTags = ["script", "style", "iframe", "object", "embed", "form", "input", "button", "textarea", "select", "meta", "link"];
+    for (const tag of blockedTags) {
+      for (const node of template.content.querySelectorAll(tag)) {
+        node.remove();
+      }
+    }
+
+    for (const element of template.content.querySelectorAll("*")) {
+      for (const attr of [...element.attributes]) {
+        const name = attr.name.toLowerCase();
+        if (name.startsWith("on") || name === "style") {
+          element.removeAttribute(attr.name);
+        }
+      }
+
+      if (element.tagName.toLowerCase() === "a") {
+        const href = element.getAttribute("href")?.trim() ?? "";
+        if (!/^https?:\/\//i.test(href) && !/^mailto:/i.test(href)) {
+          element.removeAttribute("href");
+        } else {
+          element.setAttribute("target", "_blank");
+          element.setAttribute("rel", "noopener noreferrer");
+        }
+      }
+    }
+
+    return template.innerHTML;
+  }
+
+  function renderMarkdown(text: string): string {
+    return sanitizeMarkdownHtml(marked.parse(text, { async: false }) as string);
+  }
 
   function buildHistory(): ChatMessage[] {
     return messages
@@ -77,7 +121,12 @@
         }
       ];
     } catch (error) {
-      const message = error instanceof Error ? error.message : "Unable to send message.";
+      const message =
+        error instanceof Error
+          ? error.message
+          : typeof error === "string"
+            ? error
+            : "Unable to send message.";
       messages = [
         ...messages,
         {
@@ -128,7 +177,7 @@
       {#each messages as message (message.id)}
         <article class="message {message.role}">
           <div class="bubble {message.role}">
-            {message.text}
+            {@html renderMarkdown(message.text)}
           </div>
           {#if message.proposals && message.proposals.length > 0}
             <div class="proposals-list">
@@ -261,6 +310,57 @@
     font-family: var(--font-body);
     font-size: 0.9375rem;
     line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+
+  .bubble :global(p),
+  .bubble :global(ul),
+  .bubble :global(ol),
+  .bubble :global(pre),
+  .bubble :global(blockquote),
+  .bubble :global(h1),
+  .bubble :global(h2),
+  .bubble :global(h3) {
+    margin: 0;
+  }
+
+  .bubble :global(* + p),
+  .bubble :global(* + ul),
+  .bubble :global(* + ol),
+  .bubble :global(* + pre),
+  .bubble :global(* + blockquote) {
+    margin-top: var(--space-2);
+  }
+
+  .bubble :global(ul),
+  .bubble :global(ol) {
+    padding-left: 1.2rem;
+  }
+
+  .bubble :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.85em;
+    padding: 0.05rem 0.25rem;
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, currentColor 12%, transparent);
+  }
+
+  .bubble :global(pre) {
+    overflow-x: auto;
+    padding: var(--space-2);
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--base) 80%, black 20%);
+  }
+
+  .bubble :global(pre code) {
+    padding: 0;
+    background: transparent;
+  }
+
+  .bubble :global(a) {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
   }
 
   .bubble.user {

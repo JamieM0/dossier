@@ -57,12 +57,23 @@ impl BackendControlClient {
         path: &str,
         body: Option<Value>,
     ) -> Result<Value, String> {
+        self.request_with_timeout(method, path, body, Duration::from_secs(300))
+            .await
+    }
+
+    async fn request_with_timeout(
+        &self,
+        method: Method,
+        path: &str,
+        body: Option<Value>,
+        timeout: Duration,
+    ) -> Result<Value, String> {
         let url = format!("{}{}", self.base_url, path);
         let request = self
             .http
             .request(method, url)
             .header(CONTROL_HEADER, self.token.as_str())
-            .timeout(Duration::from_secs(35));
+            .timeout(timeout);
 
         let request = if let Some(payload) = body {
             request.json(&payload)
@@ -1076,10 +1087,11 @@ async fn llm_chat(
 ) -> Result<Value, String> {
     state
         .client
-        .request(
+        .request_with_timeout(
             Method::POST,
             "/control/llm/chat",
             Some(json!({ "messages": messages, "userMessage": user_message })),
+            Duration::from_secs(300),
         )
         .await
 }

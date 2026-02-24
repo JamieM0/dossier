@@ -58,13 +58,17 @@ describe("inferFromTakeoutArtifacts", () => {
       })
     ];
 
-    const proposals = await inferFromTakeoutArtifacts(artifacts, null);
+    const result = await inferFromTakeoutArtifacts(artifacts, null);
+    const proposals = result.proposals;
 
     expect(proposals.length).toBeGreaterThan(0);
     expect(proposals.some((proposal) => proposal.itemType === "communication")).toBe(true);
     expect(proposals.some((proposal) => proposal.itemType === "fact")).toBe(true);
+    expect(proposals.some((proposal) => proposal.text.includes("Sprint planning"))).toBe(true);
     expect(proposals.some((proposal) => proposal.text.includes("nbsp"))).toBe(false);
     expect(proposals.some((proposal) => /content related to/i.test(proposal.text))).toBe(false);
+    expect(result.diagnostics.mode).toBe("deterministic");
+    expect(result.diagnostics.contextArtifacts).toBeGreaterThan(0);
   });
 
   test("abstains for pure markup noise without high-signal product evidence", async () => {
@@ -77,7 +81,7 @@ describe("inferFromTakeoutArtifacts", () => {
       })
     ];
 
-    const proposals = await inferFromTakeoutArtifacts(artifacts, null);
-    expect(proposals).toHaveLength(0);
+    const result = await inferFromTakeoutArtifacts(artifacts, null);
+    expect(result.proposals).toHaveLength(0);
   });
 });

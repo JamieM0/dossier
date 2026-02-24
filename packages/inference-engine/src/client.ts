@@ -1,11 +1,30 @@
 import type { InferenceEngineConfig, ChatMessage, ChatCompletionResult } from "./types.js";
 
+const DEFAULT_TIMEOUT_MS = 300_000;
+
 type OpenAIChatResponse = {
   id: string;
   model: string;
   choices: { index: number; message: { role: string; content: string } }[];
   usage?: { prompt_tokens: number; completion_tokens: number; total_tokens: number };
 };
+
+type OllamaChatResponse = {
+  model?: string;
+  message?: { role?: string; content?: string };
+  response?: string;
+  prompt_eval_count?: number;
+  eval_count?: number;
+};
+
+function isOpenAIChatResponse(data: unknown): data is OpenAIChatResponse {
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    "choices" in data &&
+    Array.isArray((data as { choices?: unknown }).choices)
+  );
+}
 
 type AnthropicResponse = {
   id: string;
@@ -59,7 +78,7 @@ function normalizeUsage(usage: OpenAIChatResponse["usage"] | undefined):
 async function anthropicCompletion(
   config: InferenceEngineConfig,
   messages: ChatMessage[],
-  opts?: { temperature?: number; maxTokens?: number }
+  opts?: { temperature?: number; maxTokens?: number; timeoutMs?: number }
 ): Promise<ChatCompletionResult> {
   const url = `${config.endpoint.replace(/\/+$/, "")}/messages`;
   const system = messages
@@ -84,7 +103,7 @@ async function anthropicCompletion(
       temperature: opts?.temperature ?? 0.7,
       max_tokens: opts?.maxTokens ?? 1024
     }),
-    signal: AbortSignal.timeout(60_000)
+    signal: AbortSignal.timeout(opts?.timeoutMs ?? DEFAULT_TIMEOUT_MS)
   });
 
   if (!response.ok) {
@@ -118,7 +137,7 @@ async function anthropicCompletion(
 export async function chatCompletion(
   config: InferenceEngineConfig,
   messages: ChatMessage[],
-  opts?: { temperature?: number; maxTokens?: number }
+  opts?: { temperature?: number; maxTokens?: number; timeoutMs?: number }
 ): Promise<ChatCompletionResult> {
   if (config.provider === "anthropic") {
     return anthropicCompletion(config, messages, opts);
@@ -138,7 +157,7 @@ export async function chatCompletion(
       temperature: opts?.temperature ?? 0.7,
       ...(opts?.maxTokens !== undefined ? { max_tokens: opts.maxTokens } : {})
     }),
-    signal: AbortSignal.timeout(60_000)
+    signal: AbortSignal.timeout(opts?.timeoutMs ?? DEFAULT_TIMEOUT_MS)
   });
 
   if (!response.ok) {
@@ -146,15 +165,45 @@ export async function chatCompletion(
     throw new Error(`LLM request failed (${response.status}): ${text}`);
   }
 
-  const data = (await response.json()) as OpenAIChatResponse;
-  const choice = data.choices[0];
-  if (!choice) {
-    throw new Error("LLM returned no choices");
+  const data = (await response.json()) as unknown;
+
+  if (isOpenAIChatResponse(data)) {
+    const choice = data.choices[0];
+    if (!choice || typeof choice.message?.content !== "string" || !choice.message.content.trim()) {
+      throw new Error("LLM returned no choices");
+    }
+
+    return {
+      content: choice.message.content,
+      model: data.model,
+      usage: normalizeUsage(data.usage)
+    };
   }
 
-  return {
-    content: choice.message.content,
-    model: data.model,
-    usage: normalizeUsage(data.usage)
-  };
+  const ollama = data as OllamaChatResponse;
+
+  if (typeof ollama.message?.content === "string" && ollama.message.content.trim()) {
+    return {
+      content: ollama.message.content,
+      model: ollama.model ?? config.model,
+      usage:
+        typeof ollama.prompt_eval_count === "number" && typeof ollama.eval_count === "number"
+          ? {
+              prompt_tokens: ollama.prompt_eval_count,
+              completion_tokens: ollama.eval_count,
+              total_tokens: ollama.prompt_eval_count + ollama.eval_count
+            }
+          : undefined
+    };
+  }
+
+  if (typeof ollama.response === "string" && ollama.response.trim()) {
+    return {
+      content: ollama.response,
+      model: ollama.model ?? config.model,
+      usage: undefined
+    };
+  }
+
+  throw new Error("LLM returned no usable content");
 }
