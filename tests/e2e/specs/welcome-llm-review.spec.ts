@@ -53,6 +53,24 @@ test.describe("Welcome flow LLM integration review", () => {
       path: testInfo.outputPath("welcome-topics-selected-pill.png")
     });
 
+    const importCard = page
+      .locator(".welcome-card")
+      .filter({ has: page.getByRole("heading", { name: "Import your data" }) })
+      .first();
+    await expect(importCard).toBeVisible();
+
+    const selectSourceButton = importCard.getByRole("button", { name: "Select folder or zip" });
+    const planButton = importCard.getByRole("button", { name: "Create ingestion plan" });
+    const runImportButton = importCard.getByRole("button", { name: "Run import" });
+
+    await expect(selectSourceButton).toBeVisible();
+    await expect(planButton).toBeVisible();
+    await expect(runImportButton).toBeVisible();
+
+    await importCard.screenshot({
+      path: testInfo.outputPath("welcome-takeout-card.png")
+    });
+
     const localModelInput = page.locator("#llm-model");
     const endpointInput = page.locator("#llm-endpoint");
     const authPanel = page.locator(".welcome-card .llm-panel .auth-panel");
@@ -103,6 +121,16 @@ test.describe("Welcome flow LLM integration review", () => {
       const topicChips = Array.from(topicCard?.querySelectorAll(".chips .chip") ?? []).map((chip) =>
         (chip.textContent ?? "").trim()
       );
+      const importCard = Array.from(document.querySelectorAll(".welcome-card")).find((card) =>
+        card.querySelector(".section-heading")?.textContent?.includes("Import your data")
+      ) as HTMLElement | undefined;
+      const importButtons = Array.from(importCard?.querySelectorAll("button") ?? []).map((btn) =>
+        (btn.textContent ?? "").trim()
+      );
+      const importInput = importCard?.querySelector('input[placeholder="Paste a folder or .zip path"]') as
+        | HTMLInputElement
+        | undefined;
+      const importLog = importCard?.querySelector(".takeout-log");
 
       return {
         viewport: {
@@ -123,7 +151,12 @@ test.describe("Welcome flow LLM integration review", () => {
         topicsInputClearedAfterEnter: topicInput ? (topicInput as HTMLInputElement).value.length === 0 : null,
         pendingTopicVisibleAfterPromote: Boolean(pendingTopic),
         customSelectedTopics,
-        topicChips
+        topicChips,
+        takeoutCardPresent: Boolean(importCard),
+        takeoutButtons: importButtons,
+        takeoutInputPresent: Boolean(importInput),
+        takeoutInputValueLength: importInput?.value.length ?? null,
+        takeoutLogPresent: Boolean(importLog)
       };
     });
 

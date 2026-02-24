@@ -64,10 +64,21 @@ export type ChatInferenceResult = {
 export async function inferFromChatMessage(
   config: InferenceEngineConfig,
   conversationHistory: { role: "user" | "assistant"; content: string }[],
-  userMessage: string
+  userMessage: string,
+  profileContext?: string
 ): Promise<ChatInferenceResult> {
+  const contextMessage = profileContext?.trim()
+    ? [
+        {
+          role: "system" as const,
+          content: `PROFILE_CONTEXT_JSON:\n${profileContext}`
+        }
+      ]
+    : [];
+
   const messages = [
     { role: "system" as const, content: CHAT_INFERENCE_SYSTEM_PROMPT },
+    ...contextMessage,
     ...conversationHistory.map((msg) => ({
       role: msg.role as "user" | "assistant",
       content: msg.content

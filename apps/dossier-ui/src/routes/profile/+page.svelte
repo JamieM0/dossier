@@ -7,14 +7,20 @@
   import ConfirmedItem from "$lib/components/ConfirmedItem.svelte";
   import InferenceItem from "$lib/components/InferenceItem.svelte";
   import NotificationBanner from "$lib/components/NotificationBanner.svelte";
-  import ProcessingFeed from "$lib/components/ProcessingFeed.svelte";
-  import PromptDialog from "$lib/components/PromptDialog.svelte";
   import LlmIntegrationPanel from "$lib/components/LlmIntegrationPanel.svelte";
   import IconPlusRegular from "phosphor-icons-svelte/IconPlusRegular.svelte";
   import IconUploadSimpleRegular from "phosphor-icons-svelte/IconUploadSimpleRegular.svelte";
   import IconFolderOpenRegular from "phosphor-icons-svelte/IconFolderOpenRegular.svelte";
   import IconUserRegular from "phosphor-icons-svelte/IconUserRegular.svelte";
-  import type { Category, Compartment, ProfileItemView, TopicRule } from "$lib/types";
+  import type {
+    Category,
+    Compartment,
+    ProfileItemView,
+    TakeoutImportJob,
+    TakeoutImportPlan,
+    TakeoutImportScope,
+    TopicRule
+  } from "$lib/types";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
 
   const ITEM_TYPES = ["preference", "communication", "interest", "professional", "fact", "constraint"];
@@ -46,7 +52,16 @@
   let importPath = $state("");
   let isImporting = $state(false);
   let showImport = $state(false);
-  let importDiscoveries = $state<{ id: string; text: string; complete: boolean }[]>([]);
+  let importPlan = $state<TakeoutImportPlan | null>(null);
+  let importScope = $state<TakeoutImportScope>({
+    dateRangePreset: "last_12_months",
+    includedProducts: [],
+    prioritiseHighSignalItems: true
+  });
+  let importJob = $state<TakeoutImportJob | null>(null);
+  let importJobId = $state<string | null>(null);
+  let importProgressLog = $state<string[]>([]);
+  let importPlanning = $state(false);
   let importComplete = $state(false);
 
   let editTargetId = $state<string | null>(null);
@@ -208,73 +223,127 @@
 
   async function browseForImport(): Promise<void> {
     try {
-      const result = await window.dossier?.data.browseFolder?.();
+      const result = await window.dossier?.data.browseTakeoutSource?.();
       if (result) {
         importPath = result;
+        await planImport();
       }
     } catch {
       // Fall back to manual path entry
     }
   }
 
+  function formatBytes(value: number): string {
+    if (value < 1024) return `${value} B`;
+    if (value < 1024 * 1024) return `${(value / 1024).toFixed(1)} KB`;
+    if (value < 1024 * 1024 * 1024) return `${(value / (1024 * 1024)).toFixed(1)} MB`;
+    return `${(value / (1024 * 1024 * 1024)).toFixed(1)} GB`;
+  }
+
+  function appendImportLog(line: string): void {
+    importProgressLog = [...importProgressLog, `${new Date().toLocaleTimeString()} — ${line}`].slice(-120);
+  }
+
+  async function planImport(): Promise<void> {
+    if (!importPath.trim()) {
+      importPlan = null;
+      return;
+    }
+
+    importPlanning = true;
+    errorMessage = "";
+    try {
+      const plan = await window.dossier?.data.planTakeoutImport(importPath.trim(), importScope);
+      if (!plan) {
+        throw new Error("Unable to create import plan.");
+      }
+
+      importPlan = plan;
+      importScope = {
+        ...importScope,
+        dateRangePreset: plan.defaultScope.dateRangePreset,
+        includedProducts: plan.defaultScope.includedProducts,
+        prioritiseHighSignalItems: importScope.prioritiseHighSignalItems !== false
+      };
+      importJob = null;
+      importJobId = null;
+      importProgressLog = [];
+    } catch (error) {
+      setError(error);
+      importPlan = null;
+    } finally {
+      importPlanning = false;
+    }
+  }
+
+  async function pollImportJob(jobId: string): Promise<void> {
+    let running = true;
+    while (running) {
+      const snapshot = await window.dossier?.data.getTakeoutImportJob(jobId);
+      if (!snapshot) {
+        throw new Error("Import job disappeared.");
+      }
+      importJob = snapshot;
+
+      const nextLog = snapshot.events.map((event) => {
+        const metrics = event.metrics
+          ? ` (${Object.entries(event.metrics)
+              .map(([key, value]) => `${key}=${String(value)}`)
+              .join(", ")})`
+          : "";
+        return `${new Date(event.at).toLocaleTimeString()} — [${event.stage}] ${event.message}${metrics}`;
+      });
+      importProgressLog = nextLog.slice(-200);
+
+      if (snapshot.status === "COMPLETED") {
+        importComplete = true;
+        appendImportLog("Import finished successfully.");
+        setStatus(
+          `Import complete. ${snapshot.result?.artifactsScanned ?? 0} artifacts scanned, ${snapshot.result?.inferencesCreated ?? 0} inferences created, ${snapshot.result?.inferencesSuppressed ?? 0} suppressed.`
+        );
+        if (showWelcome) {
+          importHandled = true;
+          await closeWelcomeIfComplete();
+        }
+        await refresh();
+        running = false;
+      } else if (snapshot.status === "FAILED") {
+        throw new Error(snapshot.error ?? "Import failed.");
+      } else {
+        await new Promise((resolve) => setTimeout(resolve, 650));
+      }
+    }
+  }
+
   async function runImport(): Promise<void> {
-    if (!importPath.trim()) return;
+    if (!importPath.trim() || !importPlan) return;
+    if ((importScope.includedProducts ?? []).length === 0) {
+      setError("Select at least one product before running import.");
+      return;
+    }
+
     errorMessage = "";
     isImporting = true;
     importComplete = false;
-    importDiscoveries = [
-      { id: "scan", text: "Scanning takeout directory...", complete: false },
-      { id: "parse", text: "Parsing artifacts...", complete: false },
-      { id: "infer", text: "Running inference on your data...", complete: false },
-      { id: "store", text: "Storing results...", complete: false }
-    ];
-
-    // Progressive updates
-    const progressTimer = setTimeout(() => {
-      importDiscoveries = importDiscoveries.map((d) =>
-        d.id === "scan" ? { ...d, complete: true } : d
-      );
-    }, 600);
-    const progressTimer2 = setTimeout(() => {
-      importDiscoveries = importDiscoveries.map((d) =>
-        d.id === "parse" ? { ...d, complete: true } : d
-      );
-    }, 1500);
+    importProgressLog = [];
+    appendImportLog(`Starting workspace ${importPlan.workspaceId}.`);
 
     try {
-      const result = await window.dossier?.data.runTakeoutImport(importPath.trim());
-      const cast = (result ?? {}) as {
-        artifactsScanned?: number;
-        inferencesCreated?: number;
-        inferencesSuppressed?: number;
-      };
-
-      // Mark all complete
-      importDiscoveries = importDiscoveries.map((d) => ({ ...d, complete: true }));
-      importComplete = true;
-
-      // Add discovery results
-      if (cast.inferencesCreated) {
-        importDiscoveries = [
-          ...importDiscoveries,
-          { id: "result", text: `${cast.inferencesCreated} inferences created from ${cast.artifactsScanned ?? 0} artifacts`, complete: true }
-        ];
+      const start = await window.dossier?.data.startTakeoutImportJob(
+        importPath.trim(),
+        importPlan.workspaceId,
+        importScope
+      );
+      if (!start?.jobId) {
+        throw new Error("Failed to start import job.");
       }
 
-      setStatus(`Import complete. ${cast.artifactsScanned ?? 0} artifacts scanned, ${cast.inferencesCreated ?? 0} inferences created, ${cast.inferencesSuppressed ?? 0} suppressed.`);
-      showImport = false;
-      importPath = "";
-      if (showWelcome) {
-        importHandled = true;
-        await closeWelcomeIfComplete();
-      }
-      await refresh();
+      importJobId = start.jobId;
+      appendImportLog(`Job ${start.jobId} accepted by backend.`);
+      await pollImportJob(start.jobId);
     } catch (error) {
       setError(error);
-      importDiscoveries = [];
     } finally {
-      clearTimeout(progressTimer);
-      clearTimeout(progressTimer2);
       isImporting = false;
     }
   }
@@ -561,23 +630,104 @@
           <div class="welcome-card">
             <h2 class="section-heading">Import your data</h2>
             <p class="section-desc">
-              Import a Google Takeout export to discover what Dossier can learn about you.
-              Or skip this and add items manually.
+              Select a Google Takeout folder or zip. Dossier will show an import plan first, then stream each step live.
             </p>
             <div class="import-row">
               <button class="btn-secondary import-browse" onclick={() => void browseForImport()}>
                 <IconFolderOpenRegular class="icon-18" />
-                <span>Choose folder</span>
+                <span>Select folder or zip</span>
               </button>
-              {#if importPath}
-                <span class="import-path">{importPath}</span>
-              {/if}
+              <input
+                class="text-input flex-1"
+                bind:value={importPath}
+                placeholder="Paste a folder or .zip path"
+                oninput={() => {
+                  importPlan = null;
+                  importJob = null;
+                  importJobId = null;
+                  importProgressLog = [];
+                }}
+                onblur={() => void planImport()}
+              />
             </div>
-            {#if importPath}
-              <button class="btn-primary" onclick={() => void runImport()} disabled={isImporting}>
-                {isImporting ? "Importing..." : "Run import"}
+
+            <div class="panel-actions">
+              <button class="btn-secondary" onclick={() => void planImport()} disabled={importPlanning || !importPath.trim()}>
+                {importPlanning ? "Planning..." : "Create ingestion plan"}
               </button>
+              <button class="btn-primary" onclick={() => void runImport()} disabled={isImporting || !importPlan}>
+                {isImporting ? "Import running..." : "Run import"}
+              </button>
+            </div>
+
+            {#if importPlan}
+              <div class="takeout-plan">
+                <p class="takeout-meta"><strong>Workspace:</strong> {importPlan.workspaceId}</p>
+                <p class="takeout-meta">
+                  <strong>Inventory:</strong>
+                  {importPlan.parseableFiles} parseable files ({formatBytes(importPlan.parseableBytes)})
+                  from {importPlan.totalFiles} total files
+                </p>
+
+                <div class="form-row">
+                  <select
+                    class="text-input"
+                    value={importScope.dateRangePreset ?? "last_12_months"}
+                    onchange={(event) => {
+                      importScope = {
+                        ...importScope,
+                        dateRangePreset: (event.currentTarget as HTMLSelectElement).value as "last_12_months" | "all_time"
+                      };
+                    }}
+                  >
+                    <option value="last_12_months">Last 12 months (default)</option>
+                    <option value="all_time">All available history</option>
+                  </select>
+                </div>
+
+                <div class="chips">
+                  {#each importPlan.products as product (product.key)}
+                    <button
+                      class="chip"
+                      class:active={(importScope.includedProducts ?? []).includes(product.key)}
+                      onclick={() => {
+                        importScope = {
+                          ...importScope,
+                          includedProducts: toggleId(importScope.includedProducts ?? [], product.key)
+                        };
+                      }}
+                    >
+                      {product.label} ({product.parseableFileCount})
+                    </button>
+                  {/each}
+                </div>
+
+                {#if importPlan.warnings.length > 0}
+                  <div class="takeout-warnings">
+                    {#each importPlan.warnings as warning}
+                      <p>{warning}</p>
+                    {/each}
+                  </div>
+                {/if}
+              </div>
             {/if}
+
+            {#if importJob}
+              <div class="takeout-live">
+                <p class="takeout-meta"><strong>Status:</strong> {importJob.status}</p>
+                <p class="takeout-meta"><strong>Job:</strong> {importJob.jobId}</p>
+                <div class="takeout-log" aria-live="polite">
+                  {#if importProgressLog.length === 0}
+                    <p>Waiting for backend events...</p>
+                  {:else}
+                    {#each importProgressLog as line, index (`welcome-${index}-${line}`)}
+                      <p>{line}</p>
+                    {/each}
+                  {/if}
+                </div>
+              </div>
+            {/if}
+
             <div class="welcome-actions">
               <button class="btn-secondary" onclick={() => { importHandled = true; void closeWelcomeIfComplete(); }}>
                 Skip — I'll add items manually
@@ -675,22 +825,61 @@
           <div class="import-row">
             <button class="btn-secondary import-browse" onclick={() => void browseForImport()}>
               <IconFolderOpenRegular class="icon-18" />
-              <span>Choose folder</span>
+              <span>Select folder or zip</span>
             </button>
-            <input class="text-input flex-1" bind:value={importPath} placeholder="Or paste the folder path" />
+            <input
+              class="text-input flex-1"
+              bind:value={importPath}
+              placeholder="Or paste a folder/.zip path"
+              oninput={() => {
+                importPlan = null;
+                importJob = null;
+                importJobId = null;
+                importProgressLog = [];
+              }}
+              onblur={() => void planImport()}
+            />
           </div>
+
           <div class="panel-actions">
-            <button class="btn-secondary" onclick={() => { showImport = false; }}>Cancel</button>
-            <button class="btn-primary" onclick={() => void runImport()} disabled={isImporting || !importPath.trim()}>
+            <button class="btn-secondary" onclick={() => void planImport()} disabled={importPlanning || !importPath.trim()}>
+              {importPlanning ? "Planning..." : "Create plan"}
+            </button>
+            <button class="btn-primary" onclick={() => void runImport()} disabled={isImporting || !importPlan}>
               {isImporting ? "Importing..." : "Run import"}
             </button>
+          </div>
+
+          {#if importPlan}
+            <div class="takeout-plan compact">
+              <p class="takeout-meta"><strong>Workspace:</strong> {importPlan.workspaceId}</p>
+              <p class="takeout-meta">
+                <strong>Parseable:</strong> {importPlan.parseableFiles} files ({formatBytes(importPlan.parseableBytes)})
+              </p>
+            </div>
+          {/if}
+
+          <div class="panel-actions">
+            <button class="btn-secondary" onclick={() => { showImport = false; }}>Cancel</button>
           </div>
         </section>
       {/if}
 
-      <!-- Processing Feed (during import) -->
-      {#if isImporting && importDiscoveries.length > 0}
-        <ProcessingFeed discoveries={importDiscoveries} isComplete={importComplete} />
+      {#if importJob}
+        <section class="inline-panel">
+          <h3 class="panel-heading">Takeout import status</h3>
+          <p class="takeout-meta"><strong>Status:</strong> {importJob.status}</p>
+          <p class="takeout-meta"><strong>Job:</strong> {importJob.jobId}</p>
+          <div class="takeout-log" aria-live="polite">
+            {#if importProgressLog.length === 0}
+              <p>Waiting for backend events...</p>
+            {:else}
+              {#each importProgressLog as line, index (`main-${index}-${line}`)}
+                <p>{line}</p>
+              {/each}
+            {/if}
+          </div>
+        </section>
       {/if}
 
       <!-- Pending Inferences Section -->
@@ -1200,14 +1389,71 @@
     white-space: nowrap;
   }
 
-  .import-path {
-    font-family: var(--font-mono);
+  .takeout-plan {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: var(--space-4);
+    background: var(--base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .takeout-plan.compact {
+    gap: var(--space-2);
+  }
+
+  .takeout-meta {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .takeout-warnings {
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--warning-subtle, var(--border-subtle));
+    background: var(--base-secondary);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .takeout-warnings p {
+    font-family: var(--font-body);
     font-size: 0.8125rem;
     color: var(--text-secondary);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    min-width: 0;
+  }
+
+  .takeout-live {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    background: var(--base);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .takeout-log {
+    border: 1px solid var(--border-subtle);
+    background: var(--base-tertiary);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3);
+    max-height: 220px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .takeout-log p {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    word-break: break-word;
   }
 
   .edit-input {

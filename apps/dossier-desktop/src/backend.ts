@@ -174,6 +174,83 @@ type StoreServicePort = {
   deleteProfileIrreversible: () => { deleted: true; previousProfileId: string; nextProfileId: string };
 };
 
+type TakeoutImportScope = {
+  dateRangePreset?: "last_12_months" | "all_time";
+  includedProducts?: string[];
+  prioritiseHighSignalItems?: boolean;
+};
+
+type TakeoutImportPlan = {
+  workspaceId: string;
+  sourcePath: string;
+  sourceType: "directory" | "zip";
+  generatedAt: string;
+  totalFiles: number;
+  parseableFiles: number;
+  totalBytes: number;
+  parseableBytes: number;
+  products: Array<{
+    key: string;
+    label: string;
+    fileCount: number;
+    parseableFileCount: number;
+    totalBytes: number;
+    parseableBytes: number;
+    selectedByDefault: boolean;
+  }>;
+  defaultScope: {
+    dateRangePreset: "last_12_months" | "all_time";
+    includedProducts: string[];
+  };
+  warnings: string[];
+};
+
+type TakeoutImportResult = {
+  workspaceId: string;
+  sourceType: "directory" | "zip";
+  artifactsScanned: number;
+  artifactsImported: number;
+  parseErrors: number;
+  inferencesCreated: number;
+  inferencesSuppressed: number;
+  startedAt: string;
+  completedAt: string;
+  scope: {
+    dateRangePreset: "last_12_months" | "all_time";
+    includedProducts: string[];
+    prioritiseHighSignalItems: boolean;
+  };
+  warnings: string[];
+};
+
+type TakeoutImportProgressEvent = {
+  stage: "inventory" | "parse" | "scope" | "infer" | "store" | "complete";
+  status: "started" | "progress" | "completed";
+  message: string;
+  metrics?: Record<string, string | number | boolean | null>;
+};
+
+type TakeoutImportJobStatus = "QUEUED" | "RUNNING" | "COMPLETED" | "FAILED";
+
+type TakeoutImportJobRecord = {
+  jobId: string;
+  workspaceId: string;
+  sourcePath: string;
+  status: TakeoutImportJobStatus;
+  createdAt: string;
+  startedAt: string | null;
+  completedAt: string | null;
+  scope: {
+    dateRangePreset: "last_12_months" | "all_time";
+    includedProducts: string[];
+    prioritiseHighSignalItems: boolean;
+  };
+  plan: TakeoutImportPlan;
+  events: Array<TakeoutImportProgressEvent & { at: string }>;
+  result: TakeoutImportResult | null;
+  error: string | null;
+};
+
 const defaultSettings: DossierSettings = {
   theme: "Parchment",
   dyslexiaMode: false,
@@ -194,15 +271,31 @@ let profileServer: {
   stop: () => Promise<void>;
   on: (event: string, listener: (payload: unknown) => void) => void;
 };
-let runGoogleTakeoutImport: (store: unknown, rootPath: string, llmConfig?: LlmRuntimeConfig | null) => Promise<unknown>;
+let runGoogleTakeoutImport: (
+  store: unknown,
+  sourcePath: string,
+  llmConfig?: LlmRuntimeConfig | null,
+  options?: {
+    workspaceId?: string;
+    scope?: TakeoutImportScope;
+    onProgress?: (event: TakeoutImportProgressEvent) => void;
+  }
+) => Promise<TakeoutImportResult>;
+let planGoogleTakeoutImport: (sourcePath: string, scope?: TakeoutImportScope) => TakeoutImportPlan;
 let testLlmConnection: ((config: LlmRuntimeConfig) => Promise<{ ok: boolean; model: string; error?: string }>) | null = null;
-let inferFromChatMessage: ((config: LlmRuntimeConfig, history: { role: string; content: string }[], userMessage: string) => Promise<{ reply: string; proposals: { text: string; itemType: string; why: string; confidence: number | null }[] }>) | null = null;
+let inferFromChatMessage: ((
+  config: LlmRuntimeConfig,
+  history: { role: string; content: string }[],
+  userMessage: string,
+  profileContext?: string
+) => Promise<{ reply: string; proposals: { text: string; itemType: string; why: string; confidence: number | null }[] }>) | null = null;
 let generateAlternatives: ((config: LlmRuntimeConfig, text: string, itemType: string, why?: string) => Promise<{ original: string; alternatives: { text: string; reason: string }[] }>) | null = null;
 let shuttingDown = false;
 
 const controlToken = randomBytes(24).toString("base64url");
 const consentQueue: unknown[] = [];
 const consentWaiters = new Set<(payload: unknown | null) => void>();
+const takeoutImportJobs = new Map<string, TakeoutImportJobRecord>();
 
 class ControlError extends Error {
   constructor(
@@ -353,6 +446,45 @@ function parseRequiredString(value: unknown, fieldName: string): string {
     fail(400, "BAD_REQUEST", `${fieldName} is required`);
   }
   return value.trim();
+}
+
+function parseTakeoutScope(value: unknown, fallback?: TakeoutImportScope): TakeoutImportScope {
+  if (value === undefined || value === null) {
+    return fallback ?? {};
+  }
+
+  if (!value || typeof value !== "object") {
+    fail(400, "BAD_REQUEST", "scope must be an object");
+  }
+
+  const cast = value as {
+    dateRangePreset?: unknown;
+    includedProducts?: unknown;
+    prioritiseHighSignalItems?: unknown;
+  };
+
+  const dateRangePreset =
+    cast.dateRangePreset === "all_time" || cast.dateRangePreset === "last_12_months"
+      ? cast.dateRangePreset
+      : fallback?.dateRangePreset;
+
+  const includedProducts = Array.isArray(cast.includedProducts)
+    ? cast.includedProducts
+        .filter((entry): entry is string => typeof entry === "string")
+        .map((entry) => entry.trim())
+        .filter((entry) => entry.length > 0)
+    : fallback?.includedProducts;
+
+  const prioritiseHighSignalItems =
+    typeof cast.prioritiseHighSignalItems === "boolean"
+      ? cast.prioritiseHighSignalItems
+      : fallback?.prioritiseHighSignalItems;
+
+  return {
+    ...(dateRangePreset ? { dateRangePreset } : {}),
+    ...(includedProducts ? { includedProducts } : {}),
+    ...(prioritiseHighSignalItems !== undefined ? { prioritiseHighSignalItems } : {})
+  };
 }
 
 function validateEndpointUrl(endpoint: string, fieldName: string): void {
@@ -529,6 +661,156 @@ function parseTopicRuleInput(payload: unknown, profileId: string): {
   };
 }
 
+type RuntimeTopicRule = {
+  rule_id: string;
+  pattern: string;
+  match_mode: "EXACT" | "PHRASE" | "KEYWORD" | "REGEX";
+  scope: "STORAGE" | "SHARING" | "STORAGE_AND_SHARING";
+  is_enabled: boolean;
+};
+
+function asRecord(value: unknown): Record<string, unknown> {
+  return value && typeof value === "object" ? (value as Record<string, unknown>) : {};
+}
+
+function toRuntimeTopicRules(rawRules: unknown[]): RuntimeTopicRule[] {
+  return rawRules
+    .map((rule) => asRecord(rule))
+    .map((rule) => {
+      const matchMode: RuntimeTopicRule["match_mode"] =
+        rule.match_mode === "EXACT" ||
+        rule.match_mode === "PHRASE" ||
+        rule.match_mode === "KEYWORD" ||
+        rule.match_mode === "REGEX"
+          ? rule.match_mode
+          : "KEYWORD";
+      const scope: RuntimeTopicRule["scope"] =
+        rule.scope === "STORAGE" ||
+        rule.scope === "SHARING" ||
+        rule.scope === "STORAGE_AND_SHARING"
+          ? rule.scope
+          : "STORAGE_AND_SHARING";
+
+      return {
+        rule_id: typeof rule.rule_id === "string" ? rule.rule_id : randomUUID(),
+        pattern: typeof rule.pattern === "string" ? rule.pattern : "",
+        match_mode: matchMode,
+        scope,
+        is_enabled: Boolean(rule.is_enabled)
+      };
+    })
+    .filter((rule) => rule.pattern.trim().length > 0);
+}
+
+function safeRegex(pattern: string): RegExp | null {
+  try {
+    return new RegExp(pattern, "i");
+  } catch {
+    return null;
+  }
+}
+
+function findMatchedTopicRule(text: string, rules: RuntimeTopicRule[]): RuntimeTopicRule | null {
+  const normalized = text.trim().toLowerCase();
+
+  for (const rule of rules) {
+    if (!rule.is_enabled) {
+      continue;
+    }
+
+    const pattern = rule.pattern.trim().toLowerCase();
+    if (!pattern) {
+      continue;
+    }
+
+    if (rule.match_mode === "EXACT" && normalized === pattern) {
+      return rule;
+    }
+
+    if ((rule.match_mode === "PHRASE" || rule.match_mode === "KEYWORD") && normalized.includes(pattern)) {
+      return rule;
+    }
+
+    if (rule.match_mode === "REGEX") {
+      const regex = safeRegex(rule.pattern);
+      if (regex && regex.test(text)) {
+        return rule;
+      }
+    }
+  }
+
+  return null;
+}
+
+function sanitizeSettingsForContext(settings: DossierSettings): Record<string, unknown> {
+  const activeProfile =
+    settings.llmProfiles.find((profile) => profile.id === settings.activeLlmProfileId) ??
+    settings.llmProfiles[0] ??
+    null;
+
+  return {
+    profilePreferences: {
+      theme: settings.theme,
+      dyslexiaMode: settings.dyslexiaMode,
+      highFidelityEnabled: settings.highFidelityEnabled,
+      startOnLogin: settings.startOnLogin
+    },
+    llm: {
+      activeProfileId: settings.activeLlmProfileId,
+      activeProfile: activeProfile
+        ? {
+            id: activeProfile.id,
+            name: activeProfile.name,
+            provider: activeProfile.provider,
+            endpoint: activeProfile.endpoint,
+            model: activeProfile.model,
+            authMethod: activeProfile.authMethod
+          }
+        : null,
+      profileCount: settings.llmProfiles.length,
+      legacyModelConfigured: Boolean(settings.localModelEndpoint && settings.localModelName)
+    }
+  };
+}
+
+function buildChatProfileContext(repository: RepositoryPort): string {
+  const profileId = repository.snapshot().profile.profile_id;
+  const items = repository.listItemDetailsViews().map((entry) => {
+    const item = toRouteItemRecord(entry.item);
+    const topic = asRecord(entry.topic);
+    const provenance = asRecord(entry.provenance);
+
+    return {
+      itemId: typeof item.item_id === "string" ? item.item_id : null,
+      text: typeof item.text === "string" ? item.text : "",
+      itemType: typeof item.itemType === "string" ? item.itemType : item.item_type,
+      state: typeof item.state === "string" ? item.state : null,
+      categoryId: typeof item.categoryId === "string" ? item.categoryId : item.category_id,
+      isTopicBlocked: Boolean(topic.is_topic_blocked),
+      blockedByRuleId: typeof topic.blocked_by_rule_id === "string" ? topic.blocked_by_rule_id : null,
+      sourceLabel: typeof provenance.source_label === "string" ? provenance.source_label : null,
+      confidence:
+        typeof provenance.confidence === "number" || provenance.confidence === null
+          ? provenance.confidence
+          : null,
+      compartmentIds: Array.isArray(entry.compartment_ids) ? entry.compartment_ids : []
+    };
+  });
+
+  return JSON.stringify(
+    {
+      profileId,
+      settings: sanitizeSettingsForContext(settingsCache),
+      categories: repository.listCategories(),
+      compartments: repository.listCompartments(),
+      topicRules: toRuntimeTopicRules(repository.listTopicRules()),
+      profileItems: items
+    },
+    null,
+    2
+  );
+}
+
 async function readJsonBody(req: IncomingMessage): Promise<unknown> {
   return new Promise((resolve, reject) => {
     const chunks: Buffer[] = [];
@@ -562,6 +844,118 @@ function pushConsentEvent(payload: unknown): void {
     return;
   }
   consentQueue.push(payload);
+}
+
+function appendTakeoutJobEvent(job: TakeoutImportJobRecord, event: TakeoutImportProgressEvent): void {
+  job.events.push({
+    ...event,
+    at: new Date().toISOString()
+  });
+  if (job.events.length > 1200) {
+    job.events.splice(0, job.events.length - 1200);
+  }
+}
+
+function toTakeoutJobResponse(job: TakeoutImportJobRecord): Record<string, unknown> {
+  return {
+    jobId: job.jobId,
+    workspaceId: job.workspaceId,
+    sourcePath: job.sourcePath,
+    status: job.status,
+    createdAt: job.createdAt,
+    startedAt: job.startedAt,
+    completedAt: job.completedAt,
+    scope: job.scope,
+    plan: job.plan,
+    events: job.events,
+    result: job.result,
+    error: job.error
+  };
+}
+
+function startTakeoutImportJob(
+  options: {
+    storeService: StoreServicePort;
+    runGoogleTakeoutImport: (
+      store: unknown,
+      sourcePath: string,
+      llmConfig?: LlmRuntimeConfig | null,
+      runOptions?: {
+        workspaceId?: string;
+        scope?: TakeoutImportScope;
+        onProgress?: (event: TakeoutImportProgressEvent) => void;
+      }
+    ) => Promise<TakeoutImportResult>;
+  },
+  payload: {
+    sourcePath: string;
+    workspaceId: string;
+    scope: {
+      dateRangePreset: "last_12_months" | "all_time";
+      includedProducts: string[];
+      prioritiseHighSignalItems: boolean;
+    };
+    plan: TakeoutImportPlan;
+  }
+): TakeoutImportJobRecord {
+  const jobId = randomUUID();
+  const job: TakeoutImportJobRecord = {
+    jobId,
+    workspaceId: payload.workspaceId,
+    sourcePath: payload.sourcePath,
+    status: "QUEUED",
+    createdAt: new Date().toISOString(),
+    startedAt: null,
+    completedAt: null,
+    scope: payload.scope,
+    plan: payload.plan,
+    events: [],
+    result: null,
+    error: null
+  };
+
+  takeoutImportJobs.set(jobId, job);
+  appendTakeoutJobEvent(job, {
+    stage: "inventory",
+    status: "started",
+    message: "Import job queued."
+  });
+
+  queueMicrotask(() => {
+    job.status = "RUNNING";
+    job.startedAt = new Date().toISOString();
+    appendTakeoutJobEvent(job, {
+      stage: "inventory",
+      status: "progress",
+      message: "Import job started."
+    });
+
+    void options
+      .runGoogleTakeoutImport(options.storeService, payload.sourcePath, getLlmConfig(), {
+        workspaceId: payload.workspaceId,
+        scope: payload.scope,
+        onProgress: (event) => {
+          appendTakeoutJobEvent(job, event);
+        }
+      })
+      .then((result) => {
+        job.status = "COMPLETED";
+        job.completedAt = new Date().toISOString();
+        job.result = result;
+      })
+      .catch((error) => {
+        job.status = "FAILED";
+        job.completedAt = new Date().toISOString();
+        job.error = error instanceof Error ? error.message : "Import failed";
+        appendTakeoutJobEvent(job, {
+          stage: "complete",
+          status: "completed",
+          message: `Import failed: ${job.error}`
+        });
+      });
+  });
+
+  return job;
 }
 
 async function awaitConsentEvent(timeoutMs: number): Promise<unknown | null> {
@@ -709,7 +1103,17 @@ async function detectOllamaModels(endpoint: string): Promise<string[]> {
 
 export function createControlRequestHandler(options: {
   storeService: StoreServicePort;
-  runGoogleTakeoutImport: (store: unknown, rootPath: string, llmConfig?: LlmRuntimeConfig | null) => Promise<unknown>;
+  runGoogleTakeoutImport: (
+    store: unknown,
+    sourcePath: string,
+    llmConfig?: LlmRuntimeConfig | null,
+    runOptions?: {
+      workspaceId?: string;
+      scope?: TakeoutImportScope;
+      onProgress?: (event: TakeoutImportProgressEvent) => void;
+    }
+  ) => Promise<TakeoutImportResult>;
+  planGoogleTakeoutImport: (sourcePath: string, scope?: TakeoutImportScope) => TakeoutImportPlan;
 }): (req: IncomingMessage, res: ServerResponse) => Promise<void> {
   return async (req, res) => {
     const method = req.method ?? "GET";
@@ -1190,11 +1594,30 @@ export function createControlRequestHandler(options: {
           return;
         }
 
+        const topicRules = toRuntimeTopicRules(options.storeService.repository.listTopicRules());
+        const blockedRule = findMatchedTopicRule(payload.userMessage.trim(), topicRules);
+        if (blockedRule) {
+          sendJson(res, 200, {
+            reply:
+              "I can't discuss that topic because it matches one of your blocked-topic rules. You can ask about any other part of your profile.",
+            proposals: [],
+            createdItems: []
+          });
+          return;
+        }
+
         const history = (payload.messages ?? [])
           .filter((msg) => msg.role === "user" || msg.role === "assistant")
           .map((msg) => ({ role: msg.role, content: msg.content }));
 
-        const result = await inferFromChatMessage(llmConfig, history, payload.userMessage.trim());
+        const profileContext = buildChatProfileContext(options.storeService.repository);
+
+        const result = await inferFromChatMessage(
+          llmConfig,
+          history,
+          payload.userMessage.trim(),
+          profileContext
+        );
         const createdItems: unknown[] = [];
 
         for (const proposal of result.proposals) {
@@ -1324,12 +1747,97 @@ export function createControlRequestHandler(options: {
         return;
       }
 
+      if (method === "POST" && path === "/control/data/takeout/plan") {
+        const payload = (await readJsonBody(req)) as {
+          importPath?: string;
+          scope?: TakeoutImportScope;
+        };
+        if (!payload.importPath?.trim()) {
+          fail(400, "BAD_REQUEST", "importPath is required");
+        }
+
+        const requestedScope = parseTakeoutScope(payload.scope);
+        const plan = options.planGoogleTakeoutImport(payload.importPath.trim(), requestedScope);
+        sendJson(res, 200, plan);
+        return;
+      }
+
+      if (method === "POST" && path === "/control/data/takeout/jobs") {
+        const payload = (await readJsonBody(req)) as {
+          importPath?: string;
+          workspaceId?: string;
+          scope?: TakeoutImportScope;
+        };
+        if (!payload.importPath?.trim()) {
+          fail(400, "BAD_REQUEST", "importPath is required");
+        }
+
+        const plan = options.planGoogleTakeoutImport(payload.importPath.trim(), parseTakeoutScope(payload.scope));
+        const scope = parseTakeoutScope(payload.scope, {
+          dateRangePreset: plan.defaultScope.dateRangePreset,
+          includedProducts: plan.defaultScope.includedProducts,
+          prioritiseHighSignalItems: true
+        });
+
+        const normalizedScope = {
+          dateRangePreset: scope.dateRangePreset === "all_time" ? "all_time" : "last_12_months",
+          includedProducts:
+            scope.includedProducts && scope.includedProducts.length > 0
+              ? scope.includedProducts
+              : plan.defaultScope.includedProducts,
+          prioritiseHighSignalItems: scope.prioritiseHighSignalItems !== false
+        } satisfies TakeoutImportJobRecord["scope"];
+
+        const job = startTakeoutImportJob(options, {
+          sourcePath: payload.importPath.trim(),
+          workspaceId: payload.workspaceId?.trim() || plan.workspaceId,
+          scope: normalizedScope,
+          plan
+        });
+
+        sendJson(res, 202, {
+          jobId: job.jobId,
+          workspaceId: job.workspaceId,
+          status: job.status
+        });
+        return;
+      }
+
+      if (method === "GET" && path.match(/^\/control\/data\/takeout\/jobs\/[^/]+$/)) {
+        const jobId = routeParam(path, /^\/control\/data\/takeout\/jobs\/([^/]+)$/)[1]!;
+        const job = takeoutImportJobs.get(jobId);
+        if (!job) {
+          fail(404, "NOT_FOUND", "import job not found");
+        }
+        sendJson(res, 200, toTakeoutJobResponse(job));
+        return;
+      }
+
       if (method === "POST" && path === "/control/data/takeout-import") {
-        const payload = (await readJsonBody(req)) as { importPath?: string };
+        const payload = (await readJsonBody(req)) as {
+          importPath?: string;
+          scope?: TakeoutImportScope;
+          workspaceId?: string;
+        };
         if (!payload.importPath) {
           fail(400, "BAD_REQUEST", "importPath is required");
         }
-        const result = await options.runGoogleTakeoutImport(options.storeService, payload.importPath, getLlmConfig());
+
+        const plan = options.planGoogleTakeoutImport(payload.importPath.trim(), parseTakeoutScope(payload.scope));
+        const scope = parseTakeoutScope(payload.scope, {
+          dateRangePreset: plan.defaultScope.dateRangePreset,
+          includedProducts: plan.defaultScope.includedProducts,
+          prioritiseHighSignalItems: true
+        });
+        const result = await options.runGoogleTakeoutImport(
+          options.storeService,
+          payload.importPath,
+          getLlmConfig(),
+          {
+            workspaceId: payload.workspaceId?.trim() || plan.workspaceId,
+            scope
+          }
+        );
         sendJson(res, 200, result);
         return;
       }
@@ -1403,6 +1911,7 @@ async function bootstrap(): Promise<void> {
     storeService = (await storeModule.DossierStoreService.init(dataDir)) as StoreServicePort;
     profileServer = new localServerModule.LocalProfileServer(storeService);
     runGoogleTakeoutImport = connectorModule.runGoogleTakeoutImport;
+    planGoogleTakeoutImport = connectorModule.planGoogleTakeoutImport;
 
     // Try to load inference engine (optional — won't block startup)
     const inferenceEnginePath = join(packagesRoot, "inference-engine", "dist", "index.js");
@@ -1441,7 +1950,8 @@ async function bootstrap(): Promise<void> {
   const controlServer = createServer(
     createControlRequestHandler({
       storeService,
-      runGoogleTakeoutImport
+      runGoogleTakeoutImport,
+      planGoogleTakeoutImport
     })
   );
 

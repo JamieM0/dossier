@@ -16,6 +16,9 @@ import type {
   ProfileItemView,
   ProposedInferenceResult,
   ServiceConnectionStatus,
+  TakeoutImportJob,
+  TakeoutImportPlan,
+  TakeoutImportScope,
   TopicRule
 } from "$lib/types";
 
@@ -99,6 +102,14 @@ declare global {
         delete: (compartmentId: string) => Promise<{ deleted: true; compartmentId: string }>;
       };
       data: {
+        browseTakeoutSource: () => Promise<string | null>;
+        planTakeoutImport: (path: string, scope?: TakeoutImportScope) => Promise<TakeoutImportPlan>;
+        startTakeoutImportJob: (
+          path: string,
+          workspaceId: string,
+          scope?: TakeoutImportScope
+        ) => Promise<{ jobId: string; workspaceId: string; status: string }>;
+        getTakeoutImportJob: (jobId: string) => Promise<TakeoutImportJob>;
         exportEncrypted: (passphrase: string) => Promise<unknown>;
         importEncrypted: (artifact: unknown, passphrase: string) => Promise<void>;
         listBackups: () => Promise<{ backups: LocalBackupSummary[] }>;

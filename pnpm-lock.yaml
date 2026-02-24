@@ -96,6 +96,9 @@ importers:
       '@dossier/inference-engine':
         specifier: workspace:*
         version: link:../inference-engine
+      adm-zip:
+        specifier: ^0.5.16
+        version: 0.5.16
     devDependencies:
       '@types/node':
         specifier: ^22.10.2
@@ -944,6 +947,10 @@ packages:
     resolution: {integrity: sha512-UVJyE9MttOsBQIDKw1skb9nAwQuR5wuGD3+82K6JgJlm/Y+KI92oNsMNGZCYdDsVtRHSak0pcV5Dno5+4jh9sw==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  adm-zip@0.5.16:
+    resolution: {integrity: sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ==}
+    engines: {node: '>=12.0'}
 
   aria-query@5.3.2:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
@@ -1978,6 +1985,8 @@ snapshots:
       tinyrainbow: 1.2.0
 
   acorn@8.16.0: {}
+
+  adm-zip@0.5.16: {}
 
   aria-query@5.3.2: {}
 

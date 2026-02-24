@@ -229,7 +229,39 @@ beforeEach(async () => {
 
   handler = createControlRequestHandler({
     storeService,
-    runGoogleTakeoutImport: async () => ({ artifactsScanned: 0, inferencesCreated: 0, inferencesSuppressed: 0 })
+    runGoogleTakeoutImport: async () => ({
+      workspaceId: "workspace-1",
+      sourceType: "directory",
+      artifactsScanned: 0,
+      artifactsImported: 0,
+      parseErrors: 0,
+      inferencesCreated: 0,
+      inferencesSuppressed: 0,
+      startedAt: new Date().toISOString(),
+      completedAt: new Date().toISOString(),
+      scope: {
+        dateRangePreset: "last_12_months",
+        includedProducts: ["gmail", "calendar", "youtube"],
+        prioritiseHighSignalItems: true
+      },
+      warnings: []
+    }),
+    planGoogleTakeoutImport: (sourcePath: string) => ({
+      workspaceId: "workspace-1",
+      sourcePath,
+      sourceType: "directory",
+      generatedAt: new Date().toISOString(),
+      totalFiles: 0,
+      parseableFiles: 0,
+      totalBytes: 0,
+      parseableBytes: 0,
+      products: [],
+      defaultScope: {
+        dateRangePreset: "last_12_months",
+        includedProducts: ["gmail", "calendar", "youtube"]
+      },
+      warnings: []
+    })
   });
 });
 
@@ -310,6 +342,9 @@ describe("control API routes", () => {
       ["POST", "/control/data/backups", { passphrase: "secret" }],
       ["POST", "/control/data/backups/b-1/verify", {}],
       ["POST", "/control/data/backups/b-1/restore", { passphrase: "secret" }],
+      ["POST", "/control/data/takeout/plan", { importPath: "/tmp/takeout" }],
+      ["POST", "/control/data/takeout/jobs", { importPath: "/tmp/takeout" }],
+      ["GET", "/control/data/takeout/jobs/job-1", undefined],
       ["POST", "/control/llm/ollama-models", { endpoint: "http://127.0.0.1:11434/v1" }],
       ["POST", "/control/profile/delete-irreversible", { confirmationText: "DELETE MY PROFILE" }]
     ] as const;
@@ -354,6 +389,8 @@ describe("control API routes", () => {
       ["POST", "/control/data/backups", { passphrase: "secret" }, 201],
       ["POST", "/control/data/backups/b-1/verify", {}, 200],
       ["POST", "/control/data/backups/b-1/restore", { passphrase: "secret" }, 200],
+      ["POST", "/control/data/takeout/plan", { importPath: "/tmp/takeout" }, 200],
+      ["POST", "/control/data/takeout/jobs", { importPath: "/tmp/takeout" }, 202],
       ["POST", "/control/llm/ollama-models", { endpoint: "http://127.0.0.1:11434/v1" }, 200],
       ["POST", "/control/profile/delete-irreversible", { confirmationText: "DELETE MY PROFILE" }, 200]
     ] as const;

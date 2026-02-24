@@ -13,6 +13,7 @@ use std::{
 };
 
 use reqwest::{Client, Method};
+use rfd::FileDialog;
 use serde::Deserialize;
 use serde_json::{json, Value};
 use tauri::{
@@ -958,6 +959,78 @@ async fn data_run_takeout_import(
 }
 
 #[tauri::command]
+fn data_browse_takeout_source() -> Result<Option<String>, String> {
+    if let Some(folder) = FileDialog::new()
+        .set_title("Select Google Takeout folder")
+        .pick_folder()
+    {
+        return Ok(Some(folder.display().to_string()));
+    }
+
+    if let Some(file) = FileDialog::new()
+        .set_title("Or select Google Takeout zip")
+        .add_filter("Zip archive", &["zip"])
+        .pick_file()
+    {
+        return Ok(Some(file.display().to_string()));
+    }
+
+    Ok(None)
+}
+
+#[tauri::command]
+async fn data_takeout_plan(
+    path: String,
+    scope: Option<Value>,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/data/takeout/plan",
+            Some(json!({ "importPath": path, "scope": scope })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn data_takeout_start_job(
+    path: String,
+    workspace_id: Option<String>,
+    scope: Option<Value>,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/data/takeout/jobs",
+            Some(json!({
+                "importPath": path,
+                "workspaceId": workspace_id,
+                "scope": scope
+            })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn data_takeout_job_status(
+    job_id: String,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::GET,
+            format!("/control/data/takeout/jobs/{job_id}").as_str(),
+            None,
+        )
+        .await
+}
+
+#[tauri::command]
 async fn server_health(state: State<'_, RuntimeState>) -> Result<Value, String> {
     state
         .client
@@ -1123,6 +1196,10 @@ fn main() {
             data_backup_restore,
             profile_delete_irreversible,
             data_run_takeout_import,
+            data_browse_takeout_source,
+            data_takeout_plan,
+            data_takeout_start_job,
+            data_takeout_job_status,
             server_health,
             llm_test,
             llm_detect_ollama_models,

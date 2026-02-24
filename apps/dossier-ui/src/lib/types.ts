@@ -44,6 +44,86 @@ export type DossierSettings = {
   [key: string]: unknown;
 };
 
+export type TakeoutDateRangePreset = "last_12_months" | "all_time";
+
+export type TakeoutImportScope = {
+  dateRangePreset?: TakeoutDateRangePreset;
+  includedProducts?: string[];
+  prioritiseHighSignalItems?: boolean;
+};
+
+export type TakeoutImportPlanProduct = {
+  key: string;
+  label: string;
+  fileCount: number;
+  parseableFileCount: number;
+  totalBytes: number;
+  parseableBytes: number;
+  selectedByDefault: boolean;
+};
+
+export type TakeoutImportPlan = {
+  workspaceId: string;
+  sourcePath: string;
+  sourceType: "directory" | "zip";
+  generatedAt: string;
+  totalFiles: number;
+  parseableFiles: number;
+  totalBytes: number;
+  parseableBytes: number;
+  products: TakeoutImportPlanProduct[];
+  defaultScope: {
+    dateRangePreset: TakeoutDateRangePreset;
+    includedProducts: string[];
+  };
+  warnings: string[];
+};
+
+export type TakeoutImportProgressEvent = {
+  stage: "inventory" | "parse" | "scope" | "infer" | "store" | "complete";
+  status: "started" | "progress" | "completed";
+  message: string;
+  at: string;
+  metrics?: Record<string, string | number | boolean | null>;
+};
+
+export type TakeoutImportResult = {
+  workspaceId: string;
+  sourceType: "directory" | "zip";
+  artifactsScanned: number;
+  artifactsImported: number;
+  parseErrors: number;
+  inferencesCreated: number;
+  inferencesSuppressed: number;
+  startedAt: string;
+  completedAt: string;
+  scope: {
+    dateRangePreset: TakeoutDateRangePreset;
+    includedProducts: string[];
+    prioritiseHighSignalItems: boolean;
+  };
+  warnings: string[];
+};
+
+export type TakeoutImportJob = {
+  jobId: string;
+  workspaceId: string;
+  sourcePath: string;
+  status: "QUEUED" | "RUNNING" | "COMPLETED" | "FAILED";
+  createdAt: string;
+  startedAt: string | null;
+  completedAt: string | null;
+  scope: {
+    dateRangePreset: TakeoutDateRangePreset;
+    includedProducts: string[];
+    prioritiseHighSignalItems: boolean;
+  };
+  plan: TakeoutImportPlan;
+  events: TakeoutImportProgressEvent[];
+  result: TakeoutImportResult | null;
+  error: string | null;
+};
+
 export type LocalBackupSummary = {
   backupId: string;
   createdAt: string;

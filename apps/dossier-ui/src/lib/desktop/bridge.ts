@@ -19,6 +19,9 @@ import type {
   ProfileItemView,
   ProposedInferenceResult,
   ServiceConnectionStatus,
+  TakeoutImportJob,
+  TakeoutImportPlan,
+  TakeoutImportScope,
   TopicRule
 } from "$lib/types";
 
@@ -136,6 +139,17 @@ export function installDesktopApi(): void {
         invoke("compartments_delete", { compartmentId })
     },
     data: {
+      browseTakeoutSource: (): Promise<string | null> => invoke("data_browse_takeout_source"),
+      planTakeoutImport: (path: string, scope?: TakeoutImportScope): Promise<TakeoutImportPlan> =>
+        invoke("data_takeout_plan", { path, scope }),
+      startTakeoutImportJob: (
+        path: string,
+        workspaceId: string,
+        scope?: TakeoutImportScope
+      ): Promise<{ jobId: string; workspaceId: string; status: string }> =>
+        invoke("data_takeout_start_job", { path, workspaceId, scope }),
+      getTakeoutImportJob: (jobId: string): Promise<TakeoutImportJob> =>
+        invoke("data_takeout_job_status", { jobId }),
       exportEncrypted: (passphrase: string): Promise<unknown> => invoke("data_export_encrypted", { passphrase }),
       importEncrypted: (artifact: unknown, passphrase: string): Promise<void> =>
         invoke("data_import_encrypted", { artifact, passphrase }),
