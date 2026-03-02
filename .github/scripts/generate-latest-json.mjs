@@ -25,7 +25,7 @@ const version = tag.replace(/^v/, '');
 const files = readdirSync(artifactsDir);
 
 const macSigFile = files.find(f => f.endsWith('.app.tar.gz.sig'));
-const winSigFile = files.find(f => f.endsWith('.nsis.zip.sig'));
+const winSigFile = files.find(f => f.endsWith('-setup.exe.sig'));
 
 if (!macSigFile) {
   console.error(`Error: no .app.tar.gz.sig found in ${artifactsDir}/`);
@@ -33,7 +33,7 @@ if (!macSigFile) {
   process.exit(1);
 }
 if (!winSigFile) {
-  console.error(`Error: no .nsis.zip.sig found in ${artifactsDir}/`);
+  console.error(`Error: no -setup.exe.sig found in ${artifactsDir}/`);
   console.error(`Files present: ${files.join(', ')}`);
   process.exit(1);
 }

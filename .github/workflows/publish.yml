@@ -60,8 +60,7 @@ jobs:
           find apps/dossier-desktop/src-tauri/target -name "*.dmg"             -exec cp {} dist/ \;
           find apps/dossier-desktop/src-tauri/target -name "*.app.tar.gz"      -exec cp {} dist/ \;
           find apps/dossier-desktop/src-tauri/target -name "*.app.tar.gz.sig"  -exec cp {} dist/ \;
-          find apps/dossier-desktop/src-tauri/target -name "*.nsis.zip"        -exec cp {} dist/ \;
-          find apps/dossier-desktop/src-tauri/target -name "*.nsis.zip.sig"    -exec cp {} dist/ \;
+          find apps/dossier-desktop/src-tauri/target -name "*-setup.exe.sig"   -exec cp {} dist/ \;
           find apps/dossier-desktop/src-tauri/target -name "*-setup.exe"       -exec cp {} dist/ \;
           echo "Collected artifacts:"
           ls -lh dist/
