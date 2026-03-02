@@ -53,16 +53,45 @@
   let isImporting = $state(false);
   let showImport = $state(false);
   let importPlan = $state<TakeoutImportPlan | null>(null);
-  let importScope = $state<TakeoutImportScope>({
+  const defaultTakeoutScope = (): TakeoutImportScope => ({
     dateRangePreset: "last_12_months",
     includedProducts: [],
     prioritiseHighSignalItems: true
   });
+  let importScope = $state<TakeoutImportScope>(defaultTakeoutScope());
   let importJob = $state<TakeoutImportJob | null>(null);
   let importJobId = $state<string | null>(null);
   let importProgressLog = $state<string[]>([]);
   let importPlanning = $state(false);
   let importComplete = $state(false);
+
+  type WelcomeImportSource = {
+    id: string;
+    path: string;
+    plan: TakeoutImportPlan | null;
+    scope: TakeoutImportScope;
+    planning: boolean;
+    job: TakeoutImportJob | null;
+    jobId: string | null;
+    progressLog: string[];
+  };
+
+  const ACCOUNT_EMAIL_REGEX = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,24}/i;
+  const TAKEOUT_FILE_SUFFIXES = new Set(["zip", "tar", "gz", "tgz", "bz2", "xz", "7z", "rar"]);
+  const createWelcomeImportSource = (path = ""): WelcomeImportSource => ({
+    id: globalThis.crypto?.randomUUID?.() ?? `src-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    path,
+    plan: null,
+    scope: defaultTakeoutScope(),
+    planning: false,
+    job: null,
+    jobId: null,
+    progressLog: []
+  });
+
+  let welcomeImportSources = $state<WelcomeImportSource[]>([createWelcomeImportSource()]);
+  let welcomeImporting = $state(false);
+  let welcomeImportProgressLog = $state<string[]>([]);
 
   let editTargetId = $state<string | null>(null);
   let editText = $state("");
@@ -191,6 +220,9 @@
       llmHandled = llmDone;
       topicsHandled = topicsDone;
       importHandled = false;
+      welcomeImportSources = [createWelcomeImportSource()];
+      welcomeImportProgressLog = [];
+      welcomeImporting = false;
     }
     showWelcome = nextShowWelcome;
     uiSettings.showingWelcome = showWelcome;
@@ -242,6 +274,247 @@
 
   function appendImportLog(line: string): void {
     importProgressLog = [...importProgressLog, `${new Date().toLocaleTimeString()} — ${line}`].slice(-120);
+  }
+
+  function appendWelcomeImportLog(line: string): void {
+    welcomeImportProgressLog = [...welcomeImportProgressLog, `${new Date().toLocaleTimeString()} — ${line}`].slice(-240);
+  }
+
+  function updateWelcomeImportSource(
+    sourceId: string,
+    updater: (source: WelcomeImportSource) => WelcomeImportSource
+  ): void {
+    welcomeImportSources = welcomeImportSources.map((source) =>
+      source.id === sourceId ? updater(source) : source
+    );
+  }
+
+  function inferAccountEmailFromPath(path: string): string | null {
+    const rawMatch = path.toLowerCase().match(ACCOUNT_EMAIL_REGEX)?.[0];
+    if (!rawMatch) {
+      return null;
+    }
+
+    const [localPart, domainPart] = rawMatch.split("@");
+    if (!localPart || !domainPart) {
+      return rawMatch;
+    }
+    const normalizedLocalPart =
+      localPart.replace(/^(?:google-)?takeout[-_]+/i, "").trim() || localPart;
+
+    const domainSegments = domainPart.split(".");
+    if (domainSegments.length >= 3) {
+      const last = domainSegments[domainSegments.length - 1];
+      if (last && TAKEOUT_FILE_SUFFIXES.has(last)) {
+        domainSegments.pop();
+      }
+    }
+
+    return `${normalizedLocalPart}@${domainSegments.join(".")}`;
+  }
+
+  function resolveAccountLabel(source: WelcomeImportSource, index: number): string {
+    return (
+      source.plan?.detectedAccount.email ??
+      inferAccountEmailFromPath(source.path) ??
+      source.plan?.detectedAccount.label ??
+      `Account ${index + 1}`
+    );
+  }
+
+  function addWelcomeImportSource(): void {
+    welcomeImportSources = [...welcomeImportSources, createWelcomeImportSource()];
+  }
+
+  function removeWelcomeImportSource(sourceId: string): void {
+    if (welcomeImportSources.length === 1) {
+      welcomeImportSources = [createWelcomeImportSource()];
+      return;
+    }
+    welcomeImportSources = welcomeImportSources.filter((source) => source.id !== sourceId);
+  }
+
+  function updateWelcomeImportPath(sourceId: string, nextPath: string): void {
+    updateWelcomeImportSource(sourceId, (source) => ({
+      ...source,
+      path: nextPath,
+      plan: null,
+      job: null,
+      jobId: null,
+      progressLog: []
+    }));
+  }
+
+  async function browseForWelcomeImport(sourceId: string): Promise<void> {
+    try {
+      const result = await window.dossier?.data.browseTakeoutSource?.();
+      if (!result) {
+        return;
+      }
+      updateWelcomeImportPath(sourceId, result);
+      await planWelcomeImport(sourceId);
+    } catch {
+      // Fall back to manual path entry.
+    }
+  }
+
+  async function planWelcomeImport(sourceId: string): Promise<void> {
+    const source = welcomeImportSources.find((entry) => entry.id === sourceId);
+    if (!source) {
+      return;
+    }
+
+    if (!source.path.trim()) {
+      updateWelcomeImportSource(sourceId, (current) => ({
+        ...current,
+        plan: null,
+        job: null,
+        jobId: null,
+        progressLog: []
+      }));
+      return;
+    }
+
+    updateWelcomeImportSource(sourceId, (current) => ({
+      ...current,
+      planning: true
+    }));
+    errorMessage = "";
+
+    try {
+      const plan = await window.dossier?.data.planTakeoutImport(source.path.trim(), source.scope);
+      if (!plan) {
+        throw new Error("Unable to create import plan.");
+      }
+
+      updateWelcomeImportSource(sourceId, (current) => ({
+        ...current,
+        plan,
+        scope: {
+          ...current.scope,
+          dateRangePreset: plan.defaultScope.dateRangePreset,
+          includedProducts: [...plan.defaultScope.includedProducts],
+          prioritiseHighSignalItems: current.scope.prioritiseHighSignalItems !== false
+        },
+        job: null,
+        jobId: null,
+        progressLog: []
+      }));
+    } catch (error) {
+      setError(error);
+      updateWelcomeImportSource(sourceId, (current) => ({
+        ...current,
+        plan: null
+      }));
+    } finally {
+      updateWelcomeImportSource(sourceId, (current) => ({
+        ...current,
+        planning: false
+      }));
+    }
+  }
+
+  async function pollWelcomeImportJob(sourceId: string, jobId: string): Promise<void> {
+    let running = true;
+
+    while (running) {
+      const snapshot = await window.dossier?.data.getTakeoutImportJob(jobId);
+      if (!snapshot) {
+        throw new Error("Import job disappeared.");
+      }
+
+      const nextLog = snapshot.events.map((event) => {
+        const metrics = event.metrics
+          ? ` (${Object.entries(event.metrics)
+              .map(([key, value]) => `${key}=${String(value)}`)
+              .join(", ")})`
+          : "";
+        return `${new Date(event.at).toLocaleTimeString()} — [${event.stage}] ${event.message}${metrics}`;
+      });
+
+      updateWelcomeImportSource(sourceId, (current) => ({
+        ...current,
+        job: snapshot,
+        progressLog: nextLog.slice(-200)
+      }));
+
+      if (snapshot.status === "COMPLETED") {
+        running = false;
+        continue;
+      }
+      if (snapshot.status === "FAILED") {
+        throw new Error(snapshot.error ?? "Import failed.");
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 650));
+    }
+  }
+
+  async function runWelcomeImport(): Promise<void> {
+    const configuredSources = welcomeImportSources.filter((source) => source.path.trim().length > 0);
+    if (configuredSources.length === 0) {
+      setError("Add at least one Takeout source before running import.");
+      return;
+    }
+
+    const missingPlan = configuredSources.find((source) => !source.plan);
+    if (missingPlan) {
+      setError("Create an ingestion plan for each account source before running import.");
+      return;
+    }
+
+    const missingProducts = configuredSources.find((source) => (source.scope.includedProducts ?? []).length === 0);
+    if (missingProducts) {
+      setError("Select at least one product for each account source before running import.");
+      return;
+    }
+
+    errorMessage = "";
+    welcomeImporting = true;
+    welcomeImportProgressLog = [];
+
+    const runQueue = configuredSources.map((source, index) => ({
+      sourceId: source.id,
+      path: source.path.trim(),
+      workspaceId: source.plan?.workspaceId ?? "",
+      scope: source.scope,
+      accountLabel: resolveAccountLabel(source, index)
+    }));
+
+    try {
+      for (const source of runQueue) {
+        appendWelcomeImportLog(`Starting ${source.accountLabel} (${source.workspaceId}).`);
+
+        const start = await window.dossier?.data.startTakeoutImportJob(
+          source.path,
+          source.workspaceId,
+          source.scope
+        );
+        if (!start?.jobId) {
+          throw new Error(`Failed to start import for ${source.accountLabel}.`);
+        }
+
+        updateWelcomeImportSource(source.sourceId, (current) => ({
+          ...current,
+          jobId: start.jobId,
+          progressLog: []
+        }));
+        appendWelcomeImportLog(`Job ${start.jobId} accepted for ${source.accountLabel}.`);
+        await pollWelcomeImportJob(source.sourceId, start.jobId);
+        appendWelcomeImportLog(`Completed import for ${source.accountLabel}.`);
+      }
+
+      importHandled = true;
+      setStatus(`Import complete for ${runQueue.length} account source${runQueue.length === 1 ? "" : "s"}.`);
+      if (showWelcome) {
+        await closeWelcomeIfComplete();
+      }
+      await refresh();
+    } catch (error) {
+      setError(error);
+    } finally {
+      welcomeImporting = false;
+    }
   }
 
   async function planImport(): Promise<void> {
@@ -630,100 +903,143 @@
           <div class="welcome-card">
             <h2 class="section-heading">Import your data</h2>
             <p class="section-desc">
-              Select a Google Takeout folder or zip. Dossier will show an import plan first, then stream each step live.
+              Add one Google Takeout source per account. Dossier will recognise each account, let you choose products
+              per account before import.
             </p>
-            <div class="import-row">
-              <button class="btn-secondary import-browse" onclick={() => void browseForImport()}>
-                <IconFolderOpenRegular class="icon-18" />
-                <span>Select folder or zip</span>
-              </button>
-              <input
-                class="text-input flex-1"
-                bind:value={importPath}
-                placeholder="Paste a folder or .zip path"
-                oninput={() => {
-                  importPlan = null;
-                  importJob = null;
-                  importJobId = null;
-                  importProgressLog = [];
-                }}
-                onblur={() => void planImport()}
-              />
-            </div>
-
-            <div class="panel-actions">
-              <button class="btn-secondary" onclick={() => void planImport()} disabled={importPlanning || !importPath.trim()}>
-                {importPlanning ? "Planning..." : "Create ingestion plan"}
-              </button>
-              <button class="btn-primary" onclick={() => void runImport()} disabled={isImporting || !importPlan}>
-                {isImporting ? "Import running..." : "Run import"}
-              </button>
-            </div>
-
-            {#if importPlan}
-              <div class="takeout-plan">
-                <p class="takeout-meta"><strong>Workspace:</strong> {importPlan.workspaceId}</p>
-                <p class="takeout-meta">
-                  <strong>Inventory:</strong>
-                  {importPlan.parseableFiles} parseable files ({formatBytes(importPlan.parseableBytes)})
-                  from {importPlan.totalFiles} total files
-                </p>
-
-                <div class="form-row">
-                  <select
-                    class="text-input"
-                    value={importScope.dateRangePreset ?? "last_12_months"}
-                    onchange={(event) => {
-                      importScope = {
-                        ...importScope,
-                        dateRangePreset: (event.currentTarget as HTMLSelectElement).value as "last_12_months" | "all_time"
-                      };
-                    }}
-                  >
-                    <option value="last_12_months">Last 12 months (default)</option>
-                    <option value="all_time">All available history</option>
-                  </select>
-                </div>
-
-                <div class="chips">
-                  {#each importPlan.products as product (product.key)}
-                    <button
-                      class="chip"
-                      class:active={(importScope.includedProducts ?? []).includes(product.key)}
-                      onclick={() => {
-                        importScope = {
-                          ...importScope,
-                          includedProducts: toggleId(importScope.includedProducts ?? [], product.key)
-                        };
-                      }}
-                    >
-                      {product.label} ({product.parseableFileCount})
-                    </button>
-                  {/each}
-                </div>
-
-                {#if importPlan.warnings.length > 0}
-                  <div class="takeout-warnings">
-                    {#each importPlan.warnings as warning}
-                      <p>{warning}</p>
-                    {/each}
+            <div class="takeout-account-list">
+              {#each welcomeImportSources as source, index (source.id)}
+                <article class="takeout-account-card">
+                  <div class="takeout-account-header">
+                    <div>
+                      <p class="takeout-account-kicker">Account source {index + 1}</p>
+                      <p class="takeout-account-title">{resolveAccountLabel(source, index)}</p>
+                    </div>
+                    {#if welcomeImportSources.length > 1}
+                      <button class="btn-secondary btn-compact" onclick={() => removeWelcomeImportSource(source.id)}>
+                        Remove
+                      </button>
+                    {/if}
                   </div>
-                {/if}
-              </div>
-            {/if}
 
-            {#if importJob}
-              <div class="takeout-live">
-                <p class="takeout-meta"><strong>Status:</strong> {importJob.status}</p>
-                <p class="takeout-meta"><strong>Job:</strong> {importJob.jobId}</p>
-                <div class="takeout-log" aria-live="polite">
-                  {#if importProgressLog.length === 0}
-                    <p>Waiting for backend events...</p>
-                  {:else}
-                    {#each importProgressLog as line, index (`welcome-${index}-${line}`)}
-                      <p>{line}</p>
-                    {/each}
+                  <div class="import-row">
+                    <button class="btn-secondary import-browse" onclick={() => void browseForWelcomeImport(source.id)}>
+                      <IconFolderOpenRegular class="icon-18" />
+                      <span>Select folder or zip</span>
+                    </button>
+                    <input
+                      class="text-input flex-1"
+                      value={source.path}
+                      placeholder="Paste a folder or .zip path"
+                      oninput={(event) => {
+                        updateWelcomeImportPath(source.id, (event.currentTarget as HTMLInputElement).value);
+                      }}
+                      onblur={() => void planWelcomeImport(source.id)}
+                    />
+                  </div>
+
+                  <div class="panel-actions">
+                    <button
+                      class="btn-secondary"
+                      onclick={() => void planWelcomeImport(source.id)}
+                      disabled={source.planning || !source.path.trim()}
+                    >
+                      {source.planning ? "Planning..." : "Create ingestion plan"}
+                    </button>
+                  </div>
+
+                  {#if source.plan}
+                    <div class="takeout-plan">
+                      <p class="takeout-meta"><strong>Workspace:</strong> {source.plan.workspaceId}</p>
+                      <p class="takeout-meta">
+                        <strong>Inventory:</strong>
+                        {source.plan.parseableFiles} parseable files ({formatBytes(source.plan.parseableBytes)})
+                        from {source.plan.totalFiles} total files
+                      </p>
+
+                      <div class="form-row">
+                        <select
+                          class="text-input"
+                          value={source.scope.dateRangePreset ?? "last_12_months"}
+                          onchange={(event) => {
+                            updateWelcomeImportSource(source.id, (current) => ({
+                              ...current,
+                              scope: {
+                                ...current.scope,
+                                dateRangePreset: (event.currentTarget as HTMLSelectElement).value as "last_12_months" | "all_time"
+                              }
+                            }));
+                          }}
+                        >
+                          <option value="last_12_months">Last 12 months (default)</option>
+                          <option value="all_time">All available history</option>
+                        </select>
+                      </div>
+
+                      <div class="chips">
+                        {#each source.plan.products as product (product.key)}
+                          <button
+                            class="chip"
+                            class:active={(source.scope.includedProducts ?? []).includes(product.key)}
+                            onclick={() => {
+                              updateWelcomeImportSource(source.id, (current) => ({
+                                ...current,
+                                scope: {
+                                  ...current.scope,
+                                  includedProducts: toggleId(current.scope.includedProducts ?? [], product.key)
+                                }
+                              }));
+                            }}
+                          >
+                            {product.label} ({product.parseableFileCount})
+                          </button>
+                        {/each}
+                      </div>
+
+                      {#if source.plan.warnings.length > 0}
+                        <div class="takeout-warnings">
+                          {#each source.plan.warnings as warning}
+                            <p>{warning}</p>
+                          {/each}
+                        </div>
+                      {/if}
+                    </div>
                   {/if}
+
+                  {#if source.job}
+                    <div class="takeout-live">
+                      <p class="takeout-meta"><strong>Status:</strong> {source.job.status}</p>
+                      <p class="takeout-meta"><strong>Job:</strong> {source.job.jobId}</p>
+                      <div class="takeout-log" aria-live="polite">
+                        {#if source.progressLog.length === 0}
+                          <p>Waiting for backend events...</p>
+                        {:else}
+                          {#each source.progressLog as line, logIndex (`welcome-source-${source.id}-${logIndex}-${line}`)}
+                            <p>{line}</p>
+                          {/each}
+                        {/if}
+                      </div>
+                    </div>
+                  {/if}
+                </article>
+              {/each}
+            </div>
+
+            <div class="panel-actions welcome-import-actions">
+              <button class="btn-secondary" onclick={addWelcomeImportSource}>
+                + Add another account source
+              </button>
+              <button class="btn-primary" onclick={() => void runWelcomeImport()} disabled={welcomeImporting}>
+                {welcomeImporting ? "Import running..." : "Run import"}
+              </button>
+            </div>
+
+            {#if welcomeImportProgressLog.length > 0}
+              <div class="takeout-live">
+                <p class="takeout-meta"><strong>Batch progress:</strong></p>
+                <div class="takeout-log" aria-live="polite">
+                  {#each welcomeImportProgressLog as line, logIndex (`welcome-batch-${logIndex}-${line}`)}
+                    <p>{line}</p>
+                  {/each}
                 </div>
               </div>
             {/if}
@@ -1389,6 +1705,44 @@
     white-space: nowrap;
   }
 
+  .takeout-account-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .takeout-account-card {
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: var(--space-4);
+    background: var(--base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .takeout-account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .takeout-account-kicker {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .takeout-account-title {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
   .takeout-plan {
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
@@ -1454,6 +1808,11 @@
     color: var(--text-secondary);
     white-space: pre-wrap;
     word-break: break-word;
+  }
+
+  .welcome-import-actions {
+    justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .edit-input {
@@ -1523,6 +1882,12 @@
 
   .btn-secondary:hover {
     background: var(--base-tertiary);
+  }
+
+  .btn-compact {
+    min-height: 34px;
+    padding: var(--space-1) var(--space-3);
+    font-size: 0.8125rem;
   }
 
   /* Category Headings */
@@ -1601,6 +1966,15 @@
     }
 
     .import-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .welcome-import-actions {
+      justify-content: flex-end;
+    }
+
+    .takeout-account-header {
       flex-direction: column;
       align-items: stretch;
     }

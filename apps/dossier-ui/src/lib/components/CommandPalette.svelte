@@ -32,7 +32,7 @@
     { id: "nav-audit", label: "Go to Audit Log", icon: "audit", action: () => navigate("/audit") }
   ];
 
-  const filteredEntries = $derived<CommandEntry[]>(() => {
+  const filteredEntries = $derived.by<CommandEntry[]>(() => {
     const q = query.toLowerCase().trim();
     const results: CommandEntry[] = [];
 
@@ -71,7 +71,7 @@
   }
 
   function handleKeydown(event: KeyboardEvent): void {
-    const entries = filteredEntries();
+    const entries = filteredEntries;
     if (event.key === "Escape") {
       event.preventDefault();
       onClose();
@@ -126,9 +126,9 @@
       />
     </div>
 
-    {#if filteredEntries().length > 0}
+    {#if filteredEntries.length > 0}
       <div class="palette-results" role="listbox">
-        {#each filteredEntries() as entry, i (entry.id)}
+        {#each filteredEntries as entry, i (entry.id)}
           <button
             class="palette-entry"
             class:selected={i === selectedIndex}

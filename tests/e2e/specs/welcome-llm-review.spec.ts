@@ -59,13 +59,25 @@ test.describe("Welcome flow LLM integration review", () => {
       .first();
     await expect(importCard).toBeVisible();
 
-    const selectSourceButton = importCard.getByRole("button", { name: "Select folder or zip" });
-    const planButton = importCard.getByRole("button", { name: "Create ingestion plan" });
+    const selectSourceButton = importCard.getByRole("button", { name: "Select folder or zip" }).first();
+    const planButton = importCard.getByRole("button", { name: "Create ingestion plan" }).first();
     const runImportButton = importCard.getByRole("button", { name: "Run import" });
+    const addSourceButton = importCard.getByRole("button", { name: "+ Add another account source" });
+    const importPathInputs = importCard.locator('input[placeholder="Paste a folder or .zip path"]');
 
     await expect(selectSourceButton).toBeVisible();
     await expect(planButton).toBeVisible();
     await expect(runImportButton).toBeVisible();
+    await expect(addSourceButton).toBeVisible();
+    await expect(importPathInputs).toHaveCount(1);
+
+    await importPathInputs.first().fill("/tmp/example@gmail.com/Takeout.zip");
+    await expect(importCard.locator(".takeout-account-title").first()).toContainText("example@gmail.com");
+
+    await addSourceButton.click();
+    await expect(importPathInputs).toHaveCount(2);
+    await importPathInputs.nth(1).fill("/tmp/takeout-example2@domain.com.zip");
+    await expect(importCard.locator(".takeout-account-title").nth(1)).toContainText("example2@domain.com");
 
     await importCard.screenshot({
       path: testInfo.outputPath("welcome-takeout-card.png")
@@ -127,9 +139,13 @@ test.describe("Welcome flow LLM integration review", () => {
       const importButtons = Array.from(importCard?.querySelectorAll("button") ?? []).map((btn) =>
         (btn.textContent ?? "").trim()
       );
-      const importInput = importCard?.querySelector('input[placeholder="Paste a folder or .zip path"]') as
-        | HTMLInputElement
-        | undefined;
+      const importInputs = Array.from(
+        importCard?.querySelectorAll('input[placeholder="Paste a folder or .zip path"]') ?? []
+      ) as HTMLInputElement[];
+      const accountCards = Array.from(importCard?.querySelectorAll(".takeout-account-card") ?? []);
+      const accountTitles = accountCards.map((card) =>
+        (card.querySelector(".takeout-account-title")?.textContent ?? "").trim()
+      );
       const importLog = importCard?.querySelector(".takeout-log");
 
       return {
@@ -154,8 +170,11 @@ test.describe("Welcome flow LLM integration review", () => {
         topicChips,
         takeoutCardPresent: Boolean(importCard),
         takeoutButtons: importButtons,
-        takeoutInputPresent: Boolean(importInput),
-        takeoutInputValueLength: importInput?.value.length ?? null,
+        takeoutInputPresent: importInputs.length > 0,
+        takeoutInputCount: importInputs.length,
+        takeoutInputValueLengths: importInputs.map((input) => input.value.length),
+        takeoutAccountCount: accountCards.length,
+        takeoutAccountTitles: accountTitles,
         takeoutLogPresent: Boolean(importLog)
       };
     });
@@ -220,6 +239,23 @@ test.describe("Welcome flow LLM integration review", () => {
       path: testInfo.outputPath("settings-ai-profiles-list.png")
     });
 
+    const systemSection = page
+      .locator(".settings-section")
+      .filter({ has: page.getByRole("heading", { name: "System" }) })
+      .first();
+    await expect(systemSection).toBeVisible();
+    await systemSection.scrollIntoViewIfNeeded();
+
+    const autoUpdatesSetting = systemSection
+      .locator(".setting-row")
+      .filter({ has: page.getByText("Automatic updates", { exact: true }) })
+      .first();
+    await expect(autoUpdatesSetting).toBeVisible();
+    await autoUpdatesSetting.screenshot({
+      path: testInfo.outputPath("settings-auto-updates.png")
+    });
+
+
     const createButton = llmSetting.getByRole("button", { name: "Create new profile" });
     await createButton.click();
 
@@ -266,6 +302,14 @@ test.describe("Welcome flow LLM integration review", () => {
         btn.textContent?.trim() === "Create new profile"
       );
 
+      const updatesRow = Array.from(document.querySelectorAll(".setting-row")).find((row) =>
+        (row.querySelector(".setting-label")?.textContent ?? "").trim() === "Automatic updates"
+      ) as HTMLElement | undefined;
+      const updatesSwitch = updatesRow?.querySelector('button[role="switch"]') as HTMLButtonElement | null;
+      const updatesChecked = updatesSwitch?.getAttribute("aria-checked");
+
+      const updateDialogVisible = Boolean(document.querySelector("#update-dialog-title"));
+
       return {
         profileCount: items.length,
         profileNames: items.map((item) =>
@@ -279,7 +323,10 @@ test.describe("Welcome flow LLM integration review", () => {
         ),
         shellOverflowX: shell ? shell.scrollWidth > shell.clientWidth : null,
         shellWidthPx: shell ? Math.round(shell.getBoundingClientRect().width) : null,
-        createButtonVisible: Boolean(createBtn)
+        createButtonVisible: Boolean(createBtn),
+        autoUpdatesTogglePresent: Boolean(updatesSwitch),
+        autoUpdatesToggleChecked: updatesChecked,
+        updateDialogVisible
       };
     });
 

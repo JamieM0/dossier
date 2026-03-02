@@ -5,8 +5,9 @@
   "identifier": "com.dossier.desktop",
   "build": {
     "beforeDevCommand": "pnpm --filter @dossier/dossier-ui dev",
+    "beforeBuildCommand": "pnpm --filter @dossier/dossier-desktop run build:deps && pnpm --filter @dossier/dossier-desktop run build && pnpm --filter @dossier/dossier-ui run build",
     "devUrl": "http://127.0.0.1:5173",
-    "frontendDist": "../dossier-ui/build"
+    "frontendDist": "../../dossier-ui/build"
   },
   "app": {
     "windows": [
@@ -26,6 +27,7 @@
   },
   "bundle": {
     "active": true,
+    "createUpdaterArtifacts": true,
     "targets": "all",
     "icon": [
       "icons/32x32.png",
@@ -36,7 +38,24 @@
     ],
     "resources": [
       "../dist/backend.js",
-      "../../../packages/**/dist/**/*"
+      "../../../packages/**/dist/**/*",
+      "../../../packages/**/package.json",
+      "../../../packages/**/node_modules/@dossier/**/*",
+      "../../../packages/connectors-google-takeout/node_modules/adm-zip",
+      "../../../packages/domain/node_modules/zod",
+      "../../../node_modules/.pnpm/adm-zip@*/node_modules/adm-zip/**/*",
+      "../../../node_modules/.pnpm/zod@*/node_modules/zod/**/*"
     ]
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEJDNDYyRjM2QzM1MDJBNjMKUldSaktsREROaTlHdkppRFhoNXdTZXV5WTRhMXhCalpZZHVPRmwvNVZscEF6M3NpRnRhbGFMeDEK",
+      "endpoints": [
+        "https://github.com/JamieM0/dossier/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
+      }
+    }
   }
 }

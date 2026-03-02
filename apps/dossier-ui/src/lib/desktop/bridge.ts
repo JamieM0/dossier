@@ -43,6 +43,9 @@ export function installDesktopApi(): void {
       hide: (): Promise<void> => invoke("window_hide"),
       quit: (): Promise<void> => invoke("window_quit")
     },
+    updater: {
+      installAndRestart: (): Promise<void> => invoke("update_install_and_restart")
+    },
     settings: {
       get: (): Promise<DossierSettings> => invoke("settings_get"),
       set: (next: Partial<DossierSettings>): Promise<DossierSettings> => invoke("settings_set", { next }),

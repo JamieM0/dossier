@@ -7,12 +7,13 @@
   "main": "dist/backend.js",
   "scripts": {
     "preflight:rust": "node ./scripts/check-rust.mjs",
+    "preflight:version": "node ./scripts/check-version-sync.mjs",
     "preflight:port": "node ./scripts/check-port.mjs",
     "dev": "node ./scripts/dev-desktop.mjs",
     "dev:desktop": "node ./scripts/dev-desktop.mjs",
     "build:deps": "pnpm -C ../.. -r --filter @dossier/domain --filter @dossier/store --filter @dossier/local-server --filter @dossier/inference-engine --filter @dossier/connectors-google-takeout build",
     "build": "tsc -p tsconfig.json",
-    "dist": "pnpm run preflight:rust && pnpm run build:deps && pnpm run build && tauri build --config ./src-tauri/tauri.conf.json",
+    "dist": "pnpm run preflight:rust && pnpm run preflight:version && pnpm run build:deps && pnpm run build && tauri build --config ./src-tauri/tauri.conf.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --passWithNoTests"
   },

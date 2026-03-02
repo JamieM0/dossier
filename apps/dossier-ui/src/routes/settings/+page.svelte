@@ -89,6 +89,18 @@
     }
   }
 
+  async function toggleAutoUpdates(): Promise<void> {
+    uiSettings.autoUpdatesEnabled = !uiSettings.autoUpdatesEnabled;
+    try {
+      await uiSettings.persist();
+      setLifecycleStatus(uiSettings.autoUpdatesEnabled
+        ? "Automatic updates enabled. Dossier will check GitHub Releases on launch."
+        : "Automatic updates disabled. Dossier will not check for updates on launch.");
+    } catch (error) {
+      setLifecycleStatus(errorToMessage(error));
+    }
+  }
+
   function maybeDefaultLabel(profile: LlmProfile, index: number): string {
     if (index === 0 && profile.name.trim().toLowerCase() === "ollama") {
       return "default";
@@ -645,6 +657,25 @@
               role="switch"
               aria-checked={uiSettings.startOnLogin}
               aria-labelledby="startup-label"
+            >
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label" id="updates-label">Automatic updates</span>
+              <span class="setting-desc">Check GitHub Releases and self-update on launch</span>
+            </div>
+            <button
+              class="toggle"
+              class:active={uiSettings.autoUpdatesEnabled}
+              onclick={() => void toggleAutoUpdates()}
+              role="switch"
+              aria-checked={uiSettings.autoUpdatesEnabled}
+              aria-labelledby="updates-label"
             >
               <span class="toggle-thumb"></span>
             </button>

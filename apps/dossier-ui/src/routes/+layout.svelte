@@ -5,17 +5,20 @@
   import CommandPalette from "$lib/components/CommandPalette.svelte";
   import ConsentModal from "$lib/components/ConsentModal.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
+  import UpdateAvailableDialog from "$lib/components/UpdateAvailableDialog.svelte";
   import { installDesktopApi } from "$lib/desktop/bridge";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
   import { goto } from "$app/navigation";
   import type { Category, ConsentDecisionPayload, ConsentRequestView, ProfileItemView } from "$lib/types";
   import IconSidebarSimpleRegular from "phosphor-icons-svelte/IconSidebarSimpleRegular.svelte";
+  import { listen } from "@tauri-apps/api/event";
 
   let { children } = $props();
   let pendingCount = $state(0);
   let consentQueue = $state<{ id: string; serviceName: string; request: ConsentRequestView }[]>([]);
   let categories = $state<{ id: string; label: string; hasPending: boolean }[]>([]);
   let showCommandPalette = $state(false);
+  let updateAvailable = $state<{ currentVersion: string; nextVersion: string } | null>(null);
 
   installDesktopApi();
 
@@ -112,6 +115,15 @@
     void uiSettings.hydrateFromDesktop();
     void refreshPending();
 
+    const unlistenUpdate = listen<{ version: string; current_version: string }>("update:available", (event) => {
+      if (!uiSettings.autoUpdatesEnabled) return;
+      const nextVersion = event.payload?.version;
+      const currentVersion = event.payload?.current_version;
+      if (!nextVersion || !currentVersion) return;
+      if (uiSettings.skippedUpdateVersion && uiSettings.skippedUpdateVersion === nextVersion) return;
+      updateAvailable = { currentVersion, nextVersion };
+    });
+
     const unsubscribe = window.dossier?.consent.onRequest((request) => {
       const payload = request as { consent_request_id?: string };
       const requestId = payload.consent_request_id;
@@ -135,6 +147,7 @@
 
     return () => {
       unsubscribe?.();
+      void unlistenUpdate.then((fn) => fn());
     };
   });
 </script>
@@ -209,6 +222,24 @@
           blocked_item_overrides: []
         });
       }
+    }}
+  />
+{/if}
+
+{#if updateAvailable}
+  <UpdateAvailableDialog
+    currentVersion={updateAvailable.currentVersion}
+    nextVersion={updateAvailable.nextVersion}
+    onUpdateNow={() => {
+      void window.dossier?.updater.installAndRestart();
+    }}
+    onNotNow={async () => {
+      updateAvailable = null;
+    }}
+    onSkipVersion={async (version) => {
+      uiSettings.skippedUpdateVersion = version;
+      await uiSettings.persist();
+      updateAvailable = null;
     }}
   />
 {/if}

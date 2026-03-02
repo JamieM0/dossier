@@ -255,6 +255,10 @@ beforeEach(async () => {
       parseableFiles: 0,
       totalBytes: 0,
       parseableBytes: 0,
+      detectedAccount: {
+        email: null,
+        label: "Google account"
+      },
       products: [],
       defaultScope: {
         dateRangePreset: "last_12_months",

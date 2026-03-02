@@ -29,6 +29,9 @@ declare global {
     dossier?: {
       app: { getVersion: () => Promise<string> };
       window: { show: () => Promise<void>; hide: () => Promise<void>; quit: () => Promise<void> };
+      updater: {
+        installAndRestart: () => Promise<void>;
+      };
       settings: {
         get: () => Promise<DossierSettings>;
         set: (next: Partial<DossierSettings>) => Promise<DossierSettings>;

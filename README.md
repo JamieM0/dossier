@@ -33,3 +33,4 @@ pnpm dev
 - Rust toolchain `>=1.88.0` is required for the Tauri desktop workspace.
 - Tauri capability allowlist is enforced for renderer-to-native access.
 - Local API enforces loopback bind, CORS allowlist, bearer auth, origin validation, nonce replay checks, and rate limiting.
+- Desktop builds support self-updating via GitHub Releases (see `docs/auto-updates.md`).

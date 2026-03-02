@@ -11,6 +11,8 @@ class UiSettingsStore {
   dyslexiaMode = $state(false);
   highFidelityEnabled = $state(false);
   startOnLogin = $state(false);
+  autoUpdatesEnabled = $state(true);
+  skippedUpdateVersion = $state<string | null>(null);
   localModelEndpoint = $state("");
   localModelName = $state("");
   llmProfiles = $state<LlmProfile[]>([]);
@@ -54,6 +56,14 @@ class UiSettingsStore {
     this.dyslexiaMode = Boolean(desktopSettings.dyslexiaMode);
     this.highFidelityEnabled = Boolean(desktopSettings.highFidelityEnabled);
     this.startOnLogin = Boolean(desktopSettings.startOnLogin);
+    this.autoUpdatesEnabled =
+      desktopSettings.autoUpdatesEnabled === undefined
+        ? true
+        : Boolean(desktopSettings.autoUpdatesEnabled);
+    this.skippedUpdateVersion =
+      desktopSettings.skippedUpdateVersion === undefined
+        ? null
+        : (desktopSettings.skippedUpdateVersion as string | null);
     const normalizedLlmSettings = normalizeLlmProfiles({
       llmProfiles: desktopSettings.llmProfiles,
       activeLlmProfileId: desktopSettings.activeLlmProfileId,
@@ -81,6 +91,8 @@ class UiSettingsStore {
       dyslexiaMode: this.dyslexiaMode,
       highFidelityEnabled: this.highFidelityEnabled,
       startOnLogin: this.startOnLogin,
+      autoUpdatesEnabled: this.autoUpdatesEnabled,
+      skippedUpdateVersion: this.skippedUpdateVersion,
       localModelEndpoint: legacy.localModelEndpoint,
       localModelName: legacy.localModelName,
       llmProfiles: this.llmProfiles,

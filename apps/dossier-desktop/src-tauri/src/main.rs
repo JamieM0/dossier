@@ -15,6 +15,7 @@ use std::{
 use reqwest::{Client, Method};
 use rfd::FileDialog;
 use serde::Deserialize;
+use serde::Serialize;
 use serde_json::{json, Value};
 use tauri::{
     menu::{MenuBuilder, MenuItemBuilder},
@@ -22,7 +23,14 @@ use tauri::{
     tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent},
     AppHandle, Emitter, Manager, RunEvent, State, WindowEvent,
 };
+use tauri_plugin_updater::UpdaterExt;
 use tokio::time::sleep;
+
+#[derive(Serialize, Clone)]
+struct UpdateAvailablePayload {
+    version: String,
+    current_version: String,
+}
 
 const CONTROL_HEADER: &str = "x-dossier-control-token";
 
@@ -209,12 +217,18 @@ fn resolve_backend_script_path(app: &AppHandle) -> Result<PathBuf, String> {
         ));
     }
 
-    let packaged = app
-        .path()
-        .resolve("backend.js", BaseDirectory::Resource)
-        .map_err(|error| format!("failed to resolve packaged backend script: {error}"))?;
-    if packaged.is_file() {
-        return Ok(packaged);
+    let packaged_candidates = [
+        "backend.js",
+        "dist/backend.js",
+        "_up_/dist/backend.js",
+        "_up_/_up_/dist/backend.js",
+    ];
+    for candidate in packaged_candidates {
+        if let Ok(resolved) = app.path().resolve(candidate, BaseDirectory::Resource) {
+            if resolved.is_file() {
+                return Ok(resolved);
+            }
+        }
     }
 
     if cfg!(debug_assertions) {
@@ -225,16 +239,58 @@ fn resolve_backend_script_path(app: &AppHandle) -> Result<PathBuf, String> {
         }
     }
 
-    Err(format!(
-        "failed to locate backend script. Tried '{}' and debug fallback from CARGO_MANIFEST_DIR. Build it with `pnpm --filter @dossier/dossier-desktop run build`.",
-        packaged.display()
-    ))
+    Err("failed to locate backend script in app resources or debug fallback from CARGO_MANIFEST_DIR. Build it with `pnpm --filter @dossier/dossier-desktop run build`.".to_string())
+}
+
+fn resolve_packaged_packages_root(app: &AppHandle) -> PathBuf {
+    let candidates = [
+        "packages",
+        "_up_/packages",
+        "_up_/_up_/packages",
+        "_up_/_up_/_up_/packages",
+    ];
+
+    for candidate in candidates {
+        if let Ok(resolved) = app.path().resolve(candidate, BaseDirectory::Resource) {
+            if resolved.is_dir() {
+                return resolved;
+            }
+        }
+    }
+
+    PathBuf::from("packages")
+}
+
+fn resolve_node_binary() -> Result<String, String> {
+    if let Ok(explicit) = std::env::var("DOSSIER_NODE_BIN") {
+        return Ok(explicit);
+    }
+
+    if Command::new("node")
+        .arg("--version")
+        .stdin(Stdio::null())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .status()
+        .is_ok()
+    {
+        return Ok("node".to_string());
+    }
+
+    let common_node_paths = ["/opt/homebrew/bin/node", "/usr/local/bin/node", "/usr/bin/node"];
+    for candidate in common_node_paths {
+        if PathBuf::from(candidate).is_file() {
+            return Ok(candidate.to_string());
+        }
+    }
+
+    Err("node runtime not found. Install Node.js or set DOSSIER_NODE_BIN to an absolute node executable path.".to_string())
 }
 
 fn spawn_backend(app: &AppHandle) -> Result<BackendControlClient, String> {
     let script_path = resolve_backend_script_path(app)?;
 
-    let node_bin = std::env::var("DOSSIER_NODE_BIN").unwrap_or_else(|_| "node".to_string());
+    let node_bin = resolve_node_binary()?;
 
     let app_data_dir = app
         .path()
@@ -250,10 +306,7 @@ fn spawn_backend(app: &AppHandle) -> Result<BackendControlClient, String> {
         } else if cfg!(debug_assertions) {
             PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../../packages")
         } else {
-            script_path
-                .parent()
-                .map(|path| path.join("packages"))
-                .unwrap_or_else(|| PathBuf::from("packages"))
+            resolve_packaged_packages_root(app)
         };
 
     command
@@ -356,6 +409,116 @@ async fn poll_consent_requests(app: AppHandle, state: RuntimeState) {
             }
         }
     }
+}
+
+async fn run_auto_update(app: AppHandle) {
+    if cfg!(debug_assertions) {
+        return;
+    }
+    if std::env::var("DOSSIER_DISABLE_AUTO_UPDATE").is_ok() {
+        return;
+    }
+
+    let (updates_enabled, skipped_version) = if let Some(state) = app.try_state::<RuntimeState>() {
+        let client = state.client.clone();
+        drop(state);
+        match client.request(Method::GET, "/control/settings", None).await {
+            Ok(payload) => (
+                payload
+                    .get("autoUpdatesEnabled")
+                    .and_then(Value::as_bool)
+                    .unwrap_or(true),
+                payload
+                    .get("skippedUpdateVersion")
+                    .and_then(Value::as_str)
+                    .map(|v| v.to_string()),
+            ),
+            Err(error) => {
+                eprintln!("Failed to read settings for update check: {error}");
+                (true, None)
+            }
+        }
+    } else {
+        (true, None)
+    };
+
+    if !updates_enabled {
+        return;
+    }
+    if let Some(state) = app.try_state::<RuntimeState>() {
+        if state.is_quitting.load(Ordering::SeqCst) {
+            return;
+        }
+    }
+
+    let updater = match app.updater() {
+        Ok(updater) => updater,
+        Err(error) => {
+            eprintln!("Updater not available: {error}");
+            return;
+        }
+    };
+
+    let update = match updater.check().await {
+        Ok(update) => update,
+        Err(error) => {
+            eprintln!("Update check failed: {error}");
+            return;
+        }
+    };
+
+    let Some(update) = update else {
+        return;
+    };
+
+    if let Some(skipped) = skipped_version {
+        if skipped == update.version {
+            return;
+        }
+    }
+
+    let _ = app.emit(
+        "update:available",
+        UpdateAvailablePayload {
+            version: update.version.clone(),
+            current_version: update.current_version.clone(),
+        },
+    );
+}
+
+#[tauri::command]
+async fn update_install_and_restart(app: AppHandle) -> Result<(), String> {
+    if cfg!(debug_assertions) {
+        return Err("updater is disabled in debug builds".to_string());
+    }
+    if std::env::var("DOSSIER_DISABLE_AUTO_UPDATE").is_ok() {
+        return Err("auto-update is disabled by environment".to_string());
+    }
+
+    let updater = app.updater().map_err(|error| format!("Updater not available: {error}"))?;
+    let update = updater.check().await.map_err(|error| format!("Update check failed: {error}"))?;
+    let Some(update) = update else {
+        return Ok(());
+    };
+
+    update
+        .download_and_install(
+            |_chunk_length, _content_length| {},
+            || {
+                eprintln!("Update download finished");
+            },
+        )
+        .await
+        .map_err(|error| format!("Update install failed: {error}"))?;
+
+    if let Some(state) = app.try_state::<RuntimeState>() {
+        state.is_quitting.store(true, Ordering::SeqCst);
+        let client = state.client.clone();
+        drop(state);
+        client.shutdown().await;
+    }
+
+    app.restart();
 }
 
 fn create_tray(app: &AppHandle) -> Result<(), String> {
@@ -1130,6 +1293,7 @@ async fn profile_item_detail(
 
 fn main() {
     let app = match tauri::Builder::default()
+        .plugin(tauri_plugin_updater::Builder::new().build())
         .setup(|app| {
             let app_handle = app.handle().clone();
             let backend_client = match spawn_backend(&app_handle) {
@@ -1151,6 +1315,7 @@ fn main() {
             }
 
             tauri::async_runtime::spawn(poll_consent_requests(app_handle.clone(), state));
+            tauri::async_runtime::spawn(run_auto_update(app_handle.clone()));
             show_main_window(&app_handle);
 
             Ok(())
@@ -1218,6 +1383,8 @@ fn main() {
             llm_chat,
             llm_alternatives,
             profile_item_detail
+            ,
+            update_install_and_restart
         ])
         .build(tauri::generate_context!())
     {

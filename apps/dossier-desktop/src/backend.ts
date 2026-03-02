@@ -40,6 +40,8 @@ type DossierSettings = {
   dyslexiaMode: boolean;
   highFidelityEnabled: boolean;
   startOnLogin: boolean;
+  autoUpdatesEnabled: boolean;
+  skippedUpdateVersion: string | null;
   localModelEndpoint: string;
   localModelName: string;
   llmProfiles: LlmProfile[];
@@ -189,6 +191,10 @@ type TakeoutImportPlan = {
   parseableFiles: number;
   totalBytes: number;
   parseableBytes: number;
+  detectedAccount: {
+    email: string | null;
+    label: string;
+  };
   products: Array<{
     key: string;
     label: string;
@@ -256,6 +262,8 @@ const defaultSettings: DossierSettings = {
   dyslexiaMode: false,
   highFidelityEnabled: false,
   startOnLogin: false,
+  autoUpdatesEnabled: true,
+  skippedUpdateVersion: null,
   localModelEndpoint: "",
   localModelName: "",
   llmProfiles: [],
@@ -597,6 +605,8 @@ function normalizeSettingsPatch(payload: unknown): DossierSettings {
           "dyslexiaMode",
           "highFidelityEnabled",
           "startOnLogin",
+          "autoUpdatesEnabled",
+          "skippedUpdateVersion",
           "localModelEndpoint",
           "localModelName",
           "llmProfiles",
@@ -612,6 +622,14 @@ function normalizeSettingsPatch(payload: unknown): DossierSettings {
     dyslexiaMode: parseBoolean(next.dyslexiaMode, settingsCache.dyslexiaMode),
     highFidelityEnabled: parseBoolean(next.highFidelityEnabled, settingsCache.highFidelityEnabled),
     startOnLogin: parseBoolean(next.startOnLogin, settingsCache.startOnLogin),
+    autoUpdatesEnabled: parseBoolean(
+      next.autoUpdatesEnabled,
+      settingsCache.autoUpdatesEnabled ?? defaultSettings.autoUpdatesEnabled
+    ),
+    skippedUpdateVersion: parseOptionalNullableString(
+      next.skippedUpdateVersion,
+      "skippedUpdateVersion"
+    ),
     ...(localModelEndpoint !== undefined ? { localModelEndpoint } : {}),
     ...(localModelName !== undefined ? { localModelName } : {}),
     ...(llmProfiles !== undefined ? { llmProfiles } : {}),

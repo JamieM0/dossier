@@ -37,6 +37,8 @@ export type DossierSettings = {
   dyslexiaMode: boolean;
   highFidelityEnabled: boolean;
   startOnLogin: boolean;
+  autoUpdatesEnabled?: boolean;
+  skippedUpdateVersion?: string | null;
   localModelEndpoint: string;
   localModelName: string;
   llmProfiles?: LlmProfile[];
@@ -71,6 +73,10 @@ export type TakeoutImportPlan = {
   parseableFiles: number;
   totalBytes: number;
   parseableBytes: number;
+  detectedAccount: {
+    email: string | null;
+    label: string;
+  };
   products: TakeoutImportPlanProduct[];
   defaultScope: {
     dateRangePreset: TakeoutDateRangePreset;

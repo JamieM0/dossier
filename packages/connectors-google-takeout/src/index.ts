@@ -5,9 +5,11 @@ import {
   TAKEOUT_PRODUCT_KEYS,
   type TakeoutArtifact,
   type TakeoutProductKey,
+  type TakeoutSourceFile,
   type TakeoutSourceType
 } from "./parser.js";
 import { randomUUID } from "node:crypto";
+import { basename } from "node:path";
 
 type TakeoutDateRangePreset = "last_12_months" | "all_time";
 
@@ -45,6 +47,10 @@ export type TakeoutImportPlan = {
   parseableFiles: number;
   totalBytes: number;
   parseableBytes: number;
+  detectedAccount: {
+    email: string | null;
+    label: string;
+  };
   products: TakeoutImportPlanProduct[];
   defaultScope: {
     dateRangePreset: TakeoutDateRangePreset;
@@ -132,7 +138,13 @@ const DEFAULT_PRODUCT_ORDER: TakeoutProductKey[] = [
   "other"
 ];
 
-function normalizeScope(scope: TakeoutImportScope | undefined, availableProducts: TakeoutProductKey[]): {
+const EMAIL_REGEX = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi;
+const TAKEOUT_FILE_SUFFIXES = new Set(["zip", "tar", "gz", "tgz", "bz2", "xz", "7z", "rar"]);
+
+function normalizeScope(
+  scope: TakeoutImportScope | undefined,
+  availableProducts: TakeoutProductKey[]
+): {
   dateRangePreset: TakeoutDateRangePreset;
   includedProducts: TakeoutProductKey[];
   prioritiseHighSignalItems: boolean;
@@ -151,6 +163,118 @@ function normalizeScope(scope: TakeoutImportScope | undefined, availableProducts
     dateRangePreset,
     includedProducts: normalizedIncluded,
     prioritiseHighSignalItems: scope?.prioritiseHighSignalItems !== false
+  };
+}
+
+function extractEmails(value: string): string[] {
+  const pattern = new RegExp(EMAIL_REGEX.source, "gi");
+  const out = new Set<string>();
+
+  for (const match of value.toLowerCase().matchAll(pattern)) {
+    const candidate = match[0]?.trim() ?? "";
+    if (!candidate) {
+      continue;
+    }
+
+    const [localPart, domainPart] = candidate.split("@");
+    if (!localPart || !domainPart) {
+      out.add(candidate);
+      continue;
+    }
+
+    const domainSegments = domainPart.split(".");
+    if (domainSegments.length >= 3) {
+      const last = domainSegments[domainSegments.length - 1];
+      if (last && TAKEOUT_FILE_SUFFIXES.has(last)) {
+        domainSegments.pop();
+      }
+    }
+
+    out.add(`${localPart}@${domainSegments.join(".")}`);
+  }
+
+  return [...out];
+}
+
+function normalizeTakeoutPathEmail(email: string): string {
+  const [localPart, domainPart] = email.split("@");
+  if (!localPart || !domainPart) {
+    return email;
+  }
+  const normalizedLocal = localPart.replace(/^(?:google-)?takeout[-_]+/i, "").trim() || localPart;
+  return `${normalizedLocal}@${domainPart}`;
+}
+
+function safeReadText(file: TakeoutSourceFile, maxChars = 220_000): string {
+  if (!file.parseable || !file.readText) {
+    return "";
+  }
+  try {
+    const content = file.readText();
+    return content.length > maxChars ? content.slice(0, maxChars) : content;
+  } catch {
+    return "";
+  }
+}
+
+function inferAccountFromSource(sourcePath: string, files: TakeoutSourceFile[]): { email: string | null; label: string } {
+  const scoredEmails = new Map<string, number>();
+  const addScore = (email: string, score: number): void => {
+    const next = (scoredEmails.get(email) ?? 0) + score;
+    scoredEmails.set(email, next);
+  };
+
+  for (const email of extractEmails(sourcePath)) {
+    addScore(normalizeTakeoutPathEmail(email), 12);
+  }
+
+  const accountCandidateFiles = files.filter((file) => {
+    if (!file.parseable || !file.readText) {
+      return false;
+    }
+    const lower = file.logicalPath.toLowerCase();
+    if (lower.includes("/mail/") || lower.includes("gmail")) {
+      return false;
+    }
+    return (
+      lower.includes("account") ||
+      lower.includes("profile") ||
+      lower.includes("about") ||
+      lower.includes("personal") ||
+      lower.includes("settings")
+    );
+  });
+
+  for (const file of accountCandidateFiles.slice(0, 60)) {
+    const content = safeReadText(file, 160_000);
+    if (!content) {
+      continue;
+    }
+
+    const lowerPath = file.logicalPath.toLowerCase();
+    let scoreBoost = 2;
+    if (lowerPath.includes("account")) {
+      scoreBoost += 3;
+    }
+    if (lowerPath.includes("profile")) {
+      scoreBoost += 2;
+    }
+    if (/primary|owner|account email|email address/i.test(content)) {
+      scoreBoost += 2;
+    }
+
+    for (const email of extractEmails(content)) {
+      addScore(email, scoreBoost);
+    }
+  }
+
+  const ranked = [...scoredEmails.entries()].sort((a, b) => b[1] - a[1]);
+  const accountEmail = ranked[0]?.[0] ?? null;
+  const fallbackLabel = basename(sourcePath).trim() || "Google account";
+
+  return {
+    email: accountEmail,
+    label: accountEmail ?? fallbackLabel
   };
 }
 
@@ -240,6 +364,7 @@ function emitProgress(
 export function planGoogleTakeoutImport(sourcePath: string, scope?: TakeoutImportScope): TakeoutImportPlan {
   const workspaceId = randomUUID();
   const scan = scanTakeoutSource(sourcePath);
+  const detectedAccount = inferAccountFromSource(sourcePath, scan.files);
   const productSummaries = new Map<
     TakeoutProductKey,
     { fileCount: number; parseableFileCount: number; totalBytes: number; parseableBytes: number }
@@ -311,6 +436,7 @@ export function planGoogleTakeoutImport(sourcePath: string, scope?: TakeoutImpor
     parseableFiles,
     totalBytes,
     parseableBytes,
+    detectedAccount,
     products,
     defaultScope: {
       dateRangePreset: normalizedScope.dateRangePreset,
