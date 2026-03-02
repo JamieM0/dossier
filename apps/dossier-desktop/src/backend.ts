@@ -597,6 +597,10 @@ function normalizeSettingsPatch(payload: unknown): DossierSettings {
     next.activeLlmProfileId,
     "activeLlmProfileId"
   );
+  const skippedUpdateVersion = parseOptionalNullableString(
+    next.skippedUpdateVersion,
+    "skippedUpdateVersion"
+  );
   const passthrough = Object.fromEntries(
     Object.entries(next).filter(
       ([key]) =>
@@ -626,10 +630,7 @@ function normalizeSettingsPatch(payload: unknown): DossierSettings {
       next.autoUpdatesEnabled,
       settingsCache.autoUpdatesEnabled ?? defaultSettings.autoUpdatesEnabled
     ),
-    skippedUpdateVersion: parseOptionalNullableString(
-      next.skippedUpdateVersion,
-      "skippedUpdateVersion"
-    ),
+    ...(skippedUpdateVersion !== undefined ? { skippedUpdateVersion } : {}),
     ...(localModelEndpoint !== undefined ? { localModelEndpoint } : {}),
     ...(localModelName !== undefined ? { localModelName } : {}),
     ...(llmProfiles !== undefined ? { llmProfiles } : {}),

@@ -53,6 +53,7 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
           projectPath: apps/dossier-desktop
+          tauriScript: pnpm exec tauri
           tagName: ${{ github.ref_name }}
           releaseName: Dossier ${{ github.ref_name }}
           releaseBody: See the assets to download this version and install.
