@@ -316,8 +316,17 @@ fn spawn_backend(app: &AppHandle) -> Result<BackendControlClient, String> {
         )
         .env("DOSSIER_PACKAGES_ROOT", inferred_packages_root.as_os_str())
         .stdin(Stdio::null())
-        .stdout(Stdio::piped())
-        .stderr(Stdio::inherit());
+        .stdout(Stdio::piped());
+
+    let stderr_log_path = app_data_dir.join("backend-stderr.log");
+    match std::fs::File::create(&stderr_log_path) {
+        Ok(log_file) => {
+            command.stderr(Stdio::from(log_file));
+        }
+        Err(_) => {
+            command.stderr(Stdio::null());
+        }
+    }
 
     if let Some(parent) = script_path.parent() {
         command.current_dir(parent);
@@ -330,6 +339,12 @@ fn spawn_backend(app: &AppHandle) -> Result<BackendControlClient, String> {
         command.arg(script_path.as_os_str());
     }
     command.arg(app_data_dir.as_os_str());
+
+    #[cfg(target_os = "windows")]
+    {
+        use std::os::windows::process::CommandExt;
+        command.creation_flags(0x08000000); // CREATE_NO_WINDOW
+    }
 
     let mut child = command
         .spawn()
@@ -1300,6 +1315,18 @@ fn main() {
                 Ok(client) => client,
                 Err(error) => {
                     eprintln!("Failed to start Dossier backend daemon: {error}");
+                    let log_hint = app_handle
+                        .path()
+                        .app_data_dir()
+                        .map(|d| d.join("backend-stderr.log").display().to_string())
+                        .unwrap_or_else(|_| "the Dossier app data directory".to_string());
+                    let _ = rfd::MessageDialog::new()
+                        .set_title("Dossier failed to start")
+                        .set_description(&format!(
+                            "The Dossier backend failed to start:\n\n{error}\n\nFor details, check:\n{log_hint}"
+                        ))
+                        .set_level(rfd::MessageLevel::Error)
+                        .show();
                     app_handle.exit(1);
                     return Ok(());
                 }
