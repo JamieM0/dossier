@@ -41,6 +41,18 @@ jobs:
           toolchain: 1.88.0
           targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin' || '' }}
 
+      - name: Cache Cargo registry and build artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            apps/dossier-desktop/src-tauri/target/
+          key: ${{ matrix.target }}-cargo-${{ hashFiles('apps/dossier-desktop/src-tauri/Cargo.lock') }}
+          restore-keys: |
+            ${{ matrix.target }}-cargo-
+
       - name: Install JS dependencies
         run: pnpm install --frozen-lockfile
 
