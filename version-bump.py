@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -74,6 +75,24 @@ def main():
     update_cargo_toml(FILES["Cargo.toml"], new_version)
 
     print(f"Updated: tauri.conf.json, Cargo.toml, package.json")
+
+    # Stage and commit the version changes
+    version_files = [
+        "apps/dossier-desktop/src-tauri/tauri.conf.json",
+        "apps/dossier-desktop/src-tauri/Cargo.toml",
+        "apps/dossier-desktop/package.json",
+    ]
+    subprocess.run(["git", "add"] + version_files, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", f"Bump version to {new_version}"],
+        check=True,
+    )
+
+    # Create the version tag
+    tag_name = f"v{new_version}"
+    subprocess.run(["git", "tag", tag_name], check=True)
+    print(f"Created tag: {tag_name}")
+    print(f"Push with: git push origin main && git push origin {tag_name}")
 
 
 if __name__ == "__main__":
