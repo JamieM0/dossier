@@ -7,17 +7,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish-tauri:
+  build:
     permissions:
-      contents: write
+      contents: read
     strategy:
       fail-fast: false
       matrix:
         include:
           - platform: macos-latest
             args: "--target aarch64-apple-darwin"
+            target: aarch64-apple-darwin
           - platform: windows-latest
-            args: ""
+            args: "--bundles nsis"
+            target: x86_64-pc-windows-msvc
 
     runs-on: ${{ matrix.platform }}
 
@@ -45,18 +47,79 @@ jobs:
       - name: Preflight version sync
         run: pnpm --filter @dossier/dossier-desktop run preflight:version
 
-      - name: Build and upload release artifacts
-        uses: tauri-apps/tauri-action@v0.6.0
+      - name: Build
+        run: pnpm --filter @dossier/dossier-desktop exec tauri build ${{ matrix.args }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+
+      - name: Collect release artifacts
+        shell: bash
+        run: |
+          mkdir -p dist
+          find apps/dossier-desktop/src-tauri/target -name "*.dmg"             -exec cp {} dist/ \;
+          find apps/dossier-desktop/src-tauri/target -name "*.app.tar.gz"      -exec cp {} dist/ \;
+          find apps/dossier-desktop/src-tauri/target -name "*.app.tar.gz.sig"  -exec cp {} dist/ \;
+          find apps/dossier-desktop/src-tauri/target -name "*.nsis.zip"        -exec cp {} dist/ \;
+          find apps/dossier-desktop/src-tauri/target -name "*.nsis.zip.sig"    -exec cp {} dist/ \;
+          find apps/dossier-desktop/src-tauri/target -name "*-setup.exe"       -exec cp {} dist/ \;
+          echo "Collected artifacts:"
+          ls -lh dist/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
         with:
-          projectPath: apps/dossier-desktop
-          tauriScript: pnpm exec tauri
-          tagName: ${{ github.ref_name }}
-          releaseName: Dossier ${{ github.ref_name }}
-          releaseBody: See the assets to download this version and install.
-          releaseDraft: true
-          prerelease: false
-          args: ${{ matrix.args }}
+          name: release-${{ matrix.target }}
+          path: dist/
+          if-no-files-found: error
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate release tag
+        run: |
+          if [[ ! "${{ github.ref_name }}" =~ ^v[0-9] ]]; then
+            echo "::error::Expected a version tag like v0.1.3, got '${{ github.ref_name }}'."
+            echo "When using workflow_dispatch, select a release tag from the ref dropdown."
+            exit 1
+          fi
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist/
+          merge-multiple: true
+
+      - name: List collected artifacts
+        run: ls -lh dist/
+
+      - name: Generate latest.json
+        run: node .github/scripts/generate-latest-json.mjs
+        env:
+          TAG: ${{ github.ref_name }}
+          ARTIFACTS_DIR: dist
+          OUTPUT: latest.json
+          BUILDS_REPO: JamieM0/dossier-builds
+
+      - name: Create draft release on dossier-builds
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            --repo JamieM0/dossier-builds \
+            --title "Dossier ${{ github.ref_name }}" \
+            --notes "See the assets to download this version and install." \
+            --draft \
+            dist/* \
+            latest.json
+        env:
+          GH_TOKEN: ${{ secrets.DOSSIER_BUILDS_TOKEN }}

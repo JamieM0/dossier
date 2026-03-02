@@ -51,7 +51,7 @@
     "updater": {
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEU5RThCNEUzQkFEQUJBNzgKUldSNHV0cTY0N1RvNmVwRDFzMVlyWE1EeFIySHQ1UEQxMnRZOFl3TDZucjJjRXVvdXZ1TWVhcmYK",
       "endpoints": [
-        "https://github.com/JamieM0/dossier/releases/latest/download/latest.json"
+        "https://github.com/JamieM0/dossier-builds/releases/latest/download/latest.json"
       ],
       "windows": {
         "installMode": "passive"
