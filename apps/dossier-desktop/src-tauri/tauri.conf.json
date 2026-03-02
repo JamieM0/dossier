@@ -49,7 +49,7 @@
   },
   "plugins": {
     "updater": {
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEJFRDcyN0NFRkM2NzhENjIKUldSaWpXZjh6aWZYdmhJYVBwM0YwNGo0anFuR2lES3U1ZFg4L1BhTDFFMW0xMHNPZ0trL212dWEK",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEU5RThCNEUzQkFEQUJBNzgKUldSNHV0cTY0N1RvNmVwRDFzMVlyWE1EeFIySHQ1UEQxMnRZOFl3TDZucjJjRXVvdXZ1TWVhcmYK",
       "endpoints": [
         "https://github.com/JamieM0/dossier/releases/latest/download/latest.json"
       ],
