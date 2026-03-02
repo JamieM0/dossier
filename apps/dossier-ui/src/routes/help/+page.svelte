@@ -147,7 +147,11 @@
         <div class="about-meta">
           <div class="meta-row">
             <span class="meta-label">Version</span>
-            <span class="meta-value mono">0.1.0</span>
+            <span class="meta-value mono">0.1.5</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Build</span>
+            <span class="meta-value mono">Test Update v1</span>
           </div>
         </div>
       </div>
