@@ -5,7 +5,10 @@ const DEFAULT_TIMEOUT_MS = 300_000;
 type OpenAIChatResponse = {
   id: string;
   model: string;
-  choices: { index: number; message: { role: string; content: string } }[];
+  choices: {
+    index: number;
+    message: { role: string; content: string; reasoning_content?: string };
+  }[];
   usage?: { prompt_tokens: number; completion_tokens: number; total_tokens: number };
 };
 
@@ -137,7 +140,7 @@ async function anthropicCompletion(
 export async function chatCompletion(
   config: InferenceEngineConfig,
   messages: ChatMessage[],
-  opts?: { temperature?: number; maxTokens?: number; timeoutMs?: number }
+  opts?: { temperature?: number; maxTokens?: number; timeoutMs?: number; think?: boolean }
 ): Promise<ChatCompletionResult> {
   if (config.provider === "anthropic") {
     return anthropicCompletion(config, messages, opts);
@@ -155,7 +158,8 @@ export async function chatCompletion(
       model: config.model,
       messages,
       temperature: opts?.temperature ?? 0.7,
-      ...(opts?.maxTokens !== undefined ? { max_tokens: opts.maxTokens } : {})
+      ...(opts?.maxTokens !== undefined ? { max_tokens: opts.maxTokens } : {}),
+      ...(opts?.think !== undefined ? { think: opts.think } : {})
     }),
     signal: AbortSignal.timeout(opts?.timeoutMs ?? DEFAULT_TIMEOUT_MS)
   });

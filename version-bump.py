@@ -57,12 +57,30 @@ def update_cargo_toml(path, new_version):
     path.write_text("".join(result))
 
 
+def check_clean_working_tree():
+    result = subprocess.run(
+        ["git", "status", "--porcelain"],
+        capture_output=True, text=True, check=True,
+    )
+    dirty = [
+        line for line in result.stdout.splitlines()
+        if line and not line.startswith("??")  # ignore untracked files
+    ]
+    if dirty:
+        print("Error: you have uncommitted changes. Commit them first, then re-run version-bump.")
+        for line in dirty:
+            print(f"  {line}")
+        sys.exit(1)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Bump the Dossier version across all 3 required files.")
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--major", action="store_true", help="Bump major version (X.0.0)")
     group.add_argument("--minor", action="store_true", help="Bump minor version (x.Y.0)")
     args = parser.parse_args()
+
+    check_clean_working_tree()
 
     part = "major" if args.major else "minor" if args.minor else "patch"
     current = read_current_version()
@@ -92,7 +110,7 @@ def main():
     tag_name = f"v{new_version}"
     subprocess.run(["git", "tag", tag_name], check=True)
     print(f"Created tag: {tag_name}")
-    print(f"Push with: git push origin main && git push origin {tag_name}")
+    print(f"Push with: git push origin main")
 
 
 if __name__ == "__main__":
