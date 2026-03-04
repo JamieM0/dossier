@@ -1,4 +1,5 @@
-import { inferFromTakeoutArtifacts, type LlmConfig } from "./infer.js";
+import { inferFromTakeoutArtifacts, InferenceConfigError, type LlmConfig } from "./infer.js";
+export { InferenceConfigError } from "./infer.js";
 import {
   scanTakeoutSource,
   parseTakeoutSourceFiles,
@@ -535,10 +536,7 @@ export async function runGoogleTakeoutImport(
   emitProgress(options.onProgress, {
     stage: "infer",
     status: "started",
-    message:
-      llmConfig?.endpoint && llmConfig?.model
-        ? "Generating candidate profile inferences..."
-        : "No model configured. Running deterministic extraction from high-signal artifacts."
+    message: "Generating candidate profile inferences..."
   });
 
   emitProgress(options.onProgress, {
@@ -558,21 +556,16 @@ export async function runGoogleTakeoutImport(
   emitProgress(options.onProgress, {
     stage: "infer",
     status: "completed",
-    message:
-      inferenceDiagnostics.mode === "llm"
-        ? "Inference pass complete with LLM-backed extraction."
-        : "Inference pass complete with deterministic fallback extraction.",
+    message: "Inference pass complete with LLM-backed extraction.",
     metrics: {
       proposals: proposals.length,
-      llm_enabled: Boolean(llmConfig?.endpoint && llmConfig?.model),
       context_artifacts: inferenceDiagnostics.contextArtifacts,
       context_lines: inferenceDiagnostics.contextLines,
       context_chars: inferenceDiagnostics.contextChars,
       llm_chunks: inferenceDiagnostics.llmChunks,
       llm_failed_chunks: inferenceDiagnostics.llmFailedChunks,
       llm_raw_proposals: inferenceDiagnostics.llmRawProposals,
-      llm_accepted_proposals: inferenceDiagnostics.llmAcceptedProposals,
-      fallback_reason: inferenceDiagnostics.fallbackReason
+      llm_accepted_proposals: inferenceDiagnostics.llmAcceptedProposals
     }
   });
 
@@ -631,7 +624,6 @@ export async function runGoogleTakeoutImport(
       inference_llm_failed_chunks: inferenceDiagnostics.llmFailedChunks,
       inference_llm_raw_proposals: inferenceDiagnostics.llmRawProposals,
       inference_llm_accepted_proposals: inferenceDiagnostics.llmAcceptedProposals,
-      inference_fallback_reason: inferenceDiagnostics.fallbackReason,
       parse_errors: parseErrors,
       generated_at: new Date().toISOString()
     }
@@ -715,12 +707,6 @@ export async function runGoogleTakeoutImport(
 
   const completedAt = new Date().toISOString();
   const warnings = [...scan.warnings];
-  if (!llmConfig?.endpoint || !llmConfig?.model) {
-    warnings.push("No LLM configured; used deterministic extraction only. Connect a model in welcome flow for richer candidate facts.");
-  }
-  if (inferenceDiagnostics.fallbackReason) {
-    warnings.push(`Inference fallback used: ${inferenceDiagnostics.fallbackReason}.`);
-  }
   if (artifacts.length === 0) {
     warnings.push("No artifacts matched the selected scope.");
   }

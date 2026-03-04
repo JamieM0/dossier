@@ -17,7 +17,7 @@ export async function testLlmConnection(
         { role: "system", content: "You are a test assistant. Reply with exactly: OK" },
         { role: "user", content: "Are you ready?" }
       ],
-      { temperature: 0, maxTokens: 8, think: false }
+      { temperature: 0, maxTokens: 2048, think: false }
     );
 
     return { ok: true, model: result.model };

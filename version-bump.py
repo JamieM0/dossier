@@ -110,7 +110,8 @@ def main():
     tag_name = f"v{new_version}"
     subprocess.run(["git", "tag", tag_name], check=True)
     print(f"Created tag: {tag_name}")
-    print(f"Push with: git push origin main")
+    subprocess.run(["git", "push", "origin", "main", "--tags"], check=True)
+    print(f"Pushed version changes and tag to origin")
 
 
 if __name__ == "__main__":

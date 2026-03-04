@@ -7,7 +7,7 @@ type OpenAIChatResponse = {
   model: string;
   choices: {
     index: number;
-    message: { role: string; content: string; reasoning_content?: string };
+    message: { role: string; content: string; reasoning?: string };
   }[];
   usage?: { prompt_tokens: number; completion_tokens: number; total_tokens: number };
 };
@@ -170,15 +170,17 @@ export async function chatCompletion(
   }
 
   const data = (await response.json()) as unknown;
-
   if (isOpenAIChatResponse(data)) {
     const choice = data.choices[0];
-    if (!choice || typeof choice.message?.content !== "string" || !choice.message.content.trim()) {
+    const content =
+      (typeof choice?.message?.content === "string" ? choice.message.content.trim() : "") ||
+      (typeof choice?.message?.reasoning === "string" ? choice.message.reasoning.trim() : "");
+    if (!content) {
       throw new Error("LLM returned no choices");
     }
 
     return {
-      content: choice.message.content,
+      content,
       model: data.model,
       usage: normalizeUsage(data.usage)
     };

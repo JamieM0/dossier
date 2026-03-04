@@ -33,7 +33,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
+
+      - name: Get pnpm store path
+        id: pnpm-store
+        shell: bash
+        run: echo "path=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: ${{ runner.os }}-${{ runner.arch }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ runner.arch }}-pnpm-
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
@@ -41,17 +53,11 @@ jobs:
           toolchain: 1.88.0
           targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin' || '' }}
 
-      - name: Cache Cargo registry and build artifacts
-        uses: actions/cache@v4
+      - name: Cache Rust build artifacts
+        uses: Swatinem/rust-cache@v2
         with:
-          path: |
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-            apps/dossier-desktop/src-tauri/target/
-          key: ${{ matrix.target }}-cargo-${{ hashFiles('apps/dossier-desktop/src-tauri/Cargo.lock') }}
-          restore-keys: |
-            ${{ matrix.target }}-cargo-
+          workspaces: apps/dossier-desktop/src-tauri -> target
+          cache-on-failure: true
 
       - name: Install JS dependencies
         run: pnpm install --frozen-lockfile
@@ -123,13 +129,12 @@ jobs:
           OUTPUT: latest.json
           BUILDS_REPO: JamieM0/dossier-builds
 
-      - name: Create draft release on dossier-builds
+      - name: Create release on dossier-builds
         run: |
           gh release create "${{ github.ref_name }}" \
             --repo JamieM0/dossier-builds \
             --title "Dossier ${{ github.ref_name }}" \
-            --notes "See the assets to download this version and install." \
-            --draft \
+            --notes "Release assets for Dossier ${{ github.ref_name }}" \
             dist/* \
             latest.json
         env:

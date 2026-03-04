@@ -24,7 +24,7 @@ export type LlmConfig = {
 };
 
 export type InferenceRunDiagnostics = {
-  mode: "llm" | "deterministic";
+  mode: "llm";
   contextArtifacts: number;
   contextLines: number;
   contextChars: number;
@@ -32,8 +32,14 @@ export type InferenceRunDiagnostics = {
   llmFailedChunks: number;
   llmRawProposals: number;
   llmAcceptedProposals: number;
-  fallbackReason: string | null;
 };
+
+export class InferenceConfigError extends Error {
+  constructor(message: string, options?: ErrorOptions) {
+    super(message, options);
+    this.name = "InferenceConfigError";
+  }
+}
 
 export type InferFromTakeoutArtifactsResult = {
   proposals: InferenceProposal[];
@@ -669,145 +675,6 @@ function isProposalHighQuality(proposal: InferenceProposal): boolean {
   return true;
 }
 
-function firstEvidenceLine(records: EvidenceRecord[], product: TakeoutProductKey, startsWith: RegExp): string | null {
-  for (const record of records) {
-    if (record.productKey !== product) {
-      continue;
-    }
-    for (const line of record.lines) {
-      if (startsWith.test(line)) {
-        return line;
-      }
-    }
-  }
-  return null;
-}
-
-function deterministicFallback(records: EvidenceRecord[], productCounts: Map<TakeoutProductKey, number>): InferenceProposal[] {
-  const proposals: InferenceProposal[] = [];
-  const push = (proposal: InferenceProposal): void => {
-    if (isProposalHighQuality(proposal)) {
-      proposals.push(normalizeProposal(proposal));
-    }
-  };
-
-  const gmailCount = productCounts.get("gmail") ?? 0;
-  const calendarCount = productCounts.get("calendar") ?? 0;
-  const youtubeCount = productCounts.get("youtube") ?? 0;
-  const driveCount = productCounts.get("drive") ?? 0;
-  const photosCount = productCounts.get("photos") ?? 0;
-
-  if (gmailCount >= 2) {
-    const subject = firstEvidenceLine(records, "gmail", /^subject:/i);
-    push({
-      text: subject
-        ? `I discuss topics such as "${subject.replace(/^subject:\s*/i, "")}" over email.`
-        : "I actively use Gmail for day-to-day communication.",
-      itemType: "communication",
-      why: `Gmail artifacts detected (${gmailCount}) with extractable message metadata and content snippets.`,
-      confidence: subject ? 0.68 : 0.62
-    });
-  }
-
-  if (calendarCount >= 2) {
-    const summary = firstEvidenceLine(records, "calendar", /^summary:/i);
-    push({
-      text: summary
-        ? `My calendar includes events like "${summary.replace(/^summary:\s*/i, "")}".`
-        : "I keep an active calendar with scheduled events and commitments.",
-      itemType: "fact",
-      why: `Calendar artifacts detected (${calendarCount}) with event summaries, times, or locations.`,
-      confidence: summary ? 0.7 : 0.64
-    });
-  }
-
-  if (youtubeCount >= 2) {
-    const watch = firstEvidenceLine(records, "youtube", /^watch:/i);
-    const search = firstEvidenceLine(records, "youtube", /^search:/i);
-    const subscription = firstEvidenceLine(records, "youtube", /^subscription:/i);
-    const song = firstEvidenceLine(records, "youtube", /^song:/i);
-    const playlist = firstEvidenceLine(records, "youtube", /^playlist:/i);
-
-    if (watch) {
-      push({
-        text: `I recently watched YouTube content such as "${watch.replace(/^watch:\s*/i, "")}".`,
-        itemType: "interest",
-        why: `Watch-history evidence extracted from YouTube history artifacts (${youtubeCount}).`,
-        confidence: 0.7
-      });
-    }
-    if (search) {
-      push({
-        text: `I search YouTube for topics like "${search.replace(/^search:\s*/i, "")}".`,
-        itemType: "interest",
-        why: "Search-history entries were detected in YouTube activity exports.",
-        confidence: 0.66
-      });
-    }
-    if (song) {
-      push({
-        text: `I listen to music tracks such as "${song.replace(/^song:\s*/i, "")}" on YouTube Music.`,
-        itemType: "interest",
-        why: "Music library songs were detected in YouTube Music export files.",
-        confidence: 0.65
-      });
-    }
-    if (subscription) {
-      push({
-        text: `I follow channels including "${subscription.replace(/^subscription:\s*/i, "")}" on YouTube.`,
-        itemType: "interest",
-        why: "Subscription channel titles were extracted from subscriptions.csv.",
-        confidence: 0.64
-      });
-    }
-    if (playlist) {
-      push({
-        text: `I curate YouTube playlists such as "${playlist.replace(/^playlist:\s*/i, "")}".`,
-        itemType: "fact",
-        why: "Playlist metadata was extracted from playlists.csv in the Takeout export.",
-        confidence: 0.62
-      });
-    }
-
-    if (!watch && !search && !subscription && !song && !playlist) {
-      push({
-        text: "I regularly watch content on YouTube.",
-        itemType: "interest",
-        why: `YouTube artifacts detected (${youtubeCount}) with activity metadata.`,
-        confidence: 0.58
-      });
-    }
-  }
-
-  if (driveCount >= 2) {
-    push({
-      text: "I work with files and documents in Google Drive.",
-      itemType: "professional",
-      why: `Drive artifacts detected (${driveCount}) with document metadata/content excerpts.`,
-      confidence: 0.56
-    });
-  }
-
-  if (photosCount >= 3) {
-    push({
-      text: "I maintain an archive of photos in Google Photos.",
-      itemType: "fact",
-      why: `Google Photos artifacts detected (${photosCount}) in this Takeout import.`,
-      confidence: 0.55
-    });
-  }
-
-  if (proposals.length === 0 && records.length > 0) {
-    push({
-      text: "My Google account history includes enough signal to start building a personal archive profile.",
-      itemType: "fact",
-      why: `Extracted evidence snippets from ${records.length} artifacts across Google products.`,
-      confidence: 0.5
-    });
-  }
-
-  return proposals.slice(0, 12);
-}
 
 function withDiagnostics(
   proposals: InferenceProposal[],
@@ -825,17 +692,9 @@ export async function inferFromTakeoutArtifacts(
   const contextLines = records.reduce((sum, record) => sum + record.lines.length, 0);
 
   if (!llmConfig?.endpoint || !llmConfig?.model) {
-    return withDiagnostics(deterministicFallback(records, productCounts), {
-      mode: "deterministic",
-      contextArtifacts: records.length,
-      contextLines,
-      contextChars: context.length,
-      llmChunks: 0,
-      llmFailedChunks: 0,
-      llmRawProposals: 0,
-      llmAcceptedProposals: 0,
-      fallbackReason: "llm_not_configured"
-    });
+    throw new InferenceConfigError(
+      "No LLM configured. Please connect a model in Settings before running a Takeout import."
+    );
   }
 
   let inferFromTakeoutTextFn: ((
@@ -865,32 +724,17 @@ export async function inferFromTakeoutArtifacts(
       artifactSummary: string,
       options?: { temperature?: number; maxTokens?: number; timeoutMs?: number }
     ) => Promise<InferenceProposal[]>;
-  } catch {
-    return withDiagnostics(deterministicFallback(records, productCounts), {
-      mode: "deterministic",
-      contextArtifacts: records.length,
-      contextLines,
-      contextChars: context.length,
-      llmChunks: 0,
-      llmFailedChunks: 0,
-      llmRawProposals: 0,
-      llmAcceptedProposals: 0,
-      fallbackReason: "llm_module_load_failed"
-    });
+  } catch (cause) {
+    throw new InferenceConfigError(
+      "Failed to load the inference engine module. Please check your LLM configuration.",
+      { cause }
+    );
   }
 
   if (!inferFromTakeoutTextFn) {
-    return withDiagnostics(deterministicFallback(records, productCounts), {
-      mode: "deterministic",
-      contextArtifacts: records.length,
-      contextLines,
-      contextChars: context.length,
-      llmChunks: 0,
-      llmFailedChunks: 0,
-      llmRawProposals: 0,
-      llmAcceptedProposals: 0,
-      fallbackReason: "llm_module_load_failed"
-    });
+    throw new InferenceConfigError(
+      "Inference engine module did not export the expected function."
+    );
   }
 
   const chunks = chunkByCharacters(context, 3200).slice(0, 12);
@@ -931,6 +775,12 @@ export async function inferFromTakeoutArtifacts(
     }
   }
 
+  if (chunks.length > 0 && failedChunks === chunks.length) {
+    throw new InferenceConfigError(
+      "All LLM inference requests failed. Please check your model configuration and connectivity."
+    );
+  }
+
   const deduped = new Map<string, InferenceProposal>();
   for (const proposal of aggregated) {
     const normalized = normalizeProposal(proposal);
@@ -946,34 +796,14 @@ export async function inferFromTakeoutArtifacts(
   }
 
   const accepted = [...deduped.values()].slice(0, 20);
-  if (accepted.length > 0) {
-    return withDiagnostics(accepted, {
-      mode: "llm",
-      contextArtifacts: records.length,
-      contextLines,
-      contextChars: context.length,
-      llmChunks: chunks.length,
-      llmFailedChunks: failedChunks,
-      llmRawProposals: aggregated.length,
-      llmAcceptedProposals: accepted.length,
-      fallbackReason: null
-    });
-  }
-
-  const fallbackReason =
-    chunks.length > 0 && failedChunks === chunks.length
-      ? "llm_request_failed"
-      : "llm_returned_no_accepted_proposals";
-
-  return withDiagnostics(deterministicFallback(records, productCounts), {
-    mode: "deterministic",
+  return withDiagnostics(accepted, {
+    mode: "llm",
     contextArtifacts: records.length,
     contextLines,
     contextChars: context.length,
     llmChunks: chunks.length,
     llmFailedChunks: failedChunks,
     llmRawProposals: aggregated.length,
-    llmAcceptedProposals: 0,
-    fallbackReason
+    llmAcceptedProposals: accepted.length
   });
 }

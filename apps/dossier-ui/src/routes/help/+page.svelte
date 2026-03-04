@@ -1,9 +1,24 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   const isMac = typeof navigator !== "undefined" && navigator.platform.toUpperCase().includes("MAC");
   const mod = isMac ? "Cmd" : "Ctrl";
 
+  let appVersion = $state("Loading...");
+
   type Shortcut = { keys: string[]; description: string };
   type ShortcutGroup = { title: string; shortcuts: Shortcut[] };
+
+  onMount(async () => {
+    try {
+      if (typeof window !== "undefined" && (window as any).dossier?.app?.getVersion) {
+        appVersion = await (window as any).dossier.app.getVersion();
+      }
+    } catch (error) {
+      console.error("Failed to get app version:", error);
+      appVersion = "Unknown";
+    }
+  });
 
   const groups: ShortcutGroup[] = [
     {
@@ -147,7 +162,7 @@
         <div class="about-meta">
           <div class="meta-row">
             <span class="meta-label">Version</span>
-            <span class="meta-value mono">0.1.5</span>
+            <span class="meta-value mono">{appVersion}</span>
           </div>
           <div class="meta-row">
             <span class="meta-label">Build</span>

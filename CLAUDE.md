@@ -87,3 +87,7 @@ After running the version-bump script:
 - `apps/dossier-desktop/src-tauri/tauri.conf.json` — Tauri config (version, pubkey, endpoint)
 - `apps/dossier-desktop/src-tauri/src/main.rs` — Rust main with auto-update logic
 - `scripts/version-bump.py` — automated version bumping script
+
+## Inference pipeline rules
+
+Never add deterministic or rule-based fallback paths to the inference pipeline. If the LLM is not configured or fails to load, fail with a clear, user-visible error (`InferenceConfigError`). Silent degradation that produces low-quality output is worse than no output.
