@@ -38,13 +38,8 @@
     ],
     "resources": [
       "../dist/backend.js",
-      "../../../packages/**/dist/**/*",
-      "../../../packages/**/package.json",
-      "../../../packages/**/node_modules/@dossier/**/*",
-      "../../../packages/connectors-google-takeout/node_modules/adm-zip",
-      "../../../packages/domain/node_modules/zod",
-      "../../../node_modules/.pnpm/adm-zip@*/node_modules/adm-zip/**/*",
-      "../../../node_modules/.pnpm/zod@*/node_modules/zod/**/*"
+      "../../../packages/store/dist/**/*",
+      "../../../packages/store/package.json"
     ]
   },
   "plugins": {

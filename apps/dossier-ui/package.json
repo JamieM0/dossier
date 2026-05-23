@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@tauri-apps/api": "latest",
-    "marked": "^17.0.3",
     "phosphor-icons-svelte": "2.1.0",
     "svelte": "^5.19.0"
   },

@@ -10,15 +10,6 @@ importers:
 
   apps/dossier-desktop:
     dependencies:
-      '@dossier/connectors-google-takeout':
-        specifier: workspace:*
-        version: link:../../packages/connectors-google-takeout
-      '@dossier/inference-engine':
-        specifier: workspace:*
-        version: link:../../packages/inference-engine
-      '@dossier/local-server':
-        specifier: workspace:*
-        version: link:../../packages/local-server
       '@dossier/store':
         specifier: workspace:*
         version: link:../../packages/store
@@ -44,9 +35,6 @@ importers:
       '@tauri-apps/api':
         specifier: latest
         version: 2.10.1
-      marked:
-        specifier: ^17.0.3
-        version: 17.0.3
       phosphor-icons-svelte:
         specifier: 2.1.0
         version: 2.1.0(svelte@5.53.0)
@@ -79,96 +67,21 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@24.10.13)
 
-  apps/external-service-simulator:
-    devDependencies:
-      '@types/node':
-        specifier: ^22.10.2
-        version: 22.19.11
-      tsx:
-        specifier: ^4.19.2
-        version: 4.21.0
-      typescript:
-        specifier: ^5.7.3
-        version: 5.9.3
-      vitest:
-        specifier: ^2.1.8
-        version: 2.1.9(@types/node@22.19.11)
-
-  packages/connectors-google-takeout:
-    dependencies:
-      '@dossier/inference-engine':
-        specifier: workspace:*
-        version: link:../inference-engine
-      adm-zip:
-        specifier: ^0.5.16
-        version: 0.5.16
-    devDependencies:
-      '@types/node':
-        specifier: ^22.10.2
-        version: 22.19.11
-      typescript:
-        specifier: ^5.7.3
-        version: 5.9.3
-      vitest:
-        specifier: ^2.1.8
-        version: 2.1.9(@types/node@22.19.11)
-
-  packages/domain:
-    dependencies:
-      zod:
-        specifier: ^3.24.1
-        version: 3.25.76
-    devDependencies:
-      typescript:
-        specifier: ^5.7.3
-        version: 5.9.3
-      vitest:
-        specifier: ^2.1.8
-        version: 2.1.9(@types/node@24.10.13)
-
-  packages/inference-engine:
-    devDependencies:
-      '@types/node':
-        specifier: ^22.10.2
-        version: 22.19.11
-      typescript:
-        specifier: ^5.7.3
-        version: 5.9.3
-      vitest:
-        specifier: ^2.1.8
-        version: 2.1.9(@types/node@22.19.11)
-
-  packages/local-server:
-    dependencies:
-      '@dossier/domain':
-        specifier: workspace:*
-        version: link:../domain
-      '@dossier/store':
-        specifier: workspace:*
-        version: link:../store
-    devDependencies:
-      typescript:
-        specifier: ^5.7.3
-        version: 5.9.3
-      vitest:
-        specifier: ^2.1.8
-        version: 2.1.9(@types/node@24.10.13)
-
   packages/store:
     dependencies:
-      '@dossier/domain':
-        specifier: workspace:*
-        version: link:../domain
       keytar:
         specifier: ^7.9.0
         version: 7.9.0
     devDependencies:
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.19.11
       typescript:
         specifier: ^5.7.3
         version: 5.9.3
       vitest:
         specifier: ^2.1.8
-        version: 2.1.9(@types/node@24.10.13)
+        version: 2.1.9(@types/node@22.19.11)
 
   tests/e2e:
     devDependencies:
@@ -951,10 +864,6 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  adm-zip@0.5.16:
-    resolution: {integrity: sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ==}
-    engines: {node: '>=12.0'}
-
   aria-query@5.3.2:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
     engines: {node: '>= 0.4'}
@@ -1140,11 +1049,6 @@ packages:
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
-
-  marked@17.0.3:
-    resolution: {integrity: sha512-jt1v2ObpyOKR8p4XaUJVk3YWRJ5n+i4+rjQopxvV32rSndTJXvIzuUdWWIy/1pFQMkQmvTXawzDNqOH/CUmx6A==}
-    engines: {node: '>= 20'}
-    hasBin: true
 
   mimic-response@3.1.0:
     resolution: {integrity: sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==}
@@ -1495,9 +1399,6 @@ packages:
 
   zimmerframe@1.1.4:
     resolution: {integrity: sha512-B58NGBEoc8Y9MWWCQGl/gq9xBCe4IiKM0a2x7GZdQKOW5Exr8S1W24J6OgM1njK8xCRGvAJIL/MxXHf6SkmQKQ==}
-
-  zod@3.25.76:
-    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
 snapshots:
 
@@ -1994,8 +1895,6 @@ snapshots:
 
   acorn@8.16.0: {}
 
-  adm-zip@0.5.16: {}
-
   aria-query@5.3.2: {}
 
   assertion-error@2.0.1: {}
@@ -2154,6 +2053,7 @@ snapshots:
       '@esbuild/win32-arm64': 0.27.3
       '@esbuild/win32-ia32': 0.27.3
       '@esbuild/win32-x64': 0.27.3
+    optional: true
 
   esm-env@1.2.2: {}
 
@@ -2184,6 +2084,7 @@ snapshots:
   get-tsconfig@4.13.6:
     dependencies:
       resolve-pkg-maps: 1.0.0
+    optional: true
 
   github-from-package@0.0.0: {}
 
@@ -2213,8 +2114,6 @@ snapshots:
   magic-string@0.30.21:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
-
-  marked@17.0.3: {}
 
   mimic-response@3.1.0: {}
 
@@ -2305,7 +2204,8 @@ snapshots:
 
   readdirp@4.1.2: {}
 
-  resolve-pkg-maps@1.0.0: {}
+  resolve-pkg-maps@1.0.0:
+    optional: true
 
   rollup@4.57.1:
     dependencies:
@@ -2451,6 +2351,7 @@ snapshots:
       get-tsconfig: 4.13.6
     optionalDependencies:
       fsevents: 2.3.3
+    optional: true
 
   tunnel-agent@0.6.0:
     dependencies:
@@ -2618,5 +2519,3 @@ snapshots:
   wrappy@1.0.2: {}
 
   zimmerframe@1.1.4: {}
-
-  zod@3.25.76: {}

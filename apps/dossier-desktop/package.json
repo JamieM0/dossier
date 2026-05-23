@@ -12,16 +12,13 @@
     "preflight:port": "node ./scripts/check-port.mjs",
     "dev": "node ./scripts/dev-desktop.mjs",
     "dev:desktop": "node ./scripts/dev-desktop.mjs",
-    "build:deps": "pnpm -C ../.. -r --filter @dossier/domain --filter @dossier/store --filter @dossier/local-server --filter @dossier/inference-engine --filter @dossier/connectors-google-takeout build",
+    "build:deps": "pnpm -C ../.. -r --filter @dossier/store build",
     "build": "tsc -p tsconfig.json",
     "dist": "pnpm run preflight:rust && pnpm run preflight:version && pnpm run build:deps && pnpm run build && tauri build --config ./src-tauri/tauri.conf.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@dossier/connectors-google-takeout": "workspace:*",
-    "@dossier/inference-engine": "workspace:*",
-    "@dossier/local-server": "workspace:*",
     "@dossier/store": "workspace:*"
   },
   "devDependencies": {

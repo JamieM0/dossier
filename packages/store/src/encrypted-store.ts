@@ -1,16 +1,18 @@
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { decryptJson, encryptJson, type EncryptedBlob } from "./crypto.js";
-import { createDefaultState } from "./defaults.js";
-import type { PersistedState } from "./schema.js";
 
 const STORE_FILE = "store.enc.json";
 const CORRUPT_STORE_PREFIX = "store.enc.corrupt";
 
-export class EncryptedStore {
+export class EncryptedStore<T> {
   private readonly filePath: string;
 
-  constructor(private readonly dataPath: string, private readonly key: Buffer) {
+  constructor(
+    private readonly dataPath: string,
+    private readonly key: Buffer,
+    private readonly createDefault: () => T
+  ) {
     this.filePath = join(dataPath, STORE_FILE);
   }
 
@@ -28,22 +30,22 @@ export class EncryptedStore {
     }
   }
 
-  load(): PersistedState {
+  load(): T {
     if (!existsSync(this.filePath)) {
-      return createDefaultState();
+      return this.createDefault();
     }
 
     const raw = readFileSync(this.filePath, "utf8");
     try {
       const blob = JSON.parse(raw) as EncryptedBlob;
-      return decryptJson<PersistedState>(blob, this.key);
+      return decryptJson<T>(blob, this.key);
     } catch (error) {
       this.quarantineUnreadableStore(error);
-      return createDefaultState();
+      return this.createDefault();
     }
   }
 
-  save(state: PersistedState): void {
+  save(state: T): void {
     mkdirSync(this.dataPath, { recursive: true });
     const blob = encryptJson(state, this.key);
     writeFileSync(this.filePath, JSON.stringify(blob, null, 2), { mode: 0o600 });
