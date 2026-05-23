@@ -604,6 +604,66 @@ async fn settings_set(next: Value, state: State<'_, RuntimeState>) -> Result<Val
 }
 
 #[tauri::command]
+async fn preferences_get(state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(Method::GET, "/control/preferences", None)
+        .await
+}
+
+#[tauri::command]
+async fn preferences_set_rating(
+    film_id: i64,
+    rating: Option<i64>,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::PUT,
+            "/control/preferences/rating",
+            Some(json!({ "filmId": film_id, "rating": rating })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn preferences_add_pairwise(
+    winner_id: i64,
+    loser_id: i64,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/preferences/pairwise",
+            Some(json!({ "winnerId": winner_id, "loserId": loser_id })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn preferences_skip(film_id: i64, state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/preferences/skip",
+            Some(json!({ "filmId": film_id })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn preferences_reset(state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(Method::POST, "/control/preferences/reset", Some(json!({})))
+        .await
+}
+
+#[tauri::command]
 fn settings_get_start_on_login() -> Result<bool, String> {
     is_start_on_login_enabled()
 }
@@ -671,6 +731,11 @@ fn main() {
             settings_set,
             settings_get_start_on_login,
             settings_set_start_on_login,
+            preferences_get,
+            preferences_set_rating,
+            preferences_add_pairwise,
+            preferences_skip,
+            preferences_reset,
             update_install_and_restart
         ])
         .build(tauri::generate_context!())

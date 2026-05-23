@@ -1,5 +1,84 @@
 # Changelog
 
+## Unreleased — Phase 2: Content-based MVP
+
+Preference elicitation, feature-vector recommendations, and a bundled
+~2.5k-film catalogue scraped from BestSimilar.
+
+### Added — offline catalogue tooling
+
+`tools/catalogue-builder/` — developer-only Python pipeline. Not part
+of the shipped app. Run by the developer at release time.
+
+- `discover.py` — walks BestSimilar `/top/*` index pages (decades,
+  genres, countries, moods) and writes a deduped URL list. The lists
+  are hardcoded to bias toward breadth: every (era × genre × region)
+  cell gets a chance to surface a film, so the catalogue is not just
+  the IMDb top 250.
+- `scrape.py` — fetches each film page with [Scrapling][], extracts
+  title/year/rating/genre/country/duration/story/tags/similar-films,
+  and writes one JSON file per film. Resumable; uses a small worker
+  pool with per-worker jittered delay.
+- `feature_schema.py` — 12 medium-agnostic axes (pacing, tone,
+  ending warmth, emotional intensity, complexity, scope, realism,
+  darkness, thematic weight, character focus, moral clarity,
+  structure). Each axis lists positive/negative keyword sets matched
+  against the scraped tag stream to derive a value in [-1, 1].
+- `convert.py` — folds scraped records through `feature_schema` and
+  writes the runtime catalogue: `apps/dossier-ui/static/catalogue/
+  films/{id}.json` (one per film) plus `index.json` (lightweight
+  manifest the runtime loads once on boot).
+
+[Scrapling]: https://github.com/D4Vinci/Scrapling
+
+### Added — runtime
+
+- `packages/store` extended: `PersistedState` gains `ratings`,
+  `pairwise`, `skipped`. New methods `getRatings/setRating/
+  getPairwise/addPairwise/getSkipped/addSkipped/resetPreferences`.
+  See **deviations** below for why this stays on the existing
+  encrypted JSON store rather than introducing SQLite.
+- `apps/dossier-desktop/src/backend.ts` — five new control endpoints:
+  `GET /control/preferences`, `PUT /control/preferences/rating`,
+  `POST /control/preferences/{pairwise,skip,reset}`.
+- `apps/dossier-desktop/src-tauri/src/main.rs` — matching Tauri
+  commands (`preferences_get`, `preferences_set_rating`,
+  `preferences_add_pairwise`, `preferences_skip`,
+  `preferences_reset`).
+- `apps/dossier-ui/src/lib/catalogue.ts` — index and per-film
+  loaders (cache-once, lazy detail).
+- `apps/dossier-ui/src/lib/recommender.ts` — pure functions:
+  `computeUserWeights` (rating-weighted mean of feature vectors,
+  with capped pairwise nudges), `rankRecommendations` (cosine
+  similarity, top-N), `buildRatingQueue` (round-robin by
+  decade × genre cluster, popularity within cluster), and
+  `buildPairwiseCandidates` (only ties between equally-rated films).
+- `apps/dossier-ui/src/lib/state/preferences.svelte.ts` — Svelte 5
+  state class that hydrates from the backend and writes through.
+- Routes: `/` recommendations, `/rate` rating queue with thumbs +
+  arrow-key swipe + spacebar skip, `/refine` pairwise duel with
+  left/right arrow keys.
+- Sidebar nav extended with Recommendations / Rate / Refine.
+
+### Deviations from the original plan
+
+The plan called for **local SQLite** for ratings/weights/app state.
+We kept the existing AES-256-GCM encrypted-JSON store instead. With
+expected dataset sizes (a few hundred ratings, low-thousands cap),
+the encrypted JSON store is adequate, gives us encryption-at-rest
+for free, and avoids introducing a native module that needs platform
+builds. Migrating to SQLite later is an internal change behind
+`DossierStoreService` if data volume ever justifies it.
+
+The plan also mentioned **LLM-assisted tagging** at conversion time.
+We implemented a deterministic keyword-mapping pass over the scraped
+BestSimilar tag stream instead — reproducible, no API cost, and the
+12-axis output is reasonable on spot-checked examples. An LLM-tagging
+pass can be added later as a second-stage convert step if quality
+demands.
+
+---
+
 ## Unreleased — Phase 1: Cleanup for preference-based rework
 
 Strip the project to a minimal app shell so phase 2 (preference-based film

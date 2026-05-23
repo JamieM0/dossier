@@ -31,9 +31,20 @@ type BackendReadyPayload = {
   controlToken: string;
 };
 
+type Rating = -1 | 1;
+type RatingsMap = Record<string, Rating>;
+type PairwiseChoice = { winnerId: number; loserId: number; ts: number };
+
 type StoreServicePort = {
   getSettings: () => Record<string, unknown>;
   updateSettings: (next: Record<string, unknown>) => Record<string, unknown>;
+  getRatings: () => RatingsMap;
+  setRating: (filmId: number, rating: Rating | null) => RatingsMap;
+  getPairwise: () => PairwiseChoice[];
+  addPairwise: (choice: PairwiseChoice) => PairwiseChoice[];
+  getSkipped: () => number[];
+  addSkipped: (filmId: number) => number[];
+  resetPreferences: () => void;
 };
 
 type ControlErrorCode = "BAD_REQUEST" | "NOT_FOUND" | "UNAUTHORIZED" | "INTERNAL";
@@ -130,6 +141,62 @@ function createControlRequestHandler() {
           throw new ControlError(400, "BAD_REQUEST", "next settings payload is required");
         }
         sendJson(res, 200, persistSettings(body.next));
+        return;
+      }
+
+      if (method === "GET" && path === "/control/preferences") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        sendJson(res, 200, {
+          ratings: storeService.getRatings(),
+          pairwise: storeService.getPairwise(),
+          skipped: storeService.getSkipped()
+        });
+        return;
+      }
+
+      if (method === "PUT" && path === "/control/preferences/rating") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        const body = (await readJsonBody(req)) as { filmId?: number; rating?: number | null };
+        if (!body || typeof body.filmId !== "number") {
+          throw new ControlError(400, "BAD_REQUEST", "filmId (number) required");
+        }
+        const r = body.rating;
+        if (r !== null && r !== 1 && r !== -1) {
+          throw new ControlError(400, "BAD_REQUEST", "rating must be 1, -1, or null");
+        }
+        sendJson(res, 200, { ratings: storeService.setRating(body.filmId, r as Rating | null) });
+        return;
+      }
+
+      if (method === "POST" && path === "/control/preferences/pairwise") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        const body = (await readJsonBody(req)) as Partial<PairwiseChoice>;
+        if (!body || typeof body.winnerId !== "number" || typeof body.loserId !== "number") {
+          throw new ControlError(400, "BAD_REQUEST", "winnerId and loserId required");
+        }
+        const choice: PairwiseChoice = {
+          winnerId: body.winnerId,
+          loserId: body.loserId,
+          ts: typeof body.ts === "number" ? body.ts : Date.now()
+        };
+        sendJson(res, 200, { pairwise: storeService.addPairwise(choice) });
+        return;
+      }
+
+      if (method === "POST" && path === "/control/preferences/skip") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        const body = (await readJsonBody(req)) as { filmId?: number };
+        if (!body || typeof body.filmId !== "number") {
+          throw new ControlError(400, "BAD_REQUEST", "filmId (number) required");
+        }
+        sendJson(res, 200, { skipped: storeService.addSkipped(body.filmId) });
+        return;
+      }
+
+      if (method === "POST" && path === "/control/preferences/reset") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        storeService.resetPreferences();
+        sendJson(res, 200, { ok: true });
         return;
       }
 

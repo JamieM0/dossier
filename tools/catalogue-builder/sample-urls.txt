@@ -1,0 +1,6 @@
+# Sample URLs across era / genre / region so the user can sanity-check
+# the scraped fields against the live pages.
+https://bestsimilar.com/movies/15760-inception
+https://bestsimilar.com/movies/22312-the-shawshank-redemption
+https://bestsimilar.com/movies/13652-forrest-gump
+https://bestsimilar.com/movies/111634-the-dark-knight

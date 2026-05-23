@@ -1,4 +1,9 @@
-import type { DossierSettings } from "$lib/types";
+import type {
+  DossierSettings,
+  PairwiseChoice,
+  PreferencesPayload,
+  Rating
+} from "$lib/types";
 
 declare module "phosphor-icons-svelte";
 
@@ -15,6 +20,13 @@ declare global {
         set: (next: Partial<DossierSettings>) => Promise<DossierSettings>;
         getStartOnLogin: () => Promise<boolean>;
         setStartOnLogin: (enabled: boolean) => Promise<boolean>;
+      };
+      preferences: {
+        get: () => Promise<PreferencesPayload>;
+        setRating: (filmId: number, rating: Rating | null) => Promise<{ ratings: Record<string, Rating> }>;
+        addPairwise: (winnerId: number, loserId: number) => Promise<{ pairwise: PairwiseChoice[] }>;
+        skip: (filmId: number) => Promise<{ skipped: number[] }>;
+        reset: () => Promise<{ ok: boolean }>;
       };
     };
   }

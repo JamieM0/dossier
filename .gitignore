@@ -50,3 +50,8 @@ design_docs/
 apps/dossier-ui/.svelte-kit/
 
 design-docs/
+
+# Catalogue builder: raw scrape outputs are huge and reproducible.
+# We commit the converted runtime catalogue under apps/dossier-ui/static/
+# but not the per-film raw scrape, the URL pool, or fetched HTML.
+tools/catalogue-builder/data/

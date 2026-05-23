@@ -2,10 +2,16 @@
   import { page } from "$app/stores";
   import IconGearSixRegular from "phosphor-icons-svelte/IconGearSixRegular.svelte";
   import IconSidebarSimpleRegular from "phosphor-icons-svelte/IconSidebarSimpleRegular.svelte";
+  import IconSparkleRegular from "phosphor-icons-svelte/IconSparkleRegular.svelte";
+  import IconHeartRegular from "phosphor-icons-svelte/IconHeartRegular.svelte";
+  import IconScalesRegular from "phosphor-icons-svelte/IconScalesRegular.svelte";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
 
   const nav = [
-    { href: "/settings", label: "Settings", icon: IconGearSixRegular }
+    { href: "/", label: "Recommendations", icon: IconSparkleRegular, exact: true },
+    { href: "/rate", label: "Rate", icon: IconHeartRegular, exact: false },
+    { href: "/refine", label: "Refine", icon: IconScalesRegular, exact: false },
+    { href: "/settings", label: "Settings", icon: IconGearSixRegular, exact: false }
   ] as const;
 </script>
 
@@ -32,7 +38,7 @@
 
     <nav class="sidebar-nav">
       {#each nav as item}
-        {@const active = $page.url.pathname.startsWith(item.href)}
+        {@const active = item.exact ? $page.url.pathname === item.href : $page.url.pathname.startsWith(item.href)}
         {@const Icon = item.icon}
         <a
           class="nav-item"
