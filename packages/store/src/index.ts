@@ -5,12 +5,28 @@ import { KeyManager } from "./key-manager.js";
 
 export const SCHEMA_VERSION = 1;
 
-/** A single film rating. +1 = like, -1 = dislike. The plan called for
- * "thumbs as well as a left-right tinder swipe" — both inputs collapse
- * to the same two values here. We deliberately keep this binary so the
- * weight derivation in the recommender is a plain weighted sum, with
- * optional pairwise refinement contributing fractional adjustments. */
-export type Rating = -1 | 1;
+/** A single film rating, encoded as a signed sentinel.
+ *
+ *  +1   = like           (full positive weight)
+ *  -1   = dislike        (full negative weight)
+ *  +0.5 = watchlist      ("Add to watchlist" — 50% positive weight)
+ *  -0.5 = not_interested ("Don't show again" — stored as -0.5 but the
+ *                          recommender maps this to -1 via ratingWeight(),
+ *                          giving it the same effectiveness as dislike)
+ *
+ *  The stored value is a stable identity; ratingWeight() in the UI layer
+ *  translates -0.5 → -1 for the weighted-sum recommender. This means old
+ *  -0.5 records automatically get full negative weight without migration. */
+export type Rating = -1 | -0.5 | 0.5 | 1;
+
+export const RATING_LIKE: Rating = 1;
+export const RATING_DISLIKE: Rating = -1;
+export const RATING_WATCHLIST: Rating = 0.5;
+export const RATING_NOT_INTERESTED: Rating = -0.5;
+
+export function isValidRating(value: unknown): value is Rating {
+  return value === 1 || value === -1 || value === 0.5 || value === -0.5;
+}
 
 export type RatingsMap = Record<string, Rating>;
 
@@ -134,6 +150,18 @@ export class DossierStoreService {
       return this.getSkipped();
     }
     this.state = { ...this.state, skipped: [...this.state.skipped, filmId] };
+    this.encryptedStore.save(this.state);
+    return this.getSkipped();
+  }
+
+  removeSkipped(filmId: number): number[] {
+    if (!this.state.skipped.includes(filmId)) {
+      return this.getSkipped();
+    }
+    this.state = {
+      ...this.state,
+      skipped: this.state.skipped.filter((id) => id !== filmId)
+    };
     this.encryptedStore.save(this.state);
     return this.getSkipped();
   }

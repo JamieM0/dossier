@@ -26,6 +26,7 @@ declare global {
         setRating: (filmId: number, rating: Rating | null) => Promise<{ ratings: Record<string, Rating> }>;
         addPairwise: (winnerId: number, loserId: number) => Promise<{ pairwise: PairwiseChoice[] }>;
         skip: (filmId: number) => Promise<{ skipped: number[] }>;
+        unskip: (filmId: number) => Promise<{ skipped: number[] }>;
         reset: () => Promise<{ ok: boolean }>;
       };
     };

@@ -1,7 +1,24 @@
 <script lang="ts">
   import type { FilmIndexEntry } from "$lib/types";
+  import IconBookmarkSimpleFill from "phosphor-icons-svelte/IconBookmarkSimpleFill.svelte";
+  import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
 
-  let { film, score = null }: { film: FilmIndexEntry; score?: number | null } = $props();
+  let {
+    film,
+    score = null,
+    onSelect,
+    onIgnore,
+    onWatchlist
+  }: {
+    film: FilmIndexEntry;
+    score?: number | null;
+    /** Called when the user clicks the poster — opens the detail modal. */
+    onSelect?: (film: FilmIndexEntry) => void;
+    /** Called when the user clicks the "Don't show again" overlay button. */
+    onIgnore?: (film: FilmIndexEntry) => void;
+    /** Called when the user clicks the "Add to watchlist" overlay button. */
+    onWatchlist?: (film: FilmIndexEntry) => void;
+  } = $props();
 
   function decadeLabel(year: number | null): string {
     if (!year) return "";
@@ -10,13 +27,44 @@
 </script>
 
 <article class="card">
-  {#if film.poster_url}
-    <div class="poster">
-      <img src={film.poster_url} alt="" loading="lazy" />
-    </div>
-  {:else}
-    <div class="poster poster-empty" aria-hidden="true"></div>
-  {/if}
+  <div class="poster-wrap">
+    <button
+      class="poster-btn"
+      onclick={() => onSelect?.(film)}
+      aria-label={`See details for ${film.title}`}
+      disabled={!onSelect}
+    >
+      {#if film.poster_url}
+        <img class="poster" src={film.poster_url} alt="" loading="lazy" />
+      {:else}
+        <div class="poster poster-empty" aria-hidden="true"></div>
+      {/if}
+    </button>
+    {#if onIgnore || onWatchlist}
+      <div class="overlay-actions">
+        {#if onIgnore}
+          <button
+            class="overlay-btn ignore"
+            title="Don't show again"
+            aria-label="Don't show again"
+            onclick={(e) => { e.stopPropagation(); onIgnore?.(film); }}
+          >
+            <IconProhibitRegular class="icon-16" />
+          </button>
+        {/if}
+        {#if onWatchlist}
+          <button
+            class="overlay-btn watchlist"
+            title="Add to watchlist"
+            aria-label="Add to watchlist"
+            onclick={(e) => { e.stopPropagation(); onWatchlist?.(film); }}
+          >
+            <IconBookmarkSimpleFill class="icon-16" />
+          </button>
+        {/if}
+      </div>
+    {/if}
+  </div>
   <div class="body">
     <h3 class="title">{film.title}</h3>
     <p class="meta">
@@ -48,21 +96,64 @@
     border-color: var(--border-strong);
     transform: translateY(-1px);
   }
+  .poster-wrap {
+    position: relative;
+  }
+  .poster-btn {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: var(--base-tertiary);
+    cursor: pointer;
+    display: block;
+  }
+  .poster-btn:disabled { cursor: default; }
   .poster {
     width: 100%;
     aspect-ratio: 2 / 3;
-    background: var(--base-tertiary);
-    overflow: hidden;
-  }
-  .poster img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     display: block;
   }
   .poster-empty {
     background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary));
   }
+  .overlay-actions {
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-2);
+    right: var(--space-2);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    opacity: 0;
+    transition: opacity var(--duration-standard) var(--ease-out);
+    pointer-events: none;
+  }
+  .card:hover .overlay-actions,
+  .card:focus-within .overlay-actions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .overlay-btn {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(20, 22, 28, 0.78);
+    color: white;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: background var(--duration-standard) var(--ease-out),
+                transform var(--duration-quick) var(--ease-out);
+  }
+  .overlay-btn:hover {
+    transform: scale(1.05);
+  }
+  .overlay-btn.watchlist:hover { background: color-mix(in srgb, var(--accent) 60%, rgba(20,22,28,0.78)); }
+  .overlay-btn.ignore:hover { background: color-mix(in srgb, var(--danger, #f85149) 50%, rgba(20,22,28,0.78)); }
   .body {
     padding: var(--space-3);
     display: flex;

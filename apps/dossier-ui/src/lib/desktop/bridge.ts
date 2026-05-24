@@ -1,5 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
-import type { DossierSettings, PairwiseChoice, PreferencesPayload } from "$lib/types";
+import type { DossierSettings, PairwiseChoice, PreferencesPayload, Rating } from "$lib/types";
 
 function isTauriRuntime(): boolean {
   return typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
@@ -30,12 +30,14 @@ export function installDesktopApi(): void {
     },
     preferences: {
       get: (): Promise<PreferencesPayload> => invoke("preferences_get"),
-      setRating: (filmId: number, rating: -1 | 1 | null): Promise<{ ratings: Record<string, -1 | 1> }> =>
+      setRating: (filmId: number, rating: Rating | null): Promise<{ ratings: Record<string, Rating> }> =>
         invoke("preferences_set_rating", { filmId, rating }),
       addPairwise: (winnerId: number, loserId: number): Promise<{ pairwise: PairwiseChoice[] }> =>
         invoke("preferences_add_pairwise", { winnerId, loserId }),
       skip: (filmId: number): Promise<{ skipped: number[] }> =>
         invoke("preferences_skip", { filmId }),
+      unskip: (filmId: number): Promise<{ skipped: number[] }> =>
+        invoke("preferences_unskip", { filmId }),
       reset: (): Promise<{ ok: boolean }> => invoke("preferences_reset")
     }
   };

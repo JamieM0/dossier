@@ -2,6 +2,7 @@
   import "../app.css";
   import { onMount } from "svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
+  import Toaster from "$lib/components/Toaster.svelte";
   import UpdateAvailableDialog from "$lib/components/UpdateAvailableDialog.svelte";
   import { installDesktopApi } from "$lib/desktop/bridge";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
@@ -69,6 +70,8 @@
     {@render children?.()}
   </main>
 </div>
+
+<Toaster />
 
 {#if updateAvailable}
   <UpdateAvailableDialog

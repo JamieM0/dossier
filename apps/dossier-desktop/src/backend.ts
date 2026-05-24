@@ -44,6 +44,7 @@ type StoreServicePort = {
   addPairwise: (choice: PairwiseChoice) => PairwiseChoice[];
   getSkipped: () => number[];
   addSkipped: (filmId: number) => number[];
+  removeSkipped: (filmId: number) => number[];
   resetPreferences: () => void;
 };
 
@@ -161,8 +162,8 @@ function createControlRequestHandler() {
           throw new ControlError(400, "BAD_REQUEST", "filmId (number) required");
         }
         const r = body.rating;
-        if (r !== null && r !== 1 && r !== -1) {
-          throw new ControlError(400, "BAD_REQUEST", "rating must be 1, -1, or null");
+        if (r !== null && r !== 1 && r !== -1 && r !== 0.5 && r !== -0.5) {
+          throw new ControlError(400, "BAD_REQUEST", "rating must be 1, -1, 0.5, -0.5, or null");
         }
         sendJson(res, 200, { ratings: storeService.setRating(body.filmId, r as Rating | null) });
         return;
@@ -190,6 +191,16 @@ function createControlRequestHandler() {
           throw new ControlError(400, "BAD_REQUEST", "filmId (number) required");
         }
         sendJson(res, 200, { skipped: storeService.addSkipped(body.filmId) });
+        return;
+      }
+
+      if (method === "POST" && path === "/control/preferences/unskip") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        const body = (await readJsonBody(req)) as { filmId?: number };
+        if (!body || typeof body.filmId !== "number") {
+          throw new ControlError(400, "BAD_REQUEST", "filmId (number) required");
+        }
+        sendJson(res, 200, { skipped: storeService.removeSkipped(body.filmId) });
         return;
       }
 

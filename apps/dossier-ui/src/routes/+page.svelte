@@ -4,17 +4,67 @@
   import { loadCatalogueIndex } from "$lib/catalogue";
   import { computeUserWeights, rankRecommendations, type Recommendation } from "$lib/recommender";
   import { preferences } from "$lib/state/preferences.svelte";
+  import { toasts } from "$lib/state/toast.svelte";
   import FilmCard from "$lib/components/FilmCard.svelte";
-  import IconArrowsClockwiseRegular from "phosphor-icons-svelte/IconArrowsClockwiseRegular.svelte";
-  import type { CatalogueIndex } from "$lib/types";
+  import MovieDetailModal from "$lib/components/MovieDetailModal.svelte";
+  import RecommendationsFilterModal, {
+    type RecommendationFilters
+  } from "$lib/components/RecommendationsFilterModal.svelte";
+  import IconFunnelRegular from "phosphor-icons-svelte/IconFunnelRegular.svelte";
+  import {
+    RATING_NOT_INTERESTED,
+    RATING_WATCHLIST,
+    type CatalogueIndex,
+    type FilmIndexEntry,
+    type Rating
+  } from "$lib/types";
 
   let catalogue = $state<CatalogueIndex | null>(null);
-  let limit = $state(24);
+  /** Window into the ranked list. Bumped by the IntersectionObserver
+   *  when the sentinel at the end of the grid becomes visible. */
+  let limit = $state(48);
+  const PAGE = 24;
+  let sentinel: HTMLDivElement | null = $state(null);
+  let modalFilm = $state<FilmIndexEntry | null>(null);
+  let filterOpen = $state(false);
+  let filters = $state<RecommendationFilters>({ decadeRange: null });
+
+  /** All decades present in the catalogue, sorted ascending. Films
+   *  without a year are silently omitted from the option list — they'll
+   *  still appear when no filter is applied. */
+  const decadeOptions = $derived.by<number[]>(() => {
+    if (!catalogue) return [];
+    const set = new Set<number>();
+    for (const f of catalogue.films) {
+      if (f.year != null) set.add(Math.floor(f.year / 10) * 10);
+    }
+    return Array.from(set).sort((a, b) => a - b);
+  });
+
+  function filmPassesFilters(film: FilmIndexEntry): boolean {
+    const range = filters.decadeRange;
+    if (range) {
+      if (film.year == null) return false;
+      const decade = Math.floor(film.year / 10) * 10;
+      if (decade < range[0] || decade > range[1]) return false;
+    }
+    return true;
+  }
+
+  /** Catalogue narrowed to films that pass the active filters. Recreated
+   *  only when filters or the catalogue itself change. */
+  const filteredCatalogue = $derived<CatalogueIndex | null>(
+    catalogue
+      ? filters.decadeRange
+        ? { ...catalogue, films: catalogue.films.filter(filmPassesFilters) }
+        : catalogue
+      : null
+  );
 
   const recommendations = $derived<Recommendation[]>(
-    catalogue
+    filteredCatalogue && catalogue
       ? rankRecommendations(
-          catalogue,
+          filteredCatalogue,
           computeUserWeights(catalogue, preferences.ratings, preferences.pairwise),
           preferences.excludedIds(),
           limit
@@ -24,11 +74,75 @@
 
   const ratingCount = $derived(preferences.ratingCount());
   const hasEnough = $derived(ratingCount >= 5);
+  /** Total catalogue size after excluding already-rated/skipped films —
+   *  the ceiling we infinite-scroll toward. */
+  const totalAvailable = $derived(
+    filteredCatalogue ? filteredCatalogue.films.length - preferences.excludedIds().size : 0
+  );
+  const hasMore = $derived(recommendations.length < totalAvailable);
+  const filterActive = $derived(filters.decadeRange !== null);
 
   onMount(() => {
     void preferences.hydrate();
     void loadCatalogueIndex().then((c) => { catalogue = c; });
   });
+
+  // Hook up the IntersectionObserver after the sentinel mounts. We
+  // re-create it whenever the sentinel binding changes (e.g. when the
+  // onboarding view swaps out for the grid).
+  $effect(() => {
+    if (!sentinel) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting && hasMore) {
+            limit += PAGE;
+          }
+        }
+      },
+      { rootMargin: "400px" }
+    );
+    obs.observe(sentinel);
+    return () => obs.disconnect();
+  });
+
+  async function applyRatingWithUndo(
+    film: FilmIndexEntry,
+    rating: Rating,
+    verb: string
+  ): Promise<void> {
+    const priorRating = preferences.ratingFor(film.id) ?? null;
+    const priorSkipped = preferences.skipped.includes(film.id);
+    try {
+      // Recs come from the catalogue and have never been skipped, but
+      // be defensive — the user might have gotten here via a stale
+      // state and we don't want both flags set.
+      if (priorSkipped) await preferences.unskip(film.id);
+      await preferences.setRating(film.id, rating);
+      toasts.show(`${verb} "${film.title}".`, {
+        action: {
+          label: "Undo",
+          run: async () => {
+            await preferences.setRating(film.id, priorRating);
+            if (priorSkipped) await preferences.skip(film.id);
+          }
+        }
+      });
+    } catch (err) {
+      toasts.show(
+        `Couldn't update "${film.title}": ${err instanceof Error ? err.message : String(err)}`,
+        { durationMs: 6000 }
+      );
+    }
+  }
+
+  function handleIgnore(film: FilmIndexEntry): void {
+    void applyRatingWithUndo(film, RATING_NOT_INTERESTED, "Won't show");
+  }
+
+  function handleWatchlist(film: FilmIndexEntry): void {
+    void applyRatingWithUndo(film, RATING_WATCHLIST, "Added to watchlist");
+  }
 </script>
 
 <section class="screen">
@@ -39,16 +153,20 @@
         {#if ratingCount === 0}
           Rate some films to get started.
         {:else}
-          Based on {ratingCount} rating{ratingCount === 1 ? "" : "s"}.
+          Based on {ratingCount} rating{ratingCount === 1 ? "" : "s"}{filterActive ? " · filtered" : ""}.
         {/if}
       </p>
     </div>
-    {#if hasEnough}
-      <button class="reroll" onclick={() => { limit = limit === 24 ? 48 : 24; }} aria-label="Refresh">
-        <IconArrowsClockwiseRegular class="icon-20" />
-        <span>{limit === 24 ? "Show more" : "Show fewer"}</span>
-      </button>
-    {/if}
+    <button
+      class="filter-btn"
+      class:active={filterActive}
+      onclick={() => (filterOpen = true)}
+      aria-label="Filter recommendations"
+      title="Filter"
+    >
+      <IconFunnelRegular class="icon-16" />
+      <span>Filter{filterActive ? " · 1" : ""}</span>
+    </button>
   </header>
 
   {#if preferences.error}
@@ -71,19 +189,50 @@
   {:else}
     <div class="grid">
       {#each recommendations as rec (rec.film.id)}
-        <FilmCard film={rec.film} score={rec.score} />
+        <FilmCard
+          film={rec.film}
+          score={rec.score}
+          onSelect={(f) => (modalFilm = f)}
+          onIgnore={handleIgnore}
+          onWatchlist={handleWatchlist}
+        />
       {/each}
+    </div>
+    <div bind:this={sentinel} class="sentinel" aria-hidden="true">
+      {#if hasMore}
+        <span class="muted">Loading more…</span>
+      {:else}
+        <span class="muted">You've reached the end.</span>
+      {/if}
     </div>
   {/if}
 </section>
 
+{#if filterOpen}
+  <RecommendationsFilterModal
+    {filters}
+    decadeOptions={decadeOptions}
+    onApply={(next) => { filters = next; limit = 48; }}
+    onClose={() => (filterOpen = false)}
+  />
+{/if}
+
+{#if modalFilm}
+  <MovieDetailModal
+    film={modalFilm}
+    onClose={() => (modalFilm = null)}
+    onWatchlist={handleWatchlist}
+    onIgnore={handleIgnore}
+  />
+{/if}
+
 <style>
   .screen { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); }
   .header { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); }
-  .header h1 { font-family: var(--font-display); font-size: 1.75rem; color: var(--text-primary); margin: 0; }
-  .sub { color: var(--text-secondary); margin: var(--space-1) 0 0; font-size: 0.9rem; }
-  .reroll {
-    display: inline-flex; align-items: center; gap: var(--space-2);
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
     padding: var(--space-2) var(--space-3);
     border-radius: var(--radius-md);
     border: 1px solid var(--border-subtle);
@@ -91,13 +240,27 @@
     color: var(--text-primary);
     font-size: 0.85rem;
     cursor: pointer;
-    transition: background var(--duration-standard) var(--ease-out);
+    transition: background var(--duration-standard) var(--ease-out),
+                border-color var(--duration-standard) var(--ease-out),
+                transform var(--duration-quick) var(--ease-out);
   }
-  .reroll:hover { background: var(--base-tertiary); }
+  .filter-btn:hover { background: var(--base-tertiary); transform: translateY(-1px); }
+  .filter-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, var(--base-secondary));
+  }
+  .header h1 { font-family: var(--font-display); font-size: 1.75rem; color: var(--text-primary); margin: 0; }
+  .sub { color: var(--text-secondary); margin: var(--space-1) 0 0; font-size: 0.9rem; }
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: var(--space-4);
+  }
+  .sentinel {
+    padding: var(--space-5) 0;
+    text-align: center;
+    font-size: 0.85rem;
   }
   .onboard {
     text-align: center;

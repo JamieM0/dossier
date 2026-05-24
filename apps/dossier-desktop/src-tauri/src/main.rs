@@ -614,7 +614,7 @@ async fn preferences_get(state: State<'_, RuntimeState>) -> Result<Value, String
 #[tauri::command]
 async fn preferences_set_rating(
     film_id: i64,
-    rating: Option<i64>,
+    rating: Option<f64>,
     state: State<'_, RuntimeState>,
 ) -> Result<Value, String> {
     state
@@ -650,6 +650,18 @@ async fn preferences_skip(film_id: i64, state: State<'_, RuntimeState>) -> Resul
         .request(
             Method::POST,
             "/control/preferences/skip",
+            Some(json!({ "filmId": film_id })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn preferences_unskip(film_id: i64, state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/preferences/unskip",
             Some(json!({ "filmId": film_id })),
         )
         .await
@@ -735,6 +747,7 @@ fn main() {
             preferences_set_rating,
             preferences_add_pairwise,
             preferences_skip,
+            preferences_unskip,
             preferences_reset,
             update_install_and_restart
         ])

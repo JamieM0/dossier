@@ -2,7 +2,8 @@
  * list. Hydrates from the backend on startup; mutations call through to
  * the backend immediately and update local state on success, so the UI
  * reflects what's persisted, not what's optimistic. */
-import type { PairwiseChoice, Rating } from "$lib/types";
+import type { PairwiseChoice, Rating, RatingKind } from "$lib/types";
+import { ratingKind, ratingWeight } from "$lib/types";
 
 class PreferencesState {
   ratings = $state<Record<string, Rating>>({});
@@ -63,6 +64,14 @@ class PreferencesState {
     this.skipped = skipped;
   }
 
+  async unskip(filmId: number): Promise<void> {
+    if (!window.dossier?.preferences) {
+      throw new Error("preferences bridge unavailable");
+    }
+    const { skipped } = await window.dossier.preferences.unskip(filmId);
+    this.skipped = skipped;
+  }
+
   async reset(): Promise<void> {
     if (!window.dossier?.preferences) {
       throw new Error("preferences bridge unavailable");
@@ -84,6 +93,24 @@ class PreferencesState {
 
   ratingCount(): number {
     return Object.keys(this.ratings).length;
+  }
+
+  /** Film IDs grouped by rating kind. Used by the Library tab carousels. */
+  idsByKind(kind: RatingKind): number[] {
+    const out: number[] = [];
+    for (const [k, v] of Object.entries(this.ratings)) {
+      if (ratingKind(v) === kind) out.push(Number(k));
+    }
+    return out;
+  }
+
+  /** Count of ratings used as the "trained data" signal for gating
+   *  recommendations. Uses ratingWeight so not_interested counts at full
+   *  strength (same as dislike); watchlist counts at half strength. */
+  trainingSignal(): number {
+    let s = 0;
+    for (const v of Object.values(this.ratings)) s += Math.abs(ratingWeight(v));
+    return s;
   }
 }
 

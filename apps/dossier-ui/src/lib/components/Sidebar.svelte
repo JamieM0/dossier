@@ -5,12 +5,14 @@
   import IconSparkleRegular from "phosphor-icons-svelte/IconSparkleRegular.svelte";
   import IconHeartRegular from "phosphor-icons-svelte/IconHeartRegular.svelte";
   import IconScalesRegular from "phosphor-icons-svelte/IconScalesRegular.svelte";
+  import IconFilmReelRegular from "phosphor-icons-svelte/IconFilmReelRegular.svelte";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
 
   const nav = [
     { href: "/", label: "Recommendations", icon: IconSparkleRegular, exact: true },
     { href: "/rate", label: "Rate", icon: IconHeartRegular, exact: false },
     { href: "/refine", label: "Refine", icon: IconScalesRegular, exact: false },
+    { href: "/library", label: "Library", icon: IconFilmReelRegular, exact: false },
     { href: "/settings", label: "Settings", icon: IconGearSixRegular, exact: false }
   ] as const;
 </script>

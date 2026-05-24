@@ -1,7 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { loadCatalogueIndex } from "$lib/catalogue";
-  import { buildPairwiseCandidates } from "$lib/recommender";
+  import {
+    buildPairwiseCandidates,
+    computeUserWeights,
+    cosineSimilarity
+  } from "$lib/recommender";
   import { preferences } from "$lib/state/preferences.svelte";
   import type { CatalogueIndex, FilmIndexEntry } from "$lib/types";
 
@@ -17,6 +21,22 @@
       : []
   );
   const current = $derived(pairs[0] ?? null);
+
+  /** User weight vector for predicting how much they'd like a film.
+   *  Re-computed whenever ratings or pairwise picks change so the badge
+   *  reflects the freshest signal. */
+  const weights = $derived(
+    catalogue ? computeUserWeights(catalogue, preferences.ratings, preferences.pairwise) : null
+  );
+
+  /** Predicted preference as a 0–100 percentage. Cosine similarity is
+   *  in [-1, 1]; we clamp negatives to 0 since "negative match" isn't a
+   *  meaningful concept to surface in the UI. */
+  function predict(film: FilmIndexEntry): number {
+    if (!weights) return 0;
+    const sim = cosineSimilarity(weights, film.features);
+    return Math.max(0, Math.min(1, sim));
+  }
 
   let actionError = $state<string | null>(null);
 
@@ -83,12 +103,18 @@
     <div class="duel">
       {#each [0, 1] as side (current[side].id)}
         {@const film = current[side]}
+        {@const matchPct = Math.round(predict(film) * 100)}
         <button class="pick" disabled={busy} onclick={() => choose(side as 0 | 1)}>
-          {#if film.poster_url}
-            <img class="poster" src={film.poster_url} alt="" />
-          {:else}
-            <div class="poster poster-empty"></div>
-          {/if}
+          <div class="poster-wrap">
+            {#if film.poster_url}
+              <img class="poster" src={film.poster_url} alt="" />
+            {:else}
+              <div class="poster poster-empty"></div>
+            {/if}
+            <span class="match-badge" title="Predicted preference based on your ratings so far">
+              <strong>{matchPct}%</strong> match
+            </span>
+          </div>
           <div class="caption">
             <h3>{film.title}</h3>
             <p class="meta">{film.year ?? ""}{film.genres[0] ? ` · ${film.genres[0]}` : ""}</p>
@@ -122,8 +148,30 @@
   }
   .pick:hover:not(:disabled) { border-color: var(--accent); transform: translateY(-2px); }
   .pick:disabled { opacity: 0.5; }
+  .poster-wrap { position: relative; }
   .poster { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; background: var(--base-tertiary); }
   .poster-empty { background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary)); }
+  .match-badge {
+    position: absolute;
+    top: var(--space-3);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    color: #111111;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  .match-badge strong { color: var(--accent); font-weight: 700; font-size: 0.9rem; }
   .caption { padding: var(--space-3); text-align: left; }
   .caption h3 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; color: var(--text-primary); }
   .meta { color: var(--text-secondary); font-size: 0.85rem; margin: var(--space-1) 0 0; }

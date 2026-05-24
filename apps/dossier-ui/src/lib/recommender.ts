@@ -8,6 +8,7 @@ import type {
   PairwiseChoice,
   Rating
 } from "$lib/types";
+import { ratingWeight } from "$lib/types";
 import { clusterKey } from "$lib/catalogue";
 
 const AXIS_KEYS = [
@@ -75,8 +76,9 @@ export function computeUserWeights(
   for (const [idStr, rating] of Object.entries(ratings)) {
     const film = filmsById.get(Number(idStr));
     if (!film) continue;
-    sum = add(sum, scale(film.features, rating));
-    total += Math.abs(rating);
+    const w = ratingWeight(rating);
+    sum = add(sum, scale(film.features, w));
+    total += Math.abs(w);
   }
 
   // Pairwise refinement: a "winner > loser" choice nudges the centroid

@@ -9,8 +9,39 @@ export type DossierSettings = {
   [key: string]: unknown;
 };
 
-/** -1 = thumbs down, +1 = thumbs up. */
-export type Rating = -1 | 1;
+/** A film's rating value, stored as a signed sentinel:
+ *    +1   = like            (full positive weight)
+ *    -1   = dislike         (full negative weight)
+ *    +0.5 = watchlist       (interested, 50% positive weight)
+ *    -0.5 = not_interested  ("Don't show again", full negative weight via ratingWeight())
+ *  All four statuses exclude the film from the rating queue and
+ *  recommendation list. Use ratingWeight() to get the recommender weight. */
+export type Rating = -1 | -0.5 | 0.5 | 1;
+
+export const RATING_LIKE: Rating = 1;
+export const RATING_DISLIKE: Rating = -1;
+export const RATING_WATCHLIST: Rating = 0.5;
+export const RATING_NOT_INTERESTED: Rating = -0.5;
+
+/** Human-readable category for a stored rating value. Useful for
+ *  switching on view buckets (Library carousels, action labels). */
+export type RatingKind = "like" | "dislike" | "watchlist" | "not_interested";
+
+export function ratingKind(r: Rating): RatingKind {
+  if (r === 1) return "like";
+  if (r === -1) return "dislike";
+  if (r === 0.5) return "watchlist";
+  return "not_interested";
+}
+
+/** Recommender weight for a rating. not_interested (-0.5 stored) is treated
+ * as full negative weight (-1) to match dislike effectiveness. watchlist
+ * stays at half strength (+0.5). Backwards-compatible: old -0.5 values
+ * automatically get the full weight without data migration. */
+export function ratingWeight(r: Rating): number {
+  if (r === -0.5) return -1;
+  return r;
+}
 
 export type PairwiseChoice = {
   winnerId: number;
