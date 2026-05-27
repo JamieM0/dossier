@@ -184,9 +184,33 @@ def _parse_rating(card) -> float | None:
     return float(m.group(1)) if m else None
 
 
+_VOTES_NUM_RE = re.compile(r"([\d.]+)\s*([kKmM]?)")
+
+
 def _parse_votes(card) -> str:
+    """Original BestSimilar vote-count text from `.rat-vote` (e.g. "482K").
+    Kept for human-readable display and as a debug aid alongside the
+    parsed integer."""
     text = _clean(" ".join(card.css(".rat-vote::text").getall()))
     return text or ""
+
+
+def _parse_votes_int(card) -> int | None:
+    """Parsed integer of the BestSimilar vote count — the primary
+    popularity signal. Returns None if the text is missing or doesn't
+    look like a number. "482K" -> 482000, "2.8M" -> 2800000, "779" -> 779."""
+    text = _clean(" ".join(card.css(".rat-vote::text").getall()))
+    if not text:
+        return None
+    m = _VOTES_NUM_RE.search(text)
+    if not m:
+        return None
+    try:
+        n = float(m.group(1))
+    except ValueError:
+        return None
+    mult = {"k": 1_000, "m": 1_000_000}.get(m.group(2).lower(), 1)
+    return int(n * mult)
 
 
 def _parse_duration(value: str) -> int | None:
@@ -247,6 +271,7 @@ def scrape_film(url: str, *, retries: int = 2) -> dict[str, Any]:
         "year": year,
         "rating": _parse_rating(card),
         "votes_text": _parse_votes(card),
+        "votes": _parse_votes_int(card),
         "poster_url": poster,
         "genres": _extract_genres(attrs),
         "country": _split_csv(attrs.get("country", "")),

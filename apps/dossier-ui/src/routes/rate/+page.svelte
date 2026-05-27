@@ -3,6 +3,7 @@
   import { loadCatalogueIndex } from "$lib/catalogue";
   import { buildRatingQueue } from "$lib/recommender";
   import { preferences } from "$lib/state/preferences.svelte";
+  import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import {
     RATING_DISLIKE,
     RATING_LIKE,
@@ -58,7 +59,16 @@
 
   onMount(() => {
     void preferences.hydrate();
-    void loadCatalogueIndex()
+  });
+
+  // Reload the catalogue whenever the user toggles between movies and
+  // TV. History is preserved (still references IDs across both modes);
+  // the queue rebuilds against the new catalogue automatically.
+  $effect(() => {
+    const mode = catalogueMode.mode;
+    catalogue = null;
+    pinnedFilmId = null;
+    loadCatalogueIndex(mode)
       .then((c) => { catalogue = c; })
       .catch((err) => {
         actionError = `Catalogue failed to load: ${err instanceof Error ? err.message : String(err)}`;

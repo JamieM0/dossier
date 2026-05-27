@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { loadFilmDetail } from "$lib/catalogue";
+  import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import type { FilmDetail, FilmIndexEntry } from "$lib/types";
   import IconXBold from "phosphor-icons-svelte/IconXBold.svelte";
   import IconBookmarkSimpleFill from "phosphor-icons-svelte/IconBookmarkSimpleFill.svelte";
@@ -52,7 +53,7 @@
   const showDislike = $derived(!!onDislike && !excludeActions.includes("dislike"));
 
   onMount(() => {
-    void loadFilmDetail(film.id)
+    void loadFilmDetail(film.id, catalogueMode.mode)
       .then((d) => { detail = d; })
       .catch((err) => {
         loadError = err instanceof Error ? err.message : String(err);

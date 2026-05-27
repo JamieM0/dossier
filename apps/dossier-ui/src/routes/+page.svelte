@@ -4,6 +4,7 @@
   import { loadCatalogueIndex } from "$lib/catalogue";
   import { computeUserWeights, rankRecommendations, type Recommendation } from "$lib/recommender";
   import { preferences } from "$lib/state/preferences.svelte";
+  import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { toasts } from "$lib/state/toast.svelte";
   import FilmCard from "$lib/components/FilmCard.svelte";
   import MovieDetailModal from "$lib/components/MovieDetailModal.svelte";
@@ -12,6 +13,8 @@
   } from "$lib/components/RecommendationsFilterModal.svelte";
   import IconFunnelRegular from "phosphor-icons-svelte/IconFunnelRegular.svelte";
   import {
+    RATING_DISLIKE,
+    RATING_LIKE,
     RATING_NOT_INTERESTED,
     RATING_WATCHLIST,
     type CatalogueIndex,
@@ -20,6 +23,8 @@
   } from "$lib/types";
 
   let catalogue = $state<CatalogueIndex | null>(null);
+  let tvCatalogue = $state<CatalogueIndex | null>(null);
+  let moviesCatalogue = $state<CatalogueIndex | null>(null);
   /** Window into the ranked list. Bumped by the IntersectionObserver
    *  when the sentinel at the end of the grid becomes visible. */
   let limit = $state(48);
@@ -62,10 +67,10 @@
   );
 
   const recommendations = $derived<Recommendation[]>(
-    filteredCatalogue && catalogue
+    filteredCatalogue && catalogue && moviesCatalogue && tvCatalogue
       ? rankRecommendations(
           filteredCatalogue,
-          computeUserWeights(catalogue, preferences.ratings, preferences.pairwise),
+          computeUserWeights(moviesCatalogue, preferences.ratings, preferences.pairwise, tvCatalogue),
           preferences.excludedIds(),
           limit
         )
@@ -84,7 +89,19 @@
 
   onMount(() => {
     void preferences.hydrate();
-    void loadCatalogueIndex().then((c) => { catalogue = c; });
+    void loadCatalogueIndex("movies").then((c) => { moviesCatalogue = c; });
+    void loadCatalogueIndex("tv").then((c) => { tvCatalogue = c; });
+  });
+
+  // Swap the active catalogue when the user toggles modes. We always
+  // keep both indexes hydrated so the user-profile centroid can include
+  // ratings from the inactive medium (and reload is instant on toggle).
+  $effect(() => {
+    const next = catalogueMode.mode === "tv" ? tvCatalogue : moviesCatalogue;
+    if (next && next !== catalogue) {
+      catalogue = next;
+      limit = 48;
+    }
   });
 
   // Hook up the IntersectionObserver after the sentinel mounts. We
@@ -92,17 +109,26 @@
   // onboarding view swaps out for the grid).
   $effect(() => {
     if (!sentinel) return;
+    const target = sentinel;
+    // IntersectionObserver only fires when intersection state changes.
+    // Adding a page of items often leaves the sentinel inside the root
+    // margin, so we unobserve/re-observe after each bump to force a
+    // fresh check — otherwise scrolling stalls after the first page.
     const obs = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting && hasMore) {
             limit += PAGE;
+            queueMicrotask(() => {
+              obs.unobserve(target);
+              obs.observe(target);
+            });
           }
         }
       },
       { rootMargin: "400px" }
     );
-    obs.observe(sentinel);
+    obs.observe(target);
     return () => obs.disconnect();
   });
 
@@ -142,6 +168,14 @@
 
   function handleWatchlist(film: FilmIndexEntry): void {
     void applyRatingWithUndo(film, RATING_WATCHLIST, "Added to watchlist");
+  }
+
+  function handleLike(film: FilmIndexEntry): void {
+    void applyRatingWithUndo(film, RATING_LIKE, "Liked");
+  }
+
+  function handleDislike(film: FilmIndexEntry): void {
+    void applyRatingWithUndo(film, RATING_DISLIKE, "Disliked");
   }
 </script>
 
@@ -193,8 +227,10 @@
           film={rec.film}
           score={rec.score}
           onSelect={(f) => (modalFilm = f)}
-          onIgnore={handleIgnore}
+          onLike={handleLike}
           onWatchlist={handleWatchlist}
+          onIgnore={handleIgnore}
+          onDislike={handleDislike}
         />
       {/each}
     </div>
@@ -221,8 +257,10 @@
   <MovieDetailModal
     film={modalFilm}
     onClose={() => (modalFilm = null)}
+    onLike={handleLike}
     onWatchlist={handleWatchlist}
     onIgnore={handleIgnore}
+    onDislike={handleDislike}
   />
 {/if}
 

@@ -2,22 +2,30 @@
   import type { FilmIndexEntry } from "$lib/types";
   import IconBookmarkSimpleFill from "phosphor-icons-svelte/IconBookmarkSimpleFill.svelte";
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
+  import IconThumbsUpFill from "phosphor-icons-svelte/IconThumbsUpFill.svelte";
+  import IconThumbsDownFill from "phosphor-icons-svelte/IconThumbsDownFill.svelte";
 
   let {
     film,
     score = null,
     onSelect,
+    onLike,
+    onWatchlist,
     onIgnore,
-    onWatchlist
+    onDislike
   }: {
     film: FilmIndexEntry;
     score?: number | null;
     /** Called when the user clicks the poster — opens the detail modal. */
     onSelect?: (film: FilmIndexEntry) => void;
-    /** Called when the user clicks the "Don't show again" overlay button. */
-    onIgnore?: (film: FilmIndexEntry) => void;
+    /** Called when the user clicks the "Like" overlay button. */
+    onLike?: (film: FilmIndexEntry) => void;
     /** Called when the user clicks the "Add to watchlist" overlay button. */
     onWatchlist?: (film: FilmIndexEntry) => void;
+    /** Called when the user clicks the "Don't show again" overlay button. */
+    onIgnore?: (film: FilmIndexEntry) => void;
+    /** Called when the user clicks the "Dislike" overlay button. */
+    onDislike?: (film: FilmIndexEntry) => void;
   } = $props();
 
   function decadeLabel(year: number | null): string {
@@ -40,16 +48,16 @@
         <div class="poster poster-empty" aria-hidden="true"></div>
       {/if}
     </button>
-    {#if onIgnore || onWatchlist}
+    {#if onLike || onWatchlist || onIgnore || onDislike}
       <div class="overlay-actions">
-        {#if onIgnore}
+        {#if onLike}
           <button
-            class="overlay-btn ignore"
-            title="Don't show again"
-            aria-label="Don't show again"
-            onclick={(e) => { e.stopPropagation(); onIgnore?.(film); }}
+            class="overlay-btn like"
+            title="Like"
+            aria-label="Like"
+            onclick={(e) => { e.stopPropagation(); onLike?.(film); }}
           >
-            <IconProhibitRegular class="icon-16" />
+            <IconThumbsUpFill class="icon-16" />
           </button>
         {/if}
         {#if onWatchlist}
@@ -60,6 +68,26 @@
             onclick={(e) => { e.stopPropagation(); onWatchlist?.(film); }}
           >
             <IconBookmarkSimpleFill class="icon-16" />
+          </button>
+        {/if}
+        {#if onIgnore}
+          <button
+            class="overlay-btn ignore"
+            title="Not interested"
+            aria-label="Not interested"
+            onclick={(e) => { e.stopPropagation(); onIgnore?.(film); }}
+          >
+            <IconProhibitRegular class="icon-16" />
+          </button>
+        {/if}
+        {#if onDislike}
+          <button
+            class="overlay-btn dislike"
+            title="Dislike"
+            aria-label="Dislike"
+            onclick={(e) => { e.stopPropagation(); onDislike?.(film); }}
+          >
+            <IconThumbsDownFill class="icon-16" />
           </button>
         {/if}
       </div>
@@ -120,10 +148,9 @@
   .overlay-actions {
     position: absolute;
     top: var(--space-2);
-    left: var(--space-2);
     right: var(--space-2);
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     gap: var(--space-2);
     opacity: 0;
     transition: opacity var(--duration-standard) var(--ease-out);
@@ -152,8 +179,10 @@
   .overlay-btn:hover {
     transform: scale(1.05);
   }
+  .overlay-btn.like:hover { background: color-mix(in srgb, var(--success, #2ea043) 60%, rgba(20,22,28,0.78)); }
   .overlay-btn.watchlist:hover { background: color-mix(in srgb, var(--accent) 60%, rgba(20,22,28,0.78)); }
-  .overlay-btn.ignore:hover { background: color-mix(in srgb, var(--danger, #f85149) 50%, rgba(20,22,28,0.78)); }
+  .overlay-btn.ignore:hover { background: color-mix(in srgb, var(--text-secondary) 40%, rgba(20,22,28,0.78)); }
+  .overlay-btn.dislike:hover { background: color-mix(in srgb, var(--danger, #f85149) 60%, rgba(20,22,28,0.78)); }
   .body {
     padding: var(--space-3);
     display: flex;

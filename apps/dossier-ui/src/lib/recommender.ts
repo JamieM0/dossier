@@ -61,22 +61,45 @@ export function cosineSimilarity(a: FeatureVector, b: FeatureVector): number {
   return dot(a, b) / (ma * mb);
 }
 
+/** A TV series carries 5x the weight of a film when shaping the user's
+ * profile — by deliberate choice, one rated series is treated as a
+ * stronger taste signal than one rated film. */
+export const TV_RATING_MULTIPLIER = 5;
+
 /** Weighted average of feature vectors weighted by user rating. Skips
  * absent films and entries with zero feature vectors. The result is the
- * "ideal film" centroid in feature space — what we then cosine against. */
+ * "ideal film" centroid in feature space — what we then cosine against.
+ *
+ * `tvIndex` is optional; when supplied, ratings on items present in the
+ * TV catalogue are weighted TV_RATING_MULTIPLIER× heavier than movie
+ * ratings, and TV items are merged into the feature lookup so a rating
+ * isn't silently dropped just because the active mode is "movies". */
 export function computeUserWeights(
   index: CatalogueIndex,
   ratings: Record<string, Rating>,
-  pairwise: PairwiseChoice[]
+  pairwise: PairwiseChoice[],
+  tvIndex?: CatalogueIndex | null
 ): FeatureVector {
-  const filmsById = new Map(index.films.map((f) => [f.id, f]));
+  const filmsById = new Map<number, FilmIndexEntry>(
+    index.films.map((f) => [f.id, f])
+  );
+  const tvIds = new Set<number>();
+  if (tvIndex) {
+    for (const f of tvIndex.films) {
+      tvIds.add(f.id);
+      if (!filmsById.has(f.id)) filmsById.set(f.id, f);
+    }
+  }
+
   let sum = zeroVector();
   let total = 0;
 
   for (const [idStr, rating] of Object.entries(ratings)) {
-    const film = filmsById.get(Number(idStr));
+    const id = Number(idStr);
+    const film = filmsById.get(id);
     if (!film) continue;
-    const w = ratingWeight(rating);
+    const mult = tvIds.has(id) ? TV_RATING_MULTIPLIER : 1;
+    const w = ratingWeight(rating) * mult;
     sum = add(sum, scale(film.features, w));
     total += Math.abs(w);
   }
@@ -84,15 +107,21 @@ export function computeUserWeights(
   // Pairwise refinement: a "winner > loser" choice nudges the centroid
   // toward (winner - loser) with a small weight relative to a full
   // rating. Capped so pairwise can never dominate explicit ratings.
+  // Pairs are always within the same medium (built per-mode), so they
+  // inherit the same TV multiplier when both sides are TV.
   const PAIR_WEIGHT = 0.25;
   for (const choice of pairwise) {
     const w = filmsById.get(choice.winnerId);
     const l = filmsById.get(choice.loserId);
     if (!w || !l) continue;
+    const mult =
+      tvIds.has(choice.winnerId) && tvIds.has(choice.loserId)
+        ? TV_RATING_MULTIPLIER
+        : 1;
     const diff = zeroVector();
     for (const key of AXIS_KEYS) diff[key] = w.features[key] - l.features[key];
-    sum = add(sum, scale(diff, PAIR_WEIGHT));
-    total += PAIR_WEIGHT;
+    sum = add(sum, scale(diff, PAIR_WEIGHT * mult));
+    total += PAIR_WEIGHT * mult;
   }
 
   if (total === 0) return zeroVector();
@@ -124,47 +153,84 @@ export function rankRecommendations(
   return scored.slice(0, limit);
 }
 
-/** Rating queue serve order. Plan: "serve films the user is likely to
- * have seen first — sort by popularity within recognisable era/genre
- * clusters". We round-robin clusters so the first 30 films span eras
- * and genres instead of being all 2020s blockbusters. */
+/** Rating queue serve order: popularity-first with ~12.5% diversity.
+ * Pattern [P, P, P, P, P, P, P, D] — seven popular films per one
+ * cluster-diverse pick. Surfaces films the user is likely to have
+ * seen first, while the diverse slot prevents long runs of
+ * same-era/same-genre titles without dragging in too many obscurities.
+ *
+ * Popular = sorted by popularity desc. Diverse = round-robin across
+ * (decade, primary-genre) clusters, popular-first within each cluster
+ * so the diverse slot still emits recognisable titles. */
 export function buildRatingQueue(
   index: CatalogueIndex,
   excludeIds: Set<number>
 ): FilmIndexEntry[] {
-  const clusters = new Map<string, FilmIndexEntry[]>();
+  const eligible: FilmIndexEntry[] = [];
   for (const film of index.films) {
     if (excludeIds.has(film.id)) continue;
     if (magnitude(film.features) === 0) continue;
+    eligible.push(film);
+  }
+  if (eligible.length === 0) return [];
+
+  const popList = [...eligible].sort(
+    (a, b) => (b.popularity ?? 0) - (a.popularity ?? 0)
+  );
+
+  const clusters = new Map<string, FilmIndexEntry[]>();
+  for (const film of eligible) {
     const key = clusterKey(film);
     const bucket = clusters.get(key);
-    if (bucket) {
-      bucket.push(film);
-    } else {
-      clusters.set(key, [film]);
-    }
+    if (bucket) bucket.push(film);
+    else clusters.set(key, [film]);
   }
-  // Within each cluster, popular first.
   for (const bucket of clusters.values()) {
     bucket.sort((a, b) => (b.popularity ?? 0) - (a.popularity ?? 0));
   }
-  // Round-robin across clusters, ordered by their most-popular member
-  // so the absolute biggest films still surface in the first dozen.
-  const ordered = [...clusters.values()].sort(
+  const orderedClusters = [...clusters.values()].sort(
     (a, b) => (b[0].popularity ?? 0) - (a[0].popularity ?? 0)
   );
-  const out: FilmIndexEntry[] = [];
+  const diverseList: FilmIndexEntry[] = [];
   let depth = 0;
-  while (out.length < index.films.length) {
+  while (diverseList.length < eligible.length) {
     let added = 0;
-    for (const bucket of ordered) {
+    for (const bucket of orderedClusters) {
       if (bucket[depth]) {
-        out.push(bucket[depth]);
+        diverseList.push(bucket[depth]);
         added++;
       }
     }
     if (added === 0) break;
     depth++;
+  }
+
+  const pattern: Array<"P" | "D"> = ["P", "P", "P", "P", "P", "P", "P", "D"];
+  const lists: Record<"P" | "D", FilmIndexEntry[]> = {
+    P: popList,
+    D: diverseList
+  };
+  const cursors: Record<"P" | "D", number> = { P: 0, D: 0 };
+  const seen = new Set<number>();
+  const out: FilmIndexEntry[] = [];
+
+  while (out.length < eligible.length) {
+    let progressed = false;
+    for (const slot of pattern) {
+      const list = lists[slot];
+      while (cursors[slot] < list.length && seen.has(list[cursors[slot]].id)) {
+        cursors[slot]++;
+      }
+      if (cursors[slot] < list.length) {
+        const film = list[cursors[slot]];
+        cursors[slot]++;
+        seen.add(film.id);
+        out.push(film);
+        progressed = true;
+        if (out.length >= eligible.length) break;
+      }
+    }
+    if (!progressed) break;
   }
   return out;
 }

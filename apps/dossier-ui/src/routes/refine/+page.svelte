@@ -7,9 +7,12 @@
     cosineSimilarity
   } from "$lib/recommender";
   import { preferences } from "$lib/state/preferences.svelte";
+  import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import type { CatalogueIndex, FilmIndexEntry } from "$lib/types";
 
   let catalogue = $state<CatalogueIndex | null>(null);
+  let tvCatalogue = $state<CatalogueIndex | null>(null);
+  let moviesCatalogue = $state<CatalogueIndex | null>(null);
   let busy = $state(false);
 
   // Like the rating queue: each answered pair drops out of the
@@ -26,7 +29,9 @@
    *  Re-computed whenever ratings or pairwise picks change so the badge
    *  reflects the freshest signal. */
   const weights = $derived(
-    catalogue ? computeUserWeights(catalogue, preferences.ratings, preferences.pairwise) : null
+    moviesCatalogue && tvCatalogue
+      ? computeUserWeights(moviesCatalogue, preferences.ratings, preferences.pairwise, tvCatalogue)
+      : null
   );
 
   /** Predicted preference as a 0–100 percentage. Cosine similarity is
@@ -42,7 +47,16 @@
 
   onMount(() => {
     void preferences.hydrate();
-    void loadCatalogueIndex().then((c) => { catalogue = c; });
+    void loadCatalogueIndex("movies").then((c) => { moviesCatalogue = c; });
+    void loadCatalogueIndex("tv").then((c) => { tvCatalogue = c; });
+  });
+
+  // Swap the catalogue feeding the pair queue when the user toggles
+  // mode. Pairwise candidates are mode-scoped so a movie is never paired
+  // against a TV show — comparisons stay within the same medium.
+  $effect(() => {
+    const next = catalogueMode.mode === "tv" ? tvCatalogue : moviesCatalogue;
+    if (next && next !== catalogue) catalogue = next;
   });
 
   async function choose(winnerIdx: 0 | 1): Promise<void> {

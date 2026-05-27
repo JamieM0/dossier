@@ -39,6 +39,17 @@ def parse_votes(s: str | None) -> int:
     return int(n * mult)
 
 
+def popularity_for(raw: dict) -> int:
+    """Popularity signal for the rating queue. Prefer the structured
+    `votes` integer scraped from BestSimilar's `.rat-vote`; fall back to
+    parsing `votes_text` for older raw records that predate the
+    structured field."""
+    v = raw.get("votes")
+    if isinstance(v, int) and v >= 0:
+        return v
+    return parse_votes(raw.get("votes_text"))
+
+
 def convert_one(raw: dict) -> dict:
     features = feature_vector(raw)
     # Keep only the top-N anchored tags for display ('themes' chip row in UI).
@@ -50,7 +61,7 @@ def convert_one(raw: dict) -> dict:
         "title": raw.get("title", ""),
         "year": raw.get("year"),
         "rating": raw.get("rating"),
-        "popularity": parse_votes(raw.get("votes_text")),
+        "popularity": popularity_for(raw),
         "duration_min": raw.get("duration_min"),
         "poster_url": raw.get("poster_url"),
         "genres": raw.get("genres") or [],

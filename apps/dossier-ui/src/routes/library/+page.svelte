@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import { loadCatalogueIndex } from "$lib/catalogue";
   import { preferences } from "$lib/state/preferences.svelte";
+  import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { toasts } from "$lib/state/toast.svelte";
   import {
     RATING_DISLIKE,
@@ -14,10 +15,23 @@
   } from "$lib/types";
   import Carousel from "$lib/components/Carousel.svelte";
   import MovieDetailModal, { type ModalActionKind } from "$lib/components/MovieDetailModal.svelte";
+  import IconXBold from "phosphor-icons-svelte/IconXBold.svelte";
 
   let catalogue = $state<CatalogueIndex | null>(null);
   let modalFilm = $state<FilmIndexEntry | null>(null);
   let modalExclude = $state<ModalActionKind[]>([]);
+
+  let search = $state("");
+
+  const searchTerms = $derived(
+    search
+      .trim()
+      .toLowerCase()
+      .split(/\s+/)
+      .filter(Boolean)
+  );
+
+  const isSearching = $derived(searchTerms.length > 0);
 
   const filmsById = $derived(
     catalogue ? new Map(catalogue.films.map((f) => [f.id, f])) : new Map<number, FilmIndexEntry>()
@@ -30,6 +44,12 @@
       if (f) out.push(f);
     }
     return out;
+  }
+
+  function filmMatchesSearch(film: FilmIndexEntry, terms: string[]): boolean {
+    if (terms.length === 0) return true;
+    const haystack = `${film.title} ${film.year ?? ""} ${film.genres.join(" ")}`.toLowerCase();
+    return terms.every((t) => haystack.includes(t));
   }
 
   // section.exclude maps to the modal action kind that should be hidden
@@ -52,9 +72,30 @@
       : []
   );
 
+  const filteredSections = $derived(
+    !isSearching
+      ? sections
+      : sections
+          .map((s) => ({
+            ...s,
+            films: s.films.filter((f) => filmMatchesSearch(f, searchTerms))
+          }))
+          .filter((s) => s.films.length > 0)
+  );
+
   onMount(() => {
     void preferences.hydrate();
-    void loadCatalogueIndex().then((c) => { catalogue = c; });
+  });
+
+  // Reload the catalogue when the user toggles between movies and TV.
+  // Sections derive from `preferences.ids*` filtered through the active
+  // catalogue's filmsById map, so items recorded in the other medium
+  // simply don't show up here — they reappear when the user flips
+  // modes.
+  $effect(() => {
+    const mode = catalogueMode.mode;
+    catalogue = null;
+    loadCatalogueIndex(mode).then((c) => { catalogue = c; });
   });
 
   function openModal(film: FilmIndexEntry, exclude: ModalActionKind): void {
@@ -116,8 +157,35 @@
 
 <section class="screen">
   <header class="header">
-    <h1>Library</h1>
-    <p class="sub">Everything you've told Dossier about, grouped.</p>
+    <div class="header-left">
+      <h1>Library</h1>
+      <p class="sub">Everything you've told Dossier about, grouped.</p>
+    </div>
+
+    <div class="header-right">
+      <div class="search" role="search">
+        <input
+          class="search-input"
+          type="search"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Search library…"
+          aria-label="Search library"
+          bind:value={search}
+        />
+        {#if search.trim().length > 0}
+          <button
+            class="clear-btn"
+            type="button"
+            aria-label="Clear search"
+            title="Clear"
+            onclick={() => (search = "")}
+          >
+            <IconXBold class="icon-16" />
+          </button>
+        {/if}
+      </div>
+    </div>
   </header>
 
   {#if preferences.error}
@@ -129,8 +197,10 @@
 
   {#if !catalogue || !preferences.loaded}
     <p class="muted">Loading…</p>
+  {:else if isSearching && filteredSections.length === 0}
+    <p class="muted">No matches for "{search.trim()}".</p>
   {:else}
-    {#each sections as section (section.id)}
+    {#each filteredSections as section (section.id)}
       <Carousel
         title={section.title}
         films={section.films}
@@ -156,8 +226,84 @@
 
 <style>
   .screen { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-6); }
-  .header h1 { font-family: var(--font-display); font-size: 1.75rem; color: var(--text-primary); margin: 0; }
+
+  .header {
+    display: grid;
+    grid-template-columns: 1fr minmax(220px, 340px);
+    gap: var(--space-4);
+    align-items: start;
+  }
+
+  .header-left h1 { font-family: var(--font-display); font-size: 1.75rem; color: var(--text-primary); margin: 0; }
   .sub { color: var(--text-secondary); margin: var(--space-1) 0 0; font-size: 0.9rem; }
+
+  .header-right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .search {
+    position: relative;
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+    min-height: 40px;
+    padding: var(--space-2) var(--space-3);
+    padding-right: 40px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.3;
+    color: var(--text-primary);
+    background: var(--base-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--duration-standard) var(--ease-out),
+                background-color var(--duration-standard) var(--ease-out);
+  }
+
+  .search-input::placeholder { color: var(--text-tertiary); }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+    background: var(--base);
+  }
+
+  .clear-btn {
+    position: absolute;
+    top: 50%;
+    right: var(--space-2);
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: background var(--duration-standard) var(--ease-out),
+                color var(--duration-standard) var(--ease-out);
+  }
+
+  .clear-btn:hover {
+    background: var(--base-secondary);
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 720px) {
+    .header {
+      grid-template-columns: 1fr;
+    }
+    .header-right {
+      justify-content: flex-start;
+    }
+  }
+
   .muted { color: var(--text-tertiary); }
   .error {
     background: color-mix(in srgb, var(--danger, #f85149) 12%, transparent);
