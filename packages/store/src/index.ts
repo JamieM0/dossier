@@ -1,7 +1,7 @@
 import { mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { EncryptedStore } from "./encrypted-store.js";
-import { KeyManager } from "./key-manager.js";
+import { KeyManager, TMDB_TOKEN_ACCOUNT } from "./key-manager.js";
 
 export const SCHEMA_VERSION = 1;
 
@@ -28,13 +28,38 @@ export function isValidRating(value: unknown): value is Rating {
   return value === 1 || value === -1 || value === 0.5 || value === -0.5;
 }
 
-export type RatingsMap = Record<string, Rating>;
+/** A compact snapshot of a rated item, stored alongside its rating so
+ * the taste profile and Library work fully offline — no TMDB re-fetch
+ * needed to recompute the user's profile or render rated items. */
+export type RatedItem = {
+  /** "movie:27205" | "tv:1396" — medium-qualified to avoid TMDB's
+   * movie/tv id-space collision. */
+  key: string;
+  medium: string;
+  id: number;
+  title: string;
+  year: number | null;
+  posterPath: string | null;
+  voteAverage: number | null;
+  genres: string[];
+  /** Entertainment lens vector at rating time. */
+  features: Record<string, number>;
+};
+
+export type RatingEntry = {
+  rating: Rating;
+  item: RatedItem;
+  ts: number;
+};
+
+/** key -> rating entry. */
+export type RatingsMap = Record<string, RatingEntry>;
 
 export type PairwiseChoice = {
-  /** film id of the preferred film */
-  winnerId: number;
-  /** film id of the less-preferred film */
-  loserId: number;
+  /** item key of the preferred item */
+  winnerKey: string;
+  /** item key of the less-preferred item */
+  loserKey: string;
   /** unix-ms timestamp */
   ts: number;
 };
@@ -42,13 +67,13 @@ export type PairwiseChoice = {
 export type PersistedState = {
   schemaVersion: number;
   settings: Record<string, unknown>;
-  /** filmId -> rating. Keyed by string for JSON portability. */
+  /** itemKey -> rating entry. */
   ratings: RatingsMap;
   /** Append-only log of pairwise refinement choices. */
   pairwise: PairwiseChoice[];
-  /** Film IDs the user has explicitly skipped ("haven't seen"). Kept so
+  /** Item keys the user has explicitly skipped ("haven't seen"). Kept so
    * the rating queue doesn't re-show them next session. */
-  skipped: number[];
+  skipped: string[];
 };
 
 function createDefaultState(): PersistedState {
@@ -118,13 +143,19 @@ export class DossierStoreService {
     return { ...this.state.ratings };
   }
 
-  setRating(filmId: number, rating: Rating | null): RatingsMap {
+  /** Set or clear a rating. `item` is required when setting (the snapshot
+   * stored with the rating); pass rating=null to clear. */
+  setRating(key: string, rating: Rating | null, item?: RatedItem): RatingsMap {
     const ratings = { ...this.state.ratings };
-    const key = String(filmId);
     if (rating === null) {
       delete ratings[key];
+    } else if (item) {
+      ratings[key] = { rating, item, ts: Date.now() };
+    } else if (ratings[key]) {
+      // Update the rating value while keeping the existing snapshot.
+      ratings[key] = { ...ratings[key], rating, ts: Date.now() };
     } else {
-      ratings[key] = rating;
+      throw new Error(`setRating(${key}): item snapshot required for a new rating`);
     }
     this.state = { ...this.state, ratings };
     this.encryptedStore.save(this.state);
@@ -141,29 +172,52 @@ export class DossierStoreService {
     return this.getPairwise();
   }
 
-  getSkipped(): number[] {
+  getSkipped(): string[] {
     return [...this.state.skipped];
   }
 
-  addSkipped(filmId: number): number[] {
-    if (this.state.skipped.includes(filmId)) {
+  addSkipped(key: string): string[] {
+    if (this.state.skipped.includes(key)) {
       return this.getSkipped();
     }
-    this.state = { ...this.state, skipped: [...this.state.skipped, filmId] };
+    this.state = { ...this.state, skipped: [...this.state.skipped, key] };
     this.encryptedStore.save(this.state);
     return this.getSkipped();
   }
 
-  removeSkipped(filmId: number): number[] {
-    if (!this.state.skipped.includes(filmId)) {
+  removeSkipped(key: string): string[] {
+    if (!this.state.skipped.includes(key)) {
       return this.getSkipped();
     }
     this.state = {
       ...this.state,
-      skipped: this.state.skipped.filter((id) => id !== filmId)
+      skipped: this.state.skipped.filter((k) => k !== key)
     };
     this.encryptedStore.save(this.state);
     return this.getSkipped();
+  }
+
+  /** The user's TMDB API read token from the OS keychain, or null if
+   * they haven't configured one yet. */
+  getTmdbToken(): Promise<string | null> {
+    return this.keyManager.getSecret(TMDB_TOKEN_ACCOUNT);
+  }
+
+  /** Persist the user's TMDB token to the OS keychain. Throws if the
+   * keychain is unavailable — we never fall back to plaintext for
+   * secrets. */
+  async setTmdbToken(token: string): Promise<void> {
+    const ok = await this.keyManager.setSecret(TMDB_TOKEN_ACCOUNT, token);
+    if (!ok) {
+      throw new Error(
+        "OS keychain is unavailable. Dossier needs secure storage to save your TMDB token."
+      );
+    }
+  }
+
+  /** Remove the stored TMDB token. */
+  async clearTmdbToken(): Promise<void> {
+    await this.keyManager.deleteSecret(TMDB_TOKEN_ACCOUNT);
   }
 
   /** Wipe all preference data (ratings, pairwise, skipped). Settings

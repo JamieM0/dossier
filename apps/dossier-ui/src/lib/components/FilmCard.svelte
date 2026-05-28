@@ -1,12 +1,13 @@
 <script lang="ts">
-  import type { FilmIndexEntry } from "$lib/types";
+  import type { TmdbItem } from "$lib/types";
+  import { posterUrl } from "$lib/poster";
   import IconBookmarkSimpleFill from "phosphor-icons-svelte/IconBookmarkSimpleFill.svelte";
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
   import IconThumbsUpFill from "phosphor-icons-svelte/IconThumbsUpFill.svelte";
   import IconThumbsDownFill from "phosphor-icons-svelte/IconThumbsDownFill.svelte";
 
   let {
-    film,
+    item,
     score = null,
     onSelect,
     onLike,
@@ -14,19 +15,18 @@
     onIgnore,
     onDislike
   }: {
-    film: FilmIndexEntry;
+    item: TmdbItem;
     score?: number | null;
     /** Called when the user clicks the poster — opens the detail modal. */
-    onSelect?: (film: FilmIndexEntry) => void;
-    /** Called when the user clicks the "Like" overlay button. */
-    onLike?: (film: FilmIndexEntry) => void;
-    /** Called when the user clicks the "Add to watchlist" overlay button. */
-    onWatchlist?: (film: FilmIndexEntry) => void;
-    /** Called when the user clicks the "Don't show again" overlay button. */
-    onIgnore?: (film: FilmIndexEntry) => void;
-    /** Called when the user clicks the "Dislike" overlay button. */
-    onDislike?: (film: FilmIndexEntry) => void;
+    onSelect?: (item: TmdbItem) => void;
+    onLike?: (item: TmdbItem) => void;
+    onWatchlist?: (item: TmdbItem) => void;
+    onIgnore?: (item: TmdbItem) => void;
+    onDislike?: (item: TmdbItem) => void;
   } = $props();
+
+  const poster = $derived(posterUrl(item.posterPath, "w342"));
+  const rating = $derived(item.voteAverage ? item.voteAverage.toFixed(1) : null);
 
   function decadeLabel(year: number | null): string {
     if (!year) return "";
@@ -38,12 +38,12 @@
   <div class="poster-wrap">
     <button
       class="poster-btn"
-      onclick={() => onSelect?.(film)}
-      aria-label={`See details for ${film.title}`}
+      onclick={() => onSelect?.(item)}
+      aria-label={`See details for ${item.title}`}
       disabled={!onSelect}
     >
-      {#if film.poster_url}
-        <img class="poster" src={film.poster_url} alt="" loading="lazy" />
+      {#if poster}
+        <img class="poster" src={poster} alt="" loading="lazy" />
       {:else}
         <div class="poster poster-empty" aria-hidden="true"></div>
       {/if}
@@ -55,7 +55,7 @@
             class="overlay-btn like"
             title="Like"
             aria-label="Like"
-            onclick={(e) => { e.stopPropagation(); onLike?.(film); }}
+            onclick={(e) => { e.stopPropagation(); onLike?.(item); }}
           >
             <IconThumbsUpFill class="icon-16" />
           </button>
@@ -65,7 +65,7 @@
             class="overlay-btn watchlist"
             title="Add to watchlist"
             aria-label="Add to watchlist"
-            onclick={(e) => { e.stopPropagation(); onWatchlist?.(film); }}
+            onclick={(e) => { e.stopPropagation(); onWatchlist?.(item); }}
           >
             <IconBookmarkSimpleFill class="icon-16" />
           </button>
@@ -75,7 +75,7 @@
             class="overlay-btn ignore"
             title="Not interested"
             aria-label="Not interested"
-            onclick={(e) => { e.stopPropagation(); onIgnore?.(film); }}
+            onclick={(e) => { e.stopPropagation(); onIgnore?.(item); }}
           >
             <IconProhibitRegular class="icon-16" />
           </button>
@@ -85,7 +85,7 @@
             class="overlay-btn dislike"
             title="Dislike"
             aria-label="Dislike"
-            onclick={(e) => { e.stopPropagation(); onDislike?.(film); }}
+            onclick={(e) => { e.stopPropagation(); onDislike?.(item); }}
           >
             <IconThumbsDownFill class="icon-16" />
           </button>
@@ -94,14 +94,14 @@
     {/if}
   </div>
   <div class="body">
-    <h3 class="title">{film.title}</h3>
+    <h3 class="title">{item.title}</h3>
     <p class="meta">
-      {#if film.year}<span>{film.year}</span>{/if}
-      {#if film.year}<span class="dot">·</span><span class="muted">{decadeLabel(film.year)}</span>{/if}
-      {#if film.rating}<span class="dot">·</span><span class="rating">★ {film.rating}</span>{/if}
+      {#if item.year}<span>{item.year}</span>{/if}
+      {#if item.year}<span class="dot">·</span><span class="muted">{decadeLabel(item.year)}</span>{/if}
+      {#if rating}<span class="dot">·</span><span class="rating">★ {rating}</span>{/if}
     </p>
-    {#if film.genres.length > 0}
-      <p class="genres">{film.genres.slice(0, 3).join(" · ")}</p>
+    {#if item.genres.length > 0}
+      <p class="genres">{item.genres.slice(0, 3).join(" · ")}</p>
     {/if}
     {#if score !== null}
       <p class="score">match {(score * 100).toFixed(0)}%</p>

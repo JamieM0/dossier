@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, untrack } from "svelte";
   import { goto } from "$app/navigation";
-  import { loadCatalogueIndex } from "$lib/catalogue";
-  import { computeUserWeights, rankRecommendations, type Recommendation } from "$lib/recommender";
+  import { buildCandidatePool } from "$lib/discovery";
+  import { rankRecommendations, type Recommendation } from "$lib/recommender";
   import { preferences } from "$lib/state/preferences.svelte";
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { toasts } from "$lib/state/toast.svelte";
@@ -13,65 +13,54 @@
   } from "$lib/components/RecommendationsFilterModal.svelte";
   import IconFunnelRegular from "phosphor-icons-svelte/IconFunnelRegular.svelte";
   import {
+    itemKey,
     RATING_DISLIKE,
     RATING_LIKE,
     RATING_NOT_INTERESTED,
     RATING_WATCHLIST,
-    type CatalogueIndex,
-    type FilmIndexEntry,
-    type Rating
+    type Rating,
+    type TmdbItem
   } from "$lib/types";
 
-  let catalogue = $state<CatalogueIndex | null>(null);
-  let tvCatalogue = $state<CatalogueIndex | null>(null);
-  let moviesCatalogue = $state<CatalogueIndex | null>(null);
-  /** Window into the ranked list. Bumped by the IntersectionObserver
-   *  when the sentinel at the end of the grid becomes visible. */
-  let limit = $state(48);
+  /** Accumulated candidate pool from TMDB, grown by infinite scroll. */
+  let pool = $state<TmdbItem[]>([]);
+  let poolPage = 1;
+  let hasMorePages = $state(true);
+  let loadingPool = $state(false);
+  let poolError = $state<string | null>(null);
+  let limit = $state(24);
   const PAGE = 24;
   let sentinel: HTMLDivElement | null = $state(null);
-  let modalFilm = $state<FilmIndexEntry | null>(null);
+  let modalItem = $state<TmdbItem | null>(null);
   let filterOpen = $state(false);
   let filters = $state<RecommendationFilters>({ decadeRange: null });
 
-  /** All decades present in the catalogue, sorted ascending. Films
-   *  without a year are silently omitted from the option list — they'll
-   *  still appear when no filter is applied. */
   const decadeOptions = $derived.by<number[]>(() => {
-    if (!catalogue) return [];
     const set = new Set<number>();
-    for (const f of catalogue.films) {
-      if (f.year != null) set.add(Math.floor(f.year / 10) * 10);
-    }
+    for (const it of pool) if (it.year != null) set.add(Math.floor(it.year / 10) * 10);
     return Array.from(set).sort((a, b) => a - b);
   });
 
-  function filmPassesFilters(film: FilmIndexEntry): boolean {
+  function passesFilters(item: TmdbItem): boolean {
     const range = filters.decadeRange;
     if (range) {
-      if (film.year == null) return false;
-      const decade = Math.floor(film.year / 10) * 10;
+      if (item.year == null) return false;
+      const decade = Math.floor(item.year / 10) * 10;
       if (decade < range[0] || decade > range[1]) return false;
     }
     return true;
   }
 
-  /** Catalogue narrowed to films that pass the active filters. Recreated
-   *  only when filters or the catalogue itself change. */
-  const filteredCatalogue = $derived<CatalogueIndex | null>(
-    catalogue
-      ? filters.decadeRange
-        ? { ...catalogue, films: catalogue.films.filter(filmPassesFilters) }
-        : catalogue
-      : null
-  );
+  const filteredPool = $derived(filters.decadeRange ? pool.filter(passesFilters) : pool);
 
+  // Profile spans ALL rated items (taste transfers across mediums); the
+  // candidate pool is the active medium only.
   const recommendations = $derived<Recommendation[]>(
-    filteredCatalogue && catalogue && moviesCatalogue && tvCatalogue
+    preferences.loaded
       ? rankRecommendations(
-          filteredCatalogue,
-          computeUserWeights(moviesCatalogue, preferences.ratings, preferences.pairwise, tvCatalogue),
-          preferences.excludedIds(),
+          filteredPool,
+          preferences.entries(),
+          preferences.excludedKeys(),
           limit
         )
       : []
@@ -79,51 +68,69 @@
 
   const ratingCount = $derived(preferences.ratingCount());
   const hasEnough = $derived(ratingCount >= 5);
-  /** Total catalogue size after excluding already-rated/skipped films —
-   *  the ceiling we infinite-scroll toward. */
-  const totalAvailable = $derived(
-    filteredCatalogue ? filteredCatalogue.films.length - preferences.excludedIds().size : 0
-  );
-  const hasMore = $derived(recommendations.length < totalAvailable);
   const filterActive = $derived(filters.decadeRange !== null);
+  const hasMore = $derived(hasMorePages || recommendations.length >= limit);
+
+  async function fetchPool(): Promise<void> {
+    if (loadingPool || !hasMorePages) return;
+    loadingPool = true;
+    poolError = null;
+    try {
+      const page = await buildCandidatePool(
+        catalogueMode.medium,
+        preferences.entries(),
+        preferences.excludedKeys(),
+        poolPage
+      );
+      poolPage += 1;
+      if (page.length === 0) {
+        hasMorePages = false;
+      } else {
+        const have = new Set(pool.map((i) => itemKey(i.medium, i.id)));
+        pool = [...pool, ...page.filter((i) => !have.has(itemKey(i.medium, i.id)))];
+      }
+    } catch (err) {
+      poolError = err instanceof Error ? err.message : String(err);
+    } finally {
+      loadingPool = false;
+    }
+  }
 
   onMount(() => {
     void preferences.hydrate();
-    void loadCatalogueIndex("movies").then((c) => { moviesCatalogue = c; });
-    void loadCatalogueIndex("tv").then((c) => { tvCatalogue = c; });
   });
 
-  // Swap the active catalogue when the user toggles modes. We always
-  // keep both indexes hydrated so the user-profile centroid can include
-  // ratings from the inactive medium (and reload is instant on toggle).
+  // Rebuild the pool when the medium changes or once enough ratings
+  // exist. Track only mode + readiness; the reset/fetch run untracked so
+  // fetchPool's internal reads (loadingPool/hasMorePages) don't loop.
   $effect(() => {
-    const next = catalogueMode.mode === "tv" ? tvCatalogue : moviesCatalogue;
-    if (next && next !== catalogue) {
-      catalogue = next;
-      limit = 48;
-    }
+    catalogueMode.mode; // track
+    const ready = preferences.loaded && hasEnough;
+    untrack(() => {
+      pool = [];
+      poolPage = 1;
+      hasMorePages = true;
+      limit = 24;
+      if (ready) void fetchPool();
+    });
   });
 
-  // Hook up the IntersectionObserver after the sentinel mounts. We
-  // re-create it whenever the sentinel binding changes (e.g. when the
-  // onboarding view swaps out for the grid).
+  // Infinite scroll: grow the pool / reveal more as the sentinel nears.
   $effect(() => {
     if (!sentinel) return;
     const target = sentinel;
-    // IntersectionObserver only fires when intersection state changes.
-    // Adding a page of items often leaves the sentinel inside the root
-    // margin, so we unobserve/re-observe after each bump to force a
-    // fresh check — otherwise scrolling stalls after the first page.
     const obs = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
-          if (e.isIntersecting && hasMore) {
-            limit += PAGE;
-            queueMicrotask(() => {
-              obs.unobserve(target);
-              obs.observe(target);
-            });
-          }
+          if (!e.isIntersecting) continue;
+          // If we're showing most of the ranked pool, fetch more first.
+          if (limit + PAGE > filteredPool.length && hasMorePages) void fetchPool();
+          if (recommendations.length >= limit && hasMorePages) limit += PAGE;
+          else if (limit < filteredPool.length) limit += PAGE;
+          queueMicrotask(() => {
+            obs.unobserve(target);
+            obs.observe(target);
+          });
         }
       },
       { rootMargin: "400px" }
@@ -132,51 +139,31 @@
     return () => obs.disconnect();
   });
 
-  async function applyRatingWithUndo(
-    film: FilmIndexEntry,
-    rating: Rating,
-    verb: string
-  ): Promise<void> {
-    const priorRating = preferences.ratingFor(film.id) ?? null;
-    const priorSkipped = preferences.skipped.includes(film.id);
+  async function applyRatingWithUndo(item: TmdbItem, rating: Rating, verb: string): Promise<void> {
+    const key = itemKey(item.medium, item.id);
+    const priorRating = preferences.ratingForKey(key) ?? null;
     try {
-      // Recs come from the catalogue and have never been skipped, but
-      // be defensive — the user might have gotten here via a stale
-      // state and we don't want both flags set.
-      if (priorSkipped) await preferences.unskip(film.id);
-      await preferences.setRating(film.id, rating);
-      toasts.show(`${verb} "${film.title}".`, {
+      await preferences.setRating(item, rating);
+      toasts.show(`${verb} "${item.title}".`, {
         action: {
           label: "Undo",
           run: async () => {
-            await preferences.setRating(film.id, priorRating);
-            if (priorSkipped) await preferences.skip(film.id);
+            await preferences.setRating(item, priorRating);
           }
         }
       });
     } catch (err) {
       toasts.show(
-        `Couldn't update "${film.title}": ${err instanceof Error ? err.message : String(err)}`,
+        `Couldn't update "${item.title}": ${err instanceof Error ? err.message : String(err)}`,
         { durationMs: 6000 }
       );
     }
   }
 
-  function handleIgnore(film: FilmIndexEntry): void {
-    void applyRatingWithUndo(film, RATING_NOT_INTERESTED, "Won't show");
-  }
-
-  function handleWatchlist(film: FilmIndexEntry): void {
-    void applyRatingWithUndo(film, RATING_WATCHLIST, "Added to watchlist");
-  }
-
-  function handleLike(film: FilmIndexEntry): void {
-    void applyRatingWithUndo(film, RATING_LIKE, "Liked");
-  }
-
-  function handleDislike(film: FilmIndexEntry): void {
-    void applyRatingWithUndo(film, RATING_DISLIKE, "Disliked");
-  }
+  const handleIgnore = (i: TmdbItem) => void applyRatingWithUndo(i, RATING_NOT_INTERESTED, "Won't show");
+  const handleWatchlist = (i: TmdbItem) => void applyRatingWithUndo(i, RATING_WATCHLIST, "Added to watchlist");
+  const handleLike = (i: TmdbItem) => void applyRatingWithUndo(i, RATING_LIKE, "Liked");
+  const handleDislike = (i: TmdbItem) => void applyRatingWithUndo(i, RATING_DISLIKE, "Disliked");
 </script>
 
 <section class="screen">
@@ -185,7 +172,7 @@
       <h1>Recommendations</h1>
       <p class="sub">
         {#if ratingCount === 0}
-          Rate some films to get started.
+          Rate some titles to get started.
         {:else}
           Based on {ratingCount} rating{ratingCount === 1 ? "" : "s"}{filterActive ? " · filtered" : ""}.
         {/if}
@@ -209,24 +196,29 @@
       <span>{preferences.error}</span>
     </div>
   {/if}
+  {#if poolError}
+    <div class="error" role="alert">Couldn't load candidates from TMDB: {poolError}</div>
+  {/if}
 
-  {#if !catalogue || !preferences.loaded}
+  {#if !preferences.loaded}
     <p class="muted">Loading…</p>
   {:else if !hasEnough}
     <div class="onboard">
       <h2>Tell Dossier what you like.</h2>
-      <p>Rate at least 5 films and you'll get recommendations ranked by similarity to your taste.</p>
+      <p>Rate at least 5 titles and you'll get recommendations ranked by your taste.</p>
       <button class="cta" onclick={() => goto("/rate")}>Start rating</button>
     </div>
+  {:else if recommendations.length === 0 && loadingPool}
+    <p class="muted">Finding titles you'll like…</p>
   {:else if recommendations.length === 0}
-    <p class="muted">No recommendations yet.</p>
+    <p class="muted">No recommendations yet — rate a few more titles.</p>
   {:else}
     <div class="grid">
-      {#each recommendations as rec (rec.film.id)}
+      {#each recommendations as rec (itemKey(rec.item.medium, rec.item.id))}
         <FilmCard
-          film={rec.film}
+          item={rec.item}
           score={rec.score}
-          onSelect={(f) => (modalFilm = f)}
+          onSelect={(f) => (modalItem = f)}
           onLike={handleLike}
           onWatchlist={handleWatchlist}
           onIgnore={handleIgnore}
@@ -235,8 +227,10 @@
       {/each}
     </div>
     <div bind:this={sentinel} class="sentinel" aria-hidden="true">
-      {#if hasMore}
+      {#if loadingPool}
         <span class="muted">Loading more…</span>
+      {:else if hasMore}
+        <span class="muted">Scroll for more…</span>
       {:else}
         <span class="muted">You've reached the end.</span>
       {/if}
@@ -244,23 +238,23 @@
   {/if}
 </section>
 
-{#if filterOpen}
-  <RecommendationsFilterModal
-    {filters}
-    decadeOptions={decadeOptions}
-    onApply={(next) => { filters = next; limit = 48; }}
-    onClose={() => (filterOpen = false)}
-  />
-{/if}
-
-{#if modalFilm}
+{#if modalItem}
   <MovieDetailModal
-    film={modalFilm}
-    onClose={() => (modalFilm = null)}
+    item={modalItem}
+    onClose={() => (modalItem = null)}
     onLike={handleLike}
     onWatchlist={handleWatchlist}
     onIgnore={handleIgnore}
     onDislike={handleDislike}
+  />
+{/if}
+
+{#if filterOpen}
+  <RecommendationsFilterModal
+    {filters}
+    decadeOptions={decadeOptions}
+    onApply={(next) => { filters = next; limit = 24; }}
+    onClose={() => (filterOpen = false)}
   />
 {/if}
 

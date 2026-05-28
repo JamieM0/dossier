@@ -1,7 +1,31 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import { THEMES } from "$lib/design/themes";
   import type { ThemeName } from "$lib/design/themes";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
+  import { tmdbState } from "$lib/state/tmdb.svelte";
+
+  let tmdbToken = $state("");
+  let tmdbStatus = $state("");
+
+  onMount(() => {
+    void tmdbState.refresh();
+  });
+
+  async function saveTmdbToken(): Promise<void> {
+    if (!tmdbToken.trim()) return;
+    const ok = await tmdbState.setToken(tmdbToken);
+    if (ok) {
+      tmdbToken = "";
+      tmdbStatus = "TMDB token updated.";
+      setTimeout(() => { tmdbStatus = ""; }, 4000);
+    }
+  }
+
+  async function disconnectTmdb(): Promise<void> {
+    await tmdbState.clearToken();
+    tmdbStatus = "Disconnected. Restart-free — you'll be asked for a token next.";
+  }
 
   let lifecycleStatus = $state("");
   let lifecycleStatusTimer = $state<ReturnType<typeof setTimeout> | null>(null);
@@ -161,6 +185,51 @@
           </div>
         </div>
       </section>
+
+      <section class="settings-section">
+        <h2 class="section-heading">TMDB</h2>
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Connection</span>
+              <span class="setting-desc">
+                {#if tmdbState.configured}
+                  Connected — your catalogue streams from The Movie Database.
+                {:else}
+                  Not connected. Add your API Read Access Token to use Dossier.
+                {/if}
+              </span>
+            </div>
+            {#if tmdbState.configured}
+              <button class="text-btn danger" onclick={() => void disconnectTmdb()}>Disconnect</button>
+            {/if}
+          </div>
+        </div>
+        <div class="setting-group">
+          <label class="setting-label" for="tmdb-token-input">
+            {tmdbState.configured ? "Replace token" : "API Read Access Token (v4)"}
+          </label>
+          <textarea
+            id="tmdb-token-input"
+            class="token-input"
+            bind:value={tmdbToken}
+            rows="2"
+            spellcheck="false"
+            autocomplete="off"
+            placeholder="eyJhbGciOiJIUzI1NiJ9…"
+            disabled={tmdbState.busy}
+          ></textarea>
+          {#if tmdbState.error}<p class="field-error">{tmdbState.error}</p>{/if}
+          {#if tmdbStatus}<p class="field-ok">{tmdbStatus}</p>{/if}
+          <button
+            class="primary-btn"
+            disabled={!tmdbToken.trim() || tmdbState.busy}
+            onclick={() => void saveTmdbToken()}
+          >
+            {tmdbState.busy ? "Validating…" : "Save token"}
+          </button>
+        </div>
+      </section>
     </div>
   </div>
 </section>
@@ -192,6 +261,14 @@
   .sw-line.l2 { width: 50%; opacity: 0.2; }
   .sw-footer { height: 22%; background: var(--sw-secondary); border-radius: 0 0 7px 7px; }
   .sw-check-badge { position: absolute; top: -6px; right: -6px; width: 16px; height: 16px; border-radius: 50%; background: var(--sw-primary); }
+  .token-input { width: 100%; box-sizing: border-box; resize: vertical; font-family: var(--font-mono, monospace); font-size: 0.8rem; padding: var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); background: var(--base-tertiary); color: var(--text-primary); margin-bottom: var(--space-3); }
+  .token-input:focus { outline: none; border-color: var(--primary-accent); background: var(--base); }
+  .primary-btn { padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm); border: 0; background: var(--primary-accent); color: #fff; font-size: 0.875rem; font-weight: 600; cursor: pointer; }
+  .primary-btn:disabled { opacity: 0.5; cursor: default; }
+  .text-btn { background: none; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: var(--space-2) var(--space-3); font-size: 0.85rem; color: var(--text-secondary); cursor: pointer; }
+  .text-btn.danger:hover { color: var(--danger, #f85149); border-color: color-mix(in srgb, var(--danger, #f85149) 40%, var(--border-subtle)); }
+  .field-error { color: var(--danger, #f85149); font-size: 0.8rem; margin: 0 0 var(--space-2); }
+  .field-ok { color: var(--success, #2ea043); font-size: 0.8rem; margin: 0 0 var(--space-2); }
   .toggle { width: 44px; height: 24px; border-radius: var(--radius-full); background: var(--border); position: relative; padding: 2px; flex-shrink: 0; }
   .toggle.active { background: var(--primary-accent); }
   .toggle-thumb { display: block; width: 20px; height: 20px; border-radius: var(--radius-full); background: #fff; box-shadow: var(--shadow-sm); transition: transform var(--duration-standard) var(--ease-out); }

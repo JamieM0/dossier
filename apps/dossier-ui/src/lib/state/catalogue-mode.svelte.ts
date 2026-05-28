@@ -3,9 +3,16 @@
  *
  * Persisted via localStorage so the choice survives reloads. Default
  * is "movies" on a fresh install. */
+import type { TmdbMedium } from "$lib/types";
+
 const STORAGE_KEY = "dossier:catalogue-mode";
 
 export type CatalogueMode = "movies" | "tv";
+
+/** Map the UI mode to a TMDB medium ("movies" → "movie"). */
+export function toMedium(mode: CatalogueMode): TmdbMedium {
+  return mode === "tv" ? "tv" : "movie";
+}
 
 function loadInitial(): CatalogueMode {
   if (typeof localStorage === "undefined") return "movies";
@@ -15,6 +22,10 @@ function loadInitial(): CatalogueMode {
 
 class CatalogueModeStore {
   mode = $state<CatalogueMode>(loadInitial());
+
+  get medium(): TmdbMedium {
+    return toMedium(this.mode);
+  }
 
   set(mode: CatalogueMode): void {
     this.mode = mode;

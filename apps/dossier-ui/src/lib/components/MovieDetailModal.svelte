@@ -1,8 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { loadFilmDetail } from "$lib/catalogue";
-  import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
-  import type { FilmDetail, FilmIndexEntry } from "$lib/types";
+  import { posterUrl } from "$lib/poster";
+  import type { TmdbItem } from "$lib/types";
   import IconXBold from "phosphor-icons-svelte/IconXBold.svelte";
   import IconBookmarkSimpleFill from "phosphor-icons-svelte/IconBookmarkSimpleFill.svelte";
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
@@ -18,7 +17,7 @@
     | "dislike";
 
   let {
-    film,
+    item,
     onClose,
     onLike,
     onWatchlist,
@@ -27,22 +26,27 @@
     onDislike,
     excludeActions = []
   }: {
-    film: FilmIndexEntry;
+    item: TmdbItem;
     onClose: () => void;
-    onLike?: (film: FilmIndexEntry) => void | Promise<void>;
-    onWatchlist?: (film: FilmIndexEntry) => void | Promise<void>;
-    onSkip?: (film: FilmIndexEntry) => void | Promise<void>;
-    onIgnore?: (film: FilmIndexEntry) => void | Promise<void>;
-    onDislike?: (film: FilmIndexEntry) => void | Promise<void>;
+    onLike?: (item: TmdbItem) => void | Promise<void>;
+    onWatchlist?: (item: TmdbItem) => void | Promise<void>;
+    onSkip?: (item: TmdbItem) => void | Promise<void>;
+    onIgnore?: (item: TmdbItem) => void | Promise<void>;
+    onDislike?: (item: TmdbItem) => void | Promise<void>;
     excludeActions?: ModalActionKind[];
   } = $props();
 
-  let detail = $state<FilmDetail | null>(null);
+  // Start from the (possibly coarse) list item, enrich with the full
+  // detail fetch (keywords, runtime, full overview) when it arrives.
+  let detail = $state<TmdbItem>(item);
   let loadError = $state<string | null>(null);
 
-  function run(handler: ((f: FilmIndexEntry) => void | Promise<void>) | undefined): void {
+  const poster = $derived(posterUrl(detail.posterPath, "w500"));
+  const rating = $derived(detail.voteAverage ? detail.voteAverage.toFixed(1) : null);
+
+  function run(handler: ((i: TmdbItem) => void | Promise<void>) | undefined): void {
     if (!handler) return;
-    void handler(film);
+    void handler(detail);
     onClose();
   }
 
@@ -53,7 +57,8 @@
   const showDislike = $derived(!!onDislike && !excludeActions.includes("dislike"));
 
   onMount(() => {
-    void loadFilmDetail(film.id, catalogueMode.mode)
+    void window.dossier?.tmdb
+      ?.detail(item.medium, item.id)
       .then((d) => { detail = d; })
       .catch((err) => {
         loadError = err instanceof Error ? err.message : String(err);
@@ -91,45 +96,37 @@
 
     <div class="layout">
       <div class="poster-col">
-        {#if film.poster_url}
-          <img class="poster" src={film.poster_url} alt="" />
+        {#if poster}
+          <img class="poster" src={poster} alt="" />
         {:else}
           <div class="poster poster-empty"></div>
         {/if}
       </div>
 
       <div class="info">
-        <h2 class="title" id="movie-modal-title">{film.title}</h2>
+        <h2 class="title" id="movie-modal-title">{detail.title}</h2>
         <p class="meta">
-          {#if film.year}<span>{film.year}</span>{/if}
-          {#if film.rating}<span class="dot">·</span><span>★ {film.rating}</span>{/if}
-          {#if detail?.duration_min}<span class="dot">·</span><span>{detail.duration_min} min</span>{/if}
+          {#if detail.year}<span>{detail.year}</span>{/if}
+          {#if rating}<span class="dot">·</span><span>★ {rating}</span>{/if}
+          {#if detail.runtime}<span class="dot">·</span><span>{detail.runtime} min</span>{/if}
         </p>
 
-        {#if film.genres.length > 0}
-          <p class="genres">{film.genres.join(" · ")}</p>
-        {/if}
-
-        {#if detail?.country?.length}
-          <p class="kv"><span class="k">Country</span><span>{detail.country.join(", ")}</span></p>
+        {#if detail.genres.length > 0}
+          <p class="genres">{detail.genres.join(" · ")}</p>
         {/if}
 
         {#if loadError}
           <p class="error">Couldn't load full details: {loadError}</p>
-        {:else if !detail}
-          <p class="muted">Loading details…</p>
-        {:else}
-          {#if detail.story}
-            <p class="story">{detail.story}</p>
-          {/if}
-
-          {#if detail.themes && detail.themes.length > 0}
-            <div class="chips">
-              {#each detail.themes as theme}
-                <span class="chip">{theme}</span>
-              {/each}
-            </div>
-          {/if}
+        {/if}
+        {#if detail.overview}
+          <p class="story">{detail.overview}</p>
+        {/if}
+        {#if detail.keywords && detail.keywords.length > 0}
+          <div class="chips">
+            {#each detail.keywords.slice(0, 12) as theme}
+              <span class="chip">{theme}</span>
+            {/each}
+          </div>
         {/if}
 
         <div class="actions">
@@ -250,8 +247,6 @@
   .meta { color: var(--text-secondary); margin: 0; font-size: 0.95rem; display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap; }
   .dot { color: var(--text-tertiary); }
   .genres { color: var(--text-tertiary); margin: 0; font-size: 0.9rem; }
-  .kv { display: flex; gap: var(--space-3); margin: 0; font-size: 0.9rem; color: var(--text-secondary); }
-  .kv .k { color: var(--text-tertiary); min-width: 80px; }
   .story {
     color: var(--text-primary);
     line-height: 1.6;
@@ -273,7 +268,6 @@
     font-size: 0.75rem;
     color: var(--text-secondary);
   }
-  .muted { color: var(--text-tertiary); }
   .error { color: var(--danger, #f85149); font-size: 0.85rem; }
 
   .actions {

@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { FilmIndexEntry } from "$lib/types";
+  import type { TmdbItem } from "$lib/types";
+  import { posterUrl } from "$lib/poster";
   import IconCaretLeftBold from "phosphor-icons-svelte/IconCaretLeftBold.svelte";
   import IconCaretRightBold from "phosphor-icons-svelte/IconCaretRightBold.svelte";
 
@@ -10,9 +11,9 @@
     onSelect
   }: {
     title: string;
-    films: FilmIndexEntry[];
+    films: TmdbItem[];
     emptyHint?: string;
-    onSelect?: (film: FilmIndexEntry) => void;
+    onSelect?: (film: TmdbItem) => void;
   } = $props();
 
   let track: HTMLDivElement | null = $state(null);
@@ -44,7 +45,7 @@
     <p class="empty">{emptyHint}</p>
   {:else}
     <div class="track" bind:this={track}>
-      {#each films as film (film.id)}
+      {#each films as film (`${film.medium}:${film.id}`)}
         <button
           class="tile"
           title={film.title}
@@ -52,8 +53,8 @@
           onclick={() => onSelect?.(film)}
           disabled={!onSelect}
         >
-          {#if film.poster_url}
-            <img class="poster" src={film.poster_url} alt="" loading="lazy" />
+          {#if posterUrl(film.posterPath, "w342")}
+            <img class="poster" src={posterUrl(film.posterPath, "w342")} alt="" loading="lazy" />
           {:else}
             <div class="poster poster-empty" aria-hidden="true"></div>
           {/if}

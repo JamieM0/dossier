@@ -1,8 +1,46 @@
 import { randomBytes } from "node:crypto";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
-import { existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, appendFileSync } from "node:fs";
 import { join } from "node:path";
+
+let logPath = "";
+const originalConsoleLog = console.log;
+const originalConsoleError = console.error;
+
+function log(...args: any[]) {
+  const msg = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)).join(' ');
+  const line = `[${new Date().toISOString()}] ${msg}\n`;
+  if (logPath) {
+    try {
+      appendFileSync(logPath, line);
+    } catch {
+      // ignore
+    }
+  } else {
+    originalConsoleLog(...args);
+  }
+}
+
+function logError(...args: any[]) {
+  const msg = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg, (key, value) => value instanceof Error ? { name: value.name, message: value.message, stack: value.stack } : value, 2) : String(arg)).join(' ');
+  const line = `[${new Date().toISOString()}] ERROR: ${msg}\n`;
+  if (logPath) {
+    try {
+      appendFileSync(logPath, line);
+    } catch {
+      // ignore
+    }
+  } else {
+    originalConsoleError(...args);
+  }
+}
+
+// Global redirection
+console.log = log;
+console.error = logError;
+
 import { pathToFileURL } from "node:url";
+import { TmdbClient, TmdbConfigError, type TmdbMedium } from "./tmdb.js";
 
 type DossierSettings = {
   theme: string;
@@ -31,21 +69,37 @@ type BackendReadyPayload = {
   controlToken: string;
 };
 
-type Rating = -1 | 1;
-type RatingsMap = Record<string, Rating>;
-type PairwiseChoice = { winnerId: number; loserId: number; ts: number };
+type Rating = -1 | -0.5 | 0.5 | 1;
+type RatedItem = {
+  key: string;
+  medium: string;
+  id: number;
+  title: string;
+  year: number | null;
+  posterPath: string | null;
+  voteAverage: number | null;
+  genres: string[];
+  features: Record<string, number>;
+};
+type RatingEntry = { rating: Rating; item: RatedItem; ts: number };
+type RatingsMap = Record<string, RatingEntry>;
+type PairwiseChoice = { winnerKey: string; loserKey: string; ts: number };
 
 type StoreServicePort = {
   getSettings: () => Record<string, unknown>;
   updateSettings: (next: Record<string, unknown>) => Record<string, unknown>;
   getRatings: () => RatingsMap;
-  setRating: (filmId: number, rating: Rating | null) => RatingsMap;
+  setRating: (key: string, rating: Rating | null, item?: RatedItem) => RatingsMap;
   getPairwise: () => PairwiseChoice[];
   addPairwise: (choice: PairwiseChoice) => PairwiseChoice[];
-  getSkipped: () => number[];
-  addSkipped: (filmId: number) => number[];
-  removeSkipped: (filmId: number) => number[];
+  getSkipped: () => string[];
+  addSkipped: (key: string) => string[];
+  removeSkipped: (key: string) => string[];
   resetPreferences: () => void;
+  getDataPath: (...parts: string[]) => string;
+  getTmdbToken: () => Promise<string | null>;
+  setTmdbToken: (token: string) => Promise<void>;
+  clearTmdbToken: () => Promise<void>;
 };
 
 type ControlErrorCode = "BAD_REQUEST" | "NOT_FOUND" | "UNAUTHORIZED" | "INTERNAL";
@@ -65,6 +119,32 @@ const controlToken = randomBytes(24).toString("base64url");
 
 let storeService: StoreServicePort | null = null;
 let settingsCache: DossierSettings = { ...defaultSettings };
+
+/** Cached TMDB client, rebuilt only when the stored token changes. The
+ * client owns the long-lived metadata disk cache under the data dir. */
+let tmdbClient: { token: string; client: TmdbClient } | null = null;
+
+async function getTmdbClient(): Promise<TmdbClient> {
+  if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+  const token = await storeService.getTmdbToken();
+  if (!token) {
+    throw new ControlError(400, "BAD_REQUEST", "TMDB token is not configured");
+  }
+  if (!tmdbClient || tmdbClient.token !== token) {
+    tmdbClient = {
+      token,
+      client: new TmdbClient(token, storeService.getDataPath("tmdb-cache"))
+    };
+  }
+  return tmdbClient.client;
+}
+
+function parseMedium(value: string | null): TmdbMedium {
+  if (value !== "movie" && value !== "tv") {
+    throw new ControlError(400, "BAD_REQUEST", "medium must be 'movie' or 'tv'");
+  }
+  return value;
+}
 
 function getHeader(req: IncomingMessage, name: string): string | null {
   const raw = req.headers[name];
@@ -121,7 +201,9 @@ function persistSettings(next: Partial<DossierSettings>): DossierSettings {
 function createControlRequestHandler() {
   return async function handler(req: IncomingMessage, res: ServerResponse): Promise<void> {
     const method = req.method ?? "GET";
-    const path = (req.url ?? "/").split("?")[0] ?? "/";
+    const rawUrl = req.url ?? "/";
+    const path = rawUrl.split("?")[0] ?? "/";
+    const query = new URLSearchParams(rawUrl.split("?")[1] ?? "");
 
     try {
       authorize(req);
@@ -157,27 +239,33 @@ function createControlRequestHandler() {
 
       if (method === "PUT" && path === "/control/preferences/rating") {
         if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
-        const body = (await readJsonBody(req)) as { filmId?: number; rating?: number | null };
-        if (!body || typeof body.filmId !== "number") {
-          throw new ControlError(400, "BAD_REQUEST", "filmId (number) required");
+        const body = (await readJsonBody(req)) as {
+          key?: string;
+          rating?: number | null;
+          item?: RatedItem;
+        };
+        if (!body || typeof body.key !== "string") {
+          throw new ControlError(400, "BAD_REQUEST", "key (string) required");
         }
         const r = body.rating;
         if (r !== null && r !== 1 && r !== -1 && r !== 0.5 && r !== -0.5) {
           throw new ControlError(400, "BAD_REQUEST", "rating must be 1, -1, 0.5, -0.5, or null");
         }
-        sendJson(res, 200, { ratings: storeService.setRating(body.filmId, r as Rating | null) });
+        sendJson(res, 200, {
+          ratings: storeService.setRating(body.key, r as Rating | null, body.item)
+        });
         return;
       }
 
       if (method === "POST" && path === "/control/preferences/pairwise") {
         if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
         const body = (await readJsonBody(req)) as Partial<PairwiseChoice>;
-        if (!body || typeof body.winnerId !== "number" || typeof body.loserId !== "number") {
-          throw new ControlError(400, "BAD_REQUEST", "winnerId and loserId required");
+        if (!body || typeof body.winnerKey !== "string" || typeof body.loserKey !== "string") {
+          throw new ControlError(400, "BAD_REQUEST", "winnerKey and loserKey required");
         }
         const choice: PairwiseChoice = {
-          winnerId: body.winnerId,
-          loserId: body.loserId,
+          winnerKey: body.winnerKey,
+          loserKey: body.loserKey,
           ts: typeof body.ts === "number" ? body.ts : Date.now()
         };
         sendJson(res, 200, { pairwise: storeService.addPairwise(choice) });
@@ -186,21 +274,21 @@ function createControlRequestHandler() {
 
       if (method === "POST" && path === "/control/preferences/skip") {
         if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
-        const body = (await readJsonBody(req)) as { filmId?: number };
-        if (!body || typeof body.filmId !== "number") {
-          throw new ControlError(400, "BAD_REQUEST", "filmId (number) required");
+        const body = (await readJsonBody(req)) as { key?: string };
+        if (!body || typeof body.key !== "string") {
+          throw new ControlError(400, "BAD_REQUEST", "key (string) required");
         }
-        sendJson(res, 200, { skipped: storeService.addSkipped(body.filmId) });
+        sendJson(res, 200, { skipped: storeService.addSkipped(body.key) });
         return;
       }
 
       if (method === "POST" && path === "/control/preferences/unskip") {
         if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
-        const body = (await readJsonBody(req)) as { filmId?: number };
-        if (!body || typeof body.filmId !== "number") {
-          throw new ControlError(400, "BAD_REQUEST", "filmId (number) required");
+        const body = (await readJsonBody(req)) as { key?: string };
+        if (!body || typeof body.key !== "string") {
+          throw new ControlError(400, "BAD_REQUEST", "key (string) required");
         }
-        sendJson(res, 200, { skipped: storeService.removeSkipped(body.filmId) });
+        sendJson(res, 200, { skipped: storeService.removeSkipped(body.key) });
         return;
       }
 
@@ -208,6 +296,108 @@ function createControlRequestHandler() {
         if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
         storeService.resetPreferences();
         sendJson(res, 200, { ok: true });
+        return;
+      }
+
+      // --- TMDB ----------------------------------------------------------
+      if (method === "GET" && path === "/control/tmdb/status") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        const token = await storeService.getTmdbToken();
+        sendJson(res, 200, { configured: Boolean(token) });
+        return;
+      }
+
+      if (method === "PUT" && path === "/control/tmdb/token") {
+        log("PUT /control/tmdb/token received");
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        const body = (await readJsonBody(req)) as { token?: string };
+        log(`token length in body: ${body?.token?.length ?? "undefined"}`);
+        
+        let token = typeof body?.token === "string" ? body.token.trim() : "";
+        token = token.replace(/[\u200B-\u200D\uFEFF]/g, "");
+        token = token.replace(/^["']|["']$/g, "");
+        if (token.toLowerCase().startsWith("bearer ")) {
+          token = token.slice(7).trim();
+          token = token.replace(/^["']|["']$/g, "");
+        }
+        
+        log(`cleaned token length: ${token.length}`);
+        if (!token) {
+          logError("token missing after cleaning");
+          throw new ControlError(400, "BAD_REQUEST", "token (string) required");
+        }
+        
+        // Validate against TMDB before persisting so a bad token never sticks.
+        try {
+          log("probing TMDB with token...");
+          const probe = new TmdbClient(token, storeService.getDataPath("tmdb-cache"));
+          await probe.validate();
+          log("TMDB probe successful");
+        } catch (error) {
+          logError(`TMDB validation failed: ${error instanceof Error ? error.message : String(error)}`);
+          if (error instanceof TmdbConfigError) {
+            throw new ControlError(400, "BAD_REQUEST", error.message);
+          }
+          throw error;
+        }
+        await storeService.setTmdbToken(token);
+        tmdbClient = null; // force rebuild with the new token
+        log("token persisted to keychain");
+        sendJson(res, 200, { configured: true });
+        return;
+      }
+
+      if (method === "POST" && path === "/control/tmdb/token/clear") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        await storeService.clearTmdbToken();
+        tmdbClient = null;
+        sendJson(res, 200, { configured: false });
+        return;
+      }
+
+      if (method === "GET" && path === "/control/tmdb/genres") {
+        const client = await getTmdbClient();
+        const map = await client.genres(parseMedium(query.get("medium")));
+        sendJson(res, 200, { genres: Object.fromEntries(map) });
+        return;
+      }
+
+      if (method === "GET" && path === "/control/tmdb/trending") {
+        const client = await getTmdbClient();
+        const page = Number(query.get("page") ?? "1") || 1;
+        sendJson(res, 200, await client.trending(parseMedium(query.get("medium")), page));
+        return;
+      }
+
+      if (method === "GET" && path === "/control/tmdb/discover") {
+        const client = await getTmdbClient();
+        sendJson(
+          res,
+          200,
+          await client.discover(parseMedium(query.get("medium")), {
+            sortBy: query.get("sortBy") ?? undefined,
+            withGenres: query.get("withGenres") ?? undefined,
+            minVotes: query.get("minVotes") ? Number(query.get("minVotes")) : undefined,
+            page: query.get("page") ? Number(query.get("page")) : undefined
+          })
+        );
+        return;
+      }
+
+      if (method === "GET" && path === "/control/tmdb/search") {
+        const client = await getTmdbClient();
+        const q = query.get("query") ?? "";
+        if (!q.trim()) throw new ControlError(400, "BAD_REQUEST", "query required");
+        const year = query.get("year") ? Number(query.get("year")) : undefined;
+        sendJson(res, 200, await client.search(parseMedium(query.get("medium")), q, year));
+        return;
+      }
+
+      if (method === "GET" && path === "/control/tmdb/detail") {
+        const client = await getTmdbClient();
+        const id = Number(query.get("id"));
+        if (!Number.isFinite(id)) throw new ControlError(400, "BAD_REQUEST", "id required");
+        sendJson(res, 200, await client.detail(parseMedium(query.get("medium")), id));
         return;
       }
 
@@ -219,8 +409,13 @@ function createControlRequestHandler() {
 
       throw new ControlError(404, "NOT_FOUND", "not found");
     } catch (error) {
+      logError(`Request handler error: ${error instanceof Error ? error.message : String(error)}`);
       if (error instanceof ControlError) {
         sendControlError(res, error);
+        return;
+      }
+      if (error instanceof TmdbConfigError) {
+        sendControlError(res, new ControlError(400, "BAD_REQUEST", error.message));
         return;
       }
       sendControlError(
@@ -259,6 +454,8 @@ async function bootstrap(): Promise<void> {
 
   const dataDir = join(inputDataDir, "dossier");
   mkdirSync(dataDir, { recursive: true });
+  logPath = join(dataDir, "backend-debug.log");
+  log("Backend bootstrapping...");
 
   storeService = await loadStoreService(dataDir);
   settingsCache = {
@@ -290,7 +487,7 @@ async function bootstrap(): Promise<void> {
 
 if (process.env.DOSSIER_BACKEND_SKIP_BOOTSTRAP !== "1") {
   void bootstrap().catch((error) => {
-    console.error("Failed to bootstrap Dossier backend daemon", error);
+    logError(`Failed to bootstrap Dossier backend daemon: ${error instanceof Error ? error.message : String(error)}`);
     process.exit(1);
   });
 }

@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { loadCatalogueIndex } from "$lib/catalogue";
-  import { buildRatingQueue } from "$lib/recommender";
+  import { onMount, untrack } from "svelte";
+  import { buildRatingQueue } from "$lib/discovery";
   import { preferences } from "$lib/state/preferences.svelte";
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
+  import { posterUrl } from "$lib/poster";
   import {
+    itemKey,
     RATING_DISLIKE,
     RATING_LIKE,
     RATING_NOT_INTERESTED,
     RATING_WATCHLIST,
-    type CatalogueIndex,
-    type FilmIndexEntry,
-    type Rating
+    type Rating,
+    type TmdbItem
   } from "$lib/types";
   import MovieDetailModal from "$lib/components/MovieDetailModal.svelte";
   import IconThumbsUpFill from "phosphor-icons-svelte/IconThumbsUpFill.svelte";
@@ -21,58 +21,100 @@
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
   import IconArrowUUpLeftRegular from "phosphor-icons-svelte/IconArrowUUpLeftRegular.svelte";
 
-  type Action =
-    | "like"
-    | "dislike"
-    | "skip"
-    | "watchlist"
-    | "not_interested";
+  type Action = "like" | "dislike" | "skip" | "watchlist" | "not_interested";
 
   type HistoryEntry = {
-    filmId: number;
+    item: TmdbItem;
     action: Action;
     priorRating: Rating | null;
     priorSkipped: boolean;
   };
 
-  let catalogue = $state<CatalogueIndex | null>(null);
+  let queue = $state<TmdbItem[]>([]);
+  let queuePage = 1;
+  let loadingQueue = $state(false);
+  let queueError = $state<string | null>(null);
   let busy = $state(false);
   let lastAction = $state<Action | null>(null);
   let history = $state<HistoryEntry[]>([]);
-  let pinnedFilmId = $state<number | null>(null);
-  let modalFilm = $state<FilmIndexEntry | null>(null);
+  let pinned = $state<TmdbItem | null>(null);
+  let modalItem = $state<TmdbItem | null>(null);
+  // Lags behind `current` while an exit animation is in progress so the
+  // {#key} block keeps the card mounted for the full animation duration.
+  let displayedItem = $state<TmdbItem | null>(null);
+  let animating = $state(false);
 
-  const filmsById = $derived(
-    catalogue ? new Map(catalogue.films.map((f) => [f.id, f])) : new Map<number, FilmIndexEntry>()
+  // The visible queue excludes anything already rated/skipped this session.
+  const visibleQueue = $derived(
+    queue.filter((i) => !preferences.excludedKeys().has(itemKey(i.medium, i.id)))
   );
+  const current = $derived<TmdbItem | null>(pinned ?? visibleQueue[0] ?? null);
+  const nextItem = $derived<TmdbItem | null>(pinned ? (visibleQueue[0] ?? null) : (visibleQueue[1] ?? null));
 
-  const queue = $derived<FilmIndexEntry[]>(
-    catalogue ? buildRatingQueue(catalogue, preferences.excludedIds()) : []
-  );
-  const current = $derived<FilmIndexEntry | null>(
-    pinnedFilmId !== null
-      ? (filmsById.get(pinnedFilmId) ?? queue[0] ?? null)
-      : (queue[0] ?? null)
-  );
+  // Keep displayedItem in sync with current, but freeze it during animations.
+  $effect(() => {
+    const c = current;
+    if (!animating) displayedItem = c;
+  });
+
+  // Preload the next poster so it's in cache when the card appears.
+  $effect(() => {
+    const next = nextItem;
+    if (!next?.posterPath) return;
+    const url = posterUrl(next.posterPath, "w500");
+    if (url) {
+      const img = new Image();
+      img.src = url;
+    }
+  });
 
   let actionError = $state<string | null>(null);
+
+  async function fetchMore(): Promise<void> {
+    if (loadingQueue) return;
+    loadingQueue = true;
+    queueError = null;
+    try {
+      const page = await buildRatingQueue(
+        catalogueMode.medium,
+        preferences.excludedKeys(),
+        queuePage
+      );
+      queuePage += 1;
+      // Dedupe against what we already hold.
+      const have = new Set(queue.map((i) => itemKey(i.medium, i.id)));
+      queue = [...queue, ...page.filter((i) => !have.has(itemKey(i.medium, i.id)))];
+    } catch (err) {
+      queueError = err instanceof Error ? err.message : String(err);
+    } finally {
+      loadingQueue = false;
+    }
+  }
 
   onMount(() => {
     void preferences.hydrate();
   });
 
-  // Reload the catalogue whenever the user toggles between movies and
-  // TV. History is preserved (still references IDs across both modes);
-  // the queue rebuilds against the new catalogue automatically.
+  // Reset and refill the queue whenever the medium changes. Only the
+  // mode is a dependency — the reset/fetch must not re-trigger this
+  // effect (fetchMore touches loadingQueue/queue), so it runs untracked.
   $effect(() => {
-    const mode = catalogueMode.mode;
-    catalogue = null;
-    pinnedFilmId = null;
-    loadCatalogueIndex(mode)
-      .then((c) => { catalogue = c; })
-      .catch((err) => {
-        actionError = `Catalogue failed to load: ${err instanceof Error ? err.message : String(err)}`;
-      });
+    catalogueMode.mode; // track
+    untrack(() => {
+      queue = [];
+      queuePage = 1;
+      pinned = null;
+      void fetchMore();
+    });
+  });
+
+  // Keep the queue topped up as the user rates through it. Tracks the
+  // visible-queue length; the fetch itself is untracked.
+  $effect(() => {
+    const low = preferences.loaded && visibleQueue.length < 5;
+    untrack(() => {
+      if (low && !loadingQueue) void fetchMore();
+    });
   });
 
   function ratingFor(action: Action): Rating | null {
@@ -83,55 +125,67 @@
     return null;
   }
 
-  async function decide(action: Action, film: FilmIndexEntry | null = current): Promise<void> {
-    if (!film || busy) return;
+  async function decide(action: Action, item: TmdbItem | null = current): Promise<void> {
+    if (!item || busy) return;
     busy = true;
     actionError = null;
-    // Only animate when acting on the currently-displayed card.
-    if (film.id === current?.id) lastAction = action;
+    const key = itemKey(item.medium, item.id);
+    const isDisplayed = displayedItem !== null && itemKey(displayedItem.medium, displayedItem.id) === key;
+
+    if (isDisplayed) {
+      lastAction = action;
+      animating = true;
+    }
 
     const entry: HistoryEntry = {
-      filmId: film.id,
+      item,
       action,
-      priorRating: preferences.ratingFor(film.id) ?? null,
-      priorSkipped: preferences.skipped.includes(film.id)
+      priorRating: preferences.ratingForKey(key) ?? null,
+      priorSkipped: preferences.skipped.includes(key)
     };
 
     try {
       if (action === "skip") {
-        if (entry.priorRating !== null) await preferences.setRating(film.id, null);
-        if (!entry.priorSkipped) await preferences.skip(film.id);
+        if (entry.priorRating !== null) await preferences.setRating(item, null);
+        if (!entry.priorSkipped) await preferences.skip(item.medium, item.id);
       } else {
-        if (entry.priorSkipped) await preferences.unskip(film.id);
-        await preferences.setRating(film.id, ratingFor(action));
+        if (entry.priorSkipped) await preferences.unskip(key);
+        await preferences.setRating(item, ratingFor(action));
       }
       history = [...history, entry];
-      pinnedFilmId = null;
+      pinned = null;
+
+      if (isDisplayed) {
+        await new Promise<void>(r => setTimeout(r, 320));
+      }
     } catch (err) {
       actionError = err instanceof Error ? err.message : String(err);
       lastAction = null;
+      animating = false;
     } finally {
+      lastAction = null;
+      animating = false;
       busy = false;
-      setTimeout(() => { lastAction = null; }, 320);
     }
   }
 
   async function undo(): Promise<void> {
     if (busy || history.length === 0) return;
     const entry = history[history.length - 1];
+    const key = itemKey(entry.item.medium, entry.item.id);
     busy = true;
     actionError = null;
     try {
       if (entry.action === "skip") {
-        if (!entry.priorSkipped) await preferences.unskip(entry.filmId);
+        if (!entry.priorSkipped) await preferences.unskip(key);
       } else {
-        await preferences.setRating(entry.filmId, entry.priorRating);
-        if (entry.priorSkipped && !preferences.skipped.includes(entry.filmId)) {
-          await preferences.skip(entry.filmId);
+        await preferences.setRating(entry.item, entry.priorRating);
+        if (entry.priorSkipped && !preferences.skipped.includes(key)) {
+          await preferences.skip(entry.item.medium, entry.item.id);
         }
       }
       history = history.slice(0, -1);
-      pinnedFilmId = entry.filmId;
+      pinned = entry.item;
     } catch (err) {
       actionError = err instanceof Error ? err.message : String(err);
     } finally {
@@ -141,8 +195,7 @@
 
   function handleKey(event: KeyboardEvent): void {
     if (event.repeat) return;
-    // Don't intercept keys when the modal is open — the modal owns Escape.
-    if (modalFilm) return;
+    if (modalItem) return;
     if (event.key === "ArrowRight") { event.preventDefault(); void decide("like"); }
     else if (event.key === "ArrowLeft") { event.preventDefault(); void decide("dislike"); }
     else if (event.key === "ArrowUp") { event.preventDefault(); void decide("watchlist"); }
@@ -189,19 +242,20 @@
   {#if actionError}
     <div class="error" role="alert">{actionError}</div>
   {/if}
+  {#if queueError}
+    <div class="error" role="alert">Couldn't load titles from TMDB: {queueError}</div>
+  {/if}
 
   <div class="stage">
-    {#if !catalogue}
-      <p class="muted">Loading catalogue…</p>
-    {:else if !preferences.loaded}
-      <p class="muted">Hydrating preferences…</p>
-    {:else if !current}
+    {#if !preferences.loaded || (visibleQueue.length === 0 && loadingQueue)}
+      <p class="muted">Loading titles…</p>
+    {:else if !displayedItem}
       <div class="empty">
-        <h2>That's everything.</h2>
-        <p>You've gone through the catalogue. Try the recommendations or refine your taste with pairwise picks.</p>
+        <h2>That's everything for now.</h2>
+        <p>You've rated the titles we pulled in. Check your recommendations, or come back later for fresh picks.</p>
       </div>
     {:else}
-      {#key current.id}
+      {#key itemKey(displayedItem.medium, displayedItem.id)}
         <div class="card-row">
           <article
             class="card"
@@ -214,24 +268,24 @@
             <button
               type="button"
               class="poster-btn"
-              onclick={() => (modalFilm = current)}
-              aria-label={`See details for ${current.title}`}
+              onclick={() => (modalItem = displayedItem)}
+              aria-label={`See details for ${displayedItem.title}`}
             >
-              {#if current.poster_url}
-                <img class="poster" src={current.poster_url} alt="" />
+              {#if posterUrl(displayedItem.posterPath, "w500")}
+                <img class="poster" src={posterUrl(displayedItem.posterPath, "w500")} alt="" />
               {:else}
                 <div class="poster poster-empty"></div>
               {/if}
             </button>
 
             <div class="card-body">
-              <h2 class="title">{current.title}</h2>
+              <h2 class="title">{displayedItem.title}</h2>
               <p class="meta">
-                {#if current.year}<span>{current.year}</span>{/if}
-                {#if current.rating}<span class="dot">·</span><span>★ {current.rating}</span>{/if}
+                {#if displayedItem.year}<span>{displayedItem.year}</span>{/if}
+                {#if displayedItem.voteAverage}<span class="dot">·</span><span>★ {displayedItem.voteAverage.toFixed(1)}</span>{/if}
               </p>
-              {#if current.genres.length > 0}
-                <p class="genres">{current.genres.join(" · ")}</p>
+              {#if displayedItem.genres.length > 0}
+                <p class="genres">{displayedItem.genres.join(" · ")}</p>
               {/if}
             </div>
           </article>
@@ -277,10 +331,10 @@
   </div>
 </section>
 
-{#if modalFilm}
+{#if modalItem}
   <MovieDetailModal
-    film={modalFilm}
-    onClose={() => (modalFilm = null)}
+    item={modalItem}
+    onClose={() => (modalItem = null)}
     onLike={(f) => void decide("like", f)}
     onWatchlist={(f) => void decide("watchlist", f)}
     onSkip={(f) => void decide("skip", f)}

@@ -1,85 +1,63 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { loadCatalogueIndex } from "$lib/catalogue";
   import { preferences } from "$lib/state/preferences.svelte";
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { toasts } from "$lib/state/toast.svelte";
   import {
+    ratedToTmdbItem,
     RATING_DISLIKE,
     RATING_LIKE,
     RATING_NOT_INTERESTED,
     RATING_WATCHLIST,
-    type CatalogueIndex,
-    type FilmIndexEntry,
-    type Rating
+    type Rating,
+    type RatingKind,
+    type TmdbItem
   } from "$lib/types";
   import Carousel from "$lib/components/Carousel.svelte";
   import MovieDetailModal, { type ModalActionKind } from "$lib/components/MovieDetailModal.svelte";
   import IconXBold from "phosphor-icons-svelte/IconXBold.svelte";
 
-  let catalogue = $state<CatalogueIndex | null>(null);
-  let modalFilm = $state<FilmIndexEntry | null>(null);
+  let modalItem = $state<TmdbItem | null>(null);
   let modalExclude = $state<ModalActionKind[]>([]);
 
   let search = $state("");
 
   const searchTerms = $derived(
-    search
-      .trim()
-      .toLowerCase()
-      .split(/\s+/)
-      .filter(Boolean)
+    search.trim().toLowerCase().split(/\s+/).filter(Boolean)
   );
-
   const isSearching = $derived(searchTerms.length > 0);
 
-  const filmsById = $derived(
-    catalogue ? new Map(catalogue.films.map((f) => [f.id, f])) : new Map<number, FilmIndexEntry>()
-  );
-
-  function lookup(ids: number[]): FilmIndexEntry[] {
-    const out: FilmIndexEntry[] = [];
-    for (const id of ids) {
-      const f = filmsById.get(id);
-      if (f) out.push(f);
-    }
-    return out;
+  function itemsOf(kind: RatingKind): TmdbItem[] {
+    return preferences
+      .entriesByKind(kind, catalogueMode.medium)
+      .sort((a, b) => b.ts - a.ts)
+      .map((e) => ratedToTmdbItem(e.item));
   }
 
-  function filmMatchesSearch(film: FilmIndexEntry, terms: string[]): boolean {
+  function matchesSearch(film: TmdbItem, terms: string[]): boolean {
     if (terms.length === 0) return true;
     const haystack = `${film.title} ${film.year ?? ""} ${film.genres.join(" ")}`.toLowerCase();
     return terms.every((t) => haystack.includes(t));
   }
 
-  // section.exclude maps to the modal action kind that should be hidden
-  // when opening a film already filed under this section (it's already
-  // there — re-applying would be a no-op).
-  const sections = $derived(
-    catalogue
-      ? [
-          { id: "watchlist",       title: "Watchlist",       exclude: "watchlist" as ModalActionKind, films: lookup(preferences.idsByKind("watchlist")),
-            empty: "Films you flag from the rate screen or recommendations appear here." },
-          { id: "liked",           title: "Liked",           exclude: "like" as ModalActionKind,      films: lookup(preferences.idsByKind("like")),
-            empty: "Like a film and it'll land here." },
-          { id: "disliked",        title: "Disliked",        exclude: "dislike" as ModalActionKind,   films: lookup(preferences.idsByKind("dislike")),
-            empty: "Films you've thumbs-downed will appear here." },
-          { id: "skipped",         title: "Haven't seen",    exclude: "skip" as ModalActionKind,      films: lookup(preferences.skipped),
-            empty: "Films you've skipped on the rate screen appear here." },
-          { id: "not-interested",  title: "Not interested",  exclude: "not_interested" as ModalActionKind, films: lookup(preferences.idsByKind("not_interested")),
-            empty: "Films you've hidden with \"Don't show again\" appear here." }
-        ]
-      : []
-  );
+  // section.exclude maps to the modal action kind hidden when opening an
+  // item already filed under this section.
+  const sections = $derived([
+    { id: "watchlist", title: "Watchlist", exclude: "watchlist" as ModalActionKind, films: itemsOf("watchlist"),
+      empty: "Titles you flag from the rate screen or recommendations appear here." },
+    { id: "liked", title: "Liked", exclude: "like" as ModalActionKind, films: itemsOf("like"),
+      empty: "Like a title and it'll land here." },
+    { id: "disliked", title: "Disliked", exclude: "dislike" as ModalActionKind, films: itemsOf("dislike"),
+      empty: "Titles you've thumbs-downed will appear here." },
+    { id: "not-interested", title: "Not interested", exclude: "not_interested" as ModalActionKind, films: itemsOf("not_interested"),
+      empty: "Titles you've hidden with \"Don't show again\" appear here." }
+  ]);
 
   const filteredSections = $derived(
     !isSearching
       ? sections
       : sections
-          .map((s) => ({
-            ...s,
-            films: s.films.filter((f) => filmMatchesSearch(f, searchTerms))
-          }))
+          .map((s) => ({ ...s, films: s.films.filter((f) => matchesSearch(f, searchTerms)) }))
           .filter((s) => s.films.length > 0)
   );
 
@@ -87,34 +65,20 @@
     void preferences.hydrate();
   });
 
-  // Reload the catalogue when the user toggles between movies and TV.
-  // Sections derive from `preferences.ids*` filtered through the active
-  // catalogue's filmsById map, so items recorded in the other medium
-  // simply don't show up here — they reappear when the user flips
-  // modes.
-  $effect(() => {
-    const mode = catalogueMode.mode;
-    catalogue = null;
-    loadCatalogueIndex(mode).then((c) => { catalogue = c; });
-  });
-
-  function openModal(film: FilmIndexEntry, exclude: ModalActionKind): void {
-    modalFilm = film;
+  function openModal(film: TmdbItem, exclude: ModalActionKind): void {
+    modalItem = film;
     modalExclude = [exclude];
   }
 
-  async function applyRating(film: FilmIndexEntry, rating: Rating, verb: string): Promise<void> {
-    const priorRating = preferences.ratingFor(film.id) ?? null;
-    const priorSkipped = preferences.skipped.includes(film.id);
+  async function applyRating(film: TmdbItem, rating: Rating, verb: string): Promise<void> {
+    const priorRating = preferences.ratingFor(film.medium, film.id) ?? null;
     try {
-      if (priorSkipped) await preferences.unskip(film.id);
-      await preferences.setRating(film.id, rating);
+      await preferences.setRating(film, rating);
       toasts.show(`${verb} "${film.title}".`, {
         action: {
           label: "Undo",
           run: async () => {
-            await preferences.setRating(film.id, priorRating);
-            if (priorSkipped) await preferences.skip(film.id);
+            await preferences.setRating(film, priorRating);
           }
         }
       });
@@ -126,33 +90,10 @@
     }
   }
 
-  function handleLike(film: FilmIndexEntry): void { void applyRating(film, RATING_LIKE, "Liked"); }
-  function handleDislike(film: FilmIndexEntry): void { void applyRating(film, RATING_DISLIKE, "Disliked"); }
-  function handleWatchlist(film: FilmIndexEntry): void { void applyRating(film, RATING_WATCHLIST, "Added to watchlist"); }
-  function handleIgnore(film: FilmIndexEntry): void { void applyRating(film, RATING_NOT_INTERESTED, "Won't show"); }
-
-  async function handleSkip(film: FilmIndexEntry): Promise<void> {
-    const priorRating = preferences.ratingFor(film.id) ?? null;
-    const priorSkipped = preferences.skipped.includes(film.id);
-    try {
-      if (priorRating !== null) await preferences.setRating(film.id, null);
-      if (!priorSkipped) await preferences.skip(film.id);
-      toasts.show(`Marked "${film.title}" as haven't seen.`, {
-        action: {
-          label: "Undo",
-          run: async () => {
-            if (priorRating !== null) await preferences.setRating(film.id, priorRating);
-            if (!priorSkipped) await preferences.unskip(film.id);
-          }
-        }
-      });
-    } catch (err) {
-      toasts.show(
-        `Couldn't update "${film.title}": ${err instanceof Error ? err.message : String(err)}`,
-        { durationMs: 6000 }
-      );
-    }
-  }
+  function handleLike(film: TmdbItem): void { void applyRating(film, RATING_LIKE, "Liked"); }
+  function handleDislike(film: TmdbItem): void { void applyRating(film, RATING_DISLIKE, "Disliked"); }
+  function handleWatchlist(film: TmdbItem): void { void applyRating(film, RATING_WATCHLIST, "Added to watchlist"); }
+  function handleIgnore(film: TmdbItem): void { void applyRating(film, RATING_NOT_INTERESTED, "Won't show"); }
 </script>
 
 <section class="screen">
@@ -195,7 +136,7 @@
     </div>
   {/if}
 
-  {#if !catalogue || !preferences.loaded}
+  {#if !preferences.loaded}
     <p class="muted">Loading…</p>
   {:else if isSearching && filteredSections.length === 0}
     <p class="muted">No matches for "{search.trim()}".</p>
@@ -211,13 +152,12 @@
   {/if}
 </section>
 
-{#if modalFilm}
+{#if modalItem}
   <MovieDetailModal
-    film={modalFilm}
-    onClose={() => (modalFilm = null)}
+    item={modalItem}
+    onClose={() => (modalItem = null)}
     onLike={handleLike}
     onWatchlist={handleWatchlist}
-    onSkip={handleSkip}
     onIgnore={handleIgnore}
     onDislike={handleDislike}
     excludeActions={modalExclude}

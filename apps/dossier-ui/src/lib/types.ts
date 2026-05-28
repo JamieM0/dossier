@@ -44,63 +44,137 @@ export function ratingWeight(r: Rating): number {
 }
 
 export type PairwiseChoice = {
-  winnerId: number;
-  loserId: number;
+  winnerKey: string;
+  loserKey: string;
+  ts: number;
+};
+
+/** Compact snapshot of a rated item, persisted with its rating so the
+ * profile and Library are self-contained (no TMDB re-fetch). */
+export type RatedItem = {
+  key: string;
+  medium: TmdbMedium;
+  id: number;
+  title: string;
+  year: number | null;
+  posterPath: string | null;
+  voteAverage: number | null;
+  genres: string[];
+  features: FeatureVector;
+};
+
+export type RatingEntry = {
+  rating: Rating;
+  item: RatedItem;
   ts: number;
 };
 
 export type PreferencesPayload = {
-  ratings: Record<string, Rating>;
+  ratings: Record<string, RatingEntry>;
   pairwise: PairwiseChoice[];
-  skipped: number[];
+  skipped: string[];
 };
 
-/** Feature vector keys match `AXES` in
- * tools/catalogue-builder/feature_schema.py. */
+/** Medium-qualified key for a TMDB item, e.g. "movie:27205". The single
+ * identity used across ratings, pairwise, and the skip list. */
+export function itemKey(medium: TmdbMedium, id: number): string {
+  return `${medium}:${id}`;
+}
+
+export function parseItemKey(key: string): { medium: TmdbMedium; id: number } | null {
+  const [m, idStr] = key.split(":");
+  const id = Number(idStr);
+  if ((m !== "movie" && m !== "tv") || !Number.isFinite(id)) return null;
+  return { medium: m, id };
+}
+
+/** Inflate a stored snapshot back into a TmdbItem for display (the
+ * Library renders from snapshots; missing detail fields are filled with
+ * empty defaults and enriched if the detail modal is opened). */
+export function ratedToTmdbItem(r: RatedItem): TmdbItem {
+  return {
+    id: r.id,
+    medium: r.medium,
+    title: r.title,
+    year: r.year,
+    voteAverage: r.voteAverage,
+    voteCount: null,
+    popularity: null,
+    genreIds: [],
+    genres: r.genres,
+    posterPath: r.posterPath,
+    overview: "",
+    runtime: null,
+    keywords: [],
+    features: r.features
+  };
+}
+
+/** Snapshot the fields we persist with a rating from any TMDB item. */
+export function toRatedItem(item: TmdbItem): RatedItem {
+  return {
+    key: itemKey(item.medium, item.id),
+    medium: item.medium,
+    id: item.id,
+    title: item.title,
+    year: item.year,
+    posterPath: item.posterPath,
+    voteAverage: item.voteAverage,
+    genres: item.genres,
+    features: item.features
+  };
+}
+
+/** Medium-agnostic entertainment feature vector — 10 axes, each in
+ * [-1, 1]. Computed by the backend lens (apps/dossier-desktop/src/lens.ts)
+ * from TMDB genres + keywords + overview. The three former mood axes
+ * (tone_register / darkness / ending_warmth) are merged into one `tone`
+ * axis (+1 light/playful/uplifting … -1 dark/serious/bleak). Keys here
+ * MUST stay in sync with AXIS_KEYS in recommender.ts and the backend
+ * lens. */
 export type FeatureVector = {
   pacing: number;
-  tone_register: number;
-  ending_warmth: number;
+  tone: number;
   emotional_intensity: number;
   complexity: number;
   scope: number;
   realism: number;
-  darkness: number;
   thematic_weight: number;
   character_focus: number;
   moral_clarity: number;
   structure: number;
 };
 
-export type AxisDescriptor = {
-  key: keyof FeatureVector;
-  label: string;
-  pos: string;
-  neg: string;
-};
+// --- TMDB --------------------------------------------------------------
+/** The two media the entertainment lens currently covers. TMDB keys
+ * movie ids and tv ids in separate number spaces, so a medium tag is
+ * required to disambiguate a stored rating. */
+export type TmdbMedium = "movie" | "tv";
 
-export type FilmIndexEntry = {
+/** A normalized TMDB record as returned by the backend. List results
+ * carry no keywords/runtime (those only come from the detail fetch). */
+export type TmdbItem = {
   id: number;
+  medium: TmdbMedium;
   title: string;
   year: number | null;
-  popularity: number;
-  rating: number | null;
-  poster_url: string | null;
+  voteAverage: number | null;
+  voteCount: number | null;
+  popularity: number | null;
+  genreIds: number[];
   genres: string[];
+  posterPath: string | null;
+  overview: string;
+  runtime: number | null;
+  keywords: string[];
+  /** Entertainment lens vector. List items get a coarse vector (from
+   * genres + overview only); detail fetches get the full vector
+   * (genres + keywords + overview). */
   features: FeatureVector;
 };
 
-export type CatalogueIndex = {
-  version: number;
-  axes: AxisDescriptor[];
-  films: FilmIndexEntry[];
-};
-
-export type FilmDetail = FilmIndexEntry & {
-  slug: string;
-  duration_min: number | null;
-  country: string[];
-  story: string;
-  themes: string[];
-  similar_ids: number[];
+export type TmdbListResult = {
+  page: number;
+  totalPages: number;
+  items: TmdbItem[];
 };

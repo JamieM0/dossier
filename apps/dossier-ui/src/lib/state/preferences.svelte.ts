@@ -1,17 +1,25 @@
 /** Preferences store — ratings, pairwise refinement choices, and skip
- * list. Hydrates from the backend on startup; mutations call through to
- * the backend immediately and update local state on success, so the UI
- * reflects what's persisted, not what's optimistic. */
-import type { PairwiseChoice, Rating, RatingKind } from "$lib/types";
-import { ratingKind, ratingWeight } from "$lib/types";
+ * list, all keyed by medium-qualified item key ("movie:27205"). Each
+ * rating carries a compact snapshot of the item (title, poster, lens
+ * vector) so the taste profile and Library work offline without any
+ * TMDB re-fetch. Hydrates from the backend; mutations call through and
+ * update local state on success. */
+import type {
+  PairwiseChoice,
+  RatedItem,
+  Rating,
+  RatingEntry,
+  RatingKind,
+  TmdbItem,
+  TmdbMedium
+} from "$lib/types";
+import { itemKey, parseItemKey, ratingKind, ratingWeight, toRatedItem } from "$lib/types";
 
 class PreferencesState {
-  ratings = $state<Record<string, Rating>>({});
+  ratings = $state<Record<string, RatingEntry>>({});
   pairwise = $state<PairwiseChoice[]>([]);
-  skipped = $state<number[]>([]);
+  skipped = $state<string[]>([]);
   loaded = $state(false);
-  /** Last error from hydrate/mutate. Surfaced in the UI so a missing
-   * backend looks like a missing backend, not a frozen page. */
   error = $state<string | null>(null);
 
   async hydrate(): Promise<void> {
@@ -34,84 +42,93 @@ class PreferencesState {
     }
   }
 
-  ratingFor(filmId: number): Rating | undefined {
-    return this.ratings[String(filmId)];
+  ratingForKey(key: string): Rating | undefined {
+    return this.ratings[key]?.rating;
   }
 
-  /** Set / replace a rating. Pass null to clear. Throws so the caller
-   * can show feedback — we deliberately do not silently swallow. */
-  async setRating(filmId: number, rating: Rating | null): Promise<void> {
-    if (!window.dossier?.preferences) {
-      throw new Error("preferences bridge unavailable");
-    }
-    const { ratings } = await window.dossier.preferences.setRating(filmId, rating);
+  ratingFor(medium: TmdbMedium, id: number): Rating | undefined {
+    return this.ratingForKey(itemKey(medium, id));
+  }
+
+  /** Set / replace a rating from a full TMDB item (snapshot stored).
+   *  Pass null to clear. Throws so the caller can show feedback. */
+  async setRating(item: TmdbItem, rating: Rating | null): Promise<void> {
+    if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
+    const key = itemKey(item.medium, item.id);
+    const snapshot: RatedItem | undefined = rating === null ? undefined : toRatedItem(item);
+    const { ratings } = await window.dossier.preferences.setRating(key, rating, snapshot);
     this.ratings = ratings;
   }
 
-  async addPairwise(winnerId: number, loserId: number): Promise<void> {
-    if (!window.dossier?.preferences) {
-      throw new Error("preferences bridge unavailable");
-    }
-    const { pairwise } = await window.dossier.preferences.addPairwise(winnerId, loserId);
+  /** Clear a rating by key (used by the Library where we may only hold
+   *  the key, not a fresh TMDB item). */
+  async clearRating(key: string): Promise<void> {
+    if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
+    const { ratings } = await window.dossier.preferences.setRating(key, null);
+    this.ratings = ratings;
+  }
+
+  async addPairwise(winnerKey: string, loserKey: string): Promise<void> {
+    if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
+    const { pairwise } = await window.dossier.preferences.addPairwise(winnerKey, loserKey);
     this.pairwise = pairwise;
   }
 
-  async skip(filmId: number): Promise<void> {
-    if (!window.dossier?.preferences) {
-      throw new Error("preferences bridge unavailable");
-    }
-    const { skipped } = await window.dossier.preferences.skip(filmId);
+  async skip(medium: TmdbMedium, id: number): Promise<void> {
+    if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
+    const { skipped } = await window.dossier.preferences.skip(itemKey(medium, id));
     this.skipped = skipped;
   }
 
-  async unskip(filmId: number): Promise<void> {
-    if (!window.dossier?.preferences) {
-      throw new Error("preferences bridge unavailable");
-    }
-    const { skipped } = await window.dossier.preferences.unskip(filmId);
+  async unskip(key: string): Promise<void> {
+    if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
+    const { skipped } = await window.dossier.preferences.unskip(key);
     this.skipped = skipped;
   }
 
   async reset(): Promise<void> {
-    if (!window.dossier?.preferences) {
-      throw new Error("preferences bridge unavailable");
-    }
+    if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
     await window.dossier.preferences.reset();
     this.ratings = {};
     this.pairwise = [];
     this.skipped = [];
   }
 
-  /** Set of film IDs the user has interacted with (rated or skipped) —
-   * used as the exclusion set for the rating queue and recommender. */
-  excludedIds(): Set<number> {
-    const out = new Set<number>();
-    for (const k of Object.keys(this.ratings)) out.add(Number(k));
-    for (const id of this.skipped) out.add(id);
+  /** Item keys the user has interacted with (rated or skipped) — the
+   *  exclusion set for the rating queue and recommender. */
+  excludedKeys(): Set<string> {
+    const out = new Set<string>(Object.keys(this.ratings));
+    for (const key of this.skipped) out.add(key);
     return out;
   }
 
-  ratingCount(): number {
-    return Object.keys(this.ratings).length;
+  /** All rating entries, optionally filtered to a medium. */
+  entries(medium?: TmdbMedium): RatingEntry[] {
+    const all = Object.values(this.ratings);
+    return medium ? all.filter((e) => e.item.medium === medium) : all;
   }
 
-  /** Film IDs grouped by rating kind. Used by the Library tab carousels. */
-  idsByKind(kind: RatingKind): number[] {
-    const out: number[] = [];
-    for (const [k, v] of Object.entries(this.ratings)) {
-      if (ratingKind(v) === kind) out.push(Number(k));
-    }
-    return out;
+  ratingCount(medium?: TmdbMedium): number {
+    return this.entries(medium).length;
   }
 
-  /** Count of ratings used as the "trained data" signal for gating
-   *  recommendations. Uses ratingWeight so not_interested counts at full
-   *  strength (same as dislike); watchlist counts at half strength. */
-  trainingSignal(): number {
+  /** Rating entries of a given kind (for the Library carousels). */
+  entriesByKind(kind: RatingKind, medium?: TmdbMedium): RatingEntry[] {
+    return this.entries(medium).filter((e) => ratingKind(e.rating) === kind);
+  }
+
+  /** Weighted training signal used to gate recommendations. */
+  trainingSignal(medium?: TmdbMedium): number {
     let s = 0;
-    for (const v of Object.values(this.ratings)) s += Math.abs(ratingWeight(v));
+    for (const e of this.entries(medium)) s += Math.abs(ratingWeight(e.rating));
     return s;
+  }
+
+  /** Look up a rated entry by key (Library row helpers). */
+  entryFor(key: string): RatingEntry | undefined {
+    return this.ratings[key];
   }
 }
 
+export { itemKey, parseItemKey };
 export const preferences = new PreferencesState();

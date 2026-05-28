@@ -1,62 +1,36 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { loadCatalogueIndex } from "$lib/catalogue";
-  import {
-    buildPairwiseCandidates,
-    computeUserWeights,
-    cosineSimilarity
-  } from "$lib/recommender";
+  import { buildPairwiseCandidates, predictPreference } from "$lib/recommender";
   import { preferences } from "$lib/state/preferences.svelte";
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
-  import type { CatalogueIndex, FilmIndexEntry } from "$lib/types";
+  import { posterUrl } from "$lib/poster";
+  import type { RatedItem, RatingEntry } from "$lib/types";
 
-  let catalogue = $state<CatalogueIndex | null>(null);
-  let tvCatalogue = $state<CatalogueIndex | null>(null);
-  let moviesCatalogue = $state<CatalogueIndex | null>(null);
   let busy = $state(false);
 
-  // Like the rating queue: each answered pair drops out of the
-  // candidate list (buildPairwiseCandidates filters seen pairs), so
-  // pairs[0] is always the next question.
-  const pairs = $derived<Array<[FilmIndexEntry, FilmIndexEntry]>>(
-    catalogue && preferences.loaded
-      ? buildPairwiseCandidates(catalogue, preferences.ratings, preferences.pairwise, 40)
+  // Pairwise compares items the user has already rated similarly. Scoped
+  // to the active medium so a movie is never paired against a TV show.
+  // Operates entirely on stored snapshots — no catalogue fetch.
+  const pairs = $derived<Array<[RatingEntry, RatingEntry]>>(
+    preferences.loaded
+      ? buildPairwiseCandidates(
+          preferences.entries(catalogueMode.medium),
+          preferences.pairwise,
+          40
+        )
       : []
   );
   const current = $derived(pairs[0] ?? null);
 
-  /** User weight vector for predicting how much they'd like a film.
-   *  Re-computed whenever ratings or pairwise picks change so the badge
-   *  reflects the freshest signal. */
-  const weights = $derived(
-    moviesCatalogue && tvCatalogue
-      ? computeUserWeights(moviesCatalogue, preferences.ratings, preferences.pairwise, tvCatalogue)
-      : null
-  );
-
-  /** Predicted preference as a 0–100 percentage. Cosine similarity is
-   *  in [-1, 1]; we clamp negatives to 0 since "negative match" isn't a
-   *  meaningful concept to surface in the UI. */
-  function predict(film: FilmIndexEntry): number {
-    if (!weights) return 0;
-    const sim = cosineSimilarity(weights, film.features);
-    return Math.max(0, Math.min(1, sim));
+  /** Predicted preference 0–100 for a rated item, from the live profile. */
+  function predict(item: RatedItem): number {
+    return predictPreference(item, preferences.entries());
   }
 
   let actionError = $state<string | null>(null);
 
   onMount(() => {
     void preferences.hydrate();
-    void loadCatalogueIndex("movies").then((c) => { moviesCatalogue = c; });
-    void loadCatalogueIndex("tv").then((c) => { tvCatalogue = c; });
-  });
-
-  // Swap the catalogue feeding the pair queue when the user toggles
-  // mode. Pairwise candidates are mode-scoped so a movie is never paired
-  // against a TV show — comparisons stay within the same medium.
-  $effect(() => {
-    const next = catalogueMode.mode === "tv" ? tvCatalogue : moviesCatalogue;
-    if (next && next !== catalogue) catalogue = next;
   });
 
   async function choose(winnerIdx: 0 | 1): Promise<void> {
@@ -66,7 +40,7 @@
     const loser = current[1 - winnerIdx];
     actionError = null;
     try {
-      await preferences.addPairwise(winner.id, loser.id);
+      await preferences.addPairwise(winner.item.key, loser.item.key);
     } catch (err) {
       actionError = err instanceof Error ? err.message : String(err);
     } finally {
@@ -101,27 +75,27 @@
     <div class="error" role="alert">{actionError}</div>
   {/if}
 
-  {#if !catalogue || !preferences.loaded}
+  {#if !preferences.loaded}
     <p class="muted center">Loading…</p>
-  {:else if preferences.ratingCount() < 4}
+  {:else if preferences.ratingCount(catalogueMode.medium) < 4}
     <div class="empty center">
-      <h2>Rate a few films first.</h2>
-      <p>Pairwise refinement compares films you've already rated similarly. Rate at least 4 films, then come back.</p>
+      <h2>Rate a few titles first.</h2>
+      <p>Pairwise refinement compares titles you've already rated similarly. Rate at least 4, then come back.</p>
     </div>
   {:else if !current}
     <div class="empty center">
       <h2>No new comparisons.</h2>
-      <p>You've answered every pair from your current ratings. Rate more films to unlock more comparisons.</p>
+      <p>You've answered every pair from your current ratings. Rate more titles to unlock more comparisons.</p>
     </div>
   {:else}
     <div class="duel">
-      {#each [0, 1] as side (current[side].id)}
-        {@const film = current[side]}
-        {@const matchPct = Math.round(predict(film) * 100)}
+      {#each [0, 1] as side (current[side].item.key)}
+        {@const entry = current[side]}
+        {@const matchPct = predict(entry.item)}
         <button class="pick" disabled={busy} onclick={() => choose(side as 0 | 1)}>
           <div class="poster-wrap">
-            {#if film.poster_url}
-              <img class="poster" src={film.poster_url} alt="" />
+            {#if posterUrl(entry.item.posterPath, "w500")}
+              <img class="poster" src={posterUrl(entry.item.posterPath, "w500")} alt="" />
             {:else}
               <div class="poster poster-empty"></div>
             {/if}
@@ -130,8 +104,8 @@
             </span>
           </div>
           <div class="caption">
-            <h3>{film.title}</h3>
-            <p class="meta">{film.year ?? ""}{film.genres[0] ? ` · ${film.genres[0]}` : ""}</p>
+            <h3>{entry.item.title}</h3>
+            <p class="meta">{entry.item.year ?? ""}{entry.item.genres[0] ? ` · ${entry.item.genres[0]}` : ""}</p>
           </div>
         </button>
       {/each}

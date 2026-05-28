@@ -17,10 +17,11 @@ use serde::Deserialize;
 use serde::Serialize;
 use serde_json::{json, Value};
 use tauri::{
+    http::Response as HttpResponse,
     menu::{MenuBuilder, MenuItemBuilder},
     path::BaseDirectory,
     tray::{MouseButton, MouseButtonState, TrayIconBuilder, TrayIconEvent},
-    AppHandle, Emitter, Manager, RunEvent, State, WindowEvent,
+    AppHandle, Emitter, Manager, RunEvent, State, UriSchemeContext, WindowEvent,
 };
 use tauri_plugin_updater::UpdaterExt;
 
@@ -613,8 +614,9 @@ async fn preferences_get(state: State<'_, RuntimeState>) -> Result<Value, String
 
 #[tauri::command]
 async fn preferences_set_rating(
-    film_id: i64,
+    key: String,
     rating: Option<f64>,
+    item: Option<Value>,
     state: State<'_, RuntimeState>,
 ) -> Result<Value, String> {
     state
@@ -622,15 +624,15 @@ async fn preferences_set_rating(
         .request(
             Method::PUT,
             "/control/preferences/rating",
-            Some(json!({ "filmId": film_id, "rating": rating })),
+            Some(json!({ "key": key, "rating": rating, "item": item })),
         )
         .await
 }
 
 #[tauri::command]
 async fn preferences_add_pairwise(
-    winner_id: i64,
-    loser_id: i64,
+    winner_key: String,
+    loser_key: String,
     state: State<'_, RuntimeState>,
 ) -> Result<Value, String> {
     state
@@ -638,31 +640,31 @@ async fn preferences_add_pairwise(
         .request(
             Method::POST,
             "/control/preferences/pairwise",
-            Some(json!({ "winnerId": winner_id, "loserId": loser_id })),
+            Some(json!({ "winnerKey": winner_key, "loserKey": loser_key })),
         )
         .await
 }
 
 #[tauri::command]
-async fn preferences_skip(film_id: i64, state: State<'_, RuntimeState>) -> Result<Value, String> {
+async fn preferences_skip(key: String, state: State<'_, RuntimeState>) -> Result<Value, String> {
     state
         .client
         .request(
             Method::POST,
             "/control/preferences/skip",
-            Some(json!({ "filmId": film_id })),
+            Some(json!({ "key": key })),
         )
         .await
 }
 
 #[tauri::command]
-async fn preferences_unskip(film_id: i64, state: State<'_, RuntimeState>) -> Result<Value, String> {
+async fn preferences_unskip(key: String, state: State<'_, RuntimeState>) -> Result<Value, String> {
     state
         .client
         .request(
             Method::POST,
             "/control/preferences/unskip",
-            Some(json!({ "filmId": film_id })),
+            Some(json!({ "key": key })),
         )
         .await
 }
@@ -673,6 +675,226 @@ async fn preferences_reset(state: State<'_, RuntimeState>) -> Result<Value, Stri
         .client
         .request(Method::POST, "/control/preferences/reset", Some(json!({})))
         .await
+}
+
+// --- TMDB proxy commands -------------------------------------------------
+// These forward to the Node backend's control server, which owns the TMDB
+// token (OS keychain) and the metadata disk cache. Poster *images* do not
+// go through here — they are served by the `tmdbimg` URI scheme below.
+
+/// Percent-encode a query-string value (RFC 3986 unreserved set kept as-is).
+fn pct(value: &str) -> String {
+    let mut out = String::with_capacity(value.len());
+    for byte in value.as_bytes() {
+        match byte {
+            b'A'..=b'Z' | b'a'..=b'z' | b'0'..=b'9' | b'-' | b'_' | b'.' | b'~' => {
+                out.push(*byte as char)
+            }
+            other => out.push_str(&format!("%{:02X}", other)),
+        }
+    }
+    out
+}
+
+#[tauri::command]
+async fn tmdb_status(state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(Method::GET, "/control/tmdb/status", None)
+        .await
+}
+
+#[tauri::command]
+async fn tmdb_set_token(token: String, state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::PUT,
+            "/control/tmdb/token",
+            Some(json!({ "token": token })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn tmdb_clear_token(state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(Method::POST, "/control/tmdb/token/clear", Some(json!({})))
+        .await
+}
+
+#[tauri::command]
+async fn tmdb_genres(medium: String, state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::GET,
+            &format!("/control/tmdb/genres?medium={}", pct(&medium)),
+            None,
+        )
+        .await
+}
+
+#[tauri::command]
+async fn tmdb_trending(
+    medium: String,
+    page: Option<i64>,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::GET,
+            &format!(
+                "/control/tmdb/trending?medium={}&page={}",
+                pct(&medium),
+                page.unwrap_or(1)
+            ),
+            None,
+        )
+        .await
+}
+
+#[tauri::command]
+async fn tmdb_discover(
+    medium: String,
+    sort_by: Option<String>,
+    with_genres: Option<String>,
+    min_votes: Option<i64>,
+    page: Option<i64>,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    let mut path = format!("/control/tmdb/discover?medium={}", pct(&medium));
+    if let Some(s) = sort_by {
+        path.push_str(&format!("&sortBy={}", pct(&s)));
+    }
+    if let Some(g) = with_genres {
+        path.push_str(&format!("&withGenres={}", pct(&g)));
+    }
+    if let Some(v) = min_votes {
+        path.push_str(&format!("&minVotes={v}"));
+    }
+    if let Some(p) = page {
+        path.push_str(&format!("&page={p}"));
+    }
+    state.client.request(Method::GET, &path, None).await
+}
+
+#[tauri::command]
+async fn tmdb_search(
+    medium: String,
+    query: String,
+    year: Option<i64>,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    let mut path = format!(
+        "/control/tmdb/search?medium={}&query={}",
+        pct(&medium),
+        pct(&query)
+    );
+    if let Some(y) = year {
+        path.push_str(&format!("&year={y}"));
+    }
+    state.client.request(Method::GET, &path, None).await
+}
+
+#[tauri::command]
+async fn tmdb_detail(
+    medium: String,
+    id: i64,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::GET,
+            &format!("/control/tmdb/detail?medium={}&id={}", pct(&medium), id),
+            None,
+        )
+        .await
+}
+
+/// Resolve, cache, and read a poster image. Hits TMDB only on a cache
+/// miss or when the cached copy is older than `POSTER_TTL`. Returns the
+/// image bytes and a content type.
+async fn serve_poster(app: &AppHandle, uri_path: &str) -> Result<(Vec<u8>, String), String> {
+    const POSTER_TTL: Duration = Duration::from_secs(90 * 24 * 60 * 60); // 90 days
+    const ALLOWED_SIZES: &[&str] = &[
+        "w92", "w154", "w185", "w342", "w500", "w780", "original",
+    ];
+
+    // uri_path looks like "/w780/abc123.jpg" → size="w780", file="abc123.jpg"
+    let trimmed = uri_path.trim_start_matches('/');
+    let mut parts = trimmed.splitn(2, '/');
+    let size = parts.next().unwrap_or("");
+    let file = parts.next().unwrap_or("");
+
+    if !ALLOWED_SIZES.contains(&size) {
+        return Err(format!("bad poster size: {size}"));
+    }
+    // Guard against path traversal — the file must be a bare TMDB filename.
+    if file.is_empty()
+        || file.contains('/')
+        || file.contains("..")
+        || !file
+            .chars()
+            .all(|c| c.is_ascii_alphanumeric() || c == '.' || c == '_' || c == '-')
+    {
+        return Err(format!("bad poster file: {file}"));
+    }
+
+    let content_type = if file.ends_with(".png") {
+        "image/png"
+    } else {
+        "image/jpeg"
+    };
+
+    let cache_dir = app
+        .path()
+        .app_data_dir()
+        .map_err(|e| format!("no app data dir: {e}"))?
+        .join("dossier")
+        .join("tmdb-cache")
+        .join("posters")
+        .join(size);
+    let cache_path = cache_dir.join(file);
+
+    // Serve from disk if present and fresh.
+    if let Ok(meta) = std::fs::metadata(&cache_path) {
+        let fresh = meta
+            .modified()
+            .ok()
+            .and_then(|m| m.elapsed().ok())
+            .map(|age| age < POSTER_TTL)
+            .unwrap_or(false);
+        if fresh {
+            if let Ok(bytes) = std::fs::read(&cache_path) {
+                return Ok((bytes, content_type.to_string()));
+            }
+        }
+    }
+
+    // Last resort: fetch from TMDB's public image CDN (no auth needed).
+    let url = format!("https://image.tmdb.org/t/p/{size}/{file}");
+    let response = Client::new()
+        .get(&url)
+        .timeout(Duration::from_secs(30))
+        .send()
+        .await
+        .map_err(|e| format!("poster fetch failed: {e}"))?;
+    if !response.status().is_success() {
+        return Err(format!("poster fetch HTTP {}", response.status()));
+    }
+    let bytes = response
+        .bytes()
+        .await
+        .map_err(|e| format!("poster body failed: {e}"))?
+        .to_vec();
+
+    create_dir_all(&cache_dir).map_err(|e| format!("poster cache mkdir failed: {e}"))?;
+    write(&cache_path, &bytes).map_err(|e| format!("poster cache write failed: {e}"))?;
+    Ok((bytes, content_type.to_string()))
 }
 
 #[tauri::command]
@@ -688,6 +910,35 @@ fn settings_set_start_on_login(enabled: bool) -> Result<bool, String> {
 fn main() {
     let app = match tauri::Builder::default()
         .plugin(tauri_plugin_updater::Builder::new().build())
+        .register_asynchronous_uri_scheme_protocol(
+            "tmdbimg",
+            |ctx: UriSchemeContext<'_, tauri::Wry>, request, responder| {
+                let app = ctx.app_handle().clone();
+                let path = request.uri().path().to_string();
+                tauri::async_runtime::spawn(async move {
+                    match serve_poster(&app, &path).await {
+                        Ok((bytes, content_type)) => responder.respond(
+                            HttpResponse::builder()
+                                .status(200)
+                                .header("Content-Type", content_type)
+                                .header("Cache-Control", "public, max-age=31536000, immutable")
+                                .header("Access-Control-Allow-Origin", "*")
+                                .body(bytes)
+                                .unwrap(),
+                        ),
+                        Err(error) => {
+                            eprintln!("tmdbimg: {error}");
+                            responder.respond(
+                                HttpResponse::builder()
+                                    .status(404)
+                                    .body(Vec::new())
+                                    .unwrap(),
+                            )
+                        }
+                    }
+                });
+            },
+        )
         .setup(|app| {
             let app_handle = app.handle().clone();
             let backend_client = match spawn_backend(&app_handle) {
@@ -749,6 +1000,14 @@ fn main() {
             preferences_skip,
             preferences_unskip,
             preferences_reset,
+            tmdb_status,
+            tmdb_set_token,
+            tmdb_clear_token,
+            tmdb_genres,
+            tmdb_trending,
+            tmdb_discover,
+            tmdb_search,
+            tmdb_detail,
             update_install_and_restart
         ])
         .build(tauri::generate_context!())

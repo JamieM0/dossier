@@ -1,8 +1,32 @@
 import { invoke } from "@tauri-apps/api/core";
-import type { DossierSettings, PairwiseChoice, PreferencesPayload, Rating } from "$lib/types";
+import type {
+  DossierSettings,
+  PairwiseChoice,
+  PreferencesPayload,
+  RatedItem,
+  Rating,
+  RatingEntry,
+  TmdbListResult,
+  TmdbItem,
+  TmdbMedium
+} from "$lib/types";
 
 function isTauriRuntime(): boolean {
   return typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
+}
+
+/** Build a poster URL for the Rust `tmdbimg` cache scheme. The webview
+ * exposes custom schemes differently per platform: Windows serves them
+ * as `http://<scheme>.localhost/...`, macOS/Linux as `<scheme>://...`.
+ * Returns null when there is no poster. */
+function posterUrl(posterPath: string | null, size = "w780"): string | null {
+  if (!posterPath) return null;
+  const file = posterPath.replace(/^\//, "");
+  const isWindows =
+    typeof navigator !== "undefined" && /Windows/i.test(navigator.userAgent);
+  return isWindows
+    ? `http://tmdbimg.localhost/${size}/${file}`
+    : `tmdbimg://localhost/${size}/${file}`;
 }
 
 export function installDesktopApi(): void {
@@ -30,15 +54,45 @@ export function installDesktopApi(): void {
     },
     preferences: {
       get: (): Promise<PreferencesPayload> => invoke("preferences_get"),
-      setRating: (filmId: number, rating: Rating | null): Promise<{ ratings: Record<string, Rating> }> =>
-        invoke("preferences_set_rating", { filmId, rating }),
-      addPairwise: (winnerId: number, loserId: number): Promise<{ pairwise: PairwiseChoice[] }> =>
-        invoke("preferences_add_pairwise", { winnerId, loserId }),
-      skip: (filmId: number): Promise<{ skipped: number[] }> =>
-        invoke("preferences_skip", { filmId }),
-      unskip: (filmId: number): Promise<{ skipped: number[] }> =>
-        invoke("preferences_unskip", { filmId }),
+      setRating: (
+        key: string,
+        rating: Rating | null,
+        item?: RatedItem
+      ): Promise<{ ratings: Record<string, RatingEntry> }> =>
+        invoke("preferences_set_rating", { key, rating, item: item ?? null }),
+      addPairwise: (winnerKey: string, loserKey: string): Promise<{ pairwise: PairwiseChoice[] }> =>
+        invoke("preferences_add_pairwise", { winnerKey, loserKey }),
+      skip: (key: string): Promise<{ skipped: string[] }> =>
+        invoke("preferences_skip", { key }),
+      unskip: (key: string): Promise<{ skipped: string[] }> =>
+        invoke("preferences_unskip", { key }),
       reset: (): Promise<{ ok: boolean }> => invoke("preferences_reset")
+    },
+    tmdb: {
+      status: (): Promise<{ configured: boolean }> => invoke("tmdb_status"),
+      setToken: (token: string): Promise<{ configured: boolean }> =>
+        invoke("tmdb_set_token", { token }),
+      clearToken: (): Promise<{ configured: boolean }> => invoke("tmdb_clear_token"),
+      genres: (medium: TmdbMedium): Promise<{ genres: Record<string, string> }> =>
+        invoke("tmdb_genres", { medium }),
+      trending: (medium: TmdbMedium, page = 1): Promise<TmdbListResult> =>
+        invoke("tmdb_trending", { medium, page }),
+      discover: (
+        medium: TmdbMedium,
+        params: { sortBy?: string; withGenres?: string; minVotes?: number; page?: number } = {}
+      ): Promise<TmdbListResult> =>
+        invoke("tmdb_discover", {
+          medium,
+          sortBy: params.sortBy ?? null,
+          withGenres: params.withGenres ?? null,
+          minVotes: params.minVotes ?? null,
+          page: params.page ?? null
+        }),
+      search: (medium: TmdbMedium, query: string, year?: number): Promise<TmdbListResult> =>
+        invoke("tmdb_search", { medium, query, year: year ?? null }),
+      detail: (medium: TmdbMedium, id: number): Promise<TmdbItem> =>
+        invoke("tmdb_detail", { medium, id }),
+      posterUrl
     }
   };
 }
