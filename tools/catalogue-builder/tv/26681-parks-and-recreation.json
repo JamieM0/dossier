@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26681-parks-and-recreation",
+  "id": 26681,
+  "slug": "parks-and-recreation",
+  "title": "Parks and Recreation",
+  "year": 2009,
+  "rating": 8.6,
+  "votes_text": "312K",
+  "votes": 312000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/c5/26681.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "Hilarious ensemble comedy that follows Leslie Knope, a mid-level bureaucrat in the Parks and Recreation Department of Pawnee, Indiana, and her tireless efforts to make her quintessentially American town just a little bit more fun.",
+  "tags": [
+    {
+      "id": 2193,
+      "slug": "mockumentary",
+      "name": "Mockumentary",
+      "film_count": 1254
+    },
+    {
+      "id": 4027,
+      "slug": "political-satire",
+      "name": "Political satire",
+      "film_count": 1048
+    },
+    {
+      "id": 3944,
+      "slug": "indiana",
+      "name": "Indiana",
+      "film_count": 389
+    },
+    {
+      "id": 696,
+      "slug": "politics",
+      "name": "Politics",
+      "film_count": 5052
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 1305,
+      "slug": "absurd-humor",
+      "name": "Absurd humor",
+      "film_count": 934
+    },
+    {
+      "id": 1290,
+      "slug": "social-commentary",
+      "name": "Social commentary",
+      "film_count": 4848
+    },
+    {
+      "id": 733,
+      "slug": "parody",
+      "name": "Parody",
+      "film_count": 4207
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 5404,
+      "slug": "women",
+      "name": "Women",
+      "film_count": 7008
+    },
+    {
+      "id": 124139,
+      "slug": "hilarious",
+      "name": "Hilarious",
+      "film_count": 1767
+    },
+    {
+      "id": 503,
+      "slug": "employer-employee-relationship",
+      "name": "Employer employee relationship",
+      "film_count": 1646
+    },
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 113328,
+      "slug": "political",
+      "name": "Political",
+      "film_count": 2774
+    },
+    {
+      "id": 15776,
+      "slug": "feminist",
+      "name": "Feminist",
+      "film_count": 2194
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "mockumentary",
+      "humorous",
+      "funny",
+      "talky",
+      "not serious",
+      "realistic",
+      "parody",
+      "hilarious",
+      "political"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "political satire",
+      "politics",
+      "satire",
+      "absurd humor",
+      "social commentary",
+      "small town life",
+      "strong female lead",
+      "friendship",
+      "female protagonist",
+      "workplace situations",
+      "workplace humor",
+      "workaholic",
+      "boss and employee",
+      "feminism",
+      "loser",
+      "ambition",
+      "ex husband",
+      "supportive coworker",
+      "women",
+      "employer employee relationship",
+      "serial killer",
+      "feminist",
+      "assistant",
+      "stupidity",
+      "office"
+    ],
+    "time": [
+      "2010s",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "indiana",
+      "usa",
+      "north america",
+      "seattle"
+    ]
+  },
+  "similar": [
+    {
+      "id": 1233,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2005,
+      "rank": 0
+    },
+    {
+      "id": 30449,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2001,
+      "rank": 1
+    },
+    {
+      "id": 26562,
+      "slug": "community",
+      "title": "Community",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 30523,
+      "slug": "30-rock",
+      "title": "30 Rock",
+      "year": 2006,
+      "rank": 3
+    },
+    {
+      "id": 8662,
+      "slug": "arrested-development",
+      "title": "Arrested Development",
+      "year": 2003,
+      "rank": 4
+    },
+    {
+      "id": 16022,
+      "slug": "the-it-crowd",
+      "title": "The IT Crowd",
+      "year": 2006,
+      "rank": 5
+    },
+    {
+      "id": 5359,
+      "slug": "brooklyn-nine-nine",
+      "title": "Brooklyn Nine-Nine",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 61092,
+      "slug": "superstore",
+      "title": "Superstore",
+      "year": 2015,
+      "rank": 7
+    },
+    {
+      "id": 1281,
+      "slug": "the-mindy-project",
+      "title": "The Mindy Project",
+      "year": 2012,
+      "rank": 8
+    },
+    {
+      "id": 2249,
+      "slug": "veep",
+      "title": "Veep",
+      "year": 2012,
+      "rank": 9
+    },
+    {
+      "id": 25987,
+      "slug": "yes-minister",
+      "title": "Yes Minister",
+      "year": 1980,
+      "rank": 10
+    },
+    {
+      "id": 30506,
+      "slug": "seinfeld",
+      "title": "Seinfeld",
+      "year": 1989,
+      "rank": 11
+    },
+    {
+      "id": 2812,
+      "slug": "workaholics",
+      "title": "Workaholics",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 18931,
+      "slug": "my-name-is-earl",
+      "title": "My Name Is Earl",
+      "year": 2005,
+      "rank": 13
+    },
+    {
+      "id": 63700,
+      "slug": "the-thick-of-it",
+      "title": "The Thick of It",
+      "year": 2005,
+      "rank": 14
+    },
+    {
+      "id": 59969,
+      "slug": "utopia",
+      "title": "Utopia",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 62578,
+      "slug": "ground-floor",
+      "title": "Ground Floor",
+      "year": 2013,
+      "rank": 16
+    },
+    {
+      "id": 29933,
+      "slug": "thats-my-bush",
+      "title": "That's My Bush!",
+      "year": 2001,
+      "rank": 17
+    },
+    {
+      "id": 62008,
+      "slug": "10-items-or-less",
+      "title": "10 Items or Less",
+      "year": 2006,
+      "rank": 18
+    },
+    {
+      "id": 77953,
+      "slug": "yg-future-strategy-office",
+      "title": "YG Future Strategy Office",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 4974,
+      "slug": "broad-city",
+      "title": "Broad City",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 56432,
+      "slug": "review",
+      "title": "Review",
+      "year": 2014,
+      "rank": 21
+    },
+    {
+      "id": 41820,
+      "slug": "crazy-ex-girlfriend",
+      "title": "Crazy Ex-Girlfriend",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 3822,
+      "slug": "twenty-twelve",
+      "title": "Twenty Twelve",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 62037,
+      "slug": "mr-sunshine",
+      "title": "Mr. Sunshine",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 61994,
+      "slug": "the-increasingly-poor-decisions-of-todd-margaret",
+      "title": "The Increasingly Poor Decisions of Todd Margaret",
+      "year": 2009,
+      "rank": 25
+    },
+    {
+      "id": 100035,
+      "slug": "yes-prime-minister",
+      "title": "Yes, Prime Minister",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 72434,
+      "slug": "stupid-stupid-man",
+      "title": "Stupid, Stupid Man",
+      "year": 2006,
+      "rank": 27
+    },
+    {
+      "id": 30405,
+      "slug": "murphy-brown",
+      "title": "Murphy Brown",
+      "year": 1988,
+      "rank": 28
+    },
+    {
+      "id": 98203,
+      "slug": "friend-me",
+      "title": "Friend Me",
+      "year": 2012,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919147
+}

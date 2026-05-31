@@ -1,0 +1,392 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/58254-the-marvelous-mrs-maisel",
+  "id": 58254,
+  "slug": "the-marvelous-mrs-maisel",
+  "title": "The Marvelous Mrs. Maisel",
+  "year": 2017,
+  "rating": 8.6,
+  "votes_text": "157K",
+  "votes": 157000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/50/58254.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "It’s 1958 Manhattan and Miriam “Midge” Maisel has everything she’s ever wanted - the perfect husband, kids, and Upper West Side apartment. But when her life suddenly takes a turn and Midge must start over, she discovers a previously unknown talent - one that will take her all the way from the comedy clubs of Greenwich Village to a spot on Johnny Carson’s couch.",
+  "tags": [
+    {
+      "id": 108664,
+      "slug": "50s",
+      "name": "50s",
+      "film_count": 1411
+    },
+    {
+      "id": 9188,
+      "slug": "jewish-family",
+      "name": "Jewish family",
+      "film_count": 168
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 736,
+      "slug": "comedian",
+      "name": "Comedian",
+      "film_count": 1127
+    },
+    {
+      "id": 734,
+      "slug": "stand-up-comedian",
+      "name": "Stand up comedian",
+      "film_count": 776
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 22,
+      "slug": "1950s",
+      "name": "1950s",
+      "film_count": 1529
+    },
+    {
+      "id": 123486,
+      "slug": "witty",
+      "name": "Witty",
+      "film_count": 5204
+    },
+    {
+      "id": 4161,
+      "slug": "fashion",
+      "name": "Fashion",
+      "film_count": 1449
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 108448,
+      "slug": "coping",
+      "name": "Coping",
+      "film_count": 666
+    },
+    {
+      "id": 3260,
+      "slug": "coming-of-age",
+      "name": "Coming of age",
+      "film_count": 16794
+    },
+    {
+      "id": 124139,
+      "slug": "hilarious",
+      "name": "Hilarious",
+      "film_count": 1767
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 123873,
+      "slug": "thought-provoking",
+      "name": "Thought provoking",
+      "film_count": 7187
+    },
+    {
+      "id": 2295,
+      "slug": "sexism",
+      "name": "Sexism",
+      "film_count": 792
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "humorous",
+      "witty",
+      "atmospheric",
+      "feel good",
+      "captivating",
+      "saga",
+      "period piece",
+      "costume drama",
+      "funny",
+      "hilarious"
+    ],
+    "audience": [
+      "kids",
+      "chick flick"
+    ],
+    "plot": [
+      "jewish family",
+      "female protagonist",
+      "comedian",
+      "stand up comedian",
+      "female comedian",
+      "career",
+      "strong female lead",
+      "divorce",
+      "husband wife relationship",
+      "judaism",
+      "feminist",
+      "lifestyle change",
+      "fashion",
+      "coping",
+      "coming of age",
+      "sexism",
+      "breakup",
+      "stand up comedy",
+      "closeted homosexual",
+      "female nudity",
+      "serial killer",
+      "lgbt",
+      "writers",
+      "feminism",
+      "family relations"
+    ],
+    "time": [
+      "50s",
+      "1950s",
+      "future",
+      "2010s",
+      "60s",
+      "1960s",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "manhattan new york city",
+      "manhattan",
+      "new york city"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65695,
+      "slug": "why-women-kill",
+      "title": "Why Women Kill",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 43642,
+      "slug": "fleabag",
+      "title": "Fleabag",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 68924,
+      "slug": "im-dying-up-here",
+      "title": "I'm Dying Up Here",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 66500,
+      "slug": "zoeys-extraordinary-playlist",
+      "title": "Zoey's Extraordinary Playlist",
+      "year": 2020,
+      "rank": 3
+    },
+    {
+      "id": 43635,
+      "slug": "the-durrells",
+      "title": "The Durrells",
+      "year": 2016,
+      "rank": 4
+    },
+    {
+      "id": 65038,
+      "slug": "ladies-in-black",
+      "title": "Ladies in Black",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 73157,
+      "slug": "hacks",
+      "title": "Hacks",
+      "year": 2021,
+      "rank": 6
+    },
+    {
+      "id": 65947,
+      "slug": "dickinson",
+      "title": "Dickinson",
+      "year": 2019,
+      "rank": 7
+    },
+    {
+      "id": 60131,
+      "slug": "workin-moms",
+      "title": "Workin' Moms",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 91703,
+      "slug": "palm-royale",
+      "title": "Palm Royale",
+      "year": 2024,
+      "rank": 9
+    },
+    {
+      "id": 88546,
+      "slug": "yearly-departed",
+      "title": "Yearly Departed",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 30513,
+      "slug": "gilmore-girls",
+      "title": "Gilmore Girls",
+      "year": 2000,
+      "rank": 11
+    },
+    {
+      "id": 60769,
+      "slug": "glow",
+      "title": "GLOW",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 70352,
+      "slug": "master-of-none",
+      "title": "Master of None",
+      "year": 2015,
+      "rank": 13
+    },
+    {
+      "id": 67220,
+      "slug": "high-maintenance",
+      "title": "High Maintenance",
+      "year": 2016,
+      "rank": 14
+    },
+    {
+      "id": 264,
+      "slug": "girls",
+      "title": "Girls",
+      "year": 2012,
+      "rank": 15
+    },
+    {
+      "id": 27016,
+      "slug": "mad-men",
+      "title": "Mad Men",
+      "year": 2007,
+      "rank": 16
+    },
+    {
+      "id": 28865,
+      "slug": "unbreakable-kimmy-schmidt",
+      "title": "Unbreakable Kimmy Schmidt",
+      "year": 2015,
+      "rank": 17
+    },
+    {
+      "id": 30506,
+      "slug": "seinfeld",
+      "title": "Seinfeld",
+      "year": 1989,
+      "rank": 18
+    },
+    {
+      "id": 30465,
+      "slug": "the-golden-girls",
+      "title": "The Golden Girls",
+      "year": 1985,
+      "rank": 19
+    },
+    {
+      "id": 86463,
+      "slug": "i-am-bartu",
+      "title": "I am Bartu",
+      "year": 2018,
+      "rank": 20
+    },
+    {
+      "id": 2914,
+      "slug": "louie",
+      "title": "Louie",
+      "year": 2010,
+      "rank": 21
+    },
+    {
+      "id": 66295,
+      "slug": "crashing",
+      "title": "Crashing",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 30463,
+      "slug": "roseanne",
+      "title": "Roseanne",
+      "year": 1988,
+      "rank": 23
+    },
+    {
+      "id": 78488,
+      "slug": "the-ms-pat-show",
+      "title": "The Ms. Pat Show",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 72745,
+      "slug": "shrill",
+      "title": "Shrill",
+      "year": 2019,
+      "rank": 25
+    },
+    {
+      "id": 72947,
+      "slug": "kevin-can-f-k-himself",
+      "title": "Kevin Can F**k Himself",
+      "year": 2021,
+      "rank": 26
+    },
+    {
+      "id": 30523,
+      "slug": "30-rock",
+      "title": "30 Rock",
+      "year": 2006,
+      "rank": 27
+    },
+    {
+      "id": 78547,
+      "slug": "irma-vep",
+      "title": "Irma Vep",
+      "year": 2022,
+      "rank": 28
+    },
+    {
+      "id": 87875,
+      "slug": "dry-bar-comedy",
+      "title": "Dry Bar Comedy",
+      "year": 2017,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919163
+}

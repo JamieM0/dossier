@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/5767-penny-dreadful",
+  "id": 5767,
+  "slug": "penny-dreadful",
+  "title": "Penny Dreadful",
+  "year": 2014,
+  "rating": 8.2,
+  "votes_text": "139K",
+  "votes": 139000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/5e/5767.jpg",
+  "genres": [
+    "Drama",
+    "Fantasy",
+    "Horror"
+  ],
+  "country": [
+    "UK",
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Some of literature's most terrifying characters, including Dr. Frankenstein, Dorian Gray, and iconic figures from the novel Dracula are lurking in the darkest corners of Victorian London. Penny Dreadful is a frightening psychological thriller that weaves together these classic horror origin stories into a new adult drama.",
+  "tags": [
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 2297,
+      "slug": "victorian-era",
+      "name": "Victorian era",
+      "film_count": 1068
+    },
+    {
+      "id": 3943,
+      "slug": "witch",
+      "name": "Witch",
+      "film_count": 2159
+    },
+    {
+      "id": 8255,
+      "slug": "gothic",
+      "name": "Gothic",
+      "film_count": 2678
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    },
+    {
+      "id": 310,
+      "slug": "fear",
+      "name": "Fear",
+      "film_count": 7739
+    },
+    {
+      "id": 2627,
+      "slug": "vampire",
+      "name": "Vampire",
+      "film_count": 1688
+    },
+    {
+      "id": 6898,
+      "slug": "dark-fantasy",
+      "name": "Dark fantasy",
+      "film_count": 2029
+    },
+    {
+      "id": 10062,
+      "slug": "period-piece",
+      "name": "Period piece",
+      "film_count": 6298
+    },
+    {
+      "id": 804,
+      "slug": "erotica",
+      "name": "Erotica",
+      "film_count": 4398
+    },
+    {
+      "id": 191,
+      "slug": "england",
+      "name": "England",
+      "film_count": 4022
+    },
+    {
+      "id": 123484,
+      "slug": "stylized",
+      "name": "Stylized",
+      "film_count": 9222
+    },
+    {
+      "id": 22763,
+      "slug": "costume-drama",
+      "name": "Costume drama",
+      "film_count": 1839
+    },
+    {
+      "id": 135794,
+      "slug": "spooky",
+      "name": "Spooky",
+      "film_count": 2036
+    },
+    {
+      "id": 123641,
+      "slug": "hunt-down",
+      "name": "Hunt down",
+      "film_count": 125
+    },
+    {
+      "id": 4,
+      "slug": "mental-illness",
+      "name": "Mental illness",
+      "film_count": 3669
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "gothic",
+      "atmospheric",
+      "dark fantasy",
+      "gothic horror",
+      "scary",
+      "dark",
+      "period piece",
+      "stylized",
+      "costume drama",
+      "spooky"
+    ],
+    "audience": [
+      "adult"
+    ],
+    "plot": [
+      "supernatural",
+      "witch",
+      "fear",
+      "vampire",
+      "werewolf",
+      "psychotherapy",
+      "deadly creature",
+      "sex scene",
+      "victorian england",
+      "imaginary",
+      "sex",
+      "supernatural ability",
+      "haunted by the past",
+      "frankenstein's monster",
+      "black magic",
+      "lycanthropy",
+      "mysterious character",
+      "erotica",
+      "danger",
+      "hunt down",
+      "mental illness",
+      "assistant",
+      "mind game",
+      "dracula",
+      "halloween"
+    ],
+    "time": [
+      "victorian era",
+      "1890s",
+      "19th century",
+      "victorian"
+    ],
+    "place": [
+      "england",
+      "london"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64076,
+      "slug": "a-discovery-of-witches",
+      "title": "A Discovery of Witches",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 27309,
+      "slug": "salem",
+      "title": "Salem",
+      "year": 2014,
+      "rank": 1
+    },
+    {
+      "id": 15902,
+      "slug": "interview-with-the-vampire-the-vampire-chronicles",
+      "title": "Interview with the Vampire",
+      "year": 1994,
+      "rank": 2
+    },
+    {
+      "id": 27228,
+      "slug": "dracula",
+      "title": "Dracula",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 27646,
+      "slug": "crimson-peak",
+      "title": "Crimson Peak",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 26369,
+      "slug": "american-horror-story",
+      "title": "American Horror Story",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 25796,
+      "slug": "the-wolfman",
+      "title": "The Wolfman",
+      "year": 2010,
+      "rank": 6
+    },
+    {
+      "id": 12447,
+      "slug": "bram-stokers-dracula",
+      "title": "Bram Stoker's Dracula",
+      "year": 1992,
+      "rank": 7
+    },
+    {
+      "id": 79795,
+      "slug": "interview-with-the-vampire",
+      "title": "Interview with the Vampire",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 22749,
+      "slug": "sleepy-hollow",
+      "title": "Sleepy Hollow",
+      "year": 1999,
+      "rank": 9
+    },
+    {
+      "id": 69164,
+      "slug": "helstrom",
+      "title": "Helstrom",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 41305,
+      "slug": "la-feria-ambulante",
+      "title": "Carnivàle",
+      "year": 2003,
+      "rank": 11
+    },
+    {
+      "id": 26485,
+      "slug": "true-blood",
+      "title": "True Blood",
+      "year": 2008,
+      "rank": 12
+    },
+    {
+      "id": 13707,
+      "slug": "frankenstein",
+      "title": "Frankenstein",
+      "year": 2004,
+      "rank": 13
+    },
+    {
+      "id": 7326,
+      "slug": "dracula-untold",
+      "title": "Dracula Untold",
+      "year": 2014,
+      "rank": 14
+    },
+    {
+      "id": 30043,
+      "slug": "dark-shadows",
+      "title": "Dark Shadows",
+      "year": 1966,
+      "rank": 15
+    },
+    {
+      "id": 5865,
+      "slug": "the-originals",
+      "title": "The Originals",
+      "year": 2013,
+      "rank": 16
+    },
+    {
+      "id": 11098,
+      "slug": "the-company-of-wolves",
+      "title": "The Company of Wolves",
+      "year": 1984,
+      "rank": 17
+    },
+    {
+      "id": 5832,
+      "slug": "byzantium",
+      "title": "Byzantium",
+      "year": 2012,
+      "rank": 18
+    },
+    {
+      "id": 60790,
+      "slug": "van-helsing",
+      "title": "Van Helsing",
+      "year": 2016,
+      "rank": 19
+    },
+    {
+      "id": 65720,
+      "slug": "carnival-row",
+      "title": "Carnival Row",
+      "year": 2019,
+      "rank": 20
+    },
+    {
+      "id": 62629,
+      "slug": "hammer-house-of-horror",
+      "title": "Hammer House of Horror",
+      "year": 1980,
+      "rank": 21
+    },
+    {
+      "id": 30498,
+      "slug": "night-gallery",
+      "title": "Night Gallery",
+      "year": 1969,
+      "rank": 22
+    },
+    {
+      "id": 67990,
+      "slug": "penny-dreadful-city-of-angels",
+      "title": "Penny Dreadful: City of Angels",
+      "year": 2020,
+      "rank": 23
+    },
+    {
+      "id": 28860,
+      "slug": "american-gods",
+      "title": "American Gods",
+      "year": 2017,
+      "rank": 24
+    },
+    {
+      "id": 95745,
+      "slug": "interview-with-the-vampire",
+      "title": "Interview with the Vampire",
+      "year": 2022,
+      "rank": 25
+    },
+    {
+      "id": 76730,
+      "slug": "the-sandman",
+      "title": "The Sandman",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 26336,
+      "slug": "the-woman-in-black",
+      "title": "The Woman in Black",
+      "year": 2012,
+      "rank": 27
+    },
+    {
+      "id": 26565,
+      "slug": "supernatural",
+      "title": "Supernatural",
+      "year": 2005,
+      "rank": 28
+    },
+    {
+      "id": 57898,
+      "slug": "midnight-texas",
+      "title": "Midnight, Texas",
+      "year": 2017,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919134
+}

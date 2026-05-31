@@ -1,0 +1,382 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64167-atlanta",
+  "id": 64167,
+  "slug": "atlanta",
+  "title": "Atlanta",
+  "year": 2016,
+  "rating": 8.6,
+  "votes_text": "98K",
+  "votes": 98000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/7d/64167.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Music"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 30,
+  "story": "Two cousins, with different views on art versus commerce, on their way up through the Atlanta rap scene; Earnest 'Earn' Marks, an ambitious college dropout and his estranged cousin, who suddenly becomes a star.",
+  "tags": [
+    {
+      "id": 9872,
+      "slug": "atlanta-georgia",
+      "name": "Atlanta georgia",
+      "film_count": 186
+    },
+    {
+      "id": 4407,
+      "slug": "cousin-cousin-relationship",
+      "name": "Cousin cousin relationship",
+      "film_count": 1069
+    },
+    {
+      "id": 5444,
+      "slug": "rapper",
+      "name": "Rapper",
+      "film_count": 377
+    },
+    {
+      "id": 21647,
+      "slug": "hip-hop-culture",
+      "name": "Hip hop culture",
+      "film_count": 290
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 2557,
+      "slug": "hip-hop",
+      "name": "Hip hop",
+      "film_count": 1370
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 124250,
+      "slug": "satirical",
+      "name": "Satirical",
+      "film_count": 8467
+    },
+    {
+      "id": 4218,
+      "slug": "city",
+      "name": "City",
+      "film_count": 3100
+    },
+    {
+      "id": 43785,
+      "slug": "glory",
+      "name": "Glory",
+      "film_count": 264
+    },
+    {
+      "id": 8426,
+      "slug": "music-business",
+      "name": "Music business",
+      "film_count": 293
+    },
+    {
+      "id": 10201,
+      "slug": "teenage-daughter",
+      "name": "Teenage daughter",
+      "film_count": 620
+    },
+    {
+      "id": 17217,
+      "slug": "black-family",
+      "name": "Black family",
+      "film_count": 124
+    },
+    {
+      "id": 1693,
+      "slug": "2010s",
+      "name": "2010s",
+      "film_count": 6370
+    },
+    {
+      "id": 4168,
+      "slug": "2020s",
+      "name": "2020s",
+      "film_count": 2869
+    },
+    {
+      "id": 3301,
+      "slug": "business",
+      "name": "Business",
+      "film_count": 2013
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "humorous",
+      "satirical",
+      "sitcom",
+      "captivating",
+      "ironic",
+      "cynical",
+      "light",
+      "inspirational",
+      "clever",
+      "serious"
+    ],
+    "plot": [
+      "cousin cousin relationship",
+      "rapper",
+      "hip hop culture",
+      "satire",
+      "hip hop",
+      "black",
+      "starlet",
+      "black sitcom",
+      "african american",
+      "opposites attract",
+      "misfit",
+      "brother brother relationship",
+      "social satire",
+      "ambition",
+      "pop star",
+      "poor family",
+      "black history",
+      "city",
+      "glory",
+      "music business",
+      "teenage daughter",
+      "black family",
+      "business",
+      "drug lord",
+      "black cast"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "atlanta georgia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 67667,
+      "slug": "wu-tang-an-american-saga",
+      "title": "Wu-Tang: An American Saga",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 82211,
+      "slug": "method-and-red",
+      "title": "Method & Red",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 64503,
+      "slug": "the-last-o-g",
+      "title": "The Last O.G.",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 43642,
+      "slug": "fleabag",
+      "title": "Fleabag",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 35405,
+      "slug": "baskets",
+      "title": "Baskets",
+      "year": 2016,
+      "rank": 4
+    },
+    {
+      "id": 28896,
+      "slug": "empire",
+      "title": "Empire",
+      "year": 2015,
+      "rank": 5
+    },
+    {
+      "id": 61581,
+      "slug": "dear-white-people",
+      "title": "Dear White People",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 12965,
+      "slug": "everybody-hates-chris",
+      "title": "Everybody Hates Chris",
+      "year": 2005,
+      "rank": 7
+    },
+    {
+      "id": 75214,
+      "slug": "the-upshaws",
+      "title": "The Upshaws",
+      "year": 2021,
+      "rank": 8
+    },
+    {
+      "id": 10474,
+      "slug": "cb4",
+      "title": "CB4",
+      "year": 1993,
+      "rank": 9
+    },
+    {
+      "id": 78488,
+      "slug": "the-ms-pat-show",
+      "title": "The Ms. Pat Show",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 57114,
+      "slug": "black-ish",
+      "title": "Black-ish",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 86819,
+      "slug": "the-breaks",
+      "title": "The Breaks",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 35209,
+      "slug": "krush-groove",
+      "title": "Krush Groove",
+      "year": 1985,
+      "rank": 13
+    },
+    {
+      "id": 78208,
+      "slug": "part-time-idol",
+      "title": "Part-Time Idol",
+      "year": 2017,
+      "rank": 14
+    },
+    {
+      "id": 93023,
+      "slug": "the-vince-staples-show",
+      "title": "The Vince Staples Show",
+      "year": 2024,
+      "rank": 15
+    },
+    {
+      "id": 76755,
+      "slug": "the-carmichael-show",
+      "title": "The Carmichael Show",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 88990,
+      "slug": "partners-in-rhyme",
+      "title": "Partners in Rhyme",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 30450,
+      "slug": "the-fresh-prince-of-bel-air",
+      "title": "The Fresh Prince of Bel-Air",
+      "year": 1990,
+      "rank": 18
+    },
+    {
+      "id": 61786,
+      "slug": "all-about-the-washingtons",
+      "title": "All About the Washingtons",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 10062,
+      "slug": "brown-sugar",
+      "title": "Brown Sugar",
+      "year": 2002,
+      "rank": 20
+    },
+    {
+      "id": 68497,
+      "slug": "step-up-high-water",
+      "title": "Step Up: High Water",
+      "year": 2018,
+      "rank": 21
+    },
+    {
+      "id": 42761,
+      "slug": "insecure",
+      "title": "Insecure",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 57950,
+      "slug": "the-lyricist-lounge-show",
+      "title": "The Lyricist Lounge Show",
+      "year": 2000,
+      "rank": 23
+    },
+    {
+      "id": 67220,
+      "slug": "high-maintenance",
+      "title": "High Maintenance",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 85970,
+      "slug": "mymusic",
+      "title": "MyMusic",
+      "year": 2012,
+      "rank": 25
+    },
+    {
+      "id": 21965,
+      "slug": "school-daze",
+      "title": "School Daze",
+      "year": 1988,
+      "rank": 26
+    },
+    {
+      "id": 68682,
+      "slug": "tyler-perrys-sistas",
+      "title": "Sistas",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 5124,
+      "slug": "roc-live",
+      "title": "Roc Live",
+      "year": 1991,
+      "rank": 28
+    },
+    {
+      "id": 82741,
+      "slug": "champaign-ill",
+      "title": "Champaign Ill",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919169
+}

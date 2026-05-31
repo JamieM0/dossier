@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/57107-bojack-horseman",
+  "id": 57107,
+  "slug": "bojack-horseman",
+  "title": "BoJack Horseman",
+  "year": 2014,
+  "rating": 8.8,
+  "votes_text": "228K",
+  "votes": 228000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/3a/57107.jpg",
+  "genres": [
+    "Animation",
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 25,
+  "story": "Meet the most beloved sitcom horse of the 90s - 20 years later. BoJack Horseman was the star of the hit TV show \"Horsin' Around,\" but today he's washed up, living in Hollywood, complaining about everything, and wearing colorful sweaters.",
+  "tags": [
+    {
+      "id": 3276,
+      "slug": "depression",
+      "name": "Depression",
+      "film_count": 3716
+    },
+    {
+      "id": 11413,
+      "slug": "existentialism",
+      "name": "Existentialism",
+      "film_count": 3458
+    },
+    {
+      "id": 12877,
+      "slug": "cynicism",
+      "name": "Cynicism",
+      "film_count": 712
+    },
+    {
+      "id": 2941,
+      "slug": "adult-animation",
+      "name": "Adult animation",
+      "film_count": 1876
+    },
+    {
+      "id": 16042,
+      "slug": "sadness",
+      "name": "Sadness",
+      "film_count": 1488
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 8303,
+      "slug": "hollywood",
+      "name": "Hollywood",
+      "film_count": 1355
+    },
+    {
+      "id": 123444,
+      "slug": "down-on-your-luck",
+      "name": "Down on your luck",
+      "film_count": 1260
+    },
+    {
+      "id": 123875,
+      "slug": "cynical",
+      "name": "Cynical",
+      "film_count": 2307
+    },
+    {
+      "id": 35974,
+      "slug": "life-philosophy",
+      "name": "Life philosophy",
+      "film_count": 7603
+    },
+    {
+      "id": 12784,
+      "slug": "showbiz",
+      "name": "Showbiz",
+      "film_count": 1755
+    },
+    {
+      "id": 1693,
+      "slug": "2010s",
+      "name": "2010s",
+      "film_count": 6370
+    },
+    {
+      "id": 275,
+      "slug": "dog",
+      "name": "Dog",
+      "film_count": 7735
+    },
+    {
+      "id": 1640,
+      "slug": "cat",
+      "name": "Cat",
+      "film_count": 2861
+    },
+    {
+      "id": 30151,
+      "slug": "tragicomedy",
+      "name": "Tragicomedy",
+      "film_count": 704
+    },
+    {
+      "id": 1297,
+      "slug": "surrealism",
+      "name": "Surrealism",
+      "film_count": 5009
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "adult animation",
+      "humorous",
+      "dark comedy",
+      "black comedy",
+      "sitcom",
+      "adult cartoon",
+      "satirical",
+      "depressing",
+      "sad",
+      "cynical"
+    ],
+    "audience": [
+      "kids",
+      "teens",
+      "adult"
+    ],
+    "plot": [
+      "depression",
+      "existentialism",
+      "cynicism",
+      "sadness",
+      "hollywood",
+      "down on your luck",
+      "adult humor",
+      "addiction",
+      "anthropomorphism",
+      "anthropomorphic animal",
+      "talking animal",
+      "mature",
+      "satire",
+      "nothing goes right",
+      "life is a bitch",
+      "mental illness",
+      "life philosophy",
+      "showbiz",
+      "dog",
+      "cat",
+      "surrealism",
+      "male protagonist",
+      "cartoon dog",
+      "cartoon cat",
+      "animal that acts human"
+    ],
+    "time": [
+      "2010s",
+      "future",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "los angeles",
+      "california",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 70863,
+      "slug": "tuca-and-bertie",
+      "title": "Tuca & Bertie",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 56595,
+      "slug": "rick-and-morty",
+      "title": "Rick and Morty",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 40769,
+      "slug": "f-is-for-family",
+      "title": "F is for Family",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 18067,
+      "slug": "mary-and-max",
+      "title": "Mary and Max",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 107563,
+      "slug": "bojack-horseman-christmas-special-sabrinas-christmas-wish",
+      "title": "BoJack Horseman Christmas Special: Sabrina's Christmas Wish",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 5108,
+      "slug": "ugly-americans",
+      "title": "Ugly Americans",
+      "year": 2010,
+      "rank": 5
+    },
+    {
+      "id": 65928,
+      "slug": "undone",
+      "title": "Undone",
+      "year": 2019,
+      "rank": 6
+    },
+    {
+      "id": 27148,
+      "slug": "archer-vice",
+      "title": "Archer",
+      "year": 2009,
+      "rank": 7
+    },
+    {
+      "id": 68006,
+      "slug": "the-midnight-gospel",
+      "title": "The Midnight Gospel",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 69318,
+      "slug": "moral-orel",
+      "title": "Moral Orel",
+      "year": 2005,
+      "rank": 9
+    },
+    {
+      "id": 3463,
+      "slug": "brickleberry",
+      "title": "Brickleberry",
+      "year": 2012,
+      "rank": 10
+    },
+    {
+      "id": 13137,
+      "slug": "family-guy",
+      "title": "Family Guy",
+      "year": 1999,
+      "rank": 11
+    },
+    {
+      "id": 16679,
+      "slug": "king-of-the-hill",
+      "title": "King of the Hill",
+      "year": 1997,
+      "rank": 12
+    },
+    {
+      "id": 61756,
+      "slug": "disenchantment",
+      "title": "Disenchantment",
+      "year": 2018,
+      "rank": 13
+    },
+    {
+      "id": 75313,
+      "slug": "south-park-post-covid",
+      "title": "South Park: Post COVID",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 11613,
+      "slug": "daria",
+      "title": "Daria",
+      "year": 1997,
+      "rank": 15
+    },
+    {
+      "id": 57923,
+      "slug": "big-mouth",
+      "title": "Big Mouth",
+      "year": 2017,
+      "rank": 16
+    },
+    {
+      "id": 38312,
+      "slug": "anomalisa",
+      "title": "Anomalisa",
+      "year": 2015,
+      "rank": 17
+    },
+    {
+      "id": 28915,
+      "slug": "mr-pickles",
+      "title": "Mr. Pickles",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 64628,
+      "slug": "paradise-pd",
+      "title": "Paradise PD",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 26887,
+      "slug": "american-dad",
+      "title": "American Dad!",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 82950,
+      "slug": "3-south",
+      "title": "3-South",
+      "year": 2002,
+      "rank": 21
+    },
+    {
+      "id": 106819,
+      "slug": "long-story-short",
+      "title": "Long Story Short",
+      "year": 2025,
+      "rank": 22
+    },
+    {
+      "id": 30008,
+      "slug": "wonder-showzen",
+      "title": "Wonder Showzen",
+      "year": 2005,
+      "rank": 23
+    },
+    {
+      "id": 73984,
+      "slug": "life-lessons-with-uramichi-oniisan",
+      "title": "Life Lessons with Uramichi Oniisan",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 73974,
+      "slug": "masameer-county",
+      "title": "Masameer County",
+      "year": 2021,
+      "rank": 25
+    },
+    {
+      "id": 7564,
+      "slug": "assy-mcgee",
+      "title": "Assy McGee",
+      "year": 2006,
+      "rank": 26
+    },
+    {
+      "id": 13809,
+      "slug": "fritz-the-cat",
+      "title": "Fritz the Cat",
+      "year": 1972,
+      "rank": 27
+    },
+    {
+      "id": 43742,
+      "slug": "aaagh-its-the-mr-hell-show",
+      "title": "Aaagh! It's the Mr. Hell Show!",
+      "year": 2000,
+      "rank": 28
+    },
+    {
+      "id": 58097,
+      "slug": "pig-goat-banana-cricket",
+      "title": "Pig Goat Banana Cricket",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919162
+}

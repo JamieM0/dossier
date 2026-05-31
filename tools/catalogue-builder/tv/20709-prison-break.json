@@ -1,0 +1,393 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/20709-prison-break",
+  "id": 20709,
+  "slug": "prison-break",
+  "title": "Prison Break",
+  "year": 2005,
+  "rating": 8.3,
+  "votes_text": "658K",
+  "votes": 658000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/7b/20709.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 44,
+  "story": "Due to a political conspiracy, an innocent man is sent to death row and his only hope is his brother, who makes it his mission to deliberately get himself sent to the same prison in order to break the both of them out, from the inside out.",
+  "tags": [
+    {
+      "id": 527,
+      "slug": "prison",
+      "name": "Prison",
+      "film_count": 4472
+    },
+    {
+      "id": 123357,
+      "slug": "fugitives",
+      "name": "Fugitives",
+      "film_count": 726
+    },
+    {
+      "id": 842,
+      "slug": "escape",
+      "name": "Escape",
+      "film_count": 7528
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 19745,
+      "slug": "prison-life",
+      "name": "Prison life",
+      "film_count": 720
+    },
+    {
+      "id": 4578,
+      "slug": "scheme",
+      "name": "Scheme",
+      "film_count": 781
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 4894,
+      "slug": "prison-escape",
+      "name": "Prison escape",
+      "film_count": 1303
+    },
+    {
+      "id": 47761,
+      "slug": "fighting-the-system",
+      "name": "Fighting the system",
+      "film_count": 1945
+    },
+    {
+      "id": 2017,
+      "slug": "manhunt",
+      "name": "Manhunt",
+      "film_count": 1753
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 122196,
+      "slug": "die-hard",
+      "name": "Die hard",
+      "film_count": 954
+    },
+    {
+      "id": 14679,
+      "slug": "death-sentence",
+      "name": "Death sentence",
+      "film_count": 667
+    },
+    {
+      "id": 92805,
+      "slug": "rough",
+      "name": "Rough",
+      "film_count": 8898
+    },
+    {
+      "id": 19104,
+      "slug": "realistic",
+      "name": "Realistic",
+      "film_count": 35439
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "tense",
+      "suspenseful",
+      "serious",
+      "rough",
+      "realistic",
+      "crime drama",
+      "thrilling",
+      "clever",
+      "enigmatic"
+    ],
+    "audience": [
+      "boys' night",
+      "teens"
+    ],
+    "plot": [
+      "prison",
+      "fugitives",
+      "escape",
+      "prison life",
+      "scheme",
+      "prison escape",
+      "conspiracy",
+      "fbi",
+      "determination",
+      "confined",
+      "siblings relations",
+      "brother",
+      "courage",
+      "self sacrifice",
+      "frame up",
+      "prison break",
+      "chases and races",
+      "convict",
+      "security guard",
+      "false accusation",
+      "fighting the system",
+      "manhunt",
+      "investigation",
+      "die hard",
+      "death sentence"
+    ],
+    "time": [
+      "2010s",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "texas",
+      "california",
+      "south america",
+      "chicago",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 60997,
+      "slug": "prison-break-the-final-break",
+      "title": "Prison Break: The Final Break",
+      "year": 2009,
+      "rank": 0
+    },
+    {
+      "id": 4571,
+      "slug": "escape-plan",
+      "title": "Escape Plan",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 26327,
+      "slug": "24",
+      "title": "24",
+      "year": 2001,
+      "rank": 2
+    },
+    {
+      "id": 60133,
+      "slug": "money-heist",
+      "title": "Money Heist",
+      "year": 2017,
+      "rank": 3
+    },
+    {
+      "id": 38031,
+      "slug": "blindspot",
+      "title": "Blindspot",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 13848,
+      "slug": "the-fugitive",
+      "title": "The Fugitive",
+      "year": 1993,
+      "rank": 5
+    },
+    {
+      "id": 19193,
+      "slug": "the-next-three-days",
+      "title": "The Next Three Days",
+      "year": 2010,
+      "rank": 6
+    },
+    {
+      "id": 41778,
+      "slug": "designated-survivor",
+      "title": "Designated Survivor",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 8
+    },
+    {
+      "id": 41814,
+      "slug": "quantico",
+      "title": "Quantico",
+      "year": 2015,
+      "rank": 9
+    },
+    {
+      "id": 30477,
+      "slug": "burn-notice",
+      "title": "Burn Notice",
+      "year": 2007,
+      "rank": 10
+    },
+    {
+      "id": 24649,
+      "slug": "u-s-marshals",
+      "title": "U.S. Marshals",
+      "year": 1998,
+      "rank": 11
+    },
+    {
+      "id": 22312,
+      "slug": "the-shawshank-redemption",
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "rank": 12
+    },
+    {
+      "id": 64498,
+      "slug": "locked-up",
+      "title": "Locked Up",
+      "year": 2015,
+      "rank": 13
+    },
+    {
+      "id": 69179,
+      "slug": "lupin",
+      "title": "Lupin",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 62337,
+      "slug": "traveler",
+      "title": "Traveler",
+      "year": 2007,
+      "rank": 15
+    },
+    {
+      "id": 59524,
+      "slug": "prison-break-proof-of-innocence",
+      "title": "Prison Break: Proof of Innocence",
+      "year": 2006,
+      "rank": 16
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 17
+    },
+    {
+      "id": 696,
+      "slug": "alcatraz",
+      "title": "Alcatraz",
+      "year": 2012,
+      "rank": 18
+    },
+    {
+      "id": 26292,
+      "slug": "breaking-bad",
+      "title": "Breaking Bad",
+      "year": 2008,
+      "rank": 19
+    },
+    {
+      "id": 3156,
+      "slug": "person-of-interest",
+      "title": "Person of Interest",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 56668,
+      "slug": "wentworth-prison",
+      "title": "Wentworth",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 9869,
+      "slug": "the-bourne-ultimatum",
+      "title": "The Bourne Ultimatum",
+      "year": 2007,
+      "rank": 22
+    },
+    {
+      "id": 67570,
+      "slug": "el-marginal",
+      "title": "El marginal",
+      "year": 2016,
+      "rank": 23
+    },
+    {
+      "id": 20569,
+      "slug": "anything-for-her",
+      "title": "Anything for Her",
+      "year": 2008,
+      "rank": 24
+    },
+    {
+      "id": 17412,
+      "slug": "lock-up",
+      "title": "Lock Up",
+      "year": 1989,
+      "rank": 25
+    },
+    {
+      "id": 12901,
+      "slug": "escape-from-alcatraz",
+      "title": "Escape from Alcatraz",
+      "year": 1979,
+      "rank": 26
+    },
+    {
+      "id": 64171,
+      "slug": "healer",
+      "title": "Healer",
+      "year": 2014,
+      "rank": 27
+    },
+    {
+      "id": 5109,
+      "slug": "banshee",
+      "title": "Banshee",
+      "year": 2013,
+      "rank": 28
+    },
+    {
+      "id": 19941,
+      "slug": "oz",
+      "title": "Oz",
+      "year": 1997,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919140
+}

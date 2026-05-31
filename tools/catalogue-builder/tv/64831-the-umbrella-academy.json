@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64831-the-umbrella-academy",
+  "id": 64831,
+  "slug": "the-umbrella-academy",
+  "title": "The Umbrella Academy",
+  "year": 2019,
+  "rating": 7.8,
+  "votes_text": "312K",
+  "votes": 312000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/35/64831.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Fantasy",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more.",
+  "tags": [
+    {
+      "id": 2543,
+      "slug": "time-travel",
+      "name": "Time travel",
+      "film_count": 2840
+    },
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 1839,
+      "slug": "apocalypse",
+      "name": "Apocalypse",
+      "film_count": 3083
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 3089,
+      "slug": "supernatural-power",
+      "name": "Supernatural power",
+      "film_count": 6202
+    },
+    {
+      "id": 4440,
+      "slug": "time-traveler",
+      "name": "Time traveler",
+      "film_count": 757
+    },
+    {
+      "id": 25321,
+      "slug": "offbeat",
+      "name": "Offbeat",
+      "film_count": 6022
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 17733,
+      "slug": "stopped-time",
+      "name": "Stopped time",
+      "film_count": 43
+    },
+    {
+      "id": 7685,
+      "slug": "superpower",
+      "name": "Superpower",
+      "film_count": 2014
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 124322,
+      "slug": "weapons",
+      "name": "Weapons",
+      "film_count": 4758
+    },
+    {
+      "id": 19,
+      "slug": "university",
+      "name": "University",
+      "film_count": 1174
+    },
+    {
+      "id": 8581,
+      "slug": "power",
+      "name": "Power",
+      "film_count": 1831
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "tense",
+      "offbeat",
+      "captivating",
+      "suspense",
+      "anime",
+      "disturbing",
+      "funny",
+      "atmospheric",
+      "feel good"
+    ],
+    "audience": [
+      "teens",
+      "pre-teens",
+      "kids"
+    ],
+    "plot": [
+      "time travel",
+      "superhero",
+      "heroes",
+      "apocalypse",
+      "supernatural power",
+      "time traveler",
+      "danger",
+      "alternate history",
+      "fight",
+      "fantasy world",
+      "academy",
+      "death",
+      "life is a bitch",
+      "team",
+      "gay",
+      "heroine",
+      "brother brother relationship",
+      "dysfunctional family",
+      "superheroine",
+      "multiverse",
+      "family relations",
+      "stopped time",
+      "superpower",
+      "teenager",
+      "weapons"
+    ],
+    "time": [
+      "year 1989",
+      "future",
+      "80s",
+      "60s",
+      "2010s",
+      "20th century",
+      "year 1963"
+    ],
+    "place": [
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64608,
+      "slug": "doom-patrol",
+      "title": "Doom Patrol",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 83553,
+      "slug": "gen-v",
+      "title": "Gen V",
+      "year": 2023,
+      "rank": 1
+    },
+    {
+      "id": 26949,
+      "slug": "misfits",
+      "title": "Misfits",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 58503,
+      "slug": "titans",
+      "title": "Titans",
+      "year": 2018,
+      "rank": 3
+    },
+    {
+      "id": 58251,
+      "slug": "future-man",
+      "title": "Future Man",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 5
+    },
+    {
+      "id": 58505,
+      "slug": "marvels-cloak-and-dagger",
+      "title": "Cloak & Dagger",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 57902,
+      "slug": "the-gifted",
+      "title": "The Gifted",
+      "year": 2017,
+      "rank": 7
+    },
+    {
+      "id": 76730,
+      "slug": "the-sandman",
+      "title": "The Sandman",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 42777,
+      "slug": "timeless",
+      "title": "Timeless",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 68583,
+      "slug": "wandavision",
+      "title": "WandaVision",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 19302,
+      "slug": "daredevil",
+      "title": "Daredevil",
+      "year": 2015,
+      "rank": 11
+    },
+    {
+      "id": 35428,
+      "slug": "jessica-jones",
+      "title": "Marvel's Jessica Jones",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 70285,
+      "slug": "jupiters-legacy",
+      "title": "Jupiter's Legacy",
+      "year": 2021,
+      "rank": 13
+    },
+    {
+      "id": 41779,
+      "slug": "legion",
+      "title": "Legion",
+      "year": 2017,
+      "rank": 14
+    },
+    {
+      "id": 58261,
+      "slug": "dirk-gentlys-holistic-detective-agency",
+      "title": "Dirk Gently's Holistic Detective Agency",
+      "year": 2016,
+      "rank": 15
+    },
+    {
+      "id": 64832,
+      "slug": "deadly-class",
+      "title": "Deadly Class",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 42763,
+      "slug": "dcs-legends-of-tomorrow",
+      "title": "DC's Legends of Tomorrow",
+      "year": 2016,
+      "rank": 17
+    },
+    {
+      "id": 78912,
+      "slug": "ultraman-decker",
+      "title": "Ultraman Decker",
+      "year": 2022,
+      "rank": 18
+    },
+    {
+      "id": 57938,
+      "slug": "preacher",
+      "title": "Preacher",
+      "year": 2016,
+      "rank": 19
+    },
+    {
+      "id": 27012,
+      "slug": "continuum",
+      "title": "Continuum",
+      "year": 2012,
+      "rank": 20
+    },
+    {
+      "id": 60872,
+      "slug": "impulse",
+      "title": "Impulse",
+      "year": 2018,
+      "rank": 21
+    },
+    {
+      "id": 91580,
+      "slug": "avatar-the-last-airbender",
+      "title": "Avatar: The Last Airbender",
+      "year": 2024,
+      "rank": 22
+    },
+    {
+      "id": 27166,
+      "slug": "the-flash",
+      "title": "The Flash",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 66932,
+      "slug": "i-am-not-okay-with-this",
+      "title": "I Am Not Okay with This",
+      "year": 2020,
+      "rank": 24
+    },
+    {
+      "id": 41815,
+      "slug": "the-magicians",
+      "title": "The Magicians",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 60496,
+      "slug": "watchmen",
+      "title": "Watchmen",
+      "year": 2019,
+      "rank": 26
+    },
+    {
+      "id": 36886,
+      "slug": "supergirl",
+      "title": "Supergirl",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 56689,
+      "slug": "the-almighty-johnsons",
+      "title": "The Almighty Johnsons",
+      "year": 2011,
+      "rank": 28
+    },
+    {
+      "id": 69621,
+      "slug": "shadow-and-bone",
+      "title": "Shadow and Bone",
+      "year": 2021,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919171
+}

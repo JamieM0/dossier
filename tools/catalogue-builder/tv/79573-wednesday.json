@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/79573-wednesday",
+  "id": 79573,
+  "slug": "wednesday",
+  "title": "Wednesday",
+  "year": 2022,
+  "rating": 8.0,
+  "votes_text": "489K",
+  "votes": 489000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/20/79573.jpg",
+  "genres": [
+    "Comedy",
+    "Crime",
+    "Fantasy",
+    "Mystery"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Wednesday Addams is sent to Nevermore Academy, a bizarre boarding school where she attempts to master her psychic powers, stop a monstrous killing spree of the town citizens, and solve the supernatural mystery that affected her family 25 years ago — all while navigating her new relationships.",
+  "tags": [
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 13348,
+      "slug": "academy",
+      "name": "Academy",
+      "film_count": 346
+    },
+    {
+      "id": 8255,
+      "slug": "gothic",
+      "name": "Gothic",
+      "film_count": 2678
+    },
+    {
+      "id": 1315,
+      "slug": "teenage-girl",
+      "name": "Teenage girl",
+      "film_count": 7053
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 10874,
+      "slug": "dark-comedy",
+      "name": "Dark comedy",
+      "film_count": 7481
+    },
+    {
+      "id": 6898,
+      "slug": "dark-fantasy",
+      "name": "Dark fantasy",
+      "film_count": 2029
+    },
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 194,
+      "slug": "friend",
+      "name": "Friend",
+      "film_count": 7965
+    },
+    {
+      "id": 3053,
+      "slug": "murder-investigation",
+      "name": "Murder investigation",
+      "film_count": 3428
+    },
+    {
+      "id": 8217,
+      "slug": "family-secret",
+      "name": "Family secret",
+      "film_count": 2874
+    },
+    {
+      "id": 3260,
+      "slug": "coming-of-age",
+      "name": "Coming of age",
+      "film_count": 16794
+    },
+    {
+      "id": 6,
+      "slug": "school",
+      "name": "School",
+      "film_count": 7178
+    },
+    {
+      "id": 16218,
+      "slug": "anti-heroine",
+      "name": "Anti heroine",
+      "film_count": 318
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 11,
+      "slug": "psychiatrist",
+      "name": "Psychiatrist",
+      "film_count": 1529
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "gothic",
+      "dark comedy",
+      "dark fantasy",
+      "atmospheric",
+      "exciting",
+      "psychological",
+      "captivating",
+      "semi serious",
+      "thrilling",
+      "suspense"
+    ],
+    "audience": [
+      "kids",
+      "date night",
+      "teen drama"
+    ],
+    "plot": [
+      "supernatural",
+      "academy",
+      "teenage girl",
+      "friendship",
+      "high school",
+      "boarding school",
+      "supernatural power",
+      "addams family",
+      "werewolf",
+      "goth girl",
+      "student",
+      "teenager",
+      "adolescence",
+      "investigation",
+      "deadpan",
+      "witch",
+      "macabre",
+      "monster",
+      "amateur sleuth",
+      "obsession",
+      "friend",
+      "murder investigation",
+      "family secret",
+      "coming of age",
+      "school"
+    ],
+    "time": [
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "vermont",
+      "new england"
+    ]
+  },
+  "similar": [
+    {
+      "id": 66932,
+      "slug": "i-am-not-okay-with-this",
+      "title": "I Am Not Okay with This",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 1
+    },
+    {
+      "id": 93620,
+      "slug": "dead-boy-detectives",
+      "title": "Dead Boy Detectives",
+      "year": 2024,
+      "rank": 2
+    },
+    {
+      "id": 3487,
+      "slug": "wizards-of-waverly-place",
+      "title": "Wizards of Waverly Place",
+      "year": 2007,
+      "rank": 3
+    },
+    {
+      "id": 60780,
+      "slug": "happy",
+      "title": "HAPPY!",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 80895,
+      "slug": "school-spirits",
+      "title": "School Spirits",
+      "year": 2023,
+      "rank": 5
+    },
+    {
+      "id": 64239,
+      "slug": "chilling-adventures-of-sabrina",
+      "title": "Chilling Adventures of Sabrina",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 30531,
+      "slug": "the-addams-family",
+      "title": "The Addams Family",
+      "year": 1964,
+      "rank": 7
+    },
+    {
+      "id": 42790,
+      "slug": "randall-and-hopkirk-deceased",
+      "title": "Randall & Hopkirk (Deceased)",
+      "year": 2000,
+      "rank": 8
+    },
+    {
+      "id": 41777,
+      "slug": "riverdale",
+      "title": "Riverdale",
+      "year": 2017,
+      "rank": 9
+    },
+    {
+      "id": 2266,
+      "slug": "the-secret-circle",
+      "title": "The Secret Circle",
+      "year": 2011,
+      "rank": 10
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 11
+    },
+    {
+      "id": 30524,
+      "slug": "psych",
+      "title": "Psych",
+      "year": 2006,
+      "rank": 12
+    },
+    {
+      "id": 15025,
+      "slug": "hex",
+      "title": "Hex",
+      "year": 2004,
+      "rank": 13
+    },
+    {
+      "id": 1944,
+      "slug": "the-worst-witch",
+      "title": "The Worst Witch",
+      "year": 1998,
+      "rank": 14
+    },
+    {
+      "id": 10098,
+      "slug": "buffy-the-vampire-slayer",
+      "title": "Buffy the Vampire Slayer",
+      "year": 1997,
+      "rank": 15
+    },
+    {
+      "id": 27275,
+      "slug": "forever",
+      "title": "Forever",
+      "year": 2014,
+      "rank": 16
+    },
+    {
+      "id": 26322,
+      "slug": "veronica-mars",
+      "title": "Veronica Mars",
+      "year": 2004,
+      "rank": 17
+    },
+    {
+      "id": 14802,
+      "slug": "harry-potter-and-the-prisoner-of-azkaban",
+      "title": "Harry Potter and the Prisoner of Azkaban",
+      "year": 2004,
+      "rank": 18
+    },
+    {
+      "id": 77409,
+      "slug": "the-great-shaman-ga-doo-shim",
+      "title": "The Great Shaman Ga Doo-shim",
+      "year": 2021,
+      "rank": 19
+    },
+    {
+      "id": 77905,
+      "slug": "wits-academy",
+      "title": "WITS Academy",
+      "year": 2015,
+      "rank": 20
+    },
+    {
+      "id": 71892,
+      "slug": "the-wayward-guide-for-the-untrained-eye",
+      "title": "The Wayward Guide for the Untrained Eye",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 88928,
+      "slug": "gora",
+      "title": "Gora",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 23689,
+      "slug": "tales-from-the-crypt",
+      "title": "Tales from the Crypt",
+      "year": 1989,
+      "rank": 23
+    },
+    {
+      "id": 76306,
+      "slug": "the-afterparty",
+      "title": "The Afterparty",
+      "year": 2022,
+      "rank": 24
+    },
+    {
+      "id": 81628,
+      "slug": "freeridge",
+      "title": "Freeridge",
+      "year": 2023,
+      "rank": 25
+    },
+    {
+      "id": 91007,
+      "slug": "goosebumps",
+      "title": "Goosebumps",
+      "year": 2023,
+      "rank": 26
+    },
+    {
+      "id": 87882,
+      "slug": "stage-fright",
+      "title": "Stage Fright",
+      "year": 2020,
+      "rank": 27
+    },
+    {
+      "id": 98428,
+      "slug": "this-just-in",
+      "title": "This Just In",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 62172,
+      "slug": "tower-prep",
+      "title": "Tower Prep",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919187
+}

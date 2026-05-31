@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/9080-batman-the-animated-series",
+  "id": 9080,
+  "slug": "batman-the-animated-series",
+  "title": "Batman: The Animated Series",
+  "year": 1992,
+  "rating": 9.0,
+  "votes_text": "135K",
+  "votes": 135000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/44/9080.jpg",
+  "genres": [
+    "Animation",
+    "Action",
+    "Adventure",
+    "Crime",
+    "Family",
+    "Mystery",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 23,
+  "story": "Batman: The Animated Series is an American animated television series based on the DC Comics superhero Batman. The series was widely praised for its thematic complexity, dark tone, artistic quality, and faithfulness to its title character's crime-fighting origins.",
+  "tags": [
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 715,
+      "slug": "double-life",
+      "name": "Double life",
+      "film_count": 1091
+    },
+    {
+      "id": 4230,
+      "slug": "vigilantism",
+      "name": "Vigilantism",
+      "film_count": 1731
+    },
+    {
+      "id": 7087,
+      "slug": "batman",
+      "name": "Batman",
+      "film_count": 523
+    },
+    {
+      "id": 1273,
+      "slug": "neo-noir",
+      "name": "Neo noir",
+      "film_count": 4908
+    },
+    {
+      "id": 87816,
+      "slug": "kids",
+      "name": "Kids",
+      "film_count": 7861
+    },
+    {
+      "id": 123952,
+      "slug": "pre-teens",
+      "name": "Pre-teens",
+      "film_count": 2248
+    },
+    {
+      "id": 32650,
+      "slug": "multiverse",
+      "name": "Multiverse",
+      "film_count": 598
+    },
+    {
+      "id": 2853,
+      "slug": "werewolf",
+      "name": "Werewolf",
+      "film_count": 956
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    },
+    {
+      "id": 17985,
+      "slug": "retro",
+      "name": "Retro",
+      "film_count": 3344
+    },
+    {
+      "id": 7517,
+      "slug": "comic-book",
+      "name": "Comic book",
+      "film_count": 1063
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 2803,
+      "slug": "partner",
+      "name": "Partner",
+      "film_count": 4482
+    },
+    {
+      "id": 806,
+      "slug": "corruption",
+      "name": "Corruption",
+      "film_count": 9994
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "neo noir",
+      "adult animation",
+      "anime",
+      "stylized",
+      "saga",
+      "retro",
+      "exciting",
+      "art deco",
+      "manga",
+      "christmas special"
+    ],
+    "audience": [
+      "kids",
+      "pre-teens",
+      "family outing",
+      "teens"
+    ],
+    "plot": [
+      "superhero",
+      "double life",
+      "vigilantism",
+      "batman",
+      "femme fatale",
+      "gadget",
+      "good versus evil",
+      "guilt",
+      "disguise",
+      "superpower",
+      "undercover",
+      "evil",
+      "danger",
+      "imaginary",
+      "mysterious character",
+      "heroic mission",
+      "villain",
+      "multiverse",
+      "werewolf",
+      "comic book",
+      "partner",
+      "corruption",
+      "masked man",
+      "urban decay",
+      "christmas"
+    ],
+    "time": [
+      "90s",
+      "1940s",
+      "20th century",
+      "1990s"
+    ],
+    "place": [
+      "japan",
+      "new jersey"
+    ]
+  },
+  "similar": [
+    {
+      "id": 9082,
+      "slug": "batman-beyond",
+      "title": "Batman Beyond",
+      "year": 1999,
+      "rank": 0
+    },
+    {
+      "id": 59508,
+      "slug": "justice-league-unlimited",
+      "title": "Justice League Unlimited",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 250,
+      "slug": "the-batman",
+      "title": "The Batman",
+      "year": 2004,
+      "rank": 2
+    },
+    {
+      "id": 66389,
+      "slug": "harley-quinn",
+      "title": "Harley Quinn",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 23431,
+      "slug": "batman-and-mr-freeze-subzero",
+      "title": "Batman & Mr. Freeze: SubZero",
+      "year": 1998,
+      "rank": 4
+    },
+    {
+      "id": 65184,
+      "slug": "beware-the-batman",
+      "title": "Beware the Batman",
+      "year": 2013,
+      "rank": 5
+    },
+    {
+      "id": 5970,
+      "slug": "the-batman-superman-hour",
+      "title": "The Adventures of Batman",
+      "year": 1968,
+      "rank": 6
+    },
+    {
+      "id": 26654,
+      "slug": "justice-league",
+      "title": "Justice League",
+      "year": 2001,
+      "rank": 7
+    },
+    {
+      "id": 58673,
+      "slug": "the-new-batman-adventures",
+      "title": "The New Batman Adventures",
+      "year": 1997,
+      "rank": 8
+    },
+    {
+      "id": 9090,
+      "slug": "batman-mystery-of-the-batwoman",
+      "title": "Batman: Mystery of the Batwoman",
+      "year": 2003,
+      "rank": 9
+    },
+    {
+      "id": 48389,
+      "slug": "batman-and-harley-quinn",
+      "title": "Batman and Harley Quinn",
+      "year": 2017,
+      "rank": 10
+    },
+    {
+      "id": 26731,
+      "slug": "batman-under-the-red-hood",
+      "title": "Batman: Under the Red Hood",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 26567,
+      "slug": "the-mask",
+      "title": "The Mask",
+      "year": 1995,
+      "rank": 12
+    },
+    {
+      "id": 30253,
+      "slug": "she-ra-princess-of-power",
+      "title": "She-Ra: Princess of Power",
+      "year": 1985,
+      "rank": 13
+    },
+    {
+      "id": 9088,
+      "slug": "batman-gotham-knight",
+      "title": "Batman: Gotham Knight",
+      "year": 2008,
+      "rank": 14
+    },
+    {
+      "id": 23505,
+      "slug": "superman",
+      "title": "Superman: The Animated Series",
+      "year": 1996,
+      "rank": 15
+    },
+    {
+      "id": 9087,
+      "slug": "the-batman-superman-movie-worlds-finest",
+      "title": "The Batman Superman Movie: World's Finest",
+      "year": 1997,
+      "rank": 16
+    },
+    {
+      "id": 25918,
+      "slug": "x-men",
+      "title": "X-Men",
+      "year": 1992,
+      "rank": 17
+    },
+    {
+      "id": 2734,
+      "slug": "spider-man-unlimited",
+      "title": "Spider-Man Unlimited",
+      "year": 1999,
+      "rank": 18
+    },
+    {
+      "id": 9083,
+      "slug": "batman-beyond-return-of-the-joker",
+      "title": "Batman Beyond: Return of the Joker",
+      "year": 2000,
+      "rank": 19
+    },
+    {
+      "id": 97512,
+      "slug": "batman-caped-crusader",
+      "title": "Batman: Caped Crusader",
+      "year": 2024,
+      "rank": 20
+    },
+    {
+      "id": 2760,
+      "slug": "batman-the-brave-and-the-bold",
+      "title": "Batman: The Brave and the Bold",
+      "year": 2008,
+      "rank": 21
+    },
+    {
+      "id": 26736,
+      "slug": "superman-batman-apocalypse",
+      "title": "Superman/Batman: Apocalypse",
+      "year": 2010,
+      "rank": 22
+    },
+    {
+      "id": 452,
+      "slug": "green-lantern-the-animated-series",
+      "title": "Green Lantern: The Animated Series",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 4775,
+      "slug": "avengers-assemble",
+      "title": "Marvel's Avengers Assemble",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 23790,
+      "slug": "teenage-mutant-ninja-turtles",
+      "title": "Teenage Mutant Ninja Turtles",
+      "year": 1987,
+      "rank": 25
+    },
+    {
+      "id": 48047,
+      "slug": "batman-vs-robin",
+      "title": "Batman vs. Robin",
+      "year": 2015,
+      "rank": 26
+    },
+    {
+      "id": 29866,
+      "slug": "the-spectacular-spider-man",
+      "title": "The Spectacular Spider-Man",
+      "year": 2008,
+      "rank": 27
+    },
+    {
+      "id": 28546,
+      "slug": "swat-kats-the-radical-squadron",
+      "title": "Swat Kats: The Radical Squadron",
+      "year": 1993,
+      "rank": 28
+    },
+    {
+      "id": 43646,
+      "slug": "justice-league-action",
+      "title": "Justice League Action",
+      "year": 2016,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919136
+}

@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/60133-money-heist",
+  "id": 60133,
+  "slug": "money-heist",
+  "title": "Money Heist",
+  "year": 2017,
+  "rating": 8.2,
+  "votes_text": "597K",
+  "votes": 597000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/08/60133.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "Spain"
+  ],
+  "duration_min": 60,
+  "story": "To carry out the biggest heist in history, a mysterious man called The Professor recruits a band of eight robbers who have a single characteristic: none of them has anything to lose. Five months of seclusion - memorizing every step, every detail, every probability - culminate in eleven days locked up in the National Coinage and Stamp Factory of Spain, surrounded by police forces and with dozens of hostages in their power, to find out whether their suicide wager will lead to everything or nothing.",
+  "tags": [
+    {
+      "id": 2720,
+      "slug": "heist",
+      "name": "Heist",
+      "film_count": 3557
+    },
+    {
+      "id": 44532,
+      "slug": "perfect-crime",
+      "name": "Perfect crime",
+      "film_count": 212
+    },
+    {
+      "id": 541,
+      "slug": "spain",
+      "name": "Spain",
+      "film_count": 1405
+    },
+    {
+      "id": 3966,
+      "slug": "hostage-situation",
+      "name": "Hostage situation",
+      "film_count": 758
+    },
+    {
+      "id": 12958,
+      "slug": "plot-twist",
+      "name": "Plot twist",
+      "film_count": 2443
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 2306,
+      "slug": "bank-robbery",
+      "name": "Bank robbery",
+      "film_count": 1148
+    },
+    {
+      "id": 3947,
+      "slug": "planning",
+      "name": "Planning",
+      "film_count": 199
+    },
+    {
+      "id": 617,
+      "slug": "bank",
+      "name": "Bank",
+      "film_count": 1248
+    },
+    {
+      "id": 1926,
+      "slug": "tunnel",
+      "name": "Tunnel",
+      "film_count": 1078
+    },
+    {
+      "id": 2408,
+      "slug": "sexual-tension",
+      "name": "Sexual tension",
+      "film_count": 1579
+    },
+    {
+      "id": 16187,
+      "slug": "gay-straight-relations",
+      "name": "Gay straight relations",
+      "film_count": 453
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspense",
+      "exciting",
+      "intense",
+      "suspenseful",
+      "tense",
+      "epic",
+      "enigmatic",
+      "emotional",
+      "surprise ending",
+      "clever"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "heist",
+      "perfect crime",
+      "hostage situation",
+      "plot twist",
+      "bank robbery",
+      "planning",
+      "master criminal",
+      "thief",
+      "career criminal",
+      "hostage",
+      "professor",
+      "robbery",
+      "strategy",
+      "plan gone wrong",
+      "criminal heroes",
+      "twists and turns",
+      "stockholm syndrome",
+      "mentor",
+      "money",
+      "mission",
+      "hacking",
+      "bank",
+      "tunnel",
+      "sexual tension",
+      "gay straight relations"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "spain",
+      "europe",
+      "madrid",
+      "thailand",
+      "new mexico"
+    ]
+  },
+  "similar": [
+    {
+      "id": 88895,
+      "slug": "berlin",
+      "title": "Berlin",
+      "year": 2023,
+      "rank": 0
+    },
+    {
+      "id": 19583,
+      "slug": "oceans-eleven",
+      "title": "Ocean's Eleven",
+      "year": 2001,
+      "rank": 1
+    },
+    {
+      "id": 13322,
+      "slug": "now-you-see-me",
+      "title": "Now You See Me",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 15851,
+      "slug": "inside-man",
+      "title": "Inside Man",
+      "year": 2006,
+      "rank": 3
+    },
+    {
+      "id": 16030,
+      "slug": "the-italian-job",
+      "title": "The Italian Job",
+      "year": 2003,
+      "rank": 4
+    },
+    {
+      "id": 20709,
+      "slug": "prison-break",
+      "title": "Prison Break",
+      "year": 2005,
+      "rank": 5
+    },
+    {
+      "id": 77369,
+      "slug": "money-heist-korea-joint-economic-area",
+      "title": "Money Heist: Korea - Joint Economic Area",
+      "year": 2022,
+      "rank": 6
+    },
+    {
+      "id": 72844,
+      "slug": "squid-game",
+      "title": "Squid Game",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 38627,
+      "slug": "to-steal-from-a-thief",
+      "title": "To Steal from a Thief",
+      "year": 2016,
+      "rank": 8
+    },
+    {
+      "id": 19585,
+      "slug": "oceans-twelve",
+      "title": "Ocean's Twelve",
+      "year": 2004,
+      "rank": 9
+    },
+    {
+      "id": 59403,
+      "slug": "den-of-thieves",
+      "title": "Den of Thieves",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 69179,
+      "slug": "lupin",
+      "title": "Lupin",
+      "year": 2021,
+      "rank": 11
+    },
+    {
+      "id": 69753,
+      "slug": "the-vault",
+      "title": "The Vault",
+      "year": 2021,
+      "rank": 12
+    },
+    {
+      "id": 77153,
+      "slug": "leverage",
+      "title": "Leverage",
+      "year": 2019,
+      "rank": 13
+    },
+    {
+      "id": 95379,
+      "slug": "take-five",
+      "title": "Take Five",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 101603,
+      "slug": "doomsday-party",
+      "title": "Doomsday Party",
+      "year": 2013,
+      "rank": 15
+    },
+    {
+      "id": 39593,
+      "slug": "south-of-8",
+      "title": "South of 8",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 24023,
+      "slug": "the-thomas-crown-affair",
+      "title": "The Thomas Crown Affair",
+      "year": 1999,
+      "rank": 17
+    },
+    {
+      "id": 14273,
+      "slug": "gone-in-sixty-seconds",
+      "title": "Gone in Sixty Seconds",
+      "year": 2000,
+      "rank": 18
+    },
+    {
+      "id": 1689,
+      "slug": "thief",
+      "title": "Thief",
+      "year": 2006,
+      "rank": 19
+    },
+    {
+      "id": 42576,
+      "slug": "stand-off",
+      "title": "Stand Off",
+      "year": 2012,
+      "rank": 20
+    },
+    {
+      "id": 59423,
+      "slug": "hatton-garden-the-heist",
+      "title": "Hatton Garden: The Heist",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 23623,
+      "slug": "swordfish",
+      "title": "Swordfish",
+      "year": 2001,
+      "rank": 22
+    },
+    {
+      "id": 19584,
+      "slug": "oceans-thirteen",
+      "title": "Ocean's Thirteen",
+      "year": 2007,
+      "rank": 23
+    },
+    {
+      "id": 101327,
+      "slug": "fly-with-the-gold",
+      "title": "Fly with the Gold",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 16029,
+      "slug": "the-italian-job",
+      "title": "The Italian Job",
+      "year": 1969,
+      "rank": 25
+    },
+    {
+      "id": 101297,
+      "slug": "d-for-dopidi",
+      "title": "D for Dopidi",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 101332,
+      "slug": "trust-greed-bullets-and-bourbon",
+      "title": "Trust, Greed, Bullets & Bourbon",
+      "year": 2013,
+      "rank": 27
+    },
+    {
+      "id": 76269,
+      "slug": "a-perfect-plan",
+      "title": "A Perfect Plan",
+      "year": 2020,
+      "rank": 28
+    },
+    {
+      "id": 103972,
+      "slug": "the-price",
+      "title": "The Price",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919166
+}

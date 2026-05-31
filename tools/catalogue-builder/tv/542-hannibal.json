@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/542-hannibal",
+  "id": 542,
+  "slug": "hannibal",
+  "title": "Hannibal",
+  "year": 2013,
+  "rating": 8.5,
+  "votes_text": "305K",
+  "votes": 305000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f0/542.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Horror",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Both a gift and a curse, Graham has the extraordinary ability to think like his prey—he sees what they see, feels what they feel. But while Graham is pursuing an especially troubling, cannibalistic murderer, Special Agent Jack Crawford teams him with a highly respected psychiatrist – a man with a taste for the criminal minded – Dr. Hannibal Lecter.",
+  "tags": [
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 6423,
+      "slug": "cannibal",
+      "name": "Cannibal",
+      "film_count": 670
+    },
+    {
+      "id": 1225,
+      "slug": "psychopath",
+      "name": "Psychopath",
+      "film_count": 5358
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 1833,
+      "slug": "cannibalism",
+      "name": "Cannibalism",
+      "film_count": 1111
+    },
+    {
+      "id": 11141,
+      "slug": "mind-game",
+      "name": "Mind game",
+      "film_count": 2096
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 11,
+      "slug": "psychiatrist",
+      "name": "Psychiatrist",
+      "film_count": 1529
+    },
+    {
+      "id": 7263,
+      "slug": "maniac",
+      "name": "Maniac",
+      "film_count": 1748
+    },
+    {
+      "id": 2781,
+      "slug": "fbi-investigation",
+      "name": "Fbi investigation",
+      "film_count": 200
+    },
+    {
+      "id": 8226,
+      "slug": "profiler",
+      "name": "Profiler",
+      "film_count": 62
+    },
+    {
+      "id": 682,
+      "slug": "deception",
+      "name": "Deception",
+      "film_count": 6537
+    },
+    {
+      "id": 5421,
+      "slug": "mysterious-death",
+      "name": "Mysterious death",
+      "film_count": 516
+    },
+    {
+      "id": 8600,
+      "slug": "mental-health",
+      "name": "Mental health",
+      "film_count": 1512
+    },
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 9893,
+      "slug": "therapist",
+      "name": "Therapist",
+      "film_count": 740
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "psychological",
+      "scary",
+      "tense",
+      "suspenseful",
+      "atmospheric",
+      "serious",
+      "rough",
+      "stylized",
+      "realistic",
+      "slasher"
+    ],
+    "audience": [
+      "boys' night"
+    ],
+    "plot": [
+      "serial killer",
+      "cannibal",
+      "psychopath",
+      "cannibalism",
+      "mind game",
+      "murder",
+      "psychiatrist",
+      "death",
+      "manipulation",
+      "graphic violence",
+      "mental patient",
+      "fbi",
+      "troubled",
+      "blood",
+      "psycho killer",
+      "murder investigation",
+      "killer",
+      "serial murder",
+      "maniac",
+      "fbi investigation",
+      "profiler",
+      "deception",
+      "mysterious death",
+      "mental health",
+      "lgbt"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65741,
+      "slug": "prodigal-son",
+      "title": "Prodigal Son",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 14724,
+      "slug": "hannibal",
+      "title": "Hannibal",
+      "year": 2001,
+      "rank": 1
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 2
+    },
+    {
+      "id": 22528,
+      "slug": "the-silence-of-the-lambs",
+      "title": "The Silence of the Lambs",
+      "year": 1991,
+      "rank": 3
+    },
+    {
+      "id": 57908,
+      "slug": "mindhunter",
+      "title": "Mindhunter",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 21138,
+      "slug": "red-dragon",
+      "title": "Red Dragon",
+      "year": 2002,
+      "rank": 5
+    },
+    {
+      "id": 61,
+      "slug": "the-following",
+      "title": "The Following",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 61316,
+      "slug": "criminal-minds-suspect-behavior",
+      "title": "Criminal Minds: Suspect Behavior",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 8
+    },
+    {
+      "id": 11213,
+      "slug": "copycat",
+      "title": "Copycat",
+      "year": 1995,
+      "rank": 9
+    },
+    {
+      "id": 22034,
+      "slug": "se7en",
+      "title": "Seven",
+      "year": 1995,
+      "rank": 10
+    },
+    {
+      "id": 71752,
+      "slug": "strangers-from-hell",
+      "title": "Strangers From Hell",
+      "year": 2019,
+      "rank": 11
+    },
+    {
+      "id": 13319,
+      "slug": "bates-motel",
+      "title": "Bates Motel",
+      "year": 2013,
+      "rank": 12
+    },
+    {
+      "id": 26167,
+      "slug": "zodiac",
+      "title": "Zodiac",
+      "year": 2007,
+      "rank": 13
+    },
+    {
+      "id": 21281,
+      "slug": "resurrection",
+      "title": "Resurrection",
+      "year": 1999,
+      "rank": 14
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 989,
+      "slug": "prisoners",
+      "title": "Prisoners",
+      "year": 2013,
+      "rank": 16
+    },
+    {
+      "id": 14725,
+      "slug": "hannibal-rising",
+      "title": "Hannibal Rising",
+      "year": 2007,
+      "rank": 17
+    },
+    {
+      "id": 7853,
+      "slug": "the-fall",
+      "title": "The Fall",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 64562,
+      "slug": "you",
+      "title": "YOU",
+      "year": 2018,
+      "rank": 20
+    },
+    {
+      "id": 17963,
+      "slug": "manhunter",
+      "title": "Manhunter",
+      "year": 1986,
+      "rank": 21
+    },
+    {
+      "id": 25400,
+      "slug": "the-watcher",
+      "title": "The Watcher",
+      "year": 2000,
+      "rank": 22
+    },
+    {
+      "id": 56664,
+      "slug": "the-bridge",
+      "title": "The Bridge",
+      "year": 2013,
+      "rank": 23
+    },
+    {
+      "id": 9774,
+      "slug": "the-bone-collector",
+      "title": "The Bone Collector",
+      "year": 1999,
+      "rank": 24
+    },
+    {
+      "id": 61212,
+      "slug": "killing-eve",
+      "title": "Killing Eve",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 18739,
+      "slug": "mr-brooks",
+      "title": "Mr. Brooks",
+      "year": 2007,
+      "rank": 26
+    },
+    {
+      "id": 16723,
+      "slug": "kiss-the-girls",
+      "title": "Kiss the Girls",
+      "year": 1997,
+      "rank": 27
+    },
+    {
+      "id": 65163,
+      "slug": "harrow",
+      "title": "Harrow",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919128
+}

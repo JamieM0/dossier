@@ -1,0 +1,384 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/61092-superstore",
+  "id": 61092,
+  "slug": "superstore",
+  "title": "Superstore",
+  "year": 2015,
+  "rating": 7.9,
+  "votes_text": "83K",
+  "votes": 83000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a2/61092.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "A hilarious workplace comedy about a unique family of employees at a super-sized mega store. From the bright-eyed newbies and the seen-it-all veterans to the clueless summer hires and the in-it-for-life managers, together they hilariously tackle the day-to-day grind of rabid bargain hunters, riot-causing sales and nap-worthy training sessions.",
+  "tags": [
+    {
+      "id": 135623,
+      "slug": "workplace-humor",
+      "name": "Workplace humor",
+      "film_count": 103
+    },
+    {
+      "id": 16064,
+      "slug": "store",
+      "name": "Store",
+      "film_count": 970
+    },
+    {
+      "id": 6903,
+      "slug": "employee",
+      "name": "Employee",
+      "film_count": 224
+    },
+    {
+      "id": 31592,
+      "slug": "supervisor",
+      "name": "Supervisor",
+      "film_count": 77
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 123475,
+      "slug": "workplace-situations",
+      "name": "Workplace situations",
+      "film_count": 2144
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 143,
+      "slug": "rivalry",
+      "name": "Rivalry",
+      "film_count": 16927
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 11539,
+      "slug": "light",
+      "name": "Light",
+      "film_count": 12031
+    },
+    {
+      "id": 4647,
+      "slug": "strong-female-lead",
+      "name": "Strong female lead",
+      "film_count": 2994
+    },
+    {
+      "id": 123873,
+      "slug": "thought-provoking",
+      "name": "Thought provoking",
+      "film_count": 7187
+    },
+    {
+      "id": 91568,
+      "slug": "sad",
+      "name": "Sad",
+      "film_count": 2642
+    },
+    {
+      "id": 14041,
+      "slug": "stoner",
+      "name": "Stoner",
+      "film_count": 1434
+    },
+    {
+      "id": 29276,
+      "slug": "couples",
+      "name": "Couples",
+      "film_count": 15715
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "humorous",
+      "feel good",
+      "absurd",
+      "light",
+      "thought provoking",
+      "epic",
+      "sad",
+      "laugh out loud",
+      "funny"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "workplace humor",
+      "store",
+      "employee",
+      "supervisor",
+      "workplace",
+      "workplace situations",
+      "rivalry",
+      "friendship",
+      "salesman",
+      "teamwork",
+      "workplace romance",
+      "employer employee relationship",
+      "love interest",
+      "department store",
+      "misfit",
+      "exodus",
+      "youth",
+      "escapades",
+      "unsupportive coworkers",
+      "gay",
+      "lgbt",
+      "strong female lead",
+      "stoner",
+      "couples",
+      "mature"
+    ],
+    "time": [
+      "2010s",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "missouri",
+      "st. louis missouri"
+    ]
+  },
+  "similar": [
+    {
+      "id": 66605,
+      "slug": "manhattan-love-story",
+      "title": "Manhattan Love Story",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 1281,
+      "slug": "the-mindy-project",
+      "title": "The Mindy Project",
+      "year": 2012,
+      "rank": 1
+    },
+    {
+      "id": 1233,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2005,
+      "rank": 2
+    },
+    {
+      "id": 26681,
+      "slug": "parks-and-recreation",
+      "title": "Parks and Recreation",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 26562,
+      "slug": "community",
+      "title": "Community",
+      "year": 2009,
+      "rank": 4
+    },
+    {
+      "id": 61600,
+      "slug": "hardware",
+      "title": "Hardware",
+      "year": 2003,
+      "rank": 5
+    },
+    {
+      "id": 28865,
+      "slug": "unbreakable-kimmy-schmidt",
+      "title": "Unbreakable Kimmy Schmidt",
+      "year": 2015,
+      "rank": 6
+    },
+    {
+      "id": 3642,
+      "slug": "2-broke-girls",
+      "title": "2 Broke Girls",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 59744,
+      "slug": "trollied",
+      "title": "Trollied",
+      "year": 2011,
+      "rank": 8
+    },
+    {
+      "id": 61010,
+      "slug": "bad-judge",
+      "title": "Bad Judge",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 5359,
+      "slug": "brooklyn-nine-nine",
+      "title": "Brooklyn Nine-Nine",
+      "year": 2013,
+      "rank": 10
+    },
+    {
+      "id": 62578,
+      "slug": "ground-floor",
+      "title": "Ground Floor",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 69997,
+      "slug": "stacked",
+      "title": "Stacked",
+      "year": 2005,
+      "rank": 12
+    },
+    {
+      "id": 2812,
+      "slug": "workaholics",
+      "title": "Workaholics",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 30523,
+      "slug": "30-rock",
+      "title": "30 Rock",
+      "year": 2006,
+      "rank": 14
+    },
+    {
+      "id": 1709,
+      "slug": "barbershop",
+      "title": "Barbershop",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 98203,
+      "slug": "friend-me",
+      "title": "Friend Me",
+      "year": 2012,
+      "rank": 16
+    },
+    {
+      "id": 2960,
+      "slug": "the-tracy-morgan-show",
+      "title": "The Tracy Morgan Show",
+      "year": 2003,
+      "rank": 17
+    },
+    {
+      "id": 66770,
+      "slug": "the-great-indoors",
+      "title": "The Great Indoors",
+      "year": 2016,
+      "rank": 18
+    },
+    {
+      "id": 61994,
+      "slug": "the-increasingly-poor-decisions-of-todd-margaret",
+      "title": "The Increasingly Poor Decisions of Todd Margaret",
+      "year": 2009,
+      "rank": 19
+    },
+    {
+      "id": 63578,
+      "slug": "still-open-all-hours",
+      "title": "Still Open All Hours",
+      "year": 2013,
+      "rank": 20
+    },
+    {
+      "id": 179,
+      "slug": "back-to-you",
+      "title": "Back to You",
+      "year": 2007,
+      "rank": 21
+    },
+    {
+      "id": 30420,
+      "slug": "black-books",
+      "title": "Black Books",
+      "year": 2000,
+      "rank": 22
+    },
+    {
+      "id": 30505,
+      "slug": "the-drew-carey-show",
+      "title": "The Drew Carey Show",
+      "year": 1995,
+      "rank": 23
+    },
+    {
+      "id": 3641,
+      "slug": "almost-heroes",
+      "title": "Almost Heroes",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 3812,
+      "slug": "family-tools",
+      "title": "Family Tools",
+      "year": 2013,
+      "rank": 25
+    },
+    {
+      "id": 79914,
+      "slug": "american-auto",
+      "title": "American Auto",
+      "year": 2021,
+      "rank": 26
+    },
+    {
+      "id": 15264,
+      "slug": "outsourced",
+      "title": "Outsourced",
+      "year": 2010,
+      "rank": 27
+    },
+    {
+      "id": 30431,
+      "slug": "spin-city",
+      "title": "Spin City",
+      "year": 1996,
+      "rank": 28
+    },
+    {
+      "id": 63663,
+      "slug": "clipped",
+      "title": "Clipped",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919167
+}

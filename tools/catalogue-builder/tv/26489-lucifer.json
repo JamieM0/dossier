@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26489-lucifer",
+  "id": 26489,
+  "slug": "lucifer",
+  "title": "Lucifer",
+  "year": 2016,
+  "rating": 8.0,
+  "votes_text": "388K",
+  "votes": 388000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/02/26489.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Fantasy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape.",
+  "tags": [
+    {
+      "id": 8277,
+      "slug": "devil",
+      "name": "Devil",
+      "film_count": 1163
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 17066,
+      "slug": "lucifer",
+      "name": "Lucifer",
+      "film_count": 162
+    },
+    {
+      "id": 3147,
+      "slug": "demon",
+      "name": "Demon",
+      "film_count": 3750
+    },
+    {
+      "id": 16150,
+      "slug": "immortality",
+      "name": "Immortality",
+      "film_count": 1383
+    },
+    {
+      "id": 13252,
+      "slug": "hell",
+      "name": "Hell",
+      "film_count": 572
+    },
+    {
+      "id": 7088,
+      "slug": "immortal",
+      "name": "Immortal",
+      "film_count": 335
+    },
+    {
+      "id": 123493,
+      "slug": "los-angeles",
+      "name": "Los angeles",
+      "film_count": 3890
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 26271,
+      "slug": "female-police-detective",
+      "name": "Female police detective",
+      "film_count": 232
+    },
+    {
+      "id": 8033,
+      "slug": "super-powers",
+      "name": "Super powers",
+      "film_count": 773
+    },
+    {
+      "id": 585,
+      "slug": "detective",
+      "name": "Detective",
+      "film_count": 6961
+    },
+    {
+      "id": 11584,
+      "slug": "biblical",
+      "name": "Biblical",
+      "film_count": 354
+    },
+    {
+      "id": 123302,
+      "slug": "girls-night",
+      "name": "Girls' night",
+      "film_count": 4741
+    },
+    {
+      "id": 8746,
+      "slug": "nightclub-owner",
+      "name": "Nightclub owner",
+      "film_count": 136
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sexy",
+      "captivating",
+      "entertaining",
+      "humorous",
+      "romantic",
+      "detective",
+      "biblical",
+      "satanic",
+      "costume drama",
+      "supernatural thriller"
+    ],
+    "audience": [
+      "teens",
+      "girls' night",
+      "chick flick",
+      "adult"
+    ],
+    "plot": [
+      "devil",
+      "supernatural",
+      "lucifer",
+      "demon",
+      "immortality",
+      "hell",
+      "immortal",
+      "fallen angel",
+      "homicide detective",
+      "murder investigation",
+      "female detective",
+      "police detective",
+      "boyfriend girlfriend relationship",
+      "psychologist",
+      "supernatural power",
+      "good versus evil",
+      "lapd",
+      "brother brother relationship",
+      "female police detective",
+      "super powers",
+      "nightclub owner",
+      "police",
+      "multiverse",
+      "child",
+      "superhero"
+    ],
+    "time": [
+      "20th century",
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "los angeles",
+      "usa",
+      "chicago"
+    ]
+  },
+  "similar": [
+    {
+      "id": 27275,
+      "slug": "forever",
+      "title": "Forever",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 17889,
+      "slug": "constantine",
+      "title": "Constantine",
+      "year": 2014,
+      "rank": 1
+    },
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 26565,
+      "slug": "supernatural",
+      "title": "Supernatural",
+      "year": 2005,
+      "rank": 4
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 57898,
+      "slug": "midnight-texas",
+      "title": "Midnight, Texas",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 5865,
+      "slug": "the-originals",
+      "title": "The Originals",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 64980,
+      "slug": "good-omens",
+      "title": "Good Omens",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 64335,
+      "slug": "legacies",
+      "title": "Legacies",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 27088,
+      "slug": "izombie",
+      "title": "iZombie",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 56775,
+      "slug": "the-listener",
+      "title": "The Listener",
+      "year": 2009,
+      "rank": 11
+    },
+    {
+      "id": 65716,
+      "slug": "evil",
+      "title": "Evil",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 13
+    },
+    {
+      "id": 4415,
+      "slug": "teen-wolf",
+      "title": "Teen Wolf",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 65359,
+      "slug": "the-boys",
+      "title": "The Boys",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 11162,
+      "slug": "constantine",
+      "title": "Constantine",
+      "year": 2005,
+      "rank": 16
+    },
+    {
+      "id": 5063,
+      "slug": "lost-girl",
+      "title": "Lost Girl",
+      "year": 2010,
+      "rank": 17
+    },
+    {
+      "id": 57938,
+      "slug": "preacher",
+      "title": "Preacher",
+      "year": 2016,
+      "rank": 18
+    },
+    {
+      "id": 67834,
+      "slug": "warrior-nun",
+      "title": "Warrior Nun",
+      "year": 2020,
+      "rank": 19
+    },
+    {
+      "id": 4530,
+      "slug": "sleepy-hollow",
+      "title": "Sleepy Hollow",
+      "year": 2013,
+      "rank": 20
+    },
+    {
+      "id": 10596,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 1998,
+      "rank": 21
+    },
+    {
+      "id": 76730,
+      "slug": "the-sandman",
+      "title": "The Sandman",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 42764,
+      "slug": "wynonna-earp",
+      "title": "Wynonna Earp",
+      "year": 2016,
+      "rank": 23
+    },
+    {
+      "id": 64184,
+      "slug": "goblin",
+      "title": "Goblin",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 65720,
+      "slug": "carnival-row",
+      "title": "Carnival Row",
+      "year": 2019,
+      "rank": 25
+    },
+    {
+      "id": 78771,
+      "slug": "vampire-academy",
+      "title": "Vampire Academy",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 5093,
+      "slug": "new-amsterdam",
+      "title": "New Amsterdam",
+      "year": 2008,
+      "rank": 27
+    },
+    {
+      "id": 38023,
+      "slug": "limitless",
+      "title": "Limitless",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 26485,
+      "slug": "true-blood",
+      "title": "True Blood",
+      "year": 2008,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919145
+}

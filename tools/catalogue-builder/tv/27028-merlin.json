@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/27028-merlin",
+  "id": 27028,
+  "slug": "merlin",
+  "title": "Merlin",
+  "year": 2008,
+  "rating": 7.9,
+  "votes_text": "93K",
+  "votes": 93000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/45/27028.jpg",
+  "genres": [
+    "Adventure",
+    "Drama",
+    "Fantasy"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 45,
+  "story": "The unlikely friendship between Merlin, a young man gifted with extraordinary magical powers, and Prince Arthur, heir to the crown of Camelot.",
+  "tags": [
+    {
+      "id": 16730,
+      "slug": "king-arthur",
+      "name": "King arthur",
+      "film_count": 110
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 4025,
+      "slug": "arthurian-legend",
+      "name": "Arthurian legend",
+      "film_count": 82
+    },
+    {
+      "id": 3943,
+      "slug": "witch",
+      "name": "Witch",
+      "film_count": 2159
+    },
+    {
+      "id": 2346,
+      "slug": "dragon",
+      "name": "Dragon",
+      "film_count": 1050
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 123452,
+      "slug": "legends-and-myths",
+      "name": "Legends and myths",
+      "film_count": 1116
+    },
+    {
+      "id": 4017,
+      "slug": "camelot",
+      "name": "Camelot",
+      "film_count": 48
+    },
+    {
+      "id": 10923,
+      "slug": "royal-court",
+      "name": "Royal court",
+      "film_count": 460
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 123391,
+      "slug": "young-heroes",
+      "name": "Young heroes",
+      "film_count": 2064
+    },
+    {
+      "id": 207,
+      "slug": "prince",
+      "name": "Prince",
+      "film_count": 958
+    },
+    {
+      "id": 1745,
+      "slug": "sword-and-sorcery",
+      "name": "Sword and sorcery",
+      "film_count": 1069
+    },
+    {
+      "id": 2182,
+      "slug": "duel",
+      "name": "Duel",
+      "film_count": 1229
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "epic",
+      "exciting",
+      "arthurian",
+      "humorous",
+      "fairy tale",
+      "captivating",
+      "costume drama",
+      "stylized",
+      "epic fantasy",
+      "mystical"
+    ],
+    "audience": [
+      "teens",
+      "family outing"
+    ],
+    "plot": [
+      "king arthur",
+      "supernatural",
+      "arthurian legend",
+      "witch",
+      "dragon",
+      "supernatural ability",
+      "legends and myths",
+      "camelot",
+      "magic",
+      "knight",
+      "wizards and magicians",
+      "friendship",
+      "prophecy",
+      "king",
+      "ancient",
+      "curses spells and rituals",
+      "imaginary kingdom",
+      "magical",
+      "magician",
+      "royal family",
+      "imaginary",
+      "medieval",
+      "royal court",
+      "heroes",
+      "youth"
+    ],
+    "time": [
+      "middle ages",
+      "medieval times",
+      "6th century"
+    ],
+    "place": [
+      "england",
+      "wales",
+      "europe"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26566,
+      "slug": "legend-of-the-seeker",
+      "title": "Legend of the Seeker",
+      "year": 2008,
+      "rank": 0
+    },
+    {
+      "id": 60968,
+      "slug": "atlantis",
+      "title": "Atlantis",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 18273,
+      "slug": "merlins-apprentice",
+      "title": "Merlin's Apprentice",
+      "year": 2006,
+      "rank": 2
+    },
+    {
+      "id": 18270,
+      "slug": "merlin",
+      "title": "Merlin",
+      "year": 1998,
+      "rank": 3
+    },
+    {
+      "id": 12625,
+      "slug": "earthsea",
+      "title": "Earthsea",
+      "year": 2004,
+      "rank": 4
+    },
+    {
+      "id": 35431,
+      "slug": "the-shannara-chronicles",
+      "title": "The Shannara Chronicles",
+      "year": 2016,
+      "rank": 5
+    },
+    {
+      "id": 1502,
+      "slug": "camelot",
+      "title": "Camelot",
+      "year": 2011,
+      "rank": 6
+    },
+    {
+      "id": 69553,
+      "slug": "the-wheel-of-time",
+      "title": "The Wheel of Time",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 12866,
+      "slug": "eragon",
+      "title": "Eragon",
+      "year": 2006,
+      "rank": 8
+    },
+    {
+      "id": 64723,
+      "slug": "the-witcher",
+      "title": "The Witcher",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 42783,
+      "slug": "emerald-city",
+      "title": "Emerald City",
+      "year": 2016,
+      "rank": 10
+    },
+    {
+      "id": 17507,
+      "slug": "the-lord-of-the-rings-the-fellowship-of-the-ring",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "rank": 11
+    },
+    {
+      "id": 26573,
+      "slug": "once-upon-a-time",
+      "title": "Once Upon a Time",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 17509,
+      "slug": "the-lord-of-the-rings-the-two-towers",
+      "title": "The Lord of the Rings: The Two Towers",
+      "year": 2002,
+      "rank": 13
+    },
+    {
+      "id": 68053,
+      "slug": "cursed",
+      "title": "Cursed",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 23182,
+      "slug": "stardust",
+      "title": "Stardust",
+      "year": 2007,
+      "rank": 15
+    },
+    {
+      "id": 64076,
+      "slug": "a-discovery-of-witches",
+      "title": "A Discovery of Witches",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 40503,
+      "slug": "king-arthur-legend-of-the-sword",
+      "title": "King Arthur: Legend of the Sword",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 25901,
+      "slug": "xena-warrior-princess",
+      "title": "Xena: Warrior Princess",
+      "year": 1995,
+      "rank": 18
+    },
+    {
+      "id": 68533,
+      "slug": "arthur-and-merlin-knights-of-camelot",
+      "title": "Arthur & Merlin: Knights of Camelot",
+      "year": 2020,
+      "rank": 19
+    },
+    {
+      "id": 41815,
+      "slug": "the-magicians",
+      "title": "The Magicians",
+      "year": 2015,
+      "rank": 20
+    },
+    {
+      "id": 40725,
+      "slug": "jonathan-strange-and-mr-norrell",
+      "title": "Jonathan Strange & Mr Norrell",
+      "year": 2015,
+      "rank": 21
+    },
+    {
+      "id": 1208,
+      "slug": "the-hobbit-the-desolation-of-smaug",
+      "title": "The Hobbit: The Desolation of Smaug",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 18507,
+      "slug": "the-mists-of-avalon",
+      "title": "The Mists of Avalon",
+      "year": 2001,
+      "rank": 23
+    },
+    {
+      "id": 61215,
+      "slug": "the-outpost",
+      "title": "The Outpost",
+      "year": 2018,
+      "rank": 24
+    },
+    {
+      "id": 5344,
+      "slug": "reign",
+      "title": "Reign",
+      "year": 2013,
+      "rank": 25
+    },
+    {
+      "id": 22046,
+      "slug": "season-of-the-witch",
+      "title": "Season of the Witch",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 68308,
+      "slug": "arthur-and-merlin",
+      "title": "Arthur & Merlin",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 28869,
+      "slug": "the-librarians",
+      "title": "The Librarians",
+      "year": 2014,
+      "rank": 28
+    },
+    {
+      "id": 79031,
+      "slug": "the-bastard-son-and-the-devil-himself",
+      "title": "The Bastard Son & the Devil Himself",
+      "year": 2022,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919151
+}

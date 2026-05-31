@@ -1,0 +1,393 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/13137-family-guy",
+  "id": 13137,
+  "slug": "family-guy",
+  "title": "Family Guy",
+  "year": 1999,
+  "rating": 8.1,
+  "votes_text": "386K",
+  "votes": 386000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f2/13137.jpg",
+  "genres": [
+    "Animation",
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "Sick, twisted, politically incorrect and Freakin' Sweet animated series featuring the adventures of the dysfunctional Griffin family. Bumbling Peter and long-suffering Lois have three kids. Stewie (a brilliant but sadistic baby bent on killing his mother and taking over the world), Meg (the oldest, and is the most unpopular girl in town) and Chris (the middle kid, he's not very bright but has a passion for movies). The final member of the family is Brian - a talking dog and much more than a pet, he keeps Stewie in check whilst sipping Martinis and sorting through his own life issues.",
+  "tags": [
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 2941,
+      "slug": "adult-animation",
+      "name": "Adult animation",
+      "film_count": 1876
+    },
+    {
+      "id": 123875,
+      "slug": "cynical",
+      "name": "Cynical",
+      "film_count": 2307
+    },
+    {
+      "id": 198722,
+      "slug": "animated-comedy",
+      "name": "Animated comedy",
+      "film_count": 200
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 4778,
+      "slug": "bullying",
+      "name": "Bullying",
+      "film_count": 3322
+    },
+    {
+      "id": 2345,
+      "slug": "anime",
+      "name": "Anime",
+      "film_count": 6683
+    },
+    {
+      "id": 853,
+      "slug": "adult-humor",
+      "name": "Adult humor",
+      "film_count": 624
+    },
+    {
+      "id": 18089,
+      "slug": "football-team",
+      "name": "Football team",
+      "film_count": 295
+    },
+    {
+      "id": 26160,
+      "slug": "90s",
+      "name": "90s",
+      "film_count": 9177
+    },
+    {
+      "id": 2828,
+      "slug": "profanity",
+      "name": "Profanity",
+      "film_count": 5809
+    },
+    {
+      "id": 42999,
+      "slug": "controversial",
+      "name": "Controversial",
+      "film_count": 3074
+    },
+    {
+      "id": 4244,
+      "slug": "rhode-island",
+      "name": "Rhode island",
+      "film_count": 76
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "humorous",
+      "adult animation",
+      "cynical",
+      "animated comedy",
+      "witty",
+      "adult cartoon",
+      "funny",
+      "exciting",
+      "anime",
+      "controversial"
+    ],
+    "audience": [
+      "teens",
+      "kids",
+      "adult"
+    ],
+    "plot": [
+      "dark humor",
+      "family relations",
+      "bullying",
+      "cheerleader",
+      "social satire",
+      "goofy hero",
+      "eccentric family",
+      "dog",
+      "family life",
+      "parents and children",
+      "small town",
+      "siblings relations",
+      "couple relations",
+      "mature",
+      "adult humor",
+      "football team",
+      "profanity",
+      "satire",
+      "moving",
+      "teenager",
+      "teenage girl",
+      "best friend",
+      "married couple",
+      "vulgar",
+      "redheaded woman"
+    ],
+    "time": [
+      "90s",
+      "20th century",
+      "2000s",
+      "2010s",
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "rhode island",
+      "new england",
+      "usa",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 13138,
+      "slug": "stewie-griffin-the-untold-story",
+      "title": "Stewie Griffin: The Untold Story",
+      "year": 2005,
+      "rank": 0
+    },
+    {
+      "id": 26887,
+      "slug": "american-dad",
+      "title": "American Dad!",
+      "year": 2005,
+      "rank": 1
+    },
+    {
+      "id": 22581,
+      "slug": "the-simpsons",
+      "title": "The Simpsons",
+      "year": 1989,
+      "rank": 2
+    },
+    {
+      "id": 1755,
+      "slug": "the-cleveland-show",
+      "title": "The Cleveland Show",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 22580,
+      "slug": "the-simpsons-movie",
+      "title": "The Simpsons Movie",
+      "year": 2007,
+      "rank": 4
+    },
+    {
+      "id": 64628,
+      "slug": "paradise-pd",
+      "title": "Paradise PD",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 3463,
+      "slug": "brickleberry",
+      "title": "Brickleberry",
+      "year": 2012,
+      "rank": 6
+    },
+    {
+      "id": 22996,
+      "slug": "south-park",
+      "title": "South Park",
+      "year": 1997,
+      "rank": 7
+    },
+    {
+      "id": 56595,
+      "slug": "rick-and-morty",
+      "title": "Rick and Morty",
+      "year": 2013,
+      "rank": 8
+    },
+    {
+      "id": 67936,
+      "slug": "duncanville",
+      "title": "Duncanville",
+      "year": 2020,
+      "rank": 9
+    },
+    {
+      "id": 13891,
+      "slug": "futurama",
+      "title": "Futurama",
+      "year": 1999,
+      "rank": 10
+    },
+    {
+      "id": 1856,
+      "slug": "bobs-burgers",
+      "title": "Bob's Burgers",
+      "year": 2011,
+      "rank": 11
+    },
+    {
+      "id": 40769,
+      "slug": "f-is-for-family",
+      "title": "F is for Family",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 9809,
+      "slug": "the-boondocks",
+      "title": "The Boondocks",
+      "year": 2005,
+      "rank": 13
+    },
+    {
+      "id": 5848,
+      "slug": "sit-down-shut-up",
+      "title": "Sit Down, Shut Up",
+      "year": 2009,
+      "rank": 14
+    },
+    {
+      "id": 12482,
+      "slug": "drawn-together",
+      "title": "Drawn Together",
+      "year": 2004,
+      "rank": 15
+    },
+    {
+      "id": 27148,
+      "slug": "archer-vice",
+      "title": "Archer",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 9165,
+      "slug": "beavis-and-butt-head-do-america",
+      "title": "Beavis and Butt-Head Do America",
+      "year": 1996,
+      "rank": 17
+    },
+    {
+      "id": 57923,
+      "slug": "big-mouth",
+      "title": "Big Mouth",
+      "year": 2017,
+      "rank": 18
+    },
+    {
+      "id": 71139,
+      "slug": "momma-named-me-sheriff",
+      "title": "Momma Named Me Sheriff",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 29954,
+      "slug": "happy-tree-friends",
+      "title": "Happy Tree Friends",
+      "year": 2000,
+      "rank": 20
+    },
+    {
+      "id": 99200,
+      "slug": "family-guy-100th-episode-special",
+      "title": "Family Guy 100th Episode Special",
+      "year": 2007,
+      "rank": 21
+    },
+    {
+      "id": 68785,
+      "slug": "hoops",
+      "title": "Hoops",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 5108,
+      "slug": "ugly-americans",
+      "title": "Ugly Americans",
+      "year": 2010,
+      "rank": 23
+    },
+    {
+      "id": 28915,
+      "slug": "mr-pickles",
+      "title": "Mr. Pickles",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 30393,
+      "slug": "clerks",
+      "title": "Clerks",
+      "year": 2000,
+      "rank": 25
+    },
+    {
+      "id": 62277,
+      "slug": "neighbors-from-hell",
+      "title": "Neighbors from Hell",
+      "year": 2010,
+      "rank": 26
+    },
+    {
+      "id": 74146,
+      "slug": "the-harper-house",
+      "title": "The Harper House",
+      "year": 2021,
+      "rank": 27
+    },
+    {
+      "id": 30005,
+      "slug": "johnny-bravo",
+      "title": "Johnny Bravo",
+      "year": 1997,
+      "rank": 28
+    },
+    {
+      "id": 30417,
+      "slug": "aqua-teen-hunger-force",
+      "title": "Aqua Teen Hunger Force",
+      "year": 2000,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919137
+}

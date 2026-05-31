@@ -1,0 +1,386 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/41775-13-reasons-why",
+  "id": 41775,
+  "slug": "13-reasons-why",
+  "title": "13 Reasons Why",
+  "year": 2017,
+  "rating": 7.4,
+  "votes_text": "337K",
+  "votes": 337000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/ba/41775.jpg",
+  "genres": [
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "After a teenage girl's perplexing suicide, a classmate receives a series of tapes that unravel the mystery of her tragic choice.",
+  "tags": [
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 1454,
+      "slug": "suicide",
+      "name": "Suicide",
+      "film_count": 5879
+    },
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 3276,
+      "slug": "depression",
+      "name": "Depression",
+      "film_count": 3716
+    },
+    {
+      "id": 4778,
+      "slug": "bullying",
+      "name": "Bullying",
+      "film_count": 3322
+    },
+    {
+      "id": 176,
+      "slug": "guilt",
+      "name": "Guilt",
+      "film_count": 4969
+    },
+    {
+      "id": 123481,
+      "slug": "emotional",
+      "name": "Emotional",
+      "film_count": 15358
+    },
+    {
+      "id": 1770,
+      "slug": "loss-of-friend",
+      "name": "Loss of friend",
+      "film_count": 979
+    },
+    {
+      "id": 4,
+      "slug": "mental-illness",
+      "name": "Mental illness",
+      "film_count": 3669
+    },
+    {
+      "id": 124067,
+      "slug": "dramatic",
+      "name": "Dramatic",
+      "film_count": 6928
+    },
+    {
+      "id": 19496,
+      "slug": "dead-teenager",
+      "name": "Dead teenager",
+      "film_count": 242
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 7960,
+      "slug": "abusive-relationship",
+      "name": "Abusive relationship",
+      "film_count": 286
+    },
+    {
+      "id": 19104,
+      "slug": "realistic",
+      "name": "Realistic",
+      "film_count": 35439
+    },
+    {
+      "id": 6983,
+      "slug": "parent-child-relationship",
+      "name": "Parent child relationship",
+      "film_count": 1867
+    },
+    {
+      "id": 1267,
+      "slug": "voice-over-narration",
+      "name": "Voice over narration",
+      "film_count": 4038
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "emotional",
+      "psychological",
+      "thought provoking",
+      "serious",
+      "suspenseful",
+      "dramatic",
+      "realistic",
+      "teen",
+      "sexual",
+      "dark"
+    ],
+    "audience": [
+      "teens",
+      "teen drama"
+    ],
+    "plot": [
+      "suicide",
+      "high school",
+      "depression",
+      "bullying",
+      "guilt",
+      "loss of friend",
+      "human relationship",
+      "troubled teen",
+      "loss",
+      "classmate classmate relationship",
+      "suicidal",
+      "lgbtq",
+      "high school student",
+      "loss of daughter",
+      "teenage boy",
+      "death of daughter",
+      "teenage girl",
+      "self harm",
+      "mental illness",
+      "dead teenager",
+      "family relations",
+      "abusive relationship",
+      "parent child relationship",
+      "voice over narration",
+      "gay lead character"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 40736,
+      "slug": "the-perks-of-being-a-wallflower",
+      "title": "The Perks of Being a Wallflower",
+      "year": 2012,
+      "rank": 0
+    },
+    {
+      "id": 78903,
+      "slug": "rebel-cheer-squad-a-get-even-series",
+      "title": "Rebel Cheer Squad: A Get Even Series",
+      "year": 2022,
+      "rank": 1
+    },
+    {
+      "id": 23030,
+      "slug": "speak",
+      "title": "Speak",
+      "year": 2004,
+      "rank": 2
+    },
+    {
+      "id": 27256,
+      "slug": "revenge",
+      "title": "Revenge",
+      "year": 2011,
+      "rank": 3
+    },
+    {
+      "id": 66931,
+      "slug": "little-fires-everywhere",
+      "title": "Little Fires Everywhere",
+      "year": 2020,
+      "rank": 4
+    },
+    {
+      "id": 26436,
+      "slug": "paper-towns",
+      "title": "Paper Towns",
+      "year": 2015,
+      "rank": 5
+    },
+    {
+      "id": 97054,
+      "slug": "raising-voices",
+      "title": "Raising Voices",
+      "year": 2024,
+      "rank": 6
+    },
+    {
+      "id": 69275,
+      "slug": "the-wilds",
+      "title": "The Wilds",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 59501,
+      "slug": "the-end-of-the-f-ing-world",
+      "title": "The End of the F***ing World",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 62532,
+      "slug": "twisted",
+      "title": "Twisted",
+      "year": 2013,
+      "rank": 9
+    },
+    {
+      "id": 41817,
+      "slug": "shame",
+      "title": "Skam",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 13319,
+      "slug": "bates-motel",
+      "title": "Bates Motel",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 6159,
+      "slug": "sense8",
+      "title": "Sense8",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 41777,
+      "slug": "riverdale",
+      "title": "Riverdale",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 14
+    },
+    {
+      "id": 93916,
+      "slug": "masters-daughter",
+      "title": "Master's Daughter",
+      "year": 2022,
+      "rank": 15
+    },
+    {
+      "id": 14338,
+      "slug": "gossip",
+      "title": "Gossip",
+      "year": 2000,
+      "rank": 16
+    },
+    {
+      "id": 65384,
+      "slug": "euphoria",
+      "title": "Euphoria",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 30312,
+      "slug": "skins",
+      "title": "Skins",
+      "year": 2007,
+      "rank": 18
+    },
+    {
+      "id": 25438,
+      "slug": "we-need-to-talk-about-kevin",
+      "title": "We Need to Talk About Kevin",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 17249,
+      "slug": "the-life-before-her-eyes",
+      "title": "The Life Before Her Eyes",
+      "year": 2007,
+      "rank": 20
+    },
+    {
+      "id": 5138,
+      "slug": "suicide-room",
+      "title": "Suicide Room",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 26791,
+      "slug": "pretty-little-liars",
+      "title": "Pretty Little Liars",
+      "year": 2010,
+      "rank": 22
+    },
+    {
+      "id": 38680,
+      "slug": "im-not-ashamed",
+      "title": "I'm Not Ashamed",
+      "year": 2016,
+      "rank": 23
+    },
+    {
+      "id": 18944,
+      "slug": "crazy-for-love",
+      "title": "My Suicidal Sweetheart",
+      "year": 2005,
+      "rank": 24
+    },
+    {
+      "id": 60872,
+      "slug": "impulse",
+      "title": "Impulse",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 64613,
+      "slug": "elite",
+      "title": "Elite",
+      "year": 2018,
+      "rank": 26
+    },
+    {
+      "id": 69784,
+      "slug": "memories-of-a-teenager",
+      "title": "Memories of a Teenager",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 61590,
+      "slug": "insatiable",
+      "title": "Insatiable",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 77406,
+      "slug": "the-age-of-anger",
+      "title": "The Age Of Anger",
+      "year": 2022,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919158
+}

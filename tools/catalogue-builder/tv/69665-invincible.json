@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/69665-invincible",
+  "id": 69665,
+  "slug": "invincible",
+  "title": "Invincible",
+  "year": 2021,
+  "rating": 8.7,
+  "votes_text": "302K",
+  "votes": 302000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/2b/69665.jpg",
+  "genres": [
+    "Animation",
+    "Action",
+    "Adventure",
+    "Drama",
+    "Fantasy",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 50,
+  "story": "Adaptation of the American Comic Book of the same name by Robert Kirkman",
+  "tags": [
+    {
+      "id": 2941,
+      "slug": "adult-animation",
+      "name": "Adult animation",
+      "film_count": 1876
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 172234,
+      "slug": "teen-superhero",
+      "name": "Teen superhero",
+      "film_count": 323
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 4235,
+      "slug": "super-villain",
+      "name": "Super villain",
+      "film_count": 963
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 511,
+      "slug": "revenge",
+      "name": "Revenge",
+      "film_count": 19339
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    },
+    {
+      "id": 143,
+      "slug": "rivalry",
+      "name": "Rivalry",
+      "film_count": 16927
+    },
+    {
+      "id": 2289,
+      "slug": "extraterrestrial",
+      "name": "Extraterrestrial",
+      "film_count": 900
+    },
+    {
+      "id": 4313,
+      "slug": "mission",
+      "name": "Mission",
+      "film_count": 3740
+    },
+    {
+      "id": 123480,
+      "slug": "contemplative",
+      "name": "Contemplative",
+      "film_count": 4870
+    },
+    {
+      "id": 4308,
+      "slug": "race-against-time",
+      "name": "Race against time",
+      "film_count": 3416
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "adult animation",
+      "captivating",
+      "tense",
+      "suspense",
+      "exciting",
+      "adult cartoon",
+      "psychological",
+      "contemplative",
+      "manga",
+      "psychological thriller"
+    ],
+    "audience": [
+      "kids",
+      "adult"
+    ],
+    "plot": [
+      "teen superhero",
+      "heroes",
+      "superhero",
+      "super villain",
+      "teenager",
+      "violence",
+      "blood",
+      "warrior",
+      "courage",
+      "heroism",
+      "vengeance",
+      "society",
+      "secret identity",
+      "invulnerability",
+      "villain",
+      "supernatural power",
+      "revenge",
+      "escapades",
+      "rivalry",
+      "extraterrestrial",
+      "mission",
+      "race against time",
+      "gay friend",
+      "graphic violence",
+      "strong man"
+    ],
+    "time": [
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 55966,
+      "slug": "justice-league-vs-teen-titans",
+      "title": "Justice League vs. Teen Titans",
+      "year": 2016,
+      "rank": 0
+    },
+    {
+      "id": 75079,
+      "slug": "deathstroke-knights-and-dragons",
+      "title": "Deathstroke: Knights & Dragons",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 66389,
+      "slug": "harley-quinn",
+      "title": "Harley Quinn",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 74905,
+      "slug": "spider-man-across-the-spider-verse-part-one",
+      "title": "Spider-Man: Across the Spider-Verse",
+      "year": 2023,
+      "rank": 3
+    },
+    {
+      "id": 74355,
+      "slug": "the-legend-of-vox-machina",
+      "title": "The Legend of Vox Machina",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 69513,
+      "slug": "max-steel-team-turbo-fusion-tek",
+      "title": "Max Steel Team Turbo: Fusion Tek",
+      "year": 2016,
+      "rank": 5
+    },
+    {
+      "id": 73992,
+      "slug": "marvels-hit-monkey",
+      "title": "Marvel's Hit-Monkey",
+      "year": 2021,
+      "rank": 6
+    },
+    {
+      "id": 74038,
+      "slug": "arcane",
+      "title": "Arcane",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 69618,
+      "slug": "lastman",
+      "title": "Lastman",
+      "year": 2016,
+      "rank": 8
+    },
+    {
+      "id": 61755,
+      "slug": "rise-of-the-teenage-mutant-ninja-turtles",
+      "title": "Rise of the Teenage Mutant Ninja Turtles",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 26808,
+      "slug": "claymore",
+      "title": "Claymore",
+      "year": 2007,
+      "rank": 10
+    },
+    {
+      "id": 75127,
+      "slug": "peacemaker",
+      "title": "Peacemaker",
+      "year": 2022,
+      "rank": 11
+    },
+    {
+      "id": 57899,
+      "slug": "castlevania",
+      "title": "Castlevania",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 67705,
+      "slug": "justice-league-dark-apokolips-war",
+      "title": "Justice League Dark: Apokolips War",
+      "year": 2020,
+      "rank": 13
+    },
+    {
+      "id": 73972,
+      "slug": "super-crooks",
+      "title": "Super Crooks",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 63951,
+      "slug": "vixen",
+      "title": "Vixen",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 27063,
+      "slug": "star-wars-the-clone-wars",
+      "title": "Star Wars: The Clone Wars",
+      "year": 2008,
+      "rank": 16
+    },
+    {
+      "id": 71257,
+      "slug": "spirit-cage-incarnation",
+      "title": "Ling Cage",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 56595,
+      "slug": "rick-and-morty",
+      "title": "Rick and Morty",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 56191,
+      "slug": "todd-mcfarlanes-spawn",
+      "title": "Todd McFarlane's Spawn",
+      "year": 1997,
+      "rank": 19
+    },
+    {
+      "id": 100073,
+      "slug": "new-teen-titans",
+      "title": "New Teen Titans",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 27489,
+      "slug": "son-of-batman",
+      "title": "Son of Batman",
+      "year": 2014,
+      "rank": 21
+    },
+    {
+      "id": 87236,
+      "slug": "stan-lees-mighty-7",
+      "title": "Stan Lee's Mighty 7",
+      "year": 2014,
+      "rank": 22
+    },
+    {
+      "id": 79148,
+      "slug": "kulipari-dream-walker",
+      "title": "Kulipari: Dream Walker",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 69266,
+      "slug": "blood-of-zeus",
+      "title": "Blood of Zeus",
+      "year": 2020,
+      "rank": 24
+    },
+    {
+      "id": 99941,
+      "slug": "invincible-atom-eve",
+      "title": "Invincible: Atom Eve",
+      "year": 2023,
+      "rank": 25
+    },
+    {
+      "id": 84184,
+      "slug": "thunder-and-lightning",
+      "title": "Thunder and Lightning",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 42609,
+      "slug": "vibe",
+      "title": "Vibe",
+      "year": 2012,
+      "rank": 27
+    },
+    {
+      "id": 29866,
+      "slug": "the-spectacular-spider-man",
+      "title": "The Spectacular Spider-Man",
+      "year": 2008,
+      "rank": 28
+    },
+    {
+      "id": 69664,
+      "slug": "concrete-revolutio",
+      "title": "Concrete Revolutio",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919179
+}

@@ -1,0 +1,383 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/42780-the-young-pope",
+  "id": 42780,
+  "slug": "the-young-pope",
+  "title": "The Young Pope",
+  "year": 2016,
+  "rating": 8.3,
+  "votes_text": "51K",
+  "votes": 51000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/7a/42780.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "Italy",
+    "France",
+    "Spain",
+    "UK",
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Lenny Belardo, the youngest and first American Pope in the history of the Church, must establish his new papacy and navigate the power struggles of the closed, secretive Vatican.",
+  "tags": [
+    {
+      "id": 3609,
+      "slug": "pope",
+      "name": "Pope",
+      "film_count": 215
+    },
+    {
+      "id": 7455,
+      "slug": "vatican",
+      "name": "Vatican",
+      "film_count": 189
+    },
+    {
+      "id": 3697,
+      "slug": "religion",
+      "name": "Religion",
+      "film_count": 3492
+    },
+    {
+      "id": 3698,
+      "slug": "catholic-church",
+      "name": "Catholic church",
+      "film_count": 677
+    },
+    {
+      "id": 2049,
+      "slug": "italy",
+      "name": "Italy",
+      "film_count": 2207
+    },
+    {
+      "id": 16739,
+      "slug": "god",
+      "name": "God",
+      "film_count": 1291
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 530,
+      "slug": "betrayal",
+      "name": "Betrayal",
+      "film_count": 17334
+    },
+    {
+      "id": 55115,
+      "slug": "sensual",
+      "name": "Sensual",
+      "film_count": 1595
+    },
+    {
+      "id": 2278,
+      "slug": "sex-scene",
+      "name": "Sex scene",
+      "film_count": 9619
+    },
+    {
+      "id": 4276,
+      "slug": "best-friend",
+      "name": "Best friend",
+      "film_count": 4850
+    },
+    {
+      "id": 21094,
+      "slug": "religious",
+      "name": "Religious",
+      "film_count": 1212
+    },
+    {
+      "id": 814,
+      "slug": "female-nudity",
+      "name": "Female nudity",
+      "film_count": 21159
+    },
+    {
+      "id": 22077,
+      "slug": "surreal",
+      "name": "Surreal",
+      "film_count": 6671
+    },
+    {
+      "id": 9108,
+      "slug": "gay-sex",
+      "name": "Gay sex",
+      "film_count": 1090
+    },
+    {
+      "id": 17578,
+      "slug": "saint",
+      "name": "Saint",
+      "film_count": 202
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "controversial",
+      "psychological",
+      "erotic",
+      "sensual",
+      "surreal",
+      "exciting",
+      "funny",
+      "absurd",
+      "tragicomedy"
+    ],
+    "plot": [
+      "pope",
+      "vatican",
+      "religion",
+      "catholic church",
+      "god",
+      "satire",
+      "betrayal",
+      "scandal",
+      "infidelity",
+      "nun",
+      "conspiracy",
+      "orphan",
+      "kangaroo",
+      "intrigue",
+      "abuse of power",
+      "faith",
+      "life philosophy",
+      "male nudity",
+      "celibacy",
+      "sex scene",
+      "best friend",
+      "religious",
+      "female nudity",
+      "gay sex",
+      "saint"
+    ],
+    "time": [
+      "contemporary"
+    ],
+    "place": [
+      "italy",
+      "rome italy"
+    ]
+  },
+  "similar": [
+    {
+      "id": 66320,
+      "slug": "the-new-pope",
+      "title": "The New Pope",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 5323,
+      "slug": "the-great-beauty",
+      "title": "The Great Beauty",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 68151,
+      "slug": "lambs-of-god",
+      "title": "Lambs of God",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 65907,
+      "slug": "the-two-popes",
+      "title": "The Two Popes",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 14615,
+      "slug": "we-have-a-pope",
+      "title": "We Have a Pope",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 17493,
+      "slug": "looking-for-mr-goodbar",
+      "title": "Looking for Mr. Goodbar",
+      "year": 1977,
+      "rank": 5
+    },
+    {
+      "id": 42781,
+      "slug": "medici-masters-of-florence",
+      "title": "Medici",
+      "year": 2016,
+      "rank": 6
+    },
+    {
+      "id": 60607,
+      "slug": "the-affair",
+      "title": "The Affair",
+      "year": 2014,
+      "rank": 7
+    },
+    {
+      "id": 22395,
+      "slug": "the-shoes-of-the-fisherman",
+      "title": "The Shoes of the Fisherman",
+      "year": 1968,
+      "rank": 8
+    },
+    {
+      "id": 67223,
+      "slug": "of-kings-and-prophets",
+      "title": "Of Kings and Prophets",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 69245,
+      "slug": "black-narcissus",
+      "title": "Black Narcissus",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 79576,
+      "slug": "1994",
+      "title": "1994",
+      "year": 2019,
+      "rank": 11
+    },
+    {
+      "id": 71062,
+      "slug": "monarca",
+      "title": "Monarch",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 56711,
+      "slug": "nothing-sacred",
+      "title": "Nothing Sacred",
+      "year": 1997,
+      "rank": 13
+    },
+    {
+      "id": 1380,
+      "slug": "satisfaction",
+      "title": "Satisfaction",
+      "year": 2007,
+      "rank": 14
+    },
+    {
+      "id": 73437,
+      "slug": "broken",
+      "title": "Broken",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 76829,
+      "slug": "saints-and-sinners",
+      "title": "Saints & Sinners",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 89550,
+      "slug": "secret-campus",
+      "title": "Secret Campus",
+      "year": 2023,
+      "rank": 17
+    },
+    {
+      "id": 90918,
+      "slug": "chouchou",
+      "title": "Sweetheart",
+      "year": 2022,
+      "rank": 18
+    },
+    {
+      "id": 63676,
+      "slug": "banana",
+      "title": "Banana",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 87403,
+      "slug": "the-encounter",
+      "title": "The Encounter",
+      "year": 2016,
+      "rank": 20
+    },
+    {
+      "id": 91157,
+      "slug": "the-life-of-jesus-christ",
+      "title": "The Life of Jesus Christ",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 81039,
+      "slug": "surrogate",
+      "title": "Surrogate",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 52943,
+      "slug": "the-borgias",
+      "title": "The Borgias",
+      "year": 1981,
+      "rank": 23
+    },
+    {
+      "id": 57947,
+      "slug": "the-path",
+      "title": "The Path",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 36906,
+      "slug": "the-girlfriend-experience",
+      "title": "The Girlfriend Experience",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 36998,
+      "slug": "pope-john-paul-ii",
+      "title": "Pope John Paul II",
+      "year": 2005,
+      "rank": 26
+    },
+    {
+      "id": 84851,
+      "slug": "hush",
+      "title": "Hush",
+      "year": 2022,
+      "rank": 27
+    },
+    {
+      "id": 93713,
+      "slug": "fleishman-is-in-trouble",
+      "title": "Fleishman Is in Trouble",
+      "year": 2022,
+      "rank": 28
+    },
+    {
+      "id": 79238,
+      "slug": "saint-anthony-the-miracle-worker-of-padua",
+      "title": "Saint Anthony: The Miracle Worker of Padua",
+      "year": 2002,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919160
+}

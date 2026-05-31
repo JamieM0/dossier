@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/15013-heroes",
+  "id": 15013,
+  "slug": "heroes",
+  "title": "Heroes",
+  "year": 2006,
+  "rating": 7.5,
+  "votes_text": "259K",
+  "votes": 259000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a2/15013.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Fantasy",
+    "Mystery",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Common people discover that they have super powers. Their lives intertwine as a devastating event must be prevented.",
+  "tags": [
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 2543,
+      "slug": "time-travel",
+      "name": "Time travel",
+      "film_count": 2840
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 1450,
+      "slug": "good-versus-evil",
+      "name": "Good versus evil",
+      "film_count": 6642
+    },
+    {
+      "id": 123450,
+      "slug": "heroic-mission",
+      "name": "Heroic mission",
+      "film_count": 2809
+    },
+    {
+      "id": 8033,
+      "slug": "super-powers",
+      "name": "Super powers",
+      "film_count": 773
+    },
+    {
+      "id": 3343,
+      "slug": "psychic",
+      "name": "Psychic",
+      "film_count": 1142
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 1554,
+      "slug": "memory-loss",
+      "name": "Memory loss",
+      "film_count": 1657
+    },
+    {
+      "id": 426,
+      "slug": "father-daughter-relationship",
+      "name": "Father daughter relationship",
+      "film_count": 9778
+    },
+    {
+      "id": 3891,
+      "slug": "high-school-student",
+      "name": "High school student",
+      "film_count": 2043
+    },
+    {
+      "id": 25166,
+      "slug": "hidden-truth",
+      "name": "Hidden truth",
+      "film_count": 400
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 2914,
+      "slug": "cheerleader",
+      "name": "Cheerleader",
+      "film_count": 602
+    },
+    {
+      "id": 7685,
+      "slug": "superpower",
+      "name": "Superpower",
+      "film_count": 2014
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspenseful",
+      "saga",
+      "mythical",
+      "perverse",
+      "exciting",
+      "dark fantasy",
+      "psychological thriller",
+      "intellectual",
+      "bad ending",
+      "dramatic"
+    ],
+    "audience": [
+      "teens",
+      "teen drama"
+    ],
+    "plot": [
+      "supernatural ability",
+      "time travel",
+      "supernatural",
+      "superhero",
+      "good versus evil",
+      "heroic mission",
+      "super powers",
+      "danger",
+      "psychic",
+      "brother brother relationship",
+      "teamwork",
+      "supernatural power",
+      "save the world",
+      "shapeshifter",
+      "changing the past or future",
+      "family secret",
+      "young heroes",
+      "friendship",
+      "death",
+      "heroes",
+      "teleportation",
+      "stopped time",
+      "villain",
+      "rivals",
+      "memory loss"
+    ],
+    "time": [
+      "future",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "new york"
+    ]
+  },
+  "similar": [
+    {
+      "id": 60623,
+      "slug": "heroes-reborn",
+      "title": "Heroes Reborn",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 1412,
+      "slug": "powers",
+      "title": "Powers",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 57902,
+      "slug": "the-gifted",
+      "title": "The Gifted",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 4778,
+      "slug": "the-tomorrow-people",
+      "title": "The Tomorrow People",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 26355,
+      "slug": "alphas",
+      "title": "Alphas",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 26949,
+      "slug": "misfits",
+      "title": "Misfits",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 4779,
+      "slug": "agents-of-s-h-i-e-l-d",
+      "title": "Agents of S.H.I.E.L.D.",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 30533,
+      "slug": "the-4400",
+      "title": "The 4400",
+      "year": 2004,
+      "rank": 7
+    },
+    {
+      "id": 6147,
+      "slug": "sanctuary",
+      "title": "Sanctuary",
+      "year": 2008,
+      "rank": 8
+    },
+    {
+      "id": 6159,
+      "slug": "sense8",
+      "title": "Sense8",
+      "year": 2015,
+      "rank": 9
+    },
+    {
+      "id": 16866,
+      "slug": "kyle-xy",
+      "title": "Kyle XY",
+      "year": 2006,
+      "rank": 10
+    },
+    {
+      "id": 3004,
+      "slug": "no-ordinary-family",
+      "title": "No Ordinary Family",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 4415,
+      "slug": "teen-wolf",
+      "title": "Teen Wolf",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 6070,
+      "slug": "witches-of-east-end",
+      "title": "Witches of East End",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 26485,
+      "slug": "true-blood",
+      "title": "True Blood",
+      "year": 2008,
+      "rank": 15
+    },
+    {
+      "id": 65640,
+      "slug": "the-order",
+      "title": "The Order",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 28860,
+      "slug": "american-gods",
+      "title": "American Gods",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 24282,
+      "slug": "touch",
+      "title": "Touch",
+      "year": 2012,
+      "rank": 18
+    },
+    {
+      "id": 56775,
+      "slug": "the-listener",
+      "title": "The Listener",
+      "year": 2009,
+      "rank": 19
+    },
+    {
+      "id": 22781,
+      "slug": "smallville",
+      "title": "Smallville",
+      "year": 2001,
+      "rank": 20
+    },
+    {
+      "id": 26532,
+      "slug": "fringe",
+      "title": "Fringe",
+      "year": 2008,
+      "rank": 21
+    },
+    {
+      "id": 42764,
+      "slug": "wynonna-earp",
+      "title": "Wynonna Earp",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 60999,
+      "slug": "the-messengers",
+      "title": "The Messengers",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 20873,
+      "slug": "push",
+      "title": "Push",
+      "year": 2009,
+      "rank": 24
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 25
+    },
+    {
+      "id": 13321,
+      "slug": "under-the-dome",
+      "title": "Under the Dome",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 7261,
+      "slug": "x-men-days-of-future-past",
+      "title": "X-Men: Days of Future Past",
+      "year": 2014,
+      "rank": 27
+    },
+    {
+      "id": 60865,
+      "slug": "black",
+      "title": "Black",
+      "year": 2017,
+      "rank": 28
+    },
+    {
+      "id": 30261,
+      "slug": "the-outer-limits",
+      "title": "The Outer Limits",
+      "year": 1963,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919138
+}

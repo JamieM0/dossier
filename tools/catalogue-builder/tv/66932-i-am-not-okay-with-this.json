@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/66932-i-am-not-okay-with-this",
+  "id": 66932,
+  "slug": "i-am-not-okay-with-this",
+  "title": "I Am Not Okay with This",
+  "year": 2020,
+  "rating": 7.5,
+  "votes_text": "82K",
+  "votes": 82000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/44/66932.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Fantasy",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 20,
+  "story": "Sydney is a teenage girl navigating the trials and tribulations of high school while dealing with the complexities of her family, her budding sexuality, and mysterious superpowers just beginning to awaken deep within her.",
+  "tags": [
+    {
+      "id": 14601,
+      "slug": "adolescence",
+      "name": "Adolescence",
+      "film_count": 3285
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 5561,
+      "slug": "teenage-protagonist",
+      "name": "Teenage protagonist",
+      "film_count": 1860
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 12465,
+      "slug": "lesbian-lead-character",
+      "name": "Lesbian lead character",
+      "film_count": 33
+    },
+    {
+      "id": 2874,
+      "slug": "telekinesis",
+      "name": "Telekinesis",
+      "film_count": 524
+    },
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 45403,
+      "slug": "feel-good",
+      "name": "Feel good",
+      "film_count": 17668
+    },
+    {
+      "id": 61731,
+      "slug": "young-adult",
+      "name": "Young adult",
+      "film_count": 4167
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 1106,
+      "slug": "halloween",
+      "name": "Halloween",
+      "film_count": 1397
+    },
+    {
+      "id": 83562,
+      "slug": "teenage-life",
+      "name": "Teenage life",
+      "film_count": 6021
+    },
+    {
+      "id": 20040,
+      "slug": "female-female-relationship",
+      "name": "Female female relationship",
+      "film_count": 174
+    },
+    {
+      "id": 3910,
+      "slug": "17-year-old",
+      "name": "17 year old",
+      "film_count": 537
+    },
+    {
+      "id": 309,
+      "slug": "anxiety",
+      "name": "Anxiety",
+      "film_count": 828
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "feel good",
+      "captivating",
+      "light",
+      "humorous",
+      "psychological",
+      "controversial",
+      "anime",
+      "existential",
+      "sentimental",
+      "bleak"
+    ],
+    "audience": [
+      "teens",
+      "teen fantasy",
+      "teen drama"
+    ],
+    "plot": [
+      "adolescence",
+      "teenager",
+      "youth",
+      "teenage protagonist",
+      "female protagonist",
+      "lesbian lead character",
+      "telekinesis",
+      "high school",
+      "love",
+      "friendship",
+      "lgbt teen",
+      "lgbt",
+      "small town",
+      "teenage girl",
+      "closeted homosexual",
+      "coming of age",
+      "closeted lesbian",
+      "lesbian",
+      "lesbian teen",
+      "supernatural power",
+      "anger",
+      "psychokinesis",
+      "diary",
+      "young adult",
+      "halloween"
+    ],
+    "time": [
+      "future",
+      "2020s",
+      "contemporary"
+    ]
+  },
+  "similar": [
+    {
+      "id": 57910,
+      "slug": "marvels-runaways",
+      "title": "Marvel's Runaways",
+      "year": 2017,
+      "rank": 0
+    },
+    {
+      "id": 80895,
+      "slug": "school-spirits",
+      "title": "School Spirits",
+      "year": 2023,
+      "rank": 1
+    },
+    {
+      "id": 59845,
+      "slug": "everything-sucks",
+      "title": "Everything Sucks!",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 30452,
+      "slug": "freaks-and-geeks",
+      "title": "Freaks and Geeks",
+      "year": 1999,
+      "rank": 3
+    },
+    {
+      "id": 77190,
+      "slug": "paper-girls",
+      "title": "Paper Girls",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 30299,
+      "slug": "my-so-called-life",
+      "title": "My So-Called Life",
+      "year": 1994,
+      "rank": 5
+    },
+    {
+      "id": 67707,
+      "slug": "never-have-i-ever",
+      "title": "Never Have I Ever",
+      "year": 2020,
+      "rank": 6
+    },
+    {
+      "id": 69863,
+      "slug": "teenage-bounty-hunters",
+      "title": "Teenage Bounty Hunters",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 64629,
+      "slug": "wayne",
+      "title": "Wayne",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 79573,
+      "slug": "wednesday",
+      "title": "Wednesday",
+      "year": 2022,
+      "rank": 9
+    },
+    {
+      "id": 26949,
+      "slug": "misfits",
+      "title": "Misfits",
+      "year": 2009,
+      "rank": 10
+    },
+    {
+      "id": 42758,
+      "slug": "stranger-things",
+      "title": "Stranger Things",
+      "year": 2016,
+      "rank": 11
+    },
+    {
+      "id": 60774,
+      "slug": "atypical",
+      "title": "Atypical",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 64831,
+      "slug": "the-umbrella-academy",
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "rank": 13
+    },
+    {
+      "id": 64620,
+      "slug": "sex-education",
+      "title": "Sex Education",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 65522,
+      "slug": "daybreak",
+      "title": "Daybreak",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 61590,
+      "slug": "insatiable",
+      "title": "Insatiable",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 67834,
+      "slug": "warrior-nun",
+      "title": "Warrior Nun",
+      "year": 2020,
+      "rank": 17
+    },
+    {
+      "id": 12937,
+      "slug": "eureka",
+      "title": "Eureka",
+      "year": 2006,
+      "rank": 18
+    },
+    {
+      "id": 28581,
+      "slug": "faking-it",
+      "title": "Faking It",
+      "year": 2014,
+      "rank": 19
+    },
+    {
+      "id": 61744,
+      "slug": "heathers",
+      "title": "Heathers",
+      "year": 2018,
+      "rank": 20
+    },
+    {
+      "id": 58260,
+      "slug": "derry-girls",
+      "title": "Derry Girls",
+      "year": 2018,
+      "rank": 21
+    },
+    {
+      "id": 81734,
+      "slug": "xo-kitty",
+      "title": "XO, Kitty",
+      "year": 2023,
+      "rank": 22
+    },
+    {
+      "id": 65403,
+      "slug": "trinkets",
+      "title": "Trinkets",
+      "year": 2019,
+      "rank": 23
+    },
+    {
+      "id": 30019,
+      "slug": "the-secret-life-of-alex-mack",
+      "title": "The Secret World of Alex Mack",
+      "year": 1994,
+      "rank": 24
+    },
+    {
+      "id": 30350,
+      "slug": "lizzie-mcguire",
+      "title": "Lizzie McGuire",
+      "year": 2001,
+      "rank": 25
+    },
+    {
+      "id": 2267,
+      "slug": "the-carrie-diaries",
+      "title": "The Carrie Diaries",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 91981,
+      "slug": "cindy-la-regia-the-high-school-years",
+      "title": "Cindy la Regia: The High School Years",
+      "year": 2023,
+      "rank": 27
+    },
+    {
+      "id": 93230,
+      "slug": "edge-of-normal",
+      "title": "Edge of Normal",
+      "year": 2013,
+      "rank": 28
+    },
+    {
+      "id": 30355,
+      "slug": "joan-of-arcadia",
+      "title": "Joan of Arcadia",
+      "year": 2003,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919175
+}

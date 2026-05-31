@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/56631-peaky-blinders",
+  "id": 56631,
+  "slug": "peaky-blinders",
+  "title": "Peaky Blinders",
+  "year": 2013,
+  "rating": 8.7,
+  "votes_text": "754K",
+  "votes": 754000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/12/56631.jpg",
+  "genres": [
+    "Crime",
+    "Drama"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "A gangster family epic set in 1919 Birmingham, England and centered on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby, who means to move up in the world.",
+  "tags": [
+    {
+      "id": 1054,
+      "slug": "organized-crime",
+      "name": "Organized crime",
+      "film_count": 3969
+    },
+    {
+      "id": 191,
+      "slug": "england",
+      "name": "England",
+      "film_count": 4022
+    },
+    {
+      "id": 2162,
+      "slug": "gang",
+      "name": "Gang",
+      "film_count": 5339
+    },
+    {
+      "id": 1274,
+      "slug": "mafia",
+      "name": "Mafia",
+      "film_count": 2780
+    },
+    {
+      "id": 3032,
+      "slug": "gang-war",
+      "name": "Gang war",
+      "film_count": 679
+    },
+    {
+      "id": 845,
+      "slug": "gangster",
+      "name": "Gangster",
+      "film_count": 6009
+    },
+    {
+      "id": 10072,
+      "slug": "determination",
+      "name": "Determination",
+      "film_count": 1279
+    },
+    {
+      "id": 1060,
+      "slug": "1920s",
+      "name": "1920s",
+      "film_count": 1000
+    },
+    {
+      "id": 806,
+      "slug": "corruption",
+      "name": "Corruption",
+      "film_count": 9994
+    },
+    {
+      "id": 439,
+      "slug": "brother-brother-relationship",
+      "name": "Brother brother relationship",
+      "film_count": 5059
+    },
+    {
+      "id": 92805,
+      "slug": "rough",
+      "name": "Rough",
+      "film_count": 8898
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 17790,
+      "slug": "urban",
+      "name": "Urban",
+      "film_count": 14273
+    },
+    {
+      "id": 3267,
+      "slug": "world-war-one",
+      "name": "World war one",
+      "film_count": 894
+    },
+    {
+      "id": 22763,
+      "slug": "costume-drama",
+      "name": "Costume drama",
+      "film_count": 1839
+    },
+    {
+      "id": 123350,
+      "slug": "criminal-heroes",
+      "name": "Criminal heroes",
+      "film_count": 2481
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "serious",
+      "atmospheric",
+      "tense",
+      "captivating",
+      "stylized",
+      "clever",
+      "rough",
+      "suspenseful",
+      "costume drama",
+      "period piece"
+    ],
+    "audience": [
+      "teens",
+      "boys' night"
+    ],
+    "plot": [
+      "organized crime",
+      "gang",
+      "mafia",
+      "gang war",
+      "gangster",
+      "determination",
+      "cruelty",
+      "crime boss",
+      "power struggle",
+      "mob boss",
+      "rivalry",
+      "shooting",
+      "family relations",
+      "rise to the top",
+      "society",
+      "leader",
+      "business venture",
+      "corruption",
+      "brother brother relationship",
+      "urban",
+      "world war one",
+      "criminal heroes",
+      "violence",
+      "murder",
+      "strong violent content"
+    ],
+    "time": [
+      "1920s",
+      "20th century",
+      "ancient times",
+      "1910s",
+      "victorian era",
+      "victorian",
+      "20s"
+    ],
+    "place": [
+      "england",
+      "britain",
+      "ireland",
+      "birmingham alabama",
+      "london",
+      "europe"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26845,
+      "slug": "boardwalk-empire",
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "rank": 0
+    },
+    {
+      "id": 67549,
+      "slug": "gangs-of-london",
+      "title": "Gangs of London",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 14215,
+      "slug": "the-godfather",
+      "title": "The Godfather",
+      "year": 1972,
+      "rank": 2
+    },
+    {
+      "id": 4800,
+      "slug": "sons-of-anarchy",
+      "title": "Sons of Anarchy",
+      "year": 2008,
+      "rank": 3
+    },
+    {
+      "id": 66394,
+      "slug": "godfather-of-harlem",
+      "title": "Godfather of Harlem",
+      "year": 2019,
+      "rank": 4
+    },
+    {
+      "id": 28539,
+      "slug": "power",
+      "title": "Power",
+      "year": 2014,
+      "rank": 5
+    },
+    {
+      "id": 13942,
+      "slug": "gangs-of-new-york",
+      "title": "Gangs of New York",
+      "year": 2002,
+      "rank": 6
+    },
+    {
+      "id": 2114,
+      "slug": "romanzo-criminale",
+      "title": "Crime novel - The series",
+      "year": 2008,
+      "rank": 7
+    },
+    {
+      "id": 22956,
+      "slug": "the-sopranos",
+      "title": "The Sopranos",
+      "year": 1999,
+      "rank": 8
+    },
+    {
+      "id": 26267,
+      "slug": "lawless",
+      "title": "Lawless",
+      "year": 2012,
+      "rank": 9
+    },
+    {
+      "id": 4029,
+      "slug": "ray-donovan",
+      "title": "Ray Donovan",
+      "year": 2013,
+      "rank": 10
+    },
+    {
+      "id": 58092,
+      "slug": "gomorrah",
+      "title": "Gomorrah",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 14216,
+      "slug": "the-godfather-part-ii",
+      "title": "The Godfather Part II",
+      "year": 1974,
+      "rank": 12
+    },
+    {
+      "id": 1467,
+      "slug": "the-black-donnellys",
+      "title": "The Black Donnellys",
+      "year": 2007,
+      "rank": 13
+    },
+    {
+      "id": 10415,
+      "slug": "casino",
+      "title": "Casino",
+      "year": 1995,
+      "rank": 14
+    },
+    {
+      "id": 27266,
+      "slug": "the-borgias",
+      "title": "The Borgias",
+      "year": 2011,
+      "rank": 15
+    },
+    {
+      "id": 2176,
+      "slug": "brotherhood",
+      "title": "Brotherhood",
+      "year": 2006,
+      "rank": 16
+    },
+    {
+      "id": 1315,
+      "slug": "the-take",
+      "title": "The Take",
+      "year": 2009,
+      "rank": 17
+    },
+    {
+      "id": 42759,
+      "slug": "animal-kingdom",
+      "title": "Animal Kingdom",
+      "year": 2016,
+      "rank": 18
+    },
+    {
+      "id": 41413,
+      "slug": "the-godfather-a-novel-for-television",
+      "title": "The Godfather: A Novel for Television",
+      "year": 1977,
+      "rank": 19
+    },
+    {
+      "id": 9993,
+      "slug": "brigada",
+      "title": "Brigada",
+      "year": 2002,
+      "rank": 20
+    },
+    {
+      "id": 56449,
+      "slug": "ripper-street",
+      "title": "Ripper Street",
+      "year": 2012,
+      "rank": 21
+    },
+    {
+      "id": 58268,
+      "slug": "shut-eye",
+      "title": "Shut Eye",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 2616,
+      "slug": "lilyhammer",
+      "title": "Lilyhammer",
+      "year": 2012,
+      "rank": 23
+    },
+    {
+      "id": 100224,
+      "slug": "mobland",
+      "title": "MobLand",
+      "year": 2025,
+      "rank": 24
+    },
+    {
+      "id": 66899,
+      "slug": "halka",
+      "title": "Halka",
+      "year": 2019,
+      "rank": 25
+    },
+    {
+      "id": 21561,
+      "slug": "kings-of-crime",
+      "title": "Romanzo Criminale",
+      "year": 2005,
+      "rank": 26
+    },
+    {
+      "id": 35426,
+      "slug": "taboo",
+      "title": "Taboo",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 73772,
+      "slug": "bmf",
+      "title": "BMF",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 61578,
+      "slug": "ozark",
+      "title": "Ozark",
+      "year": 2017,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919161
+}

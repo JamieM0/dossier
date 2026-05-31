@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64239-chilling-adventures-of-sabrina",
+  "id": 64239,
+  "slug": "chilling-adventures-of-sabrina",
+  "title": "Chilling Adventures of Sabrina",
+  "year": 2018,
+  "rating": 7.4,
+  "votes_text": "118K",
+  "votes": 118000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/9e/64239.jpg",
+  "genres": [
+    "Drama",
+    "Fantasy",
+    "Horror",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "As her 16th birthday nears, Sabrina must choose between the witch world of her family and the human world of her friends. Based on the Archie comic.",
+  "tags": [
+    {
+      "id": 3943,
+      "slug": "witch",
+      "name": "Witch",
+      "film_count": 2159
+    },
+    {
+      "id": 7283,
+      "slug": "witchcraft",
+      "name": "Witchcraft",
+      "film_count": 1437
+    },
+    {
+      "id": 12645,
+      "slug": "satanic",
+      "name": "Satanic",
+      "film_count": 489
+    },
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 14182,
+      "slug": "half-breed",
+      "name": "Half breed",
+      "film_count": 94
+    },
+    {
+      "id": 3260,
+      "slug": "coming-of-age",
+      "name": "Coming of age",
+      "film_count": 16794
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 4217,
+      "slug": "black-magic",
+      "name": "Black magic",
+      "film_count": 736
+    },
+    {
+      "id": 123302,
+      "slug": "girls-night",
+      "name": "Girls' night",
+      "film_count": 4741
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 22602,
+      "slug": "evil-witch",
+      "name": "Evil witch",
+      "film_count": 210
+    },
+    {
+      "id": 15200,
+      "slug": "society",
+      "name": "Society",
+      "film_count": 13923
+    },
+    {
+      "id": 1132,
+      "slug": "teenage-boy",
+      "name": "Teenage boy",
+      "film_count": 5094
+    },
+    {
+      "id": 19304,
+      "slug": "baptism",
+      "name": "Baptism",
+      "film_count": 293
+    },
+    {
+      "id": 38592,
+      "slug": "disturbing",
+      "name": "Disturbing",
+      "film_count": 16904
+    },
+    {
+      "id": 22756,
+      "slug": "teenage-witch",
+      "name": "Teenage witch",
+      "film_count": 79
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "satanic",
+      "dark",
+      "atmospheric",
+      "stylized",
+      "disturbing",
+      "demonic",
+      "talky",
+      "offbeat",
+      "mysterious",
+      "dark fantasy"
+    ],
+    "audience": [
+      "teens",
+      "girls' night",
+      "pre-teens",
+      "teen fantasy",
+      "teen drama"
+    ],
+    "plot": [
+      "witch",
+      "witchcraft",
+      "high school",
+      "half breed",
+      "coming of age",
+      "teenager",
+      "black magic",
+      "devil worship",
+      "dedication",
+      "teenage love",
+      "satanism",
+      "teenage protagonist",
+      "female protagonist",
+      "couple relations",
+      "teenage girl",
+      "rivalry",
+      "love",
+      "school",
+      "family relations",
+      "evil witch",
+      "society",
+      "teenage boy",
+      "baptism",
+      "teenage witch",
+      "fantasy world"
+    ],
+    "time": [
+      "2010s",
+      "21st century"
+    ],
+    "place": [
+      "chicago"
+    ]
+  },
+  "similar": [
+    {
+      "id": 11299,
+      "slug": "the-craft",
+      "title": "The Craft",
+      "year": 1996,
+      "rank": 0
+    },
+    {
+      "id": 2266,
+      "slug": "the-secret-circle",
+      "title": "The Secret Circle",
+      "year": 2011,
+      "rank": 1
+    },
+    {
+      "id": 64335,
+      "slug": "legacies",
+      "title": "Legacies",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 41815,
+      "slug": "the-magicians",
+      "title": "The Magicians",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 5865,
+      "slug": "the-originals",
+      "title": "The Originals",
+      "year": 2013,
+      "rank": 4
+    },
+    {
+      "id": 65640,
+      "slug": "the-order",
+      "title": "The Order",
+      "year": 2019,
+      "rank": 5
+    },
+    {
+      "id": 10596,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 1998,
+      "rank": 6
+    },
+    {
+      "id": 4415,
+      "slug": "teen-wolf",
+      "title": "Teen Wolf",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 26565,
+      "slug": "supernatural",
+      "title": "Supernatural",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 9
+    },
+    {
+      "id": 57898,
+      "slug": "midnight-texas",
+      "title": "Midnight, Texas",
+      "year": 2017,
+      "rank": 10
+    },
+    {
+      "id": 6070,
+      "slug": "witches-of-east-end",
+      "title": "Witches of East End",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 42758,
+      "slug": "stranger-things",
+      "title": "Stranger Things",
+      "year": 2016,
+      "rank": 12
+    },
+    {
+      "id": 70661,
+      "slug": "the-craft-legacy",
+      "title": "The Craft: Legacy",
+      "year": 2020,
+      "rank": 13
+    },
+    {
+      "id": 61827,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 15
+    },
+    {
+      "id": 67019,
+      "slug": "luna-nera",
+      "title": "Luna Nera",
+      "year": 2020,
+      "rank": 16
+    },
+    {
+      "id": 11278,
+      "slug": "the-covenant",
+      "title": "The Covenant",
+      "year": 2006,
+      "rank": 17
+    },
+    {
+      "id": 10098,
+      "slug": "buffy-the-vampire-slayer",
+      "title": "Buffy the Vampire Slayer",
+      "year": 1997,
+      "rank": 18
+    },
+    {
+      "id": 26369,
+      "slug": "american-horror-story",
+      "title": "American Horror Story",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 41777,
+      "slug": "riverdale",
+      "title": "Riverdale",
+      "year": 2017,
+      "rank": 20
+    },
+    {
+      "id": 30191,
+      "slug": "sabrina-the-teenage-witch",
+      "title": "Sabrina, the Teenage Witch",
+      "year": 1996,
+      "rank": 21
+    },
+    {
+      "id": 27309,
+      "slug": "salem",
+      "title": "Salem",
+      "year": 2014,
+      "rank": 22
+    },
+    {
+      "id": 64076,
+      "slug": "a-discovery-of-witches",
+      "title": "A Discovery of Witches",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 80895,
+      "slug": "school-spirits",
+      "title": "School Spirits",
+      "year": 2023,
+      "rank": 24
+    },
+    {
+      "id": 4530,
+      "slug": "sleepy-hollow",
+      "title": "Sleepy Hollow",
+      "year": 2013,
+      "rank": 25
+    },
+    {
+      "id": 65720,
+      "slug": "carnival-row",
+      "title": "Carnival Row",
+      "year": 2019,
+      "rank": 26
+    },
+    {
+      "id": 27722,
+      "slug": "the-witch",
+      "title": "The Witch",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 66942,
+      "slug": "motherland-fort-salem",
+      "title": "Motherland: Fort Salem",
+      "year": 2020,
+      "rank": 28
+    },
+    {
+      "id": 62369,
+      "slug": "house-of-anubis",
+      "title": "House of Anubis",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919169
+}

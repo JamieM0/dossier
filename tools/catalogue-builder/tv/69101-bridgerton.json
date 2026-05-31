@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/69101-bridgerton",
+  "id": 69101,
+  "slug": "bridgerton",
+  "title": "Bridgerton",
+  "year": 2020,
+  "rating": 7.5,
+  "votes_text": "217K",
+  "votes": 217000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/53/69101.jpg",
+  "genres": [
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Wealth, lust, and betrayal set in the backdrop of Regency era England, seen through the eyes of the powerful Bridgerton family.",
+  "tags": [
+    {
+      "id": 2468,
+      "slug": "19th-century",
+      "name": "19th century",
+      "film_count": 2885
+    },
+    {
+      "id": 468,
+      "slug": "love",
+      "name": "Love",
+      "film_count": 16907
+    },
+    {
+      "id": 175,
+      "slug": "marriage",
+      "name": "Marriage",
+      "film_count": 6801
+    },
+    {
+      "id": 540,
+      "slug": "based-on-novel",
+      "name": "Based on novel",
+      "film_count": 11006
+    },
+    {
+      "id": 124248,
+      "slug": "romantic",
+      "name": "Romantic",
+      "film_count": 8409
+    },
+    {
+      "id": 22763,
+      "slug": "costume-drama",
+      "name": "Costume drama",
+      "film_count": 1839
+    },
+    {
+      "id": 16201,
+      "slug": "aristocracy",
+      "name": "Aristocracy",
+      "film_count": 494
+    },
+    {
+      "id": 123302,
+      "slug": "girls-night",
+      "name": "Girls' night",
+      "film_count": 4741
+    },
+    {
+      "id": 4184,
+      "slug": "beefcake",
+      "name": "Beefcake",
+      "film_count": 280
+    },
+    {
+      "id": 34148,
+      "slug": "1810s",
+      "name": "1810s",
+      "film_count": 87
+    },
+    {
+      "id": 10062,
+      "slug": "period-piece",
+      "name": "Period piece",
+      "film_count": 6298
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 10271,
+      "slug": "alternate-history",
+      "name": "Alternate history",
+      "film_count": 586
+    },
+    {
+      "id": 44769,
+      "slug": "black-man-white-woman-relationship",
+      "name": "Black man white woman relationship",
+      "film_count": 146
+    },
+    {
+      "id": 6097,
+      "slug": "opposites-attract",
+      "name": "Opposites attract",
+      "film_count": 1887
+    },
+    {
+      "id": 2588,
+      "slug": "virgin",
+      "name": "Virgin",
+      "film_count": 1223
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "romantic",
+      "costume drama",
+      "sexy",
+      "light",
+      "captivating",
+      "period piece",
+      "romantic drama",
+      "saga",
+      "historical drama",
+      "visually appealing"
+    ],
+    "audience": [
+      "girls' night",
+      "chick flick",
+      "teens"
+    ],
+    "plot": [
+      "love",
+      "marriage",
+      "aristocracy",
+      "society",
+      "love and romance",
+      "love story",
+      "sex scene",
+      "eligible bachelor",
+      "couple relations",
+      "intrigue",
+      "relationships",
+      "steamy romance",
+      "class differences",
+      "interracial romance",
+      "beefcake",
+      "alternate history",
+      "black man white woman relationship",
+      "opposites attract",
+      "virgin",
+      "queen",
+      "sexual attraction",
+      "brother sister relationship",
+      "sister sister relationship",
+      "male female relationship",
+      "sexual tension"
+    ],
+    "time": [
+      "19th century",
+      "1810s",
+      "georgian era",
+      "ancient times",
+      "victorian era",
+      "regency period",
+      "victorian"
+    ],
+    "place": [
+      "england",
+      "london"
+    ]
+  },
+  "similar": [
+    {
+      "id": 82165,
+      "slug": "queen-charlotte-a-bridgerton-story",
+      "title": "Queen Charlotte: A Bridgerton Story",
+      "year": 2023,
+      "rank": 0
+    },
+    {
+      "id": 65954,
+      "slug": "sanditon",
+      "title": "Sanditon",
+      "year": 2019,
+      "rank": 1
+    },
+    {
+      "id": 28887,
+      "slug": "poldark",
+      "title": "Poldark",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 26877,
+      "slug": "far-from-the-madding-crowd",
+      "title": "Far from the Madding Crowd",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 16110,
+      "slug": "jane-eyre",
+      "title": "Jane Eyre",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 16107,
+      "slug": "jane-eyre",
+      "title": "Jane Eyre",
+      "year": 1983,
+      "rank": 5
+    },
+    {
+      "id": 20648,
+      "slug": "pride-and-prejudice",
+      "title": "Pride & Prejudice",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 13654,
+      "slug": "the-forsyte-saga",
+      "title": "The Forsyte Saga",
+      "year": 1967,
+      "rank": 7
+    },
+    {
+      "id": 21935,
+      "slug": "scarlett",
+      "title": "Scarlett",
+      "year": 1994,
+      "rank": 8
+    },
+    {
+      "id": 22143,
+      "slug": "sense-and-sensibility",
+      "title": "Sense and Sensibility",
+      "year": 1995,
+      "rank": 9
+    },
+    {
+      "id": 12760,
+      "slug": "emma",
+      "title": "Emma",
+      "year": 1996,
+      "rank": 10
+    },
+    {
+      "id": 22144,
+      "slug": "sense-and-sensibility",
+      "title": "Sense and Sensibility",
+      "year": 2008,
+      "rank": 11
+    },
+    {
+      "id": 17541,
+      "slug": "lost-in-austen",
+      "title": "Lost in Austen",
+      "year": 2008,
+      "rank": 12
+    },
+    {
+      "id": 20239,
+      "slug": "persuasion",
+      "title": "Persuasion",
+      "year": 2007,
+      "rank": 13
+    },
+    {
+      "id": 26972,
+      "slug": "downton-abbey",
+      "title": "Downton Abbey",
+      "year": 2010,
+      "rank": 14
+    },
+    {
+      "id": 30227,
+      "slug": "vanity-fair",
+      "title": "Vanity Fair",
+      "year": 1998,
+      "rank": 15
+    },
+    {
+      "id": 35410,
+      "slug": "war-and-peace",
+      "title": "War & Peace",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 16111,
+      "slug": "jane-eyre",
+      "title": "Jane Eyre",
+      "year": 1996,
+      "rank": 17
+    },
+    {
+      "id": 16109,
+      "slug": "jane-eyre",
+      "title": "Jane Eyre",
+      "year": 2006,
+      "rank": 18
+    },
+    {
+      "id": 13655,
+      "slug": "the-forsyte-saga",
+      "title": "The Forsyte Saga",
+      "year": 2002,
+      "rank": 19
+    },
+    {
+      "id": 12762,
+      "slug": "emma",
+      "title": "Emma",
+      "year": 2009,
+      "rank": 20
+    },
+    {
+      "id": 20650,
+      "slug": "pride-and-prejudice",
+      "title": "Pride and Prejudice",
+      "year": 1995,
+      "rank": 21
+    },
+    {
+      "id": 67665,
+      "slug": "belgravia",
+      "title": "Belgravia",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 19445,
+      "slug": "north-and-south",
+      "title": "North & South",
+      "year": 2004,
+      "rank": 23
+    },
+    {
+      "id": 57940,
+      "slug": "velvet",
+      "title": "Velvet",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 7834,
+      "slug": "wives-and-daughters",
+      "title": "Wives and Daughters",
+      "year": 1999,
+      "rank": 25
+    },
+    {
+      "id": 65501,
+      "slug": "little-women",
+      "title": "Little Women",
+      "year": 2019,
+      "rank": 26
+    },
+    {
+      "id": 66741,
+      "slug": "howards-end",
+      "title": "Howards End",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 19449,
+      "slug": "northanger-abbey",
+      "title": "Northanger Abbey",
+      "year": 2007,
+      "rank": 28
+    },
+    {
+      "id": 76439,
+      "slug": "the-vineyard",
+      "title": "The Vineyard",
+      "year": 2021,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919178
+}

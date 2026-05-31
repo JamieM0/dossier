@@ -1,0 +1,386 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/30523-30-rock",
+  "id": 30523,
+  "slug": "30-rock",
+  "title": "30 Rock",
+  "year": 2006,
+  "rating": 8.3,
+  "votes_text": "137K",
+  "votes": 137000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/04/30523.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "30 Rock is an American television comedy series that ran on NBC from October 11, 2006, to January 31, 2013, and was created by Tina Fey. The series, which is loosely based on Fey's experiences as head writer for Saturday Night Live, takes place behind the scenes of a fictional live sketch comedy series depicted as airing on NBC. The series' name refers to 30 Rockefeller Plaza in New York City, the address of the GE Building, in which the NBC Studios are located.",
+  "tags": [
+    {
+      "id": 4165,
+      "slug": "new-york",
+      "name": "New york",
+      "film_count": 5521
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 733,
+      "slug": "parody",
+      "name": "Parody",
+      "film_count": 4207
+    },
+    {
+      "id": 503,
+      "slug": "employer-employee-relationship",
+      "name": "Employer employee relationship",
+      "film_count": 1646
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 12784,
+      "slug": "showbiz",
+      "name": "Showbiz",
+      "film_count": 1755
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 124139,
+      "slug": "hilarious",
+      "name": "Hilarious",
+      "film_count": 1767
+    },
+    {
+      "id": 740,
+      "slug": "sketch-comedy",
+      "name": "Sketch comedy",
+      "film_count": 573
+    },
+    {
+      "id": 22182,
+      "slug": "mental-disorder",
+      "name": "Mental disorder",
+      "film_count": 1992
+    },
+    {
+      "id": 207522,
+      "slug": "lighthearted",
+      "name": "Lighthearted",
+      "film_count": 4690
+    },
+    {
+      "id": 3890,
+      "slug": "media",
+      "name": "Media",
+      "film_count": 1599
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "parody",
+      "humorous",
+      "spoof",
+      "witty",
+      "not serious",
+      "hilarious",
+      "sketch comedy",
+      "lighthearted",
+      "funny"
+    ],
+    "audience": [
+      "teens",
+      "teen drama"
+    ],
+    "plot": [
+      "workplace",
+      "employer employee relationship",
+      "friendship",
+      "female protagonist",
+      "showbiz",
+      "comedian",
+      "topical humor",
+      "actress",
+      "actor",
+      "pop culture",
+      "entertainment",
+      "stand up comedian",
+      "celebrity impersonation",
+      "feminist",
+      "nothing goes right",
+      "artists and showbiz",
+      "boss and employee",
+      "workplace situations",
+      "verbal byplay",
+      "satire",
+      "mental disorder",
+      "media",
+      "women",
+      "woman",
+      "feminism"
+    ],
+    "time": [
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "usa",
+      "seattle"
+    ]
+  },
+  "similar": [
+    {
+      "id": 28865,
+      "slug": "unbreakable-kimmy-schmidt",
+      "title": "Unbreakable Kimmy Schmidt",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 26681,
+      "slug": "parks-and-recreation",
+      "title": "Parks and Recreation",
+      "year": 2009,
+      "rank": 1
+    },
+    {
+      "id": 30506,
+      "slug": "seinfeld",
+      "title": "Seinfeld",
+      "year": 1989,
+      "rank": 2
+    },
+    {
+      "id": 62814,
+      "slug": "andy-richter-controls-the-universe",
+      "title": "Andy Richter Controls the Universe",
+      "year": 2002,
+      "rank": 3
+    },
+    {
+      "id": 16022,
+      "slug": "the-it-crowd",
+      "title": "The IT Crowd",
+      "year": 2006,
+      "rank": 4
+    },
+    {
+      "id": 8662,
+      "slug": "arrested-development",
+      "title": "Arrested Development",
+      "year": 2003,
+      "rank": 5
+    },
+    {
+      "id": 11462,
+      "slug": "curb-your-enthusiasm",
+      "title": "Curb Your Enthusiasm",
+      "year": 2000,
+      "rank": 6
+    },
+    {
+      "id": 26562,
+      "slug": "community",
+      "title": "Community",
+      "year": 2009,
+      "rank": 7
+    },
+    {
+      "id": 1233,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 30497,
+      "slug": "newsradio",
+      "title": "NewsRadio",
+      "year": 1995,
+      "rank": 9
+    },
+    {
+      "id": 18,
+      "slug": "saturday-night-live",
+      "title": "Saturday Night Live",
+      "year": 1975,
+      "rank": 10
+    },
+    {
+      "id": 30405,
+      "slug": "murphy-brown",
+      "title": "Murphy Brown",
+      "year": 1988,
+      "rank": 11
+    },
+    {
+      "id": 30160,
+      "slug": "party-down",
+      "title": "Party Down",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 12845,
+      "slug": "entourage",
+      "title": "Entourage",
+      "year": 2004,
+      "rank": 13
+    },
+    {
+      "id": 2664,
+      "slug": "michael-and-michael-have-issues",
+      "title": "Michael & Michael Have Issues",
+      "year": 2009,
+      "rank": 14
+    },
+    {
+      "id": 28909,
+      "slug": "jane-the-virgin",
+      "title": "Jane the Virgin",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 81946,
+      "slug": "not-dead-yet",
+      "title": "Not Dead Yet",
+      "year": 2023,
+      "rank": 16
+    },
+    {
+      "id": 61908,
+      "slug": "after-lately",
+      "title": "After Lately",
+      "year": 2011,
+      "rank": 17
+    },
+    {
+      "id": 68282,
+      "slug": "clark-and-michael",
+      "title": "Clark and Michael",
+      "year": 2007,
+      "rank": 18
+    },
+    {
+      "id": 36884,
+      "slug": "telenovela",
+      "title": "Telenovela",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 181,
+      "slug": "less-than-perfect",
+      "title": "Less Than Perfect",
+      "year": 2002,
+      "rank": 20
+    },
+    {
+      "id": 198,
+      "slug": "madtv",
+      "title": "MADtv",
+      "year": 1995,
+      "rank": 21
+    },
+    {
+      "id": 30038,
+      "slug": "mr-show-with-bob-and-david",
+      "title": "Mr. Show with Bob and David",
+      "year": 1995,
+      "rank": 22
+    },
+    {
+      "id": 83,
+      "slug": "funny-or-die-presents",
+      "title": "Funny or Die Presents",
+      "year": 2010,
+      "rank": 23
+    },
+    {
+      "id": 28626,
+      "slug": "the-comedians",
+      "title": "The Comedians",
+      "year": 2015,
+      "rank": 24
+    },
+    {
+      "id": 57074,
+      "slug": "collegehumor-originals",
+      "title": "CollegeHumor Originals",
+      "year": 2006,
+      "rank": 25
+    },
+    {
+      "id": 56471,
+      "slug": "episodes",
+      "title": "Episodes",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 30039,
+      "slug": "the-kids-in-the-hall",
+      "title": "The Kids in the Hall",
+      "year": 1988,
+      "rank": 27
+    },
+    {
+      "id": 35409,
+      "slug": "the-jack-and-triumph-show",
+      "title": "The Jack and Triumph Show",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 1205,
+      "slug": "dog-bites-man",
+      "title": "Dog Bites Man",
+      "year": 2006,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919156
+}

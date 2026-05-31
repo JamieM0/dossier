@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/5109-banshee",
+  "id": 5109,
+  "slug": "banshee",
+  "title": "Banshee",
+  "year": 2013,
+  "rating": 8.4,
+  "votes_text": "144K",
+  "votes": 144000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/c0/5109.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Banshee is an American drama television series set in a small town in Pennsylvania Amish country and features an enigmatic ex-con posing as a murdered sheriff who imposes his own brand of justice while also cooking up plans that serve his own interests.",
+  "tags": [
+    {
+      "id": 6241,
+      "slug": "ex-convict",
+      "name": "Ex convict",
+      "film_count": 1314
+    },
+    {
+      "id": 1502,
+      "slug": "sheriff",
+      "name": "Sheriff",
+      "film_count": 1642
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 123947,
+      "slug": "tough-heroes",
+      "name": "Tough heroes",
+      "film_count": 1349
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 6379,
+      "slug": "shooting",
+      "name": "Shooting",
+      "film_count": 3446
+    },
+    {
+      "id": 814,
+      "slug": "female-nudity",
+      "name": "Female nudity",
+      "film_count": 21159
+    },
+    {
+      "id": 1054,
+      "slug": "organized-crime",
+      "name": "Organized crime",
+      "film_count": 3969
+    },
+    {
+      "id": 1058,
+      "slug": "crime-boss",
+      "name": "Crime boss",
+      "film_count": 1592
+    },
+    {
+      "id": 19082,
+      "slug": "mysterious-past",
+      "name": "Mysterious past",
+      "film_count": 260
+    },
+    {
+      "id": 2846,
+      "slug": "one-man-army",
+      "name": "One man army",
+      "film_count": 1781
+    },
+    {
+      "id": 806,
+      "slug": "corruption",
+      "name": "Corruption",
+      "film_count": 9994
+    },
+    {
+      "id": 1909,
+      "slug": "man-with-no-name",
+      "name": "Man with no name",
+      "film_count": 180
+    },
+    {
+      "id": 780,
+      "slug": "nudity",
+      "name": "Nudity",
+      "film_count": 10993
+    },
+    {
+      "id": 9667,
+      "slug": "amish",
+      "name": "Amish",
+      "film_count": 67
+    },
+    {
+      "id": 1262,
+      "slug": "mob-boss",
+      "name": "Mob boss",
+      "film_count": 880
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sexy",
+      "exciting",
+      "serious",
+      "rough",
+      "suspenseful",
+      "erotic",
+      "realistic",
+      "sensual",
+      "sexual",
+      "inspirational"
+    ],
+    "audience": [
+      "boys' night"
+    ],
+    "plot": [
+      "ex convict",
+      "sheriff",
+      "tough heroes",
+      "shooting",
+      "female nudity",
+      "organized crime",
+      "cop",
+      "gory",
+      "hidden identity",
+      "law enforcement",
+      "hacker",
+      "criminal",
+      "small town",
+      "sexual activity",
+      "thief",
+      "double life",
+      "fear",
+      "cons and scams",
+      "small town life",
+      "crime boss",
+      "mysterious past",
+      "one man army",
+      "corruption",
+      "man with no name",
+      "nudity"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "pennsylvania",
+      "usa",
+      "pittsburgh"
+    ]
+  },
+  "similar": [
+    {
+      "id": 63925,
+      "slug": "banshee-origins",
+      "title": "Banshee Origins",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 65165,
+      "slug": "warrior",
+      "title": "Warrior",
+      "year": 2019,
+      "rank": 1
+    },
+    {
+      "id": 57900,
+      "slug": "the-punisher",
+      "title": "The Punisher",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 4800,
+      "slug": "sons-of-anarchy",
+      "title": "Sons of Anarchy",
+      "year": 2008,
+      "rank": 3
+    },
+    {
+      "id": 2942,
+      "slug": "justified",
+      "title": "Justified",
+      "year": 2010,
+      "rank": 4
+    },
+    {
+      "id": 3507,
+      "slug": "longmire",
+      "title": "Longmire",
+      "year": 2012,
+      "rank": 5
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 6
+    },
+    {
+      "id": 56430,
+      "slug": "the-glades",
+      "title": "The Glades",
+      "year": 2010,
+      "rank": 7
+    },
+    {
+      "id": 42677,
+      "slug": "the-deuce",
+      "title": "The Deuce",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 6063,
+      "slug": "fargo",
+      "title": "Fargo",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 56578,
+      "slug": "the-beast",
+      "title": "The Beast",
+      "year": 2009,
+      "rank": 10
+    },
+    {
+      "id": 19393,
+      "slug": "the-equalizer",
+      "title": "The Equalizer",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 3156,
+      "slug": "person-of-interest",
+      "title": "Person of Interest",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 13
+    },
+    {
+      "id": 30367,
+      "slug": "nash-bridges",
+      "title": "Nash Bridges",
+      "year": 1996,
+      "rank": 14
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 15
+    },
+    {
+      "id": 56631,
+      "slug": "peaky-blinders",
+      "title": "Peaky Blinders",
+      "year": 2013,
+      "rank": 16
+    },
+    {
+      "id": 27279,
+      "slug": "the-shield",
+      "title": "The Shield",
+      "year": 2002,
+      "rank": 17
+    },
+    {
+      "id": 3154,
+      "slug": "players",
+      "title": "Players",
+      "year": 1997,
+      "rank": 18
+    },
+    {
+      "id": 30492,
+      "slug": "kojak",
+      "title": "Kojak",
+      "year": 1973,
+      "rank": 19
+    },
+    {
+      "id": 26292,
+      "slug": "breaking-bad",
+      "title": "Breaking Bad",
+      "year": 2008,
+      "rank": 20
+    },
+    {
+      "id": 62130,
+      "slug": "smith",
+      "title": "Smith",
+      "year": 2006,
+      "rank": 21
+    },
+    {
+      "id": 27552,
+      "slug": "wild-card",
+      "title": "Wild Card",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 65359,
+      "slug": "the-boys",
+      "title": "The Boys",
+      "year": 2019,
+      "rank": 23
+    },
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 24
+    },
+    {
+      "id": 1778,
+      "slug": "vegas",
+      "title": "Vegas",
+      "year": 2012,
+      "rank": 25
+    },
+    {
+      "id": 29857,
+      "slug": "hunter",
+      "title": "Hunter",
+      "year": 1984,
+      "rank": 26
+    },
+    {
+      "id": 20709,
+      "slug": "prison-break",
+      "title": "Prison Break",
+      "year": 2005,
+      "rank": 27
+    },
+    {
+      "id": 19548,
+      "slug": "nypd-blue",
+      "title": "NYPD Blue",
+      "year": 1993,
+      "rank": 28
+    },
+    {
+      "id": 3796,
+      "slug": "rogue",
+      "title": "Rogue",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919133
+}

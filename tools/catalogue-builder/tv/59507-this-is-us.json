@@ -1,0 +1,395 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/59507-this-is-us",
+  "id": 59507,
+  "slug": "this-is-us",
+  "title": "This Is Us",
+  "year": 2016,
+  "rating": 8.7,
+  "votes_text": "173K",
+  "votes": 173000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/15/59507.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Follows the lives and families of three adults living and growing up in the United States of America in present and past times. As their paths cross and their life stories intertwine in curious ways, we find that several of them share the same birthday - and so much more than anyone would expect.",
+  "tags": [
+    {
+      "id": 670,
+      "slug": "adoption",
+      "name": "Adoption",
+      "film_count": 1858
+    },
+    {
+      "id": 8044,
+      "slug": "childhood-memory",
+      "name": "Childhood memory",
+      "film_count": 676
+    },
+    {
+      "id": 2322,
+      "slug": "childhood",
+      "name": "Childhood",
+      "film_count": 5432
+    },
+    {
+      "id": 44734,
+      "slug": "sentimental",
+      "name": "Sentimental",
+      "film_count": 9110
+    },
+    {
+      "id": 70,
+      "slug": "husband-wife-relationship",
+      "name": "Husband wife relationship",
+      "film_count": 13715
+    },
+    {
+      "id": 6639,
+      "slug": "parenthood",
+      "name": "Parenthood",
+      "film_count": 1819
+    },
+    {
+      "id": 58865,
+      "slug": "touching",
+      "name": "Touching",
+      "film_count": 11989
+    },
+    {
+      "id": 123,
+      "slug": "father-son-relationship",
+      "name": "Father son relationship",
+      "film_count": 11353
+    },
+    {
+      "id": 1552,
+      "slug": "grief",
+      "name": "Grief",
+      "film_count": 5437
+    },
+    {
+      "id": 1615,
+      "slug": "passion",
+      "name": "Passion",
+      "film_count": 1855
+    },
+    {
+      "id": 39317,
+      "slug": "passionate-love",
+      "name": "Passionate love",
+      "film_count": 494
+    },
+    {
+      "id": 2283,
+      "slug": "love-interest",
+      "name": "Love interest",
+      "film_count": 5198
+    },
+    {
+      "id": 26160,
+      "slug": "90s",
+      "name": "90s",
+      "film_count": 9177
+    },
+    {
+      "id": 5104,
+      "slug": "breakup",
+      "name": "Breakup",
+      "film_count": 2441
+    },
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 13513,
+      "slug": "social-worker",
+      "name": "Social worker",
+      "film_count": 455
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sentimental",
+      "touching",
+      "thought provoking",
+      "sincere",
+      "saga",
+      "exciting",
+      "sad",
+      "heartbreaking",
+      "family saga",
+      "crying"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "adoption",
+      "childhood memory",
+      "childhood",
+      "husband wife relationship",
+      "parenthood",
+      "father son relationship",
+      "brother brother relationship",
+      "depression",
+      "teenage angst",
+      "siblings",
+      "self esteem",
+      "flashback",
+      "family relations",
+      "overweight",
+      "pregnancy",
+      "miscarriage",
+      "estrangement",
+      "addiction",
+      "grieving",
+      "grief",
+      "passion",
+      "passionate love",
+      "love interest",
+      "breakup",
+      "high school"
+    ],
+    "time": [
+      "90s",
+      "80s",
+      "70s",
+      "60s",
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "syria",
+      "vietnam",
+      "new york",
+      "los angeles",
+      "harvard university",
+      "pennsylvania",
+      "pittsburgh"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64609,
+      "slug": "a-million-little-things",
+      "title": "A Million Little Things",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 3391,
+      "slug": "parenthood",
+      "title": "Parenthood",
+      "year": 2010,
+      "rank": 1
+    },
+    {
+      "id": 5054,
+      "slug": "the-fosters",
+      "title": "The Fosters",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 26547,
+      "slug": "modern-family",
+      "title": "Modern Family",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 25323,
+      "slug": "a-walk-to-remember",
+      "title": "A Walk to Remember",
+      "year": 2002,
+      "rank": 4
+    },
+    {
+      "id": 65950,
+      "slug": "modern-love",
+      "title": "Modern Love",
+      "year": 2019,
+      "rank": 5
+    },
+    {
+      "id": 64231,
+      "slug": "instant-family",
+      "title": "Instant Family",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 73620,
+      "slug": "and-just-like-that",
+      "title": "And Just Like That…",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 63816,
+      "slug": "love",
+      "title": "Love",
+      "year": 2016,
+      "rank": 8
+    },
+    {
+      "id": 19945,
+      "slug": "p-s-i-love-you",
+      "title": "P.S. I Love You",
+      "year": 2007,
+      "rank": 9
+    },
+    {
+      "id": 17247,
+      "slug": "life-as-we-know-it",
+      "title": "Life as We Know It",
+      "year": 2010,
+      "rank": 10
+    },
+    {
+      "id": 22633,
+      "slug": "six-feet-under",
+      "title": "Six Feet Under",
+      "year": 2001,
+      "rank": 11
+    },
+    {
+      "id": 30299,
+      "slug": "my-so-called-life",
+      "title": "My So-Called Life",
+      "year": 1994,
+      "rank": 12
+    },
+    {
+      "id": 64620,
+      "slug": "sex-education",
+      "title": "Sex Education",
+      "year": 2019,
+      "rank": 13
+    },
+    {
+      "id": 21213,
+      "slug": "remember-me",
+      "title": "Remember Me",
+      "year": 2010,
+      "rank": 14
+    },
+    {
+      "id": 61346,
+      "slug": "wild-angel",
+      "title": "Wild Angel",
+      "year": 1998,
+      "rank": 15
+    },
+    {
+      "id": 30415,
+      "slug": "the-wonder-years",
+      "title": "The Wonder Years",
+      "year": 1988,
+      "rank": 16
+    },
+    {
+      "id": 30456,
+      "slug": "7th-heaven",
+      "title": "7th Heaven",
+      "year": 1996,
+      "rank": 17
+    },
+    {
+      "id": 11326,
+      "slug": "crazy-stupid-love",
+      "title": "Crazy, Stupid, Love.",
+      "year": 2011,
+      "rank": 18
+    },
+    {
+      "id": 4005,
+      "slug": "stuck-in-love",
+      "title": "Stuck in Love.",
+      "year": 2012,
+      "rank": 19
+    },
+    {
+      "id": 9202,
+      "slug": "beginners",
+      "title": "Beginners",
+      "year": 2010,
+      "rank": 20
+    },
+    {
+      "id": 1772,
+      "slug": "united-states-of-tara",
+      "title": "United States of Tara",
+      "year": 2009,
+      "rank": 21
+    },
+    {
+      "id": 67966,
+      "slug": "love-victor",
+      "title": "Love, Victor",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 5059,
+      "slug": "the-book-of-daniel",
+      "title": "The Book of Daniel",
+      "year": 2006,
+      "rank": 23
+    },
+    {
+      "id": 60125,
+      "slug": "one-day-at-a-time",
+      "title": "One Day at a Time",
+      "year": 2017,
+      "rank": 24
+    },
+    {
+      "id": 27541,
+      "slug": "the-skeleton-twins",
+      "title": "The Skeleton Twins",
+      "year": 2014,
+      "rank": 25
+    },
+    {
+      "id": 19498,
+      "slug": "now-and-then",
+      "title": "Now and Then",
+      "year": 1995,
+      "rank": 26
+    },
+    {
+      "id": 66766,
+      "slug": "divorce",
+      "title": "Divorce",
+      "year": 2016,
+      "rank": 27
+    },
+    {
+      "id": 4017,
+      "slug": "the-young-and-the-restless",
+      "title": "The Young and the Restless",
+      "year": 1973,
+      "rank": 28
+    },
+    {
+      "id": 3379,
+      "slug": "get-real",
+      "title": "Get Real",
+      "year": 1999,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919165
+}

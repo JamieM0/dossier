@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/61750-bodyguard",
+  "id": 61750,
+  "slug": "bodyguard",
+  "title": "Bodyguard",
+  "year": 2018,
+  "rating": 8.0,
+  "votes_text": "168K",
+  "votes": 168000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/e1/61750.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "A troubled war veteran is assigned to protect a controversial politician who may be the target of a terror plot.",
+  "tags": [
+    {
+      "id": 4190,
+      "slug": "bodyguard",
+      "name": "Bodyguard",
+      "film_count": 1129
+    },
+    {
+      "id": 2533,
+      "slug": "terrorist",
+      "name": "Terrorist",
+      "film_count": 1519
+    },
+    {
+      "id": 3968,
+      "slug": "terrorism",
+      "name": "Terrorism",
+      "film_count": 2522
+    },
+    {
+      "id": 113328,
+      "slug": "political",
+      "name": "Political",
+      "film_count": 2774
+    },
+    {
+      "id": 52,
+      "slug": "security",
+      "name": "Security",
+      "film_count": 418
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 585,
+      "slug": "detective",
+      "name": "Detective",
+      "film_count": 6961
+    },
+    {
+      "id": 5514,
+      "slug": "government",
+      "name": "Government",
+      "film_count": 805
+    },
+    {
+      "id": 1693,
+      "slug": "2010s",
+      "name": "2010s",
+      "film_count": 6370
+    },
+    {
+      "id": 5509,
+      "slug": "whodunit",
+      "name": "Whodunit",
+      "film_count": 1967
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    },
+    {
+      "id": 25980,
+      "slug": "philosophical",
+      "name": "Philosophical",
+      "film_count": 2616
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    },
+    {
+      "id": 5404,
+      "slug": "women",
+      "name": "Women",
+      "film_count": 7008
+    },
+    {
+      "id": 45403,
+      "slug": "feel-good",
+      "name": "Feel good",
+      "film_count": 17668
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "political",
+      "exciting",
+      "detective",
+      "suspense",
+      "disturbing",
+      "romantic",
+      "philosophical",
+      "atmospheric",
+      "feel good",
+      "serious"
+    ],
+    "plot": [
+      "bodyguard",
+      "terrorist",
+      "terrorism",
+      "security",
+      "police",
+      "british police",
+      "assassination",
+      "politician",
+      "stalking",
+      "politics",
+      "die hard",
+      "war zone",
+      "investigation",
+      "minister",
+      "police officer",
+      "murder",
+      "husband wife relationship",
+      "government",
+      "whodunit",
+      "women",
+      "criminal",
+      "corruption",
+      "racist",
+      "resistance",
+      "political conspiracy"
+    ],
+    "time": [
+      "2010s",
+      "future",
+      "21st century"
+    ],
+    "place": [
+      "london",
+      "chicago",
+      "middle east",
+      "england",
+      "britain"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26971,
+      "slug": "homeland",
+      "title": "Homeland",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 7853,
+      "slug": "the-fall",
+      "title": "The Fall",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 60124,
+      "slug": "tom-clancys-jack-ryan",
+      "title": "Tom Clancy's Jack Ryan",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 74898,
+      "slug": "reacher",
+      "title": "Reacher",
+      "year": 2022,
+      "rank": 3
+    },
+    {
+      "id": 77317,
+      "slug": "trigger-point",
+      "title": "Trigger Point",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 5
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 68799,
+      "slug": "la-unidad",
+      "title": "La unidad",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 61212,
+      "slug": "killing-eve",
+      "title": "Killing Eve",
+      "year": 2018,
+      "rank": 8
+    },
+    {
+      "id": 79975,
+      "slug": "signora-volpe",
+      "title": "Signora Volpe",
+      "year": 2022,
+      "rank": 9
+    },
+    {
+      "id": 41814,
+      "slug": "quantico",
+      "title": "Quantico",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 57908,
+      "slug": "mindhunter",
+      "title": "Mindhunter",
+      "year": 2017,
+      "rank": 11
+    },
+    {
+      "id": 62168,
+      "slug": "line-of-duty",
+      "title": "Line of Duty",
+      "year": 2012,
+      "rank": 12
+    },
+    {
+      "id": 26327,
+      "slug": "24",
+      "title": "24",
+      "year": 2001,
+      "rank": 13
+    },
+    {
+      "id": 28863,
+      "slug": "24-live-another-day",
+      "title": "24: The Movie",
+      "year": 2014,
+      "rank": 14
+    },
+    {
+      "id": 1949,
+      "slug": "the-state-within",
+      "title": "The State Within",
+      "year": 2006,
+      "rank": 15
+    },
+    {
+      "id": 67406,
+      "slug": "criminal-uk",
+      "title": "Criminal: UK",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 64574,
+      "slug": "greyzone",
+      "title": "Greyzone",
+      "year": 2018,
+      "rank": 17
+    },
+    {
+      "id": 25026,
+      "slug": "vantage-point",
+      "title": "Vantage Point",
+      "year": 2008,
+      "rank": 18
+    },
+    {
+      "id": 85348,
+      "slug": "sleeping-dog",
+      "title": "Sleeping Dog",
+      "year": 2023,
+      "rank": 19
+    },
+    {
+      "id": 23205,
+      "slug": "state-of-play",
+      "title": "State of Play",
+      "year": 2003,
+      "rank": 20
+    },
+    {
+      "id": 36881,
+      "slug": "the-night-manager",
+      "title": "The Night Manager",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 78777,
+      "slug": "the-tower",
+      "title": "The Tower",
+      "year": 2021,
+      "rank": 22
+    },
+    {
+      "id": 68584,
+      "slug": "london-kills",
+      "title": "London Kills",
+      "year": 2019,
+      "rank": 23
+    },
+    {
+      "id": 62377,
+      "slug": "shetland",
+      "title": "Shetland",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 36814,
+      "slug": "river",
+      "title": "River",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 36889,
+      "slug": "blue-eyes",
+      "title": "Blue Eyes",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 15279,
+      "slug": "closed-circuit",
+      "title": "Closed Circuit",
+      "year": 2013,
+      "rank": 27
+    },
+    {
+      "id": 20466,
+      "slug": "agatha-christies-poirot",
+      "title": "Agatha Christie's Poirot",
+      "year": 1989,
+      "rank": 28
+    },
+    {
+      "id": 62040,
+      "slug": "the-shadow-line",
+      "title": "The Shadow Line",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919167
+}

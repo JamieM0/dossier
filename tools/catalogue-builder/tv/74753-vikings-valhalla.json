@@ -1,0 +1,392 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/74753-vikings-valhalla",
+  "id": 74753,
+  "slug": "vikings-valhalla",
+  "title": "Vikings: Valhalla",
+  "year": 2022,
+  "rating": 7.4,
+  "votes_text": "70K",
+  "votes": 70000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/45/74753.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "History",
+    "Romance",
+    "War"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Dramatizes the legendary adventures of some of the most famous Vikings who ever lived – Leif Eriksson, Freydis Eriksdotter, Harald Hardrada and the Norman King William the Conqueror. These men and women will blaze a path as they fight for survival in the ever changing and evolving world.",
+  "tags": [
+    {
+      "id": 4145,
+      "slug": "viking",
+      "name": "Viking",
+      "film_count": 410
+    },
+    {
+      "id": 33701,
+      "slug": "medieval",
+      "name": "Medieval",
+      "film_count": 2110
+    },
+    {
+      "id": 4151,
+      "slug": "norse-mythology",
+      "name": "Norse mythology",
+      "film_count": 93
+    },
+    {
+      "id": 123867,
+      "slug": "battles",
+      "name": "Battles",
+      "film_count": 6580
+    },
+    {
+      "id": 23077,
+      "slug": "scandinavia",
+      "name": "Scandinavia",
+      "film_count": 331
+    },
+    {
+      "id": 29650,
+      "slug": "ancient",
+      "name": "Ancient",
+      "film_count": 1419
+    },
+    {
+      "id": 2843,
+      "slug": "warrior",
+      "name": "Warrior",
+      "film_count": 3473
+    },
+    {
+      "id": 3694,
+      "slug": "medieval-times",
+      "name": "Medieval times",
+      "film_count": 588
+    },
+    {
+      "id": 8724,
+      "slug": "power-struggle",
+      "name": "Power struggle",
+      "film_count": 2612
+    },
+    {
+      "id": 62056,
+      "slug": "rivals",
+      "name": "Rivals",
+      "film_count": 1410
+    },
+    {
+      "id": 26430,
+      "slug": "folk-hero",
+      "name": "Folk hero",
+      "film_count": 330
+    },
+    {
+      "id": 123947,
+      "slug": "tough-heroes",
+      "name": "Tough heroes",
+      "film_count": 1349
+    },
+    {
+      "id": 2117,
+      "slug": "killing",
+      "name": "Killing",
+      "film_count": 3449
+    },
+    {
+      "id": 131655,
+      "slug": "historical-drama",
+      "name": "Historical drama",
+      "film_count": 3058
+    },
+    {
+      "id": 62491,
+      "slug": "heroic",
+      "name": "Heroic",
+      "film_count": 1218
+    },
+    {
+      "id": 123301,
+      "slug": "boys-night",
+      "name": "Boys' night",
+      "film_count": 6531
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "costume drama",
+      "exciting",
+      "historical drama",
+      "heroic",
+      "sad",
+      "dark",
+      "period piece",
+      "epic war",
+      "breathtaking"
+    ],
+    "audience": [
+      "boys' night"
+    ],
+    "plot": [
+      "viking",
+      "medieval",
+      "norse mythology",
+      "battles",
+      "ancient",
+      "warrior",
+      "heroes",
+      "revenge",
+      "female nudity",
+      "war",
+      "legends and myths",
+      "fight",
+      "blood",
+      "myth",
+      "graphic violence",
+      "family relations",
+      "parents and children",
+      "society",
+      "danger",
+      "power struggle",
+      "rivals",
+      "folk hero",
+      "tough heroes",
+      "killing",
+      "knight"
+    ],
+    "time": [
+      "medieval times",
+      "middle ages",
+      "11th century"
+    ],
+    "place": [
+      "scandinavia",
+      "ukraine",
+      "lithuania",
+      "latvia",
+      "europe"
+    ]
+  },
+  "similar": [
+    {
+      "id": 202,
+      "slug": "vikings",
+      "title": "Vikings",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 26615,
+      "slug": "spartacus-war-of-the-damned",
+      "title": "Spartacus",
+      "year": 2010,
+      "rank": 1
+    },
+    {
+      "id": 36817,
+      "slug": "the-last-kingdom",
+      "title": "The Last Kingdom",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 69180,
+      "slug": "barbarians",
+      "title": "Barbarians",
+      "year": 2020,
+      "rank": 3
+    },
+    {
+      "id": 64767,
+      "slug": "knightfall",
+      "title": "Knightfall",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 8755,
+      "slug": "attila",
+      "title": "Attila",
+      "year": 2001,
+      "rank": 5
+    },
+    {
+      "id": 66646,
+      "slug": "the-last-king",
+      "title": "The Last King",
+      "year": 2016,
+      "rank": 6
+    },
+    {
+      "id": 64624,
+      "slug": "medieval",
+      "title": "Medieval",
+      "year": 2022,
+      "rank": 7
+    },
+    {
+      "id": 15029,
+      "slug": "northmen-a-viking-saga",
+      "title": "Northmen: A Viking Saga",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 69905,
+      "slug": "el-cid",
+      "title": "The Legend of El Cid",
+      "year": 2020,
+      "rank": 9
+    },
+    {
+      "id": 16658,
+      "slug": "king-arthur",
+      "title": "King Arthur",
+      "year": 2004,
+      "rank": 10
+    },
+    {
+      "id": 59496,
+      "slug": "britannia",
+      "title": "Britannia",
+      "year": 2017,
+      "rank": 11
+    },
+    {
+      "id": 15988,
+      "slug": "ironclad",
+      "title": "Ironclad",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 41833,
+      "slug": "arn-the-knight-templar",
+      "title": "Arn: The Knight Templar",
+      "year": 2010,
+      "rank": 13
+    },
+    {
+      "id": 75293,
+      "slug": "barbaros-sword-of-the-mediterranean",
+      "title": "Barbaros: Sword of the Mediterranean",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 16691,
+      "slug": "kingdom-of-heaven",
+      "title": "Kingdom of Heaven",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 7637,
+      "slug": "the-13th-warrior",
+      "title": "The 13th Warrior",
+      "year": 1999,
+      "rank": 16
+    },
+    {
+      "id": 72399,
+      "slug": "beowulf-return-to-the-shieldlands",
+      "title": "Beowulf: Return to the Shieldlands",
+      "year": 2016,
+      "rank": 17
+    },
+    {
+      "id": 12616,
+      "slug": "the-eagle",
+      "title": "The Eagle",
+      "year": 2011,
+      "rank": 18
+    },
+    {
+      "id": 29973,
+      "slug": "spartacus-gods-of-the-arena",
+      "title": "Spartacus: Gods of the Arena",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 56946,
+      "slug": "marco-polo",
+      "title": "Marco Polo",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 14939,
+      "slug": "helen-of-troy",
+      "title": "Helen of Troy",
+      "year": 2003,
+      "rank": 21
+    },
+    {
+      "id": 8655,
+      "slug": "arn-the-knight-templar",
+      "title": "Arn: The Knight Templar",
+      "year": 2007,
+      "rank": 22
+    },
+    {
+      "id": 27002,
+      "slug": "1066-the-battle-for-middle-earth",
+      "title": "1066: The Battle for Middle Earth",
+      "year": 2009,
+      "rank": 23
+    },
+    {
+      "id": 8654,
+      "slug": "arn-the-kingdom-at-the-end-of-the-road",
+      "title": "Arn: The Kingdom at the End of the Road",
+      "year": 2008,
+      "rank": 24
+    },
+    {
+      "id": 15038,
+      "slug": "ironclad-battle-for-blood",
+      "title": "Ironclad 2: Battle for Blood",
+      "year": 2014,
+      "rank": 25
+    },
+    {
+      "id": 60998,
+      "slug": "sword-of-vengeance",
+      "title": "Sword of Vengeance",
+      "year": 2015,
+      "rank": 26
+    },
+    {
+      "id": 21486,
+      "slug": "robin-hood",
+      "title": "Robin Hood",
+      "year": 2010,
+      "rank": 27
+    },
+    {
+      "id": 64984,
+      "slug": "redbad",
+      "title": "The Rise of the Viking",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 16051,
+      "slug": "ivanhoe",
+      "title": "Ivanhoe",
+      "year": 1997,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919182
+}

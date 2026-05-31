@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26803-bones",
+  "id": 26803,
+  "slug": "bones",
+  "title": "Bones",
+  "year": 2005,
+  "rating": 7.8,
+  "votes_text": "189K",
+  "votes": 189000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/4f/26803.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 40,
+  "story": "Dr. Temperance Brennan and her colleagues at the Jeffersonian's Medico-Legal Lab assist Special Agent Seeley Booth with murder investigations when the remains are so badly decomposed, burned or destroyed that the standard identification methods are useless.",
+  "tags": [
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 4956,
+      "slug": "fbi",
+      "name": "Fbi",
+      "film_count": 1273
+    },
+    {
+      "id": 123375,
+      "slug": "partners-against-crime",
+      "name": "Partners against crime",
+      "film_count": 1465
+    },
+    {
+      "id": 8874,
+      "slug": "forensics",
+      "name": "Forensics",
+      "film_count": 1391
+    },
+    {
+      "id": 2803,
+      "slug": "partner",
+      "name": "Partner",
+      "film_count": 4482
+    },
+    {
+      "id": 1449,
+      "slug": "teamwork",
+      "name": "Teamwork",
+      "film_count": 4610
+    },
+    {
+      "id": 22722,
+      "slug": "law-enforcement",
+      "name": "Law enforcement",
+      "film_count": 5363
+    },
+    {
+      "id": 7265,
+      "slug": "crime-investigation",
+      "name": "Crime investigation",
+      "film_count": 2580
+    },
+    {
+      "id": 8671,
+      "slug": "peril",
+      "name": "Peril",
+      "film_count": 1962
+    },
+    {
+      "id": 123600,
+      "slug": "fellow-agent",
+      "name": "Fellow agent",
+      "film_count": 56
+    },
+    {
+      "id": 5496,
+      "slug": "suspicion",
+      "name": "Suspicion",
+      "film_count": 3420
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 4844,
+      "slug": "crime-scene",
+      "name": "Crime scene",
+      "film_count": 1245
+    },
+    {
+      "id": 5421,
+      "slug": "mysterious-death",
+      "name": "Mysterious death",
+      "film_count": 516
+    },
+    {
+      "id": 2793,
+      "slug": "police-detective",
+      "name": "Police detective",
+      "film_count": 4048
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "witty",
+      "suspenseful",
+      "intellectual",
+      "detective",
+      "realistic",
+      "semi serious",
+      "bloody",
+      "sitcom",
+      "hood",
+      "crime drama"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "investigation",
+      "fbi",
+      "partners against crime",
+      "forensics",
+      "partner",
+      "teamwork",
+      "law enforcement",
+      "crime investigation",
+      "expert",
+      "scientist",
+      "ambitious",
+      "police investigation",
+      "talented",
+      "murder investigation",
+      "anthropology",
+      "riddles and clues",
+      "coworker",
+      "law enforcer",
+      "victim",
+      "workaholic",
+      "federal bureau of investigation",
+      "female partner",
+      "murderer",
+      "peril",
+      "fellow agent"
+    ],
+    "time": [
+      "future",
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "washington d.c",
+      "usa",
+      "united states",
+      "united states of america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 0
+    },
+    {
+      "id": 56620,
+      "slug": "body-of-proof",
+      "title": "Body of Proof",
+      "year": 2011,
+      "rank": 1
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 302,
+      "slug": "crossing-jordan",
+      "title": "Crossing Jordan",
+      "year": 2001,
+      "rank": 3
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 4
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 5
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 6
+    },
+    {
+      "id": 63004,
+      "slug": "perception",
+      "title": "Perception",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 11446,
+      "slug": "csi-crime-scene-investigation",
+      "title": "CSI: Crime Scene Investigation",
+      "year": 2000,
+      "rank": 8
+    },
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 9
+    },
+    {
+      "id": 56568,
+      "slug": "unforgettable",
+      "title": "Unforgettable",
+      "year": 2011,
+      "rank": 10
+    },
+    {
+      "id": 65163,
+      "slug": "harrow",
+      "title": "Harrow",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 2155,
+      "slug": "the-finder",
+      "title": "The Finder",
+      "year": 2012,
+      "rank": 13
+    },
+    {
+      "id": 28902,
+      "slug": "csi-cyber",
+      "title": "CSI: Cyber",
+      "year": 2015,
+      "rank": 14
+    },
+    {
+      "id": 26991,
+      "slug": "lie-to-me",
+      "title": "Lie to Me",
+      "year": 2009,
+      "rank": 15
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 16
+    },
+    {
+      "id": 30305,
+      "slug": "csi-ny",
+      "title": "CSI: NY",
+      "year": 2004,
+      "rank": 17
+    },
+    {
+      "id": 19084,
+      "slug": "ncis",
+      "title": "NCIS",
+      "year": 2003,
+      "rank": 18
+    },
+    {
+      "id": 30172,
+      "slug": "the-closer",
+      "title": "The Closer",
+      "year": 2005,
+      "rank": 19
+    },
+    {
+      "id": 30316,
+      "slug": "cold-case",
+      "title": "Cold Case",
+      "year": 2003,
+      "rank": 20
+    },
+    {
+      "id": 26973,
+      "slug": "hawaii-five-0",
+      "title": "Hawaii Five-0",
+      "year": 2010,
+      "rank": 21
+    },
+    {
+      "id": 30493,
+      "slug": "life",
+      "title": "Life",
+      "year": 2007,
+      "rank": 22
+    },
+    {
+      "id": 30524,
+      "slug": "psych",
+      "title": "Psych",
+      "year": 2006,
+      "rank": 23
+    },
+    {
+      "id": 30526,
+      "slug": "monk",
+      "title": "Monk",
+      "year": 2002,
+      "rank": 24
+    },
+    {
+      "id": 1815,
+      "slug": "csi-miami",
+      "title": "CSI: Miami",
+      "year": 2002,
+      "rank": 25
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 26
+    },
+    {
+      "id": 65678,
+      "slug": "coroner",
+      "title": "Coroner",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 56427,
+      "slug": "luther",
+      "title": "Luther",
+      "year": 2010,
+      "rank": 28
+    },
+    {
+      "id": 3831,
+      "slug": "womens-murder-club",
+      "title": "Women's Murder Club",
+      "year": 2007,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919148
+}

@@ -1,0 +1,382 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/4016-the-newsroom",
+  "id": 4016,
+  "slug": "the-newsroom",
+  "title": "The Newsroom",
+  "year": 2012,
+  "rating": 8.6,
+  "votes_text": "134K",
+  "votes": 134000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/e3/4016.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "A behind-the-scenes look at the people who make a nightly cable-news program. Focusing on a network anchor, his new executive producer, the newsroom staff and their boss, the series tracks their quixotic mission to do the news well in the face of corporate and commercial obstacles-not to mention their own personal entanglements.",
+  "tags": [
+    {
+      "id": 3868,
+      "slug": "journalism",
+      "name": "Journalism",
+      "film_count": 1984
+    },
+    {
+      "id": 696,
+      "slug": "politics",
+      "name": "Politics",
+      "film_count": 5052
+    },
+    {
+      "id": 123479,
+      "slug": "clever",
+      "name": "Clever",
+      "film_count": 7167
+    },
+    {
+      "id": 14787,
+      "slug": "ethics",
+      "name": "Ethics",
+      "film_count": 600
+    },
+    {
+      "id": 816,
+      "slug": "journalist",
+      "name": "Journalist",
+      "film_count": 2091
+    },
+    {
+      "id": 123695,
+      "slug": "news",
+      "name": "News",
+      "film_count": 50
+    },
+    {
+      "id": 11376,
+      "slug": "workaholic",
+      "name": "Workaholic",
+      "film_count": 308
+    },
+    {
+      "id": 123392,
+      "slug": "against-the-rules",
+      "name": "Against the rules",
+      "film_count": 365
+    },
+    {
+      "id": 11,
+      "slug": "psychiatrist",
+      "name": "Psychiatrist",
+      "film_count": 1529
+    },
+    {
+      "id": 124067,
+      "slug": "dramatic",
+      "name": "Dramatic",
+      "film_count": 6928
+    },
+    {
+      "id": 5419,
+      "slug": "intelligence",
+      "name": "Intelligence",
+      "film_count": 899
+    },
+    {
+      "id": 14769,
+      "slug": "nervous-breakdown",
+      "name": "Nervous breakdown",
+      "film_count": 514
+    },
+    {
+      "id": 2064,
+      "slug": "colleague",
+      "name": "Colleague",
+      "film_count": 463
+    },
+    {
+      "id": 1693,
+      "slug": "2010s",
+      "name": "2010s",
+      "film_count": 6370
+    },
+    {
+      "id": 34532,
+      "slug": "television-producer",
+      "name": "Television producer",
+      "film_count": 169
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "clever",
+      "political",
+      "sincere",
+      "realistic",
+      "dramatic",
+      "exciting",
+      "inspirational",
+      "thought provoking",
+      "controversial",
+      "intelligent"
+    ],
+    "plot": [
+      "journalism",
+      "politics",
+      "ethics",
+      "journalist",
+      "news",
+      "workaholic",
+      "against the rules",
+      "rebellion",
+      "ambitious",
+      "workplace",
+      "power of media",
+      "teamwork",
+      "loyalty",
+      "media coverage",
+      "idealism",
+      "liberal",
+      "media",
+      "writers",
+      "reporter",
+      "psychiatrist",
+      "intelligence",
+      "nervous breakdown",
+      "colleague",
+      "television producer",
+      "rape"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "syria",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 25489,
+      "slug": "the-west-wing",
+      "title": "The West Wing",
+      "year": 1999,
+      "rank": 0
+    },
+    {
+      "id": 19138,
+      "slug": "network",
+      "title": "Network",
+      "year": 1976,
+      "rank": 1
+    },
+    {
+      "id": 65874,
+      "slug": "the-morning-show",
+      "title": "The Morning Show",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 15594,
+      "slug": "the-ides-of-march",
+      "title": "The Ides of March",
+      "year": 2011,
+      "rank": 3
+    },
+    {
+      "id": 2250,
+      "slug": "the-fortress",
+      "title": "Borgen: Power & Glory",
+      "year": 2010,
+      "rank": 4
+    },
+    {
+      "id": 30525,
+      "slug": "studio-60-on-the-sunset-strip",
+      "title": "Studio 60 on the Sunset Strip",
+      "year": 2006,
+      "rank": 5
+    },
+    {
+      "id": 61761,
+      "slug": "press",
+      "title": "Press",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 57112,
+      "slug": "madam-secretary",
+      "title": "Madam Secretary",
+      "year": 2014,
+      "rank": 7
+    },
+    {
+      "id": 9628,
+      "slug": "political-animals",
+      "title": "Political Animals",
+      "year": 2012,
+      "rank": 8
+    },
+    {
+      "id": 595,
+      "slug": "k-street",
+      "title": "K Street",
+      "year": 2003,
+      "rank": 9
+    },
+    {
+      "id": 597,
+      "slug": "suits",
+      "title": "Suits",
+      "year": 2011,
+      "rank": 10
+    },
+    {
+      "id": 68416,
+      "slug": "good-girls-revolt",
+      "title": "Good Girls Revolt",
+      "year": 2015,
+      "rank": 11
+    },
+    {
+      "id": 5147,
+      "slug": "lax",
+      "title": "LAX",
+      "year": 2004,
+      "rank": 12
+    },
+    {
+      "id": 63691,
+      "slug": "the-hour",
+      "title": "The Hour",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 27016,
+      "slug": "mad-men",
+      "title": "Mad Men",
+      "year": 2007,
+      "rank": 14
+    },
+    {
+      "id": 11077,
+      "slug": "commander-in-chief",
+      "title": "Commander in Chief",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 4022,
+      "slug": "scandal",
+      "title": "Scandal",
+      "year": 2012,
+      "rank": 16
+    },
+    {
+      "id": 2187,
+      "slug": "house-of-cards",
+      "title": "House of Cards",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 85527,
+      "slug": "deadline",
+      "title": "Deadline",
+      "year": 2000,
+      "rank": 18
+    },
+    {
+      "id": 20574,
+      "slug": "power",
+      "title": "Power",
+      "year": 1986,
+      "rank": 19
+    },
+    {
+      "id": 14302,
+      "slug": "good-night-and-good-luck",
+      "title": "Good Night, and Good Luck.",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 10279,
+      "slug": "the-candidate",
+      "title": "The Candidate",
+      "year": 1972,
+      "rank": 21
+    },
+    {
+      "id": 30209,
+      "slug": "sports-night",
+      "title": "Sports Night",
+      "year": 1998,
+      "rank": 22
+    },
+    {
+      "id": 22102,
+      "slug": "the-seduction-of-joe-tynan",
+      "title": "The Seduction of Joe Tynan",
+      "year": 1979,
+      "rank": 23
+    },
+    {
+      "id": 62269,
+      "slug": "six-degrees",
+      "title": "Six Degrees",
+      "year": 2006,
+      "rank": 24
+    },
+    {
+      "id": 85523,
+      "slug": "breaking-news",
+      "title": "Breaking News",
+      "year": 2002,
+      "rank": 25
+    },
+    {
+      "id": 1988,
+      "slug": "first-monday",
+      "title": "First Monday",
+      "year": 2002,
+      "rank": 26
+    },
+    {
+      "id": 30340,
+      "slug": "tanner-88",
+      "title": "Tanner '88",
+      "year": 1988,
+      "rank": 27
+    },
+    {
+      "id": 641,
+      "slug": "dirt",
+      "title": "Dirt",
+      "year": 2007,
+      "rank": 28
+    },
+    {
+      "id": 89589,
+      "slug": "e-n-g",
+      "title": "E.N.G.",
+      "year": 1989,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919131
+}

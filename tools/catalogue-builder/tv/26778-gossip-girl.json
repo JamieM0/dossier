@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26778-gossip-girl",
+  "id": 26778,
+  "slug": "gossip-girl",
+  "title": "Gossip Girl",
+  "year": 2007,
+  "rating": 7.5,
+  "votes_text": "213K",
+  "votes": 213000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/9a/26778.jpg",
+  "genres": [
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 42,
+  "story": "Gossip Girl is an American teen drama television series based on the book series of the same name written by Cecily von Ziegesar. The series, created by Josh Schwartz and Stephanie Savage, originally ran on The CW for six seasons from September 19, 2007 to December 17, 2012. Narrated by the omniscient blogger \"Gossip Girl,\" voiced by Kristen Bell, the series revolves around the lives of privileged young adults on Manhattan's Upper East Side in New York City.",
+  "tags": [
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 4165,
+      "slug": "new-york",
+      "name": "New york",
+      "film_count": 5521
+    },
+    {
+      "id": 4726,
+      "slug": "popularity",
+      "name": "Popularity",
+      "film_count": 378
+    },
+    {
+      "id": 123949,
+      "slug": "gossip-and-rumors",
+      "name": "Gossip and rumors",
+      "film_count": 109
+    },
+    {
+      "id": 123302,
+      "slug": "girls-night",
+      "name": "Girls' night",
+      "film_count": 4741
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 61731,
+      "slug": "young-adult",
+      "name": "Young adult",
+      "film_count": 4167
+    },
+    {
+      "id": 4161,
+      "slug": "fashion",
+      "name": "Fashion",
+      "film_count": 1449
+    },
+    {
+      "id": 1184,
+      "slug": "jealousy",
+      "name": "Jealousy",
+      "film_count": 6442
+    },
+    {
+      "id": 12492,
+      "slug": "peer-pressure",
+      "name": "Peer pressure",
+      "film_count": 977
+    },
+    {
+      "id": 955,
+      "slug": "wealth",
+      "name": "Wealth",
+      "film_count": 1608
+    },
+    {
+      "id": 83562,
+      "slug": "teenage-life",
+      "name": "Teenage life",
+      "film_count": 6021
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 32,
+      "slug": "party",
+      "name": "Party",
+      "film_count": 5508
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "romantic",
+      "sexy",
+      "soap opera",
+      "teen",
+      "talky",
+      "stylized",
+      "erotic",
+      "serious",
+      "witty",
+      "intellectual"
+    ],
+    "audience": [
+      "teens",
+      "girls' night",
+      "date night",
+      "chick flick",
+      "teen drama"
+    ],
+    "plot": [
+      "high school",
+      "popularity",
+      "gossip and rumors",
+      "teenager",
+      "youth",
+      "high school life",
+      "teenage love",
+      "adolescence",
+      "friends",
+      "lifestyle",
+      "coming of age",
+      "love triangle",
+      "high society",
+      "betrayal",
+      "adolescence vs adulthood",
+      "school",
+      "friendship",
+      "couples",
+      "parents and children",
+      "love and romance",
+      "young adult",
+      "fashion",
+      "jealousy",
+      "peer pressure",
+      "wealth"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "manhattan new york city",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 27259,
+      "slug": "the-o-c",
+      "title": "The O.C.",
+      "year": 2003,
+      "rank": 0
+    },
+    {
+      "id": 257,
+      "slug": "90210",
+      "title": "90210",
+      "year": 2008,
+      "rank": 1
+    },
+    {
+      "id": 9312,
+      "slug": "beverly-hills-90210",
+      "title": "Beverly Hills, 90210",
+      "year": 1990,
+      "rank": 2
+    },
+    {
+      "id": 22209,
+      "slug": "sex-and-the-city",
+      "title": "Sex and the City",
+      "year": 1998,
+      "rank": 3
+    },
+    {
+      "id": 22500,
+      "slug": "one-tree-hill",
+      "title": "One Tree Hill",
+      "year": 2003,
+      "rank": 4
+    },
+    {
+      "id": 80502,
+      "slug": "little-secrets",
+      "title": "Little Secrets",
+      "year": 2010,
+      "rank": 5
+    },
+    {
+      "id": 26791,
+      "slug": "pretty-little-liars",
+      "title": "Pretty Little Liars",
+      "year": 2010,
+      "rank": 6
+    },
+    {
+      "id": 2267,
+      "slug": "the-carrie-diaries",
+      "title": "The Carrie Diaries",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 64137,
+      "slug": "famous-in-love",
+      "title": "Famous in Love",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 11686,
+      "slug": "dawsons-creek",
+      "title": "Dawson's Creek",
+      "year": 1998,
+      "rank": 9
+    },
+    {
+      "id": 68025,
+      "slug": "skam-spain",
+      "title": "Skam España",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 3596,
+      "slug": "the-secret-life-of-the-american-teenager",
+      "title": "The Secret Life of the American Teenager",
+      "year": 2008,
+      "rank": 11
+    },
+    {
+      "id": 1736,
+      "slug": "lol",
+      "title": "LOL",
+      "year": 2012,
+      "rank": 12
+    },
+    {
+      "id": 12630,
+      "slug": "easy-a",
+      "title": "Easy A",
+      "year": 2010,
+      "rank": 13
+    },
+    {
+      "id": 77101,
+      "slug": "moment-at-eighteen",
+      "title": "Moment at Eighteen",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 30320,
+      "slug": "felicity",
+      "title": "Felicity",
+      "year": 1998,
+      "rank": 15
+    },
+    {
+      "id": 7594,
+      "slug": "10-things-i-hate-about-you",
+      "title": "10 Things I Hate About You",
+      "year": 1999,
+      "rank": 16
+    },
+    {
+      "id": 26948,
+      "slug": "geek-charming",
+      "title": "Geek Charming",
+      "year": 2011,
+      "rank": 17
+    },
+    {
+      "id": 20326,
+      "slug": "picture-this",
+      "title": "Picture This",
+      "year": 2008,
+      "rank": 18
+    },
+    {
+      "id": 56710,
+      "slug": "hidden-palms",
+      "title": "Hidden Palms",
+      "year": 2007,
+      "rank": 19
+    },
+    {
+      "id": 41777,
+      "slug": "riverdale",
+      "title": "Riverdale",
+      "year": 2017,
+      "rank": 20
+    },
+    {
+      "id": 28581,
+      "slug": "faking-it",
+      "title": "Faking It",
+      "year": 2014,
+      "rank": 21
+    },
+    {
+      "id": 65457,
+      "slug": "rebelde",
+      "title": "Rebelde",
+      "year": 2004,
+      "rank": 22
+    },
+    {
+      "id": 11420,
+      "slug": "cruel-intentions",
+      "title": "Cruel Intentions",
+      "year": 1999,
+      "rank": 23
+    },
+    {
+      "id": 77472,
+      "slug": "the-summer-i-turned-pretty",
+      "title": "The Summer I Turned Pretty",
+      "year": 2022,
+      "rank": 24
+    },
+    {
+      "id": 25654,
+      "slug": "wild-child",
+      "title": "Wild Child",
+      "year": 2008,
+      "rank": 25
+    },
+    {
+      "id": 3248,
+      "slug": "awkward",
+      "title": "Awkward.",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 27238,
+      "slug": "devious-maids",
+      "title": "Devious Maids",
+      "year": 2013,
+      "rank": 27
+    },
+    {
+      "id": 41817,
+      "slug": "shame",
+      "title": "Skam",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 27256,
+      "slug": "revenge",
+      "title": "Revenge",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919147
+}

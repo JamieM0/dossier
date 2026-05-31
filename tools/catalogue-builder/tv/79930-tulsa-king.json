@@ -1,0 +1,382 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/79930-tulsa-king",
+  "id": 79930,
+  "slug": "tulsa-king",
+  "title": "Tulsa King",
+  "year": 2022,
+  "rating": 7.9,
+  "votes_text": "115K",
+  "votes": 115000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/9f/79930.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 40,
+  "story": "Just after he is released from prison after 25 years, New York mafia capo Dwight “The General” Manfredi is unceremoniously exiled by his boss to set up shop in Tulsa, Okla. Realizing that his mob family may not have his best interests in mind, Dwight slowly builds a “crew” from a group of unlikely characters, to help him establish a new criminal empire in a place that to him might as well be another planet.",
+  "tags": [
+    {
+      "id": 1274,
+      "slug": "mafia",
+      "name": "Mafia",
+      "film_count": 2780
+    },
+    {
+      "id": 1054,
+      "slug": "organized-crime",
+      "name": "Organized crime",
+      "film_count": 3969
+    },
+    {
+      "id": 1261,
+      "slug": "mobster",
+      "name": "Mobster",
+      "film_count": 1221
+    },
+    {
+      "id": 26304,
+      "slug": "crime-family",
+      "name": "Crime family",
+      "film_count": 797
+    },
+    {
+      "id": 124135,
+      "slug": "harsh",
+      "name": "Harsh",
+      "film_count": 4491
+    },
+    {
+      "id": 1041,
+      "slug": "fish-out-of-water",
+      "name": "Fish out of water",
+      "film_count": 3831
+    },
+    {
+      "id": 527,
+      "slug": "prison",
+      "name": "Prison",
+      "film_count": 4472
+    },
+    {
+      "id": 600,
+      "slug": "criminal",
+      "name": "Criminal",
+      "film_count": 6483
+    },
+    {
+      "id": 511,
+      "slug": "revenge",
+      "name": "Revenge",
+      "film_count": 19339
+    },
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 1264,
+      "slug": "dark",
+      "name": "Dark",
+      "film_count": 10440
+    },
+    {
+      "id": 806,
+      "slug": "corruption",
+      "name": "Corruption",
+      "film_count": 9994
+    },
+    {
+      "id": 108429,
+      "slug": "family-drama",
+      "name": "Family drama",
+      "film_count": 10468
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 11678,
+      "slug": "midwest",
+      "name": "Midwest",
+      "film_count": 159
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "harsh",
+      "dramatic",
+      "crime drama",
+      "tense",
+      "serious",
+      "suspenseful",
+      "tension",
+      "suspense",
+      "dark",
+      "neo noir"
+    ],
+    "plot": [
+      "mafia",
+      "organized crime",
+      "mobster",
+      "crime family",
+      "fish out of water",
+      "prison",
+      "criminal",
+      "city",
+      "boss",
+      "team",
+      "empire",
+      "gangster",
+      "violence",
+      "mature",
+      "power struggle",
+      "moral ambiguity",
+      "underworld",
+      "anti hero",
+      "revenge",
+      "dark humor",
+      "corruption",
+      "family drama",
+      "small town",
+      "slow burn",
+      "second chance"
+    ],
+    "time": [
+      "contemporary"
+    ],
+    "place": [
+      "midwest",
+      "oklahoma city",
+      "oklahoma"
+    ]
+  },
+  "similar": [
+    {
+      "id": 22956,
+      "slug": "the-sopranos",
+      "title": "The Sopranos",
+      "year": 1999,
+      "rank": 0
+    },
+    {
+      "id": 16996,
+      "slug": "the-last-don-ii",
+      "title": "The Last Don II",
+      "year": 1998,
+      "rank": 1
+    },
+    {
+      "id": 100224,
+      "slug": "mobland",
+      "title": "MobLand",
+      "year": 2025,
+      "rank": 2
+    },
+    {
+      "id": 56631,
+      "slug": "peaky-blinders",
+      "title": "Peaky Blinders",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 67549,
+      "slug": "gangs-of-london",
+      "title": "Gangs of London",
+      "year": 2020,
+      "rank": 4
+    },
+    {
+      "id": 66300,
+      "slug": "bad-blood",
+      "title": "Bad Blood",
+      "year": 2017,
+      "rank": 5
+    },
+    {
+      "id": 28539,
+      "slug": "power",
+      "title": "Power",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 76559,
+      "slug": "power-book-iv-force",
+      "title": "Power Book IV: Force",
+      "year": 2022,
+      "rank": 7
+    },
+    {
+      "id": 26845,
+      "slug": "boardwalk-empire",
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "rank": 8
+    },
+    {
+      "id": 82044,
+      "slug": "big-bet",
+      "title": "Big Bet",
+      "year": 2022,
+      "rank": 9
+    },
+    {
+      "id": 4800,
+      "slug": "sons-of-anarchy",
+      "title": "Sons of Anarchy",
+      "year": 2008,
+      "rank": 10
+    },
+    {
+      "id": 76977,
+      "slug": "carl-webers-the-family-business",
+      "title": "The Family Business",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 27960,
+      "slug": "coast-mafia",
+      "title": "Coast Mafia",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 80087,
+      "slug": "clanul",
+      "title": "The Clan",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 85106,
+      "slug": "natural-born-narco",
+      "title": "Natural Born Narco",
+      "year": 2022,
+      "rank": 14
+    },
+    {
+      "id": 73013,
+      "slug": "kl-gangster-underworld",
+      "title": "KL Gangster Underworld",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 36802,
+      "slug": "american-mobster",
+      "title": "American Mobster",
+      "year": 2010,
+      "rank": 16
+    },
+    {
+      "id": 93410,
+      "slug": "aarya",
+      "title": "Aarya",
+      "year": 2020,
+      "rank": 17
+    },
+    {
+      "id": 69416,
+      "slug": "sr-avila",
+      "title": "Sr. Ávila",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 89349,
+      "slug": "south-wind-on-the-border",
+      "title": "South Wind: On the Border",
+      "year": 2023,
+      "rank": 19
+    },
+    {
+      "id": 106499,
+      "slug": "like-a-dragon-yakuza",
+      "title": "Like a Dragon: Yakuza",
+      "year": 2024,
+      "rank": 20
+    },
+    {
+      "id": 66899,
+      "slug": "halka",
+      "title": "Halka",
+      "year": 2019,
+      "rank": 21
+    },
+    {
+      "id": 94651,
+      "slug": "the-brooklyn-banker",
+      "title": "The Brooklyn Banker",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 103449,
+      "slug": "altindagli",
+      "title": "Altindagli",
+      "year": 2013,
+      "rank": 23
+    },
+    {
+      "id": 84690,
+      "slug": "rio-connection",
+      "title": "Rio Connection",
+      "year": 2023,
+      "rank": 24
+    },
+    {
+      "id": 81951,
+      "slug": "hell-dogs",
+      "title": "HELL DOGS",
+      "year": 2022,
+      "rank": 25
+    },
+    {
+      "id": 105070,
+      "slug": "sexy-beast",
+      "title": "Sexy Beast",
+      "year": 2024,
+      "rank": 26
+    },
+    {
+      "id": 92467,
+      "slug": "call-me-king",
+      "title": "Call Me King",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 96986,
+      "slug": "jinxed",
+      "title": "JINXED",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 91185,
+      "slug": "the-god-father",
+      "title": "The God Father",
+      "year": 2017,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919187
+}

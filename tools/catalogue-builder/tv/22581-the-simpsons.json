@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/22581-the-simpsons",
+  "id": 22581,
+  "slug": "the-simpsons",
+  "title": "The Simpsons",
+  "year": 1989,
+  "rating": 8.6,
+  "votes_text": "465K",
+  "votes": 465000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/34/22581.jpg",
+  "genres": [
+    "Animation",
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
+  "tags": [
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 2941,
+      "slug": "adult-animation",
+      "name": "Adult animation",
+      "film_count": 1876
+    },
+    {
+      "id": 123360,
+      "slug": "goofy-hero",
+      "name": "Goofy hero",
+      "film_count": 1068
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 2170,
+      "slug": "usa",
+      "name": "Usa",
+      "film_count": 14812
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 1307,
+      "slug": "social-satire",
+      "name": "Social satire",
+      "film_count": 2315
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 15200,
+      "slug": "society",
+      "name": "Society",
+      "film_count": 13923
+    },
+    {
+      "id": 123486,
+      "slug": "witty",
+      "name": "Witty",
+      "film_count": 5204
+    },
+    {
+      "id": 26160,
+      "slug": "90s",
+      "name": "90s",
+      "film_count": 9177
+    },
+    {
+      "id": 7244,
+      "slug": "working-class",
+      "name": "Working class",
+      "film_count": 3327
+    },
+    {
+      "id": 123370,
+      "slug": "mischievous-children",
+      "name": "Mischievous children",
+      "film_count": 1046
+    },
+    {
+      "id": 123649,
+      "slug": "incompetent-police",
+      "name": "Incompetent police",
+      "film_count": 126
+    },
+    {
+      "id": 1291,
+      "slug": "television",
+      "name": "Television",
+      "film_count": 1643
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "humorous",
+      "adult animation",
+      "adult cartoon",
+      "spoof",
+      "parody",
+      "witty",
+      "not serious",
+      "animated comedy",
+      "anime"
+    ],
+    "audience": [
+      "teens",
+      "family outing",
+      "chick flick",
+      "toddlers",
+      "kids",
+      "adult"
+    ],
+    "plot": [
+      "dark humor",
+      "goofy hero",
+      "satire",
+      "social satire",
+      "beer",
+      "suburbs",
+      "bully",
+      "siblings relations",
+      "family relations",
+      "werewolf",
+      "eccentric family",
+      "adult humor",
+      "parents and children",
+      "family life",
+      "dysfunctional family",
+      "affection",
+      "housewife",
+      "small town",
+      "society",
+      "working class",
+      "mischievous children",
+      "incompetent police",
+      "television",
+      "child",
+      "stupidity"
+    ],
+    "time": [
+      "90s",
+      "2000s",
+      "2010s",
+      "20th century",
+      "80s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "usa",
+      "nova scotia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 22580,
+      "slug": "the-simpsons-movie",
+      "title": "The Simpsons Movie",
+      "year": 2007,
+      "rank": 0
+    },
+    {
+      "id": 13137,
+      "slug": "family-guy",
+      "title": "Family Guy",
+      "year": 1999,
+      "rank": 1
+    },
+    {
+      "id": 13891,
+      "slug": "futurama",
+      "title": "Futurama",
+      "year": 1999,
+      "rank": 2
+    },
+    {
+      "id": 1856,
+      "slug": "bobs-burgers",
+      "title": "Bob's Burgers",
+      "year": 2011,
+      "rank": 3
+    },
+    {
+      "id": 26887,
+      "slug": "american-dad",
+      "title": "American Dad!",
+      "year": 2005,
+      "rank": 4
+    },
+    {
+      "id": 1755,
+      "slug": "the-cleveland-show",
+      "title": "The Cleveland Show",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 56595,
+      "slug": "rick-and-morty",
+      "title": "Rick and Morty",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 64628,
+      "slug": "paradise-pd",
+      "title": "Paradise PD",
+      "year": 2018,
+      "rank": 7
+    },
+    {
+      "id": 67936,
+      "slug": "duncanville",
+      "title": "Duncanville",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 64630,
+      "slug": "close-enough",
+      "title": "Close Enough",
+      "year": 2020,
+      "rank": 9
+    },
+    {
+      "id": 57923,
+      "slug": "big-mouth",
+      "title": "Big Mouth",
+      "year": 2017,
+      "rank": 10
+    },
+    {
+      "id": 22996,
+      "slug": "south-park",
+      "title": "South Park",
+      "year": 1997,
+      "rank": 11
+    },
+    {
+      "id": 13138,
+      "slug": "stewie-griffin-the-untold-story",
+      "title": "Stewie Griffin: The Untold Story",
+      "year": 2005,
+      "rank": 12
+    },
+    {
+      "id": 63665,
+      "slug": "bordertown",
+      "title": "Bordertown",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 16679,
+      "slug": "king-of-the-hill",
+      "title": "King of the Hill",
+      "year": 1997,
+      "rank": 14
+    },
+    {
+      "id": 40769,
+      "slug": "f-is-for-family",
+      "title": "F is for Family",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 99200,
+      "slug": "family-guy-100th-episode-special",
+      "title": "Family Guy 100th Episode Special",
+      "year": 2007,
+      "rank": 16
+    },
+    {
+      "id": 82329,
+      "slug": "mother-up",
+      "title": "Mother Up!",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 90503,
+      "slug": "bless-the-harts",
+      "title": "Bless the Harts",
+      "year": 2019,
+      "rank": 18
+    },
+    {
+      "id": 30271,
+      "slug": "the-jetsons",
+      "title": "The Jetsons",
+      "year": 1962,
+      "rank": 19
+    },
+    {
+      "id": 3463,
+      "slug": "brickleberry",
+      "title": "Brickleberry",
+      "year": 2012,
+      "rank": 20
+    },
+    {
+      "id": 28915,
+      "slug": "mr-pickles",
+      "title": "Mr. Pickles",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 36893,
+      "slug": "crash-canyon",
+      "title": "Crash Canyon",
+      "year": 2011,
+      "rank": 22
+    },
+    {
+      "id": 29929,
+      "slug": "the-oblongs",
+      "title": "The Oblongs",
+      "year": 2001,
+      "rank": 23
+    },
+    {
+      "id": 82250,
+      "slug": "glenn-martin-dds",
+      "title": "Glenn Martin DDS",
+      "year": 2009,
+      "rank": 24
+    },
+    {
+      "id": 73265,
+      "slug": "china-il",
+      "title": "China, IL",
+      "year": 2008,
+      "rank": 25
+    },
+    {
+      "id": 82306,
+      "slug": "full-english",
+      "title": "Full English",
+      "year": 2012,
+      "rank": 26
+    },
+    {
+      "id": 5108,
+      "slug": "ugly-americans",
+      "title": "Ugly Americans",
+      "year": 2010,
+      "rank": 27
+    },
+    {
+      "id": 30219,
+      "slug": "home-movies",
+      "title": "Home Movies",
+      "year": 1999,
+      "rank": 28
+    },
+    {
+      "id": 82950,
+      "slug": "3-south",
+      "title": "3-South",
+      "year": 2002,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919141
+}

@@ -1,0 +1,378 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/78499-the-old-man",
+  "id": 78499,
+  "slug": "the-old-man",
+  "title": "The Old Man",
+  "year": 2022,
+  "rating": 7.5,
+  "votes_text": "62K",
+  "votes": 62000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/dc/78499.jpg",
+  "genres": [
+    "Action",
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 61,
+  "story": "Dan Chase absconded from the CIA decades ago and now lives off the grid. When an assassin arrives and tries to take Chase out, the old operative learns that to ensure his future he now must reconcile his past.",
+  "tags": [
+    {
+      "id": 5833,
+      "slug": "cia-agent",
+      "name": "Cia agent",
+      "film_count": 497
+    },
+    {
+      "id": 3058,
+      "slug": "espionage",
+      "name": "Espionage",
+      "film_count": 3395
+    },
+    {
+      "id": 2017,
+      "slug": "manhunt",
+      "name": "Manhunt",
+      "film_count": 1753
+    },
+    {
+      "id": 10,
+      "slug": "spy",
+      "name": "Spy",
+      "film_count": 3331
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 426,
+      "slug": "father-daughter-relationship",
+      "name": "Father daughter relationship",
+      "film_count": 9778
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 11141,
+      "slug": "mind-game",
+      "name": "Mind game",
+      "film_count": 2096
+    },
+    {
+      "id": 540,
+      "slug": "based-on-novel",
+      "name": "Based on novel",
+      "film_count": 11006
+    },
+    {
+      "id": 15046,
+      "slug": "guard-dog",
+      "name": "Guard dog",
+      "film_count": 220
+    },
+    {
+      "id": 34957,
+      "slug": "rottweiler",
+      "name": "Rottweiler",
+      "film_count": 125
+    },
+    {
+      "id": 3997,
+      "slug": "hitman",
+      "name": "Hitman",
+      "film_count": 3651
+    },
+    {
+      "id": 124067,
+      "slug": "dramatic",
+      "name": "Dramatic",
+      "film_count": 6928
+    },
+    {
+      "id": 4168,
+      "slug": "2020s",
+      "name": "2020s",
+      "film_count": 2869
+    },
+    {
+      "id": 14076,
+      "slug": "law",
+      "name": "Law",
+      "film_count": 1088
+    },
+    {
+      "id": 122196,
+      "slug": "die-hard",
+      "name": "Die hard",
+      "film_count": 954
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspense",
+      "captivating",
+      "suspenseful",
+      "disturbing",
+      "dramatic",
+      "thrilling",
+      "spy action",
+      "political drama"
+    ],
+    "plot": [
+      "cia agent",
+      "espionage",
+      "manhunt",
+      "spy",
+      "father daughter relationship",
+      "mind game",
+      "killer",
+      "agent",
+      "senior citizen",
+      "political intrigue",
+      "secret",
+      "threat",
+      "secret identity",
+      "threat to kill",
+      "elderly man",
+      "secret agent",
+      "cia",
+      "daughter",
+      "ex cia agent",
+      "guard dog",
+      "rottweiler",
+      "hitman",
+      "law",
+      "die hard",
+      "sniper"
+    ],
+    "time": [
+      "2020s"
+    ],
+    "place": [
+      "washington d.c"
+    ]
+  },
+  "similar": [
+    {
+      "id": 59506,
+      "slug": "shooter",
+      "title": "Shooter",
+      "year": 2016,
+      "rank": 0
+    },
+    {
+      "id": 77262,
+      "slug": "the-terminal-list",
+      "title": "The Terminal List",
+      "year": 2022,
+      "rank": 1
+    },
+    {
+      "id": 74898,
+      "slug": "reacher",
+      "title": "Reacher",
+      "year": 2022,
+      "rank": 2
+    },
+    {
+      "id": 76578,
+      "slug": "in-from-the-cold",
+      "title": "In From the Cold",
+      "year": 2022,
+      "rank": 3
+    },
+    {
+      "id": 77142,
+      "slug": "slow-horses",
+      "title": "Slow Horses",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 81528,
+      "slug": "the-night-agent",
+      "title": "The Night Agent",
+      "year": 2023,
+      "rank": 5
+    },
+    {
+      "id": 89299,
+      "slug": "rabbit-hole",
+      "title": "Rabbit Hole",
+      "year": 2023,
+      "rank": 6
+    },
+    {
+      "id": 66968,
+      "slug": "treadstone",
+      "title": "Treadstone",
+      "year": 2019,
+      "rank": 7
+    },
+    {
+      "id": 78451,
+      "slug": "shadow-lines",
+      "title": "Shadow Lines",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 81262,
+      "slug": "citadel",
+      "title": "Citadel",
+      "year": 2023,
+      "rank": 9
+    },
+    {
+      "id": 60124,
+      "slug": "tom-clancys-jack-ryan",
+      "title": "Tom Clancy's Jack Ryan",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 60869,
+      "slug": "condor",
+      "title": "Condor",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 65661,
+      "slug": "the-enemy-within",
+      "title": "The Enemy Within",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 79923,
+      "slug": "a-spy-among-friends",
+      "title": "A Spy Among Friends",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 85331,
+      "slug": "ghosts-of-beirut",
+      "title": "Ghosts of Beirut",
+      "year": 2023,
+      "rank": 14
+    },
+    {
+      "id": 84174,
+      "slug": "special-ops-lioness",
+      "title": "Lioness",
+      "year": 2023,
+      "rank": 15
+    },
+    {
+      "id": 81677,
+      "slug": "treason",
+      "title": "Treason",
+      "year": 2022,
+      "rank": 16
+    },
+    {
+      "id": 89151,
+      "slug": "mr-9",
+      "title": "MR-9: Do or Die",
+      "year": 2023,
+      "rank": 17
+    },
+    {
+      "id": 85121,
+      "slug": "spy-master",
+      "title": "Spy/Master",
+      "year": 2023,
+      "rank": 18
+    },
+    {
+      "id": 60772,
+      "slug": "taken",
+      "title": "Taken",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 80065,
+      "slug": "the-recruit",
+      "title": "The Recruit",
+      "year": 2022,
+      "rank": 20
+    },
+    {
+      "id": 73043,
+      "slug": "spy-city",
+      "title": "Spy City",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 91590,
+      "slug": "mr-and-mrs-smith",
+      "title": "Mr. & Mrs. Smith",
+      "year": 2024,
+      "rank": 22
+    },
+    {
+      "id": 82164,
+      "slug": "fubar",
+      "title": "FUBAR",
+      "year": 2023,
+      "rank": 23
+    },
+    {
+      "id": 78713,
+      "slug": "agent-game",
+      "title": "Agent Game",
+      "year": 2022,
+      "rank": 24
+    },
+    {
+      "id": 73970,
+      "slug": "the-veil",
+      "title": "The Veil",
+      "year": 2021,
+      "rank": 25
+    },
+    {
+      "id": 60983,
+      "slug": "legends",
+      "title": "Legends",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 101906,
+      "slug": "tempest",
+      "title": "Tempest",
+      "year": 2025,
+      "rank": 27
+    },
+    {
+      "id": 9737,
+      "slug": "body-of-lies",
+      "title": "Body of Lies",
+      "year": 2008,
+      "rank": 28
+    },
+    {
+      "id": 4461,
+      "slug": "crisis",
+      "title": "Crisis",
+      "year": 2014,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919185
+}

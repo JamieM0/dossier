@@ -1,0 +1,395 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26793-the-legend-of-korra",
+  "id": 26793,
+  "slug": "the-legend-of-korra",
+  "title": "The Legend of Korra",
+  "year": 2012,
+  "rating": 8.3,
+  "votes_text": "149K",
+  "votes": 149000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/c0/26793.jpg",
+  "genres": [
+    "Animation",
+    "Action",
+    "Adventure",
+    "Family",
+    "Fantasy",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA",
+    "South Korea",
+    "Japan"
+  ],
+  "duration_min": 23,
+  "story": "The Legend of Korra is an American animated television series that premiered on the Nickelodeon television network in 2012. It was created by Bryan Konietzko and Michael Dante DiMartino as a sequel to their series Avatar: The Last Airbender, which aired on Nickelodeon from 2005 to 2008. Several people involved with creating Avatar, including designer Joaquim Dos Santos and composers Jeremy Zuckerman and Benjamin Wynn, returned to work on The Legend of Korra. The series is set in a fictional universe where some people can manipulate, or \"bend\", the elements of water, earth, fire, or air. Only one person, the \"Avatar\", can bend all four elements, and is responsible for maintaining balance in the world. The series follows Avatar Korra, the successor of Aang from the previous series, as she faces political and spiritual unrest in a modernizing world. The series, whose style is strongly influenced by Japanese animation, has been a critical and commercial success. It obtained the highest audience total for an animated series in the United States in 2012. The series was praised by reviewers for its high production values and for addressing difficult sociopolitical issues such as social unrest and terrorism. It was initially conceived as a miniseries of 12 episodes, but it is now set to run for 52 episodes separated into four seasons, each of which tells a separate story.",
+  "tags": [
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 2772,
+      "slug": "martial-arts",
+      "name": "Martial arts",
+      "film_count": 6239
+    },
+    {
+      "id": 5683,
+      "slug": "training",
+      "name": "Training",
+      "film_count": 1700
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 8671,
+      "slug": "peril",
+      "name": "Peril",
+      "film_count": 1962
+    },
+    {
+      "id": 4209,
+      "slug": "chosen-one",
+      "name": "Chosen one",
+      "film_count": 446
+    },
+    {
+      "id": 123674,
+      "slug": "magical",
+      "name": "Magical",
+      "film_count": 1507
+    },
+    {
+      "id": 1315,
+      "slug": "teenage-girl",
+      "name": "Teenage girl",
+      "film_count": 7053
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 123335,
+      "slug": "imaginary",
+      "name": "Imaginary",
+      "film_count": 4709
+    },
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    },
+    {
+      "id": 2624,
+      "slug": "superheroine",
+      "name": "Superheroine",
+      "film_count": 460
+    },
+    {
+      "id": 4763,
+      "slug": "bisexual",
+      "name": "Bisexual",
+      "film_count": 1481
+    },
+    {
+      "id": 18038,
+      "slug": "avatar",
+      "name": "Avatar",
+      "film_count": 47
+    },
+    {
+      "id": 3260,
+      "slug": "coming-of-age",
+      "name": "Coming of age",
+      "film_count": 16794
+    },
+    {
+      "id": 123484,
+      "slug": "stylized",
+      "name": "Stylized",
+      "film_count": 9222
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "anime",
+      "suspenseful",
+      "stylized",
+      "adult animation",
+      "manga",
+      "funny",
+      "sentimental",
+      "epic",
+      "educational"
+    ],
+    "audience": [
+      "kids",
+      "pre-teens",
+      "teens",
+      "chick flick",
+      "preschool"
+    ],
+    "plot": [
+      "supernatural ability",
+      "martial arts",
+      "training",
+      "friendship",
+      "peril",
+      "danger",
+      "chosen one",
+      "magical",
+      "teenage girl",
+      "female warrior",
+      "youth",
+      "rivalry",
+      "young heroes",
+      "good versus evil",
+      "female protagonist",
+      "master warrior",
+      "journey",
+      "love triangle",
+      "warrior",
+      "tough girl",
+      "rebellion",
+      "imaginary kingdom",
+      "heroes",
+      "imaginary",
+      "lesbian"
+    ],
+    "time": [
+      "2000s",
+      "1920s",
+      "20th century"
+    ],
+    "place": [
+      "idaho",
+      "asia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 8814,
+      "slug": "avatar-the-last-airbender",
+      "title": "Avatar: The Last Airbender",
+      "year": 2005,
+      "rank": 0
+    },
+    {
+      "id": 64295,
+      "slug": "she-ra-and-the-princesses-of-power",
+      "title": "She-Ra and the Princesses of Power",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 40770,
+      "slug": "niko-and-the-sword-of-light",
+      "title": "Niko and the Sword of Light",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 21817,
+      "slug": "samurai-jack",
+      "title": "Samurai Jack",
+      "year": 2001,
+      "rank": 3
+    },
+    {
+      "id": 28953,
+      "slug": "hunter-x-hunter",
+      "title": "Hunter x Hunter",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 75961,
+      "slug": "mysticons",
+      "title": "Mysticons",
+      "year": 2017,
+      "rank": 5
+    },
+    {
+      "id": 74038,
+      "slug": "arcane",
+      "title": "Arcane",
+      "year": 2021,
+      "rank": 6
+    },
+    {
+      "id": 29951,
+      "slug": "dragon-ball",
+      "title": "Dragon Ball",
+      "year": 1986,
+      "rank": 7
+    },
+    {
+      "id": 802,
+      "slug": "winx-club",
+      "title": "Winx Club",
+      "year": 2004,
+      "rank": 8
+    },
+    {
+      "id": 61932,
+      "slug": "lego-ninjago-masters-of-spinjitzu",
+      "title": "Ninjago: Masters of Spinjitzu",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 29845,
+      "slug": "dragon-ball",
+      "title": "Dragon Ball",
+      "year": 1995,
+      "rank": 10
+    },
+    {
+      "id": 59138,
+      "slug": "fairy-tail",
+      "title": "Fairy Tail",
+      "year": 2009,
+      "rank": 11
+    },
+    {
+      "id": 4855,
+      "slug": "w-i-t-c-h",
+      "title": "W.I.T.C.H.",
+      "year": 2004,
+      "rank": 12
+    },
+    {
+      "id": 43637,
+      "slug": "voltron-legendary-defender",
+      "title": "Voltron: Legendary Defender",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 19054,
+      "slug": "naruto",
+      "title": "Naruto",
+      "year": 2002,
+      "rank": 14
+    },
+    {
+      "id": 36909,
+      "slug": "sailor-moon-crystal",
+      "title": "Sailor Moon Crystal",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 2133,
+      "slug": "sym-bionic-titan",
+      "title": "Sym-Bionic Titan",
+      "year": 2010,
+      "rank": 16
+    },
+    {
+      "id": 30007,
+      "slug": "dragon-ball-z",
+      "title": "Dragon Ball Z",
+      "year": 1989,
+      "rank": 17
+    },
+    {
+      "id": 30322,
+      "slug": "the-powerpuff-girls",
+      "title": "The Powerpuff Girls",
+      "year": 1998,
+      "rank": 18
+    },
+    {
+      "id": 1940,
+      "slug": "dragons-riders-of-berk",
+      "title": "DreamWorks Dragons",
+      "year": 2012,
+      "rank": 19
+    },
+    {
+      "id": 26807,
+      "slug": "naruto-shippuden",
+      "title": "Naruto: Shippuden",
+      "year": 2007,
+      "rank": 20
+    },
+    {
+      "id": 67933,
+      "slug": "the-owl-house",
+      "title": "The Owl House",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 3495,
+      "slug": "star-vs-the-forces-of-evil",
+      "title": "Star vs. the Forces of Evil",
+      "year": 2012,
+      "rank": 22
+    },
+    {
+      "id": 41822,
+      "slug": "miraculous-tales-of-ladybug-and-cat-noir",
+      "title": "Miraculous: Tales of Ladybug & Cat Noir",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 66985,
+      "slug": "kipo-and-the-age-of-wonderbeasts",
+      "title": "Kipo and the Age of Wonderbeasts",
+      "year": 2020,
+      "rank": 24
+    },
+    {
+      "id": 65183,
+      "slug": "bakugan-battle-brawlers",
+      "title": "Bakugan Battle Brawlers",
+      "year": 2007,
+      "rank": 25
+    },
+    {
+      "id": 29939,
+      "slug": "dungeons-and-dragons",
+      "title": "Dungeons & Dragons",
+      "year": 1983,
+      "rank": 26
+    },
+    {
+      "id": 9541,
+      "slug": "bleach",
+      "title": "Bleach",
+      "year": 2004,
+      "rank": 27
+    },
+    {
+      "id": 30018,
+      "slug": "teen-titans",
+      "title": "Teen Titans",
+      "year": 2003,
+      "rank": 28
+    },
+    {
+      "id": 30345,
+      "slug": "sailor-moon",
+      "title": "Sailor Moon",
+      "year": 1995,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919148
+}

@@ -1,0 +1,366 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/108136-a-knight-of-the-seven-kingdoms",
+  "id": 108136,
+  "slug": "a-knight-of-the-seven-kingdoms",
+  "title": "A Knight of the Seven Kingdoms",
+  "year": 2026,
+  "rating": 8.6,
+  "votes_text": "35K",
+  "votes": 35000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a8/108136.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Fantasy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Set in an age when the Targaryen line still holds the Iron Throne and the memory of the last dragon has not yet passed from living memory, great destinies, powerful foes and dangerous exploits all await these improbable and incomparable friends.",
+  "tags": [
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 2504,
+      "slug": "quest",
+      "name": "Quest",
+      "film_count": 1192
+    },
+    {
+      "id": 124067,
+      "slug": "dramatic",
+      "name": "Dramatic",
+      "film_count": 6928
+    },
+    {
+      "id": 5262,
+      "slug": "bravery",
+      "name": "Bravery",
+      "film_count": 1426
+    },
+    {
+      "id": 5620,
+      "slug": "honor",
+      "name": "Honor",
+      "film_count": 1188
+    },
+    {
+      "id": 2482,
+      "slug": "loyalty",
+      "name": "Loyalty",
+      "film_count": 3659
+    },
+    {
+      "id": 366,
+      "slug": "chivalry",
+      "name": "Chivalry",
+      "film_count": 359
+    },
+    {
+      "id": 10629,
+      "slug": "swordplay",
+      "name": "Swordplay",
+      "film_count": 862
+    },
+    {
+      "id": 1470,
+      "slug": "brother",
+      "name": "Brother",
+      "film_count": 1653
+    },
+    {
+      "id": 16697,
+      "slug": "puppeteer",
+      "name": "Puppeteer",
+      "film_count": 62
+    },
+    {
+      "id": 19233,
+      "slug": "period-drama",
+      "name": "Period drama",
+      "film_count": 5527
+    },
+    {
+      "id": 2772,
+      "slug": "martial-arts",
+      "name": "Martial arts",
+      "film_count": 6239
+    },
+    {
+      "id": 41101,
+      "slug": "wuxia",
+      "name": "Wuxia",
+      "film_count": 617
+    },
+    {
+      "id": 511,
+      "slug": "revenge",
+      "name": "Revenge",
+      "film_count": 19339
+    },
+    {
+      "id": 12966,
+      "slug": "brotherhood",
+      "name": "Brotherhood",
+      "film_count": 1201
+    },
+    {
+      "id": 143,
+      "slug": "rivalry",
+      "name": "Rivalry",
+      "film_count": 16927
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "dramatic",
+      "suspenseful",
+      "dark fantasy",
+      "period drama"
+    ],
+    "plot": [
+      "friendship",
+      "quest",
+      "bravery",
+      "honor",
+      "loyalty",
+      "chivalry",
+      "swordplay",
+      "political intrigue",
+      "coming of age",
+      "sword and sorcery",
+      "betrayal",
+      "family conflict",
+      "squire",
+      "knight",
+      "male nudity",
+      "king",
+      "queen",
+      "prince",
+      "kingdom",
+      "power",
+      "brother",
+      "puppeteer"
+    ]
+  },
+  "similar": [
+    {
+      "id": 108610,
+      "slug": "the-journey-of-legend",
+      "title": "The Journey of Legend",
+      "year": 2025,
+      "rank": 0
+    },
+    {
+      "id": 89551,
+      "slug": "mysterious-lotus-casebook",
+      "title": "Mysterious Lotus Casebook",
+      "year": 2023,
+      "rank": 1
+    },
+    {
+      "id": 79423,
+      "slug": "demon-catcher-zhong-kui",
+      "title": "Demon Catcher Zhong Kui",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 108541,
+      "slug": "blood-river",
+      "title": "Blood River",
+      "year": 2025,
+      "rank": 3
+    },
+    {
+      "id": 109548,
+      "slug": "shui-yue-dong-tian",
+      "title": "Shui Yue Dong Tian",
+      "year": 2003,
+      "rank": 4
+    },
+    {
+      "id": 111014,
+      "slug": "heroes",
+      "title": "Heroes",
+      "year": 2022,
+      "rank": 5
+    },
+    {
+      "id": 111256,
+      "slug": "the-romance-of-the-condor-heroes",
+      "title": "The Romance of the Condor Heroes",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 96775,
+      "slug": "the-blood-of-youth",
+      "title": "The Blood of Youth",
+      "year": 2022,
+      "rank": 7
+    },
+    {
+      "id": 106570,
+      "slug": "dashing-youth",
+      "title": "Dashing Youth",
+      "year": 2024,
+      "rank": 8
+    },
+    {
+      "id": 108845,
+      "slug": "sandokan",
+      "title": "Sandokan",
+      "year": 2025,
+      "rank": 9
+    },
+    {
+      "id": 94114,
+      "slug": "tiger-and-crane",
+      "title": "Tiger and Crane",
+      "year": 2023,
+      "rank": 10
+    },
+    {
+      "id": 69553,
+      "slug": "the-wheel-of-time",
+      "title": "The Wheel of Time",
+      "year": 2021,
+      "rank": 11
+    },
+    {
+      "id": 109653,
+      "slug": "the-demi-gods-and-semi-devils",
+      "title": "The Demi-Gods and Semi-Devils",
+      "year": 2013,
+      "rank": 12
+    },
+    {
+      "id": 91210,
+      "slug": "the-legend-of-the-condor-heroes",
+      "title": "The Legend of the Condor Heroes",
+      "year": 2003,
+      "rank": 13
+    },
+    {
+      "id": 26240,
+      "slug": "game-of-thrones",
+      "title": "Game of Thrones",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 96965,
+      "slug": "battle-through-the-heaven",
+      "title": "Battle Through The Heaven",
+      "year": 2023,
+      "rank": 15
+    },
+    {
+      "id": 106315,
+      "slug": "the-immortal-ascension",
+      "title": "The Immortal Ascension",
+      "year": 2024,
+      "rank": 16
+    },
+    {
+      "id": 98497,
+      "slug": "the-legendary-siblings",
+      "title": "The Legendary Siblings",
+      "year": 1999,
+      "rank": 17
+    },
+    {
+      "id": 26566,
+      "slug": "legend-of-the-seeker",
+      "title": "Legend of the Seeker",
+      "year": 2008,
+      "rank": 18
+    },
+    {
+      "id": 47610,
+      "slug": "the-knight",
+      "title": "The Knight",
+      "year": 1980,
+      "rank": 19
+    },
+    {
+      "id": 108333,
+      "slug": "legend-of-the-female-general",
+      "title": "Legend of the Female General",
+      "year": 2025,
+      "rank": 20
+    },
+    {
+      "id": 107151,
+      "slug": "mirai",
+      "title": "Mirai",
+      "year": 2025,
+      "rank": 21
+    },
+    {
+      "id": 72923,
+      "slug": "heavenly-sword-and-dragon-slaying-sabre",
+      "title": "The Heaven Sword and the Dragon Saber",
+      "year": 2019,
+      "rank": 22
+    },
+    {
+      "id": 74533,
+      "slug": "wind-and-cloud",
+      "title": "Wind and Cloud",
+      "year": 2002,
+      "rank": 23
+    },
+    {
+      "id": 106468,
+      "slug": "the-lord-of-the-rings-the-fellowship-of-the-ring-special-extended-edition-scenes",
+      "title": "The Lord of the Rings: The Fellowship of the Ring - Special Extended Edition Scenes",
+      "year": 2002,
+      "rank": 24
+    },
+    {
+      "id": 106741,
+      "slug": "the-land-of-warriors",
+      "title": "The Land of Warriors",
+      "year": 2024,
+      "rank": 25
+    },
+    {
+      "id": 53507,
+      "slug": "magic-kingdom-alamat-ng-damortis",
+      "title": "Magic Kingdom - Alamat ng Damortis",
+      "year": 1997,
+      "rank": 26
+    },
+    {
+      "id": 104907,
+      "slug": "sword-snow-stride",
+      "title": "Sword Snow Stride",
+      "year": 2021,
+      "rank": 27
+    },
+    {
+      "id": 111271,
+      "slug": "swords-of-legends-ii",
+      "title": "Swords of Legends II",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 72940,
+      "slug": "handsome-siblings",
+      "title": "Handsome Siblings",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919188
+}

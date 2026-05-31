@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/60143-lethal-weapon",
+  "id": 60143,
+  "slug": "lethal-weapon",
+  "title": "Lethal Weapon",
+  "year": 2016,
+  "rating": 7.8,
+  "votes_text": "43K",
+  "votes": 43000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/3b/60143.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 44,
+  "story": "A slightly unhinged former Navy SEAL lands a job as a police officer in Los Angeles where he's partnered with a veteran detective trying to keep maintain a low stress level in his life.",
+  "tags": [
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    },
+    {
+      "id": 5137,
+      "slug": "lapd",
+      "name": "Lapd",
+      "film_count": 272
+    },
+    {
+      "id": 14183,
+      "slug": "buddy-cop",
+      "name": "Buddy cop",
+      "film_count": 711
+    },
+    {
+      "id": 2793,
+      "slug": "police-detective",
+      "name": "Police detective",
+      "film_count": 4048
+    },
+    {
+      "id": 3048,
+      "slug": "police-partner",
+      "name": "Police partner",
+      "film_count": 458
+    },
+    {
+      "id": 3042,
+      "slug": "police-investigation",
+      "name": "Police investigation",
+      "film_count": 8669
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 2675,
+      "slug": "police-officer",
+      "name": "Police officer",
+      "film_count": 9140
+    },
+    {
+      "id": 402,
+      "slug": "christmas",
+      "name": "Christmas",
+      "film_count": 4503
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 47,
+      "slug": "agent",
+      "name": "Agent",
+      "film_count": 1731
+    },
+    {
+      "id": 123301,
+      "slug": "boys-night",
+      "name": "Boys' night",
+      "film_count": 6531
+    },
+    {
+      "id": 1273,
+      "slug": "neo-noir",
+      "name": "Neo noir",
+      "film_count": 4908
+    },
+    {
+      "id": 123493,
+      "slug": "los-angeles",
+      "name": "Los angeles",
+      "film_count": 3890
+    },
+    {
+      "id": 22098,
+      "slug": "black-cast",
+      "name": "Black cast",
+      "film_count": 482
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "captivating",
+      "detective",
+      "suspense",
+      "atmospheric",
+      "intellectual",
+      "suspenseful",
+      "funny",
+      "neo noir",
+      "relaxing"
+    ],
+    "audience": [
+      "boys' night",
+      "adult"
+    ],
+    "plot": [
+      "police",
+      "lapd",
+      "buddy cop",
+      "police detective",
+      "police partner",
+      "police investigation",
+      "friendship",
+      "chase",
+      "murder",
+      "investigation",
+      "family relations",
+      "teamwork",
+      "private detective",
+      "war veteran",
+      "crime scene",
+      "partners against crime",
+      "twists and turns",
+      "police officer",
+      "christmas",
+      "agent",
+      "black cast",
+      "team",
+      "law enforcement",
+      "black",
+      "godfather"
+    ],
+    "time": [
+      "2010s",
+      "21st century"
+    ],
+    "place": [
+      "los angeles",
+      "california"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65260,
+      "slug": "l-a-s-finest",
+      "title": "L.A.'s Finest",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 2915,
+      "slug": "common-law",
+      "title": "Common Law",
+      "year": 2012,
+      "rank": 1
+    },
+    {
+      "id": 26973,
+      "slug": "hawaii-five-0",
+      "title": "Hawaii Five-0",
+      "year": 2010,
+      "rank": 2
+    },
+    {
+      "id": 28588,
+      "slug": "bosch",
+      "title": "Bosch",
+      "year": 2014,
+      "rank": 3
+    },
+    {
+      "id": 40726,
+      "slug": "battle-creek",
+      "title": "Battle Creek",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 60801,
+      "slug": "rush-hour",
+      "title": "Rush Hour",
+      "year": 2016,
+      "rank": 5
+    },
+    {
+      "id": 60776,
+      "slug": "s-w-a-t",
+      "title": "S.W.A.T.",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 2154,
+      "slug": "terriers",
+      "title": "Terriers",
+      "year": 2010,
+      "rank": 7
+    },
+    {
+      "id": 27275,
+      "slug": "forever",
+      "title": "Forever",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 17185,
+      "slug": "lethal-weapon",
+      "title": "Lethal Weapon",
+      "year": 1987,
+      "rank": 9
+    },
+    {
+      "id": 308,
+      "slug": "dark-blue",
+      "title": "Dark Blue",
+      "year": 2009,
+      "rank": 10
+    },
+    {
+      "id": 56683,
+      "slug": "chicago-p-d",
+      "title": "Chicago P.D.",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 60787,
+      "slug": "queen-of-the-south",
+      "title": "Queen of the South",
+      "year": 2016,
+      "rank": 12
+    },
+    {
+      "id": 6588,
+      "slug": "vexed",
+      "title": "Vexed",
+      "year": 2010,
+      "rank": 13
+    },
+    {
+      "id": 56430,
+      "slug": "the-glades",
+      "title": "The Glades",
+      "year": 2010,
+      "rank": 14
+    },
+    {
+      "id": 64244,
+      "slug": "the-rookie",
+      "title": "The Rookie",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 66836,
+      "slug": "fbi",
+      "title": "FBI",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 66737,
+      "slug": "shots-fired",
+      "title": "Shots Fired",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 4991,
+      "slug": "blue-bloods",
+      "title": "Blue Bloods",
+      "year": 2010,
+      "rank": 18
+    },
+    {
+      "id": 65887,
+      "slug": "dublin-murders",
+      "title": "Dublin Murders",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 74898,
+      "slug": "reacher",
+      "title": "Reacher",
+      "year": 2022,
+      "rank": 20
+    },
+    {
+      "id": 16984,
+      "slug": "the-last-boy-scout",
+      "title": "The Last Boy Scout",
+      "year": 1991,
+      "rank": 21
+    },
+    {
+      "id": 35178,
+      "slug": "viper",
+      "title": "Viper",
+      "year": 1994,
+      "rank": 22
+    },
+    {
+      "id": 2902,
+      "slug": "the-protector",
+      "title": "The Protector",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 30524,
+      "slug": "psych",
+      "title": "Psych",
+      "year": 2006,
+      "rank": 24
+    },
+    {
+      "id": 61934,
+      "slug": "the-good-guys",
+      "title": "The Good Guys",
+      "year": 2010,
+      "rank": 25
+    },
+    {
+      "id": 64316,
+      "slug": "magnum-p-i",
+      "title": "Magnum P.I.",
+      "year": 2018,
+      "rank": 26
+    },
+    {
+      "id": 3226,
+      "slug": "ironside",
+      "title": "Ironside",
+      "year": 2013,
+      "rank": 27
+    },
+    {
+      "id": 30367,
+      "slug": "nash-bridges",
+      "title": "Nash Bridges",
+      "year": 1996,
+      "rank": 28
+    },
+    {
+      "id": 69656,
+      "slug": "mcdonald-and-dodds",
+      "title": "McDonald & Dodds",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919166
+}

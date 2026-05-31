@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/21564-rome",
+  "id": 21564,
+  "slug": "rome",
+  "title": "Rome",
+  "year": 2005,
+  "rating": 8.7,
+  "votes_text": "202K",
+  "votes": 202000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/2c/21564.jpg",
+  "genres": [
+    "Action",
+    "Drama",
+    "Romance",
+    "War"
+  ],
+  "country": [
+    "UK",
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "A down-to-earth account of the lives of both illustrious and ordinary Romans set in the last days of the Roman Republic.",
+  "tags": [
+    {
+      "id": 21076,
+      "slug": "roman-empire",
+      "name": "Roman empire",
+      "film_count": 343
+    },
+    {
+      "id": 30168,
+      "slug": "ancient-history",
+      "name": "Ancient history",
+      "film_count": 504
+    },
+    {
+      "id": 16006,
+      "slug": "ancient-rome",
+      "name": "Ancient rome",
+      "film_count": 340
+    },
+    {
+      "id": 90075,
+      "slug": "historical-character",
+      "name": "Historical character",
+      "film_count": 392
+    },
+    {
+      "id": 528,
+      "slug": "sex",
+      "name": "Sex",
+      "film_count": 10551
+    },
+    {
+      "id": 8724,
+      "slug": "power-struggle",
+      "name": "Power struggle",
+      "film_count": 2612
+    },
+    {
+      "id": 30170,
+      "slug": "antiquity",
+      "name": "Antiquity",
+      "film_count": 257
+    },
+    {
+      "id": 3567,
+      "slug": "rome-italy",
+      "name": "Rome italy",
+      "film_count": 971
+    },
+    {
+      "id": 1749,
+      "slug": "sword",
+      "name": "Sword",
+      "film_count": 2878
+    },
+    {
+      "id": 9377,
+      "slug": "european-history",
+      "name": "European history",
+      "film_count": 289
+    },
+    {
+      "id": 4152,
+      "slug": "sword-and-shield",
+      "name": "Sword and shield",
+      "film_count": 145
+    },
+    {
+      "id": 11286,
+      "slug": "ruler",
+      "name": "Ruler",
+      "film_count": 194
+    },
+    {
+      "id": 907,
+      "slug": "seduction",
+      "name": "Seduction",
+      "film_count": 3871
+    },
+    {
+      "id": 1566,
+      "slug": "based-on-true-story",
+      "name": "Based on true story",
+      "film_count": 8531
+    },
+    {
+      "id": 104758,
+      "slug": "sex-with-sister",
+      "name": "Sex with sister",
+      "film_count": 218
+    },
+    {
+      "id": 6404,
+      "slug": "peplum",
+      "name": "Peplum",
+      "film_count": 588
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "epic",
+      "exciting",
+      "period piece",
+      "sexual",
+      "costume drama",
+      "erotic",
+      "mythical",
+      "stylized",
+      "captivating",
+      "sensual"
+    ],
+    "plot": [
+      "roman empire",
+      "ancient history",
+      "ancient rome",
+      "historical character",
+      "sex",
+      "power struggle",
+      "antiquity",
+      "emperor",
+      "intrigue",
+      "roman soldier",
+      "warrior",
+      "ancient egypt",
+      "italian history",
+      "political unrest",
+      "julius caesar",
+      "betrayal",
+      "political conspiracy",
+      "treason",
+      "rivalry",
+      "incest",
+      "sword",
+      "european history",
+      "sword and shield",
+      "ruler",
+      "seduction"
+    ],
+    "time": [
+      "1st century",
+      "ancient times",
+      "1st century b.c",
+      "2000s"
+    ],
+    "place": [
+      "rome italy",
+      "italy",
+      "ancient greece",
+      "alexandria egypt",
+      "greece",
+      "europe",
+      "egypt"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26615,
+      "slug": "spartacus-war-of-the-damned",
+      "title": "Spartacus",
+      "year": 2010,
+      "rank": 0
+    },
+    {
+      "id": 14175,
+      "slug": "gladiator",
+      "title": "Gladiator",
+      "year": 2000,
+      "rank": 1
+    },
+    {
+      "id": 26240,
+      "slug": "game-of-thrones",
+      "title": "Game of Thrones",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 71840,
+      "slug": "domina",
+      "title": "Domina",
+      "year": 2021,
+      "rank": 3
+    },
+    {
+      "id": 10501,
+      "slug": "centurion",
+      "title": "Centurion",
+      "year": 2010,
+      "rank": 4
+    },
+    {
+      "id": 12616,
+      "slug": "the-eagle",
+      "title": "The Eagle",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 23025,
+      "slug": "spartacus",
+      "title": "Spartacus",
+      "year": 2004,
+      "rank": 6
+    },
+    {
+      "id": 202,
+      "slug": "vikings",
+      "title": "Vikings",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 29973,
+      "slug": "spartacus-gods-of-the-arena",
+      "title": "Spartacus: Gods of the Arena",
+      "year": 2011,
+      "rank": 8
+    },
+    {
+      "id": 2867,
+      "slug": "borgia",
+      "title": "Borgia",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 24486,
+      "slug": "troy",
+      "title": "Troy",
+      "year": 2004,
+      "rank": 10
+    },
+    {
+      "id": 7724,
+      "slug": "300",
+      "title": "300",
+      "year": 2006,
+      "rank": 11
+    },
+    {
+      "id": 36817,
+      "slug": "the-last-kingdom",
+      "title": "The Last Kingdom",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 10930,
+      "slug": "cleopatra",
+      "title": "Cleopatra",
+      "year": 1963,
+      "rank": 13
+    },
+    {
+      "id": 26963,
+      "slug": "the-tudors",
+      "title": "The Tudors",
+      "year": 2007,
+      "rank": 14
+    },
+    {
+      "id": 27266,
+      "slug": "the-borgias",
+      "title": "The Borgias",
+      "year": 2011,
+      "rank": 15
+    },
+    {
+      "id": 26964,
+      "slug": "the-pillars-of-the-earth",
+      "title": "The Pillars of the Earth",
+      "year": 2010,
+      "rank": 16
+    },
+    {
+      "id": 56946,
+      "slug": "marco-polo",
+      "title": "Marco Polo",
+      "year": 2014,
+      "rank": 17
+    },
+    {
+      "id": 63659,
+      "slug": "tut",
+      "title": "Tut",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 37817,
+      "slug": "rome-rise-and-fall-of-an-empire",
+      "title": "Rome: Rise and Fall of an Empire",
+      "year": 2008,
+      "rank": 19
+    },
+    {
+      "id": 57870,
+      "slug": "the-white-princess",
+      "title": "The White Princess",
+      "year": 2017,
+      "rank": 20
+    },
+    {
+      "id": 5344,
+      "slug": "reign",
+      "title": "Reign",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 69180,
+      "slug": "barbarians",
+      "title": "Barbarians",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 59496,
+      "slug": "britannia",
+      "title": "Britannia",
+      "year": 2017,
+      "rank": 23
+    },
+    {
+      "id": 63120,
+      "slug": "ancient-rome-the-rise-and-fall-of-an-empire",
+      "title": "Ancient Rome: The Rise and Fall of an Empire",
+      "year": 2006,
+      "rank": 24
+    },
+    {
+      "id": 16352,
+      "slug": "julius-caesar",
+      "title": "Julius Caesar",
+      "year": 1970,
+      "rank": 25
+    },
+    {
+      "id": 35406,
+      "slug": "versailles",
+      "title": "Versailles",
+      "year": 2015,
+      "rank": 26
+    },
+    {
+      "id": 7097,
+      "slug": "turn-washingtons-spies",
+      "title": "TURN: Washington's Spies",
+      "year": 2014,
+      "rank": 27
+    },
+    {
+      "id": 1190,
+      "slug": "house-of-saddam",
+      "title": "House of Saddam",
+      "year": 2008,
+      "rank": 28
+    },
+    {
+      "id": 66568,
+      "slug": "hannibal-romes-worst-nightmare",
+      "title": "Hannibal: Rome's Worst Nightmare",
+      "year": 2006,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919140
+}

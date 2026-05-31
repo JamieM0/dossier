@@ -1,0 +1,377 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/76730-the-sandman",
+  "id": 76730,
+  "slug": "the-sandman",
+  "title": "The Sandman",
+  "year": 2022,
+  "rating": 7.6,
+  "votes_text": "207K",
+  "votes": 207000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a4/76730.jpg",
+  "genres": [
+    "Drama",
+    "Fantasy",
+    "Horror",
+    "Mystery",
+    "Sci-Fi"
+  ],
+  "country": [
+    "UK",
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "A wizard attempting to capture Death to bargain for eternal life traps her younger brother Dream instead. Fearful for his safety, the wizard kept him imprisoned in a glass bottle for decades. After his escape, Dream, also known as Morpheus, goes on a quest for his lost objects of power.",
+  "tags": [
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 1808,
+      "slug": "nightmare",
+      "name": "Nightmare",
+      "film_count": 3617
+    },
+    {
+      "id": 2502,
+      "slug": "spell",
+      "name": "Spell",
+      "film_count": 496
+    },
+    {
+      "id": 12962,
+      "slug": "dreaming",
+      "name": "Dreaming",
+      "film_count": 429
+    },
+    {
+      "id": 6898,
+      "slug": "dark-fantasy",
+      "name": "Dark fantasy",
+      "film_count": 2029
+    },
+    {
+      "id": 8255,
+      "slug": "gothic",
+      "name": "Gothic",
+      "film_count": 2678
+    },
+    {
+      "id": 4022,
+      "slug": "kingdom",
+      "name": "Kingdom",
+      "film_count": 878
+    },
+    {
+      "id": 436,
+      "slug": "death",
+      "name": "Death",
+      "film_count": 18858
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 2338,
+      "slug": "magic",
+      "name": "Magic",
+      "film_count": 4761
+    },
+    {
+      "id": 4194,
+      "slug": "villain",
+      "name": "Villain",
+      "film_count": 3789
+    },
+    {
+      "id": 10954,
+      "slug": "librarian",
+      "name": "Librarian",
+      "film_count": 332
+    },
+    {
+      "id": 18,
+      "slug": "secret",
+      "name": "Secret",
+      "film_count": 5596
+    },
+    {
+      "id": 15601,
+      "slug": "supernatural-horror",
+      "name": "Supernatural horror",
+      "film_count": 2918
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "dark fantasy",
+      "gothic",
+      "dark",
+      "fairy tale",
+      "supernatural thriller",
+      "exciting",
+      "tense",
+      "atmospheric",
+      "captivating",
+      "suspenseful"
+    ],
+    "plot": [
+      "nightmare",
+      "spell",
+      "dreaming",
+      "kingdom",
+      "death",
+      "mythical creature",
+      "witchery",
+      "mythology",
+      "heroes",
+      "dream",
+      "ancient",
+      "raven",
+      "terror",
+      "lucifer",
+      "escape",
+      "supernatural being",
+      "talking animal",
+      "wizard",
+      "supernatural",
+      "magic",
+      "villain",
+      "librarian",
+      "secret",
+      "supernatural horror",
+      "gay"
+    ]
+  },
+  "similar": [
+    {
+      "id": 28860,
+      "slug": "american-gods",
+      "title": "American Gods",
+      "year": 2017,
+      "rank": 0
+    },
+    {
+      "id": 64831,
+      "slug": "the-umbrella-academy",
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "rank": 1
+    },
+    {
+      "id": 93620,
+      "slug": "dead-boy-detectives",
+      "title": "Dead Boy Detectives",
+      "year": 2024,
+      "rank": 2
+    },
+    {
+      "id": 57938,
+      "slug": "preacher",
+      "title": "Preacher",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 69553,
+      "slug": "the-wheel-of-time",
+      "title": "The Wheel of Time",
+      "year": 2021,
+      "rank": 4
+    },
+    {
+      "id": 64723,
+      "slug": "the-witcher",
+      "title": "The Witcher",
+      "year": 2019,
+      "rank": 5
+    },
+    {
+      "id": 26489,
+      "slug": "lucifer",
+      "title": "Lucifer",
+      "year": 2016,
+      "rank": 6
+    },
+    {
+      "id": 5767,
+      "slug": "penny-dreadful",
+      "title": "Penny Dreadful",
+      "year": 2014,
+      "rank": 7
+    },
+    {
+      "id": 69164,
+      "slug": "helstrom",
+      "title": "Helstrom",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 17889,
+      "slug": "constantine",
+      "title": "Constantine",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 61205,
+      "slug": "castle-rock",
+      "title": "Castle Rock",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 42758,
+      "slug": "stranger-things",
+      "title": "Stranger Things",
+      "year": 2016,
+      "rank": 11
+    },
+    {
+      "id": 66429,
+      "slug": "locke-and-key",
+      "title": "Locke & Key",
+      "year": 2020,
+      "rank": 12
+    },
+    {
+      "id": 41815,
+      "slug": "the-magicians",
+      "title": "The Magicians",
+      "year": 2015,
+      "rank": 13
+    },
+    {
+      "id": 88940,
+      "slug": "the-fall-of-the-house-of-usher",
+      "title": "The Fall of the House of Usher",
+      "year": 2023,
+      "rank": 14
+    },
+    {
+      "id": 64335,
+      "slug": "legacies",
+      "title": "Legacies",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 80888,
+      "slug": "secret-invasion",
+      "title": "Secret Invasion",
+      "year": 2023,
+      "rank": 16
+    },
+    {
+      "id": 5865,
+      "slug": "the-originals",
+      "title": "The Originals",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 105211,
+      "slug": "it-welcome-to-derry",
+      "title": "IT: Welcome to Derry",
+      "year": 2025,
+      "rank": 18
+    },
+    {
+      "id": 11162,
+      "slug": "constantine",
+      "title": "Constantine",
+      "year": 2005,
+      "rank": 19
+    },
+    {
+      "id": 26369,
+      "slug": "american-horror-story",
+      "title": "American Horror Story",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 64980,
+      "slug": "good-omens",
+      "title": "Good Omens",
+      "year": 2019,
+      "rank": 21
+    },
+    {
+      "id": 60789,
+      "slug": "the-oa",
+      "title": "The OA",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 77636,
+      "slug": "guillermo-del-toros-cabinet-of-curiosities",
+      "title": "Guillermo del Toro's Cabinet of Curiosities",
+      "year": 2022,
+      "rank": 23
+    },
+    {
+      "id": 1860,
+      "slug": "666-park-avenue",
+      "title": "666 Park Avenue",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 6070,
+      "slug": "witches-of-east-end",
+      "title": "Witches of East End",
+      "year": 2013,
+      "rank": 25
+    },
+    {
+      "id": 23689,
+      "slug": "tales-from-the-crypt",
+      "title": "Tales from the Crypt",
+      "year": 1989,
+      "rank": 26
+    },
+    {
+      "id": 62114,
+      "slug": "the-fades",
+      "title": "The Fades",
+      "year": 2011,
+      "rank": 27
+    },
+    {
+      "id": 10596,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 1998,
+      "rank": 28
+    },
+    {
+      "id": 96852,
+      "slug": "joko-anwars-nightmares-and-daydreams",
+      "title": "Joko Anwar's Nightmares and Daydreams",
+      "year": 2024,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919184
+}

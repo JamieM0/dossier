@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/66942-motherland-fort-salem",
+  "id": 66942,
+  "slug": "motherland-fort-salem",
+  "title": "Motherland: Fort Salem",
+  "year": 2020,
+  "rating": 7.3,
+  "votes_text": "20K",
+  "votes": 20000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/ac/66942.jpg",
+  "genres": [
+    "Drama",
+    "Fantasy",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "Canada",
+    "USA"
+  ],
+  "duration_min": 42,
+  "story": "Set in an alternate America where witches ended their persecution over 300 years ago by cutting a deal with the government to fight for their country, the series follows three young women from basic training in combat magic into early deployment.",
+  "tags": [
+    {
+      "id": 3943,
+      "slug": "witch",
+      "name": "Witch",
+      "film_count": 2159
+    },
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 2338,
+      "slug": "magic",
+      "name": "Magic",
+      "film_count": 4761
+    },
+    {
+      "id": 3796,
+      "slug": "sorceress",
+      "name": "Sorceress",
+      "film_count": 166
+    },
+    {
+      "id": 29256,
+      "slug": "military-service",
+      "name": "Military service",
+      "film_count": 225
+    },
+    {
+      "id": 22703,
+      "slug": "public-service",
+      "name": "Public service",
+      "film_count": 79
+    },
+    {
+      "id": 123841,
+      "slug": "wizards-and-magicians",
+      "name": "Wizards and magicians",
+      "film_count": 1179
+    },
+    {
+      "id": 60424,
+      "slug": "squad",
+      "name": "Squad",
+      "film_count": 762
+    },
+    {
+      "id": 17824,
+      "slug": "alternate-reality",
+      "name": "Alternate reality",
+      "film_count": 1572
+    },
+    {
+      "id": 15557,
+      "slug": "lgbtq",
+      "name": "Lgbtq",
+      "film_count": 3701
+    },
+    {
+      "id": 4647,
+      "slug": "strong-female-lead",
+      "name": "Strong female lead",
+      "film_count": 2994
+    },
+    {
+      "id": 124371,
+      "slug": "woman",
+      "name": "Woman",
+      "film_count": 6596
+    },
+    {
+      "id": 3089,
+      "slug": "supernatural-power",
+      "name": "Supernatural power",
+      "film_count": 6202
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "suspense",
+      "sad",
+      "anime",
+      "deep",
+      "supernatural thriller",
+      "entertaining",
+      "mystical",
+      "ironic",
+      "whimsical"
+    ],
+    "audience": [
+      "family outing"
+    ],
+    "plot": [
+      "witch",
+      "lesbian",
+      "female protagonist",
+      "lgbt",
+      "magic",
+      "sorceress",
+      "military service",
+      "public service",
+      "girlfriend girlfriend relationship",
+      "female soldier",
+      "sapphic",
+      "military",
+      "supernatural",
+      "investigation",
+      "protection",
+      "boot camp",
+      "soldier",
+      "girlfriend",
+      "supernatural being",
+      "fight",
+      "witchcraft",
+      "wizards and magicians",
+      "squad",
+      "alternate reality",
+      "lgbtq"
+    ],
+    "time": [
+      "2020s",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "salem massachusetts"
+    ]
+  },
+  "similar": [
+    {
+      "id": 67019,
+      "slug": "luna-nera",
+      "title": "Luna Nera",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 42764,
+      "slug": "wynonna-earp",
+      "title": "Wynonna Earp",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 64076,
+      "slug": "a-discovery-of-witches",
+      "title": "A Discovery of Witches",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 71031,
+      "slug": "the-nevers",
+      "title": "The Nevers",
+      "year": 2021,
+      "rank": 3
+    },
+    {
+      "id": 2266,
+      "slug": "the-secret-circle",
+      "title": "The Secret Circle",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 5
+    },
+    {
+      "id": 6159,
+      "slug": "sense8",
+      "title": "Sense8",
+      "year": 2015,
+      "rank": 6
+    },
+    {
+      "id": 69621,
+      "slug": "shadow-and-bone",
+      "title": "Shadow and Bone",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 56775,
+      "slug": "the-listener",
+      "title": "The Listener",
+      "year": 2009,
+      "rank": 8
+    },
+    {
+      "id": 69819,
+      "slug": "witch-hunt",
+      "title": "Witch Hunt",
+      "year": 2021,
+      "rank": 9
+    },
+    {
+      "id": 70733,
+      "slug": "the-rook",
+      "title": "The Rook",
+      "year": 2019,
+      "rank": 10
+    },
+    {
+      "id": 61827,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 57898,
+      "slug": "midnight-texas",
+      "title": "Midnight, Texas",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 60623,
+      "slug": "heroes-reborn",
+      "title": "Heroes Reborn",
+      "year": 2015,
+      "rank": 13
+    },
+    {
+      "id": 5865,
+      "slug": "the-originals",
+      "title": "The Originals",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 27275,
+      "slug": "forever",
+      "title": "Forever",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 42758,
+      "slug": "stranger-things",
+      "title": "Stranger Things",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 70661,
+      "slug": "the-craft-legacy",
+      "title": "The Craft: Legacy",
+      "year": 2020,
+      "rank": 17
+    },
+    {
+      "id": 27309,
+      "slug": "salem",
+      "title": "Salem",
+      "year": 2014,
+      "rank": 18
+    },
+    {
+      "id": 41815,
+      "slug": "the-magicians",
+      "title": "The Magicians",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 11299,
+      "slug": "the-craft",
+      "title": "The Craft",
+      "year": 1996,
+      "rank": 20
+    },
+    {
+      "id": 60979,
+      "slug": "believe",
+      "title": "Believe",
+      "year": 2014,
+      "rank": 21
+    },
+    {
+      "id": 64239,
+      "slug": "chilling-adventures-of-sabrina",
+      "title": "Chilling Adventures of Sabrina",
+      "year": 2018,
+      "rank": 22
+    },
+    {
+      "id": 2265,
+      "slug": "the-gates",
+      "title": "The Gates",
+      "year": 2010,
+      "rank": 23
+    },
+    {
+      "id": 5063,
+      "slug": "lost-girl",
+      "title": "Lost Girl",
+      "year": 2010,
+      "rank": 24
+    },
+    {
+      "id": 6070,
+      "slug": "witches-of-east-end",
+      "title": "Witches of East End",
+      "year": 2013,
+      "rank": 25
+    },
+    {
+      "id": 26924,
+      "slug": "haven",
+      "title": "Haven",
+      "year": 2010,
+      "rank": 26
+    },
+    {
+      "id": 68583,
+      "slug": "wandavision",
+      "title": "WandaVision",
+      "year": 2021,
+      "rank": 27
+    },
+    {
+      "id": 60872,
+      "slug": "impulse",
+      "title": "Impulse",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 67712,
+      "slug": "control-z",
+      "title": "Control Z",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919175
+}

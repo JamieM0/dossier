@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26561-its-always-sunny-in-philadelphia",
+  "id": 26561,
+  "slug": "its-always-sunny-in-philadelphia",
+  "title": "It's Always Sunny in Philadelphia",
+  "year": 2005,
+  "rating": 8.8,
+  "votes_text": "279K",
+  "votes": 279000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f5/26561.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "Four egocentric friends who run a neighborhood Irish pub in Philadelphia try to find their way through the adult world of work and relationships. Unfortunately, their warped views and precarious judgments often lead them to trouble, creating a myriad of uncomfortable situations that usually only get worse before they get better.",
+  "tags": [
+    {
+      "id": 11012,
+      "slug": "slacker",
+      "name": "Slacker",
+      "film_count": 593
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 123486,
+      "slug": "witty",
+      "name": "Witty",
+      "film_count": 5204
+    },
+    {
+      "id": 1654,
+      "slug": "pub",
+      "name": "Pub",
+      "film_count": 919
+    },
+    {
+      "id": 2363,
+      "slug": "stupidity",
+      "name": "Stupidity",
+      "film_count": 1569
+    },
+    {
+      "id": 123409,
+      "slug": "nothing-goes-right",
+      "name": "Nothing goes right",
+      "film_count": 1881
+    },
+    {
+      "id": 16478,
+      "slug": "misfit",
+      "name": "Misfit",
+      "film_count": 4306
+    },
+    {
+      "id": 21689,
+      "slug": "conversation",
+      "name": "Conversation",
+      "film_count": 464
+    },
+    {
+      "id": 188021,
+      "slug": "laugh-out-loud",
+      "name": "Laugh out loud",
+      "film_count": 886
+    },
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 6020,
+      "slug": "dimwit",
+      "name": "Dimwit",
+      "film_count": 132
+    },
+    {
+      "id": 120516,
+      "slug": "antisocial-behavior",
+      "name": "Antisocial behavior",
+      "film_count": 229
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 4276,
+      "slug": "best-friend",
+      "name": "Best friend",
+      "film_count": 4850
+    },
+    {
+      "id": 120,
+      "slug": "beer",
+      "name": "Beer",
+      "film_count": 2519
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "humorous",
+      "witty",
+      "black comedy",
+      "dark comedy",
+      "funny",
+      "hilarious",
+      "situational comedy",
+      "laugh out loud",
+      "not serious"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "slacker",
+      "satire",
+      "pub",
+      "stupidity",
+      "nothing goes right",
+      "misfit",
+      "buddies",
+      "alcoholic",
+      "bartender",
+      "friends who hate each other",
+      "friends",
+      "gay subtext",
+      "homoerotic friendship",
+      "bad taste humour",
+      "drunkenness",
+      "friendship",
+      "conversation",
+      "dark humor",
+      "dimwit",
+      "antisocial behavior",
+      "gay",
+      "best friend",
+      "beer",
+      "working class",
+      "waitress"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "philadelphia",
+      "pennsylvania",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 2812,
+      "slug": "workaholics",
+      "title": "Workaholics",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 8662,
+      "slug": "arrested-development",
+      "title": "Arrested Development",
+      "year": 2003,
+      "rank": 1
+    },
+    {
+      "id": 11462,
+      "slug": "curb-your-enthusiasm",
+      "title": "Curb Your Enthusiasm",
+      "year": 2000,
+      "rank": 2
+    },
+    {
+      "id": 3550,
+      "slug": "ideal",
+      "title": "Ideal",
+      "year": 2005,
+      "rank": 3
+    },
+    {
+      "id": 1276,
+      "slug": "the-league",
+      "title": "The League",
+      "year": 2009,
+      "rank": 4
+    },
+    {
+      "id": 26562,
+      "slug": "community",
+      "title": "Community",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 30165,
+      "slug": "peep-show",
+      "title": "Peep Show",
+      "year": 2003,
+      "rank": 6
+    },
+    {
+      "id": 16022,
+      "slug": "the-it-crowd",
+      "title": "The IT Crowd",
+      "year": 2006,
+      "rank": 7
+    },
+    {
+      "id": 1233,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 61031,
+      "slug": "vice-principals",
+      "title": "Vice Principals",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 12845,
+      "slug": "entourage",
+      "title": "Entourage",
+      "year": 2004,
+      "rank": 10
+    },
+    {
+      "id": 58095,
+      "slug": "bottom",
+      "title": "Bottom",
+      "year": 1991,
+      "rank": 11
+    },
+    {
+      "id": 30420,
+      "slug": "black-books",
+      "title": "Black Books",
+      "year": 2000,
+      "rank": 12
+    },
+    {
+      "id": 57907,
+      "slug": "the-mick",
+      "title": "The Mick",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 30430,
+      "slug": "trailer-park-boys",
+      "title": "Trailer Park Boys",
+      "year": 2001,
+      "rank": 14
+    },
+    {
+      "id": 30451,
+      "slug": "married-with-children",
+      "title": "Married... with Children",
+      "year": 1987,
+      "rank": 15
+    },
+    {
+      "id": 60631,
+      "slug": "the-odd-couple",
+      "title": "The Odd Couple",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 62572,
+      "slug": "hello-ladies",
+      "title": "Hello Ladies",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 19597,
+      "slug": "the-odd-couple",
+      "title": "The Odd Couple",
+      "year": 1970,
+      "rank": 18
+    },
+    {
+      "id": 1064,
+      "slug": "man-up",
+      "title": "Man Up!",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 36880,
+      "slug": "wet-hot-american-summer-first-day-of-camp",
+      "title": "Wet Hot American Summer: First Day of Camp",
+      "year": 2015,
+      "rank": 20
+    },
+    {
+      "id": 30506,
+      "slug": "seinfeld",
+      "title": "Seinfeld",
+      "year": 1989,
+      "rank": 21
+    },
+    {
+      "id": 62348,
+      "slug": "mongrels",
+      "title": "Mongrels",
+      "year": 2010,
+      "rank": 22
+    },
+    {
+      "id": 433,
+      "slug": "dont-trust-the-b-in-apartment-23",
+      "title": "Don't Trust the B---- in Apartment 23",
+      "year": 2012,
+      "rank": 23
+    },
+    {
+      "id": 56432,
+      "slug": "review",
+      "title": "Review",
+      "year": 2014,
+      "rank": 24
+    },
+    {
+      "id": 24618,
+      "slug": "two-and-a-half-men",
+      "title": "Two and a Half Men",
+      "year": 2003,
+      "rank": 25
+    },
+    {
+      "id": 434,
+      "slug": "eastbound-and-down",
+      "title": "Eastbound & Down",
+      "year": 2009,
+      "rank": 26
+    },
+    {
+      "id": 64853,
+      "slug": "the-other-two",
+      "title": "The Other Two",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 18931,
+      "slug": "my-name-is-earl",
+      "title": "My Name Is Earl",
+      "year": 2005,
+      "rank": 28
+    },
+    {
+      "id": 1275,
+      "slug": "players",
+      "title": "Players",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919146
+}

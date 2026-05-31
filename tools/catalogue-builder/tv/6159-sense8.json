@@ -1,0 +1,396 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/6159-sense8",
+  "id": 6159,
+  "slug": "sense8",
+  "title": "Sense8",
+  "year": 2015,
+  "rating": 8.2,
+  "votes_text": "171K",
+  "votes": 171000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/96/6159.jpg",
+  "genres": [
+    "Drama",
+    "Mystery",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "One gunshot, one death, one moment out of time that irrevocably links eight minds in disparate parts of the world, putting them in each other's lives, each other's secrets, and in terrible danger. Ordinary people suddenly reborn as \"Sensates.\"",
+  "tags": [
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 15557,
+      "slug": "lgbtq",
+      "name": "Lgbtq",
+      "film_count": 3701
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 2,
+      "slug": "conspiracy",
+      "name": "Conspiracy",
+      "film_count": 6950
+    },
+    {
+      "id": 4987,
+      "slug": "telepathy",
+      "name": "Telepathy",
+      "film_count": 521
+    },
+    {
+      "id": 5434,
+      "slug": "secret-organization",
+      "name": "Secret organization",
+      "film_count": 397
+    },
+    {
+      "id": 3297,
+      "slug": "destiny",
+      "name": "Destiny",
+      "film_count": 9055
+    },
+    {
+      "id": 7925,
+      "slug": "mind-control",
+      "name": "Mind control",
+      "film_count": 1027
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 33775,
+      "slug": "secret-relationship",
+      "name": "Secret relationship",
+      "film_count": 465
+    },
+    {
+      "id": 12272,
+      "slug": "evolution",
+      "name": "Evolution",
+      "film_count": 216
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    },
+    {
+      "id": 123334,
+      "slug": "hopes",
+      "name": "Hopes",
+      "film_count": 8273
+    },
+    {
+      "id": 528,
+      "slug": "sex",
+      "name": "Sex",
+      "film_count": 10551
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspenseful",
+      "exciting",
+      "serious",
+      "stylized",
+      "sexy",
+      "erotic",
+      "sensual",
+      "dramatic",
+      "thought provoking",
+      "spiritual"
+    ],
+    "audience": [
+      "chick flick",
+      "family friendly",
+      "boys' night",
+      "girls' night"
+    ],
+    "plot": [
+      "lgbt",
+      "supernatural",
+      "lgbtq",
+      "supernatural ability",
+      "gay",
+      "conspiracy",
+      "telepathy",
+      "secret organization",
+      "danger",
+      "love affair",
+      "lesbian",
+      "sex scene",
+      "homosexuality",
+      "transsexual",
+      "gay couple",
+      "chases and races",
+      "homosexual",
+      "imaginary",
+      "survival",
+      "transgender",
+      "police officer",
+      "gay erotica",
+      "destiny",
+      "mind control",
+      "secret relationship"
+    ],
+    "time": [
+      "future",
+      "20th century",
+      "2010s",
+      "21st century"
+    ],
+    "place": [
+      "london",
+      "chicago",
+      "mumbai india",
+      "indiana",
+      "idaho",
+      "san francisco",
+      "mexico city"
+    ]
+  },
+  "similar": [
+    {
+      "id": 27133,
+      "slug": "orphan-black",
+      "title": "Orphan Black",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 42764,
+      "slug": "wynonna-earp",
+      "title": "Wynonna Earp",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 66942,
+      "slug": "motherland-fort-salem",
+      "title": "Motherland: Fort Salem",
+      "year": 2020,
+      "rank": 2
+    },
+    {
+      "id": 26355,
+      "slug": "alphas",
+      "title": "Alphas",
+      "year": 2011,
+      "rank": 3
+    },
+    {
+      "id": 60979,
+      "slug": "believe",
+      "title": "Believe",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 15013,
+      "slug": "heroes",
+      "title": "Heroes",
+      "year": 2006,
+      "rank": 5
+    },
+    {
+      "id": 60623,
+      "slug": "heroes-reborn",
+      "title": "Heroes Reborn",
+      "year": 2015,
+      "rank": 6
+    },
+    {
+      "id": 59497,
+      "slug": "counterpart",
+      "title": "Counterpart",
+      "year": 2017,
+      "rank": 7
+    },
+    {
+      "id": 26210,
+      "slug": "cloud-atlas",
+      "title": "Cloud Atlas",
+      "year": 2012,
+      "rank": 8
+    },
+    {
+      "id": 30116,
+      "slug": "dantes-cove",
+      "title": "Dante's Cove",
+      "year": 2004,
+      "rank": 9
+    },
+    {
+      "id": 409,
+      "slug": "utopia",
+      "title": "Utopia",
+      "year": 2013,
+      "rank": 10
+    },
+    {
+      "id": 26532,
+      "slug": "fringe",
+      "title": "Fringe",
+      "year": 2008,
+      "rank": 11
+    },
+    {
+      "id": 27064,
+      "slug": "warehouse-13",
+      "title": "Warehouse 13",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 24282,
+      "slug": "touch",
+      "title": "Touch",
+      "year": 2012,
+      "rank": 13
+    },
+    {
+      "id": 13321,
+      "slug": "under-the-dome",
+      "title": "Under the Dome",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 41775,
+      "slug": "13-reasons-why",
+      "title": "13 Reasons Why",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 60999,
+      "slug": "the-messengers",
+      "title": "The Messengers",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 60995,
+      "slug": "last-resort",
+      "title": "Last Resort",
+      "year": 2012,
+      "rank": 17
+    },
+    {
+      "id": 28860,
+      "slug": "american-gods",
+      "title": "American Gods",
+      "year": 2017,
+      "rank": 18
+    },
+    {
+      "id": 4778,
+      "slug": "the-tomorrow-people",
+      "title": "The Tomorrow People",
+      "year": 2013,
+      "rank": 19
+    },
+    {
+      "id": 5694,
+      "slug": "the-100",
+      "title": "The 100",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 20625,
+      "slug": "the-pretender",
+      "title": "The Pretender",
+      "year": 1996,
+      "rank": 21
+    },
+    {
+      "id": 26645,
+      "slug": "torchwood",
+      "title": "Torchwood",
+      "year": 2006,
+      "rank": 22
+    },
+    {
+      "id": 40734,
+      "slug": "the-whispers",
+      "title": "The Whispers",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 26929,
+      "slug": "dark-matter",
+      "title": "Dark Matter",
+      "year": 2015,
+      "rank": 24
+    },
+    {
+      "id": 24949,
+      "slug": "v-for-vendetta",
+      "title": "V for Vendetta",
+      "year": 2005,
+      "rank": 25
+    },
+    {
+      "id": 35423,
+      "slug": "westworld",
+      "title": "Westworld",
+      "year": 2016,
+      "rank": 26
+    },
+    {
+      "id": 24912,
+      "slug": "mr-robot",
+      "title": "Mr. Robot",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 64613,
+      "slug": "elite",
+      "title": "Elite",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 17523,
+      "slug": "lost",
+      "title": "Lost",
+      "year": 2004,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919135
+}

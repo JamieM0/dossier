@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/42776-victoria",
+  "id": 42776,
+  "slug": "victoria",
+  "title": "Victoria",
+  "year": 2016,
+  "rating": 8.2,
+  "votes_text": "34K",
+  "votes": 34000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/98/42776.jpg",
+  "genres": [
+    "Biography",
+    "Drama",
+    "History"
+  ],
+  "country": [
+    "USA",
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "The story of Queen Victoria, who came to the throne at a time of great economic turbulence and resurgent republicanism – and died 64 years later the head of the largest empire the world had ever seen, having revitalised the throne’s public image and become “grandmother of Europe”.",
+  "tags": [
+    {
+      "id": 37220,
+      "slug": "royal-family",
+      "name": "Royal family",
+      "film_count": 906
+    },
+    {
+      "id": 2297,
+      "slug": "victorian-era",
+      "name": "Victorian era",
+      "film_count": 1068
+    },
+    {
+      "id": 1566,
+      "slug": "based-on-true-story",
+      "name": "Based on true story",
+      "film_count": 8531
+    },
+    {
+      "id": 12338,
+      "slug": "british-history",
+      "name": "British history",
+      "film_count": 267
+    },
+    {
+      "id": 445,
+      "slug": "royalty",
+      "name": "Royalty",
+      "film_count": 1158
+    },
+    {
+      "id": 206,
+      "slug": "monarchy",
+      "name": "Monarchy",
+      "film_count": 238
+    },
+    {
+      "id": 20636,
+      "slug": "queen-victoria",
+      "name": "Queen victoria",
+      "film_count": 32
+    },
+    {
+      "id": 131655,
+      "slug": "historical-drama",
+      "name": "Historical drama",
+      "film_count": 3058
+    },
+    {
+      "id": 366,
+      "slug": "chivalry",
+      "name": "Chivalry",
+      "film_count": 359
+    },
+    {
+      "id": 189346,
+      "slug": "british-aristocracy",
+      "name": "British aristocracy",
+      "film_count": 41
+    },
+    {
+      "id": 446,
+      "slug": "british-royal-family",
+      "name": "British royal family",
+      "film_count": 130
+    },
+    {
+      "id": 70,
+      "slug": "husband-wife-relationship",
+      "name": "Husband wife relationship",
+      "film_count": 13715
+    },
+    {
+      "id": 109322,
+      "slug": "factual",
+      "name": "Factual",
+      "film_count": 908
+    },
+    {
+      "id": 20011,
+      "slug": "based-on-true-events",
+      "name": "Based on true events",
+      "film_count": 2373
+    },
+    {
+      "id": 427,
+      "slug": "prime-minister",
+      "name": "Prime minister",
+      "film_count": 277
+    },
+    {
+      "id": 11539,
+      "slug": "light",
+      "name": "Light",
+      "film_count": 12031
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "historical drama",
+      "romantic",
+      "costume drama",
+      "period piece",
+      "realistic",
+      "touching",
+      "saga",
+      "factual",
+      "serious",
+      "light"
+    ],
+    "plot": [
+      "royal family",
+      "british history",
+      "royalty",
+      "monarchy",
+      "queen victoria",
+      "queen of england",
+      "british monarchy",
+      "european history",
+      "queen",
+      "british politics",
+      "female protagonist",
+      "british empire",
+      "monarch",
+      "chivalry",
+      "british aristocracy",
+      "british royal family",
+      "husband wife relationship",
+      "prime minister",
+      "women",
+      "politics",
+      "victorian england",
+      "mother daughter relationship",
+      "power",
+      "biopic",
+      "british"
+    ],
+    "time": [
+      "victorian era",
+      "19th century",
+      "future",
+      "1800s",
+      "1830s",
+      "victorian"
+    ],
+    "place": [
+      "britain",
+      "england",
+      "london",
+      "united kingdom",
+      "buckingham palace"
+    ]
+  },
+  "similar": [
+    {
+      "id": 42774,
+      "slug": "the-crown",
+      "title": "The Crown",
+      "year": 2016,
+      "rank": 0
+    },
+    {
+      "id": 57870,
+      "slug": "the-white-princess",
+      "title": "The White Princess",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 26064,
+      "slug": "the-young-victoria",
+      "title": "The Young Victoria",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 26963,
+      "slug": "the-tudors",
+      "title": "The Tudors",
+      "year": 2007,
+      "rank": 3
+    },
+    {
+      "id": 57673,
+      "slug": "victoria-and-abdul",
+      "title": "Victoria & Abdul",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 57091,
+      "slug": "isabel",
+      "title": "Isabel",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 12729,
+      "slug": "elizabeth-i",
+      "title": "Elizabeth I",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 25115,
+      "slug": "victoria-and-albert",
+      "title": "Victoria & Albert",
+      "year": 2001,
+      "rank": 7
+    },
+    {
+      "id": 729,
+      "slug": "the-white-queen",
+      "title": "The White Queen",
+      "year": 2013,
+      "rank": 8
+    },
+    {
+      "id": 12728,
+      "slug": "elizabeth",
+      "title": "Elizabeth",
+      "year": 1998,
+      "rank": 9
+    },
+    {
+      "id": 20910,
+      "slug": "the-queen",
+      "title": "The Queen",
+      "year": 2006,
+      "rank": 10
+    },
+    {
+      "id": 62746,
+      "slug": "the-hollow-crown",
+      "title": "The Hollow Crown",
+      "year": 2012,
+      "rank": 11
+    },
+    {
+      "id": 41764,
+      "slug": "ekaterina",
+      "title": "Ekaterina",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 42715,
+      "slug": "elizabeth-i",
+      "title": "Elizabeth I",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 25178,
+      "slug": "the-virgin-queen",
+      "title": "The Virgin Queen",
+      "year": 2005,
+      "rank": 14
+    },
+    {
+      "id": 16699,
+      "slug": "the-kings-speech",
+      "title": "The King's Speech",
+      "year": 2010,
+      "rank": 15
+    },
+    {
+      "id": 61338,
+      "slug": "mary-queen-of-scots",
+      "title": "Mary Queen of Scots",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 67700,
+      "slug": "the-great",
+      "title": "The Great",
+      "year": 2020,
+      "rank": 17
+    },
+    {
+      "id": 19858,
+      "slug": "the-other-boleyn-girl",
+      "title": "The Other Boleyn Girl",
+      "year": 2008,
+      "rank": 18
+    },
+    {
+      "id": 64780,
+      "slug": "magnificent-century-kosem",
+      "title": "The Magnificent Century: Kosem",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 18768,
+      "slug": "mrs-brown",
+      "title": "Mrs Brown",
+      "year": 1997,
+      "rank": 20
+    },
+    {
+      "id": 65272,
+      "slug": "the-spanish-princess",
+      "title": "The Spanish Princess",
+      "year": 2019,
+      "rank": 21
+    },
+    {
+      "id": 1046,
+      "slug": "mr-selfridge",
+      "title": "Mr Selfridge",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 19308,
+      "slug": "wolf-hall",
+      "title": "Wolf Hall",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 2009,
+      "slug": "edward-the-king",
+      "title": "Edward the King",
+      "year": 1975,
+      "rank": 24
+    },
+    {
+      "id": 58487,
+      "slug": "jan-hus",
+      "title": "Jan Hus",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 59852,
+      "slug": "maria-theresia",
+      "title": "Maria Theresa",
+      "year": 2017,
+      "rank": 26
+    },
+    {
+      "id": 30292,
+      "slug": "elizabeth-r",
+      "title": "Elizabeth R",
+      "year": 1971,
+      "rank": 27
+    },
+    {
+      "id": 82992,
+      "slug": "the-queen",
+      "title": "The Queen",
+      "year": 2009,
+      "rank": 28
+    },
+    {
+      "id": 65711,
+      "slug": "catherine-the-great",
+      "title": "Catherine the Great",
+      "year": 2019,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919160
+}

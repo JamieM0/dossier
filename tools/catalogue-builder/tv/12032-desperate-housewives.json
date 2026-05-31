@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/12032-desperate-housewives",
+  "id": 12032,
+  "slug": "desperate-housewives",
+  "title": "Desperate Housewives",
+  "year": 2004,
+  "rating": 7.6,
+  "votes_text": "152K",
+  "votes": 152000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/33/12032.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Mystery",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Desperate Housewives is an American television comedy-drama-mystery series created by Marc Cherry and produced by ABC Studios and Cherry Productions. It aired Sundays at 9 P.M. Eastern/8 P.M. Central, on ABC from October 3, 2004, until May 13, 2012. Executive producer Cherry served as showrunner. Other executive producers since the fourth season included Bob Daily, George W. Perkins, John Pardee, Joey Murphy, David Grossman, and Larry Shaw. The main setting of the show was Wisteria Lane, a street in the fictional American town of 'Fairview' in the fictional 'Eagle State'. The show followed the lives of a group of women as seen through the eyes of a dead neighbor who committed suicide in the very first episode. The storyline covers thirteen years of the women's lives over eight seasons, set between the years 2004–2008, and later 2013–2017. They worked through domestic struggles and family life, while facing the secrets, crimes and mysteries hidden behind the doors of their — at the surface — beautiful and seemingly perfect suburban neighborhood. The show featured an ensemble cast, headed by Teri Hatcher as Susan Mayer, Felicity Huffman as Lynette Scavo, Marcia Cross as Bree Van de Kamp, and Eva Longoria as Gabrielle Solis. Brenda Strong narrated the show as the deceased Mary Alice Young, appearing sporadically in flashbacks or dream sequences.",
+  "tags": [
+    {
+      "id": 9388,
+      "slug": "housewife",
+      "name": "Housewife",
+      "film_count": 511
+    },
+    {
+      "id": 4703,
+      "slug": "female-friendship",
+      "name": "Female friendship",
+      "film_count": 2186
+    },
+    {
+      "id": 123462,
+      "slug": "suburban-life",
+      "name": "Suburban life",
+      "film_count": 1023
+    },
+    {
+      "id": 481,
+      "slug": "neighbor",
+      "name": "Neighbor",
+      "film_count": 2569
+    },
+    {
+      "id": 30957,
+      "slug": "family-life",
+      "name": "Family life",
+      "film_count": 3996
+    },
+    {
+      "id": 123846,
+      "slug": "social-relations",
+      "name": "Social relations",
+      "film_count": 3064
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 35751,
+      "slug": "dishonesty",
+      "name": "Dishonesty",
+      "film_count": 8408
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 175,
+      "slug": "marriage",
+      "name": "Marriage",
+      "film_count": 6801
+    },
+    {
+      "id": 196,
+      "slug": "divorce",
+      "name": "Divorce",
+      "film_count": 2924
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 123398,
+      "slug": "crumbling-marriage",
+      "name": "Crumbling marriage",
+      "film_count": 1308
+    },
+    {
+      "id": 34648,
+      "slug": "lovers",
+      "name": "Lovers",
+      "film_count": 1230
+    },
+    {
+      "id": 1184,
+      "slug": "jealousy",
+      "name": "Jealousy",
+      "film_count": 6442
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "witty",
+      "humorous",
+      "sexy",
+      "soap opera",
+      "sexual",
+      "exciting",
+      "stylized",
+      "dark comedy",
+      "biting",
+      "cliffhanger"
+    ],
+    "audience": [
+      "girls' night",
+      "teens"
+    ],
+    "plot": [
+      "housewife",
+      "female friendship",
+      "suburban life",
+      "neighbor",
+      "family life",
+      "social relations",
+      "friends",
+      "investigation",
+      "lifestyle",
+      "couple relations",
+      "family relations",
+      "infidelity",
+      "friendship",
+      "intrigue",
+      "couples",
+      "marital problem",
+      "love and romance",
+      "family problems",
+      "love affair",
+      "family secret",
+      "middle aged",
+      "rivalry",
+      "dishonesty",
+      "marriage",
+      "divorce"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 27238,
+      "slug": "devious-maids",
+      "title": "Devious Maids",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 65695,
+      "slug": "why-women-kill",
+      "title": "Why Women Kill",
+      "year": 2019,
+      "rank": 1
+    },
+    {
+      "id": 1378,
+      "slug": "mistresses",
+      "title": "Mistresses",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 22209,
+      "slug": "sex-and-the-city",
+      "title": "Sex and the City",
+      "year": 1998,
+      "rank": 3
+    },
+    {
+      "id": 64609,
+      "slug": "a-million-little-things",
+      "title": "A Million Little Things",
+      "year": 2018,
+      "rank": 4
+    },
+    {
+      "id": 30513,
+      "slug": "gilmore-girls",
+      "title": "Gilmore Girls",
+      "year": 2000,
+      "rank": 5
+    },
+    {
+      "id": 970,
+      "slug": "ugly-betty",
+      "title": "Ugly Betty",
+      "year": 2006,
+      "rank": 6
+    },
+    {
+      "id": 65912,
+      "slug": "dead-to-me",
+      "title": "Dead to Me",
+      "year": 2019,
+      "rank": 7
+    },
+    {
+      "id": 30517,
+      "slug": "melrose-place",
+      "title": "Melrose Place",
+      "year": 1992,
+      "rank": 8
+    },
+    {
+      "id": 41776,
+      "slug": "big-little-lies",
+      "title": "Big Little Lies",
+      "year": 2017,
+      "rank": 9
+    },
+    {
+      "id": 30266,
+      "slug": "out-of-order",
+      "title": "Out of Order",
+      "year": 2003,
+      "rank": 10
+    },
+    {
+      "id": 26791,
+      "slug": "pretty-little-liars",
+      "title": "Pretty Little Liars",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 2535,
+      "slug": "single-ladies",
+      "title": "Single Ladies",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 2348,
+      "slug": "hart-of-dixie",
+      "title": "Hart of Dixie",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 67715,
+      "slug": "valeria",
+      "title": "Valeria",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 1635,
+      "slug": "cashmere-mafia",
+      "title": "Cashmere Mafia",
+      "year": 2008,
+      "rank": 15
+    },
+    {
+      "id": 62633,
+      "slug": "lipstick-jungle",
+      "title": "Lipstick Jungle",
+      "year": 2008,
+      "rank": 16
+    },
+    {
+      "id": 30319,
+      "slug": "popular",
+      "title": "Popular",
+      "year": 1999,
+      "rank": 17
+    },
+    {
+      "id": 26778,
+      "slug": "gossip-girl",
+      "title": "Gossip Girl",
+      "year": 2007,
+      "rank": 18
+    },
+    {
+      "id": 22500,
+      "slug": "one-tree-hill",
+      "title": "One Tree Hill",
+      "year": 2003,
+      "rank": 19
+    },
+    {
+      "id": 1772,
+      "slug": "united-states-of-tara",
+      "title": "United States of Tara",
+      "year": 2009,
+      "rank": 20
+    },
+    {
+      "id": 30147,
+      "slug": "rules-of-engagement",
+      "title": "Rules of Engagement",
+      "year": 2007,
+      "rank": 21
+    },
+    {
+      "id": 12602,
+      "slug": "dynasty",
+      "title": "Dynasty",
+      "year": 1981,
+      "rank": 22
+    },
+    {
+      "id": 73620,
+      "slug": "and-just-like-that",
+      "title": "And Just Like That…",
+      "year": 2021,
+      "rank": 23
+    },
+    {
+      "id": 257,
+      "slug": "90210",
+      "title": "90210",
+      "year": 2008,
+      "rank": 24
+    },
+    {
+      "id": 6115,
+      "slug": "samantha-who",
+      "title": "Samantha Who?",
+      "year": 2007,
+      "rank": 25
+    },
+    {
+      "id": 3749,
+      "slug": "the-starter-wife",
+      "title": "The Starter Wife",
+      "year": 2007,
+      "rank": 26
+    },
+    {
+      "id": 2342,
+      "slug": "last-tango-in-halifax",
+      "title": "Last Tango in Halifax",
+      "year": 2012,
+      "rank": 27
+    },
+    {
+      "id": 2667,
+      "slug": "the-oranges",
+      "title": "The Oranges",
+      "year": 2011,
+      "rank": 28
+    },
+    {
+      "id": 63567,
+      "slug": "tyler-perrys-if-loving-you-is-wrong",
+      "title": "If Loving You Is Wrong",
+      "year": 2014,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919137
+}

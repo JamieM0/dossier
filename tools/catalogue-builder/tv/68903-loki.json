@@ -1,0 +1,381 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/68903-loki",
+  "id": 68903,
+  "slug": "loki",
+  "title": "Loki",
+  "year": 2021,
+  "rating": 8.2,
+  "votes_text": "466K",
+  "votes": 466000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/98/68903.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Fantasy",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 50,
+  "story": "The mercurial villain Loki resumes his role as the God of Mischief following the events of \"Avengers: Endgame\".",
+  "tags": [
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 2543,
+      "slug": "time-travel",
+      "name": "Time travel",
+      "film_count": 2840
+    },
+    {
+      "id": 32650,
+      "slug": "multiverse",
+      "name": "Multiverse",
+      "film_count": 598
+    },
+    {
+      "id": 4235,
+      "slug": "super-villain",
+      "name": "Super villain",
+      "film_count": 963
+    },
+    {
+      "id": 3089,
+      "slug": "supernatural-power",
+      "name": "Supernatural power",
+      "film_count": 6202
+    },
+    {
+      "id": 1450,
+      "slug": "good-versus-evil",
+      "name": "Good versus evil",
+      "film_count": 6642
+    },
+    {
+      "id": 4151,
+      "slug": "norse-mythology",
+      "name": "Norse mythology",
+      "film_count": 93
+    },
+    {
+      "id": 10307,
+      "slug": "fantasy-world",
+      "name": "Fantasy world",
+      "film_count": 7231
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 25397,
+      "slug": "enigmatic",
+      "name": "Enigmatic",
+      "film_count": 4877
+    },
+    {
+      "id": 8033,
+      "slug": "super-powers",
+      "name": "Super powers",
+      "film_count": 773
+    },
+    {
+      "id": 22077,
+      "slug": "surreal",
+      "name": "Surreal",
+      "film_count": 6671
+    },
+    {
+      "id": 2338,
+      "slug": "magic",
+      "name": "Magic",
+      "film_count": 4761
+    },
+    {
+      "id": 4920,
+      "slug": "male-protagonist",
+      "name": "Male protagonist",
+      "film_count": 6600
+    },
+    {
+      "id": 4146,
+      "slug": "norse-god",
+      "name": "Norse god",
+      "film_count": 33
+    },
+    {
+      "id": 5053,
+      "slug": "alien-planet",
+      "name": "Alien planet",
+      "film_count": 326
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "enigmatic",
+      "surreal",
+      "saga",
+      "spectacular",
+      "psychotronic",
+      "exciting",
+      "epic",
+      "captivating",
+      "non-linear",
+      "anime"
+    ],
+    "plot": [
+      "time travel",
+      "multiverse",
+      "super villain",
+      "supernatural power",
+      "good versus evil",
+      "norse mythology",
+      "fantasy world",
+      "time traveler",
+      "sorcerer",
+      "god",
+      "magician",
+      "alien",
+      "outer space",
+      "demi god",
+      "superhuman powers",
+      "tough guy",
+      "warrior",
+      "evil alien",
+      "space travel",
+      "alternate timeline",
+      "magical power",
+      "time machine",
+      "runaway",
+      "heroes",
+      "super powers"
+    ],
+    "time": [
+      "2020s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ]
+  },
+  "similar": [
+    {
+      "id": 38927,
+      "slug": "doctor-strange",
+      "title": "Doctor Strange",
+      "year": 2016,
+      "rank": 0
+    },
+    {
+      "id": 38302,
+      "slug": "thor-ragnarok",
+      "title": "Thor: Ragnarok",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 27166,
+      "slug": "the-flash",
+      "title": "The Flash",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 64455,
+      "slug": "avengers-endgame",
+      "title": "Avengers: Endgame",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 24027,
+      "slug": "thor",
+      "title": "Thor",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 58101,
+      "slug": "avengers-infinity-war",
+      "title": "Avengers: Infinity War",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 68583,
+      "slug": "wandavision",
+      "title": "WandaVision",
+      "year": 2021,
+      "rank": 6
+    },
+    {
+      "id": 22781,
+      "slug": "smallville",
+      "title": "Smallville",
+      "year": 2001,
+      "rank": 7
+    },
+    {
+      "id": 66967,
+      "slug": "superman-and-lois",
+      "title": "Superman and Lois",
+      "year": 2021,
+      "rank": 8
+    },
+    {
+      "id": 42763,
+      "slug": "dcs-legends-of-tomorrow",
+      "title": "DC's Legends of Tomorrow",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 57902,
+      "slug": "the-gifted",
+      "title": "The Gifted",
+      "year": 2017,
+      "rank": 10
+    },
+    {
+      "id": 23498,
+      "slug": "superboy",
+      "title": "Superboy",
+      "year": 1988,
+      "rank": 11
+    },
+    {
+      "id": 30236,
+      "slug": "the-flash",
+      "title": "The Flash",
+      "year": 1990,
+      "rank": 12
+    },
+    {
+      "id": 74602,
+      "slug": "doctor-strange-in-the-multiverse-of-madness",
+      "title": "Doctor Strange in the Multiverse of Madness",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 35427,
+      "slug": "luke-cage",
+      "title": "Luke Cage",
+      "year": 2016,
+      "rank": 14
+    },
+    {
+      "id": 29992,
+      "slug": "birds-of-prey",
+      "title": "Birds of Prey",
+      "year": 2002,
+      "rank": 15
+    },
+    {
+      "id": 62237,
+      "slug": "power-rangers-s-p-d",
+      "title": "Power Rangers S.P.D.",
+      "year": 2005,
+      "rank": 16
+    },
+    {
+      "id": 41779,
+      "slug": "legion",
+      "title": "Legion",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 70185,
+      "slug": "kamen-rider-dragon-knight",
+      "title": "Kamen Rider: Dragon Knight",
+      "year": 2008,
+      "rank": 18
+    },
+    {
+      "id": 58131,
+      "slug": "aquaman",
+      "title": "Aquaman",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 88015,
+      "slug": "kamen-rider-zi-o",
+      "title": "Kamen Rider Zi-O",
+      "year": 2018,
+      "rank": 20
+    },
+    {
+      "id": 69765,
+      "slug": "spider-man-no-way-home",
+      "title": "Spider-Man: No Way Home",
+      "year": 2021,
+      "rank": 21
+    },
+    {
+      "id": 4779,
+      "slug": "agents-of-s-h-i-e-l-d",
+      "title": "Agents of S.H.I.E.L.D.",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 58503,
+      "slug": "titans",
+      "title": "Titans",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 52642,
+      "slug": "the-amazing-spider-man",
+      "title": "The Amazing Spider-Man",
+      "year": 1977,
+      "rank": 24
+    },
+    {
+      "id": 59294,
+      "slug": "venom",
+      "title": "Venom",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 26281,
+      "slug": "john-carter",
+      "title": "John Carter",
+      "year": 2012,
+      "rank": 26
+    },
+    {
+      "id": 69891,
+      "slug": "marvel-studios-legends",
+      "title": "Marvel Studios: Legends",
+      "year": 2021,
+      "rank": 27
+    },
+    {
+      "id": 23186,
+      "slug": "stargate-atlantis",
+      "title": "Stargate Atlantis",
+      "year": 2004,
+      "rank": 28
+    },
+    {
+      "id": 38905,
+      "slug": "suicide-squad",
+      "title": "Suicide Squad",
+      "year": 2016,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919178
+}

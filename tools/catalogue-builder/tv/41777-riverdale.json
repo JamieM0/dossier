@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/41777-riverdale",
+  "id": 41777,
+  "slug": "riverdale",
+  "title": "Riverdale",
+  "year": 2017,
+  "rating": 6.4,
+  "votes_text": "165K",
+  "votes": 165000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f1/41777.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
+  "tags": [
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 7727,
+      "slug": "amateur-detective",
+      "name": "Amateur detective",
+      "film_count": 962
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 426,
+      "slug": "father-daughter-relationship",
+      "name": "Father daughter relationship",
+      "film_count": 9778
+    },
+    {
+      "id": 70,
+      "slug": "husband-wife-relationship",
+      "name": "Husband wife relationship",
+      "film_count": 13715
+    },
+    {
+      "id": 12960,
+      "slug": "biting",
+      "name": "Biting",
+      "film_count": 1826
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 23890,
+      "slug": "rich-girl",
+      "name": "Rich girl",
+      "film_count": 189
+    },
+    {
+      "id": 5575,
+      "slug": "teenage-angst",
+      "name": "Teenage angst",
+      "film_count": 370
+    },
+    {
+      "id": 603,
+      "slug": "surprise-ending",
+      "name": "Surprise ending",
+      "film_count": 5613
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "suspenseful",
+      "tense",
+      "biting",
+      "surprise ending",
+      "sexy",
+      "suspense",
+      "dark",
+      "dramatic",
+      "erotic"
+    ],
+    "audience": [
+      "teens",
+      "pre-teens",
+      "teen drama"
+    ],
+    "plot": [
+      "high school",
+      "teenager",
+      "investigation",
+      "friendship",
+      "youth",
+      "small town",
+      "amateur detective",
+      "murder investigation",
+      "friends",
+      "danger",
+      "mysterious death",
+      "teenage life",
+      "love and romance",
+      "mother daughter relationship",
+      "school",
+      "murder",
+      "family secret",
+      "love triangle",
+      "boyfriend girlfriend relationship",
+      "gang",
+      "parents and children",
+      "family relations",
+      "father daughter relationship",
+      "husband wife relationship",
+      "rich girl"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "chicago"
+    ]
+  },
+  "similar": [
+    {
+      "id": 77366,
+      "slug": "pretty-little-liars-original-sin",
+      "title": "Pretty Little Liars: Original Sin",
+      "year": 2022,
+      "rank": 0
+    },
+    {
+      "id": 26791,
+      "slug": "pretty-little-liars",
+      "title": "Pretty Little Liars",
+      "year": 2010,
+      "rank": 1
+    },
+    {
+      "id": 65937,
+      "slug": "nancy-drew",
+      "title": "Nancy Drew",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 27259,
+      "slug": "the-o-c",
+      "title": "The O.C.",
+      "year": 2003,
+      "rank": 3
+    },
+    {
+      "id": 26778,
+      "slug": "gossip-girl",
+      "title": "Gossip Girl",
+      "year": 2007,
+      "rank": 4
+    },
+    {
+      "id": 4415,
+      "slug": "teen-wolf",
+      "title": "Teen Wolf",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 64613,
+      "slug": "elite",
+      "title": "Elite",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 73868,
+      "slug": "one-of-us-is-lying",
+      "title": "One of Us Is Lying",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 41775,
+      "slug": "13-reasons-why",
+      "title": "13 Reasons Why",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 9
+    },
+    {
+      "id": 64239,
+      "slug": "chilling-adventures-of-sabrina",
+      "title": "Chilling Adventures of Sabrina",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 66496,
+      "slug": "dare-me",
+      "title": "Dare Me",
+      "year": 2019,
+      "rank": 11
+    },
+    {
+      "id": 26894,
+      "slug": "scream-the-tv-series",
+      "title": "Scream: The TV Series",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 65924,
+      "slug": "the-a-list",
+      "title": "The A List",
+      "year": 2018,
+      "rank": 13
+    },
+    {
+      "id": 56710,
+      "slug": "hidden-palms",
+      "title": "Hidden Palms",
+      "year": 2007,
+      "rank": 14
+    },
+    {
+      "id": 60788,
+      "slug": "the-boarding-school",
+      "title": "The Boarding School",
+      "year": 2007,
+      "rank": 15
+    },
+    {
+      "id": 2266,
+      "slug": "the-secret-circle",
+      "title": "The Secret Circle",
+      "year": 2011,
+      "rank": 16
+    },
+    {
+      "id": 24604,
+      "slug": "twin-peaks",
+      "title": "Twin Peaks",
+      "year": 1990,
+      "rank": 17
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 18
+    },
+    {
+      "id": 64620,
+      "slug": "sex-education",
+      "title": "Sex Education",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 3596,
+      "slug": "the-secret-life-of-the-american-teenager",
+      "title": "The Secret Life of the American Teenager",
+      "year": 2008,
+      "rank": 20
+    },
+    {
+      "id": 257,
+      "slug": "90210",
+      "title": "90210",
+      "year": 2008,
+      "rank": 21
+    },
+    {
+      "id": 3600,
+      "slug": "eastenders",
+      "title": "EastEnders",
+      "year": 1985,
+      "rank": 22
+    },
+    {
+      "id": 71287,
+      "slug": "mare-of-easttown",
+      "title": "Mare of Easttown",
+      "year": 2021,
+      "rank": 23
+    },
+    {
+      "id": 62369,
+      "slug": "house-of-anubis",
+      "title": "House of Anubis",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 60798,
+      "slug": "beyond",
+      "title": "Beyond",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 42759,
+      "slug": "animal-kingdom",
+      "title": "Animal Kingdom",
+      "year": 2016,
+      "rank": 26
+    },
+    {
+      "id": 41817,
+      "slug": "shame",
+      "title": "Skam",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 42758,
+      "slug": "stranger-things",
+      "title": "Stranger Things",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 61000,
+      "slug": "the-private-school",
+      "title": "The Private School",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919158
+}

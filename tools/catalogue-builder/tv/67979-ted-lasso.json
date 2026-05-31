@@ -1,0 +1,384 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/67979-ted-lasso",
+  "id": 67979,
+  "slug": "ted-lasso",
+  "title": "Ted Lasso",
+  "year": 2020,
+  "rating": 8.8,
+  "votes_text": "433K",
+  "votes": 433000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/6f/67979.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Sport"
+  ],
+  "country": [
+    "USA",
+    "UK"
+  ],
+  "duration_min": 30,
+  "story": "Ted Lasso, an American football coach, moves to England when he’s hired to manage a soccer team—despite having no experience. With cynical players and a doubtful town, will he get them to see the Ted Lasso Way?",
+  "tags": [
+    {
+      "id": 4475,
+      "slug": "soccer",
+      "name": "Soccer",
+      "film_count": 1081
+    },
+    {
+      "id": 45403,
+      "slug": "feel-good",
+      "name": "Feel good",
+      "film_count": 17668
+    },
+    {
+      "id": 18089,
+      "slug": "football-team",
+      "name": "Football team",
+      "film_count": 295
+    },
+    {
+      "id": 2799,
+      "slug": "american-abroad",
+      "name": "American abroad",
+      "film_count": 1355
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 8399,
+      "slug": "soccer-coach",
+      "name": "Soccer coach",
+      "film_count": 224
+    },
+    {
+      "id": 6138,
+      "slug": "football-player",
+      "name": "Football player",
+      "film_count": 497
+    },
+    {
+      "id": 9417,
+      "slug": "professional-sports",
+      "name": "Professional sports",
+      "film_count": 663
+    },
+    {
+      "id": 123417,
+      "slug": "athlete-and-trainer",
+      "name": "Athlete and trainer",
+      "film_count": 669
+    },
+    {
+      "id": 143,
+      "slug": "rivalry",
+      "name": "Rivalry",
+      "film_count": 16927
+    },
+    {
+      "id": 123397,
+      "slug": "contests-and-competitions",
+      "name": "Contests and competitions",
+      "film_count": 2138
+    },
+    {
+      "id": 10478,
+      "slug": "professional-rivalry",
+      "name": "Professional rivalry",
+      "film_count": 852
+    },
+    {
+      "id": 511,
+      "slug": "revenge",
+      "name": "Revenge",
+      "film_count": 19339
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 498,
+      "slug": "ambition",
+      "name": "Ambition",
+      "film_count": 7524
+    },
+    {
+      "id": 123858,
+      "slug": "sport-team",
+      "name": "Sport team",
+      "film_count": 782
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "feel good",
+      "funny",
+      "humorous",
+      "sitcom",
+      "sincere",
+      "captivating",
+      "uplifting",
+      "sentimental",
+      "witty",
+      "reflective"
+    ],
+    "plot": [
+      "soccer",
+      "football team",
+      "american abroad",
+      "soccer coach",
+      "football player",
+      "professional sports",
+      "closeted homosexual",
+      "friendship",
+      "strong female character",
+      "coaching",
+      "divorce",
+      "coach",
+      "career change",
+      "ex husband ex wife relationship",
+      "save the day",
+      "female boss",
+      "teamwork",
+      "football",
+      "athlete and trainer",
+      "rivalry",
+      "contests and competitions",
+      "professional rivalry",
+      "revenge",
+      "ambition",
+      "sport team"
+    ],
+    "time": [
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "england",
+      "london"
+    ]
+  },
+  "similar": [
+    {
+      "id": 71140,
+      "slug": "big-shot",
+      "title": "Big Shot",
+      "year": 2021,
+      "rank": 0
+    },
+    {
+      "id": 60890,
+      "slug": "home-ground",
+      "title": "Home Ground",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 9246,
+      "slug": "bend-it-like-beckham",
+      "title": "Bend It Like Beckham",
+      "year": 2002,
+      "rank": 2
+    },
+    {
+      "id": 40739,
+      "slug": "ballers",
+      "title": "Ballers",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 89842,
+      "slug": "pezhman",
+      "title": "Pezhman",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 11558,
+      "slug": "the-damned-united",
+      "title": "The Damned United",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 71502,
+      "slug": "once",
+      "title": "Once",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 60288,
+      "slug": "blue-mountain-state",
+      "title": "Blue Mountain State",
+      "year": 2010,
+      "rank": 7
+    },
+    {
+      "id": 88269,
+      "slug": "next-goal-wins",
+      "title": "Next Goal Wins",
+      "year": 2023,
+      "rank": 8
+    },
+    {
+      "id": 71889,
+      "slug": "the-mighty-ducks-game-changers",
+      "title": "The Mighty Ducks: Game Changers",
+      "year": 2021,
+      "rank": 9
+    },
+    {
+      "id": 90422,
+      "slug": "girls-got-game",
+      "title": "Girls Got Game",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 22501,
+      "slug": "friday-night-lights",
+      "title": "Friday Night Lights",
+      "year": 2006,
+      "rank": 11
+    },
+    {
+      "id": 57057,
+      "slug": "shooting-for-socrates",
+      "title": "Shooting for Socrates",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 38868,
+      "slug": "summer-of-92",
+      "title": "Summer of '92",
+      "year": 2015,
+      "rank": 13
+    },
+    {
+      "id": 88174,
+      "slug": "sunday",
+      "title": "Sunday",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 72786,
+      "slug": "go-goal-fighting",
+      "title": "Go! Goal! Fighting!",
+      "year": 2016,
+      "rank": 15
+    },
+    {
+      "id": 82343,
+      "slug": "asteras-rachoulas",
+      "title": "Asteras Rachoulas",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 41,
+      "slug": "mike-bassett-manager",
+      "title": "Mike Bassett: Manager",
+      "year": 2005,
+      "rank": 17
+    },
+    {
+      "id": 72356,
+      "slug": "kung-fu-soccer",
+      "title": "Kung Fu Soccer",
+      "year": 2004,
+      "rank": 18
+    },
+    {
+      "id": 97028,
+      "slug": "the-academy",
+      "title": "The Academy",
+      "year": 2024,
+      "rank": 19
+    },
+    {
+      "id": 87063,
+      "slug": "soccer-aid",
+      "title": "Soccer Aid",
+      "year": 2006,
+      "rank": 20
+    },
+    {
+      "id": 67675,
+      "slug": "apache-la-vida-de-carlos-tevez",
+      "title": "Apache: The Life of Carlos Tevez",
+      "year": 2019,
+      "rank": 21
+    },
+    {
+      "id": 81422,
+      "slug": "dream",
+      "title": "Dream",
+      "year": 2023,
+      "rank": 22
+    },
+    {
+      "id": 57976,
+      "slug": "club-of-crows",
+      "title": "Club de Cuervos",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 58076,
+      "slug": "rovers",
+      "title": "Rovers",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 8188,
+      "slug": "all-stars",
+      "title": "All Stars",
+      "year": 1997,
+      "rank": 25
+    },
+    {
+      "id": 95947,
+      "slug": "mi-amigo-alexis",
+      "title": "Mi Amigo Alexis",
+      "year": 2019,
+      "rank": 26
+    },
+    {
+      "id": 22028,
+      "slug": "scrubs",
+      "title": "Scrubs",
+      "year": 2001,
+      "rank": 27
+    },
+    {
+      "id": 90467,
+      "slug": "imported",
+      "title": "Imported",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 80638,
+      "slug": "the-kicks",
+      "title": "The Kicks",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919177
+}

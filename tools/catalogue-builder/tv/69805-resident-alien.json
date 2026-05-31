@@ -1,0 +1,384 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/69805-resident-alien",
+  "id": 69805,
+  "slug": "resident-alien",
+  "title": "Resident Alien",
+  "year": 2021,
+  "rating": 8.0,
+  "votes_text": "85K",
+  "votes": 85000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/3a/69805.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Mystery",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Crash-landed alien Harry takes on the identity of a small-town Colorado doctor. Arriving with a secret mission, he starts off living a simple life…but things get a bit rocky when he’s roped into solving a local murder and realizes he needs to assimilate into his new world. As he does, he begins to wrestle with the moral dilemma of his mission and asking the big life questions like: “Are human beings worth saving?” and “Why do they fold their pizza before eating it?”",
+  "tags": [
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 1374,
+      "slug": "alien-race",
+      "name": "Alien race",
+      "film_count": 272
+    },
+    {
+      "id": 2289,
+      "slug": "extraterrestrial",
+      "name": "Extraterrestrial",
+      "film_count": 900
+    },
+    {
+      "id": 25162,
+      "slug": "alien-disguised-as-human",
+      "name": "Alien disguised as human",
+      "film_count": 124
+    },
+    {
+      "id": 5059,
+      "slug": "human-alien",
+      "name": "Human alien",
+      "film_count": 167
+    },
+    {
+      "id": 1339,
+      "slug": "alien",
+      "name": "Alien",
+      "film_count": 2708
+    },
+    {
+      "id": 183473,
+      "slug": "alien-on-earth",
+      "name": "Alien on earth",
+      "film_count": 125
+    },
+    {
+      "id": 124080,
+      "slug": "entertaining",
+      "name": "Entertaining",
+      "film_count": 17691
+    },
+    {
+      "id": 4920,
+      "slug": "male-protagonist",
+      "name": "Male protagonist",
+      "film_count": 6600
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 2170,
+      "slug": "usa",
+      "name": "Usa",
+      "film_count": 14812
+    },
+    {
+      "id": 7117,
+      "slug": "alien-creature",
+      "name": "Alien creature",
+      "film_count": 409
+    },
+    {
+      "id": 15200,
+      "slug": "society",
+      "name": "Society",
+      "film_count": 13923
+    },
+    {
+      "id": 16455,
+      "slug": "lifestyle",
+      "name": "Lifestyle",
+      "film_count": 7884
+    },
+    {
+      "id": 123846,
+      "slug": "social-relations",
+      "name": "Social relations",
+      "film_count": 3064
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "entertaining",
+      "humorous",
+      "feel good",
+      "light",
+      "dark comedy",
+      "funny",
+      "psychological",
+      "captivating",
+      "atmospheric",
+      "sad"
+    ],
+    "plot": [
+      "alien race",
+      "extraterrestrial",
+      "alien disguised as human",
+      "human alien",
+      "alien",
+      "alien on earth",
+      "alien space craft",
+      "alien contact",
+      "ufo",
+      "fish out of water",
+      "body horror",
+      "moral dilemma",
+      "humanoid alien",
+      "alien invasion",
+      "friendship",
+      "space",
+      "male protagonist",
+      "friends",
+      "alien creature",
+      "society",
+      "lifestyle",
+      "social relations",
+      "culture clash",
+      "alien life-form",
+      "native american"
+    ],
+    "time": [
+      "future",
+      "2020s",
+      "contemporary"
+    ],
+    "place": [
+      "colorado",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64774,
+      "slug": "people-of-earth",
+      "title": "People of Earth",
+      "year": 2016,
+      "rank": 0
+    },
+    {
+      "id": 42670,
+      "slug": "the-orville",
+      "title": "The Orville",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 30471,
+      "slug": "roswell",
+      "title": "Roswell",
+      "year": 1999,
+      "rank": 2
+    },
+    {
+      "id": 27031,
+      "slug": "the-event",
+      "title": "The Event",
+      "year": 2010,
+      "rank": 3
+    },
+    {
+      "id": 275,
+      "slug": "the-neighbors",
+      "title": "The Neighbors",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 25895,
+      "slug": "the-x-files",
+      "title": "The X-Files",
+      "year": 1993,
+      "rank": 5
+    },
+    {
+      "id": 24945,
+      "slug": "v",
+      "title": "V",
+      "year": 2009,
+      "rank": 6
+    },
+    {
+      "id": 28889,
+      "slug": "the-expanse",
+      "title": "The Expanse",
+      "year": 2015,
+      "rank": 7
+    },
+    {
+      "id": 77241,
+      "slug": "the-man-who-fell-to-earth",
+      "title": "The Man Who Fell to Earth",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 71203,
+      "slug": "debris",
+      "title": "Debris",
+      "year": 2021,
+      "rank": 9
+    },
+    {
+      "id": 70400,
+      "slug": "loudermilk",
+      "title": "Loudermilk",
+      "year": 2017,
+      "rank": 10
+    },
+    {
+      "id": 84253,
+      "slug": "landscape-with-invisible-hand",
+      "title": "Landscape with Invisible Hand",
+      "year": 2023,
+      "rank": 11
+    },
+    {
+      "id": 83766,
+      "slug": "tokyo-alien-bros",
+      "title": "Tokyo Alien Bros.",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 30325,
+      "slug": "mork-and-mindy",
+      "title": "Mork & Mindy",
+      "year": 1978,
+      "rank": 13
+    },
+    {
+      "id": 100081,
+      "slug": "the-strangerers",
+      "title": "The Strangerers",
+      "year": 2000,
+      "rank": 14
+    },
+    {
+      "id": 23668,
+      "slug": "taken",
+      "title": "Taken",
+      "year": 2002,
+      "rank": 15
+    },
+    {
+      "id": 67707,
+      "slug": "never-have-i-ever",
+      "title": "Never Have I Ever",
+      "year": 2020,
+      "rank": 16
+    },
+    {
+      "id": 90702,
+      "slug": "hello-tomorrow",
+      "title": "Hello Tomorrow!",
+      "year": 2023,
+      "rank": 17
+    },
+    {
+      "id": 3655,
+      "slug": "wilfred",
+      "title": "Wilfred",
+      "year": 2011,
+      "rank": 18
+    },
+    {
+      "id": 39152,
+      "slug": "proof",
+      "title": "Proof",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 7737,
+      "slug": "3rd-rock-from-the-sun",
+      "title": "3rd Rock from the Sun",
+      "year": 1996,
+      "rank": 20
+    },
+    {
+      "id": 30159,
+      "slug": "starved",
+      "title": "Starved",
+      "year": 2005,
+      "rank": 21
+    },
+    {
+      "id": 11128,
+      "slug": "coneheads",
+      "title": "Coneheads",
+      "year": 1993,
+      "rank": 22
+    },
+    {
+      "id": 90054,
+      "slug": "alienated",
+      "title": "Alienated",
+      "year": 2003,
+      "rank": 23
+    },
+    {
+      "id": 62059,
+      "slug": "my-life-as-liz",
+      "title": "My Life as Liz",
+      "year": 2010,
+      "rank": 24
+    },
+    {
+      "id": 80886,
+      "slug": "the-best-man-the-final-chapters",
+      "title": "The Best Man: The Final Chapters",
+      "year": 2022,
+      "rank": 25
+    },
+    {
+      "id": 26220,
+      "slug": "the-invaders",
+      "title": "The Invaders",
+      "year": 1967,
+      "rank": 26
+    },
+    {
+      "id": 79979,
+      "slug": "glitch",
+      "title": "Glitch",
+      "year": 2022,
+      "rank": 27
+    },
+    {
+      "id": 65769,
+      "slug": "the-righteous-gemstones",
+      "title": "The Righteous Gemstones",
+      "year": 2019,
+      "rank": 28
+    },
+    {
+      "id": 36056,
+      "slug": "defiance",
+      "title": "Defiance",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919180
+}

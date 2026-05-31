@@ -1,0 +1,372 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/79013-the-lincoln-lawyer",
+  "id": 79013,
+  "slug": "the-lincoln-lawyer",
+  "title": "The Lincoln Lawyer",
+  "year": 2022,
+  "rating": 7.8,
+  "votes_text": "89K",
+  "votes": 89000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/ab/79013.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Sidelined after an accident, hotshot Los Angeles lawyer Mickey Haller restarts his career — and his trademark Lincoln — when he takes on a murder case.",
+  "tags": [
+    {
+      "id": 499,
+      "slug": "lawyer",
+      "name": "Lawyer",
+      "film_count": 3905
+    },
+    {
+      "id": 600,
+      "slug": "criminal",
+      "name": "Criminal",
+      "film_count": 6483
+    },
+    {
+      "id": 1177,
+      "slug": "attorney",
+      "name": "Attorney",
+      "film_count": 777
+    },
+    {
+      "id": 13541,
+      "slug": "courtroom-drama",
+      "name": "Courtroom drama",
+      "film_count": 1193
+    },
+    {
+      "id": 540,
+      "slug": "based-on-novel",
+      "name": "Based on novel",
+      "film_count": 11006
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 1157,
+      "slug": "justice",
+      "name": "Justice",
+      "film_count": 7030
+    },
+    {
+      "id": 1123,
+      "slug": "courtroom",
+      "name": "Courtroom",
+      "film_count": 2341
+    },
+    {
+      "id": 8600,
+      "slug": "mental-health",
+      "name": "Mental health",
+      "film_count": 1512
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 123486,
+      "slug": "witty",
+      "name": "Witty",
+      "film_count": 5204
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    },
+    {
+      "id": 2852,
+      "slug": "stripper",
+      "name": "Stripper",
+      "film_count": 1498
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "captivating",
+      "suspense",
+      "disturbing",
+      "suspenseful",
+      "witty",
+      "psychological"
+    ],
+    "plot": [
+      "lawyer",
+      "criminal",
+      "attorney",
+      "courtroom drama",
+      "investigation",
+      "murder",
+      "justice",
+      "murder investigation",
+      "sleuth",
+      "crime investigation",
+      "murder mystery",
+      "forensics",
+      "dedicated lawyer",
+      "uncover truth",
+      "legal",
+      "crime solving",
+      "corruption",
+      "nypd",
+      "courtroom",
+      "mental health",
+      "workplace",
+      "police",
+      "stripper",
+      "driver",
+      "job"
+    ]
+  },
+  "similar": [
+    {
+      "id": 28908,
+      "slug": "how-to-get-away-with-murder",
+      "title": "How to Get Away with Murder",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 73908,
+      "slug": "csi-vegas",
+      "title": "CSI: Vegas",
+      "year": 2021,
+      "rank": 1
+    },
+    {
+      "id": 62281,
+      "slug": "motive",
+      "title": "Motive",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 65948,
+      "slug": "all-rise",
+      "title": "All Rise",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 58248,
+      "slug": "the-sinner",
+      "title": "The Sinner",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 78822,
+      "slug": "black-bird",
+      "title": "Black Bird",
+      "year": 2022,
+      "rank": 5
+    },
+    {
+      "id": 61580,
+      "slug": "mr-mercedes",
+      "title": "Mr. Mercedes",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 73868,
+      "slug": "one-of-us-is-lying",
+      "title": "One of Us Is Lying",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 78677,
+      "slug": "dark-winds",
+      "title": "Dark Winds",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 93962,
+      "slug": "under-the-bridge",
+      "title": "Under the Bridge",
+      "year": 2024,
+      "rank": 9
+    },
+    {
+      "id": 72785,
+      "slug": "nine-perfect-strangers",
+      "title": "Nine Perfect Strangers",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 73795,
+      "slug": "leverage-redemption",
+      "title": "Leverage: Redemption",
+      "year": 2021,
+      "rank": 11
+    },
+    {
+      "id": 41776,
+      "slug": "big-little-lies",
+      "title": "Big Little Lies",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 79997,
+      "slug": "confession",
+      "title": "Confession",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 75295,
+      "slug": "ragdoll",
+      "title": "Ragdoll",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 31165,
+      "slug": "the-man-who-smiled",
+      "title": "The Man Who Smiled",
+      "year": 2003,
+      "rank": 15
+    },
+    {
+      "id": 84766,
+      "slug": "copycat-killer",
+      "title": "Copycat Killer",
+      "year": 2023,
+      "rank": 16
+    },
+    {
+      "id": 73217,
+      "slug": "the-chestnut-man",
+      "title": "The Chestnut Man",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 96520,
+      "slug": "presumed-innocent",
+      "title": "Presumed Innocent",
+      "year": 2024,
+      "rank": 18
+    },
+    {
+      "id": 84541,
+      "slug": "showtrial",
+      "title": "Showtrial",
+      "year": 2021,
+      "rank": 19
+    },
+    {
+      "id": 36028,
+      "slug": "the-return-of-the-dancing-master",
+      "title": "Danslärarens återkomst",
+      "year": 2004,
+      "rank": 20
+    },
+    {
+      "id": 72914,
+      "slug": "detective-chinatown",
+      "title": "Detective Chinatown",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 81769,
+      "slug": "graveyard",
+      "title": "Graveyard",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 82417,
+      "slug": "north-mission-road",
+      "title": "North Mission Road",
+      "year": 2003,
+      "rank": 23
+    },
+    {
+      "id": 75213,
+      "slug": "marnow-murders",
+      "title": "Marnow Murders",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 5357,
+      "slug": "the-night-of",
+      "title": "The Night Of",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 80214,
+      "slug": "the-net-promised-land",
+      "title": "The Net – Promised Land",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 78991,
+      "slug": "big-mouth",
+      "title": "Big Mouth",
+      "year": 2022,
+      "rank": 27
+    },
+    {
+      "id": 86865,
+      "slug": "murder-investigation-team",
+      "title": "Murder Investigation Team",
+      "year": 2003,
+      "rank": 28
+    },
+    {
+      "id": 2053,
+      "slug": "wallander",
+      "title": "Wallander",
+      "year": 2005,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919186
+}

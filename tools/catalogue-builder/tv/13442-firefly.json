@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/13442-firefly",
+  "id": 13442,
+  "slug": "firefly",
+  "title": "Firefly",
+  "year": 2002,
+  "rating": 8.9,
+  "votes_text": "299K",
+  "votes": 299000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/d4/13442.jpg",
+  "genres": [
+    "Adventure",
+    "Drama",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Firefly is set in the year 2517, after the arrival of humans in a new star system and follows the adventures of the renegade crew of Serenity, a \"Firefly-class\" spaceship. The ensemble cast portrays the nine characters who live on Serenity.",
+  "tags": [
+    {
+      "id": 1358,
+      "slug": "outer-space",
+      "name": "Outer space",
+      "film_count": 2121
+    },
+    {
+      "id": 4302,
+      "slug": "space-travel",
+      "name": "Space travel",
+      "film_count": 1116
+    },
+    {
+      "id": 5181,
+      "slug": "space-opera",
+      "name": "Space opera",
+      "film_count": 914
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    },
+    {
+      "id": 1356,
+      "slug": "spacecraft",
+      "name": "Spacecraft",
+      "film_count": 1280
+    },
+    {
+      "id": 23322,
+      "slug": "space-adventure",
+      "name": "Space adventure",
+      "film_count": 450
+    },
+    {
+      "id": 24138,
+      "slug": "space-western",
+      "name": "Space western",
+      "film_count": 121
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    },
+    {
+      "id": 3387,
+      "slug": "female-warrior",
+      "name": "Female warrior",
+      "film_count": 1084
+    },
+    {
+      "id": 37141,
+      "slug": "wit",
+      "name": "Wit",
+      "film_count": 68
+    },
+    {
+      "id": 4295,
+      "slug": "space-shuttle",
+      "name": "Space shuttle",
+      "film_count": 206
+    },
+    {
+      "id": 2104,
+      "slug": "outlaw",
+      "name": "Outlaw",
+      "film_count": 1326
+    },
+    {
+      "id": 3343,
+      "slug": "psychic",
+      "name": "Psychic",
+      "film_count": 1142
+    },
+    {
+      "id": 123479,
+      "slug": "clever",
+      "name": "Clever",
+      "film_count": 7167
+    },
+    {
+      "id": 596,
+      "slug": "fugitive",
+      "name": "Fugitive",
+      "film_count": 1406
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "witty",
+      "captivating",
+      "futuristic",
+      "clever",
+      "epic",
+      "apocalyptic",
+      "saga",
+      "cult classic",
+      "cliffhanger"
+    ],
+    "audience": [
+      "teens",
+      "boys' night"
+    ],
+    "plot": [
+      "outer space",
+      "space travel",
+      "space opera",
+      "spacecraft",
+      "space adventure",
+      "danger",
+      "escapades",
+      "survival",
+      "captain",
+      "space and aliens",
+      "friendship",
+      "smuggling",
+      "preacher",
+      "space wars",
+      "spaceship",
+      "space",
+      "mysterious past",
+      "space exploration",
+      "mercenary",
+      "female warrior",
+      "wit",
+      "space shuttle",
+      "outlaw",
+      "psychic",
+      "fugitive"
+    ],
+    "time": [
+      "future",
+      "2000s"
+    ],
+    "place": [
+      "space western"
+    ]
+  },
+  "similar": [
+    {
+      "id": 22165,
+      "slug": "serenity",
+      "title": "Serenity",
+      "year": 2005,
+      "rank": 0
+    },
+    {
+      "id": 26929,
+      "slug": "dark-matter",
+      "title": "Dark Matter",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 28889,
+      "slug": "the-expanse",
+      "title": "The Expanse",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 36056,
+      "slug": "defiance",
+      "title": "Defiance",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 60641,
+      "slug": "killjoys",
+      "title": "Killjoys",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 26429,
+      "slug": "sgu-stargate-universe",
+      "title": "Stargate Universe",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 23186,
+      "slug": "stargate-atlantis",
+      "title": "Stargate Atlantis",
+      "year": 2004,
+      "rank": 6
+    },
+    {
+      "id": 14689,
+      "slug": "star-trek-enterprise",
+      "title": "Star Trek: Enterprise",
+      "year": 2001,
+      "rank": 7
+    },
+    {
+      "id": 60214,
+      "slug": "lost-in-space",
+      "title": "Lost in Space",
+      "year": 2018,
+      "rank": 8
+    },
+    {
+      "id": 30238,
+      "slug": "andromeda",
+      "title": "Andromeda",
+      "year": 2000,
+      "rank": 9
+    },
+    {
+      "id": 13198,
+      "slug": "farscape",
+      "title": "Farscape",
+      "year": 1999,
+      "rank": 10
+    },
+    {
+      "id": 73766,
+      "slug": "foundation",
+      "title": "Foundation",
+      "year": 2021,
+      "rank": 11
+    },
+    {
+      "id": 65713,
+      "slug": "another-life",
+      "title": "Another Life",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 30277,
+      "slug": "blakes-7",
+      "title": "Blake's 7",
+      "year": 1978,
+      "rank": 13
+    },
+    {
+      "id": 69683,
+      "slug": "the-mandalorian",
+      "title": "The Mandalorian",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 42670,
+      "slug": "the-orville",
+      "title": "The Orville",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 9113,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 2004,
+      "rank": 16
+    },
+    {
+      "id": 42671,
+      "slug": "star-trek-discovery",
+      "title": "Star Trek: Discovery",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 7283,
+      "slug": "interstellar",
+      "title": "Interstellar",
+      "year": 2014,
+      "rank": 18
+    },
+    {
+      "id": 62276,
+      "slug": "outcasts",
+      "title": "Outcasts",
+      "year": 2010,
+      "rank": 19
+    },
+    {
+      "id": 26555,
+      "slug": "terra-nova",
+      "title": "Terra Nova",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 58269,
+      "slug": "mars",
+      "title": "Mars",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 74770,
+      "slug": "halo",
+      "title": "Halo",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 30207,
+      "slug": "star-trek-the-next-generation",
+      "title": "Star Trek: The Next Generation",
+      "year": 1987,
+      "rank": 23
+    },
+    {
+      "id": 12573,
+      "slug": "dune",
+      "title": "Frank Herbert's Dune",
+      "year": 2000,
+      "rank": 24
+    },
+    {
+      "id": 30458,
+      "slug": "star-trek-deep-space-nine",
+      "title": "Star Trek: Deep Space Nine",
+      "year": 1993,
+      "rank": 25
+    },
+    {
+      "id": 59494,
+      "slug": "altered-carbon",
+      "title": "Altered Carbon",
+      "year": 2018,
+      "rank": 26
+    },
+    {
+      "id": 23160,
+      "slug": "star-trek",
+      "title": "Star Trek",
+      "year": 1966,
+      "rank": 27
+    },
+    {
+      "id": 16499,
+      "slug": "cowboy-bebop",
+      "title": "Cowboy Bebop",
+      "year": 1998,
+      "rank": 28
+    },
+    {
+      "id": 13199,
+      "slug": "farscape-the-peacekeeper-wars",
+      "title": "Farscape: The Peacekeeper Wars",
+      "year": 2004,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919138
+}

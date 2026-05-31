@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/27133-orphan-black",
+  "id": 27133,
+  "slug": "orphan-black",
+  "title": "Orphan Black",
+  "year": 2013,
+  "rating": 8.3,
+  "votes_text": "124K",
+  "votes": 124000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/6f/27133.jpg",
+  "genres": [
+    "Drama",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "Canada"
+  ],
+  "duration_min": 44,
+  "story": "A streetwise hustler is pulled into a compelling conspiracy after witnessing the suicide of a girl who looks just like her.",
+  "tags": [
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    },
+    {
+      "id": 4647,
+      "slug": "strong-female-lead",
+      "name": "Strong female lead",
+      "film_count": 2994
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 141326,
+      "slug": "sapphic",
+      "name": "Sapphic",
+      "film_count": 314
+    },
+    {
+      "id": 211,
+      "slug": "strong-female-character",
+      "name": "Strong female character",
+      "film_count": 1732
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 6379,
+      "slug": "shooting",
+      "name": "Shooting",
+      "film_count": 3446
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 4624,
+      "slug": "boyfriend",
+      "name": "Boyfriend",
+      "film_count": 700
+    },
+    {
+      "id": 3134,
+      "slug": "experiment",
+      "name": "Experiment",
+      "film_count": 1446
+    },
+    {
+      "id": 5511,
+      "slug": "victim",
+      "name": "Victim",
+      "film_count": 2110
+    },
+    {
+      "id": 123429,
+      "slug": "siblings-relations",
+      "name": "Siblings relations",
+      "film_count": 3435
+    },
+    {
+      "id": 35751,
+      "slug": "dishonesty",
+      "name": "Dishonesty",
+      "film_count": 8408
+    },
+    {
+      "id": 5693,
+      "slug": "cop",
+      "name": "Cop",
+      "film_count": 2093
+    },
+    {
+      "id": 16382,
+      "slug": "cloning",
+      "name": "Cloning",
+      "film_count": 439
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "serious",
+      "suspenseful",
+      "exciting",
+      "mind bending",
+      "psychological thriller",
+      "atmospheric",
+      "thought provoking",
+      "intellectual",
+      "humorous",
+      "dramatic"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "lesbian",
+      "strong female lead",
+      "female protagonist",
+      "sapphic",
+      "strong female character",
+      "shooting",
+      "danger",
+      "lesbianism",
+      "clone",
+      "heroine",
+      "conspiracy",
+      "uncover truth",
+      "suicide",
+      "lesbian relationship",
+      "top secret",
+      "lookalikes",
+      "family relations",
+      "female assassin",
+      "mad scientist",
+      "lgbt",
+      "eugenics",
+      "gay lead character",
+      "supernatural",
+      "boyfriend",
+      "experiment"
+    ],
+    "time": [
+      "future",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "toronto ontario canada",
+      "new york"
+    ]
+  },
+  "similar": [
+    {
+      "id": 6159,
+      "slug": "sense8",
+      "title": "Sense8",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 35428,
+      "slug": "jessica-jones",
+      "title": "Marvel's Jessica Jones",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 26532,
+      "slug": "fringe",
+      "title": "Fringe",
+      "year": 2008,
+      "rank": 2
+    },
+    {
+      "id": 26355,
+      "slug": "alphas",
+      "title": "Alphas",
+      "year": 2011,
+      "rank": 3
+    },
+    {
+      "id": 409,
+      "slug": "utopia",
+      "title": "Utopia",
+      "year": 2013,
+      "rank": 4
+    },
+    {
+      "id": 67599,
+      "slug": "the-rain",
+      "title": "The Rain",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 26937,
+      "slug": "dollhouse",
+      "title": "Dollhouse",
+      "year": 2009,
+      "rank": 7
+    },
+    {
+      "id": 27012,
+      "slug": "continuum",
+      "title": "Continuum",
+      "year": 2012,
+      "rank": 8
+    },
+    {
+      "id": 5694,
+      "slug": "the-100",
+      "title": "The 100",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 13510,
+      "slug": "flashforward",
+      "title": "Flashforward",
+      "year": 2009,
+      "rank": 10
+    },
+    {
+      "id": 26564,
+      "slug": "nikita",
+      "title": "Nikita",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 61212,
+      "slug": "killing-eve",
+      "title": "Killing Eve",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 91533,
+      "slug": "orphan-black-echoes",
+      "title": "Orphan Black: Echoes",
+      "year": 2023,
+      "rank": 13
+    },
+    {
+      "id": 4778,
+      "slug": "the-tomorrow-people",
+      "title": "The Tomorrow People",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 61843,
+      "slug": "manifest",
+      "title": "Manifest",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 57002,
+      "slug": "extant",
+      "title": "Extant",
+      "year": 2014,
+      "rank": 16
+    },
+    {
+      "id": 59497,
+      "slug": "counterpart",
+      "title": "Counterpart",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 26559,
+      "slug": "revolution",
+      "title": "Revolution",
+      "year": 2012,
+      "rank": 18
+    },
+    {
+      "id": 11617,
+      "slug": "dark-angel",
+      "title": "Dark Angel",
+      "year": 2000,
+      "rank": 19
+    },
+    {
+      "id": 4843,
+      "slug": "beauty-and-the-beast",
+      "title": "Beauty and the Beast",
+      "year": 2012,
+      "rank": 20
+    },
+    {
+      "id": 26369,
+      "slug": "american-horror-story",
+      "title": "American Horror Story",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 5063,
+      "slug": "lost-girl",
+      "title": "Lost Girl",
+      "year": 2010,
+      "rank": 22
+    },
+    {
+      "id": 16866,
+      "slug": "kyle-xy",
+      "title": "Kyle XY",
+      "year": 2006,
+      "rank": 23
+    },
+    {
+      "id": 418,
+      "slug": "hunted",
+      "title": "Hunted",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 13321,
+      "slug": "under-the-dome",
+      "title": "Under the Dome",
+      "year": 2013,
+      "rank": 25
+    },
+    {
+      "id": 7853,
+      "slug": "the-fall",
+      "title": "The Fall",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 27031,
+      "slug": "the-event",
+      "title": "The Event",
+      "year": 2010,
+      "rank": 27
+    },
+    {
+      "id": 42764,
+      "slug": "wynonna-earp",
+      "title": "Wynonna Earp",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919151
+}

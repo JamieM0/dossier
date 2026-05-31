@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/27333-attack-on-titan",
+  "id": 27333,
+  "slug": "attack-on-titan",
+  "title": "Attack on Titan",
+  "year": 2013,
+  "rating": 9.1,
+  "votes_text": "686K",
+  "votes": 686000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/01/27333.jpg",
+  "genres": [
+    "Animation",
+    "Action",
+    "Adventure",
+    "Drama",
+    "Fantasy",
+    "Horror"
+  ],
+  "country": [
+    "Japan"
+  ],
+  "duration_min": 24,
+  "story": "Several hundred years ago, humans were nearly exterminated by Titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest Titans. Flash forward to the present and the city has not seen a Titan in over 100 years. Teenage boy Eren and his foster sister Mikasa witness something horrific as the city walls are destroyed by a Colossal Titan that appears out of thin air. As the smaller Titans flood the city, the two kids watch in horror as their mother is eaten alive. Eren vows that he will murder every single Titan and take revenge for all of mankind.",
+  "tags": [
+    {
+      "id": 2345,
+      "slug": "anime",
+      "name": "Anime",
+      "film_count": 6683
+    },
+    {
+      "id": 2945,
+      "slug": "tragedy",
+      "name": "Tragedy",
+      "film_count": 4642
+    },
+    {
+      "id": 5349,
+      "slug": "based-on-manga",
+      "name": "Based on manga",
+      "film_count": 2712
+    },
+    {
+      "id": 2519,
+      "slug": "giant",
+      "name": "Giant",
+      "film_count": 741
+    },
+    {
+      "id": 5194,
+      "slug": "giant-monster",
+      "name": "Giant monster",
+      "film_count": 1247
+    },
+    {
+      "id": 123665,
+      "slug": "life-turned-upside-down",
+      "name": "Life turned upside down",
+      "film_count": 1246
+    },
+    {
+      "id": 2171,
+      "slug": "threat",
+      "name": "Threat",
+      "film_count": 2412
+    },
+    {
+      "id": 2336,
+      "slug": "transformation",
+      "name": "Transformation",
+      "film_count": 7888
+    },
+    {
+      "id": 5184,
+      "slug": "destruction",
+      "name": "Destruction",
+      "film_count": 1121
+    },
+    {
+      "id": 10731,
+      "slug": "dystopia",
+      "name": "Dystopia",
+      "film_count": 2376
+    },
+    {
+      "id": 1882,
+      "slug": "monster",
+      "name": "Monster",
+      "film_count": 6768
+    },
+    {
+      "id": 7462,
+      "slug": "tragic-event",
+      "name": "Tragic event",
+      "film_count": 1496
+    },
+    {
+      "id": 123598,
+      "slug": "fate-of-humanity",
+      "name": "Fate of humanity",
+      "film_count": 384
+    },
+    {
+      "id": 5623,
+      "slug": "desperation",
+      "name": "Desperation",
+      "film_count": 3022
+    },
+    {
+      "id": 2322,
+      "slug": "childhood",
+      "name": "Childhood",
+      "film_count": 5432
+    },
+    {
+      "id": 90,
+      "slug": "blood",
+      "name": "Blood",
+      "film_count": 12987
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "anime",
+      "serious",
+      "mysterious",
+      "disturbing",
+      "exciting",
+      "tense",
+      "adult animation",
+      "manga",
+      "adult anime",
+      "spectacular"
+    ],
+    "audience": [
+      "kids"
+    ],
+    "plot": [
+      "tragedy",
+      "giant",
+      "giant monster",
+      "life turned upside down",
+      "threat",
+      "transformation",
+      "friendship",
+      "titan",
+      "direction and purpose",
+      "chaos and mayhem",
+      "danger",
+      "friends",
+      "eaten alive",
+      "survival",
+      "army",
+      "military",
+      "death",
+      "destruction",
+      "dystopia",
+      "monster",
+      "tragic event",
+      "fate of humanity",
+      "desperation",
+      "childhood",
+      "blood"
+    ],
+    "time": [
+      "future"
+    ],
+    "place": [
+      "japan",
+      "asia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 43525,
+      "slug": "attack-on-titan-crimson-bow-and-arrow",
+      "title": "Attack on Titan: Crimson Bow and Arrow",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 57544,
+      "slug": "attack-on-titan-the-wings-of-freedom",
+      "title": "Attack on Titan: The Wings of Freedom",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 69228,
+      "slug": "attack-on-titan-chronicle",
+      "title": "Attack on Titan: Chronicle",
+      "year": 2020,
+      "rank": 2
+    },
+    {
+      "id": 60548,
+      "slug": "attack-on-titan-the-roar-of-awakening",
+      "title": "Attack on Titan: The Roar of Awakening",
+      "year": 2018,
+      "rank": 3
+    },
+    {
+      "id": 66776,
+      "slug": "kabaneri-of-the-iron-fortress",
+      "title": "Kabaneri of the Iron Fortress",
+      "year": 2016,
+      "rank": 4
+    },
+    {
+      "id": 69929,
+      "slug": "jujutsu-kaisen",
+      "title": "Jujutsu Kaisen",
+      "year": 2020,
+      "rank": 5
+    },
+    {
+      "id": 38236,
+      "slug": "parasyte-the-maxim",
+      "title": "Parasyte: The Maxim",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 16529,
+      "slug": "berserk",
+      "title": "Berserk",
+      "year": 1997,
+      "rank": 7
+    },
+    {
+      "id": 60634,
+      "slug": "tokyo-ghoul",
+      "title": "Tokyo Ghoul",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 42729,
+      "slug": "blue-exorcist-kyoto-saga",
+      "title": "Blue Exorcist: Kyoto Saga",
+      "year": 2017,
+      "rank": 9
+    },
+    {
+      "id": 8014,
+      "slug": "afro-samurai",
+      "title": "Afro Samurai",
+      "year": 2007,
+      "rank": 10
+    },
+    {
+      "id": 65009,
+      "slug": "demon-slayer-kimetsu-no-yaiba",
+      "title": "Demon Slayer: Kimetsu no Yaiba",
+      "year": 2019,
+      "rank": 11
+    },
+    {
+      "id": 26808,
+      "slug": "claymore",
+      "title": "Claymore",
+      "year": 2007,
+      "rank": 12
+    },
+    {
+      "id": 57375,
+      "slug": "jojos-bizarre-adventure",
+      "title": "JoJo's Bizarre Adventure",
+      "year": 2012,
+      "rank": 13
+    },
+    {
+      "id": 61766,
+      "slug": "devilman-crybaby",
+      "title": "Devilman Crybaby",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 30007,
+      "slug": "dragon-ball-z",
+      "title": "Dragon Ball Z",
+      "year": 1989,
+      "rank": 15
+    },
+    {
+      "id": 28953,
+      "slug": "hunter-x-hunter",
+      "title": "Hunter x Hunter",
+      "year": 2011,
+      "rank": 16
+    },
+    {
+      "id": 69665,
+      "slug": "invincible",
+      "title": "Invincible",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 66762,
+      "slug": "seraph-of-the-end",
+      "title": "Seraph of the End",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 43663,
+      "slug": "berserk",
+      "title": "Berserk",
+      "year": 2016,
+      "rank": 19
+    },
+    {
+      "id": 2492,
+      "slug": "highschool-of-the-dead",
+      "title": "High School of the Dead",
+      "year": 2010,
+      "rank": 20
+    },
+    {
+      "id": 27145,
+      "slug": "guilty-crown",
+      "title": "Guilty Crown",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 65097,
+      "slug": "the-rising-of-the-shield-hero",
+      "title": "The Rising of The Shield Hero",
+      "year": 2019,
+      "rank": 22
+    },
+    {
+      "id": 19054,
+      "slug": "naruto",
+      "title": "Naruto",
+      "year": 2002,
+      "rank": 23
+    },
+    {
+      "id": 57000,
+      "slug": "berserk-the-golden-age-arc-iii-the-advent",
+      "title": "Berserk: The Golden Age Arc III - The Advent",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 2479,
+      "slug": "fist-of-the-north-star",
+      "title": "Fist of the North Star",
+      "year": 1984,
+      "rank": 25
+    },
+    {
+      "id": 5102,
+      "slug": "basilisk",
+      "title": "Basilisk",
+      "year": 2005,
+      "rank": 26
+    },
+    {
+      "id": 14969,
+      "slug": "hellsing-ultimate",
+      "title": "Hellsing Ultimate",
+      "year": 2006,
+      "rank": 27
+    },
+    {
+      "id": 69412,
+      "slug": "akame-ga-kill",
+      "title": "Akame ga Kill!",
+      "year": 2014,
+      "rank": 28
+    },
+    {
+      "id": 68649,
+      "slug": "blade-of-the-immortal",
+      "title": "Blade of the Immortal",
+      "year": 2019,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919153
+}

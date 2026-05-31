@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/27088-izombie",
+  "id": 27088,
+  "slug": "izombie",
+  "title": "iZombie",
+  "year": 2015,
+  "rating": 7.8,
+  "votes_text": "79K",
+  "votes": 79000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/56/27088.jpg",
+  "genres": [
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Horror",
+    "Mystery"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 42,
+  "story": "A medical student who becomes a zombie joins a Coroner's Office in order to gain access to the brains she must reluctantly eat so that she can maintain her humanity. But every brain she eats, she also inherits their memories and must now solve their deaths with help from the Medical examiner and a police detective.",
+  "tags": [
+    {
+      "id": 1600,
+      "slug": "zombie",
+      "name": "Zombie",
+      "film_count": 2688
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 5506,
+      "slug": "murder-mystery",
+      "name": "Murder mystery",
+      "film_count": 4248
+    },
+    {
+      "id": 22722,
+      "slug": "law-enforcement",
+      "name": "Law enforcement",
+      "film_count": 5363
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 1106,
+      "slug": "halloween",
+      "name": "Halloween",
+      "film_count": 1397
+    },
+    {
+      "id": 32650,
+      "slug": "multiverse",
+      "name": "Multiverse",
+      "film_count": 598
+    },
+    {
+      "id": 8862,
+      "slug": "clairvoyant",
+      "name": "Clairvoyant",
+      "film_count": 381
+    },
+    {
+      "id": 123297,
+      "slug": "supernatural-thriller",
+      "name": "Supernatural thriller",
+      "film_count": 712
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 72412,
+      "slug": "seattle",
+      "name": "Seattle",
+      "film_count": 773
+    },
+    {
+      "id": 4647,
+      "slug": "strong-female-lead",
+      "name": "Strong female lead",
+      "film_count": 2994
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "witty",
+      "semi serious",
+      "suspenseful",
+      "detective",
+      "supernatural thriller",
+      "humorous",
+      "captivating",
+      "neo noir",
+      "sitcom",
+      "horror comedy"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "zombie",
+      "female protagonist",
+      "supernatural ability",
+      "supernatural",
+      "murder mystery",
+      "law enforcement",
+      "murder",
+      "police investigation",
+      "morgue",
+      "fighting crime",
+      "partners against crime",
+      "hidden identity",
+      "friendship",
+      "couple relations",
+      "police detective",
+      "coroner",
+      "crime investigation",
+      "memories",
+      "gory",
+      "halloween",
+      "multiverse",
+      "clairvoyant",
+      "strong female lead",
+      "investigation",
+      "murder investigation"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "seattle",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26322,
+      "slug": "veronica-mars",
+      "title": "Veronica Mars",
+      "year": 2004,
+      "rank": 0
+    },
+    {
+      "id": 2152,
+      "slug": "death-valley",
+      "title": "Death Valley",
+      "year": 2011,
+      "rank": 1
+    },
+    {
+      "id": 27275,
+      "slug": "forever",
+      "title": "Forever",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 26489,
+      "slug": "lucifer",
+      "title": "Lucifer",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 3831,
+      "slug": "womens-murder-club",
+      "title": "Women's Murder Club",
+      "year": 2007,
+      "rank": 4
+    },
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 42678,
+      "slug": "santa-clarita-diet",
+      "title": "Santa Clarita Diet",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 38023,
+      "slug": "limitless",
+      "title": "Limitless",
+      "year": 2015,
+      "rank": 7
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 8
+    },
+    {
+      "id": 3152,
+      "slug": "rosemary-and-thyme",
+      "title": "Rosemary & Thyme",
+      "year": 2003,
+      "rank": 9
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 10
+    },
+    {
+      "id": 10596,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 1998,
+      "rank": 11
+    },
+    {
+      "id": 30172,
+      "slug": "the-closer",
+      "title": "The Closer",
+      "year": 2005,
+      "rank": 12
+    },
+    {
+      "id": 65716,
+      "slug": "evil",
+      "title": "Evil",
+      "year": 2019,
+      "rank": 13
+    },
+    {
+      "id": 4781,
+      "slug": "life-of-crime",
+      "title": "Life of Crime",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 2578,
+      "slug": "reaper",
+      "title": "Reaper",
+      "year": 2007,
+      "rank": 15
+    },
+    {
+      "id": 2265,
+      "slug": "the-gates",
+      "title": "The Gates",
+      "year": 2010,
+      "rank": 16
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 17
+    },
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 18
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 19
+    },
+    {
+      "id": 74046,
+      "slug": "murder-in-suburbia",
+      "title": "Murder in Suburbia",
+      "year": 2004,
+      "rank": 20
+    },
+    {
+      "id": 65937,
+      "slug": "nancy-drew",
+      "title": "Nancy Drew",
+      "year": 2019,
+      "rank": 21
+    },
+    {
+      "id": 302,
+      "slug": "crossing-jordan",
+      "title": "Crossing Jordan",
+      "year": 2001,
+      "rank": 22
+    },
+    {
+      "id": 307,
+      "slug": "major-crimes",
+      "title": "Major Crimes",
+      "year": 2012,
+      "rank": 23
+    },
+    {
+      "id": 56620,
+      "slug": "body-of-proof",
+      "title": "Body of Proof",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 63835,
+      "slug": "the-brokenwood-mysteries",
+      "title": "The Brokenwood Mysteries",
+      "year": 2014,
+      "rank": 25
+    },
+    {
+      "id": 26924,
+      "slug": "haven",
+      "title": "Haven",
+      "year": 2010,
+      "rank": 26
+    },
+    {
+      "id": 981,
+      "slug": "vera",
+      "title": "Vera",
+      "year": 2011,
+      "rank": 27
+    },
+    {
+      "id": 77930,
+      "slug": "the-good-apprentice",
+      "title": "The Good Apprentice",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 30143,
+      "slug": "keen-eddie",
+      "title": "Keen Eddie",
+      "year": 2003,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919151
+}

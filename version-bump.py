@@ -57,30 +57,21 @@ def update_cargo_toml(path, new_version):
     path.write_text("".join(result))
 
 
-def check_clean_working_tree():
-    result = subprocess.run(
-        ["git", "status", "--porcelain"],
-        capture_output=True, text=True, check=True,
-    )
-    dirty = [
-        line for line in result.stdout.splitlines()
-        if line and not line.startswith("??")  # ignore untracked files
-    ]
-    if dirty:
-        print("Error: you have uncommitted changes. Commit them first, then re-run version-bump.")
-        for line in dirty:
-            print(f"  {line}")
-        sys.exit(1)
-
-
 def main():
     parser = argparse.ArgumentParser(description="Bump the Dossier version across all 3 required files.")
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--major", action="store_true", help="Bump major version (X.0.0)")
     group.add_argument("--minor", action="store_true", help="Bump minor version (x.Y.0)")
+    parser.add_argument(
+        "message",
+        nargs="?",
+        help=(
+            "Commit message. If given, ALL staged and unstaged changes are committed "
+            "together with the version bump in a single commit using this message. "
+            "If omitted, only the version files are committed as 'Bump version to X.Y.Z'."
+        ),
+    )
     args = parser.parse_args()
-
-    check_clean_working_tree()
 
     part = "major" if args.major else "minor" if args.minor else "patch"
     current = read_current_version()
@@ -94,17 +85,24 @@ def main():
 
     print(f"Updated: tauri.conf.json, Cargo.toml, package.json")
 
-    # Stage and commit the version changes
     version_files = [
         "apps/dossier-desktop/src-tauri/tauri.conf.json",
         "apps/dossier-desktop/src-tauri/Cargo.toml",
         "apps/dossier-desktop/package.json",
     ]
-    subprocess.run(["git", "add"] + version_files, check=True)
-    subprocess.run(
-        ["git", "commit", "-m", f"Bump version to {new_version}"],
-        check=True,
-    )
+
+    if args.message:
+        # Stage everything (existing changes + version bump) and commit together.
+        subprocess.run(["git", "add", "-A"], check=True)
+        subprocess.run(["git", "commit", "-m", args.message], check=True)
+        print(f"Committed all changes with the version bump: {args.message!r}")
+    else:
+        # Stage and commit only the version changes.
+        subprocess.run(["git", "add"] + version_files, check=True)
+        subprocess.run(
+            ["git", "commit", "-m", f"Bump version to {new_version}"],
+            check=True,
+        )
 
     # Create the version tag
     tag_name = f"v{new_version}"

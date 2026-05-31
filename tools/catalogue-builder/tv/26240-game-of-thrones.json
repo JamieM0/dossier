@@ -1,0 +1,397 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26240-game-of-thrones",
+  "id": 26240,
+  "slug": "game-of-thrones",
+  "title": "Game of Thrones",
+  "year": 2011,
+  "rating": 9.2,
+  "votes_text": "2.5M",
+  "votes": 2500000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/34/26240.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Fantasy"
+  ],
+  "country": [
+    "USA",
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+  "tags": [
+    {
+      "id": 2346,
+      "slug": "dragon",
+      "name": "Dragon",
+      "film_count": 1050
+    },
+    {
+      "id": 33701,
+      "slug": "medieval",
+      "name": "Medieval",
+      "film_count": 2110
+    },
+    {
+      "id": 5510,
+      "slug": "intrigue",
+      "name": "Intrigue",
+      "film_count": 3046
+    },
+    {
+      "id": 10307,
+      "slug": "fantasy-world",
+      "name": "Fantasy world",
+      "film_count": 7231
+    },
+    {
+      "id": 3853,
+      "slug": "incest",
+      "name": "Incest",
+      "film_count": 1859
+    },
+    {
+      "id": 4022,
+      "slug": "kingdom",
+      "name": "Kingdom",
+      "film_count": 878
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 8724,
+      "slug": "power-struggle",
+      "name": "Power struggle",
+      "film_count": 2612
+    },
+    {
+      "id": 11286,
+      "slug": "ruler",
+      "name": "Ruler",
+      "film_count": 194
+    },
+    {
+      "id": 123335,
+      "slug": "imaginary",
+      "name": "Imaginary",
+      "film_count": 4709
+    },
+    {
+      "id": 8979,
+      "slug": "exile",
+      "name": "Exile",
+      "film_count": 1073
+    },
+    {
+      "id": 2843,
+      "slug": "warrior",
+      "name": "Warrior",
+      "film_count": 3473
+    },
+    {
+      "id": 2433,
+      "slug": "civil-war",
+      "name": "Civil war",
+      "film_count": 1123
+    },
+    {
+      "id": 540,
+      "slug": "based-on-novel",
+      "name": "Based on novel",
+      "film_count": 11006
+    },
+    {
+      "id": 6001,
+      "slug": "vicious",
+      "name": "Vicious",
+      "film_count": 296
+    },
+    {
+      "id": 530,
+      "slug": "betrayal",
+      "name": "Betrayal",
+      "film_count": 17334
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "epic",
+      "captivating",
+      "atmospheric",
+      "dramatic",
+      "stylized",
+      "exciting",
+      "breathtaking",
+      "sexy",
+      "serious",
+      "sexual"
+    ],
+    "audience": [
+      "teens",
+      "chick flick",
+      "girls' night",
+      "boys' night",
+      "adult"
+    ],
+    "plot": [
+      "dragon",
+      "medieval",
+      "intrigue",
+      "fantasy world",
+      "incest",
+      "kingdom",
+      "power struggle",
+      "peril",
+      "abuse of power",
+      "political intrigue",
+      "conflict",
+      "rivalry",
+      "king",
+      "throne",
+      "swords and armor",
+      "allies",
+      "murder",
+      "politics",
+      "treason",
+      "sex scene",
+      "political unrest",
+      "dishonesty",
+      "ruler",
+      "imaginary",
+      "exile"
+    ],
+    "time": [
+      "ancient times",
+      "middle ages",
+      "medieval times",
+      "2000s",
+      "year 2011",
+      "2010s",
+      "contemporary"
+    ],
+    "place": [
+      "idaho",
+      "hawaii",
+      "former yugoslavia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 77122,
+      "slug": "house-of-the-dragon",
+      "title": "House of the Dragon",
+      "year": 2022,
+      "rank": 0
+    },
+    {
+      "id": 202,
+      "slug": "vikings",
+      "title": "Vikings",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 36817,
+      "slug": "the-last-kingdom",
+      "title": "The Last Kingdom",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 26615,
+      "slug": "spartacus-war-of-the-damned",
+      "title": "Spartacus",
+      "year": 2010,
+      "rank": 3
+    },
+    {
+      "id": 64723,
+      "slug": "the-witcher",
+      "title": "The Witcher",
+      "year": 2019,
+      "rank": 4
+    },
+    {
+      "id": 17509,
+      "slug": "the-lord-of-the-rings-the-two-towers",
+      "title": "The Lord of the Rings: The Two Towers",
+      "year": 2002,
+      "rank": 5
+    },
+    {
+      "id": 17508,
+      "slug": "the-lord-of-the-rings-the-return-of-the-king",
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "rank": 6
+    },
+    {
+      "id": 21564,
+      "slug": "rome",
+      "title": "Rome",
+      "year": 2005,
+      "rank": 7
+    },
+    {
+      "id": 17507,
+      "slug": "the-lord-of-the-rings-the-fellowship-of-the-ring",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "rank": 8
+    },
+    {
+      "id": 26566,
+      "slug": "legend-of-the-seeker",
+      "title": "Legend of the Seeker",
+      "year": 2008,
+      "rank": 9
+    },
+    {
+      "id": 56946,
+      "slug": "marco-polo",
+      "title": "Marco Polo",
+      "year": 2014,
+      "rank": 10
+    },
+    {
+      "id": 5344,
+      "slug": "reign",
+      "title": "Reign",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 1208,
+      "slug": "the-hobbit-the-desolation-of-smaug",
+      "title": "The Hobbit: The Desolation of Smaug",
+      "year": 2013,
+      "rank": 12
+    },
+    {
+      "id": 3470,
+      "slug": "black-sails",
+      "title": "Black Sails",
+      "year": 2014,
+      "rank": 13
+    },
+    {
+      "id": 26963,
+      "slug": "the-tudors",
+      "title": "The Tudors",
+      "year": 2007,
+      "rank": 14
+    },
+    {
+      "id": 27266,
+      "slug": "the-borgias",
+      "title": "The Borgias",
+      "year": 2011,
+      "rank": 15
+    },
+    {
+      "id": 1502,
+      "slug": "camelot",
+      "title": "Camelot",
+      "year": 2011,
+      "rank": 16
+    },
+    {
+      "id": 729,
+      "slug": "the-white-queen",
+      "title": "The White Queen",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 60633,
+      "slug": "into-the-badlands",
+      "title": "Into the Badlands",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 69553,
+      "slug": "the-wheel-of-time",
+      "title": "The Wheel of Time",
+      "year": 2021,
+      "rank": 19
+    },
+    {
+      "id": 19858,
+      "slug": "the-other-boleyn-girl",
+      "title": "The Other Boleyn Girl",
+      "year": 2008,
+      "rank": 20
+    },
+    {
+      "id": 69180,
+      "slug": "barbarians",
+      "title": "Barbarians",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 40503,
+      "slug": "king-arthur-legend-of-the-sword",
+      "title": "King Arthur: Legend of the Sword",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 18507,
+      "slug": "the-mists-of-avalon",
+      "title": "The Mists of Avalon",
+      "year": 2001,
+      "rank": 23
+    },
+    {
+      "id": 42783,
+      "slug": "emerald-city",
+      "title": "Emerald City",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 62746,
+      "slug": "the-hollow-crown",
+      "title": "The Hollow Crown",
+      "year": 2012,
+      "rank": 25
+    },
+    {
+      "id": 24486,
+      "slug": "troy",
+      "title": "Troy",
+      "year": 2004,
+      "rank": 26
+    },
+    {
+      "id": 65219,
+      "slug": "arthdal-chronicles",
+      "title": "Arthdal Chronicles",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 26964,
+      "slug": "the-pillars-of-the-earth",
+      "title": "The Pillars of the Earth",
+      "year": 2010,
+      "rank": 28
+    },
+    {
+      "id": 5056,
+      "slug": "da-vincis-demons",
+      "title": "Da Vinci's Demons",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919143
+}

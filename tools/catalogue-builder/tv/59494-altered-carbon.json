@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/59494-altered-carbon",
+  "id": 59494,
+  "slug": "altered-carbon",
+  "title": "Altered Carbon",
+  "year": 2018,
+  "rating": 7.9,
+  "votes_text": "201K",
+  "votes": 201000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/78/59494.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "After 250 years on ice, a prisoner returns to life in a new body with one chance to win his freedom: by solving a mind-bending murder.",
+  "tags": [
+    {
+      "id": 12394,
+      "slug": "cyberpunk",
+      "name": "Cyberpunk",
+      "film_count": 1119
+    },
+    {
+      "id": 18015,
+      "slug": "consciousness",
+      "name": "Consciousness",
+      "film_count": 566
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    },
+    {
+      "id": 11181,
+      "slug": "futuristic",
+      "name": "Futuristic",
+      "film_count": 2619
+    },
+    {
+      "id": 5008,
+      "slug": "artificial-intelligence",
+      "name": "Artificial intelligence",
+      "film_count": 1041
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 76088,
+      "slug": "distant-future",
+      "name": "Distant future",
+      "film_count": 235
+    },
+    {
+      "id": 7840,
+      "slug": "resistance-fighter",
+      "name": "Resistance fighter",
+      "film_count": 243
+    },
+    {
+      "id": 682,
+      "slug": "deception",
+      "name": "Deception",
+      "film_count": 6537
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 40650,
+      "slug": "cyber",
+      "name": "Cyber",
+      "film_count": 503
+    },
+    {
+      "id": 18041,
+      "slug": "transcendence",
+      "name": "Transcendence",
+      "film_count": 238
+    },
+    {
+      "id": 528,
+      "slug": "sex",
+      "name": "Sex",
+      "film_count": 10551
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    },
+    {
+      "id": 43020,
+      "slug": "cerebral",
+      "name": "Cerebral",
+      "film_count": 3453
+    },
+    {
+      "id": 55115,
+      "slug": "sensual",
+      "name": "Sensual",
+      "film_count": 1595
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "futuristic",
+      "tense",
+      "exciting",
+      "captivating",
+      "suspenseful",
+      "erotic",
+      "cyber",
+      "saga",
+      "cerebral",
+      "sensual"
+    ],
+    "audience": [
+      "boys' night"
+    ],
+    "plot": [
+      "cyberpunk",
+      "consciousness",
+      "artificial intelligence",
+      "investigation",
+      "resistance fighter",
+      "twists and turns",
+      "virtual reality",
+      "murder",
+      "body swapping",
+      "doppelganger",
+      "female nudity",
+      "multiple storylines",
+      "danger",
+      "shootout",
+      "clone",
+      "deception",
+      "transcendence",
+      "sex",
+      "gunfight",
+      "friendship",
+      "sex scene",
+      "outer space",
+      "maniac",
+      "whodunit",
+      "robot"
+    ],
+    "time": [
+      "future",
+      "distant future"
+    ],
+    "place": [
+      "san francisco"
+    ]
+  },
+  "similar": [
+    {
+      "id": 9523,
+      "slug": "blade-runner",
+      "title": "Blade Runner",
+      "year": 1982,
+      "rank": 0
+    },
+    {
+      "id": 38404,
+      "slug": "blade-runner-2049",
+      "title": "Blade Runner 2049",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 67935,
+      "slug": "brave-new-world",
+      "title": "Brave New World",
+      "year": 2020,
+      "rank": 2
+    },
+    {
+      "id": 35423,
+      "slug": "westworld",
+      "title": "Westworld",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 28889,
+      "slug": "the-expanse",
+      "title": "The Expanse",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 78453,
+      "slug": "the-peripheral",
+      "title": "The Peripheral",
+      "year": 2022,
+      "rank": 5
+    },
+    {
+      "id": 5694,
+      "slug": "the-100",
+      "title": "The 100",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 23535,
+      "slug": "surrogates",
+      "title": "Surrogates",
+      "year": 2009,
+      "rank": 7
+    },
+    {
+      "id": 888,
+      "slug": "robocop",
+      "title": "RoboCop",
+      "year": 1994,
+      "rank": 8
+    },
+    {
+      "id": 36892,
+      "slug": "colony",
+      "title": "Colony",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 60075,
+      "slug": "upgrade",
+      "title": "Upgrade",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 26929,
+      "slug": "dark-matter",
+      "title": "Dark Matter",
+      "year": 2015,
+      "rank": 11
+    },
+    {
+      "id": 57913,
+      "slug": "philip-k-dicks-electric-dreams",
+      "title": "Philip K. Dick's Electric Dreams",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 26507,
+      "slug": "looper",
+      "title": "Looper",
+      "year": 2012,
+      "rank": 13
+    },
+    {
+      "id": 66884,
+      "slug": "devs",
+      "title": "Devs",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 18428,
+      "slug": "minority-report",
+      "title": "Minority Report",
+      "year": 2002,
+      "rank": 15
+    },
+    {
+      "id": 4560,
+      "slug": "almost-human",
+      "title": "Almost Human",
+      "year": 2013,
+      "rank": 16
+    },
+    {
+      "id": 9112,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 2003,
+      "rank": 17
+    },
+    {
+      "id": 13442,
+      "slug": "firefly",
+      "title": "Firefly",
+      "year": 2002,
+      "rank": 18
+    },
+    {
+      "id": 93453,
+      "slug": "fallout",
+      "title": "Fallout",
+      "year": 2024,
+      "rank": 19
+    },
+    {
+      "id": 69087,
+      "slug": "next",
+      "title": "Next",
+      "year": 2020,
+      "rank": 20
+    },
+    {
+      "id": 73766,
+      "slug": "foundation",
+      "title": "Foundation",
+      "year": 2021,
+      "rank": 21
+    },
+    {
+      "id": 40182,
+      "slug": "second-chance",
+      "title": "Second Chance",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 9113,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 2004,
+      "rank": 23
+    },
+    {
+      "id": 36056,
+      "slug": "defiance",
+      "title": "Defiance",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 26642,
+      "slug": "caprica",
+      "title": "Caprica",
+      "year": 2009,
+      "rank": 25
+    },
+    {
+      "id": 65359,
+      "slug": "the-boys",
+      "title": "The Boys",
+      "year": 2019,
+      "rank": 26
+    },
+    {
+      "id": 65621,
+      "slug": "see",
+      "title": "See",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 60633,
+      "slug": "into-the-badlands",
+      "title": "Into the Badlands",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 58503,
+      "slug": "titans",
+      "title": "Titans",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919164
+}

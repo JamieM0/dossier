@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/13319-bates-motel",
+  "id": 13319,
+  "slug": "bates-motel",
+  "title": "Bates Motel",
+  "year": 2013,
+  "rating": 8.1,
+  "votes_text": "125K",
+  "votes": 125000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a3/13319.jpg",
+  "genres": [
+    "Drama",
+    "Horror",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "A \"contemporary prequel\" to the 1960 film Psycho, depicting the life of Norman Bates and his mother Norma prior to the events portrayed in Hitchcock's film, albeit in a different fictional town and in a modern setting. The series begins after the death of Norma's husband, when she purchases a motel located in a coastal Oregon town so she and Norman can start a new life.",
+  "tags": [
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 645,
+      "slug": "motel",
+      "name": "Motel",
+      "film_count": 1392
+    },
+    {
+      "id": 22182,
+      "slug": "mental-disorder",
+      "name": "Mental disorder",
+      "film_count": 1992
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    },
+    {
+      "id": 502,
+      "slug": "obsession",
+      "name": "Obsession",
+      "film_count": 10538
+    },
+    {
+      "id": 846,
+      "slug": "hotel",
+      "name": "Hotel",
+      "film_count": 4969
+    },
+    {
+      "id": 3732,
+      "slug": "insanity",
+      "name": "Insanity",
+      "film_count": 3809
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 2170,
+      "slug": "usa",
+      "name": "Usa",
+      "film_count": 14812
+    },
+    {
+      "id": 35858,
+      "slug": "psychological-thriller",
+      "name": "Psychological thriller",
+      "film_count": 6685
+    },
+    {
+      "id": 32616,
+      "slug": "small-town-life",
+      "name": "Small town life",
+      "film_count": 2713
+    },
+    {
+      "id": 135794,
+      "slug": "spooky",
+      "name": "Spooky",
+      "film_count": 2036
+    },
+    {
+      "id": 25281,
+      "slug": "sexual-initiation",
+      "name": "Sexual initiation",
+      "film_count": 54
+    },
+    {
+      "id": 12897,
+      "slug": "domineering-mother",
+      "name": "Domineering mother",
+      "film_count": 545
+    },
+    {
+      "id": 7426,
+      "slug": "slasher",
+      "name": "Slasher",
+      "film_count": 5692
+    },
+    {
+      "id": 123529,
+      "slug": "violent-content",
+      "name": "Violent content",
+      "film_count": 5095
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "atmospheric",
+      "suspenseful",
+      "tense",
+      "psychological",
+      "serious",
+      "psychological thriller",
+      "spooky",
+      "slasher",
+      "thrilling",
+      "realistic"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "serial killer",
+      "motel",
+      "mental disorder",
+      "obsession",
+      "hotel",
+      "insanity",
+      "murder",
+      "family problems",
+      "half brother",
+      "dysfunctional family",
+      "small town",
+      "incestuous desire",
+      "danger",
+      "twists and turns",
+      "high school",
+      "taxidermist",
+      "mother son relationship",
+      "taxidermy",
+      "graphic violence",
+      "teenage life",
+      "small town life",
+      "sexual initiation",
+      "domineering mother",
+      "violent content",
+      "sexual awakening"
+    ],
+    "time": [
+      "2010s",
+      "20th century"
+    ],
+    "place": [
+      "oregon",
+      "usa",
+      "hawaii"
+    ]
+  },
+  "similar": [
+    {
+      "id": 20815,
+      "slug": "psycho",
+      "title": "Psycho",
+      "year": 1998,
+      "rank": 0
+    },
+    {
+      "id": 20820,
+      "slug": "psycho-iii",
+      "title": "Psycho III",
+      "year": 1986,
+      "rank": 1
+    },
+    {
+      "id": 19826,
+      "slug": "orphan",
+      "title": "Orphan",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 61205,
+      "slug": "castle-rock",
+      "title": "Castle Rock",
+      "year": 2018,
+      "rank": 3
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 4
+    },
+    {
+      "id": 542,
+      "slug": "hannibal",
+      "title": "Hannibal",
+      "year": 2013,
+      "rank": 5
+    },
+    {
+      "id": 20819,
+      "slug": "psycho-ii",
+      "title": "Psycho II",
+      "year": 1983,
+      "rank": 6
+    },
+    {
+      "id": 26369,
+      "slug": "american-horror-story",
+      "title": "American Horror Story",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 41775,
+      "slug": "13-reasons-why",
+      "title": "13 Reasons Why",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 26894,
+      "slug": "scream-the-tv-series",
+      "title": "Scream: The TV Series",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 66546,
+      "slug": "cult",
+      "title": "Cult",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 30061,
+      "slug": "the-dark-secret-of-harvest-home",
+      "title": "The Dark Secret of Harvest Home",
+      "year": 1978,
+      "rank": 12
+    },
+    {
+      "id": 62532,
+      "slug": "twisted",
+      "title": "Twisted",
+      "year": 2013,
+      "rank": 13
+    },
+    {
+      "id": 26168,
+      "slug": "the-zodiac",
+      "title": "The Zodiac",
+      "year": 2005,
+      "rank": 14
+    },
+    {
+      "id": 69898,
+      "slug": "american-horror-stories",
+      "title": "American Horror Stories",
+      "year": 2021,
+      "rank": 15
+    },
+    {
+      "id": 14788,
+      "slug": "harpers-island",
+      "title": "Harper's Island",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 6283,
+      "slug": "wayward-pines",
+      "title": "Wayward Pines",
+      "year": 2015,
+      "rank": 17
+    },
+    {
+      "id": 63661,
+      "slug": "eye-candy",
+      "title": "Eye Candy",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 66393,
+      "slug": "i-see-you",
+      "title": "I See You",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 12490,
+      "slug": "dream-house",
+      "title": "Dream House",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 56853,
+      "slug": "epitafios",
+      "title": "Epitafios",
+      "year": 2004,
+      "rank": 21
+    },
+    {
+      "id": 22088,
+      "slug": "secret-window",
+      "title": "Secret Window",
+      "year": 2004,
+      "rank": 22
+    },
+    {
+      "id": 97849,
+      "slug": "truth",
+      "title": "Truth",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 4529,
+      "slug": "the-returned",
+      "title": "The Returned",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 67596,
+      "slug": "homecoming",
+      "title": "Homecoming",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 7028,
+      "slug": "white-bird-in-a-blizzard",
+      "title": "White Bird in a Blizzard",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 1860,
+      "slug": "666-park-avenue",
+      "title": "666 Park Avenue",
+      "year": 2012,
+      "rank": 27
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 28
+    },
+    {
+      "id": 26791,
+      "slug": "pretty-little-liars",
+      "title": "Pretty Little Liars",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919137
+}

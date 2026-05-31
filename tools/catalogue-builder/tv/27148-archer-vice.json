@@ -1,0 +1,392 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/27148-archer-vice",
+  "id": 27148,
+  "slug": "archer-vice",
+  "title": "Archer",
+  "year": 2009,
+  "rating": 8.6,
+  "votes_text": "175K",
+  "votes": 175000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/4d/27148.jpg",
+  "genres": [
+    "Animation",
+    "Action",
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "Sterling Archer is the world's most daunting spy. He works for ISIS, a spy agency run by his mother. In between dealing with his boss and his co-workers - one of whom is his ex-girlfriend - Archer manages to annoy or seduce everyone that crosses his path. His antics are only excusable because at the end of the day, he still somehow always manages to thwart whatever crises was threatening mankind.",
+  "tags": [
+    {
+      "id": 2941,
+      "slug": "adult-animation",
+      "name": "Adult animation",
+      "film_count": 1876
+    },
+    {
+      "id": 10,
+      "slug": "spy",
+      "name": "Spy",
+      "film_count": 3331
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 3058,
+      "slug": "espionage",
+      "name": "Espionage",
+      "film_count": 3395
+    },
+    {
+      "id": 123486,
+      "slug": "witty",
+      "name": "Witty",
+      "film_count": 5204
+    },
+    {
+      "id": 123875,
+      "slug": "cynical",
+      "name": "Cynical",
+      "film_count": 2307
+    },
+    {
+      "id": 733,
+      "slug": "parody",
+      "name": "Parody",
+      "film_count": 4207
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 17908,
+      "slug": "james-bond-spoof",
+      "name": "James bond spoof",
+      "film_count": 182
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    },
+    {
+      "id": 7770,
+      "slug": "female-boss",
+      "name": "Female boss",
+      "film_count": 293
+    },
+    {
+      "id": 2345,
+      "slug": "anime",
+      "name": "Anime",
+      "film_count": 6683
+    },
+    {
+      "id": 7542,
+      "slug": "undercover",
+      "name": "Undercover",
+      "film_count": 3572
+    },
+    {
+      "id": 123330,
+      "slug": "chases-and-races",
+      "name": "Chases and races",
+      "film_count": 5348
+    },
+    {
+      "id": 6020,
+      "slug": "dimwit",
+      "name": "Dimwit",
+      "film_count": 132
+    },
+    {
+      "id": 123868,
+      "slug": "silly-humor",
+      "name": "Silly humor",
+      "film_count": 2367
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "adult animation",
+      "witty",
+      "cynical",
+      "parody",
+      "humorous",
+      "stylized",
+      "offbeat",
+      "adult cartoon",
+      "not serious",
+      "sitcom"
+    ],
+    "audience": [
+      "boys' night",
+      "kids",
+      "teens",
+      "adult"
+    ],
+    "plot": [
+      "spy",
+      "workplace",
+      "espionage",
+      "danger",
+      "womanizer",
+      "sarcasm",
+      "government agency",
+      "domineering mother",
+      "spy spoof",
+      "cia",
+      "chase",
+      "hotshot hero",
+      "secret agent",
+      "mission",
+      "shooting",
+      "lifestyle",
+      "james bond spoof",
+      "escapades",
+      "female boss",
+      "undercover",
+      "chases and races",
+      "dimwit",
+      "silly humor",
+      "peril",
+      "hotshot"
+    ],
+    "time": [
+      "2000s",
+      "70s",
+      "2010s",
+      "20th century",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "nova scotia",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 36885,
+      "slug": "moonbeam-city",
+      "title": "Moonbeam City",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 62259,
+      "slug": "black-dynamite",
+      "title": "Black Dynamite",
+      "year": 2011,
+      "rank": 1
+    },
+    {
+      "id": 66201,
+      "slug": "frisky-dingo",
+      "title": "Frisky Dingo",
+      "year": 2006,
+      "rank": 2
+    },
+    {
+      "id": 12482,
+      "slug": "drawn-together",
+      "title": "Drawn Together",
+      "year": 2004,
+      "rank": 3
+    },
+    {
+      "id": 3463,
+      "slug": "brickleberry",
+      "title": "Brickleberry",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 23389,
+      "slug": "stripperella",
+      "title": "Stripperella",
+      "year": 2003,
+      "rank": 5
+    },
+    {
+      "id": 56595,
+      "slug": "rick-and-morty",
+      "title": "Rick and Morty",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 26887,
+      "slug": "american-dad",
+      "title": "American Dad!",
+      "year": 2005,
+      "rank": 7
+    },
+    {
+      "id": 25069,
+      "slug": "the-venture-bros",
+      "title": "The Venture Bros.",
+      "year": 2003,
+      "rank": 8
+    },
+    {
+      "id": 29989,
+      "slug": "squidbillies",
+      "title": "Squidbillies",
+      "year": 2005,
+      "rank": 9
+    },
+    {
+      "id": 22996,
+      "slug": "south-park",
+      "title": "South Park",
+      "year": 1997,
+      "rank": 10
+    },
+    {
+      "id": 13137,
+      "slug": "family-guy",
+      "title": "Family Guy",
+      "year": 1999,
+      "rank": 11
+    },
+    {
+      "id": 30201,
+      "slug": "sealab-2021",
+      "title": "Sealab 2021",
+      "year": 2000,
+      "rank": 12
+    },
+    {
+      "id": 57107,
+      "slug": "bojack-horseman",
+      "title": "BoJack Horseman",
+      "year": 2014,
+      "rank": 13
+    },
+    {
+      "id": 6334,
+      "slug": "ren-and-stimpy-adult-party-cartoon",
+      "title": "Ren & Stimpy Adult Party Cartoon",
+      "year": 2003,
+      "rank": 14
+    },
+    {
+      "id": 62788,
+      "slug": "stretch-armstrong-and-the-flex-fighters",
+      "title": "Stretch Armstrong & the Flex Fighters",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 62608,
+      "slug": "axe-cop",
+      "title": "Axe Cop",
+      "year": 2012,
+      "rank": 16
+    },
+    {
+      "id": 68785,
+      "slug": "hoops",
+      "title": "Hoops",
+      "year": 2020,
+      "rank": 17
+    },
+    {
+      "id": 58757,
+      "slug": "james-bond-jr",
+      "title": "James Bond Jr.",
+      "year": 1991,
+      "rank": 18
+    },
+    {
+      "id": 28915,
+      "slug": "mr-pickles",
+      "title": "Mr. Pickles",
+      "year": 2013,
+      "rank": 19
+    },
+    {
+      "id": 62260,
+      "slug": "total-drama-island",
+      "title": "Total Drama Island",
+      "year": 2007,
+      "rank": 20
+    },
+    {
+      "id": 13891,
+      "slug": "futurama",
+      "title": "Futurama",
+      "year": 1999,
+      "rank": 21
+    },
+    {
+      "id": 30219,
+      "slug": "home-movies",
+      "title": "Home Movies",
+      "year": 1999,
+      "rank": 22
+    },
+    {
+      "id": 30008,
+      "slug": "wonder-showzen",
+      "title": "Wonder Showzen",
+      "year": 2005,
+      "rank": 23
+    },
+    {
+      "id": 62655,
+      "slug": "triptank",
+      "title": "TripTank",
+      "year": 2014,
+      "rank": 24
+    },
+    {
+      "id": 30393,
+      "slug": "clerks",
+      "title": "Clerks",
+      "year": 2000,
+      "rank": 25
+    },
+    {
+      "id": 64675,
+      "slug": "the-awesomes",
+      "title": "The Awesomes",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 73265,
+      "slug": "china-il",
+      "title": "China, IL",
+      "year": 2008,
+      "rank": 27
+    },
+    {
+      "id": 69318,
+      "slug": "moral-orel",
+      "title": "Moral Orel",
+      "year": 2005,
+      "rank": 28
+    },
+    {
+      "id": 199,
+      "slug": "mad",
+      "title": "Mad",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919152
+}

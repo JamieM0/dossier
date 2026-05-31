@@ -1,0 +1,392 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/8814-avatar-the-last-airbender",
+  "id": 8814,
+  "slug": "avatar-the-last-airbender",
+  "title": "Avatar: The Last Airbender",
+  "year": 2005,
+  "rating": 9.3,
+  "votes_text": "432K",
+  "votes": 432000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/66/8814.jpg",
+  "genres": [
+    "Animation",
+    "Action",
+    "Adventure",
+    "Family",
+    "Fantasy",
+    "Mystery"
+  ],
+  "country": [
+    "USA",
+    "South Korea"
+  ],
+  "duration_min": 23,
+  "story": "In a war-torn world of elemental magic, a young boy reawakens to undertake a dangerous mystic quest to fulfill his destiny as the Avatar, and bring peace to the world.",
+  "tags": [
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 4209,
+      "slug": "chosen-one",
+      "name": "Chosen one",
+      "film_count": 446
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 2772,
+      "slug": "martial-arts",
+      "name": "Martial arts",
+      "film_count": 6239
+    },
+    {
+      "id": 8671,
+      "slug": "peril",
+      "name": "Peril",
+      "film_count": 1962
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 5683,
+      "slug": "training",
+      "name": "Training",
+      "film_count": 1700
+    },
+    {
+      "id": 123450,
+      "slug": "heroic-mission",
+      "name": "Heroic mission",
+      "film_count": 2809
+    },
+    {
+      "id": 2843,
+      "slug": "warrior",
+      "name": "Warrior",
+      "film_count": 3473
+    },
+    {
+      "id": 2346,
+      "slug": "dragon",
+      "name": "Dragon",
+      "film_count": 1050
+    },
+    {
+      "id": 123335,
+      "slug": "imaginary",
+      "name": "Imaginary",
+      "film_count": 4709
+    },
+    {
+      "id": 2338,
+      "slug": "magic",
+      "name": "Magic",
+      "film_count": 4761
+    },
+    {
+      "id": 1132,
+      "slug": "teenage-boy",
+      "name": "Teenage boy",
+      "film_count": 5094
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 143,
+      "slug": "rivalry",
+      "name": "Rivalry",
+      "film_count": 16927
+    },
+    {
+      "id": 123564,
+      "slug": "conquering",
+      "name": "Conquering",
+      "film_count": 172
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "captivating",
+      "adult animation",
+      "semi serious",
+      "stylized",
+      "manga",
+      "anime",
+      "spiritual",
+      "epic",
+      "educational"
+    ],
+    "audience": [
+      "kids",
+      "family outing",
+      "pre-teens",
+      "teens",
+      "teen fantasy",
+      "preschool"
+    ],
+    "plot": [
+      "friends",
+      "chosen one",
+      "supernatural ability",
+      "martial arts",
+      "peril",
+      "friendship",
+      "training",
+      "heroic mission",
+      "honor",
+      "save the day",
+      "magical",
+      "good versus evil",
+      "young kid",
+      "forces of nature",
+      "young heroes",
+      "imaginary kingdom",
+      "journey",
+      "danger",
+      "pride and honor",
+      "master warrior",
+      "superhuman powers",
+      "chase",
+      "coming of age",
+      "warrior",
+      "dragon"
+    ],
+    "time": [
+      "2000s"
+    ],
+    "place": [
+      "asia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26793,
+      "slug": "the-legend-of-korra",
+      "title": "The Legend of Korra",
+      "year": 2012,
+      "rank": 0
+    },
+    {
+      "id": 64619,
+      "slug": "the-dragon-prince",
+      "title": "The Dragon Prince",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 64295,
+      "slug": "she-ra-and-the-princesses-of-power",
+      "title": "She-Ra and the Princesses of Power",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 40770,
+      "slug": "niko-and-the-sword-of-light",
+      "title": "Niko and the Sword of Light",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 705,
+      "slug": "xiaolin-showdown",
+      "title": "Xiaolin Showdown",
+      "year": 2003,
+      "rank": 4
+    },
+    {
+      "id": 449,
+      "slug": "ben-10",
+      "title": "Ben 10",
+      "year": 2005,
+      "rank": 5
+    },
+    {
+      "id": 19054,
+      "slug": "naruto",
+      "title": "Naruto",
+      "year": 2002,
+      "rank": 6
+    },
+    {
+      "id": 26807,
+      "slug": "naruto-shippuden",
+      "title": "Naruto: Shippuden",
+      "year": 2007,
+      "rank": 7
+    },
+    {
+      "id": 67498,
+      "slug": "wakfu",
+      "title": "Wakfu",
+      "year": 2007,
+      "rank": 8
+    },
+    {
+      "id": 1940,
+      "slug": "dragons-riders-of-berk",
+      "title": "DreamWorks Dragons",
+      "year": 2012,
+      "rank": 9
+    },
+    {
+      "id": 9541,
+      "slug": "bleach",
+      "title": "Bleach",
+      "year": 2004,
+      "rank": 10
+    },
+    {
+      "id": 43644,
+      "slug": "trollhunters",
+      "title": "Trollhunters: Tales of Arcadia",
+      "year": 2016,
+      "rank": 11
+    },
+    {
+      "id": 16079,
+      "slug": "jackie-chan-adventures",
+      "title": "Jackie Chan Adventures",
+      "year": 2000,
+      "rank": 12
+    },
+    {
+      "id": 15406,
+      "slug": "how-to-train-your-dragon",
+      "title": "How to Train Your Dragon",
+      "year": 2010,
+      "rank": 13
+    },
+    {
+      "id": 21817,
+      "slug": "samurai-jack",
+      "title": "Samurai Jack",
+      "year": 2001,
+      "rank": 14
+    },
+    {
+      "id": 30018,
+      "slug": "teen-titans",
+      "title": "Teen Titans",
+      "year": 2003,
+      "rank": 15
+    },
+    {
+      "id": 28443,
+      "slug": "steven-universe",
+      "title": "Steven Universe",
+      "year": 2013,
+      "rank": 16
+    },
+    {
+      "id": 3495,
+      "slug": "star-vs-the-forces-of-evil",
+      "title": "Star vs. the Forces of Evil",
+      "year": 2012,
+      "rank": 17
+    },
+    {
+      "id": 57352,
+      "slug": "huntik-secrets-and-seekers",
+      "title": "Huntik: Secrets and Seekers",
+      "year": 2009,
+      "rank": 18
+    },
+    {
+      "id": 62450,
+      "slug": "storm-hawks",
+      "title": "Storm Hawks",
+      "year": 2007,
+      "rank": 19
+    },
+    {
+      "id": 56454,
+      "slug": "chaotic",
+      "title": "Chaotic",
+      "year": 2006,
+      "rank": 20
+    },
+    {
+      "id": 66985,
+      "slug": "kipo-and-the-age-of-wonderbeasts",
+      "title": "Kipo and the Age of Wonderbeasts",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 62454,
+      "slug": "max-steel",
+      "title": "Max Steel",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 802,
+      "slug": "winx-club",
+      "title": "Winx Club",
+      "year": 2004,
+      "rank": 23
+    },
+    {
+      "id": 59138,
+      "slug": "fairy-tail",
+      "title": "Fairy Tail",
+      "year": 2009,
+      "rank": 24
+    },
+    {
+      "id": 74051,
+      "slug": "eon-kid",
+      "title": "Eon Kid",
+      "year": 2007,
+      "rank": 25
+    },
+    {
+      "id": 4855,
+      "slug": "w-i-t-c-h",
+      "title": "W.I.T.C.H.",
+      "year": 2004,
+      "rank": 26
+    },
+    {
+      "id": 4239,
+      "slug": "adventure-time",
+      "title": "Adventure Time",
+      "year": 2010,
+      "rank": 27
+    },
+    {
+      "id": 41822,
+      "slug": "miraculous-tales-of-ladybug-and-cat-noir",
+      "title": "Miraculous: Tales of Ladybug & Cat Noir",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 2735,
+      "slug": "ben-10-ultimate-alien",
+      "title": "Ben 10: Ultimate Alien",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919136
+}

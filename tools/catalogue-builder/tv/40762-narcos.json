@@ -1,0 +1,397 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/40762-narcos",
+  "id": 40762,
+  "slug": "narcos",
+  "title": "Narcos",
+  "year": 2015,
+  "rating": 8.7,
+  "votes_text": "521K",
+  "votes": 521000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/50/40762.jpg",
+  "genres": [
+    "Biography",
+    "Crime",
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "USA",
+    "Colombia"
+  ],
+  "duration_min": 50,
+  "story": "The true story of Colombia's infamously violent and powerful drug cartels.",
+  "tags": [
+    {
+      "id": 14502,
+      "slug": "colombia",
+      "name": "Colombia",
+      "film_count": 236
+    },
+    {
+      "id": 26279,
+      "slug": "drug-cartel",
+      "name": "Drug cartel",
+      "film_count": 358
+    },
+    {
+      "id": 2821,
+      "slug": "drug-dealer",
+      "name": "Drug dealer",
+      "film_count": 1870
+    },
+    {
+      "id": 61094,
+      "slug": "cartel",
+      "name": "Cartel",
+      "film_count": 166
+    },
+    {
+      "id": 6222,
+      "slug": "drug-dealing",
+      "name": "Drug dealing",
+      "film_count": 1460
+    },
+    {
+      "id": 5881,
+      "slug": "drug-lord",
+      "name": "Drug lord",
+      "film_count": 591
+    },
+    {
+      "id": 123410,
+      "slug": "rise-to-the-top",
+      "name": "Rise to the top",
+      "film_count": 885
+    },
+    {
+      "id": 1566,
+      "slug": "based-on-true-story",
+      "name": "Based on true story",
+      "film_count": 8531
+    },
+    {
+      "id": 123350,
+      "slug": "criminal-heroes",
+      "name": "Criminal heroes",
+      "film_count": 2481
+    },
+    {
+      "id": 5429,
+      "slug": "cia",
+      "name": "Cia",
+      "film_count": 859
+    },
+    {
+      "id": 162,
+      "slug": "cold-war",
+      "name": "Cold war",
+      "film_count": 1113
+    },
+    {
+      "id": 8320,
+      "slug": "president",
+      "name": "President",
+      "film_count": 856
+    },
+    {
+      "id": 818,
+      "slug": "brutality",
+      "name": "Brutality",
+      "film_count": 11304
+    },
+    {
+      "id": 4042,
+      "slug": "cocaine",
+      "name": "Cocaine",
+      "film_count": 1441
+    },
+    {
+      "id": 1054,
+      "slug": "organized-crime",
+      "name": "Organized crime",
+      "film_count": 3969
+    },
+    {
+      "id": 3968,
+      "slug": "terrorism",
+      "name": "Terrorism",
+      "film_count": 2522
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "serious",
+      "realistic",
+      "rough",
+      "erotic",
+      "sensual",
+      "bleak",
+      "political",
+      "neo noir",
+      "exciting",
+      "retro"
+    ],
+    "audience": [
+      "boys' night",
+      "teens"
+    ],
+    "plot": [
+      "drug cartel",
+      "drug dealer",
+      "cartel",
+      "drug dealing",
+      "drug lord",
+      "rise to the top",
+      "master criminal",
+      "sex",
+      "cia agent",
+      "illegal drugs",
+      "dea",
+      "drug",
+      "money",
+      "gangster",
+      "politics",
+      "hitman",
+      "smuggling",
+      "colombian drug cartel",
+      "criminal heroes",
+      "cia",
+      "cold war",
+      "president",
+      "brutality",
+      "cocaine",
+      "organized crime"
+    ],
+    "time": [
+      "80s",
+      "2010s",
+      "90s",
+      "70s",
+      "20th century",
+      "1990s"
+    ],
+    "place": [
+      "colombia",
+      "south america",
+      "latin america",
+      "mexico",
+      "panama",
+      "spain",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64352,
+      "slug": "narcos-mexico",
+      "title": "Narcos: Mexico",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 41259,
+      "slug": "pablo-escobar-the-drug-lord",
+      "title": "Pablo Escobar, The Drug Lord",
+      "year": 2012,
+      "rank": 1
+    },
+    {
+      "id": 38515,
+      "slug": "american-made",
+      "title": "American Made",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 26292,
+      "slug": "breaking-bad",
+      "title": "Breaking Bad",
+      "year": 2008,
+      "rank": 3
+    },
+    {
+      "id": 27543,
+      "slug": "escobar-paradise-lost",
+      "title": "Escobar: Paradise Lost",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 64153,
+      "slug": "snowfall",
+      "title": "Snowfall",
+      "year": 2017,
+      "rank": 5
+    },
+    {
+      "id": 9658,
+      "slug": "blow",
+      "title": "Blow",
+      "year": 2001,
+      "rank": 6
+    },
+    {
+      "id": 60787,
+      "slug": "queen-of-the-south",
+      "title": "Queen of the South",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 61579,
+      "slug": "el-chapo",
+      "title": "El Chapo",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 67932,
+      "slug": "zerozerozero",
+      "title": "ZeroZeroZero",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 14322,
+      "slug": "goodfellas",
+      "title": "Goodfellas",
+      "year": 1990,
+      "rank": 10
+    },
+    {
+      "id": 28539,
+      "slug": "power",
+      "title": "Power",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 2114,
+      "slug": "romanzo-criminale",
+      "title": "Crime novel - The series",
+      "year": 2008,
+      "rank": 12
+    },
+    {
+      "id": 62492,
+      "slug": "the-snitch-cartel",
+      "title": "The Snitch Cartel",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 21929,
+      "slug": "scarface",
+      "title": "Scarface",
+      "year": 1983,
+      "rank": 14
+    },
+    {
+      "id": 56693,
+      "slug": "the-lord-of-the-skies",
+      "title": "The Lord of the Skies",
+      "year": 2013,
+      "rank": 15
+    },
+    {
+      "id": 73220,
+      "slug": "the-snitch-cartel-origins",
+      "title": "The Snitch Cartel: Origins",
+      "year": 2021,
+      "rank": 16
+    },
+    {
+      "id": 65245,
+      "slug": "cocaine-coast",
+      "title": "Cocaine Coast",
+      "year": 2018,
+      "rank": 17
+    },
+    {
+      "id": 7333,
+      "slug": "corleone",
+      "title": "Corleone",
+      "year": 2007,
+      "rank": 18
+    },
+    {
+      "id": 34235,
+      "slug": "the-preacher",
+      "title": "The Preacher",
+      "year": 2004,
+      "rank": 19
+    },
+    {
+      "id": 1078,
+      "slug": "black-mass",
+      "title": "Black Mass",
+      "year": 2015,
+      "rank": 20
+    },
+    {
+      "id": 8303,
+      "slug": "american-gangster",
+      "title": "American Gangster",
+      "year": 2007,
+      "rank": 21
+    },
+    {
+      "id": 6063,
+      "slug": "fargo",
+      "title": "Fargo",
+      "year": 2014,
+      "rank": 22
+    },
+    {
+      "id": 69341,
+      "slug": "la-reina-del-sur",
+      "title": "La Reina del Sur",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 26925,
+      "slug": "the-wire",
+      "title": "The Wire",
+      "year": 2002,
+      "rank": 24
+    },
+    {
+      "id": 26845,
+      "slug": "boardwalk-empire",
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "rank": 25
+    },
+    {
+      "id": 22956,
+      "slug": "the-sopranos",
+      "title": "The Sopranos",
+      "year": 1999,
+      "rank": 26
+    },
+    {
+      "id": 60717,
+      "slug": "sicario-day-of-the-soldado",
+      "title": "Sicario: Day of the Soldado",
+      "year": 2018,
+      "rank": 27
+    },
+    {
+      "id": 24346,
+      "slug": "training-day",
+      "title": "Training Day",
+      "year": 2001,
+      "rank": 28
+    },
+    {
+      "id": 24476,
+      "slug": "elite-squad-the-enemy-within",
+      "title": "Elite Squad 2: The Enemy Within",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919157
+}

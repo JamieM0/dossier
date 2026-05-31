@@ -1,0 +1,392 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/4123-regular-show-in-space",
+  "id": 4123,
+  "slug": "regular-show-in-space",
+  "title": "Regular Show",
+  "year": 2010,
+  "rating": 8.6,
+  "votes_text": "72K",
+  "votes": 72000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/fb/4123.jpg",
+  "genres": [
+    "Animation",
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Fantasy",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 23,
+  "story": "Regular Show is an American animated television series created by J. G. Quintel for Cartoon Network that premiered on September 6, 2010. The series revolves around the lives of two friends, a Blue Jay named Mordecai and a raccoon named Rigby —both employed as groundskeepers at a local park. Their regular attempts to slack off usually lead to surreal, extreme and often supernatural misadventures. During these misadventures, they interact with the show's other main characters: Benson, Pops, Muscle Man, Hi-Five Ghost, Skips and Margaret. Many of Regulars Show's characters are loosely based on those developed for Quintel's student films at California Institute of the Arts: The Naive Man from Lolliland and 2 in the AM PM. Quintel pitched Regular Show for Cartoon Network's Cartoonstitute project, in which the network allowed young artists to create pilots with no notes, which would possibly be optioned as shows. The project was green-lit and it premiered on September 6, 2010. The show is inspired by some British television series and video games. Episodes are produced using storyboarding and hand-drawn animation, and each episode takes roughly nine months to create. Quintel recruited several independent comic book artists to draw the show's aminated elements; their style matched closely Quintel's ideas for the series. The show's soundtrack comprises original music composed by Mark Mothersbaugh and licensed songs.",
+  "tags": [
+    {
+      "id": 11012,
+      "slug": "slacker",
+      "name": "Slacker",
+      "film_count": 593
+    },
+    {
+      "id": 506,
+      "slug": "boss",
+      "name": "Boss",
+      "film_count": 1342
+    },
+    {
+      "id": 28168,
+      "slug": "giant-bird",
+      "name": "Giant bird",
+      "film_count": 61
+    },
+    {
+      "id": 123569,
+      "slug": "coworker",
+      "name": "Coworker",
+      "film_count": 1306
+    },
+    {
+      "id": 40915,
+      "slug": "disorder",
+      "name": "Disorder",
+      "film_count": 8159
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 123656,
+      "slug": "irresponsible",
+      "name": "Irresponsible",
+      "film_count": 202
+    },
+    {
+      "id": 123952,
+      "slug": "pre-teens",
+      "name": "Pre-teens",
+      "film_count": 2248
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 853,
+      "slug": "adult-humor",
+      "name": "Adult humor",
+      "film_count": 624
+    },
+    {
+      "id": 52589,
+      "slug": "mishap",
+      "name": "Mishap",
+      "film_count": 419
+    },
+    {
+      "id": 1453,
+      "slug": "ghost",
+      "name": "Ghost",
+      "film_count": 5860
+    },
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 14540,
+      "slug": "parallel-universe",
+      "name": "Parallel universe",
+      "film_count": 1470
+    },
+    {
+      "id": 141212,
+      "slug": "mature",
+      "name": "Mature",
+      "film_count": 2561
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "not serious",
+      "adult animation",
+      "humorous",
+      "adult cartoon",
+      "sitcom",
+      "cult classic",
+      "retro",
+      "absurd",
+      "buddy comedy",
+      "black comedy"
+    ],
+    "audience": [
+      "pre-teens",
+      "kids",
+      "teens",
+      "family friendly",
+      "adult"
+    ],
+    "plot": [
+      "slacker",
+      "boss",
+      "giant bird",
+      "coworker",
+      "disorder",
+      "workplace",
+      "irresponsible",
+      "friendship",
+      "anthropomorphism",
+      "friends",
+      "workplace situations",
+      "creature",
+      "apocalypse",
+      "manager",
+      "absurd humor",
+      "time travel",
+      "partner",
+      "buddies",
+      "bird",
+      "escapades",
+      "adult humor",
+      "mishap",
+      "ghost",
+      "dark humor",
+      "parallel universe"
+    ],
+    "time": [
+      "21st century"
+    ],
+    "place": [
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 68947,
+      "slug": "regular-show-the-movie",
+      "title": "Regular Show: The Movie",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 64630,
+      "slug": "close-enough",
+      "title": "Close Enough",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 686,
+      "slug": "the-amazing-world-of-gumball",
+      "title": "The Amazing World of Gumball",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 68769,
+      "slug": "adventure-time-distant-lands",
+      "title": "Adventure Time: Distant Lands",
+      "year": 2020,
+      "rank": 3
+    },
+    {
+      "id": 4239,
+      "slug": "adventure-time",
+      "title": "Adventure Time",
+      "year": 2010,
+      "rank": 4
+    },
+    {
+      "id": 13891,
+      "slug": "futurama",
+      "title": "Futurama",
+      "year": 1999,
+      "rank": 5
+    },
+    {
+      "id": 4598,
+      "slug": "sanjay-and-craig",
+      "title": "Sanjay and Craig",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 23090,
+      "slug": "spongebob-squarepants",
+      "title": "SpongeBob SquarePants",
+      "year": 1999,
+      "rank": 7
+    },
+    {
+      "id": 27262,
+      "slug": "the-penguins-of-madagascar",
+      "title": "The Penguins of Madagascar",
+      "year": 2008,
+      "rank": 8
+    },
+    {
+      "id": 1304,
+      "slug": "the-marvelous-misadventures-of-flapjack",
+      "title": "The Marvelous Misadventures of Flapjack",
+      "year": 2008,
+      "rank": 9
+    },
+    {
+      "id": 5108,
+      "slug": "ugly-americans",
+      "title": "Ugly Americans",
+      "year": 2010,
+      "rank": 10
+    },
+    {
+      "id": 68006,
+      "slug": "the-midnight-gospel",
+      "title": "The Midnight Gospel",
+      "year": 2020,
+      "rank": 11
+    },
+    {
+      "id": 42772,
+      "slug": "we-bare-bears",
+      "title": "We Bare Bears",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 6334,
+      "slug": "ren-and-stimpy-adult-party-cartoon",
+      "title": "Ren & Stimpy Adult Party Cartoon",
+      "year": 2003,
+      "rank": 13
+    },
+    {
+      "id": 61756,
+      "slug": "disenchantment",
+      "title": "Disenchantment",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 56797,
+      "slug": "uncle-grandpa",
+      "title": "Uncle Grandpa",
+      "year": 2010,
+      "rank": 15
+    },
+    {
+      "id": 27134,
+      "slug": "phineas-and-ferb",
+      "title": "Phineas and Ferb",
+      "year": 2007,
+      "rank": 16
+    },
+    {
+      "id": 61027,
+      "slug": "all-hail-king-julien",
+      "title": "All Hail King Julien",
+      "year": 2014,
+      "rank": 17
+    },
+    {
+      "id": 56595,
+      "slug": "rick-and-morty",
+      "title": "Rick and Morty",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 64697,
+      "slug": "pickle-and-peanut",
+      "title": "Pickle & Peanut",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 30003,
+      "slug": "courage-the-cowardly-dog",
+      "title": "Courage the Cowardly Dog",
+      "year": 1999,
+      "rank": 20
+    },
+    {
+      "id": 29867,
+      "slug": "the-grim-adventures-of-billy-and-mandy",
+      "title": "The Grim Adventures of Billy & Mandy",
+      "year": 2003,
+      "rank": 21
+    },
+    {
+      "id": 35445,
+      "slug": "stone-quackers",
+      "title": "Stone Quackers",
+      "year": 2014,
+      "rank": 22
+    },
+    {
+      "id": 30393,
+      "slug": "clerks",
+      "title": "Clerks",
+      "year": 2000,
+      "rank": 23
+    },
+    {
+      "id": 3923,
+      "slug": "gravity-falls",
+      "title": "Gravity Falls",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 21817,
+      "slug": "samurai-jack",
+      "title": "Samurai Jack",
+      "year": 2001,
+      "rank": 25
+    },
+    {
+      "id": 30201,
+      "slug": "sealab-2021",
+      "title": "Sealab 2021",
+      "year": 2000,
+      "rank": 26
+    },
+    {
+      "id": 21499,
+      "slug": "robot-chicken",
+      "title": "Robot Chicken",
+      "year": 2005,
+      "rank": 27
+    },
+    {
+      "id": 82237,
+      "slug": "the-high-fructose-adventures-of-annoying-orange",
+      "title": "The High Fructose Adventures of Annoying Orange",
+      "year": 2012,
+      "rank": 28
+    },
+    {
+      "id": 30417,
+      "slug": "aqua-teen-hunger-force",
+      "title": "Aqua Teen Hunger Force",
+      "year": 2000,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919132
+}

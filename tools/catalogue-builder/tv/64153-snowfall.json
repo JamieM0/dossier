@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64153-snowfall",
+  "id": 64153,
+  "slug": "snowfall",
+  "title": "Snowfall",
+  "year": 2017,
+  "rating": 8.5,
+  "votes_text": "46K",
+  "votes": 46000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/c3/64153.jpg",
+  "genres": [
+    "Crime",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Los Angeles. 1983. A storm is coming and it's name is crack. Set against the infancy of the crack cocaine epidemic and its ultimate radical impact on the culture as we know it, the story follows numerous characters on a violent collision course.",
+  "tags": [
+    {
+      "id": 2821,
+      "slug": "drug-dealer",
+      "name": "Drug dealer",
+      "film_count": 1870
+    },
+    {
+      "id": 737,
+      "slug": "african-american",
+      "name": "African american",
+      "film_count": 3714
+    },
+    {
+      "id": 39964,
+      "slug": "drug-crime",
+      "name": "Drug crime",
+      "film_count": 339
+    },
+    {
+      "id": 21765,
+      "slug": "dea",
+      "name": "Dea",
+      "film_count": 84
+    },
+    {
+      "id": 9508,
+      "slug": "ghetto",
+      "name": "Ghetto",
+      "film_count": 996
+    },
+    {
+      "id": 37718,
+      "slug": "80s",
+      "name": "80s",
+      "film_count": 7238
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 4638,
+      "slug": "drug",
+      "name": "Drug",
+      "film_count": 4645
+    },
+    {
+      "id": 4168,
+      "slug": "2020s",
+      "name": "2020s",
+      "film_count": 2869
+    },
+    {
+      "id": 12565,
+      "slug": "inspired-by-true-events",
+      "name": "Inspired by true events",
+      "film_count": 632
+    },
+    {
+      "id": 121664,
+      "slug": "dark-drama",
+      "name": "Dark drama",
+      "film_count": 372
+    },
+    {
+      "id": 88302,
+      "slug": "inspirational",
+      "name": "Inspirational",
+      "film_count": 5426
+    },
+    {
+      "id": 124058,
+      "slug": "depressing",
+      "name": "Depressing",
+      "film_count": 2019
+    },
+    {
+      "id": 5067,
+      "slug": "drug-abuse",
+      "name": "Drug abuse",
+      "film_count": 1566
+    },
+    {
+      "id": 11676,
+      "slug": "angry",
+      "name": "Angry",
+      "film_count": 528
+    },
+    {
+      "id": 17345,
+      "slug": "urban-decay",
+      "name": "Urban decay",
+      "film_count": 1079
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sexy",
+      "dark drama",
+      "inspirational",
+      "depressing",
+      "psychological thriller",
+      "realistic",
+      "rough",
+      "cynical",
+      "bleak",
+      "hispanic"
+    ],
+    "audience": [
+      "boys' night"
+    ],
+    "plot": [
+      "drug dealer",
+      "african american",
+      "drug crime",
+      "dea",
+      "ghetto",
+      "drug",
+      "illegal drugs",
+      "urban",
+      "u.s. government",
+      "black",
+      "latinx lead",
+      "gangster",
+      "spy",
+      "obsession",
+      "criminal",
+      "addiction",
+      "mossad",
+      "black cast",
+      "couples",
+      "coming of age",
+      "drug abuse",
+      "angry",
+      "urban decay",
+      "drug dealing",
+      "cia"
+    ],
+    "time": [
+      "80s",
+      "2020s",
+      "year 1983"
+    ],
+    "place": [
+      "usa",
+      "los angeles",
+      "central america",
+      "california",
+      "nicaragua",
+      "south central los angeles",
+      "united states of america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 28539,
+      "slug": "power",
+      "title": "Power",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 26292,
+      "slug": "breaking-bad",
+      "title": "Breaking Bad",
+      "year": 2008,
+      "rank": 1
+    },
+    {
+      "id": 40762,
+      "slug": "narcos",
+      "title": "Narcos",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 67932,
+      "slug": "zerozerozero",
+      "title": "ZeroZeroZero",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 65442,
+      "slug": "top-boy",
+      "title": "Top Boy",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 22956,
+      "slug": "the-sopranos",
+      "title": "The Sopranos",
+      "year": 1999,
+      "rank": 5
+    },
+    {
+      "id": 64352,
+      "slug": "narcos-mexico",
+      "title": "Narcos: Mexico",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 65245,
+      "slug": "cocaine-coast",
+      "title": "Cocaine Coast",
+      "year": 2018,
+      "rank": 7
+    },
+    {
+      "id": 19964,
+      "slug": "paid-in-full",
+      "title": "Paid in Full",
+      "year": 2002,
+      "rank": 8
+    },
+    {
+      "id": 62848,
+      "slug": "the-corner",
+      "title": "The Corner",
+      "year": 2000,
+      "rank": 9
+    },
+    {
+      "id": 25455,
+      "slug": "weeds",
+      "title": "Weeds",
+      "year": 2005,
+      "rank": 10
+    },
+    {
+      "id": 36543,
+      "slug": "shottas",
+      "title": "Shottas",
+      "year": 2002,
+      "rank": 11
+    },
+    {
+      "id": 63664,
+      "slug": "public-morals",
+      "title": "Public Morals",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 21929,
+      "slug": "scarface",
+      "title": "Scarface",
+      "year": 1983,
+      "rank": 13
+    },
+    {
+      "id": 61579,
+      "slug": "el-chapo",
+      "title": "El Chapo",
+      "year": 2017,
+      "rank": 14
+    },
+    {
+      "id": 66419,
+      "slug": "blinded-by-the-lights",
+      "title": "Blinded by the Lights",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 62829,
+      "slug": "blue-hill-avenue",
+      "title": "Blue Hill Avenue",
+      "year": 2001,
+      "rank": 16
+    },
+    {
+      "id": 56434,
+      "slug": "graceland",
+      "title": "Graceland",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 30251,
+      "slug": "traffik",
+      "title": "Traffik",
+      "year": 1989,
+      "rank": 18
+    },
+    {
+      "id": 12460,
+      "slug": "dragnet",
+      "title": "L.A. Dragnet",
+      "year": 2003,
+      "rank": 19
+    },
+    {
+      "id": 82831,
+      "slug": "underbelly-nz-land-of-the-long-green-cloud",
+      "title": "Underbelly NZ: Land of the Long Green Cloud",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 91284,
+      "slug": "la-viuda-negra",
+      "title": "La Viuda Negra",
+      "year": 2014,
+      "rank": 21
+    },
+    {
+      "id": 99332,
+      "slug": "tar-pit",
+      "title": "Tar Pit",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 92026,
+      "slug": "ranchero",
+      "title": "Ranchero",
+      "year": 2008,
+      "rank": 23
+    },
+    {
+      "id": 73220,
+      "slug": "the-snitch-cartel-origins",
+      "title": "The Snitch Cartel: Origins",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 96847,
+      "slug": "drug-lords-the-takedown",
+      "title": "Drug Lords: The Takedown",
+      "year": 2023,
+      "rank": 25
+    },
+    {
+      "id": 85392,
+      "slug": "cannabis",
+      "title": "Cannabis",
+      "year": 2016,
+      "rank": 26
+    },
+    {
+      "id": 69846,
+      "slug": "narco-sub",
+      "title": "Narco Sub",
+      "year": 2021,
+      "rank": 27
+    },
+    {
+      "id": 85106,
+      "slug": "natural-born-narco",
+      "title": "Natural Born Narco",
+      "year": 2022,
+      "rank": 28
+    },
+    {
+      "id": 9235,
+      "slug": "belly",
+      "title": "Belly",
+      "year": 1998,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919168
+}

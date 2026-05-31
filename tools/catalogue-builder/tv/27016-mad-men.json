@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/27016-mad-men",
+  "id": 27016,
+  "slug": "mad-men",
+  "title": "Mad Men",
+  "year": 2007,
+  "rating": 8.7,
+  "votes_text": "286K",
+  "votes": 286000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/34/27016.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Mad Men is set in the 1960s, initially at the fictional Sterling Cooper advertising agency on Madison Avenue in New York City, and later at the newly created firm, Sterling Cooper Draper Pryce, located nearby in the Time-Life Building, at 1271 Avenue of the Americas. According to the show's pilot, the phrase \"mad men\" was a slang term coined in the 1950s by advertisers working on Madison Avenue to refer to themselves. The focal point of the series is Don Draper, creative director at Sterling Cooper and a founding partner at Sterling Cooper Draper Pryce, and the people in his life, both in and out of the office. The plot focuses on the business of the agencies as well as the personal lives of the characters, regularly depicting the changing moods and social mores of the United States in the 1960s.",
+  "tags": [
+    {
+      "id": 5358,
+      "slug": "advertising",
+      "name": "Advertising",
+      "film_count": 460
+    },
+    {
+      "id": 123489,
+      "slug": "60s",
+      "name": "60s",
+      "film_count": 4083
+    },
+    {
+      "id": 4165,
+      "slug": "new-york",
+      "name": "New york",
+      "film_count": 5521
+    },
+    {
+      "id": 8530,
+      "slug": "career",
+      "name": "Career",
+      "film_count": 919
+    },
+    {
+      "id": 123418,
+      "slug": "boss-and-employee",
+      "name": "Boss and employee",
+      "film_count": 701
+    },
+    {
+      "id": 49648,
+      "slug": "family-problems",
+      "name": "Family problems",
+      "film_count": 7225
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 9388,
+      "slug": "housewife",
+      "name": "Housewife",
+      "film_count": 511
+    },
+    {
+      "id": 175,
+      "slug": "marriage",
+      "name": "Marriage",
+      "film_count": 6801
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 10062,
+      "slug": "period-piece",
+      "name": "Period piece",
+      "film_count": 6298
+    },
+    {
+      "id": 22763,
+      "slug": "costume-drama",
+      "name": "Costume drama",
+      "film_count": 1839
+    },
+    {
+      "id": 1264,
+      "slug": "dark",
+      "name": "Dark",
+      "film_count": 10440
+    },
+    {
+      "id": 1007,
+      "slug": "secretary",
+      "name": "Secretary",
+      "film_count": 1115
+    },
+    {
+      "id": 1179,
+      "slug": "adultery",
+      "name": "Adultery",
+      "film_count": 4586
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "atmospheric",
+      "sexy",
+      "captivating",
+      "period piece",
+      "costume drama",
+      "dark",
+      "exciting",
+      "retro",
+      "thought provoking",
+      "touching"
+    ],
+    "audience": [
+      "boys' night",
+      "teens",
+      "teen drama"
+    ],
+    "plot": [
+      "advertising",
+      "career",
+      "boss and employee",
+      "family problems",
+      "workplace",
+      "housewife",
+      "womanizer",
+      "advertising agency",
+      "workplace intrigue",
+      "career woman",
+      "drinking",
+      "ambitious",
+      "father daughter relationship",
+      "marketing",
+      "false identity",
+      "office",
+      "crumbling marriage",
+      "businessman",
+      "lifestyle",
+      "marriage",
+      "secretary",
+      "adultery",
+      "feminist",
+      "american history",
+      "hot and sexy"
+    ],
+    "time": [
+      "60s",
+      "year 2007",
+      "2010s",
+      "20th century",
+      "2000s",
+      "1960s",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "usa",
+      "syria"
+    ]
+  },
+  "similar": [
+    {
+      "id": 60607,
+      "slug": "the-affair",
+      "title": "The Affair",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 29811,
+      "slug": "pan-am",
+      "title": "Pan Am",
+      "year": 2011,
+      "rank": 1
+    },
+    {
+      "id": 2187,
+      "slug": "house-of-cards",
+      "title": "House of Cards",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 27396,
+      "slug": "halt-and-catch-fire",
+      "title": "Halt and Catch Fire",
+      "year": 2014,
+      "rank": 3
+    },
+    {
+      "id": 597,
+      "slug": "suits",
+      "title": "Suits",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 63691,
+      "slug": "the-hour",
+      "title": "The Hour",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 57868,
+      "slug": "billions",
+      "title": "Billions",
+      "year": 2016,
+      "rank": 6
+    },
+    {
+      "id": 1110,
+      "slug": "magic-city",
+      "title": "Magic City",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 30308,
+      "slug": "dirty-sexy-money",
+      "title": "Dirty Sexy Money",
+      "year": 2007,
+      "rank": 8
+    },
+    {
+      "id": 4022,
+      "slug": "scandal",
+      "title": "Scandal",
+      "year": 2012,
+      "rank": 9
+    },
+    {
+      "id": 19350,
+      "slug": "nip-tuck",
+      "title": "Nip/Tuck",
+      "year": 2003,
+      "rank": 10
+    },
+    {
+      "id": 57088,
+      "slug": "satisfaction",
+      "title": "Satisfaction",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 68416,
+      "slug": "good-girls-revolt",
+      "title": "Good Girls Revolt",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 1758,
+      "slug": "the-deep-end",
+      "title": "The Deep End",
+      "year": 2010,
+      "rank": 13
+    },
+    {
+      "id": 36906,
+      "slug": "the-girlfriend-experience",
+      "title": "The Girlfriend Experience",
+      "year": 2016,
+      "rank": 14
+    },
+    {
+      "id": 2642,
+      "slug": "masters-of-sex",
+      "title": "Masters of Sex",
+      "year": 2013,
+      "rank": 15
+    },
+    {
+      "id": 4016,
+      "slug": "the-newsroom",
+      "title": "The Newsroom",
+      "year": 2012,
+      "rank": 16
+    },
+    {
+      "id": 62398,
+      "slug": "trust-me",
+      "title": "Trust Me",
+      "year": 2009,
+      "rank": 17
+    },
+    {
+      "id": 63842,
+      "slug": "the-slap",
+      "title": "The Slap",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 65874,
+      "slug": "the-morning-show",
+      "title": "The Morning Show",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 1635,
+      "slug": "cashmere-mafia",
+      "title": "Cashmere Mafia",
+      "year": 2008,
+      "rank": 20
+    },
+    {
+      "id": 3907,
+      "slug": "strong-medicine",
+      "title": "Strong Medicine",
+      "year": 2000,
+      "rank": 21
+    },
+    {
+      "id": 63919,
+      "slug": "ordinary-lies",
+      "title": "Ordinary Lies",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 593,
+      "slug": "the-treet",
+      "title": "The $treet",
+      "year": 2000,
+      "rank": 23
+    },
+    {
+      "id": 37443,
+      "slug": "faces",
+      "title": "Faces",
+      "year": 1968,
+      "rank": 24
+    },
+    {
+      "id": 62269,
+      "slug": "six-degrees",
+      "title": "Six Degrees",
+      "year": 2006,
+      "rank": 25
+    },
+    {
+      "id": 2175,
+      "slug": "boss",
+      "title": "Boss",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 62345,
+      "slug": "lucky-7",
+      "title": "Lucky 7",
+      "year": 2013,
+      "rank": 27
+    },
+    {
+      "id": 15639,
+      "slug": "ill-take-manhattan",
+      "title": "I'll Take Manhattan",
+      "year": 1987,
+      "rank": 28
+    },
+    {
+      "id": 58254,
+      "slug": "the-marvelous-mrs-maisel",
+      "title": "The Marvelous Mrs. Maisel",
+      "year": 2017,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919151
+}

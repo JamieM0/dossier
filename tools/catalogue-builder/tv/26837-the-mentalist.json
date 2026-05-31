@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26837-the-mentalist",
+  "id": 26837,
+  "slug": "the-mentalist",
+  "title": "The Mentalist",
+  "year": 2008,
+  "rating": 8.2,
+  "votes_text": "221K",
+  "votes": 221000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/2f/26837.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 43,
+  "story": "Patrick Jane, a former celebrity psychic medium, uses his razor sharp skills of observation and expertise at \"reading\" people to solve serious crimes with the California Bureau of Investigation.",
+  "tags": [
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 123375,
+      "slug": "partners-against-crime",
+      "name": "Partners against crime",
+      "film_count": 1465
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 40621,
+      "slug": "fighting-crime",
+      "name": "Fighting crime",
+      "film_count": 2118
+    },
+    {
+      "id": 3042,
+      "slug": "police-investigation",
+      "name": "Police investigation",
+      "film_count": 8669
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 4089,
+      "slug": "murderer",
+      "name": "Murderer",
+      "film_count": 4578
+    },
+    {
+      "id": 23944,
+      "slug": "weirdo",
+      "name": "Weirdo",
+      "film_count": 1151
+    },
+    {
+      "id": 4196,
+      "slug": "private-detective",
+      "name": "Private detective",
+      "film_count": 1354
+    },
+    {
+      "id": 63444,
+      "slug": "law-enforcer",
+      "name": "Law enforcer",
+      "film_count": 350
+    },
+    {
+      "id": 187505,
+      "slug": "criminal-psychology",
+      "name": "Criminal psychology",
+      "film_count": 96
+    },
+    {
+      "id": 436,
+      "slug": "death",
+      "name": "Death",
+      "film_count": 18858
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "intellectual",
+      "serious",
+      "suspenseful",
+      "suspense",
+      "cerebral",
+      "realistic",
+      "thrilling",
+      "surprise ending",
+      "philosophical"
+    ],
+    "audience": [
+      "teens",
+      "adult"
+    ],
+    "plot": [
+      "serial killer",
+      "partners against crime",
+      "investigation",
+      "fighting crime",
+      "police investigation",
+      "murder",
+      "police",
+      "law enforcement",
+      "danger",
+      "talented",
+      "outsmarting",
+      "justice",
+      "vengeance",
+      "who done it",
+      "crime solving",
+      "coworker",
+      "psychic",
+      "genius",
+      "twists and turns",
+      "policewoman",
+      "deception",
+      "female detective",
+      "investigator",
+      "murderer",
+      "weirdo"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "future",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "california",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26991,
+      "slug": "lie-to-me",
+      "title": "Lie to Me",
+      "year": 2009,
+      "rank": 0
+    },
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 1
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 63004,
+      "slug": "perception",
+      "title": "Perception",
+      "year": 2012,
+      "rank": 3
+    },
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 4
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 5
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 68427,
+      "slug": "deception",
+      "title": "Deception",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 30524,
+      "slug": "psych",
+      "title": "Psych",
+      "year": 2006,
+      "rank": 10
+    },
+    {
+      "id": 30493,
+      "slug": "life",
+      "title": "Life",
+      "year": 2007,
+      "rank": 11
+    },
+    {
+      "id": 19527,
+      "slug": "numb3rs",
+      "title": "Numb3rs",
+      "year": 2005,
+      "rank": 12
+    },
+    {
+      "id": 56568,
+      "slug": "unforgettable",
+      "title": "Unforgettable",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 14
+    },
+    {
+      "id": 30205,
+      "slug": "without-a-trace",
+      "title": "Without a Trace",
+      "year": 2002,
+      "rank": 15
+    },
+    {
+      "id": 30172,
+      "slug": "the-closer",
+      "title": "The Closer",
+      "year": 2005,
+      "rank": 16
+    },
+    {
+      "id": 542,
+      "slug": "hannibal",
+      "title": "Hannibal",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 26973,
+      "slug": "hawaii-five-0",
+      "title": "Hawaii Five-0",
+      "year": 2010,
+      "rank": 18
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 19
+    },
+    {
+      "id": 19084,
+      "slug": "ncis",
+      "title": "NCIS",
+      "year": 2003,
+      "rank": 20
+    },
+    {
+      "id": 11446,
+      "slug": "csi-crime-scene-investigation",
+      "title": "CSI: Crime Scene Investigation",
+      "year": 2000,
+      "rank": 21
+    },
+    {
+      "id": 66498,
+      "slug": "lincoln-rhyme-hunt-for-the-bone-collector",
+      "title": "Lincoln Rhyme: Hunt for the Bone Collector",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 27275,
+      "slug": "forever",
+      "title": "Forever",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 30526,
+      "slug": "monk",
+      "title": "Monk",
+      "year": 2002,
+      "rank": 24
+    },
+    {
+      "id": 66836,
+      "slug": "fbi",
+      "title": "FBI",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 6684,
+      "slug": "endgame",
+      "title": "Endgame",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 64244,
+      "slug": "the-rookie",
+      "title": "The Rookie",
+      "year": 2018,
+      "rank": 27
+    },
+    {
+      "id": 30316,
+      "slug": "cold-case",
+      "title": "Cold Case",
+      "year": 2003,
+      "rank": 28
+    },
+    {
+      "id": 307,
+      "slug": "major-crimes",
+      "title": "Major Crimes",
+      "year": 2012,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919149
+}

@@ -1,0 +1,381 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/41815-the-magicians",
+  "id": 41815,
+  "slug": "the-magicians",
+  "title": "The Magicians",
+  "year": 2015,
+  "rating": 7.6,
+  "votes_text": "60K",
+  "votes": 60000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/dd/41815.jpg",
+  "genres": [
+    "Drama",
+    "Fantasy",
+    "Mystery"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Brakebills University is a secret institution specializing in magic. There, amidst an unorthodox education of spellcasting, a group of twenty-something friends soon discover that a magical fantasy world they read about as children is all too real— and poses grave danger to humanity.",
+  "tags": [
+    {
+      "id": 2338,
+      "slug": "magic",
+      "name": "Magic",
+      "film_count": 4761
+    },
+    {
+      "id": 10307,
+      "slug": "fantasy-world",
+      "name": "Fantasy world",
+      "film_count": 7231
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 2551,
+      "slug": "magician",
+      "name": "Magician",
+      "film_count": 913
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 3089,
+      "slug": "supernatural-power",
+      "name": "Supernatural power",
+      "film_count": 6202
+    },
+    {
+      "id": 123841,
+      "slug": "wizards-and-magicians",
+      "name": "Wizards and magicians",
+      "film_count": 1179
+    },
+    {
+      "id": 18240,
+      "slug": "magic-spell",
+      "name": "Magic spell",
+      "film_count": 223
+    },
+    {
+      "id": 123337,
+      "slug": "love-and-romance",
+      "name": "Love and romance",
+      "film_count": 17340
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 4763,
+      "slug": "bisexual",
+      "name": "Bisexual",
+      "film_count": 1481
+    },
+    {
+      "id": 4783,
+      "slug": "crush",
+      "name": "Crush",
+      "film_count": 937
+    },
+    {
+      "id": 15200,
+      "slug": "society",
+      "name": "Society",
+      "film_count": 13923
+    },
+    {
+      "id": 187,
+      "slug": "king",
+      "name": "King",
+      "film_count": 1292
+    },
+    {
+      "id": 15557,
+      "slug": "lgbtq",
+      "name": "Lgbtq",
+      "film_count": 3701
+    },
+    {
+      "id": 3276,
+      "slug": "depression",
+      "name": "Depression",
+      "film_count": 3716
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "exciting",
+      "disturbing",
+      "fairy tale",
+      "suspenseful",
+      "suspense",
+      "erotic",
+      "costume drama",
+      "sensual",
+      "funny"
+    ],
+    "audience": [
+      "teen fantasy",
+      "teen drama"
+    ],
+    "plot": [
+      "magic",
+      "fantasy world",
+      "supernatural ability",
+      "magician",
+      "supernatural",
+      "supernatural power",
+      "wizards and magicians",
+      "magic spell",
+      "school",
+      "lgbt",
+      "magical power",
+      "studying",
+      "college",
+      "danger",
+      "betrayal",
+      "bisexual man",
+      "fae",
+      "superpower",
+      "student",
+      "love and romance",
+      "gay",
+      "bisexual",
+      "crush",
+      "society",
+      "king"
+    ],
+    "place": [
+      "new york"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65640,
+      "slug": "the-order",
+      "title": "The Order",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 66429,
+      "slug": "locke-and-key",
+      "title": "Locke & Key",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 64076,
+      "slug": "a-discovery-of-witches",
+      "title": "A Discovery of Witches",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 64335,
+      "slug": "legacies",
+      "title": "Legacies",
+      "year": 2018,
+      "rank": 3
+    },
+    {
+      "id": 69621,
+      "slug": "shadow-and-bone",
+      "title": "Shadow and Bone",
+      "year": 2021,
+      "rank": 4
+    },
+    {
+      "id": 26565,
+      "slug": "supernatural",
+      "title": "Supernatural",
+      "year": 2005,
+      "rank": 5
+    },
+    {
+      "id": 64239,
+      "slug": "chilling-adventures-of-sabrina",
+      "title": "Chilling Adventures of Sabrina",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 64723,
+      "slug": "the-witcher",
+      "title": "The Witcher",
+      "year": 2019,
+      "rank": 7
+    },
+    {
+      "id": 5063,
+      "slug": "lost-girl",
+      "title": "Lost Girl",
+      "year": 2010,
+      "rank": 8
+    },
+    {
+      "id": 10596,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 1998,
+      "rank": 9
+    },
+    {
+      "id": 69183,
+      "slug": "fate-the-winx-saga",
+      "title": "Fate: The Winx Saga",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 6070,
+      "slug": "witches-of-east-end",
+      "title": "Witches of East End",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 27028,
+      "slug": "merlin",
+      "title": "Merlin",
+      "year": 2008,
+      "rank": 12
+    },
+    {
+      "id": 35431,
+      "slug": "the-shannara-chronicles",
+      "title": "The Shannara Chronicles",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 57898,
+      "slug": "midnight-texas",
+      "title": "Midnight, Texas",
+      "year": 2017,
+      "rank": 14
+    },
+    {
+      "id": 2265,
+      "slug": "the-gates",
+      "title": "The Gates",
+      "year": 2010,
+      "rank": 15
+    },
+    {
+      "id": 64831,
+      "slug": "the-umbrella-academy",
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 17
+    },
+    {
+      "id": 80895,
+      "slug": "school-spirits",
+      "title": "School Spirits",
+      "year": 2023,
+      "rank": 18
+    },
+    {
+      "id": 61827,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 26573,
+      "slug": "once-upon-a-time",
+      "title": "Once Upon a Time",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 5865,
+      "slug": "the-originals",
+      "title": "The Originals",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 22
+    },
+    {
+      "id": 42783,
+      "slug": "emerald-city",
+      "title": "Emerald City",
+      "year": 2016,
+      "rank": 23
+    },
+    {
+      "id": 4415,
+      "slug": "teen-wolf",
+      "title": "Teen Wolf",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 28869,
+      "slug": "the-librarians",
+      "title": "The Librarians",
+      "year": 2014,
+      "rank": 25
+    },
+    {
+      "id": 28860,
+      "slug": "american-gods",
+      "title": "American Gods",
+      "year": 2017,
+      "rank": 26
+    },
+    {
+      "id": 62172,
+      "slug": "tower-prep",
+      "title": "Tower Prep",
+      "year": 2010,
+      "rank": 27
+    },
+    {
+      "id": 2266,
+      "slug": "the-secret-circle",
+      "title": "The Secret Circle",
+      "year": 2011,
+      "rank": 28
+    },
+    {
+      "id": 66941,
+      "slug": "dispatches-from-elsewhere",
+      "title": "Dispatches from Elsewhere",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919158
+}

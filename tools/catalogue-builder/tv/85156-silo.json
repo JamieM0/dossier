@@ -1,0 +1,375 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/85156-silo",
+  "id": 85156,
+  "slug": "silo",
+  "title": "Silo",
+  "year": 2023,
+  "rating": 8.1,
+  "votes_text": "207K",
+  "votes": 207000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f4/85156.jpg",
+  "genres": [
+    "Drama",
+    "Mystery",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 49,
+  "story": "In a ruined and toxic future, a community exists in a giant underground silo that plunges hundreds of stories deep. There, men and women live in a society full of regulations they believe are meant to protect them.",
+  "tags": [
+    {
+      "id": 18540,
+      "slug": "underground-city",
+      "name": "Underground city",
+      "film_count": 50
+    },
+    {
+      "id": 10731,
+      "slug": "dystopia",
+      "name": "Dystopia",
+      "film_count": 2376
+    },
+    {
+      "id": 50850,
+      "slug": "post-apocalyptic",
+      "name": "Post apocalyptic",
+      "film_count": 1501
+    },
+    {
+      "id": 196867,
+      "slug": "post-apocalyptic-future",
+      "name": "Post-apocalyptic future",
+      "film_count": 784
+    },
+    {
+      "id": 51200,
+      "slug": "dystopian-future",
+      "name": "Dystopian future",
+      "film_count": 1320
+    },
+    {
+      "id": 4178,
+      "slug": "post-apocalypse",
+      "name": "Post apocalypse",
+      "film_count": 2063
+    },
+    {
+      "id": 1839,
+      "slug": "apocalypse",
+      "name": "Apocalypse",
+      "film_count": 3083
+    },
+    {
+      "id": 13399,
+      "slug": "struggle-for-survival",
+      "name": "Struggle for survival",
+      "film_count": 1218
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 806,
+      "slug": "corruption",
+      "name": "Corruption",
+      "film_count": 9994
+    },
+    {
+      "id": 199947,
+      "slug": "thrilling",
+      "name": "Thrilling",
+      "film_count": 7712
+    },
+    {
+      "id": 17503,
+      "slug": "world-war-three",
+      "name": "World war three",
+      "film_count": 197
+    },
+    {
+      "id": 4638,
+      "slug": "drug",
+      "name": "Drug",
+      "film_count": 4645
+    },
+    {
+      "id": 128582,
+      "slug": "world-war",
+      "name": "World war",
+      "film_count": 1110
+    },
+    {
+      "id": 2091,
+      "slug": "fight",
+      "name": "Fight",
+      "film_count": 12186
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "captivating",
+      "bleak",
+      "psychological",
+      "thrilling",
+      "dramatic",
+      "grim",
+      "earnest"
+    ],
+    "plot": [
+      "underground city",
+      "dystopia",
+      "post apocalyptic",
+      "post-apocalyptic future",
+      "dystopian future",
+      "post apocalypse",
+      "apocalypse",
+      "struggle for survival",
+      "sheriff",
+      "politics",
+      "disaster",
+      "survival",
+      "female protagonist",
+      "rebellion",
+      "technology",
+      "mysterious place",
+      "bunker",
+      "lesbian relationship",
+      "corruption",
+      "world war three",
+      "drug",
+      "world war",
+      "fight",
+      "murder",
+      "doctor"
+    ],
+    "time": [
+      "future"
+    ]
+  },
+  "similar": [
+    {
+      "id": 60498,
+      "slug": "snowpiercer",
+      "title": "Snowpiercer",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 93453,
+      "slug": "fallout",
+      "title": "Fallout",
+      "year": 2024,
+      "rank": 1
+    },
+    {
+      "id": 75978,
+      "slug": "severance",
+      "title": "Severance",
+      "year": 2022,
+      "rank": 2
+    },
+    {
+      "id": 16172,
+      "slug": "jericho",
+      "title": "Jericho",
+      "year": 2006,
+      "rank": 3
+    },
+    {
+      "id": 78553,
+      "slug": "1899",
+      "title": "1899",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 5694,
+      "slug": "the-100",
+      "title": "The 100",
+      "year": 2014,
+      "rank": 5
+    },
+    {
+      "id": 35423,
+      "slug": "westworld",
+      "title": "Westworld",
+      "year": 2016,
+      "rank": 6
+    },
+    {
+      "id": 67599,
+      "slug": "the-rain",
+      "title": "The Rain",
+      "year": 2018,
+      "rank": 7
+    },
+    {
+      "id": 81718,
+      "slug": "black-knight",
+      "title": "Black Knight",
+      "year": 2023,
+      "rank": 8
+    },
+    {
+      "id": 11617,
+      "slug": "dark-angel",
+      "title": "Dark Angel",
+      "year": 2000,
+      "rank": 9
+    },
+    {
+      "id": 78453,
+      "slug": "the-peripheral",
+      "title": "The Peripheral",
+      "year": 2022,
+      "rank": 10
+    },
+    {
+      "id": 73975,
+      "slug": "la-brea",
+      "title": "La Brea",
+      "year": 2021,
+      "rank": 11
+    },
+    {
+      "id": 74976,
+      "slug": "station-eleven",
+      "title": "Station Eleven",
+      "year": 2021,
+      "rank": 12
+    },
+    {
+      "id": 72754,
+      "slug": "y-the-last-man",
+      "title": "Y: The Last Man",
+      "year": 2021,
+      "rank": 13
+    },
+    {
+      "id": 28889,
+      "slug": "the-expanse",
+      "title": "The Expanse",
+      "year": 2015,
+      "rank": 14
+    },
+    {
+      "id": 64474,
+      "slug": "the-passage",
+      "title": "The Passage",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 67935,
+      "slug": "brave-new-world",
+      "title": "Brave New World",
+      "year": 2020,
+      "rank": 16
+    },
+    {
+      "id": 42669,
+      "slug": "the-handmaids-tale",
+      "title": "The Handmaid's Tale",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 29926,
+      "slug": "the-last-train",
+      "title": "The Last Train",
+      "year": 1999,
+      "rank": 18
+    },
+    {
+      "id": 30171,
+      "slug": "survivors",
+      "title": "Survivors",
+      "year": 2008,
+      "rank": 19
+    },
+    {
+      "id": 35199,
+      "slug": "grand-star",
+      "title": "Grand Star",
+      "year": 2007,
+      "rank": 20
+    },
+    {
+      "id": 92038,
+      "slug": "survivors",
+      "title": "Survivors",
+      "year": 1975,
+      "rank": 21
+    },
+    {
+      "id": 32549,
+      "slug": "ever-since-the-world-ended",
+      "title": "Ever Since the World Ended",
+      "year": 2001,
+      "rank": 22
+    },
+    {
+      "id": 7670,
+      "slug": "20-years-after",
+      "title": "20 Years After",
+      "year": 2008,
+      "rank": 23
+    },
+    {
+      "id": 16169,
+      "slug": "jeremiah",
+      "title": "Jeremiah",
+      "year": 2002,
+      "rank": 24
+    },
+    {
+      "id": 81529,
+      "slug": "in-the-land-of-the-wolves",
+      "title": "In the Land of the Wolves",
+      "year": 2017,
+      "rank": 25
+    },
+    {
+      "id": 95075,
+      "slug": "population-2",
+      "title": "Population 2",
+      "year": 2012,
+      "rank": 26
+    },
+    {
+      "id": 96244,
+      "slug": "the-dark-forever-winter",
+      "title": "The Dark: Forever Winter",
+      "year": 2020,
+      "rank": 27
+    },
+    {
+      "id": 80653,
+      "slug": "the-cul-de-sac",
+      "title": "The Cul de Sac",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 110587,
+      "slug": "helgoland-513",
+      "title": "Helgoland 513",
+      "year": 2024,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919187
+}

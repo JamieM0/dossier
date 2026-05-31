@@ -1,0 +1,383 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/67647-upload",
+  "id": 67647,
+  "slug": "upload",
+  "title": "Upload",
+  "year": 2020,
+  "rating": 7.8,
+  "votes_text": "89K",
+  "votes": 89000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/d4/67647.jpg",
+  "genres": [
+    "Comedy",
+    "Mystery",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 30,
+  "story": "In the future where humans are able to “upload” themselves into their preferred choice of afterlife, Nathan meets his early death and is greeted by Nora in his version of heaven. Follow the two as Nathan grows accustomed to life away from his loved ones, and the alive Nora struggles to stay afloat working her job alongside Nathan in the afterlife.",
+  "tags": [
+    {
+      "id": 1903,
+      "slug": "virtual-reality",
+      "name": "Virtual reality",
+      "film_count": 544
+    },
+    {
+      "id": 19151,
+      "slug": "near-future",
+      "name": "Near future",
+      "film_count": 1031
+    },
+    {
+      "id": 23850,
+      "slug": "virtual-world",
+      "name": "Virtual world",
+      "film_count": 168
+    },
+    {
+      "id": 123424,
+      "slug": "looking-for-sex",
+      "name": "Looking for sex",
+      "film_count": 652
+    },
+    {
+      "id": 5421,
+      "slug": "mysterious-death",
+      "name": "Mysterious death",
+      "film_count": 516
+    },
+    {
+      "id": 123634,
+      "slug": "hi-tech",
+      "name": "Hi-tech",
+      "film_count": 505
+    },
+    {
+      "id": 16132,
+      "slug": "2030s",
+      "name": "2030s",
+      "film_count": 85
+    },
+    {
+      "id": 23841,
+      "slug": "life-after-death",
+      "name": "Life after death",
+      "film_count": 174
+    },
+    {
+      "id": 530,
+      "slug": "betrayal",
+      "name": "Betrayal",
+      "film_count": 17334
+    },
+    {
+      "id": 11413,
+      "slug": "existentialism",
+      "name": "Existentialism",
+      "film_count": 3458
+    },
+    {
+      "id": 11539,
+      "slug": "light",
+      "name": "Light",
+      "film_count": 12031
+    },
+    {
+      "id": 468,
+      "slug": "love",
+      "name": "Love",
+      "film_count": 16907
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 38504,
+      "slug": "looking-for-love",
+      "name": "Looking for love",
+      "film_count": 1552
+    },
+    {
+      "id": 528,
+      "slug": "sex",
+      "name": "Sex",
+      "film_count": 10551
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "futuristic",
+      "romantic",
+      "humorous",
+      "light",
+      "funny",
+      "sitcom",
+      "philosophical",
+      "atmospheric",
+      "intellectual",
+      "apocalyptic"
+    ],
+    "plot": [
+      "virtual reality",
+      "virtual world",
+      "looking for sex",
+      "mysterious death",
+      "hi-tech",
+      "life after death",
+      "afterlife",
+      "love interest",
+      "murder",
+      "technology",
+      "love and romance",
+      "sex scene",
+      "impossible love",
+      "uncover truth",
+      "boyfriend girlfriend relationship",
+      "utopia",
+      "friendship",
+      "forbidden love",
+      "sexual relations",
+      "betrayal",
+      "existentialism",
+      "love",
+      "friends",
+      "looking for love",
+      "sex"
+    ],
+    "time": [
+      "near future",
+      "2030s",
+      "future",
+      "2020s"
+    ],
+    "place": [
+      "brooklyn new york city"
+    ]
+  },
+  "similar": [
+    {
+      "id": 58267,
+      "slug": "the-good-place",
+      "title": "The Good Place",
+      "year": 2016,
+      "rank": 0
+    },
+    {
+      "id": 78647,
+      "slug": "maggie",
+      "title": "Maggie",
+      "year": 2022,
+      "rank": 1
+    },
+    {
+      "id": 35423,
+      "slug": "westworld",
+      "title": "Westworld",
+      "year": 2016,
+      "rank": 2
+    },
+    {
+      "id": 66884,
+      "slug": "devs",
+      "title": "Devs",
+      "year": 2020,
+      "rank": 3
+    },
+    {
+      "id": 56515,
+      "slug": "black-mirror",
+      "title": "Black Mirror",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 30161,
+      "slug": "better-off-ted",
+      "title": "Better Off Ted",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 29815,
+      "slug": "world-on-a-wire",
+      "title": "World on a Wire",
+      "year": 1973,
+      "rank": 6
+    },
+    {
+      "id": 89718,
+      "slug": "the-boring-life-of-jacqueline",
+      "title": "The Boring Life of Jacqueline",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 83457,
+      "slug": "life-bugs",
+      "title": "Life Bugs",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 89480,
+      "slug": "the-lovers",
+      "title": "The Lovers",
+      "year": 2023,
+      "rank": 9
+    },
+    {
+      "id": 98894,
+      "slug": "nikki",
+      "title": "Nikki",
+      "year": 2000,
+      "rank": 10
+    },
+    {
+      "id": 81070,
+      "slug": "ai-the-video-girl",
+      "title": "Ai the Video Girl",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 82351,
+      "slug": "be-arrogant",
+      "title": "Be Arrogant",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 87667,
+      "slug": "wallflowers",
+      "title": "Wallflowers",
+      "year": 2013,
+      "rank": 13
+    },
+    {
+      "id": 78636,
+      "slug": "my-robot-boyfriend",
+      "title": "My Robot Boyfriend",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 29905,
+      "slug": "max-headroom",
+      "title": "Max Headroom",
+      "year": 1987,
+      "rank": 15
+    },
+    {
+      "id": 98471,
+      "slug": "reasons-i-dont-have-a-boyfriend",
+      "title": "Reasons I Don't Have a Boyfriend",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 79387,
+      "slug": "my-girlfriends-boyfriend",
+      "title": "My Girlfriend's Boyfriend",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 76153,
+      "slug": "level-up",
+      "title": "Level Up",
+      "year": 2019,
+      "rank": 18
+    },
+    {
+      "id": 97189,
+      "slug": "bert-and-arnies-guide-to-friendship",
+      "title": "Bert and Arnie's Guide to Friendship",
+      "year": 2013,
+      "rank": 19
+    },
+    {
+      "id": 69088,
+      "slug": "angels-last-mission-love",
+      "title": "Angel's Last Mission: Love",
+      "year": 2019,
+      "rank": 20
+    },
+    {
+      "id": 92274,
+      "slug": "package-deal",
+      "title": "Package Deal",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 69042,
+      "slug": "moonbase-8",
+      "title": "Moonbase 8",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 87404,
+      "slug": "halcyon",
+      "title": "Halcyon",
+      "year": 2016,
+      "rank": 23
+    },
+    {
+      "id": 98212,
+      "slug": "three-sisters",
+      "title": "Three Sisters",
+      "year": 2001,
+      "rank": 24
+    },
+    {
+      "id": 42670,
+      "slug": "the-orville",
+      "title": "The Orville",
+      "year": 2017,
+      "rank": 25
+    },
+    {
+      "id": 12937,
+      "slug": "eureka",
+      "title": "Eureka",
+      "year": 2006,
+      "rank": 26
+    },
+    {
+      "id": 95839,
+      "slug": "saat-pheron-ki-hera-pherie",
+      "title": "Saat Pheron Ki Hera Pherie",
+      "year": 2018,
+      "rank": 27
+    },
+    {
+      "id": 100074,
+      "slug": "man-up",
+      "title": "Man Up",
+      "year": 2017,
+      "rank": 28
+    },
+    {
+      "id": 96227,
+      "slug": "like-love",
+      "title": "Like Love",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919176
+}

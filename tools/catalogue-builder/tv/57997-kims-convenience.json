@@ -1,0 +1,386 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/57997-kims-convenience",
+  "id": 57997,
+  "slug": "kims-convenience",
+  "title": "Kim's Convenience",
+  "year": 2016,
+  "rating": 8.2,
+  "votes_text": "28K",
+  "votes": 28000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/9f/57997.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "Canada"
+  ],
+  "duration_min": 22,
+  "story": "The funny, heartfelt story of The Kims, a Korean-Canadian family, running a convenience store in downtown Toronto. Mr. and Mrs. Kim ('Appa' and 'Umma') immigrated to Toronto in the 80's to set up shop near Regent Park and had two kids, Jung and Janet who are now young adults. However, when Jung was 16, he and Appa had a major falling out involving a physical fight, stolen money and Jung leaving home. Father and son have been estranged since.",
+  "tags": [
+    {
+      "id": 5676,
+      "slug": "toronto-ontario-canada",
+      "name": "Toronto ontario canada",
+      "film_count": 272
+    },
+    {
+      "id": 468,
+      "slug": "love",
+      "name": "Love",
+      "film_count": 16907
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 123426,
+      "slug": "parents-and-children",
+      "name": "Parents and children",
+      "film_count": 8214
+    },
+    {
+      "id": 123337,
+      "slug": "love-and-romance",
+      "name": "Love and romance",
+      "film_count": 17340
+    },
+    {
+      "id": 143,
+      "slug": "rivalry",
+      "name": "Rivalry",
+      "film_count": 16927
+    },
+    {
+      "id": 2619,
+      "slug": "brother-sister-relationship",
+      "name": "Brother sister relationship",
+      "film_count": 5778
+    },
+    {
+      "id": 4980,
+      "slug": "canada",
+      "name": "Canada",
+      "film_count": 2018
+    },
+    {
+      "id": 5226,
+      "slug": "immigrant",
+      "name": "Immigrant",
+      "film_count": 1637
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 188021,
+      "slug": "laugh-out-loud",
+      "name": "Laugh out loud",
+      "film_count": 886
+    },
+    {
+      "id": 162618,
+      "slug": "east-asian-lead",
+      "name": "East asian lead",
+      "film_count": 51
+    },
+    {
+      "id": 735,
+      "slug": "joke",
+      "name": "Joke",
+      "film_count": 1337
+    },
+    {
+      "id": 1278,
+      "slug": "based-on-play",
+      "name": "Based on play",
+      "film_count": 2412
+    },
+    {
+      "id": 1693,
+      "slug": "2010s",
+      "name": "2010s",
+      "film_count": 6370
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "psychological",
+      "light",
+      "sincere",
+      "feel good",
+      "humorous",
+      "sweet",
+      "captivating",
+      "laugh out loud"
+    ],
+    "audience": [
+      "teens",
+      "date night"
+    ],
+    "plot": [
+      "love",
+      "friendship",
+      "family relations",
+      "parents and children",
+      "love and romance",
+      "rivalry",
+      "brother sister relationship",
+      "society",
+      "adaptation",
+      "friend",
+      "school",
+      "youth",
+      "teenage life",
+      "life philosophy",
+      "immigrant",
+      "friends",
+      "east asian lead",
+      "joke",
+      "immigrant family",
+      "shop owner",
+      "canadian woman",
+      "asian",
+      "store",
+      "canadian humor",
+      "convenience store"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "toronto ontario canada",
+      "canada",
+      "ontario canada",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 57883,
+      "slug": "dr-ken",
+      "title": "Dr. Ken",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 28901,
+      "slug": "fresh-off-the-boat",
+      "title": "Fresh Off the Boat",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 67025,
+      "slug": "gentefied",
+      "title": "Gentefied",
+      "year": 2020,
+      "rank": 2
+    },
+    {
+      "id": 57917,
+      "slug": "superior-donuts",
+      "title": "Superior Donuts",
+      "year": 2017,
+      "rank": 3
+    },
+    {
+      "id": 28315,
+      "slug": "citizen-khan",
+      "title": "Citizen Khan",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 91224,
+      "slug": "yeralash",
+      "title": "Yeralash",
+      "year": 1974,
+      "rank": 5
+    },
+    {
+      "id": 58257,
+      "slug": "la-to-vegas",
+      "title": "LA to Vegas",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 12965,
+      "slug": "everybody-hates-chris",
+      "title": "Everybody Hates Chris",
+      "year": 2005,
+      "rank": 7
+    },
+    {
+      "id": 1673,
+      "slug": "miranda",
+      "title": "Miranda",
+      "year": 2009,
+      "rank": 8
+    },
+    {
+      "id": 29856,
+      "slug": "the-red-green-show",
+      "title": "The Red Green Show",
+      "year": 1991,
+      "rank": 9
+    },
+    {
+      "id": 5002,
+      "slug": "the-parent-family",
+      "title": "The Parent Family",
+      "year": 2008,
+      "rank": 10
+    },
+    {
+      "id": 67030,
+      "slug": "the-expanding-universe-of-ashley-garcia",
+      "title": "The Expanding Universe of Ashley Garcia",
+      "year": 2020,
+      "rank": 11
+    },
+    {
+      "id": 89653,
+      "slug": "about-a-girl",
+      "title": "About a Girl",
+      "year": 2007,
+      "rank": 12
+    },
+    {
+      "id": 75404,
+      "slug": "how-to-be-indie",
+      "title": "How to Be Indie",
+      "year": 2009,
+      "rank": 13
+    },
+    {
+      "id": 85384,
+      "slug": "in-with-the-flynns",
+      "title": "In with the Flynns",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 82517,
+      "slug": "mohawk-girls",
+      "title": "Mohawk Girls",
+      "year": 2010,
+      "rank": 15
+    },
+    {
+      "id": 82262,
+      "slug": "gates",
+      "title": "Gates",
+      "year": 2012,
+      "rank": 16
+    },
+    {
+      "id": 80311,
+      "slug": "surviving-suburbia",
+      "title": "Surviving Suburbia",
+      "year": 2009,
+      "rank": 17
+    },
+    {
+      "id": 70123,
+      "slug": "traffic-light",
+      "title": "Traffic Light",
+      "year": 2011,
+      "rank": 18
+    },
+    {
+      "id": 66770,
+      "slug": "the-great-indoors",
+      "title": "The Great Indoors",
+      "year": 2016,
+      "rank": 19
+    },
+    {
+      "id": 85381,
+      "slug": "me-and-mrs-jones",
+      "title": "Me and Mrs Jones",
+      "year": 2012,
+      "rank": 20
+    },
+    {
+      "id": 70211,
+      "slug": "university",
+      "title": "Uni",
+      "year": 2008,
+      "rank": 21
+    },
+    {
+      "id": 1063,
+      "slug": "dan-for-mayor",
+      "title": "Dan for Mayor",
+      "year": 2010,
+      "rank": 22
+    },
+    {
+      "id": 66952,
+      "slug": "sunnyside",
+      "title": "Sunnyside",
+      "year": 2019,
+      "rank": 23
+    },
+    {
+      "id": 98215,
+      "slug": "big-lake",
+      "title": "Big Lake",
+      "year": 2010,
+      "rank": 24
+    },
+    {
+      "id": 82447,
+      "slug": "really-me",
+      "title": "Really Me",
+      "year": 2011,
+      "rank": 25
+    },
+    {
+      "id": 56681,
+      "slug": "less-than-kind",
+      "title": "Less Than Kind",
+      "year": 2008,
+      "rank": 26
+    },
+    {
+      "id": 62490,
+      "slug": "welcome-to-the-family",
+      "title": "Welcome to the Family",
+      "year": 2013,
+      "rank": 27
+    },
+    {
+      "id": 62059,
+      "slug": "my-life-as-liz",
+      "title": "My Life as Liz",
+      "year": 2010,
+      "rank": 28
+    },
+    {
+      "id": 65834,
+      "slug": "im-sorry",
+      "title": "I'm Sorry",
+      "year": 2017,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919163
+}

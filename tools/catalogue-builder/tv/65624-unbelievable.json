@@ -1,0 +1,384 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/65624-unbelievable",
+  "id": 65624,
+  "slug": "unbelievable",
+  "title": "Unbelievable",
+  "year": 2019,
+  "rating": 8.3,
+  "votes_text": "135K",
+  "votes": 135000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/49/65624.jpg",
+  "genres": [
+    "Crime",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 48,
+  "story": "The true story of Marie, a teenager who was charged with lying about having been raped, and the two female detectives who followed a twisting path to arrive at the truth.",
+  "tags": [
+    {
+      "id": 1566,
+      "slug": "based-on-true-story",
+      "name": "Based on true story",
+      "film_count": 8531
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 562,
+      "slug": "violence",
+      "name": "Violence",
+      "film_count": 20112
+    },
+    {
+      "id": 5506,
+      "slug": "murder-mystery",
+      "name": "Murder mystery",
+      "film_count": 4248
+    },
+    {
+      "id": 756,
+      "slug": "rape",
+      "name": "Rape",
+      "film_count": 4552
+    },
+    {
+      "id": 6805,
+      "slug": "rape-victim",
+      "name": "Rape victim",
+      "film_count": 828
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 5111,
+      "slug": "female-detective",
+      "name": "Female detective",
+      "film_count": 681
+    },
+    {
+      "id": 3042,
+      "slug": "police-investigation",
+      "name": "Police investigation",
+      "film_count": 8669
+    },
+    {
+      "id": 123698,
+      "slug": "nobody-believes",
+      "name": "Nobody believes",
+      "film_count": 96
+    },
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 25397,
+      "slug": "enigmatic",
+      "name": "Enigmatic",
+      "film_count": 4877
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 12651,
+      "slug": "graphic-violence",
+      "name": "Graphic violence",
+      "film_count": 6084
+    },
+    {
+      "id": 22124,
+      "slug": "social",
+      "name": "Social",
+      "film_count": 1886
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "detective",
+      "serious",
+      "saga",
+      "crime drama",
+      "tense",
+      "enigmatic",
+      "suspense",
+      "social",
+      "suspenseful",
+      "disturbing"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "investigation",
+      "violence",
+      "murder mystery",
+      "rape",
+      "rape victim",
+      "female protagonist",
+      "female detective",
+      "psychopath",
+      "teenage rape",
+      "true crime",
+      "criminal",
+      "women",
+      "feminist",
+      "sex",
+      "teenager",
+      "sexual harassment",
+      "serial rapist",
+      "police investigation",
+      "nobody believes",
+      "serial killer",
+      "graphic violence",
+      "danger",
+      "adaptation",
+      "dishonesty",
+      "foster child"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "colorado"
+    ]
+  },
+  "similar": [
+    {
+      "id": 78592,
+      "slug": "the-staircase",
+      "title": "The Staircase",
+      "year": 2022,
+      "rank": 0
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 1
+    },
+    {
+      "id": 91955,
+      "slug": "samber",
+      "title": "Samber",
+      "year": 2023,
+      "rank": 2
+    },
+    {
+      "id": 77785,
+      "slug": "in-plain-sight",
+      "title": "In Plain Sight",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 79373,
+      "slug": "major-case-squad",
+      "title": "Major Case Squad",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 7258,
+      "slug": "unit-1",
+      "title": "Unit One",
+      "year": 2000,
+      "rank": 6
+    },
+    {
+      "id": 43639,
+      "slug": "marcella",
+      "title": "Marcella",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 77301,
+      "slug": "the-thing-about-pam",
+      "title": "The Thing About Pam",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 57908,
+      "slug": "mindhunter",
+      "title": "Mindhunter",
+      "year": 2017,
+      "rank": 9
+    },
+    {
+      "id": 91423,
+      "slug": "true-conviction",
+      "title": "True Conviction",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 87727,
+      "slug": "james-pattersons-murder-is-forever",
+      "title": "James Patterson's Murder is Forever",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 7853,
+      "slug": "the-fall",
+      "title": "The Fall",
+      "year": 2013,
+      "rank": 12
+    },
+    {
+      "id": 71292,
+      "slug": "the-hunt-for-a-killer",
+      "title": "The Hunt for a Killer",
+      "year": 2020,
+      "rank": 13
+    },
+    {
+      "id": 30313,
+      "slug": "i-know-my-first-name-is-steven",
+      "title": "I Know My First Name Is Steven",
+      "year": 1989,
+      "rank": 14
+    },
+    {
+      "id": 76340,
+      "slug": "butterflys-mechanics",
+      "title": "A BUTTERFLY EFFECT –The Murder Analysis Team–",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 73217,
+      "slug": "the-chestnut-man",
+      "title": "The Chestnut Man",
+      "year": 2021,
+      "rank": 16
+    },
+    {
+      "id": 65264,
+      "slug": "when-they-see-us",
+      "title": "When They See Us",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 68496,
+      "slug": "i-am-elizabeth-smart",
+      "title": "I Am Elizabeth Smart",
+      "year": 2017,
+      "rank": 18
+    },
+    {
+      "id": 58250,
+      "slug": "the-alienist",
+      "title": "The Alienist",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 28587,
+      "slug": "happy-valley",
+      "title": "Happy Valley",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 30172,
+      "slug": "the-closer",
+      "title": "The Closer",
+      "year": 2005,
+      "rank": 21
+    },
+    {
+      "id": 41776,
+      "slug": "big-little-lies",
+      "title": "Big Little Lies",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 95955,
+      "slug": "delhi-crime-story",
+      "title": "Delhi Crime Story",
+      "year": 2019,
+      "rank": 23
+    },
+    {
+      "id": 61001,
+      "slug": "silver-spoon",
+      "title": "Silver Spoon",
+      "year": 2014,
+      "rank": 24
+    },
+    {
+      "id": 42701,
+      "slug": "three-girls",
+      "title": "Three Girls",
+      "year": 2017,
+      "rank": 25
+    },
+    {
+      "id": 56568,
+      "slug": "unforgettable",
+      "title": "Unforgettable",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 3035,
+      "slug": "appropriate-adult",
+      "title": "Appropriate Adult",
+      "year": 2011,
+      "rank": 27
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 28
+    },
+    {
+      "id": 78642,
+      "slug": "we-own-this-city",
+      "title": "We Own This City",
+      "year": 2022,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919173
+}

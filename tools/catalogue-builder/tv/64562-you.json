@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64562-you",
+  "id": 64562,
+  "slug": "you",
+  "title": "YOU",
+  "year": 2018,
+  "rating": 7.6,
+  "votes_text": "361K",
+  "votes": 361000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/c8/64562.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Romance",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "When a brilliant bookstore manager crosses paths with an aspiring writer, he uses the internet and social media to gather the most intimate of details and get close to her. A charming and awkward crush quickly becomes obsession as he quietly and strategically removes every obstacle - and person - in his way.",
+  "tags": [
+    {
+      "id": 48033,
+      "slug": "fatal-attraction",
+      "name": "Fatal attraction",
+      "film_count": 375
+    },
+    {
+      "id": 5556,
+      "slug": "stalker",
+      "name": "Stalker",
+      "film_count": 1885
+    },
+    {
+      "id": 11484,
+      "slug": "obsessive-love",
+      "name": "Obsessive love",
+      "film_count": 495
+    },
+    {
+      "id": 502,
+      "slug": "obsession",
+      "name": "Obsession",
+      "film_count": 10538
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 1225,
+      "slug": "psychopath",
+      "name": "Psychopath",
+      "film_count": 5358
+    },
+    {
+      "id": 16829,
+      "slug": "romantic-obsession",
+      "name": "Romantic obsession",
+      "film_count": 232
+    },
+    {
+      "id": 35945,
+      "slug": "obsessed-fan",
+      "name": "Obsessed fan",
+      "film_count": 111
+    },
+    {
+      "id": 38592,
+      "slug": "disturbing",
+      "name": "Disturbing",
+      "film_count": 16904
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 123419,
+      "slug": "couple-relations",
+      "name": "Couple relations",
+      "film_count": 11884
+    },
+    {
+      "id": 107871,
+      "slug": "secrets",
+      "name": "Secrets",
+      "film_count": 5033
+    },
+    {
+      "id": 18,
+      "slug": "secret",
+      "name": "Secret",
+      "film_count": 5596
+    },
+    {
+      "id": 6456,
+      "slug": "erotic",
+      "name": "Erotic",
+      "film_count": 5476
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    },
+    {
+      "id": 89094,
+      "slug": "husband-and-wife",
+      "name": "Husband and wife",
+      "film_count": 339
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "psychological thriller",
+      "disturbing",
+      "sexy",
+      "erotic",
+      "saga",
+      "dark",
+      "suspense",
+      "thrilling",
+      "captivating"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "fatal attraction",
+      "stalker",
+      "obsessive love",
+      "obsession",
+      "murder",
+      "psychopath",
+      "romantic obsession",
+      "obsessed fan",
+      "sex",
+      "social media",
+      "love affair",
+      "love triangle",
+      "tragic love",
+      "serial killer",
+      "love",
+      "bookstore",
+      "relationships",
+      "stalking",
+      "voyeur",
+      "cheating girlfriend",
+      "couple relations",
+      "secrets",
+      "secret",
+      "husband and wife",
+      "addiction"
+    ],
+    "time": [
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "california",
+      "los angeles"
+    ]
+  },
+  "similar": [
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 0
+    },
+    {
+      "id": 57908,
+      "slug": "mindhunter",
+      "title": "Mindhunter",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 542,
+      "slug": "hannibal",
+      "title": "Hannibal",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 61,
+      "slug": "the-following",
+      "title": "The Following",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 13255,
+      "slug": "fear",
+      "title": "Fear",
+      "year": 1996,
+      "rank": 4
+    },
+    {
+      "id": 27736,
+      "slug": "the-perfect-guy",
+      "title": "The Perfect Guy",
+      "year": 2015,
+      "rank": 5
+    },
+    {
+      "id": 68913,
+      "slug": "the-undoing",
+      "title": "The Undoing",
+      "year": 2020,
+      "rank": 6
+    },
+    {
+      "id": 27101,
+      "slug": "the-boy-next-door",
+      "title": "The Boy Next Door",
+      "year": 2015,
+      "rank": 7
+    },
+    {
+      "id": 65241,
+      "slug": "tell-me-a-story",
+      "title": "Tell Me a Story",
+      "year": 2018,
+      "rank": 8
+    },
+    {
+      "id": 11429,
+      "slug": "the-crush",
+      "title": "The Crush",
+      "year": 1993,
+      "rank": 9
+    },
+    {
+      "id": 37480,
+      "slug": "alone-with-her",
+      "title": "Alone with Her",
+      "year": 2006,
+      "rank": 10
+    },
+    {
+      "id": 60654,
+      "slug": "broken-vows",
+      "title": "Broken Vows",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 79095,
+      "slug": "tell-me-lies",
+      "title": "Tell Me Lies",
+      "year": 2022,
+      "rank": 12
+    },
+    {
+      "id": 59501,
+      "slug": "the-end-of-the-f-ing-world",
+      "title": "The End of the F***ing World",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 14
+    },
+    {
+      "id": 26805,
+      "slug": "obsessed",
+      "title": "Obsessed",
+      "year": 2009,
+      "rank": 15
+    },
+    {
+      "id": 91305,
+      "slug": "beyhadh",
+      "title": "Beyhadh",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 72480,
+      "slug": "queen-of-hearts",
+      "title": "Queen of Hearts",
+      "year": 2014,
+      "rank": 17
+    },
+    {
+      "id": 65741,
+      "slug": "prodigal-son",
+      "title": "Prodigal Son",
+      "year": 2019,
+      "rank": 18
+    },
+    {
+      "id": 37064,
+      "slug": "the-deliberate-stranger",
+      "title": "The Deliberate Stranger",
+      "year": 1986,
+      "rank": 19
+    },
+    {
+      "id": 72845,
+      "slug": "entangled",
+      "title": "Entangled",
+      "year": 2019,
+      "rank": 20
+    },
+    {
+      "id": 57113,
+      "slug": "stalker",
+      "title": "Stalker",
+      "year": 2014,
+      "rank": 21
+    },
+    {
+      "id": 23464,
+      "slug": "summer-of-sam",
+      "title": "Summer of Sam",
+      "year": 1999,
+      "rank": 22
+    },
+    {
+      "id": 72655,
+      "slug": "bepannah",
+      "title": "Bepannah",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 58250,
+      "slug": "the-alienist",
+      "title": "The Alienist",
+      "year": 2018,
+      "rank": 24
+    },
+    {
+      "id": 25638,
+      "slug": "wicker-park",
+      "title": "Wicker Park",
+      "year": 2004,
+      "rank": 25
+    },
+    {
+      "id": 41777,
+      "slug": "riverdale",
+      "title": "Riverdale",
+      "year": 2017,
+      "rank": 26
+    },
+    {
+      "id": 23687,
+      "slug": "the-talented-mr-ripley",
+      "title": "The Talented Mr. Ripley",
+      "year": 1999,
+      "rank": 27
+    },
+    {
+      "id": 70627,
+      "slug": "rosario-tijeras",
+      "title": "Rosario Tijeras (Mexico)",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 73217,
+      "slug": "the-chestnut-man",
+      "title": "The Chestnut Man",
+      "year": 2021,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919170
+}

@@ -1,0 +1,384 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/78822-black-bird",
+  "id": 78822,
+  "slug": "black-bird",
+  "title": "Black Bird",
+  "year": 2022,
+  "rating": 8.1,
+  "votes_text": "139K",
+  "votes": 139000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/3a/78822.jpg",
+  "genres": [
+    "Biography",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 58,
+  "story": "As Jimmy Keene begins a 10-year prison sentence, he gets an incredible offer: If he can elicit a confession from suspected killer Larry Hall, Jimmy will be freed. Completing this mission becomes the challenge of a lifetime.",
+  "tags": [
+    {
+      "id": 600,
+      "slug": "criminal",
+      "name": "Criminal",
+      "film_count": 6483
+    },
+    {
+      "id": 527,
+      "slug": "prison",
+      "name": "Prison",
+      "film_count": 4472
+    },
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 1091,
+      "slug": "male-nudity",
+      "name": "Male nudity",
+      "film_count": 12261
+    },
+    {
+      "id": 1054,
+      "slug": "organized-crime",
+      "name": "Organized crime",
+      "film_count": 3969
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 1566,
+      "slug": "based-on-true-story",
+      "name": "Based on true story",
+      "film_count": 8531
+    },
+    {
+      "id": 2278,
+      "slug": "sex-scene",
+      "name": "Sex scene",
+      "film_count": 9619
+    },
+    {
+      "id": 35612,
+      "slug": "male-star-appears-nude",
+      "name": "Male star appears nude",
+      "film_count": 825
+    },
+    {
+      "id": 1839,
+      "slug": "apocalypse",
+      "name": "Apocalypse",
+      "film_count": 3083
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 10,
+      "slug": "spy",
+      "name": "Spy",
+      "film_count": 3331
+    },
+    {
+      "id": 2118,
+      "slug": "killer",
+      "name": "Killer",
+      "film_count": 3685
+    },
+    {
+      "id": 1225,
+      "slug": "psychopath",
+      "name": "Psychopath",
+      "film_count": 5358
+    },
+    {
+      "id": 6686,
+      "slug": "sociopath",
+      "name": "Sociopath",
+      "film_count": 1204
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspense",
+      "tense",
+      "captivating",
+      "disturbing",
+      "psychological",
+      "thrilling",
+      "detective",
+      "masterpiece"
+    ],
+    "plot": [
+      "criminal",
+      "prison",
+      "serial killer",
+      "male nudity",
+      "organized crime",
+      "investigation",
+      "murder",
+      "informant",
+      "bandit",
+      "murder investigation",
+      "crime investigation",
+      "criminal underworld",
+      "deal",
+      "fighting crime",
+      "police investigation",
+      "killing",
+      "plea bargain",
+      "female nudity",
+      "sex scene",
+      "male star appears nude",
+      "apocalypse",
+      "spy",
+      "killer",
+      "psychopath",
+      "sociopath"
+    ],
+    "time": [
+      "2020s",
+      "90s",
+      "1990s"
+    ],
+    "place": [
+      "illinois",
+      "missouri",
+      "indiana"
+    ]
+  },
+  "similar": [
+    {
+      "id": 73217,
+      "slug": "the-chestnut-man",
+      "title": "The Chestnut Man",
+      "year": 2021,
+      "rank": 0
+    },
+    {
+      "id": 57908,
+      "slug": "mindhunter",
+      "title": "Mindhunter",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 59491,
+      "slug": "manhunt-unabomber",
+      "title": "Manhunt",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 79013,
+      "slug": "the-lincoln-lawyer",
+      "title": "The Lincoln Lawyer",
+      "year": 2022,
+      "rank": 3
+    },
+    {
+      "id": 77321,
+      "slug": "under-the-banner-of-heaven",
+      "title": "Under the Banner of Heaven",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 78592,
+      "slug": "the-staircase",
+      "title": "The Staircase",
+      "year": 2022,
+      "rank": 5
+    },
+    {
+      "id": 61580,
+      "slug": "mr-mercedes",
+      "title": "Mr. Mercedes",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 78495,
+      "slug": "dahmer-monster-the-jeffrey-dahmer-story",
+      "title": "Dahmer - Monster: The Jeffrey Dahmer Story",
+      "year": 2022,
+      "rank": 7
+    },
+    {
+      "id": 93962,
+      "slug": "under-the-bridge",
+      "title": "Under the Bridge",
+      "year": 2024,
+      "rank": 8
+    },
+    {
+      "id": 78642,
+      "slug": "we-own-this-city",
+      "title": "We Own This City",
+      "year": 2022,
+      "rank": 9
+    },
+    {
+      "id": 71294,
+      "slug": "clarice",
+      "title": "Clarice",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 67163,
+      "slug": "defending-jacob",
+      "title": "Defending Jacob",
+      "year": 2020,
+      "rank": 11
+    },
+    {
+      "id": 64591,
+      "slug": "manhunt",
+      "title": "Manhunt",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 77301,
+      "slug": "the-thing-about-pam",
+      "title": "The Thing About Pam",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 75281,
+      "slug": "dexter-new-blood",
+      "title": "Dexter: New Blood",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 65469,
+      "slug": "the-act",
+      "title": "The Act",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 67648,
+      "slug": "hightown",
+      "title": "Hightown",
+      "year": 2020,
+      "rank": 16
+    },
+    {
+      "id": 75295,
+      "slug": "ragdoll",
+      "title": "Ragdoll",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 84766,
+      "slug": "copycat-killer",
+      "title": "Copycat Killer",
+      "year": 2023,
+      "rank": 18
+    },
+    {
+      "id": 78670,
+      "slug": "crystal-city",
+      "title": "Crystal City",
+      "year": 2021,
+      "rank": 19
+    },
+    {
+      "id": 75206,
+      "slug": "mayor-of-kingstown",
+      "title": "Mayor of Kingstown",
+      "year": 2021,
+      "rank": 20
+    },
+    {
+      "id": 60424,
+      "slug": "sharp-objects",
+      "title": "Sharp Objects",
+      "year": 2018,
+      "rank": 21
+    },
+    {
+      "id": 70402,
+      "slug": "the-truth-about-the-harry-quebert-affair",
+      "title": "The Truth About the Harry Quebert Affair",
+      "year": 2018,
+      "rank": 22
+    },
+    {
+      "id": 79916,
+      "slug": "love-and-death",
+      "title": "Love & Death",
+      "year": 2023,
+      "rank": 23
+    },
+    {
+      "id": 76488,
+      "slug": "the-cleaning-lady",
+      "title": "The Cleaning Lady",
+      "year": 2022,
+      "rank": 24
+    },
+    {
+      "id": 58248,
+      "slug": "the-sinner",
+      "title": "The Sinner",
+      "year": 2017,
+      "rank": 25
+    },
+    {
+      "id": 80271,
+      "slug": "the-snow-girl",
+      "title": "The Snow Girl",
+      "year": 2023,
+      "rank": 26
+    },
+    {
+      "id": 90995,
+      "slug": "the-giza-killer",
+      "title": "The Giza Killer",
+      "year": 2023,
+      "rank": 27
+    },
+    {
+      "id": 77142,
+      "slug": "slow-horses",
+      "title": "Slow Horses",
+      "year": 2022,
+      "rank": 28
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919186
+}

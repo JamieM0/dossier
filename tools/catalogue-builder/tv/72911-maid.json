@@ -1,0 +1,379 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/72911-maid",
+  "id": 72911,
+  "slug": "maid",
+  "title": "Maid",
+  "year": 2021,
+  "rating": 8.3,
+  "votes_text": "118K",
+  "votes": 118000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a7/72911.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA",
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "Inspired by the powerful New York Times best-selling memoir Maid: Hard Work, Low Pay, and a Mother's Will to Survive by Stephanie Land, Maid will chronicle a single mother who turns to housekeeping to - barely - make ends meet as she battles against poverty, homelessness, and bureaucracy.",
+  "tags": [
+    {
+      "id": 2962,
+      "slug": "homelessness",
+      "name": "Homelessness",
+      "film_count": 814
+    },
+    {
+      "id": 710,
+      "slug": "single-mother",
+      "name": "Single mother",
+      "film_count": 2477
+    },
+    {
+      "id": 2538,
+      "slug": "children",
+      "name": "Children",
+      "film_count": 6588
+    },
+    {
+      "id": 109682,
+      "slug": "memories",
+      "name": "Memories",
+      "film_count": 660
+    },
+    {
+      "id": 9173,
+      "slug": "life",
+      "name": "Life",
+      "film_count": 3842
+    },
+    {
+      "id": 14405,
+      "slug": "poor-family",
+      "name": "Poor family",
+      "film_count": 98
+    },
+    {
+      "id": 13308,
+      "slug": "custody",
+      "name": "Custody",
+      "film_count": 457
+    },
+    {
+      "id": 1541,
+      "slug": "sexual-abuse",
+      "name": "Sexual abuse",
+      "film_count": 2295
+    },
+    {
+      "id": 44,
+      "slug": "medicine",
+      "name": "Medicine",
+      "film_count": 1100
+    },
+    {
+      "id": 17651,
+      "slug": "intellectual",
+      "name": "Intellectual",
+      "film_count": 2967
+    },
+    {
+      "id": 113328,
+      "slug": "political",
+      "name": "Political",
+      "film_count": 2774
+    },
+    {
+      "id": 22124,
+      "slug": "social",
+      "name": "Social",
+      "film_count": 1886
+    },
+    {
+      "id": 8076,
+      "slug": "motherhood",
+      "name": "Motherhood",
+      "film_count": 1268
+    },
+    {
+      "id": 15776,
+      "slug": "feminist",
+      "name": "Feminist",
+      "film_count": 2194
+    },
+    {
+      "id": 18514,
+      "slug": "hardship",
+      "name": "Hardship",
+      "film_count": 309
+    },
+    {
+      "id": 19923,
+      "slug": "choice",
+      "name": "Choice",
+      "film_count": 721
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "suspense",
+      "disturbing",
+      "intellectual",
+      "political",
+      "social",
+      "deep",
+      "spectacular",
+      "feel good"
+    ],
+    "audience": [
+      "date night"
+    ],
+    "plot": [
+      "homelessness",
+      "single mother",
+      "children",
+      "memories",
+      "life",
+      "poor family",
+      "custody",
+      "sexual abuse",
+      "sexualized violence",
+      "job",
+      "life is a bitch",
+      "domestic violence",
+      "social problems",
+      "family problems",
+      "single parent",
+      "money problems",
+      "domestic drama",
+      "lesbian",
+      "women",
+      "medicine",
+      "motherhood",
+      "feminist",
+      "hardship",
+      "choice",
+      "disease"
+    ],
+    "time": [
+      "2020s",
+      "21st century"
+    ]
+  },
+  "similar": [
+    {
+      "id": 57680,
+      "slug": "the-florida-project",
+      "title": "The Florida Project",
+      "year": 2017,
+      "rank": 0
+    },
+    {
+      "id": 79852,
+      "slug": "the-allegation",
+      "title": "The Allegation",
+      "year": 2021,
+      "rank": 1
+    },
+    {
+      "id": 65591,
+      "slug": "my-brilliant-friend",
+      "title": "My Brilliant Friend",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 36196,
+      "slug": "the-women-of-brewster-place",
+      "title": "The Women of Brewster Place",
+      "year": 1989,
+      "rank": 3
+    },
+    {
+      "id": 77897,
+      "slug": "3x-manon",
+      "title": "Three Times Manon",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 72584,
+      "slug": "woman",
+      "title": "Woman",
+      "year": 2017,
+      "rank": 5
+    },
+    {
+      "id": 83964,
+      "slug": "cold-call",
+      "title": "Cold Call",
+      "year": 2019,
+      "rank": 6
+    },
+    {
+      "id": 77546,
+      "slug": "little-red-wagon",
+      "title": "Little Red Wagon",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 82943,
+      "slug": "kate-brasher",
+      "title": "Kate Brasher",
+      "year": 2001,
+      "rank": 8
+    },
+    {
+      "id": 75277,
+      "slug": "our-kind-of-people",
+      "title": "Our Kind of People",
+      "year": 2021,
+      "rank": 9
+    },
+    {
+      "id": 71771,
+      "slug": "my-name-is-melek",
+      "title": "My Name is Melek",
+      "year": 2019,
+      "rank": 10
+    },
+    {
+      "id": 93970,
+      "slug": "taht-el-wesaya",
+      "title": "Taht El Wesaya",
+      "year": 2023,
+      "rank": 11
+    },
+    {
+      "id": 72974,
+      "slug": "i-may-destroy-you",
+      "title": "I May Destroy You",
+      "year": 2020,
+      "rank": 12
+    },
+    {
+      "id": 82138,
+      "slug": "katha-ankahee",
+      "title": "Katha Ankahee",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 82158,
+      "slug": "grind",
+      "title": "Grind",
+      "year": 2023,
+      "rank": 14
+    },
+    {
+      "id": 71045,
+      "slug": "i-am",
+      "title": "I Am...",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 41171,
+      "slug": "the-street-where-we-live",
+      "title": "The Street Where We Live",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 86311,
+      "slug": "not-on-my-watch",
+      "title": "Not on My Watch",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 93823,
+      "slug": "scrap",
+      "title": "Scrap",
+      "year": 2022,
+      "rank": 18
+    },
+    {
+      "id": 106196,
+      "slug": "after-the-party",
+      "title": "After the Party",
+      "year": 2023,
+      "rank": 19
+    },
+    {
+      "id": 91253,
+      "slug": "qiaos-grand-courtyard",
+      "title": "Qiao's Grand Courtyard",
+      "year": 2006,
+      "rank": 20
+    },
+    {
+      "id": 89251,
+      "slug": "the-chance-of-my-life",
+      "title": "The chance of my life",
+      "year": 2022,
+      "rank": 21
+    },
+    {
+      "id": 71561,
+      "slug": "black-rose",
+      "title": "Black Rose",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 81009,
+      "slug": "mama",
+      "title": "Mama",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 108606,
+      "slug": "far-away",
+      "title": "Far Away",
+      "year": 2024,
+      "rank": 24
+    },
+    {
+      "id": 82545,
+      "slug": "life-and-fate",
+      "title": "Life and Fate",
+      "year": 2012,
+      "rank": 25
+    },
+    {
+      "id": 81533,
+      "slug": "switched-before-birth",
+      "title": "Switched Before Birth",
+      "year": 2021,
+      "rank": 26
+    },
+    {
+      "id": 78419,
+      "slug": "the-comey-rule",
+      "title": "The Comey Rule",
+      "year": 2020,
+      "rank": 27
+    },
+    {
+      "id": 72351,
+      "slug": "the-grand-mansion-gate",
+      "title": "The Grand Mansion Gate",
+      "year": 2001,
+      "rank": 28
+    },
+    {
+      "id": 56502,
+      "slug": "between-us",
+      "title": "Between Us",
+      "year": 2009,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919181
+}

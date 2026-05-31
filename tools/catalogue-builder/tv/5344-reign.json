@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/5344-reign",
+  "id": 5344,
+  "slug": "reign",
+  "title": "Reign",
+  "year": 2013,
+  "rating": 7.4,
+  "votes_text": "58K",
+  "votes": 58000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/14/5344.jpg",
+  "genres": [
+    "Drama",
+    "History",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 42,
+  "story": "Mary, Queen of Scots, faces political and sexual intrigue in the treacherous world of the French court.",
+  "tags": [
+    {
+      "id": 197,
+      "slug": "queen",
+      "name": "Queen",
+      "film_count": 866
+    },
+    {
+      "id": 37220,
+      "slug": "royal-family",
+      "name": "Royal family",
+      "film_count": 906
+    },
+    {
+      "id": 11545,
+      "slug": "16th-century",
+      "name": "16th century",
+      "film_count": 371
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 5510,
+      "slug": "intrigue",
+      "name": "Intrigue",
+      "film_count": 3046
+    },
+    {
+      "id": 10923,
+      "slug": "royal-court",
+      "name": "Royal court",
+      "film_count": 460
+    },
+    {
+      "id": 1734,
+      "slug": "france",
+      "name": "France",
+      "film_count": 3782
+    },
+    {
+      "id": 22763,
+      "slug": "costume-drama",
+      "name": "Costume drama",
+      "film_count": 1839
+    },
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 696,
+      "slug": "politics",
+      "name": "Politics",
+      "film_count": 5052
+    },
+    {
+      "id": 123484,
+      "slug": "stylized",
+      "name": "Stylized",
+      "film_count": 9222
+    },
+    {
+      "id": 22765,
+      "slug": "aristocrat",
+      "name": "Aristocrat",
+      "film_count": 438
+    },
+    {
+      "id": 15200,
+      "slug": "society",
+      "name": "Society",
+      "film_count": 13923
+    },
+    {
+      "id": 206,
+      "slug": "monarchy",
+      "name": "Monarchy",
+      "film_count": 238
+    },
+    {
+      "id": 2482,
+      "slug": "loyalty",
+      "name": "Loyalty",
+      "film_count": 3659
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "costume drama",
+      "sexy",
+      "historical drama",
+      "stylized",
+      "serious",
+      "tense",
+      "period piece",
+      "suspenseful",
+      "realistic",
+      "erotic"
+    ],
+    "audience": [
+      "teens",
+      "teen drama",
+      "adult"
+    ],
+    "plot": [
+      "queen",
+      "royal family",
+      "female protagonist",
+      "intrigue",
+      "royal court",
+      "aristocracy",
+      "rivalry",
+      "state affairs",
+      "royalty",
+      "power struggle",
+      "love triangle",
+      "couples",
+      "throne",
+      "historical character",
+      "ruler",
+      "ambition",
+      "king",
+      "youth",
+      "friends",
+      "politics",
+      "aristocrat",
+      "society",
+      "monarchy",
+      "loyalty",
+      "rise to the top"
+    ],
+    "time": [
+      "16th century",
+      "ancient times"
+    ],
+    "place": [
+      "france",
+      "scotland",
+      "europe",
+      "britain"
+    ]
+  },
+  "similar": [
+    {
+      "id": 729,
+      "slug": "the-white-queen",
+      "title": "The White Queen",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 26963,
+      "slug": "the-tudors",
+      "title": "The Tudors",
+      "year": 2007,
+      "rank": 1
+    },
+    {
+      "id": 65272,
+      "slug": "the-spanish-princess",
+      "title": "The Spanish Princess",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 61338,
+      "slug": "mary-queen-of-scots",
+      "title": "Mary Queen of Scots",
+      "year": 2018,
+      "rank": 3
+    },
+    {
+      "id": 19858,
+      "slug": "the-other-boleyn-girl",
+      "title": "The Other Boleyn Girl",
+      "year": 2008,
+      "rank": 4
+    },
+    {
+      "id": 35406,
+      "slug": "versailles",
+      "title": "Versailles",
+      "year": 2015,
+      "rank": 5
+    },
+    {
+      "id": 25178,
+      "slug": "the-virgin-queen",
+      "title": "The Virgin Queen",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 62746,
+      "slug": "the-hollow-crown",
+      "title": "The Hollow Crown",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 12729,
+      "slug": "elizabeth-i",
+      "title": "Elizabeth I",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 27266,
+      "slug": "the-borgias",
+      "title": "The Borgias",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 26964,
+      "slug": "the-pillars-of-the-earth",
+      "title": "The Pillars of the Earth",
+      "year": 2010,
+      "rank": 10
+    },
+    {
+      "id": 7391,
+      "slug": "outlander",
+      "title": "Outlander",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 12730,
+      "slug": "elizabeth-the-golden-age",
+      "title": "Elizabeth: The Golden Age",
+      "year": 2007,
+      "rank": 12
+    },
+    {
+      "id": 26064,
+      "slug": "the-young-victoria",
+      "title": "The Young Victoria",
+      "year": 2009,
+      "rank": 13
+    },
+    {
+      "id": 33834,
+      "slug": "the-other-boleyn-girl",
+      "title": "The Other Boleyn Girl",
+      "year": 2003,
+      "rank": 14
+    },
+    {
+      "id": 19308,
+      "slug": "wolf-hall",
+      "title": "Wolf Hall",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 26469,
+      "slug": "a-royal-affair",
+      "title": "A Royal Affair",
+      "year": 2012,
+      "rank": 16
+    },
+    {
+      "id": 57091,
+      "slug": "isabel",
+      "title": "Isabel",
+      "year": 2011,
+      "rank": 17
+    },
+    {
+      "id": 12728,
+      "slug": "elizabeth",
+      "title": "Elizabeth",
+      "year": 1998,
+      "rank": 18
+    },
+    {
+      "id": 30292,
+      "slug": "elizabeth-r",
+      "title": "Elizabeth R",
+      "year": 1971,
+      "rank": 19
+    },
+    {
+      "id": 29808,
+      "slug": "the-six-wives-of-henry-viii",
+      "title": "The Six Wives of Henry VIII",
+      "year": 1970,
+      "rank": 20
+    },
+    {
+      "id": 18017,
+      "slug": "marie-antoinette",
+      "title": "Marie Antoinette",
+      "year": 2006,
+      "rank": 21
+    },
+    {
+      "id": 18072,
+      "slug": "mary-queen-of-scots",
+      "title": "Mary, Queen of Scots",
+      "year": 1971,
+      "rank": 22
+    },
+    {
+      "id": 42774,
+      "slug": "the-crown",
+      "title": "The Crown",
+      "year": 2016,
+      "rank": 23
+    },
+    {
+      "id": 27028,
+      "slug": "merlin",
+      "title": "Merlin",
+      "year": 2008,
+      "rank": 24
+    },
+    {
+      "id": 57109,
+      "slug": "the-royals",
+      "title": "The Royals",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 26240,
+      "slug": "game-of-thrones",
+      "title": "Game of Thrones",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 21564,
+      "slug": "rome",
+      "title": "Rome",
+      "year": 2005,
+      "rank": 27
+    },
+    {
+      "id": 1001,
+      "slug": "the-devils-whore",
+      "title": "The Devil's Whore",
+      "year": 2008,
+      "rank": 28
+    },
+    {
+      "id": 2867,
+      "slug": "borgia",
+      "title": "Borgia",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919133
+}

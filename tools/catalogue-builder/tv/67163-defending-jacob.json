@@ -1,0 +1,382 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/67163-defending-jacob",
+  "id": 67163,
+  "slug": "defending-jacob",
+  "title": "Defending Jacob",
+  "year": 2020,
+  "rating": 7.7,
+  "votes_text": "79K",
+  "votes": 79000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/47/67163.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 50,
+  "story": "A family’s lives are irreparably disrupted when the 14-year-old son is accused of murdering a fellow classmate.",
+  "tags": [
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 3053,
+      "slug": "murder-investigation",
+      "name": "Murder investigation",
+      "film_count": 3428
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 3042,
+      "slug": "police-investigation",
+      "name": "Police investigation",
+      "film_count": 8669
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 1504,
+      "slug": "false-accusation-of-murder",
+      "name": "False accusation of murder",
+      "film_count": 223
+    },
+    {
+      "id": 70,
+      "slug": "husband-wife-relationship",
+      "name": "Husband wife relationship",
+      "film_count": 13715
+    },
+    {
+      "id": 4778,
+      "slug": "bullying",
+      "name": "Bullying",
+      "film_count": 3322
+    },
+    {
+      "id": 22124,
+      "slug": "social",
+      "name": "Social",
+      "film_count": 1886
+    },
+    {
+      "id": 10901,
+      "slug": "doubt",
+      "name": "Doubt",
+      "film_count": 357
+    },
+    {
+      "id": 13630,
+      "slug": "massachusetts",
+      "name": "Massachusetts",
+      "film_count": 298
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 17518,
+      "slug": "teenage-son",
+      "name": "Teenage son",
+      "film_count": 166
+    },
+    {
+      "id": 25980,
+      "slug": "philosophical",
+      "name": "Philosophical",
+      "film_count": 2616
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    },
+    {
+      "id": 600,
+      "slug": "criminal",
+      "name": "Criminal",
+      "film_count": 6483
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspense",
+      "detective",
+      "serious",
+      "captivating",
+      "social",
+      "philosophical",
+      "atmospheric",
+      "slasher",
+      "anthology",
+      "art house"
+    ],
+    "plot": [
+      "murder investigation",
+      "murder",
+      "police investigation",
+      "false accusation of murder",
+      "husband wife relationship",
+      "bullying",
+      "suspect",
+      "mysterious villain",
+      "parents and children",
+      "uncover truth",
+      "father son relationship",
+      "boy",
+      "family relations",
+      "investigation",
+      "death",
+      "assistant district attorney",
+      "lawyer",
+      "chase",
+      "teenage boy",
+      "legal",
+      "doubt",
+      "friendship",
+      "teenage son",
+      "criminal",
+      "corruption"
+    ],
+    "time": [
+      "2010s",
+      "2020s"
+    ],
+    "place": [
+      "massachusetts"
+    ]
+  },
+  "similar": [
+    {
+      "id": 69066,
+      "slug": "your-honor",
+      "title": "Your Honor",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 68913,
+      "slug": "the-undoing",
+      "title": "The Undoing",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 78592,
+      "slug": "the-staircase",
+      "title": "The Staircase",
+      "year": 2022,
+      "rank": 2
+    },
+    {
+      "id": 5357,
+      "slug": "the-night-of",
+      "title": "The Night Of",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 61009,
+      "slug": "secrets-and-lies",
+      "title": "Secrets and Lies",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 60424,
+      "slug": "sharp-objects",
+      "title": "Sharp Objects",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 9194,
+      "slug": "before-and-after",
+      "title": "Before and After",
+      "year": 1996,
+      "rank": 6
+    },
+    {
+      "id": 71677,
+      "slug": "safe",
+      "title": "Safe",
+      "year": 2018,
+      "rank": 7
+    },
+    {
+      "id": 65887,
+      "slug": "dublin-murders",
+      "title": "Dublin Murders",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 78822,
+      "slug": "black-bird",
+      "title": "Black Bird",
+      "year": 2022,
+      "rank": 9
+    },
+    {
+      "id": 71287,
+      "slug": "mare-of-easttown",
+      "title": "Mare of Easttown",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 66496,
+      "slug": "dare-me",
+      "title": "Dare Me",
+      "year": 2019,
+      "rank": 11
+    },
+    {
+      "id": 79916,
+      "slug": "love-and-death",
+      "title": "Love & Death",
+      "year": 2023,
+      "rank": 12
+    },
+    {
+      "id": 89860,
+      "slug": "fool-me-once",
+      "title": "Fool Me Once",
+      "year": 2024,
+      "rank": 13
+    },
+    {
+      "id": 73217,
+      "slug": "the-chestnut-man",
+      "title": "The Chestnut Man",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 57884,
+      "slug": "modus",
+      "title": "Modus",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 29382,
+      "slug": "arne-dahl-the-blinded-man",
+      "title": "Arne Dahl: The Blinded Man",
+      "year": 2011,
+      "rank": 16
+    },
+    {
+      "id": 75281,
+      "slug": "dexter-new-blood",
+      "title": "Dexter: New Blood",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 66498,
+      "slug": "lincoln-rhyme-hunt-for-the-bone-collector",
+      "title": "Lincoln Rhyme: Hunt for the Bone Collector",
+      "year": 2020,
+      "rank": 18
+    },
+    {
+      "id": 70402,
+      "slug": "the-truth-about-the-harry-quebert-affair",
+      "title": "The Truth About the Harry Quebert Affair",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 28596,
+      "slug": "secrets-and-lies",
+      "title": "Secrets & Lies",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 65922,
+      "slug": "knives-out",
+      "title": "Knives Out",
+      "year": 2019,
+      "rank": 21
+    },
+    {
+      "id": 57082,
+      "slug": "gracepoint",
+      "title": "Gracepoint",
+      "year": 2014,
+      "rank": 22
+    },
+    {
+      "id": 99992,
+      "slug": "adolescence",
+      "title": "Adolescence",
+      "year": 2025,
+      "rank": 23
+    },
+    {
+      "id": 60130,
+      "slug": "ordeal-by-innocence",
+      "title": "Ordeal by Innocence",
+      "year": 2018,
+      "rank": 24
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 25
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 79013,
+      "slug": "the-lincoln-lawyer",
+      "title": "The Lincoln Lawyer",
+      "year": 2022,
+      "rank": 27
+    },
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 28
+    },
+    {
+      "id": 84541,
+      "slug": "showtrial",
+      "title": "Showtrial",
+      "year": 2021,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919175
+}

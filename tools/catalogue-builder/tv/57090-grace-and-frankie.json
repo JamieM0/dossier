@@ -1,0 +1,386 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/57090-grace-and-frankie",
+  "id": 57090,
+  "slug": "grace-and-frankie",
+  "title": "Grace and Frankie",
+  "year": 2015,
+  "rating": 8.2,
+  "votes_text": "61K",
+  "votes": 61000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/ca/57090.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 30,
+  "story": "Elegant, proper Grace and freewheeling, eccentric Frankie are a pair of frenemies whose lives are turned upside down - and permanently intertwined - when their husbands leave them for each other. Together, they must face starting over in their 70s in a 21st century world.",
+  "tags": [
+    {
+      "id": 1165,
+      "slug": "elderly",
+      "name": "Elderly",
+      "film_count": 891
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 18140,
+      "slug": "odd-couple",
+      "name": "Odd couple",
+      "film_count": 1010
+    },
+    {
+      "id": 4703,
+      "slug": "female-friendship",
+      "name": "Female friendship",
+      "film_count": 2186
+    },
+    {
+      "id": 123775,
+      "slug": "social-problems",
+      "name": "Social problems",
+      "film_count": 3130
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 24843,
+      "slug": "chick-flick",
+      "name": "Chick flick",
+      "film_count": 3500
+    },
+    {
+      "id": 11375,
+      "slug": "beach-house",
+      "name": "Beach house",
+      "film_count": 309
+    },
+    {
+      "id": 9878,
+      "slug": "new-life",
+      "name": "New life",
+      "film_count": 356
+    },
+    {
+      "id": 49648,
+      "slug": "family-problems",
+      "name": "Family problems",
+      "film_count": 7225
+    },
+    {
+      "id": 4647,
+      "slug": "strong-female-lead",
+      "name": "Strong female lead",
+      "film_count": 2994
+    },
+    {
+      "id": 39583,
+      "slug": "lgbtqi",
+      "name": "Lgbtqi",
+      "film_count": 1107
+    },
+    {
+      "id": 123358,
+      "slug": "gays-and-lesbians",
+      "name": "Gays and lesbians",
+      "film_count": 2455
+    },
+    {
+      "id": 58865,
+      "slug": "touching",
+      "name": "Touching",
+      "film_count": 11989
+    },
+    {
+      "id": 8524,
+      "slug": "hippie",
+      "name": "Hippie",
+      "film_count": 879
+    },
+    {
+      "id": 2012,
+      "slug": "gay-interest",
+      "name": "Gay interest",
+      "film_count": 3141
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "humorous",
+      "sitcom",
+      "realistic",
+      "light",
+      "touching",
+      "sweet",
+      "grindhouse",
+      "not serious",
+      "buddy comedy",
+      "queer cinema"
+    ],
+    "audience": [
+      "chick flick"
+    ],
+    "plot": [
+      "elderly",
+      "odd couple",
+      "female friendship",
+      "social problems",
+      "gay",
+      "beach house",
+      "foe turned friend",
+      "couple relations",
+      "husband wife relationship",
+      "male male relationship",
+      "old woman",
+      "friendship",
+      "divorce",
+      "dating",
+      "rivalry",
+      "life turned upside down",
+      "aging",
+      "gay couple",
+      "women",
+      "gay lead character",
+      "new life",
+      "family problems",
+      "strong female lead",
+      "lgbtqi",
+      "gays and lesbians"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "san diego california",
+      "usa",
+      "california"
+    ]
+  },
+  "similar": [
+    {
+      "id": 5091,
+      "slug": "vicious",
+      "title": "Vicious",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 28909,
+      "slug": "jane-the-virgin",
+      "title": "Jane the Virgin",
+      "year": 2014,
+      "rank": 1
+    },
+    {
+      "id": 30465,
+      "slug": "the-golden-girls",
+      "title": "The Golden Girls",
+      "year": 1985,
+      "rank": 2
+    },
+    {
+      "id": 98222,
+      "slug": "husbands",
+      "title": "Husbands",
+      "year": 2011,
+      "rank": 3
+    },
+    {
+      "id": 60131,
+      "slug": "workin-moms",
+      "title": "Workin' Moms",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 28865,
+      "slug": "unbreakable-kimmy-schmidt",
+      "title": "Unbreakable Kimmy Schmidt",
+      "year": 2015,
+      "rank": 5
+    },
+    {
+      "id": 13794,
+      "slug": "friends",
+      "title": "Friends",
+      "year": 1994,
+      "rank": 6
+    },
+    {
+      "id": 6357,
+      "slug": "dtla",
+      "title": "DTLA",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 60125,
+      "slug": "one-day-at-a-time",
+      "title": "One Day at a Time",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 28526,
+      "slug": "transparent",
+      "title": "Transparent",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 63564,
+      "slug": "girlfriends-guide-to-divorce",
+      "title": "Girlfriends' Guide to Divorce",
+      "year": 2014,
+      "rank": 10
+    },
+    {
+      "id": 28541,
+      "slug": "looking",
+      "title": "Looking",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 80853,
+      "slug": "im-fine",
+      "title": "I'm Fine",
+      "year": 2016,
+      "rank": 12
+    },
+    {
+      "id": 28607,
+      "slug": "eastsiders",
+      "title": "Eastsiders",
+      "year": 2012,
+      "rank": 13
+    },
+    {
+      "id": 99484,
+      "slug": "everythings-gonna-be-okay",
+      "title": "Everything's Gonna Be Okay",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 90163,
+      "slug": "paper-boys",
+      "title": "Paper Boys",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 7012,
+      "slug": "please-like-me",
+      "title": "Please Like Me",
+      "year": 2013,
+      "rank": 16
+    },
+    {
+      "id": 22209,
+      "slug": "sex-and-the-city",
+      "title": "Sex and the City",
+      "year": 1998,
+      "rank": 17
+    },
+    {
+      "id": 30463,
+      "slug": "roseanne",
+      "title": "Roseanne",
+      "year": 1988,
+      "rank": 18
+    },
+    {
+      "id": 3644,
+      "slug": "happily-divorced",
+      "title": "Happily Divorced",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 73620,
+      "slug": "and-just-like-that",
+      "title": "And Just Like That…",
+      "year": 2021,
+      "rank": 20
+    },
+    {
+      "id": 2550,
+      "slug": "noahs-arc",
+      "title": "Noah's Arc",
+      "year": 2005,
+      "rank": 21
+    },
+    {
+      "id": 42761,
+      "slug": "insecure",
+      "title": "Insecure",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 57077,
+      "slug": "the-hotwives-of-orlando",
+      "title": "The Hotwives of Orlando",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 97448,
+      "slug": "big-boys",
+      "title": "Big Boys",
+      "year": 2022,
+      "rank": 24
+    },
+    {
+      "id": 5058,
+      "slug": "up-all-night",
+      "title": "Up All Night",
+      "year": 2011,
+      "rank": 25
+    },
+    {
+      "id": 26547,
+      "slug": "modern-family",
+      "title": "Modern Family",
+      "year": 2009,
+      "rank": 26
+    },
+    {
+      "id": 78598,
+      "slug": "sort-of",
+      "title": "Sort Of",
+      "year": 2021,
+      "rank": 27
+    },
+    {
+      "id": 83807,
+      "slug": "special",
+      "title": "Special",
+      "year": 2019,
+      "rank": 28
+    },
+    {
+      "id": 62633,
+      "slug": "lipstick-jungle",
+      "title": "Lipstick Jungle",
+      "year": 2008,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919162
+}

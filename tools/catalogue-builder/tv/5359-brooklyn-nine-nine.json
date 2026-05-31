@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/5359-brooklyn-nine-nine",
+  "id": 5359,
+  "slug": "brooklyn-nine-nine",
+  "title": "Brooklyn Nine-Nine",
+  "year": 2013,
+  "rating": 8.4,
+  "votes_text": "411K",
+  "votes": 411000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/36/5359.jpg",
+  "genres": [
+    "Comedy",
+    "Crime"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "A single-camera ensemble comedy following the lives of an eclectic group of detectives in a New York precinct, including one slacker who is forced to shape up when he gets a new boss.",
+  "tags": [
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 1457,
+      "slug": "police-station",
+      "name": "Police station",
+      "film_count": 2726
+    },
+    {
+      "id": 4165,
+      "slug": "new-york",
+      "name": "New york",
+      "film_count": 5521
+    },
+    {
+      "id": 22722,
+      "slug": "law-enforcement",
+      "name": "Law enforcement",
+      "film_count": 5363
+    },
+    {
+      "id": 5693,
+      "slug": "cop",
+      "name": "Cop",
+      "film_count": 2093
+    },
+    {
+      "id": 123569,
+      "slug": "coworker",
+      "name": "Coworker",
+      "film_count": 1306
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 15557,
+      "slug": "lgbtq",
+      "name": "Lgbtq",
+      "film_count": 3701
+    },
+    {
+      "id": 5439,
+      "slug": "coworker-relationship",
+      "name": "Coworker relationship",
+      "film_count": 1349
+    },
+    {
+      "id": 123418,
+      "slug": "boss-and-employee",
+      "name": "Boss and employee",
+      "film_count": 701
+    },
+    {
+      "id": 2499,
+      "slug": "curse",
+      "name": "Curse",
+      "film_count": 1798
+    },
+    {
+      "id": 6712,
+      "slug": "chief-of-police",
+      "name": "Chief of police",
+      "film_count": 516
+    },
+    {
+      "id": 2703,
+      "slug": "policewoman",
+      "name": "Policewoman",
+      "film_count": 1531
+    },
+    {
+      "id": 585,
+      "slug": "detective",
+      "name": "Detective",
+      "film_count": 6961
+    },
+    {
+      "id": 10813,
+      "slug": "nypd",
+      "name": "Nypd",
+      "film_count": 671
+    },
+    {
+      "id": 6618,
+      "slug": "man-child",
+      "name": "Man child",
+      "film_count": 160
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "humorous",
+      "funny",
+      "not serious",
+      "detective",
+      "hilarious",
+      "captivating",
+      "light",
+      "intellectual",
+      "feel good"
+    ],
+    "audience": [
+      "boys' night",
+      "teens"
+    ],
+    "plot": [
+      "workplace",
+      "police station",
+      "law enforcement",
+      "cop",
+      "coworker",
+      "satire",
+      "lgbtq",
+      "workplace situations",
+      "investigation",
+      "arrest",
+      "workplace humor",
+      "boss",
+      "sergeant",
+      "teamwork",
+      "verbal byplay",
+      "police detective",
+      "young man",
+      "gay african american",
+      "police",
+      "police captain",
+      "sleuth",
+      "coworker relationship",
+      "boss and employee",
+      "curse",
+      "chief of police"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "usa",
+      "brooklyn new york city",
+      "seattle"
+    ]
+  },
+  "similar": [
+    {
+      "id": 30524,
+      "slug": "psych",
+      "title": "Psych",
+      "year": 2006,
+      "rank": 0
+    },
+    {
+      "id": 1233,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2005,
+      "rank": 1
+    },
+    {
+      "id": 20488,
+      "slug": "police-squad",
+      "title": "Police Squad!",
+      "year": 1982,
+      "rank": 2
+    },
+    {
+      "id": 56683,
+      "slug": "chicago-p-d",
+      "title": "Chicago P.D.",
+      "year": 2014,
+      "rank": 3
+    },
+    {
+      "id": 26681,
+      "slug": "parks-and-recreation",
+      "title": "Parks and Recreation",
+      "year": 2009,
+      "rank": 4
+    },
+    {
+      "id": 61934,
+      "slug": "the-good-guys",
+      "title": "The Good Guys",
+      "year": 2010,
+      "rank": 5
+    },
+    {
+      "id": 3642,
+      "slug": "2-broke-girls",
+      "title": "2 Broke Girls",
+      "year": 2011,
+      "rank": 6
+    },
+    {
+      "id": 28899,
+      "slug": "angie-tribeca",
+      "title": "Angie Tribeca",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 23973,
+      "slug": "the-thin-blue-line",
+      "title": "The Thin Blue Line",
+      "year": 1995,
+      "rank": 8
+    },
+    {
+      "id": 3405,
+      "slug": "the-heat",
+      "title": "The Heat",
+      "year": 2013,
+      "rank": 9
+    },
+    {
+      "id": 61092,
+      "slug": "superstore",
+      "title": "Superstore",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 431,
+      "slug": "new-girl",
+      "title": "New Girl",
+      "year": 2011,
+      "rank": 11
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 30080,
+      "slug": "barney-miller",
+      "title": "Barney Miller",
+      "year": 1975,
+      "rank": 13
+    },
+    {
+      "id": 30307,
+      "slug": "reno-911",
+      "title": "Reno 911!",
+      "year": 2003,
+      "rank": 14
+    },
+    {
+      "id": 30431,
+      "slug": "spin-city",
+      "title": "Spin City",
+      "year": 1996,
+      "rank": 15
+    },
+    {
+      "id": 7437,
+      "slug": "22-jump-street",
+      "title": "22 Jump Street",
+      "year": 2014,
+      "rank": 16
+    },
+    {
+      "id": 16022,
+      "slug": "the-it-crowd",
+      "title": "The IT Crowd",
+      "year": 2006,
+      "rank": 17
+    },
+    {
+      "id": 30523,
+      "slug": "30-rock",
+      "title": "30 Rock",
+      "year": 2006,
+      "rank": 18
+    },
+    {
+      "id": 85371,
+      "slug": "reporting-for-duty",
+      "title": "Reporting for Duty",
+      "year": 2023,
+      "rank": 19
+    },
+    {
+      "id": 73142,
+      "slug": "hpi-haut-potentiel-intellectuel",
+      "title": "HPI Haut Potentiel Intellectuel",
+      "year": 2021,
+      "rank": 20
+    },
+    {
+      "id": 11208,
+      "slug": "cop-out",
+      "title": "Cop Out",
+      "year": 2010,
+      "rank": 21
+    },
+    {
+      "id": 40726,
+      "slug": "battle-creek",
+      "title": "Battle Creek",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 59213,
+      "slug": "silicon-valley",
+      "title": "Silicon Valley",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 75005,
+      "slug": "the-professionals",
+      "title": "The Professionals",
+      "year": 2008,
+      "rank": 24
+    },
+    {
+      "id": 29917,
+      "slug": "the-job",
+      "title": "The Job",
+      "year": 2001,
+      "rank": 25
+    },
+    {
+      "id": 75216,
+      "slug": "makarov-and-the-girls",
+      "title": "Makarov and The Girls",
+      "year": 2021,
+      "rank": 26
+    },
+    {
+      "id": 2915,
+      "slug": "common-law",
+      "title": "Common Law",
+      "year": 2012,
+      "rank": 27
+    },
+    {
+      "id": 77516,
+      "slug": "kontio-and-parmas",
+      "title": "Kontio & Parmas",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 85488,
+      "slug": "bakersfield-p-d",
+      "title": "Bakersfield P.D.",
+      "year": 1993,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919134
+}

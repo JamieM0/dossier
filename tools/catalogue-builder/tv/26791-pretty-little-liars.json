@@ -1,0 +1,395 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26791-pretty-little-liars",
+  "id": 26791,
+  "slug": "pretty-little-liars",
+  "title": "Pretty Little Liars",
+  "year": 2010,
+  "rating": 7.3,
+  "votes_text": "187K",
+  "votes": 187000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/78/26791.jpg",
+  "genres": [
+    "Drama",
+    "Mystery",
+    "Romance",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 44,
+  "story": "Based on the Pretty Little Liars series of young adult novels by Sara Shepard, the series follows the lives of four girls — Spencer, Hanna, Aria, and Emily — whose clique falls apart after the disappearance of their queen bee, Alison. One year later, they begin receiving messages from someone using the name \"A\" who threatens to expose their secrets — including long-hidden ones they thought only Alison knew.",
+  "tags": [
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 13980,
+      "slug": "high-school-life",
+      "name": "High school life",
+      "film_count": 3261
+    },
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    },
+    {
+      "id": 2657,
+      "slug": "blackmail",
+      "name": "Blackmail",
+      "film_count": 2346
+    },
+    {
+      "id": 2171,
+      "slug": "threat",
+      "name": "Threat",
+      "film_count": 2412
+    },
+    {
+      "id": 123949,
+      "slug": "gossip-and-rumors",
+      "name": "Gossip and rumors",
+      "film_count": 109
+    },
+    {
+      "id": 2490,
+      "slug": "haunted-by-the-past",
+      "name": "Haunted by the past",
+      "film_count": 3300
+    },
+    {
+      "id": 18,
+      "slug": "secret",
+      "name": "Secret",
+      "film_count": 5596
+    },
+    {
+      "id": 4703,
+      "slug": "female-friendship",
+      "name": "Female friendship",
+      "film_count": 2186
+    },
+    {
+      "id": 1245,
+      "slug": "kidnapping",
+      "name": "Kidnapping",
+      "film_count": 7497
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 122,
+      "slug": "teacher",
+      "name": "Teacher",
+      "film_count": 4363
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 141326,
+      "slug": "sapphic",
+      "name": "Sapphic",
+      "film_count": 314
+    },
+    {
+      "id": 6983,
+      "slug": "parent-child-relationship",
+      "name": "Parent child relationship",
+      "film_count": 1867
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspenseful",
+      "serious",
+      "teen",
+      "realistic",
+      "soap opera",
+      "saga",
+      "teen horror",
+      "slasher",
+      "relaxing",
+      "thrilling"
+    ],
+    "audience": [
+      "teens",
+      "girls' night",
+      "kids",
+      "chick flick",
+      "family outing",
+      "teen drama",
+      "adult"
+    ],
+    "plot": [
+      "high school",
+      "high school life",
+      "lesbian",
+      "blackmail",
+      "threat",
+      "gossip and rumors",
+      "haunted by the past",
+      "teenage life",
+      "murder",
+      "mysterious character",
+      "friendship",
+      "friends",
+      "youth",
+      "funeral",
+      "disappearance",
+      "social relations",
+      "popularity",
+      "adolescence",
+      "twists and turns",
+      "leader",
+      "secret",
+      "female friendship",
+      "kidnapping",
+      "teenager",
+      "teacher"
+    ],
+    "time": [
+      "future",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "pennsylvania",
+      "philadelphia",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 72345,
+      "slug": "t-gged",
+      "title": "T@gged",
+      "year": 2016,
+      "rank": 0
+    },
+    {
+      "id": 26778,
+      "slug": "gossip-girl",
+      "title": "Gossip Girl",
+      "year": 2007,
+      "rank": 1
+    },
+    {
+      "id": 62664,
+      "slug": "ravenswood",
+      "title": "Ravenswood",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 72704,
+      "slug": "pretty-little-liars-the-perfectionists",
+      "title": "Pretty Little Liars: The Perfectionists",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 27256,
+      "slug": "revenge",
+      "title": "Revenge",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 66496,
+      "slug": "dare-me",
+      "title": "Dare Me",
+      "year": 2019,
+      "rank": 5
+    },
+    {
+      "id": 41777,
+      "slug": "riverdale",
+      "title": "Riverdale",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 56582,
+      "slug": "the-lying-game",
+      "title": "The Lying Game",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 62532,
+      "slug": "twisted",
+      "title": "Twisted",
+      "year": 2013,
+      "rank": 8
+    },
+    {
+      "id": 71170,
+      "slug": "cruel-summer",
+      "title": "Cruel Summer",
+      "year": 2021,
+      "rank": 9
+    },
+    {
+      "id": 26894,
+      "slug": "scream-the-tv-series",
+      "title": "Scream: The TV Series",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 22500,
+      "slug": "one-tree-hill",
+      "title": "One Tree Hill",
+      "year": 2003,
+      "rank": 11
+    },
+    {
+      "id": 257,
+      "slug": "90210",
+      "title": "90210",
+      "year": 2008,
+      "rank": 12
+    },
+    {
+      "id": 2266,
+      "slug": "the-secret-circle",
+      "title": "The Secret Circle",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 14
+    },
+    {
+      "id": 68193,
+      "slug": "get-even",
+      "title": "Get Even",
+      "year": 2020,
+      "rank": 15
+    },
+    {
+      "id": 27259,
+      "slug": "the-o-c",
+      "title": "The O.C.",
+      "year": 2003,
+      "rank": 16
+    },
+    {
+      "id": 69790,
+      "slug": "gossip-girl",
+      "title": "Gossip Girl",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 1378,
+      "slug": "mistresses",
+      "title": "Mistresses",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 62369,
+      "slug": "house-of-anubis",
+      "title": "House of Anubis",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 77366,
+      "slug": "pretty-little-liars-original-sin",
+      "title": "Pretty Little Liars: Original Sin",
+      "year": 2022,
+      "rank": 20
+    },
+    {
+      "id": 4415,
+      "slug": "teen-wolf",
+      "title": "Teen Wolf",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 12032,
+      "slug": "desperate-housewives",
+      "title": "Desperate Housewives",
+      "year": 2004,
+      "rank": 22
+    },
+    {
+      "id": 64137,
+      "slug": "famous-in-love",
+      "title": "Famous in Love",
+      "year": 2017,
+      "rank": 23
+    },
+    {
+      "id": 27238,
+      "slug": "devious-maids",
+      "title": "Devious Maids",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 5865,
+      "slug": "the-originals",
+      "title": "The Originals",
+      "year": 2013,
+      "rank": 25
+    },
+    {
+      "id": 28581,
+      "slug": "faking-it",
+      "title": "Faking It",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 3053,
+      "slug": "switched-at-birth",
+      "title": "Switched at Birth",
+      "year": 2011,
+      "rank": 27
+    },
+    {
+      "id": 41775,
+      "slug": "13-reasons-why",
+      "title": "13 Reasons Why",
+      "year": 2017,
+      "rank": 28
+    },
+    {
+      "id": 64907,
+      "slug": "east-los-high",
+      "title": "East Los High",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919148
+}

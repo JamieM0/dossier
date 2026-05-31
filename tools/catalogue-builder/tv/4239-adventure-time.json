@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/4239-adventure-time",
+  "id": 4239,
+  "slug": "adventure-time",
+  "title": "Adventure Time",
+  "year": 2010,
+  "rating": 8.6,
+  "votes_text": "131K",
+  "votes": 131000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/27/4239.jpg",
+  "genres": [
+    "Animation",
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Family",
+    "Fantasy",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA",
+    "Hong Kong",
+    "Japan",
+    "South Korea",
+    "Germany"
+  ],
+  "duration_min": 23,
+  "story": "Told in eight parts, Islands tells the story of Finn, Jake, BMO and Susan Strong leaving Ooo and traveling across the ocean to solve the mystery of Finn's past. During their trip, they unlock secrets, encounter various creatures, make new friends, and explore a variety of mysterious islands.",
+  "tags": [
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 123451,
+      "slug": "imaginary-kingdom",
+      "name": "Imaginary kingdom",
+      "film_count": 897
+    },
+    {
+      "id": 123335,
+      "slug": "imaginary",
+      "name": "Imaginary",
+      "film_count": 4709
+    },
+    {
+      "id": 29023,
+      "slug": "buddies",
+      "name": "Buddies",
+      "film_count": 3540
+    },
+    {
+      "id": 123391,
+      "slug": "young-heroes",
+      "name": "Young heroes",
+      "film_count": 2064
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 1863,
+      "slug": "creature",
+      "name": "Creature",
+      "film_count": 3470
+    },
+    {
+      "id": 45403,
+      "slug": "feel-good",
+      "name": "Feel good",
+      "film_count": 17668
+    },
+    {
+      "id": 2851,
+      "slug": "robot",
+      "name": "Robot",
+      "film_count": 2014
+    },
+    {
+      "id": 2941,
+      "slug": "adult-animation",
+      "name": "Adult animation",
+      "film_count": 1876
+    },
+    {
+      "id": 1297,
+      "slug": "surrealism",
+      "name": "Surrealism",
+      "film_count": 5009
+    },
+    {
+      "id": 1445,
+      "slug": "anthropomorphism",
+      "name": "Anthropomorphism",
+      "film_count": 889
+    },
+    {
+      "id": 4020,
+      "slug": "wizard",
+      "name": "Wizard",
+      "film_count": 915
+    },
+    {
+      "id": 2937,
+      "slug": "talking-animal",
+      "name": "Talking animal",
+      "film_count": 1360
+    },
+    {
+      "id": 26499,
+      "slug": "magical-power",
+      "name": "Magical power",
+      "film_count": 586
+    },
+    {
+      "id": 2561,
+      "slug": "talking-dog",
+      "name": "Talking dog",
+      "film_count": 273
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "feel good",
+      "captivating",
+      "surreal",
+      "humorous",
+      "adult animation",
+      "sweet",
+      "anime",
+      "cute",
+      "apocalyptic"
+    ],
+    "audience": [
+      "kids",
+      "teens",
+      "pre-teens",
+      "family outing",
+      "family friendly",
+      "teen fantasy",
+      "preschool"
+    ],
+    "plot": [
+      "friends",
+      "imaginary kingdom",
+      "imaginary",
+      "buddies",
+      "young heroes",
+      "creature",
+      "king",
+      "escapades",
+      "princess",
+      "boy",
+      "youth",
+      "post apocalypse",
+      "adventurer",
+      "monster",
+      "vampire",
+      "encounter",
+      "young kid",
+      "kingdom",
+      "robot",
+      "surrealism",
+      "anthropomorphism",
+      "wizard",
+      "talking animal",
+      "magical power",
+      "talking dog"
+    ],
+    "time": [
+      "2010s"
+    ]
+  },
+  "similar": [
+    {
+      "id": 68769,
+      "slug": "adventure-time-distant-lands",
+      "title": "Adventure Time: Distant Lands",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 35838,
+      "slug": "bravest-warriors",
+      "title": "Bravest Warriors",
+      "year": 2009,
+      "rank": 1
+    },
+    {
+      "id": 28443,
+      "slug": "steven-universe",
+      "title": "Steven Universe",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 13891,
+      "slug": "futurama",
+      "title": "Futurama",
+      "year": 1999,
+      "rank": 3
+    },
+    {
+      "id": 88812,
+      "slug": "adventure-time-fionna-and-cake",
+      "title": "Adventure Time: Fionna & Cake",
+      "year": 2023,
+      "rank": 4
+    },
+    {
+      "id": 64160,
+      "slug": "final-space",
+      "title": "Final Space",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 3923,
+      "slug": "gravity-falls",
+      "title": "Gravity Falls",
+      "year": 2012,
+      "rank": 6
+    },
+    {
+      "id": 3495,
+      "slug": "star-vs-the-forces-of-evil",
+      "title": "Star vs. the Forces of Evil",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 4123,
+      "slug": "regular-show-in-space",
+      "title": "Regular Show",
+      "year": 2010,
+      "rank": 8
+    },
+    {
+      "id": 61756,
+      "slug": "disenchantment",
+      "title": "Disenchantment",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 68006,
+      "slug": "the-midnight-gospel",
+      "title": "The Midnight Gospel",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 64295,
+      "slug": "she-ra-and-the-princesses-of-power",
+      "title": "She-Ra and the Princesses of Power",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 66985,
+      "slug": "kipo-and-the-age-of-wonderbeasts",
+      "title": "Kipo and the Age of Wonderbeasts",
+      "year": 2020,
+      "rank": 12
+    },
+    {
+      "id": 5119,
+      "slug": "american-dragon-jake-long",
+      "title": "American Dragon: Jake Long",
+      "year": 2005,
+      "rank": 13
+    },
+    {
+      "id": 686,
+      "slug": "the-amazing-world-of-gumball",
+      "title": "The Amazing World of Gumball",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 67498,
+      "slug": "wakfu",
+      "title": "Wakfu",
+      "year": 2007,
+      "rank": 15
+    },
+    {
+      "id": 61768,
+      "slug": "hilda",
+      "title": "Hilda",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 64643,
+      "slug": "amphibia",
+      "title": "Amphibia",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 1405,
+      "slug": "scooby-doo-mystery-incorporated",
+      "title": "Scooby-Doo! Mystery Incorporated",
+      "year": 2010,
+      "rank": 18
+    },
+    {
+      "id": 65439,
+      "slug": "infinity-train",
+      "title": "Infinity Train",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 17874,
+      "slug": "over-the-garden-wall",
+      "title": "Over the Garden Wall",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 56595,
+      "slug": "rick-and-morty",
+      "title": "Rick and Morty",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 4540,
+      "slug": "wander-over-yonder",
+      "title": "Wander Over Yonder",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 8814,
+      "slug": "avatar-the-last-airbender",
+      "title": "Avatar: The Last Airbender",
+      "year": 2005,
+      "rank": 23
+    },
+    {
+      "id": 67933,
+      "slug": "the-owl-house",
+      "title": "The Owl House",
+      "year": 2020,
+      "rank": 24
+    },
+    {
+      "id": 1304,
+      "slug": "the-marvelous-misadventures-of-flapjack",
+      "title": "The Marvelous Misadventures of Flapjack",
+      "year": 2008,
+      "rank": 25
+    },
+    {
+      "id": 30018,
+      "slug": "teen-titans",
+      "title": "Teen Titans",
+      "year": 2003,
+      "rank": 26
+    },
+    {
+      "id": 56426,
+      "slug": "di-gata-defenders",
+      "title": "Di-Gata Defenders",
+      "year": 2006,
+      "rank": 27
+    },
+    {
+      "id": 1876,
+      "slug": "chowder",
+      "title": "Chowder",
+      "year": 2007,
+      "rank": 28
+    },
+    {
+      "id": 30041,
+      "slug": "arthur",
+      "title": "Arthur",
+      "year": 1996,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919132
+}

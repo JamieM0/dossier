@@ -1,0 +1,384 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/41817-shame",
+  "id": 41817,
+  "slug": "shame",
+  "title": "Skam",
+  "year": 2015,
+  "rating": 8.5,
+  "votes_text": "42K",
+  "votes": 42000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/7e/41817.jpg",
+  "genres": [
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "Norway"
+  ],
+  "duration_min": 30,
+  "story": "The story of a young teenager group, born 1999, and a pupil on Hartvig Nissens upper secondary school in Oslo, and her friends and their life, troubles, scandals and every day life. Which of the members represented changes per season.",
+  "tags": [
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 3891,
+      "slug": "high-school-student",
+      "name": "High school student",
+      "film_count": 2043
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 12461,
+      "slug": "teenage-sexuality",
+      "name": "Teenage sexuality",
+      "film_count": 624
+    },
+    {
+      "id": 5561,
+      "slug": "teenage-protagonist",
+      "name": "Teenage protagonist",
+      "film_count": 1860
+    },
+    {
+      "id": 1132,
+      "slug": "teenage-boy",
+      "name": "Teenage boy",
+      "film_count": 5094
+    },
+    {
+      "id": 123423,
+      "slug": "interracial-relations",
+      "name": "Interracial relations",
+      "film_count": 2908
+    },
+    {
+      "id": 2058,
+      "slug": "gay-lead-character",
+      "name": "Gay lead character",
+      "film_count": 1373
+    },
+    {
+      "id": 26059,
+      "slug": "oslo-norway",
+      "name": "Oslo norway",
+      "film_count": 69
+    },
+    {
+      "id": 33303,
+      "slug": "sweet",
+      "name": "Sweet",
+      "film_count": 3370
+    },
+    {
+      "id": 4788,
+      "slug": "teen-angst",
+      "name": "Teen angst",
+      "film_count": 1551
+    },
+    {
+      "id": 2056,
+      "slug": "gay-couple",
+      "name": "Gay couple",
+      "film_count": 1317
+    },
+    {
+      "id": 6983,
+      "slug": "parent-child-relationship",
+      "name": "Parent child relationship",
+      "film_count": 1867
+    },
+    {
+      "id": 44734,
+      "slug": "sentimental",
+      "name": "Sentimental",
+      "film_count": 9110
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "emotional",
+      "dramatic",
+      "realistic",
+      "sweet",
+      "serious",
+      "sentimental",
+      "erotic",
+      "teen",
+      "noir",
+      "uplifting"
+    ],
+    "audience": [
+      "teens",
+      "teen drama"
+    ],
+    "plot": [
+      "lgbt",
+      "gay",
+      "high school student",
+      "friendship",
+      "teenage sexuality",
+      "teenage protagonist",
+      "teenage boy",
+      "gay relationship",
+      "teenager",
+      "high school",
+      "friendship between girls",
+      "gay teenager",
+      "teenage girl",
+      "teenage sex",
+      "enemies to lovers",
+      "homosexual",
+      "high school hunk",
+      "friendship between boys",
+      "boyfriend girlfriend relationship",
+      "group of teenagers",
+      "interracial relations",
+      "gay lead character",
+      "teen angst",
+      "gay couple",
+      "parent child relationship"
+    ],
+    "time": [
+      "contemporary"
+    ],
+    "place": [
+      "oslo norway",
+      "scandinavia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 69730,
+      "slug": "wtfock",
+      "title": "wtFOCK",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 66377,
+      "slug": "skam-france",
+      "title": "Skam France",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 66088,
+      "slug": "skam-italia",
+      "title": "SKAM Italia",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 73184,
+      "slug": "young-royals",
+      "title": "Young Royals",
+      "year": 2021,
+      "rank": 3
+    },
+    {
+      "id": 67966,
+      "slug": "love-victor",
+      "title": "Love, Victor",
+      "year": 2020,
+      "rank": 4
+    },
+    {
+      "id": 72733,
+      "slug": "druck",
+      "title": "Skam Germany",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 84882,
+      "slug": "fireworks",
+      "title": "Fireworks",
+      "year": 2023,
+      "rank": 6
+    },
+    {
+      "id": 64620,
+      "slug": "sex-education",
+      "title": "Sex Education",
+      "year": 2019,
+      "rank": 7
+    },
+    {
+      "id": 30317,
+      "slug": "queer-as-folk",
+      "title": "Queer as Folk",
+      "year": 2000,
+      "rank": 8
+    },
+    {
+      "id": 30312,
+      "slug": "skins",
+      "title": "Skins",
+      "year": 2007,
+      "rank": 9
+    },
+    {
+      "id": 30299,
+      "slug": "my-so-called-life",
+      "title": "My So-Called Life",
+      "year": 1994,
+      "rank": 10
+    },
+    {
+      "id": 5054,
+      "slug": "the-fosters",
+      "title": "The Fosters",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 76486,
+      "slug": "heartstopper",
+      "title": "Heartstopper",
+      "year": 2022,
+      "rank": 12
+    },
+    {
+      "id": 11933,
+      "slug": "degrassi-the-next-generation",
+      "title": "Degrassi: The Next Generation",
+      "year": 2001,
+      "rank": 13
+    },
+    {
+      "id": 74431,
+      "slug": "eagles",
+      "title": "Eagles",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 74737,
+      "slug": "skam-austin",
+      "title": "SKAM Austin",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 58229,
+      "slug": "my-best-friend",
+      "title": "My Best Friend",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 66306,
+      "slug": "degrassi-next-class",
+      "title": "Degrassi: Next Class",
+      "year": 2016,
+      "rank": 17
+    },
+    {
+      "id": 26778,
+      "slug": "gossip-girl",
+      "title": "Gossip Girl",
+      "year": 2007,
+      "rank": 18
+    },
+    {
+      "id": 68025,
+      "slug": "skam-spain",
+      "title": "Skam España",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 14051,
+      "slug": "get-real",
+      "title": "Get Real",
+      "year": 1998,
+      "rank": 20
+    },
+    {
+      "id": 41775,
+      "slug": "13-reasons-why",
+      "title": "13 Reasons Why",
+      "year": 2017,
+      "rank": 21
+    },
+    {
+      "id": 30337,
+      "slug": "heartbreak-high",
+      "title": "Heartbreak High",
+      "year": 1994,
+      "rank": 22
+    },
+    {
+      "id": 58337,
+      "slug": "love-simon",
+      "title": "Love, Simon",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 77472,
+      "slug": "the-summer-i-turned-pretty",
+      "title": "The Summer I Turned Pretty",
+      "year": 2022,
+      "rank": 24
+    },
+    {
+      "id": 78892,
+      "slug": "heartbreak-high",
+      "title": "Heartbreak High",
+      "year": 2022,
+      "rank": 25
+    },
+    {
+      "id": 40736,
+      "slug": "the-perks-of-being-a-wallflower",
+      "title": "The Perks of Being a Wallflower",
+      "year": 2012,
+      "rank": 26
+    },
+    {
+      "id": 27692,
+      "slug": "me-and-earl-and-the-dying-girl",
+      "title": "Me and Earl and the Dying Girl",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 2267,
+      "slug": "the-carrie-diaries",
+      "title": "The Carrie Diaries",
+      "year": 2013,
+      "rank": 28
+    },
+    {
+      "id": 80130,
+      "slug": "love-mechanics",
+      "title": "Love Mechanics",
+      "year": 2022,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919159
+}

@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26836-californication",
+  "id": 26836,
+  "slug": "californication",
+  "title": "Californication",
+  "year": 2007,
+  "rating": 8.3,
+  "votes_text": "194K",
+  "votes": 194000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/d9/26836.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 30,
+  "story": "A self-loathing, alcoholic writer attempts to repair his damaged relationships with his daughter and her mother while combating sex addiction, a budding drug problem, and the seeming inability to avoid making bad decisions.",
+  "tags": [
+    {
+      "id": 2298,
+      "slug": "womanizer",
+      "name": "Womanizer",
+      "film_count": 1325
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 16455,
+      "slug": "lifestyle",
+      "name": "Lifestyle",
+      "film_count": 7884
+    },
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 123390,
+      "slug": "writers-life",
+      "name": "Writer's life",
+      "film_count": 887
+    },
+    {
+      "id": 124330,
+      "slug": "writers",
+      "name": "Writers",
+      "film_count": 6133
+    },
+    {
+      "id": 770,
+      "slug": "lust",
+      "name": "Lust",
+      "film_count": 2664
+    },
+    {
+      "id": 2387,
+      "slug": "addiction",
+      "name": "Addiction",
+      "film_count": 1979
+    },
+    {
+      "id": 29321,
+      "slug": "strong-sexual-content",
+      "name": "Strong sexual content",
+      "film_count": 973
+    },
+    {
+      "id": 8303,
+      "slug": "hollywood",
+      "name": "Hollywood",
+      "film_count": 1355
+    },
+    {
+      "id": 1091,
+      "slug": "male-nudity",
+      "name": "Male nudity",
+      "film_count": 12261
+    },
+    {
+      "id": 804,
+      "slug": "erotica",
+      "name": "Erotica",
+      "film_count": 4398
+    },
+    {
+      "id": 426,
+      "slug": "father-daughter-relationship",
+      "name": "Father daughter relationship",
+      "film_count": 9778
+    },
+    {
+      "id": 7501,
+      "slug": "perversion",
+      "name": "Perversion",
+      "film_count": 657
+    },
+    {
+      "id": 24312,
+      "slug": "sexual",
+      "name": "Sexual",
+      "film_count": 3667
+    },
+    {
+      "id": 123493,
+      "slug": "los-angeles",
+      "name": "Los angeles",
+      "film_count": 3890
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sexy",
+      "erotic",
+      "witty",
+      "cynical",
+      "humorous",
+      "sexual",
+      "sensual",
+      "explicit",
+      "thought provoking",
+      "psychedelic"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "womanizer",
+      "lifestyle",
+      "dark humor",
+      "writer's life",
+      "writers",
+      "lust",
+      "addiction",
+      "sexual relations",
+      "female nudity",
+      "nudity",
+      "sex scene",
+      "alcoholism",
+      "creative block",
+      "sexual activity",
+      "sex",
+      "couples",
+      "family problems",
+      "family life",
+      "strong sexual content",
+      "hollywood",
+      "male nudity",
+      "erotica",
+      "father daughter relationship",
+      "perversion",
+      "sex addict"
+    ],
+    "time": [
+      "y2k",
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "california",
+      "los angeles",
+      "usa",
+      "new york",
+      "canada"
+    ]
+  },
+  "similar": [
+    {
+      "id": 30194,
+      "slug": "hung",
+      "title": "Hung",
+      "year": 2009,
+      "rank": 0
+    },
+    {
+      "id": 12845,
+      "slug": "entourage",
+      "title": "Entourage",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 61889,
+      "slug": "rake",
+      "title": "Rake",
+      "year": 2010,
+      "rank": 2
+    },
+    {
+      "id": 27059,
+      "slug": "shameless",
+      "title": "Shameless",
+      "year": 2011,
+      "rank": 3
+    },
+    {
+      "id": 30504,
+      "slug": "rescue-me",
+      "title": "Rescue Me",
+      "year": 2004,
+      "rank": 4
+    },
+    {
+      "id": 28866,
+      "slug": "youre-the-worst",
+      "title": "You're the Worst",
+      "year": 2014,
+      "rank": 5
+    },
+    {
+      "id": 3087,
+      "slug": "co-ed-confidential",
+      "title": "Co-Ed Confidential",
+      "year": 2007,
+      "rank": 6
+    },
+    {
+      "id": 19350,
+      "slug": "nip-tuck",
+      "title": "Nip/Tuck",
+      "year": 2003,
+      "rank": 7
+    },
+    {
+      "id": 25455,
+      "slug": "weeds",
+      "title": "Weeds",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 85863,
+      "slug": "dream-on",
+      "title": "Dream On",
+      "year": 1990,
+      "rank": 9
+    },
+    {
+      "id": 2261,
+      "slug": "house-of-lies",
+      "title": "House of Lies",
+      "year": 2012,
+      "rank": 10
+    },
+    {
+      "id": 61953,
+      "slug": "the-big-c",
+      "title": "The Big C",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 4486,
+      "slug": "don-jon",
+      "title": "Don Jon",
+      "year": 2013,
+      "rank": 12
+    },
+    {
+      "id": 30020,
+      "slug": "red-shoe-diaries",
+      "title": "Red Shoe Diaries",
+      "year": 1992,
+      "rank": 13
+    },
+    {
+      "id": 64180,
+      "slug": "easy",
+      "title": "Easy",
+      "year": 2016,
+      "rank": 14
+    },
+    {
+      "id": 63816,
+      "slug": "love",
+      "title": "Love",
+      "year": 2016,
+      "rank": 15
+    },
+    {
+      "id": 17575,
+      "slug": "love-and-other-drugs",
+      "title": "Love & Other Drugs",
+      "year": 2010,
+      "rank": 16
+    },
+    {
+      "id": 3376,
+      "slug": "show-me-yours",
+      "title": "Show Me Yours",
+      "year": 2004,
+      "rank": 17
+    },
+    {
+      "id": 36906,
+      "slug": "the-girlfriend-experience",
+      "title": "The Girlfriend Experience",
+      "year": 2016,
+      "rank": 18
+    },
+    {
+      "id": 30312,
+      "slug": "skins",
+      "title": "Skins",
+      "year": 2007,
+      "rank": 19
+    },
+    {
+      "id": 65287,
+      "slug": "gooische-vrouwen",
+      "title": "Viper's Nest",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 2610,
+      "slug": "anyone-but-me",
+      "title": "Anyone But Me",
+      "year": 2008,
+      "rank": 21
+    },
+    {
+      "id": 1186,
+      "slug": "outrageous-fortune",
+      "title": "Outrageous Fortune",
+      "year": 2005,
+      "rank": 22
+    },
+    {
+      "id": 22209,
+      "slug": "sex-and-the-city",
+      "title": "Sex and the City",
+      "year": 1998,
+      "rank": 23
+    },
+    {
+      "id": 264,
+      "slug": "girls",
+      "title": "Girls",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 27308,
+      "slug": "better-living-through-chemistry",
+      "title": "Better Living Through Chemistry",
+      "year": 2014,
+      "rank": 25
+    },
+    {
+      "id": 91019,
+      "slug": "escort-boys",
+      "title": "Escort Boys",
+      "year": 2023,
+      "rank": 26
+    },
+    {
+      "id": 63564,
+      "slug": "girlfriends-guide-to-divorce",
+      "title": "Girlfriends' Guide to Divorce",
+      "year": 2014,
+      "rank": 27
+    },
+    {
+      "id": 70034,
+      "slug": "life-on-top",
+      "title": "Life on Top",
+      "year": 2009,
+      "rank": 28
+    },
+    {
+      "id": 56547,
+      "slug": "call-me-fitz",
+      "title": "Call Me Fitz",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919149
+}

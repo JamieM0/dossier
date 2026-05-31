@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/68971-hawkeye",
+  "id": 68971,
+  "slug": "hawkeye",
+  "title": "Hawkeye",
+  "year": 2021,
+  "rating": 7.4,
+  "votes_text": "241K",
+  "votes": 241000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/34/68971.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Clint Barton trains Kate Bishop to become a \"superhero without superpowers.\"",
+  "tags": [
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 6974,
+      "slug": "archer",
+      "name": "Archer",
+      "film_count": 286
+    },
+    {
+      "id": 10676,
+      "slug": "archery",
+      "name": "Archery",
+      "film_count": 332
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 275,
+      "slug": "dog",
+      "name": "Dog",
+      "film_count": 7735
+    },
+    {
+      "id": 2328,
+      "slug": "bow-and-arrow",
+      "name": "Bow and arrow",
+      "film_count": 897
+    },
+    {
+      "id": 1071,
+      "slug": "holiday",
+      "name": "Holiday",
+      "film_count": 3412
+    },
+    {
+      "id": 4194,
+      "slug": "villain",
+      "name": "Villain",
+      "film_count": 3789
+    },
+    {
+      "id": 123450,
+      "slug": "heroic-mission",
+      "name": "Heroic mission",
+      "film_count": 2809
+    },
+    {
+      "id": 1058,
+      "slug": "crime-boss",
+      "name": "Crime boss",
+      "film_count": 1592
+    },
+    {
+      "id": 87816,
+      "slug": "kids",
+      "name": "Kids",
+      "film_count": 7861
+    },
+    {
+      "id": 1882,
+      "slug": "monster",
+      "name": "Monster",
+      "film_count": 6768
+    },
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 8568,
+      "slug": "deaf",
+      "name": "Deaf",
+      "film_count": 400
+    },
+    {
+      "id": 669,
+      "slug": "girl",
+      "name": "Girl",
+      "film_count": 6847
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "epic",
+      "christmas special",
+      "anime",
+      "disturbing",
+      "funny",
+      "suspenseful",
+      "witty",
+      "buddy comedy",
+      "psychotronic",
+      "captivating"
+    ],
+    "audience": [
+      "kids"
+    ],
+    "plot": [
+      "superhero",
+      "archer",
+      "archery",
+      "dog",
+      "bow and arrow",
+      "holiday",
+      "villain",
+      "mafia",
+      "mentor",
+      "mission",
+      "multiverse",
+      "heroes",
+      "christmas",
+      "mentor protege relationship",
+      "criminal gang",
+      "skill",
+      "friends",
+      "superhero team",
+      "teamwork",
+      "superheroine",
+      "heroic mission",
+      "crime boss",
+      "monster",
+      "serial killer",
+      "deaf"
+    ],
+    "time": [
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "new york",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 67884,
+      "slug": "stargirl",
+      "title": "DC's Stargirl",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 15035,
+      "slug": "agent-carter",
+      "title": "Agent Carter",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 43676,
+      "slug": "marvels-agents-of-s-h-i-e-l-d-slingshot",
+      "title": "Agents of S.H.I.E.L.D.: Slingshot",
+      "year": 2016,
+      "rank": 2
+    },
+    {
+      "id": 57869,
+      "slug": "marvels-the-defenders",
+      "title": "The Defenders",
+      "year": 2017,
+      "rank": 3
+    },
+    {
+      "id": 41496,
+      "slug": "inhumans",
+      "title": "Marvel's Inhumans",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 80498,
+      "slug": "gotham-knights",
+      "title": "Gotham Knights",
+      "year": 2023,
+      "rank": 5
+    },
+    {
+      "id": 66967,
+      "slug": "superman-and-lois",
+      "title": "Superman and Lois",
+      "year": 2021,
+      "rank": 6
+    },
+    {
+      "id": 1801,
+      "slug": "arrow",
+      "title": "Arrow",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 58503,
+      "slug": "titans",
+      "title": "Titans",
+      "year": 2018,
+      "rank": 8
+    },
+    {
+      "id": 69757,
+      "slug": "ms-marvel",
+      "title": "Ms. Marvel",
+      "year": 2022,
+      "rank": 9
+    },
+    {
+      "id": 76489,
+      "slug": "naomi",
+      "title": "Naomi",
+      "year": 2022,
+      "rank": 10
+    },
+    {
+      "id": 35427,
+      "slug": "luke-cage",
+      "title": "Luke Cage",
+      "year": 2016,
+      "rank": 11
+    },
+    {
+      "id": 27166,
+      "slug": "the-flash",
+      "title": "The Flash",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 58505,
+      "slug": "marvels-cloak-and-dagger",
+      "title": "Cloak & Dagger",
+      "year": 2018,
+      "rank": 13
+    },
+    {
+      "id": 52642,
+      "slug": "the-amazing-spider-man",
+      "title": "The Amazing Spider-Man",
+      "year": 1977,
+      "rank": 14
+    },
+    {
+      "id": 35425,
+      "slug": "iron-fist",
+      "title": "Iron Fist",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 77111,
+      "slug": "she-hulk-attorney-at-law",
+      "title": "She-Hulk: Attorney at Law",
+      "year": 2022,
+      "rank": 16
+    },
+    {
+      "id": 55016,
+      "slug": "captain-america",
+      "title": "Captain America",
+      "year": 1979,
+      "rank": 17
+    },
+    {
+      "id": 23498,
+      "slug": "superboy",
+      "title": "Superboy",
+      "year": 1988,
+      "rank": 18
+    },
+    {
+      "id": 58506,
+      "slug": "marvels-new-warriors",
+      "title": "Marvel's New Warriors",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 3157,
+      "slug": "the-green-hornet",
+      "title": "The Green Hornet",
+      "year": 1966,
+      "rank": 20
+    },
+    {
+      "id": 65894,
+      "slug": "black-widow",
+      "title": "Black Widow",
+      "year": 2021,
+      "rank": 21
+    },
+    {
+      "id": 76204,
+      "slug": "moon-knight",
+      "title": "Moon Knight",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 90681,
+      "slug": "echo",
+      "title": "Echo",
+      "year": 2023,
+      "rank": 23
+    },
+    {
+      "id": 19302,
+      "slug": "daredevil",
+      "title": "Daredevil",
+      "year": 2015,
+      "rank": 24
+    },
+    {
+      "id": 64607,
+      "slug": "swamp-thing",
+      "title": "Swamp Thing",
+      "year": 2019,
+      "rank": 25
+    },
+    {
+      "id": 27229,
+      "slug": "gotham",
+      "title": "Gotham",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 29992,
+      "slug": "birds-of-prey",
+      "title": "Birds of Prey",
+      "year": 2002,
+      "rank": 27
+    },
+    {
+      "id": 35428,
+      "slug": "jessica-jones",
+      "title": "Marvel's Jessica Jones",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 83553,
+      "slug": "gen-v",
+      "title": "Gen V",
+      "year": 2023,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919178
+}

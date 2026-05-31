@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/1233-the-office",
+  "id": 1233,
+  "slug": "the-office",
+  "title": "The Office",
+  "year": 2005,
+  "rating": 9.0,
+  "votes_text": "819K",
+  "votes": 819000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a3/1233.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "The everyday lives of office employees in the Scranton, Pennsylvania branch of the fictional Dunder Mifflin Paper Company.",
+  "tags": [
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 15154,
+      "slug": "job",
+      "name": "Job",
+      "film_count": 1657
+    },
+    {
+      "id": 522,
+      "slug": "office",
+      "name": "Office",
+      "film_count": 1463
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 503,
+      "slug": "employer-employee-relationship",
+      "name": "Employer employee relationship",
+      "film_count": 1646
+    },
+    {
+      "id": 2193,
+      "slug": "mockumentary",
+      "name": "Mockumentary",
+      "film_count": 1254
+    },
+    {
+      "id": 6670,
+      "slug": "salesman",
+      "name": "Salesman",
+      "film_count": 633
+    },
+    {
+      "id": 14790,
+      "slug": "office-romance",
+      "name": "Office romance",
+      "film_count": 379
+    },
+    {
+      "id": 123845,
+      "slug": "power-relations",
+      "name": "Power relations",
+      "film_count": 3484
+    },
+    {
+      "id": 19104,
+      "slug": "realistic",
+      "name": "Realistic",
+      "film_count": 35439
+    },
+    {
+      "id": 4777,
+      "slug": "bully",
+      "name": "Bully",
+      "film_count": 2034
+    },
+    {
+      "id": 129,
+      "slug": "prank",
+      "name": "Prank",
+      "film_count": 1238
+    },
+    {
+      "id": 77248,
+      "slug": "obnoxious-boss",
+      "name": "Obnoxious boss",
+      "film_count": 148
+    },
+    {
+      "id": 135623,
+      "slug": "workplace-humor",
+      "name": "Workplace humor",
+      "film_count": 103
+    },
+    {
+      "id": 124139,
+      "slug": "hilarious",
+      "name": "Hilarious",
+      "film_count": 1767
+    },
+    {
+      "id": 1184,
+      "slug": "jealousy",
+      "name": "Jealousy",
+      "film_count": 6442
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "mockumentary",
+      "humorous",
+      "talky",
+      "not serious",
+      "realistic",
+      "hilarious",
+      "witty",
+      "funny",
+      "feel good"
+    ],
+    "audience": [
+      "teens",
+      "date night"
+    ],
+    "plot": [
+      "workplace",
+      "job",
+      "office",
+      "satire",
+      "employer employee relationship",
+      "salesman",
+      "office romance",
+      "love and romance",
+      "popularity",
+      "workplace problem",
+      "secret relationship",
+      "workplace situations",
+      "promotion",
+      "career",
+      "love affair",
+      "team",
+      "coworker",
+      "crush",
+      "staff",
+      "supportive coworker",
+      "unsupportive coworkers",
+      "power relations",
+      "bully",
+      "prank",
+      "obnoxious boss"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "usa",
+      "pennsylvania",
+      "seattle"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26681,
+      "slug": "parks-and-recreation",
+      "title": "Parks and Recreation",
+      "year": 2009,
+      "rank": 0
+    },
+    {
+      "id": 30449,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2001,
+      "rank": 1
+    },
+    {
+      "id": 29840,
+      "slug": "stromberg",
+      "title": "Stromberg",
+      "year": 2004,
+      "rank": 2
+    },
+    {
+      "id": 8415,
+      "slug": "anchorman-the-legend-of-ron-burgundy",
+      "title": "Anchorman: The Legend of Ron Burgundy",
+      "year": 2004,
+      "rank": 3
+    },
+    {
+      "id": 30442,
+      "slug": "wkrp-in-cincinnati",
+      "title": "WKRP in Cincinnati",
+      "year": 1978,
+      "rank": 4
+    },
+    {
+      "id": 8662,
+      "slug": "arrested-development",
+      "title": "Arrested Development",
+      "year": 2003,
+      "rank": 5
+    },
+    {
+      "id": 26561,
+      "slug": "its-always-sunny-in-philadelphia",
+      "title": "It's Always Sunny in Philadelphia",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 16022,
+      "slug": "the-it-crowd",
+      "title": "The IT Crowd",
+      "year": 2006,
+      "rank": 7
+    },
+    {
+      "id": 61092,
+      "slug": "superstore",
+      "title": "Superstore",
+      "year": 2015,
+      "rank": 8
+    },
+    {
+      "id": 30523,
+      "slug": "30-rock",
+      "title": "30 Rock",
+      "year": 2006,
+      "rank": 9
+    },
+    {
+      "id": 62814,
+      "slug": "andy-richter-controls-the-universe",
+      "title": "Andy Richter Controls the Universe",
+      "year": 2002,
+      "rank": 10
+    },
+    {
+      "id": 30454,
+      "slug": "extras",
+      "title": "Extras",
+      "year": 2005,
+      "rank": 11
+    },
+    {
+      "id": 5359,
+      "slug": "brooklyn-nine-nine",
+      "title": "Brooklyn Nine-Nine",
+      "year": 2013,
+      "rank": 12
+    },
+    {
+      "id": 30505,
+      "slug": "the-drew-carey-show",
+      "title": "The Drew Carey Show",
+      "year": 1995,
+      "rank": 13
+    },
+    {
+      "id": 67369,
+      "slug": "tacoma-fd",
+      "title": "Tacoma FD",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 30420,
+      "slug": "black-books",
+      "title": "Black Books",
+      "year": 2000,
+      "rank": 15
+    },
+    {
+      "id": 59213,
+      "slug": "silicon-valley",
+      "title": "Silicon Valley",
+      "year": 2014,
+      "rank": 16
+    },
+    {
+      "id": 30506,
+      "slug": "seinfeld",
+      "title": "Seinfeld",
+      "year": 1989,
+      "rank": 17
+    },
+    {
+      "id": 67575,
+      "slug": "intelligence",
+      "title": "Intelligence",
+      "year": 2020,
+      "rank": 18
+    },
+    {
+      "id": 62008,
+      "slug": "10-items-or-less",
+      "title": "10 Items or Less",
+      "year": 2006,
+      "rank": 19
+    },
+    {
+      "id": 19620,
+      "slug": "office-space",
+      "title": "Office Space",
+      "year": 1999,
+      "rank": 20
+    },
+    {
+      "id": 90456,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2019,
+      "rank": 21
+    },
+    {
+      "id": 30165,
+      "slug": "peep-show",
+      "title": "Peep Show",
+      "year": 2003,
+      "rank": 22
+    },
+    {
+      "id": 30160,
+      "slug": "party-down",
+      "title": "Party Down",
+      "year": 2009,
+      "rank": 23
+    },
+    {
+      "id": 93664,
+      "slug": "the-office-pl",
+      "title": "The Office PL",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 26562,
+      "slug": "community",
+      "title": "Community",
+      "year": 2009,
+      "rank": 25
+    },
+    {
+      "id": 85406,
+      "slug": "hermans-head",
+      "title": "Herman's Head",
+      "year": 1991,
+      "rank": 26
+    },
+    {
+      "id": 3822,
+      "slug": "twenty-twelve",
+      "title": "Twenty Twelve",
+      "year": 2011,
+      "rank": 27
+    },
+    {
+      "id": 68832,
+      "slug": "kevin-from-work",
+      "title": "Kevin from Work",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 98218,
+      "slug": "the-wright-way",
+      "title": "The Wright Way",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919129
+}

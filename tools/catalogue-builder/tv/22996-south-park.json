@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/22996-south-park",
+  "id": 22996,
+  "slug": "south-park",
+  "title": "South Park",
+  "year": 1997,
+  "rating": 8.7,
+  "votes_text": "441K",
+  "votes": 441000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/b8/22996.jpg",
+  "genres": [
+    "Animation",
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "Follows the misadventures of four irreverent grade-schoolers in the quiet, dysfunctional town of South Park, Colorado.",
+  "tags": [
+    {
+      "id": 2941,
+      "slug": "adult-animation",
+      "name": "Adult animation",
+      "film_count": 1876
+    },
+    {
+      "id": 2939,
+      "slug": "gross-out-humor",
+      "name": "Gross out humor",
+      "film_count": 204
+    },
+    {
+      "id": 18658,
+      "slug": "colorado",
+      "name": "Colorado",
+      "film_count": 282
+    },
+    {
+      "id": 1307,
+      "slug": "social-satire",
+      "name": "Social satire",
+      "film_count": 2315
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 198722,
+      "slug": "animated-comedy",
+      "name": "Animated comedy",
+      "film_count": 200
+    },
+    {
+      "id": 5416,
+      "slug": "elementary-school",
+      "name": "Elementary school",
+      "film_count": 485
+    },
+    {
+      "id": 123835,
+      "slug": "young-kid",
+      "name": "Young kid",
+      "film_count": 173
+    },
+    {
+      "id": 1575,
+      "slug": "selfishness",
+      "name": "Selfishness",
+      "film_count": 389
+    },
+    {
+      "id": 29023,
+      "slug": "buddies",
+      "name": "Buddies",
+      "film_count": 3540
+    },
+    {
+      "id": 2322,
+      "slug": "childhood",
+      "name": "Childhood",
+      "film_count": 5432
+    },
+    {
+      "id": 4048,
+      "slug": "racial-slur",
+      "name": "Racial slur",
+      "film_count": 1356
+    },
+    {
+      "id": 123486,
+      "slug": "witty",
+      "name": "Witty",
+      "film_count": 5204
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 2828,
+      "slug": "profanity",
+      "name": "Profanity",
+      "film_count": 5809
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "adult animation",
+      "animated comedy",
+      "parody",
+      "dark comedy",
+      "adult cartoon",
+      "cynical",
+      "witty",
+      "sitcom",
+      "humorous",
+      "offbeat"
+    ],
+    "audience": [
+      "teens",
+      "kids",
+      "teen drama",
+      "adult"
+    ],
+    "plot": [
+      "gross out humor",
+      "social satire",
+      "satire",
+      "elementary school",
+      "young kid",
+      "gay slur",
+      "young heroes",
+      "mischievous children",
+      "political humor",
+      "adult humor",
+      "social criticism",
+      "dysfunctional society",
+      "vicious",
+      "death",
+      "absurdism",
+      "stupidity",
+      "selfishness",
+      "buddies",
+      "childhood",
+      "racial slur",
+      "friends",
+      "profanity",
+      "small town",
+      "swearing",
+      "small town life"
+    ],
+    "time": [
+      "2010s",
+      "20th century",
+      "90s",
+      "2000s",
+      "21st century",
+      "1990s",
+      "contemporary"
+    ],
+    "place": [
+      "colorado",
+      "nova scotia",
+      "usa",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 22997,
+      "slug": "south-park-bigger-longer-and-uncut",
+      "title": "South Park: Bigger, Longer & Uncut",
+      "year": 1999,
+      "rank": 0
+    },
+    {
+      "id": 12482,
+      "slug": "drawn-together",
+      "title": "Drawn Together",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 31728,
+      "slug": "christmas-in-south-park",
+      "title": "Christmas in South Park",
+      "year": 2000,
+      "rank": 2
+    },
+    {
+      "id": 29954,
+      "slug": "happy-tree-friends",
+      "title": "Happy Tree Friends",
+      "year": 2000,
+      "rank": 3
+    },
+    {
+      "id": 5108,
+      "slug": "ugly-americans",
+      "title": "Ugly Americans",
+      "year": 2010,
+      "rank": 4
+    },
+    {
+      "id": 9164,
+      "slug": "beavis-and-butt-head",
+      "title": "Beavis and Butt-Head",
+      "year": 1993,
+      "rank": 5
+    },
+    {
+      "id": 64628,
+      "slug": "paradise-pd",
+      "title": "Paradise PD",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 56595,
+      "slug": "rick-and-morty",
+      "title": "Rick and Morty",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 3463,
+      "slug": "brickleberry",
+      "title": "Brickleberry",
+      "year": 2012,
+      "rank": 8
+    },
+    {
+      "id": 38926,
+      "slug": "sausage-party",
+      "title": "Sausage Party",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 13137,
+      "slug": "family-guy",
+      "title": "Family Guy",
+      "year": 1999,
+      "rank": 10
+    },
+    {
+      "id": 26887,
+      "slug": "american-dad",
+      "title": "American Dad!",
+      "year": 2005,
+      "rank": 11
+    },
+    {
+      "id": 21499,
+      "slug": "robot-chicken",
+      "title": "Robot Chicken",
+      "year": 2005,
+      "rank": 12
+    },
+    {
+      "id": 2430,
+      "slug": "the-drawn-together-movie-the-movie",
+      "title": "The Drawn Together Movie: The Movie!",
+      "year": 2010,
+      "rank": 13
+    },
+    {
+      "id": 28915,
+      "slug": "mr-pickles",
+      "title": "Mr. Pickles",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 29925,
+      "slug": "monkey-dust",
+      "title": "Monkey Dust",
+      "year": 2003,
+      "rank": 15
+    },
+    {
+      "id": 199,
+      "slug": "mad",
+      "title": "Mad",
+      "year": 2010,
+      "rank": 16
+    },
+    {
+      "id": 69318,
+      "slug": "moral-orel",
+      "title": "Moral Orel",
+      "year": 2005,
+      "rank": 17
+    },
+    {
+      "id": 66201,
+      "slug": "frisky-dingo",
+      "title": "Frisky Dingo",
+      "year": 2006,
+      "rank": 18
+    },
+    {
+      "id": 27148,
+      "slug": "archer-vice",
+      "title": "Archer",
+      "year": 2009,
+      "rank": 19
+    },
+    {
+      "id": 75313,
+      "slug": "south-park-post-covid",
+      "title": "South Park: Post COVID",
+      "year": 2021,
+      "rank": 20
+    },
+    {
+      "id": 68785,
+      "slug": "hoops",
+      "title": "Hoops",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 40769,
+      "slug": "f-is-for-family",
+      "title": "F is for Family",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 96460,
+      "slug": "south-park-the-streaming-wars",
+      "title": "South Park: The Streaming Wars",
+      "year": 2022,
+      "rank": 23
+    },
+    {
+      "id": 13891,
+      "slug": "futurama",
+      "title": "Futurama",
+      "year": 1999,
+      "rank": 24
+    },
+    {
+      "id": 22581,
+      "slug": "the-simpsons",
+      "title": "The Simpsons",
+      "year": 1989,
+      "rank": 25
+    },
+    {
+      "id": 6334,
+      "slug": "ren-and-stimpy-adult-party-cartoon",
+      "title": "Ren & Stimpy Adult Party Cartoon",
+      "year": 2003,
+      "rank": 26
+    },
+    {
+      "id": 99200,
+      "slug": "family-guy-100th-episode-special",
+      "title": "Family Guy 100th Episode Special",
+      "year": 2007,
+      "rank": 27
+    },
+    {
+      "id": 57923,
+      "slug": "big-mouth",
+      "title": "Big Mouth",
+      "year": 2017,
+      "rank": 28
+    },
+    {
+      "id": 29809,
+      "slug": "shin-chan",
+      "title": "Shinchan",
+      "year": 2006,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919142
+}

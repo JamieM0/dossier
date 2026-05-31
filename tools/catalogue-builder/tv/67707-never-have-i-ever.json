@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/67707-never-have-i-ever",
+  "id": 67707,
+  "slug": "never-have-i-ever",
+  "title": "Never Have I Ever",
+  "year": 2020,
+  "rating": 7.8,
+  "votes_text": "93K",
+  "votes": 93000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/2b/67707.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 30,
+  "story": "After a traumatic year, all an Indian-American teen wants is to go from pariah to popular -- but friends, family and feeling won't make it easy on her.",
+  "tags": [
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 4726,
+      "slug": "popularity",
+      "name": "Popularity",
+      "film_count": 378
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 1315,
+      "slug": "teenage-girl",
+      "name": "Teenage girl",
+      "film_count": 7053
+    },
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 6,
+      "slug": "school",
+      "name": "School",
+      "film_count": 7178
+    },
+    {
+      "id": 669,
+      "slug": "girl",
+      "name": "Girl",
+      "film_count": 6847
+    },
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 123625,
+      "slug": "grownups",
+      "name": "Grownups",
+      "film_count": 972
+    },
+    {
+      "id": 5404,
+      "slug": "women",
+      "name": "Women",
+      "film_count": 7008
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 4758,
+      "slug": "friendship-between-girls",
+      "name": "Friendship between girls",
+      "film_count": 428
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 2588,
+      "slug": "virgin",
+      "name": "Virgin",
+      "film_count": 1223
+    },
+    {
+      "id": 4775,
+      "slug": "teacher-student-relationship",
+      "name": "Teacher student relationship",
+      "film_count": 1711
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "funny",
+      "light",
+      "sweet",
+      "captivating",
+      "entertaining",
+      "psychological",
+      "humorous",
+      "scenic",
+      "feel good",
+      "saga"
+    ],
+    "audience": [
+      "teens",
+      "teen drama"
+    ],
+    "plot": [
+      "popularity",
+      "friendship",
+      "teenage girl",
+      "lgbt",
+      "school",
+      "girl",
+      "family relations",
+      "teenager",
+      "coming of age",
+      "teenage protagonist",
+      "mother daughter relationship",
+      "teenage life",
+      "adolescence",
+      "lifestyle",
+      "loss of father",
+      "social misfits",
+      "first love",
+      "high school",
+      "grownups",
+      "women",
+      "friendship between girls",
+      "virgin",
+      "teacher student relationship",
+      "teenage sexuality",
+      "high school student"
+    ],
+    "time": [
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "usa",
+      "california"
+    ]
+  },
+  "similar": [
+    {
+      "id": 70811,
+      "slug": "ginny-and-georgia",
+      "title": "Ginny & Georgia",
+      "year": 2021,
+      "rank": 0
+    },
+    {
+      "id": 75282,
+      "slug": "the-sex-lives-of-college-girls",
+      "title": "The Sex Lives of College Girls",
+      "year": 2021,
+      "rank": 1
+    },
+    {
+      "id": 97110,
+      "slug": "geek-girl",
+      "title": "Geek Girl",
+      "year": 2024,
+      "rank": 2
+    },
+    {
+      "id": 30350,
+      "slug": "lizzie-mcguire",
+      "title": "Lizzie McGuire",
+      "year": 2001,
+      "rank": 3
+    },
+    {
+      "id": 68103,
+      "slug": "on-my-block",
+      "title": "On My Block",
+      "year": 2018,
+      "rank": 4
+    },
+    {
+      "id": 64620,
+      "slug": "sex-education",
+      "title": "Sex Education",
+      "year": 2019,
+      "rank": 5
+    },
+    {
+      "id": 81734,
+      "slug": "xo-kitty",
+      "title": "XO, Kitty",
+      "year": 2023,
+      "rank": 6
+    },
+    {
+      "id": 3248,
+      "slug": "awkward",
+      "title": "Awkward.",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 67971,
+      "slug": "the-baby-sitters-club",
+      "title": "The Baby-Sitters Club",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 65403,
+      "slug": "trinkets",
+      "title": "Trinkets",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 59845,
+      "slug": "everything-sucks",
+      "title": "Everything Sucks!",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 60774,
+      "slug": "atypical",
+      "title": "Atypical",
+      "year": 2017,
+      "rank": 11
+    },
+    {
+      "id": 71724,
+      "slug": "moxie",
+      "title": "Moxie",
+      "year": 2021,
+      "rank": 12
+    },
+    {
+      "id": 77331,
+      "slug": "boo-bitch",
+      "title": "Boo, Bitch",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 84599,
+      "slug": "the-pms-daughter",
+      "title": "The PM's Daughter",
+      "year": 2022,
+      "rank": 14
+    },
+    {
+      "id": 71807,
+      "slug": "generation",
+      "title": "Generation",
+      "year": 2021,
+      "rank": 15
+    },
+    {
+      "id": 58260,
+      "slug": "derry-girls",
+      "title": "Derry Girls",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 30416,
+      "slug": "boy-meets-world",
+      "title": "Boy Meets World",
+      "year": 1993,
+      "rank": 17
+    },
+    {
+      "id": 66425,
+      "slug": "high-school-musical-the-musical-the-series",
+      "title": "High School Musical: The Musical: The Series",
+      "year": 2019,
+      "rank": 18
+    },
+    {
+      "id": 57941,
+      "slug": "red-oaks",
+      "title": "Red Oaks",
+      "year": 2014,
+      "rank": 19
+    },
+    {
+      "id": 79631,
+      "slug": "all-the-same-or-not",
+      "title": "All the Same… or Not",
+      "year": 2022,
+      "rank": 20
+    },
+    {
+      "id": 66349,
+      "slug": "grown-ish",
+      "title": "Grown-ish",
+      "year": 2018,
+      "rank": 21
+    },
+    {
+      "id": 66932,
+      "slug": "i-am-not-okay-with-this",
+      "title": "I Am Not Okay with This",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 27588,
+      "slug": "the-duff",
+      "title": "The DUFF",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 91208,
+      "slug": "the-sleepover-club",
+      "title": "The Sleepover Club",
+      "year": 2003,
+      "rank": 24
+    },
+    {
+      "id": 68784,
+      "slug": "julie-and-the-phantoms",
+      "title": "Julie and the Phantoms",
+      "year": 2020,
+      "rank": 25
+    },
+    {
+      "id": 56423,
+      "slug": "10-things-i-hate-about-you",
+      "title": "10 Things I Hate About You",
+      "year": 2009,
+      "rank": 26
+    },
+    {
+      "id": 2267,
+      "slug": "the-carrie-diaries",
+      "title": "The Carrie Diaries",
+      "year": 2013,
+      "rank": 27
+    },
+    {
+      "id": 28581,
+      "slug": "faking-it",
+      "title": "Faking It",
+      "year": 2014,
+      "rank": 28
+    },
+    {
+      "id": 69863,
+      "slug": "teenage-bounty-hunters",
+      "title": "Teenage Bounty Hunters",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919177
+}

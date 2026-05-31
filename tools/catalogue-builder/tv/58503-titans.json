@@ -1,0 +1,392 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/58503-titans",
+  "id": 58503,
+  "slug": "titans",
+  "title": "Titans",
+  "year": 2018,
+  "rating": 7.4,
+  "votes_text": "119K",
+  "votes": 119000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/2b/58503.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Crime",
+    "Drama",
+    "Fantasy",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "A team of young superheroes led by Nightwing (formerly Batman's first Robin) form to combat evil and other perils.",
+  "tags": [
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 6264,
+      "slug": "superhero-team",
+      "name": "Superhero team",
+      "film_count": 618
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 4237,
+      "slug": "secret-identity",
+      "name": "Secret identity",
+      "film_count": 1314
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 818,
+      "slug": "brutality",
+      "name": "Brutality",
+      "film_count": 11304
+    },
+    {
+      "id": 64631,
+      "slug": "female-alien",
+      "name": "Female alien",
+      "film_count": 181
+    },
+    {
+      "id": 7087,
+      "slug": "batman",
+      "name": "Batman",
+      "film_count": 523
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 2345,
+      "slug": "anime",
+      "name": "Anime",
+      "film_count": 6683
+    },
+    {
+      "id": 7685,
+      "slug": "superpower",
+      "name": "Superpower",
+      "film_count": 2014
+    },
+    {
+      "id": 19751,
+      "slug": "teenage-superhero",
+      "name": "Teenage superhero",
+      "film_count": 178
+    },
+    {
+      "id": 1220,
+      "slug": "road-trip",
+      "name": "Road trip",
+      "film_count": 3472
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "exciting",
+      "action adventure",
+      "suspenseful",
+      "anime",
+      "bleak",
+      "tense",
+      "sad",
+      "teen",
+      "spectacular"
+    ],
+    "audience": [
+      "teens",
+      "pre-teens",
+      "teen fantasy",
+      "teen drama"
+    ],
+    "plot": [
+      "superhero",
+      "superhero team",
+      "friendship",
+      "secret identity",
+      "supernatural ability",
+      "murder",
+      "danger",
+      "brutality",
+      "vengeance",
+      "blood",
+      "self discovery",
+      "multiverse",
+      "superheroine",
+      "coming of age",
+      "fight scenes",
+      "life is a bitch",
+      "villain",
+      "escape",
+      "chase",
+      "female alien",
+      "batman",
+      "heroes",
+      "superpower",
+      "teenage superhero",
+      "road trip"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "san francisco"
+    ]
+  },
+  "similar": [
+    {
+      "id": 57910,
+      "slug": "marvels-runaways",
+      "title": "Marvel's Runaways",
+      "year": 2017,
+      "rank": 0
+    },
+    {
+      "id": 64831,
+      "slug": "the-umbrella-academy",
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "rank": 1
+    },
+    {
+      "id": 57902,
+      "slug": "the-gifted",
+      "title": "The Gifted",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 1801,
+      "slug": "arrow",
+      "title": "Arrow",
+      "year": 2012,
+      "rank": 3
+    },
+    {
+      "id": 68583,
+      "slug": "wandavision",
+      "title": "WandaVision",
+      "year": 2021,
+      "rank": 4
+    },
+    {
+      "id": 67884,
+      "slug": "stargirl",
+      "title": "DC's Stargirl",
+      "year": 2020,
+      "rank": 5
+    },
+    {
+      "id": 36886,
+      "slug": "supergirl",
+      "title": "Supergirl",
+      "year": 2015,
+      "rank": 6
+    },
+    {
+      "id": 80498,
+      "slug": "gotham-knights",
+      "title": "Gotham Knights",
+      "year": 2023,
+      "rank": 7
+    },
+    {
+      "id": 1412,
+      "slug": "powers",
+      "title": "Powers",
+      "year": 2015,
+      "rank": 8
+    },
+    {
+      "id": 69757,
+      "slug": "ms-marvel",
+      "title": "Ms. Marvel",
+      "year": 2022,
+      "rank": 9
+    },
+    {
+      "id": 22781,
+      "slug": "smallville",
+      "title": "Smallville",
+      "year": 2001,
+      "rank": 10
+    },
+    {
+      "id": 27166,
+      "slug": "the-flash",
+      "title": "The Flash",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 64832,
+      "slug": "deadly-class",
+      "title": "Deadly Class",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 60790,
+      "slug": "van-helsing",
+      "title": "Van Helsing",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 35425,
+      "slug": "iron-fist",
+      "title": "Iron Fist",
+      "year": 2017,
+      "rank": 14
+    },
+    {
+      "id": 27229,
+      "slug": "gotham",
+      "title": "Gotham",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 67834,
+      "slug": "warrior-nun",
+      "title": "Warrior Nun",
+      "year": 2020,
+      "rank": 16
+    },
+    {
+      "id": 69891,
+      "slug": "marvel-studios-legends",
+      "title": "Marvel Studios: Legends",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 69528,
+      "slug": "the-falcon-and-the-winter-soldier",
+      "title": "The Falcon and the Winter Soldier",
+      "year": 2021,
+      "rank": 18
+    },
+    {
+      "id": 4778,
+      "slug": "the-tomorrow-people",
+      "title": "The Tomorrow People",
+      "year": 2013,
+      "rank": 19
+    },
+    {
+      "id": 81370,
+      "slug": "ironheart",
+      "title": "Ironheart",
+      "year": 2025,
+      "rank": 20
+    },
+    {
+      "id": 62636,
+      "slug": "the-thundermans",
+      "title": "The Thundermans",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 66967,
+      "slug": "superman-and-lois",
+      "title": "Superman and Lois",
+      "year": 2021,
+      "rank": 22
+    },
+    {
+      "id": 64607,
+      "slug": "swamp-thing",
+      "title": "Swamp Thing",
+      "year": 2019,
+      "rank": 23
+    },
+    {
+      "id": 15035,
+      "slug": "agent-carter",
+      "title": "Agent Carter",
+      "year": 2015,
+      "rank": 24
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 83553,
+      "slug": "gen-v",
+      "title": "Gen V",
+      "year": 2023,
+      "rank": 26
+    },
+    {
+      "id": 69647,
+      "slug": "alex-rider",
+      "title": "Alex Rider",
+      "year": 2020,
+      "rank": 27
+    },
+    {
+      "id": 41496,
+      "slug": "inhumans",
+      "title": "Marvel's Inhumans",
+      "year": 2017,
+      "rank": 28
+    },
+    {
+      "id": 58505,
+      "slug": "marvels-cloak-and-dagger",
+      "title": "Cloak & Dagger",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919164
+}

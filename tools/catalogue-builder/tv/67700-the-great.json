@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/67700-the-great",
+  "id": 67700,
+  "slug": "the-great",
+  "title": "The Great",
+  "year": 2020,
+  "rating": 8.1,
+  "votes_text": "63K",
+  "votes": 63000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/46/67700.jpg",
+  "genres": [
+    "Biography",
+    "Comedy",
+    "Drama",
+    "History"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 52,
+  "story": "A genre-bending, anti-historical ride through 18th century Russia following the rise of Catherine the Nothing to Catherine the Great and her explosive relationship with husband Peter, the emperor of Russia.",
+  "tags": [
+    {
+      "id": 10916,
+      "slug": "18th-century",
+      "name": "18th century",
+      "film_count": 798
+    },
+    {
+      "id": 35080,
+      "slug": "monarch",
+      "name": "Monarch",
+      "film_count": 191
+    },
+    {
+      "id": 10923,
+      "slug": "royal-court",
+      "name": "Royal court",
+      "film_count": 460
+    },
+    {
+      "id": 37220,
+      "slug": "royal-family",
+      "name": "Royal family",
+      "film_count": 906
+    },
+    {
+      "id": 39175,
+      "slug": "empress",
+      "name": "Empress",
+      "film_count": 111
+    },
+    {
+      "id": 197,
+      "slug": "queen",
+      "name": "Queen",
+      "film_count": 866
+    },
+    {
+      "id": 814,
+      "slug": "female-nudity",
+      "name": "Female nudity",
+      "film_count": 21159
+    },
+    {
+      "id": 187,
+      "slug": "king",
+      "name": "King",
+      "film_count": 1292
+    },
+    {
+      "id": 56,
+      "slug": "military",
+      "name": "Military",
+      "film_count": 4375
+    },
+    {
+      "id": 530,
+      "slug": "betrayal",
+      "name": "Betrayal",
+      "film_count": 17334
+    },
+    {
+      "id": 34517,
+      "slug": "political-intrigue",
+      "name": "Political intrigue",
+      "film_count": 2212
+    },
+    {
+      "id": 267,
+      "slug": "coronation",
+      "name": "Coronation",
+      "film_count": 119
+    },
+    {
+      "id": 123340,
+      "slug": "state-affairs",
+      "name": "State affairs",
+      "film_count": 2444
+    },
+    {
+      "id": 498,
+      "slug": "ambition",
+      "name": "Ambition",
+      "film_count": 7524
+    },
+    {
+      "id": 2278,
+      "slug": "sex-scene",
+      "name": "Sex scene",
+      "film_count": 9619
+    },
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sexy",
+      "costume drama",
+      "humorous",
+      "period piece",
+      "saga",
+      "stylized",
+      "epic",
+      "historical drama",
+      "funny",
+      "hilarious"
+    ],
+    "audience": [
+      "chick flick",
+      "date night"
+    ],
+    "plot": [
+      "monarch",
+      "royal court",
+      "royal family",
+      "empress",
+      "queen",
+      "female nudity",
+      "king",
+      "palace intrigue",
+      "imperial russia",
+      "love",
+      "russian empire",
+      "intrigue",
+      "russian history",
+      "rivalry",
+      "military",
+      "betrayal",
+      "political intrigue",
+      "coronation",
+      "state affairs",
+      "ambition",
+      "sex scene",
+      "serial killer",
+      "fashion",
+      "women",
+      "ancient"
+    ],
+    "time": [
+      "18th century",
+      "future",
+      "georgian era"
+    ],
+    "place": [
+      "russia",
+      "russian"
+    ]
+  },
+  "similar": [
+    {
+      "id": 61380,
+      "slug": "the-favourite",
+      "title": "The Favourite",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 65711,
+      "slug": "catherine-the-great",
+      "title": "Catherine the Great",
+      "year": 2019,
+      "rank": 1
+    },
+    {
+      "id": 36964,
+      "slug": "catherine-the-great",
+      "title": "Catherine the Great",
+      "year": 1995,
+      "rank": 2
+    },
+    {
+      "id": 18017,
+      "slug": "marie-antoinette",
+      "title": "Marie Antoinette",
+      "year": 2006,
+      "rank": 3
+    },
+    {
+      "id": 35406,
+      "slug": "versailles",
+      "title": "Versailles",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 42774,
+      "slug": "the-crown",
+      "title": "The Crown",
+      "year": 2016,
+      "rank": 5
+    },
+    {
+      "id": 729,
+      "slug": "the-white-queen",
+      "title": "The White Queen",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 80028,
+      "slug": "marie-antoinette",
+      "title": "Marie Antoinette",
+      "year": 2022,
+      "rank": 7
+    },
+    {
+      "id": 61338,
+      "slug": "mary-queen-of-scots",
+      "title": "Mary Queen of Scots",
+      "year": 2018,
+      "rank": 8
+    },
+    {
+      "id": 42776,
+      "slug": "victoria",
+      "title": "Victoria",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 19858,
+      "slug": "the-other-boleyn-girl",
+      "title": "The Other Boleyn Girl",
+      "year": 2008,
+      "rank": 10
+    },
+    {
+      "id": 77624,
+      "slug": "catherine-the-great",
+      "title": "Catherine the Great",
+      "year": 2015,
+      "rank": 11
+    },
+    {
+      "id": 5344,
+      "slug": "reign",
+      "title": "Reign",
+      "year": 2013,
+      "rank": 12
+    },
+    {
+      "id": 41764,
+      "slug": "ekaterina",
+      "title": "Ekaterina",
+      "year": 2014,
+      "rank": 13
+    },
+    {
+      "id": 26048,
+      "slug": "young-catherine",
+      "title": "Young Catherine",
+      "year": 1991,
+      "rank": 14
+    },
+    {
+      "id": 12730,
+      "slug": "elizabeth-the-golden-age",
+      "title": "Elizabeth: The Golden Age",
+      "year": 2007,
+      "rank": 15
+    },
+    {
+      "id": 26064,
+      "slug": "the-young-victoria",
+      "title": "The Young Victoria",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 69101,
+      "slug": "bridgerton",
+      "title": "Bridgerton",
+      "year": 2020,
+      "rank": 17
+    },
+    {
+      "id": 26963,
+      "slug": "the-tudors",
+      "title": "The Tudors",
+      "year": 2007,
+      "rank": 18
+    },
+    {
+      "id": 96894,
+      "slug": "the-decameron",
+      "title": "The Decameron",
+      "year": 2024,
+      "rank": 19
+    },
+    {
+      "id": 15558,
+      "slug": "i-claudius",
+      "title": "I, Claudius",
+      "year": 1976,
+      "rank": 20
+    },
+    {
+      "id": 83394,
+      "slug": "elizaveta",
+      "title": "Elizaveta",
+      "year": 2022,
+      "rank": 21
+    },
+    {
+      "id": 63659,
+      "slug": "tut",
+      "title": "Tut",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 14579,
+      "slug": "gunpowder-treason-and-plot",
+      "title": "Gunpowder, Treason & Plot",
+      "year": 2004,
+      "rank": 23
+    },
+    {
+      "id": 81933,
+      "slug": "the-serpent-queen",
+      "title": "The Serpent Queen",
+      "year": 2022,
+      "rank": 24
+    },
+    {
+      "id": 96658,
+      "slug": "blood-sex-and-royalty",
+      "title": "Blood, Sex & Royalty",
+      "year": 2022,
+      "rank": 25
+    },
+    {
+      "id": 65272,
+      "slug": "the-spanish-princess",
+      "title": "The Spanish Princess",
+      "year": 2019,
+      "rank": 26
+    },
+    {
+      "id": 82557,
+      "slug": "grigoriy-r",
+      "title": "Grigoriy R.",
+      "year": 2014,
+      "rank": 27
+    },
+    {
+      "id": 29808,
+      "slug": "the-six-wives-of-henry-viii",
+      "title": "The Six Wives of Henry VIII",
+      "year": 1970,
+      "rank": 28
+    },
+    {
+      "id": 8637,
+      "slug": "aristocrats",
+      "title": "Aristocrats",
+      "year": 1999,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919177
+}

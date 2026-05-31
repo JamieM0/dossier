@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/4800-sons-of-anarchy",
+  "id": 4800,
+  "slug": "sons-of-anarchy",
+  "title": "Sons of Anarchy",
+  "year": 2008,
+  "rating": 8.5,
+  "votes_text": "352K",
+  "votes": 352000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/23/4800.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "An adrenalized drama with darkly comedic undertones that explores a notorious outlaw motorcycle club’s (MC) desire to protect its livelihood while ensuring that their simple, sheltered town of Charming, California remains exactly that, charming. The MC must confront threats from drug dealers, corporate developers, and overzealous law officers. Behind the MC’s familial lifestyle and legally thriving automotive shop is a ruthless and illegal arms business driven by the seduction of money, power, and blood.",
+  "tags": [
+    {
+      "id": 16861,
+      "slug": "biker",
+      "name": "Biker",
+      "film_count": 713
+    },
+    {
+      "id": 5330,
+      "slug": "motorcycle-gang",
+      "name": "Motorcycle gang",
+      "film_count": 275
+    },
+    {
+      "id": 4186,
+      "slug": "motorcycle",
+      "name": "Motorcycle",
+      "film_count": 3316
+    },
+    {
+      "id": 527,
+      "slug": "prison",
+      "name": "Prison",
+      "film_count": 4472
+    },
+    {
+      "id": 1054,
+      "slug": "organized-crime",
+      "name": "Organized crime",
+      "film_count": 3969
+    },
+    {
+      "id": 2162,
+      "slug": "gang",
+      "name": "Gang",
+      "film_count": 5339
+    },
+    {
+      "id": 123623,
+      "slug": "group-of-criminals",
+      "name": "Group of criminals",
+      "film_count": 206
+    },
+    {
+      "id": 8724,
+      "slug": "power-struggle",
+      "name": "Power struggle",
+      "film_count": 2612
+    },
+    {
+      "id": 36197,
+      "slug": "aryan-brotherhood",
+      "name": "Aryan brotherhood",
+      "film_count": 37
+    },
+    {
+      "id": 2170,
+      "slug": "usa",
+      "name": "Usa",
+      "film_count": 14812
+    },
+    {
+      "id": 92805,
+      "slug": "rough",
+      "name": "Rough",
+      "film_count": 8898
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 1274,
+      "slug": "mafia",
+      "name": "Mafia",
+      "film_count": 2780
+    },
+    {
+      "id": 124067,
+      "slug": "dramatic",
+      "name": "Dramatic",
+      "film_count": 6928
+    },
+    {
+      "id": 22276,
+      "slug": "dirty-cop",
+      "name": "Dirty cop",
+      "film_count": 298
+    },
+    {
+      "id": 6456,
+      "slug": "erotic",
+      "name": "Erotic",
+      "film_count": 5476
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "serious",
+      "exciting",
+      "sexy",
+      "tense",
+      "suspenseful",
+      "rough",
+      "dramatic",
+      "erotic",
+      "epic",
+      "atmospheric"
+    ],
+    "audience": [
+      "boys' night",
+      "teens"
+    ],
+    "plot": [
+      "biker",
+      "motorcycle gang",
+      "motorcycle",
+      "prison",
+      "organized crime",
+      "gang",
+      "group of criminals",
+      "power struggle",
+      "friends",
+      "young man",
+      "arms dealing",
+      "police corruption",
+      "family relations",
+      "criminal",
+      "street gang",
+      "violent",
+      "motorcyclist",
+      "mexican gang",
+      "outlaw",
+      "aryan brotherhood",
+      "small town",
+      "mafia",
+      "dirty cop",
+      "gangster",
+      "tattoo"
+    ],
+    "time": [
+      "2010s",
+      "y2k",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "california",
+      "northern california"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64157,
+      "slug": "mayans-m-c",
+      "title": "Mayans M.C.",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 42759,
+      "slug": "animal-kingdom",
+      "title": "Animal Kingdom",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 56631,
+      "slug": "peaky-blinders",
+      "title": "Peaky Blinders",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 5109,
+      "slug": "banshee",
+      "title": "Banshee",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 63106,
+      "slug": "gangland-undercover",
+      "title": "Gangland Undercover",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 27279,
+      "slug": "the-shield",
+      "title": "The Shield",
+      "year": 2002,
+      "rank": 5
+    },
+    {
+      "id": 4029,
+      "slug": "ray-donovan",
+      "title": "Ray Donovan",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 22956,
+      "slug": "the-sopranos",
+      "title": "The Sopranos",
+      "year": 1999,
+      "rank": 7
+    },
+    {
+      "id": 62468,
+      "slug": "love-hate",
+      "title": "Love/Hate",
+      "year": 2010,
+      "rank": 8
+    },
+    {
+      "id": 26292,
+      "slug": "breaking-bad",
+      "title": "Breaking Bad",
+      "year": 2008,
+      "rank": 9
+    },
+    {
+      "id": 26925,
+      "slug": "the-wire",
+      "title": "The Wire",
+      "year": 2002,
+      "rank": 10
+    },
+    {
+      "id": 24309,
+      "slug": "the-town",
+      "title": "The Town",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 67170,
+      "slug": "outlaws",
+      "title": "Outlaws",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 66394,
+      "slug": "godfather-of-harlem",
+      "title": "Godfather of Harlem",
+      "year": 2019,
+      "rank": 13
+    },
+    {
+      "id": 26845,
+      "slug": "boardwalk-empire",
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "rank": 14
+    },
+    {
+      "id": 56668,
+      "slug": "wentworth-prison",
+      "title": "Wentworth",
+      "year": 2013,
+      "rank": 15
+    },
+    {
+      "id": 67932,
+      "slug": "zerozerozero",
+      "title": "ZeroZeroZero",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 36891,
+      "slug": "quarry",
+      "title": "Quarry",
+      "year": 2016,
+      "rank": 17
+    },
+    {
+      "id": 69115,
+      "slug": "savage",
+      "title": "Savage",
+      "year": 2019,
+      "rank": 18
+    },
+    {
+      "id": 40762,
+      "slug": "narcos",
+      "title": "Narcos",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 61578,
+      "slug": "ozark",
+      "title": "Ozark",
+      "year": 2017,
+      "rank": 21
+    },
+    {
+      "id": 56691,
+      "slug": "ezel",
+      "title": "Ezel",
+      "year": 2009,
+      "rank": 22
+    },
+    {
+      "id": 14215,
+      "slug": "the-godfather",
+      "title": "The Godfather",
+      "year": 1972,
+      "rank": 23
+    },
+    {
+      "id": 26267,
+      "slug": "lawless",
+      "title": "Lawless",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 79930,
+      "slug": "tulsa-king",
+      "title": "Tulsa King",
+      "year": 2022,
+      "rank": 25
+    },
+    {
+      "id": 2942,
+      "slug": "justified",
+      "title": "Justified",
+      "year": 2010,
+      "rank": 26
+    },
+    {
+      "id": 75206,
+      "slug": "mayor-of-kingstown",
+      "title": "Mayor of Kingstown",
+      "year": 2021,
+      "rank": 27
+    },
+    {
+      "id": 66300,
+      "slug": "bad-blood",
+      "title": "Bad Blood",
+      "year": 2017,
+      "rank": 28
+    },
+    {
+      "id": 4989,
+      "slug": "mob-city",
+      "title": "Mob City",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919133
+}

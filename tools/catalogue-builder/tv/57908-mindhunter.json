@@ -1,0 +1,384 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/57908-mindhunter",
+  "id": 57908,
+  "slug": "mindhunter",
+  "title": "Mindhunter",
+  "year": 2017,
+  "rating": 8.6,
+  "votes_text": "390K",
+  "votes": 390000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/00/57908.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "An agent in the FBI's Elite Serial Crime Unit develops profiling techniques as he pursues notorious serial killers and rapists.",
+  "tags": [
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 10719,
+      "slug": "psychology",
+      "name": "Psychology",
+      "film_count": 2501
+    },
+    {
+      "id": 1225,
+      "slug": "psychopath",
+      "name": "Psychopath",
+      "film_count": 5358
+    },
+    {
+      "id": 13125,
+      "slug": "criminal-psychologist",
+      "name": "Criminal psychologist",
+      "film_count": 91
+    },
+    {
+      "id": 4956,
+      "slug": "fbi",
+      "name": "Fbi",
+      "film_count": 1273
+    },
+    {
+      "id": 5039,
+      "slug": "fbi-agent",
+      "name": "Fbi agent",
+      "film_count": 825
+    },
+    {
+      "id": 3055,
+      "slug": "serial-murder",
+      "name": "Serial murder",
+      "film_count": 1875
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    },
+    {
+      "id": 5509,
+      "slug": "whodunit",
+      "name": "Whodunit",
+      "film_count": 1967
+    },
+    {
+      "id": 123873,
+      "slug": "thought-provoking",
+      "name": "Thought provoking",
+      "film_count": 7187
+    },
+    {
+      "id": 600,
+      "slug": "criminal",
+      "name": "Criminal",
+      "film_count": 6483
+    },
+    {
+      "id": 45423,
+      "slug": "crime-drama",
+      "name": "Crime drama",
+      "film_count": 4416
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 2118,
+      "slug": "killer",
+      "name": "Killer",
+      "film_count": 3685
+    },
+    {
+      "id": 5506,
+      "slug": "murder-mystery",
+      "name": "Murder mystery",
+      "film_count": 4248
+    },
+    {
+      "id": 141326,
+      "slug": "sapphic",
+      "name": "Sapphic",
+      "film_count": 314
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "psychological thriller",
+      "thought provoking",
+      "crime drama",
+      "psychological",
+      "thrilling",
+      "suspense",
+      "disturbing",
+      "bleak",
+      "exciting",
+      "retro"
+    ],
+    "plot": [
+      "serial killer",
+      "psychology",
+      "psychopath",
+      "criminal psychologist",
+      "fbi",
+      "fbi agent",
+      "serial murder",
+      "police",
+      "murderer",
+      "police investigation",
+      "true crime",
+      "murder",
+      "profiler",
+      "prison",
+      "interview",
+      "investigation",
+      "charles manson",
+      "logic",
+      "lesbian",
+      "rapist",
+      "killing",
+      "whodunit",
+      "criminal",
+      "killer",
+      "murder mystery"
+    ],
+    "time": [
+      "70s",
+      "2010s",
+      "80s",
+      "contemporary"
+    ],
+    "place": [
+      "virginia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 59491,
+      "slug": "manhunt-unabomber",
+      "title": "Manhunt",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 542,
+      "slug": "hannibal",
+      "title": "Hannibal",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 22034,
+      "slug": "se7en",
+      "title": "Seven",
+      "year": 1995,
+      "rank": 3
+    },
+    {
+      "id": 78822,
+      "slug": "black-bird",
+      "title": "Black Bird",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 21138,
+      "slug": "red-dragon",
+      "title": "Red Dragon",
+      "year": 2002,
+      "rank": 5
+    },
+    {
+      "id": 26167,
+      "slug": "zodiac",
+      "title": "Zodiac",
+      "year": 2007,
+      "rank": 6
+    },
+    {
+      "id": 22528,
+      "slug": "the-silence-of-the-lambs",
+      "title": "The Silence of the Lambs",
+      "year": 1991,
+      "rank": 7
+    },
+    {
+      "id": 64562,
+      "slug": "you",
+      "title": "YOU",
+      "year": 2018,
+      "rank": 8
+    },
+    {
+      "id": 7853,
+      "slug": "the-fall",
+      "title": "The Fall",
+      "year": 2013,
+      "rank": 9
+    },
+    {
+      "id": 71006,
+      "slug": "the-other-me",
+      "title": "The Other Me",
+      "year": 2019,
+      "rank": 10
+    },
+    {
+      "id": 65624,
+      "slug": "unbelievable",
+      "title": "Unbelievable",
+      "year": 2019,
+      "rank": 11
+    },
+    {
+      "id": 65741,
+      "slug": "prodigal-son",
+      "title": "Prodigal Son",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 61,
+      "slug": "the-following",
+      "title": "The Following",
+      "year": 2013,
+      "rank": 13
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 14
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 15
+    },
+    {
+      "id": 26780,
+      "slug": "horsemen",
+      "title": "Horsemen",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 73217,
+      "slug": "the-chestnut-man",
+      "title": "The Chestnut Man",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 6063,
+      "slug": "fargo",
+      "title": "Fargo",
+      "year": 2014,
+      "rank": 18
+    },
+    {
+      "id": 58248,
+      "slug": "the-sinner",
+      "title": "The Sinner",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 80023,
+      "slug": "the-patient",
+      "title": "The Patient",
+      "year": 2022,
+      "rank": 20
+    },
+    {
+      "id": 30130,
+      "slug": "profiler",
+      "title": "Profiler",
+      "year": 1996,
+      "rank": 21
+    },
+    {
+      "id": 69673,
+      "slug": "des",
+      "title": "Des",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 61212,
+      "slug": "killing-eve",
+      "title": "Killing Eve",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 3141,
+      "slug": "the-frozen-ground",
+      "title": "The Frozen Ground",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 58250,
+      "slug": "the-alienist",
+      "title": "The Alienist",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 42684,
+      "slug": "cardinal",
+      "title": "Cardinal",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 69807,
+      "slug": "behind-her-eyes",
+      "title": "Behind Her Eyes",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 61580,
+      "slug": "mr-mercedes",
+      "title": "Mr. Mercedes",
+      "year": 2017,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919163
+}

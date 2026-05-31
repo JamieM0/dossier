@@ -1,0 +1,383 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/75978-severance",
+  "id": 75978,
+  "slug": "severance",
+  "title": "Severance",
+  "year": 2022,
+  "rating": 8.6,
+  "votes_text": "375K",
+  "votes": 375000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/09/75978.jpg",
+  "genres": [
+    "Drama",
+    "Mystery",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 50,
+  "story": "Mark leads a team of office workers whose memories have been surgically divided between their work and personal lives. When a mysterious colleague appears outside of work, it begins a journey to discover the truth about their jobs.",
+  "tags": [
+    {
+      "id": 522,
+      "slug": "office",
+      "name": "Office",
+      "film_count": 1463
+    },
+    {
+      "id": 1622,
+      "slug": "memory",
+      "name": "Memory",
+      "film_count": 4102
+    },
+    {
+      "id": 124061,
+      "slug": "distopia",
+      "name": "Distopia",
+      "film_count": 3296
+    },
+    {
+      "id": 7925,
+      "slug": "mind-control",
+      "name": "Mind control",
+      "film_count": 1027
+    },
+    {
+      "id": 22593,
+      "slug": "alternate-world",
+      "name": "Alternate world",
+      "film_count": 228
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 1554,
+      "slug": "memory-loss",
+      "name": "Memory loss",
+      "film_count": 1657
+    },
+    {
+      "id": 4237,
+      "slug": "secret-identity",
+      "name": "Secret identity",
+      "film_count": 1314
+    },
+    {
+      "id": 3866,
+      "slug": "office-politics",
+      "name": "Office politics",
+      "film_count": 735
+    },
+    {
+      "id": 14473,
+      "slug": "experimental",
+      "name": "Experimental",
+      "film_count": 2001
+    },
+    {
+      "id": 123735,
+      "slug": "private-vs-public",
+      "name": "Private vs public",
+      "film_count": 79
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    },
+    {
+      "id": 5457,
+      "slug": "psycho",
+      "name": "Psycho",
+      "film_count": 1168
+    },
+    {
+      "id": 89094,
+      "slug": "husband-and-wife",
+      "name": "Husband and wife",
+      "film_count": 339
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "existential",
+      "breathtaking",
+      "captivating",
+      "philosophical",
+      "experimental",
+      "semi serious",
+      "psychological thriller",
+      "surreal",
+      "apocalyptic"
+    ],
+    "audience": [
+      "date night"
+    ],
+    "plot": [
+      "office",
+      "memory",
+      "distopia",
+      "mind control",
+      "alternate world",
+      "satire",
+      "memory loss",
+      "conspiracy",
+      "colleague",
+      "double life",
+      "split personality",
+      "corporation",
+      "dystopian society",
+      "new job",
+      "bureaucracy",
+      "employee employee relationship",
+      "corporate conspiracy",
+      "office worker",
+      "secret identity",
+      "office politics",
+      "private vs public",
+      "psycho",
+      "husband and wife",
+      "workplace",
+      "surgery"
+    ],
+    "time": [
+      "2020s",
+      "future",
+      "contemporary"
+    ]
+  },
+  "similar": [
+    {
+      "id": 66884,
+      "slug": "devs",
+      "title": "Devs",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 85156,
+      "slug": "silo",
+      "title": "Silo",
+      "year": 2023,
+      "rank": 1
+    },
+    {
+      "id": 56515,
+      "slug": "black-mirror",
+      "title": "Black Mirror",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 35423,
+      "slug": "westworld",
+      "title": "Westworld",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 78453,
+      "slug": "the-peripheral",
+      "title": "The Peripheral",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 72319,
+      "slug": "extinct",
+      "title": "Extinct",
+      "year": 2017,
+      "rank": 5
+    },
+    {
+      "id": 77634,
+      "slug": "shining-girls",
+      "title": "Shining Girls",
+      "year": 2022,
+      "rank": 6
+    },
+    {
+      "id": 16428,
+      "slug": "kafka",
+      "title": "Kafka",
+      "year": 1991,
+      "rank": 7
+    },
+    {
+      "id": 6283,
+      "slug": "wayward-pines",
+      "title": "Wayward Pines",
+      "year": 2015,
+      "rank": 8
+    },
+    {
+      "id": 76358,
+      "slug": "archive-81",
+      "title": "Archive 81",
+      "year": 2022,
+      "rank": 9
+    },
+    {
+      "id": 26937,
+      "slug": "dollhouse",
+      "title": "Dollhouse",
+      "year": 2009,
+      "rank": 10
+    },
+    {
+      "id": 71170,
+      "slug": "cruel-summer",
+      "title": "Cruel Summer",
+      "year": 2021,
+      "rank": 11
+    },
+    {
+      "id": 13510,
+      "slug": "flashforward",
+      "title": "Flashforward",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 64515,
+      "slug": "falling-water",
+      "title": "Falling Water",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 72785,
+      "slug": "nine-perfect-strangers",
+      "title": "Nine Perfect Strangers",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 93452,
+      "slug": "beacon-23",
+      "title": "Beacon 23",
+      "year": 2023,
+      "rank": 15
+    },
+    {
+      "id": 67599,
+      "slug": "the-rain",
+      "title": "The Rain",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 74976,
+      "slug": "station-eleven",
+      "title": "Station Eleven",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 25664,
+      "slug": "wild-palms",
+      "title": "Wild Palms",
+      "year": 1993,
+      "rank": 18
+    },
+    {
+      "id": 77299,
+      "slug": "from",
+      "title": "From",
+      "year": 2022,
+      "rank": 19
+    },
+    {
+      "id": 38475,
+      "slug": "the-circle",
+      "title": "The Circle",
+      "year": 2017,
+      "rank": 20
+    },
+    {
+      "id": 105699,
+      "slug": "pluribus",
+      "title": "Pluribus",
+      "year": 2025,
+      "rank": 21
+    },
+    {
+      "id": 42669,
+      "slug": "the-handmaids-tale",
+      "title": "The Handmaid's Tale",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 75573,
+      "slug": "domain",
+      "title": "Domain",
+      "year": 2016,
+      "rank": 23
+    },
+    {
+      "id": 76043,
+      "slug": "the-drowning",
+      "title": "The Drowning",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 67717,
+      "slug": "into-the-night",
+      "title": "Into the Night",
+      "year": 2020,
+      "rank": 25
+    },
+    {
+      "id": 67935,
+      "slug": "brave-new-world",
+      "title": "Brave New World",
+      "year": 2020,
+      "rank": 26
+    },
+    {
+      "id": 60770,
+      "slug": "salvation",
+      "title": "Salvation",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 67596,
+      "slug": "homecoming",
+      "title": "Homecoming",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 75350,
+      "slug": "dr-brain",
+      "title": "Dr. Brain",
+      "year": 2021,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919183
+}

@@ -1,0 +1,376 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/84960-shrinking",
+  "id": 84960,
+  "slug": "shrinking",
+  "title": "Shrinking",
+  "year": 2023,
+  "rating": 8.1,
+  "votes_text": "113K",
+  "votes": 113000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f1/84960.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 33,
+  "story": "Jimmy is struggling to grieve the loss of his wife while being a dad, friend, and therapist. He decides to try a new approach with everyone in his path: unfiltered, brutal honesty. Can he help himself by helping others? Will it bring him back into the light?",
+  "tags": [
+    {
+      "id": 9893,
+      "slug": "therapist",
+      "name": "Therapist",
+      "film_count": 740
+    },
+    {
+      "id": 5257,
+      "slug": "loss",
+      "name": "Loss",
+      "film_count": 3447
+    },
+    {
+      "id": 1551,
+      "slug": "death-of-wife",
+      "name": "Death of wife",
+      "film_count": 1233
+    },
+    {
+      "id": 14787,
+      "slug": "ethics",
+      "name": "Ethics",
+      "film_count": 600
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 11402,
+      "slug": "psychotherapist",
+      "name": "Psychotherapist",
+      "film_count": 142
+    },
+    {
+      "id": 124250,
+      "slug": "satirical",
+      "name": "Satirical",
+      "film_count": 8467
+    },
+    {
+      "id": 30679,
+      "slug": "grieving-widower",
+      "name": "Grieving widower",
+      "film_count": 61
+    },
+    {
+      "id": 4920,
+      "slug": "male-protagonist",
+      "name": "Male protagonist",
+      "film_count": 6600
+    },
+    {
+      "id": 45403,
+      "slug": "feel-good",
+      "name": "Feel good",
+      "film_count": 17668
+    },
+    {
+      "id": 2276,
+      "slug": "psychologist",
+      "name": "Psychologist",
+      "film_count": 789
+    },
+    {
+      "id": 1091,
+      "slug": "male-nudity",
+      "name": "Male nudity",
+      "film_count": 12261
+    },
+    {
+      "id": 35612,
+      "slug": "male-star-appears-nude",
+      "name": "Male star appears nude",
+      "film_count": 825
+    },
+    {
+      "id": 44734,
+      "slug": "sentimental",
+      "name": "Sentimental",
+      "film_count": 9110
+    },
+    {
+      "id": 25980,
+      "slug": "philosophical",
+      "name": "Philosophical",
+      "film_count": 2616
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "psychological",
+      "captivating",
+      "satirical",
+      "semi serious",
+      "thrilling",
+      "feel good",
+      "sentimental",
+      "philosophical",
+      "witty",
+      "romantic comedy"
+    ],
+    "plot": [
+      "therapist",
+      "loss",
+      "death of wife",
+      "ethics",
+      "psychotherapist",
+      "changing lives",
+      "family problems",
+      "satire",
+      "loss of wife",
+      "loss of loved one",
+      "loss of partner",
+      "therapy",
+      "patient",
+      "narcissism",
+      "disorder",
+      "neighbor",
+      "father daughter relationship",
+      "teenage daughter",
+      "grieving",
+      "grieving widower",
+      "male protagonist",
+      "psychologist",
+      "male nudity",
+      "male star appears nude",
+      "melancholy"
+    ],
+    "time": [
+      "2020s"
+    ]
+  },
+  "similar": [
+    {
+      "id": 66918,
+      "slug": "after-life",
+      "title": "After Life",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 98662,
+      "slug": "beck-is-back",
+      "title": "Beck Is Back!",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 79983,
+      "slug": "as-we-see-it",
+      "title": "As We See It",
+      "year": 2022,
+      "rank": 2
+    },
+    {
+      "id": 81010,
+      "slug": "the-eccentric-daughter-in-law",
+      "title": "The Eccentric Daughter-in-Law",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 79185,
+      "slug": "the-psycho-series",
+      "title": "The Psycho Series",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 85162,
+      "slug": "lucky-hank",
+      "title": "Lucky Hank",
+      "year": 2023,
+      "rank": 5
+    },
+    {
+      "id": 98356,
+      "slug": "the-crouches",
+      "title": "The Crouches",
+      "year": 2003,
+      "rank": 6
+    },
+    {
+      "id": 87743,
+      "slug": "avoidance",
+      "title": "Avoidance",
+      "year": 2022,
+      "rank": 7
+    },
+    {
+      "id": 105296,
+      "slug": "man-on-pause",
+      "title": "Man on Pause",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 83447,
+      "slug": "bad-family",
+      "title": "Bad Family",
+      "year": 2006,
+      "rank": 9
+    },
+    {
+      "id": 79376,
+      "slug": "youre-hired",
+      "title": "You're Hired",
+      "year": 2009,
+      "rank": 10
+    },
+    {
+      "id": 82974,
+      "slug": "head-cases",
+      "title": "Head Cases",
+      "year": 2005,
+      "rank": 11
+    },
+    {
+      "id": 86863,
+      "slug": "that-was-then",
+      "title": "That Was Then",
+      "year": 2002,
+      "rank": 12
+    },
+    {
+      "id": 95861,
+      "slug": "the-aam-aadmi-family",
+      "title": "The Aam Aadmi Family",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 90924,
+      "slug": "meaning-of-life",
+      "title": "Meaning of Life",
+      "year": 2022,
+      "rank": 14
+    },
+    {
+      "id": 96782,
+      "slug": "dr-nice",
+      "title": "Dr. Nice",
+      "year": 2023,
+      "rank": 15
+    },
+    {
+      "id": 79410,
+      "slug": "a-poem-a-day",
+      "title": "A Poem A Day",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 81384,
+      "slug": "the-dry",
+      "title": "The Dry",
+      "year": 2022,
+      "rank": 17
+    },
+    {
+      "id": 80097,
+      "slug": "the-path",
+      "title": "The Path",
+      "year": 2022,
+      "rank": 18
+    },
+    {
+      "id": 88246,
+      "slug": "the-family-link",
+      "title": "The Family Link",
+      "year": 2007,
+      "rank": 19
+    },
+    {
+      "id": 81174,
+      "slug": "boomerang",
+      "title": "Boomerang",
+      "year": 2019,
+      "rank": 20
+    },
+    {
+      "id": 93515,
+      "slug": "les-mecs",
+      "title": "Les Mecs",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 79853,
+      "slug": "that-90s-show",
+      "title": "That '90s Show",
+      "year": 2023,
+      "rank": 22
+    },
+    {
+      "id": 85298,
+      "slug": "rebooting",
+      "title": "Rebooting",
+      "year": 2023,
+      "rank": 23
+    },
+    {
+      "id": 103872,
+      "slug": "nothing",
+      "title": "Nothing",
+      "year": 2023,
+      "rank": 24
+    },
+    {
+      "id": 75532,
+      "slug": "breakable-you",
+      "title": "Breakable You",
+      "year": 2017,
+      "rank": 25
+    },
+    {
+      "id": 77381,
+      "slug": "roar",
+      "title": "Roar",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 98417,
+      "slug": "almost-there",
+      "title": "Almost There",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 43368,
+      "slug": "jpod",
+      "title": "jPod",
+      "year": 2008,
+      "rank": 28
+    },
+    {
+      "id": 78890,
+      "slug": "the-lake",
+      "title": "The Lake",
+      "year": 2022,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919187
+}

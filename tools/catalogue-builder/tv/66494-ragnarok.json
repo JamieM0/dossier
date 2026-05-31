@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/66494-ragnarok",
+  "id": 66494,
+  "slug": "ragnarok",
+  "title": "Ragnarok",
+  "year": 2020,
+  "rating": 7.3,
+  "votes_text": "54K",
+  "votes": 54000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/d5/66494.jpg",
+  "genres": [
+    "Action",
+    "Drama",
+    "Fantasy",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "Denmark",
+    "Norway"
+  ],
+  "duration_min": 45,
+  "story": "A small Norwegian town experiencing warm winters and violent downpours seems to be headed for another Ragnarök -- unless someone intervenes in time.",
+  "tags": [
+    {
+      "id": 4151,
+      "slug": "norse-mythology",
+      "name": "Norse mythology",
+      "film_count": 93
+    },
+    {
+      "id": 23077,
+      "slug": "scandinavia",
+      "name": "Scandinavia",
+      "film_count": 331
+    },
+    {
+      "id": 3089,
+      "slug": "supernatural-power",
+      "name": "Supernatural power",
+      "film_count": 6202
+    },
+    {
+      "id": 123483,
+      "slug": "sincere",
+      "name": "Sincere",
+      "film_count": 8382
+    },
+    {
+      "id": 5561,
+      "slug": "teenage-protagonist",
+      "name": "Teenage protagonist",
+      "film_count": 1860
+    },
+    {
+      "id": 123414,
+      "slug": "uncover-truth",
+      "name": "Uncover truth",
+      "film_count": 4204
+    },
+    {
+      "id": 1828,
+      "slug": "end-of-the-world",
+      "name": "End of the world",
+      "film_count": 1506
+    },
+    {
+      "id": 1450,
+      "slug": "good-versus-evil",
+      "name": "Good versus evil",
+      "film_count": 6642
+    },
+    {
+      "id": 676,
+      "slug": "rural-setting",
+      "name": "Rural setting",
+      "film_count": 2048
+    },
+    {
+      "id": 124061,
+      "slug": "distopia",
+      "name": "Distopia",
+      "film_count": 3296
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    },
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 17651,
+      "slug": "intellectual",
+      "name": "Intellectual",
+      "film_count": 2967
+    },
+    {
+      "id": 3697,
+      "slug": "religion",
+      "name": "Religion",
+      "film_count": 3492
+    },
+    {
+      "id": 29650,
+      "slug": "ancient",
+      "name": "Ancient",
+      "film_count": 1419
+    },
+    {
+      "id": 3138,
+      "slug": "paranormal",
+      "name": "Paranormal",
+      "film_count": 2937
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sincere",
+      "emotional",
+      "realistic",
+      "atmospheric",
+      "intellectual",
+      "mystical",
+      "serious"
+    ],
+    "audience": [
+      "teens",
+      "teen fantasy",
+      "teen drama"
+    ],
+    "plot": [
+      "norse mythology",
+      "supernatural power",
+      "teenage protagonist",
+      "uncover truth",
+      "end of the world",
+      "good versus evil",
+      "gay",
+      "climate change",
+      "forces of nature",
+      "catastrophe",
+      "salvation",
+      "superhero",
+      "viking",
+      "society",
+      "drought",
+      "mythology",
+      "high school",
+      "coming of age",
+      "small town",
+      "rural setting",
+      "distopia",
+      "lgbt",
+      "religion",
+      "ancient",
+      "paranormal"
+    ],
+    "time": [
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "scandinavia",
+      "eastern europe"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64769,
+      "slug": "ghost-wars",
+      "title": "Ghost Wars",
+      "year": 2017,
+      "rank": 0
+    },
+    {
+      "id": 64239,
+      "slug": "chilling-adventures-of-sabrina",
+      "title": "Chilling Adventures of Sabrina",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 66429,
+      "slug": "locke-and-key",
+      "title": "Locke & Key",
+      "year": 2020,
+      "rank": 3
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 4
+    },
+    {
+      "id": 26566,
+      "slug": "legend-of-the-seeker",
+      "title": "Legend of the Seeker",
+      "year": 2008,
+      "rank": 5
+    },
+    {
+      "id": 28860,
+      "slug": "american-gods",
+      "title": "American Gods",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 66925,
+      "slug": "9-1-1-lone-star",
+      "title": "9-1-1: Lone Star",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 66895,
+      "slug": "valhalla",
+      "title": "Valhalla: The Legend of Thor",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 69621,
+      "slug": "shadow-and-bone",
+      "title": "Shadow and Bone",
+      "year": 2021,
+      "rank": 9
+    },
+    {
+      "id": 26565,
+      "slug": "supernatural",
+      "title": "Supernatural",
+      "year": 2005,
+      "rank": 10
+    },
+    {
+      "id": 41305,
+      "slug": "la-feria-ambulante",
+      "title": "Carnivàle",
+      "year": 2003,
+      "rank": 11
+    },
+    {
+      "id": 45939,
+      "slug": "mirror-of-the-witch",
+      "title": "Mirror of the Witch",
+      "year": 2016,
+      "rank": 12
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 13
+    },
+    {
+      "id": 57902,
+      "slug": "the-gifted",
+      "title": "The Gifted",
+      "year": 2017,
+      "rank": 14
+    },
+    {
+      "id": 64335,
+      "slug": "legacies",
+      "title": "Legacies",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 85358,
+      "slug": "moving",
+      "title": "Moving",
+      "year": 2023,
+      "rank": 16
+    },
+    {
+      "id": 65640,
+      "slug": "the-order",
+      "title": "The Order",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 41817,
+      "slug": "shame",
+      "title": "Skam",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 65666,
+      "slug": "the-society",
+      "title": "The Society",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 98332,
+      "slug": "smallville-chloe-chronicles",
+      "title": "Smallville: Chloe Chronicles",
+      "year": 2003,
+      "rank": 20
+    },
+    {
+      "id": 85329,
+      "slug": "the-chosen-one",
+      "title": "The Chosen One",
+      "year": 2023,
+      "rank": 21
+    },
+    {
+      "id": 81717,
+      "slug": "american-born-chinese",
+      "title": "American Born Chinese",
+      "year": 2023,
+      "rank": 22
+    },
+    {
+      "id": 69183,
+      "slug": "fate-the-winx-saga",
+      "title": "Fate: The Winx Saga",
+      "year": 2021,
+      "rank": 23
+    },
+    {
+      "id": 72046,
+      "slug": "dark-world-2-equilibrium",
+      "title": "Dark World 2: Equilibrium",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 77406,
+      "slug": "the-age-of-anger",
+      "title": "The Age Of Anger",
+      "year": 2022,
+      "rank": 25
+    },
+    {
+      "id": 71875,
+      "slug": "invisible-city",
+      "title": "Invisible City",
+      "year": 2021,
+      "rank": 26
+    },
+    {
+      "id": 64831,
+      "slug": "the-umbrella-academy",
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 71031,
+      "slug": "the-nevers",
+      "title": "The Nevers",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 71170,
+      "slug": "cruel-summer",
+      "title": "Cruel Summer",
+      "year": 2021,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919174
+}

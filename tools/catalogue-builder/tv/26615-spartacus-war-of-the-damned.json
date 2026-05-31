@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26615-spartacus-war-of-the-damned",
+  "id": 26615,
+  "slug": "spartacus-war-of-the-damned",
+  "title": "Spartacus",
+  "year": 2010,
+  "rating": 8.4,
+  "votes_text": "294K",
+  "votes": 294000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/22/26615.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Biography",
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Spartacus is an American television series inspired by the historical figure of Spartacus, a Thracian gladiator who from 73 to 71 BCE led a major slave uprising against the Roman Republic departing from Capua.",
+  "tags": [
+    {
+      "id": 16006,
+      "slug": "ancient-rome",
+      "name": "Ancient rome",
+      "film_count": 340
+    },
+    {
+      "id": 30168,
+      "slug": "ancient-history",
+      "name": "Ancient history",
+      "film_count": 504
+    },
+    {
+      "id": 21076,
+      "slug": "roman-empire",
+      "name": "Roman empire",
+      "film_count": 343
+    },
+    {
+      "id": 2783,
+      "slug": "gladiator",
+      "name": "Gladiator",
+      "film_count": 261
+    },
+    {
+      "id": 1748,
+      "slug": "sword-fight",
+      "name": "Sword fight",
+      "film_count": 2222
+    },
+    {
+      "id": 10946,
+      "slug": "rebellion",
+      "name": "Rebellion",
+      "film_count": 3391
+    },
+    {
+      "id": 123867,
+      "slug": "battles",
+      "name": "Battles",
+      "film_count": 6580
+    },
+    {
+      "id": 123789,
+      "slug": "swords-and-armor",
+      "name": "Swords and armor",
+      "film_count": 104
+    },
+    {
+      "id": 2427,
+      "slug": "slave",
+      "name": "Slave",
+      "film_count": 627
+    },
+    {
+      "id": 5510,
+      "slug": "intrigue",
+      "name": "Intrigue",
+      "film_count": 3046
+    },
+    {
+      "id": 123397,
+      "slug": "contests-and-competitions",
+      "name": "Contests and competitions",
+      "film_count": 2138
+    },
+    {
+      "id": 436,
+      "slug": "death",
+      "name": "Death",
+      "film_count": 18858
+    },
+    {
+      "id": 123732,
+      "slug": "pride-and-honor",
+      "name": "Pride and honor",
+      "film_count": 167
+    },
+    {
+      "id": 16005,
+      "slug": "colosseum",
+      "name": "Colosseum",
+      "film_count": 53
+    },
+    {
+      "id": 12968,
+      "slug": "rebelliousness",
+      "name": "Rebelliousness",
+      "film_count": 915
+    },
+    {
+      "id": 6511,
+      "slug": "roman",
+      "name": "Roman",
+      "film_count": 130
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "epic",
+      "sexy",
+      "historical drama",
+      "sexual",
+      "exciting",
+      "stylized",
+      "heroic",
+      "erotic",
+      "costume drama",
+      "realistic"
+    ],
+    "audience": [
+      "teens",
+      "boys' night"
+    ],
+    "plot": [
+      "ancient rome",
+      "ancient history",
+      "roman empire",
+      "gladiator",
+      "sword fight",
+      "rebellion",
+      "battles",
+      "swords and armor",
+      "friendship between men",
+      "sex",
+      "slavery",
+      "medieval",
+      "rebel",
+      "self sacrifice",
+      "sword and shield",
+      "strong sexual content",
+      "power struggle",
+      "warrior",
+      "female nudity",
+      "ambition",
+      "revolution",
+      "slave",
+      "intrigue",
+      "contests and competitions",
+      "death"
+    ],
+    "time": [
+      "ancient times",
+      "1st century b.c",
+      "2000s",
+      "1st century"
+    ],
+    "place": [
+      "ancient greece"
+    ]
+  },
+  "similar": [
+    {
+      "id": 29973,
+      "slug": "spartacus-gods-of-the-arena",
+      "title": "Spartacus: Gods of the Arena",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 23025,
+      "slug": "spartacus",
+      "title": "Spartacus",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 21564,
+      "slug": "rome",
+      "title": "Rome",
+      "year": 2005,
+      "rank": 2
+    },
+    {
+      "id": 74753,
+      "slug": "vikings-valhalla",
+      "title": "Vikings: Valhalla",
+      "year": 2022,
+      "rank": 3
+    },
+    {
+      "id": 202,
+      "slug": "vikings",
+      "title": "Vikings",
+      "year": 2013,
+      "rank": 4
+    },
+    {
+      "id": 26240,
+      "slug": "game-of-thrones",
+      "title": "Game of Thrones",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 14175,
+      "slug": "gladiator",
+      "title": "Gladiator",
+      "year": 2000,
+      "rank": 6
+    },
+    {
+      "id": 7724,
+      "slug": "300",
+      "title": "300",
+      "year": 2006,
+      "rank": 7
+    },
+    {
+      "id": 36817,
+      "slug": "the-last-kingdom",
+      "title": "The Last Kingdom",
+      "year": 2015,
+      "rank": 8
+    },
+    {
+      "id": 24486,
+      "slug": "troy",
+      "title": "Troy",
+      "year": 2004,
+      "rank": 9
+    },
+    {
+      "id": 69180,
+      "slug": "barbarians",
+      "title": "Barbarians",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 27266,
+      "slug": "the-borgias",
+      "title": "The Borgias",
+      "year": 2011,
+      "rank": 11
+    },
+    {
+      "id": 394,
+      "slug": "300-rise-of-an-empire",
+      "title": "300: Rise of an Empire",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 56946,
+      "slug": "marco-polo",
+      "title": "Marco Polo",
+      "year": 2014,
+      "rank": 13
+    },
+    {
+      "id": 63120,
+      "slug": "ancient-rome-the-rise-and-fall-of-an-empire",
+      "title": "Ancient Rome: The Rise and Fall of an Empire",
+      "year": 2006,
+      "rank": 14
+    },
+    {
+      "id": 9924,
+      "slug": "braveheart",
+      "title": "Braveheart",
+      "year": 1995,
+      "rank": 15
+    },
+    {
+      "id": 26963,
+      "slug": "the-tudors",
+      "title": "The Tudors",
+      "year": 2007,
+      "rank": 16
+    },
+    {
+      "id": 3470,
+      "slug": "black-sails",
+      "title": "Black Sails",
+      "year": 2014,
+      "rank": 17
+    },
+    {
+      "id": 12616,
+      "slug": "the-eagle",
+      "title": "The Eagle",
+      "year": 2011,
+      "rank": 18
+    },
+    {
+      "id": 15988,
+      "slug": "ironclad",
+      "title": "Ironclad",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 106207,
+      "slug": "spartacus-house-of-ashur",
+      "title": "Spartacus: House of Ashur",
+      "year": 2025,
+      "rank": 20
+    },
+    {
+      "id": 8631,
+      "slug": "the-arena",
+      "title": "The Arena",
+      "year": 2001,
+      "rank": 21
+    },
+    {
+      "id": 64767,
+      "slug": "knightfall",
+      "title": "Knightfall",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 8755,
+      "slug": "attila",
+      "title": "Attila",
+      "year": 2001,
+      "rank": 23
+    },
+    {
+      "id": 14939,
+      "slug": "helen-of-troy",
+      "title": "Helen of Troy",
+      "year": 2003,
+      "rank": 24
+    },
+    {
+      "id": 11676,
+      "slug": "david",
+      "title": "David",
+      "year": 1997,
+      "rank": 25
+    },
+    {
+      "id": 19606,
+      "slug": "the-odyssey",
+      "title": "The Odyssey",
+      "year": 1997,
+      "rank": 26
+    },
+    {
+      "id": 26293,
+      "slug": "conquest-1453",
+      "title": "Conquest 1453",
+      "year": 2012,
+      "rank": 27
+    },
+    {
+      "id": 8107,
+      "slug": "alexander",
+      "title": "Alexander",
+      "year": 2004,
+      "rank": 28
+    },
+    {
+      "id": 69338,
+      "slug": "ben-hur",
+      "title": "Ben Hur",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919147
+}

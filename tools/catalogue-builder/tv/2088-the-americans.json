@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/2088-the-americans",
+  "id": 2088,
+  "slug": "the-americans",
+  "title": "The Americans",
+  "year": 2013,
+  "rating": 8.4,
+  "votes_text": "122K",
+  "votes": 122000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/c3/2088.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 44,
+  "story": "Set during the Cold War period in the 1980s, The Americans is the story of Elizabeth and Philip Jennings, two Soviet KGB officers posing as an American married couple in the suburbs of Washington D.C. and their neighbor, Stan Beeman, an FBI Counterintelligence agent.",
+  "tags": [
+    {
+      "id": 162,
+      "slug": "cold-war",
+      "name": "Cold war",
+      "film_count": 1113
+    },
+    {
+      "id": 3058,
+      "slug": "espionage",
+      "name": "Espionage",
+      "film_count": 3395
+    },
+    {
+      "id": 10,
+      "slug": "spy",
+      "name": "Spy",
+      "film_count": 3331
+    },
+    {
+      "id": 7542,
+      "slug": "undercover",
+      "name": "Undercover",
+      "film_count": 3572
+    },
+    {
+      "id": 123473,
+      "slug": "working-undercover",
+      "name": "Working undercover",
+      "film_count": 986
+    },
+    {
+      "id": 4313,
+      "slug": "mission",
+      "name": "Mission",
+      "film_count": 3740
+    },
+    {
+      "id": 135,
+      "slug": "top-secret",
+      "name": "Top secret",
+      "film_count": 420
+    },
+    {
+      "id": 16738,
+      "slug": "kgb",
+      "name": "Kgb",
+      "film_count": 237
+    },
+    {
+      "id": 19104,
+      "slug": "realistic",
+      "name": "Realistic",
+      "film_count": 35439
+    },
+    {
+      "id": 481,
+      "slug": "neighbor",
+      "name": "Neighbor",
+      "film_count": 2569
+    },
+    {
+      "id": 2170,
+      "slug": "usa",
+      "name": "Usa",
+      "film_count": 14812
+    },
+    {
+      "id": 14203,
+      "slug": "spy-thriller",
+      "name": "Spy thriller",
+      "film_count": 644
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    },
+    {
+      "id": 4195,
+      "slug": "secret-agent",
+      "name": "Secret agent",
+      "film_count": 1570
+    },
+    {
+      "id": 175,
+      "slug": "marriage",
+      "name": "Marriage",
+      "film_count": 6801
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "captivating",
+      "sexy",
+      "realistic",
+      "atmospheric",
+      "suspenseful",
+      "dramatic",
+      "serious",
+      "neo noir",
+      "political"
+    ],
+    "audience": [
+      "adult"
+    ],
+    "plot": [
+      "cold war",
+      "espionage",
+      "spy",
+      "undercover",
+      "working undercover",
+      "mission",
+      "top secret",
+      "kgb",
+      "mole",
+      "government agency",
+      "couple relations",
+      "investigation",
+      "double life",
+      "double agent",
+      "fbi",
+      "surveillance",
+      "soviet spy",
+      "cold war era",
+      "parents and children",
+      "neighbor",
+      "spy thriller",
+      "secret agent",
+      "marriage",
+      "intrigue",
+      "shooting"
+    ],
+    "time": [
+      "80s",
+      "2010s",
+      "20th century"
+    ],
+    "place": [
+      "washington d.c",
+      "soviet union",
+      "usa",
+      "ussr",
+      "russian"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26971,
+      "slug": "homeland",
+      "title": "Homeland",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 66311,
+      "slug": "allegiance",
+      "title": "Allegiance",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 9927,
+      "slug": "breach",
+      "title": "Breach",
+      "year": 2007,
+      "rank": 2
+    },
+    {
+      "id": 58098,
+      "slug": "deutschland-83",
+      "title": "Deutschland 83",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 4
+    },
+    {
+      "id": 4086,
+      "slug": "angelas-eyes",
+      "title": "Angela's Eyes",
+      "year": 2006,
+      "rank": 5
+    },
+    {
+      "id": 59745,
+      "slug": "the-game",
+      "title": "The Game",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 59933,
+      "slug": "the-assets",
+      "title": "The Assets",
+      "year": 2014,
+      "rank": 7
+    },
+    {
+      "id": 24153,
+      "slug": "tinker-tailor-soldier-spy",
+      "title": "Tinker Tailor Soldier Spy",
+      "year": 2011,
+      "rank": 8
+    },
+    {
+      "id": 30351,
+      "slug": "tinker-tailor-soldier-spy",
+      "title": "Tinker Tailor Soldier Spy",
+      "year": 1979,
+      "rank": 9
+    },
+    {
+      "id": 313,
+      "slug": "rubicon",
+      "title": "Rubicon",
+      "year": 2010,
+      "rank": 10
+    },
+    {
+      "id": 60983,
+      "slug": "legends",
+      "title": "Legends",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 36881,
+      "slug": "the-night-manager",
+      "title": "The Night Manager",
+      "year": 2016,
+      "rank": 12
+    },
+    {
+      "id": 11099,
+      "slug": "the-company",
+      "title": "The Company",
+      "year": 2007,
+      "rank": 13
+    },
+    {
+      "id": 4172,
+      "slug": "covert-affairs",
+      "title": "Covert Affairs",
+      "year": 2010,
+      "rank": 14
+    },
+    {
+      "id": 22735,
+      "slug": "sleeper-cell",
+      "title": "Sleeper Cell",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 30222,
+      "slug": "smileys-people",
+      "title": "Smiley's People",
+      "year": 1982,
+      "rank": 16
+    },
+    {
+      "id": 671,
+      "slug": "the-agency",
+      "title": "The Agency",
+      "year": 2001,
+      "rank": 17
+    },
+    {
+      "id": 6118,
+      "slug": "wiseguy",
+      "title": "Wiseguy",
+      "year": 1987,
+      "rank": 18
+    },
+    {
+      "id": 41814,
+      "slug": "quantico",
+      "title": "Quantico",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 26327,
+      "slug": "24",
+      "title": "24",
+      "year": 2001,
+      "rank": 20
+    },
+    {
+      "id": 30259,
+      "slug": "reilly-ace-of-spies",
+      "title": "Reilly: Ace of Spies",
+      "year": 1983,
+      "rank": 21
+    },
+    {
+      "id": 17359,
+      "slug": "little-nikita",
+      "title": "Little Nikita",
+      "year": 1988,
+      "rank": 22
+    },
+    {
+      "id": 4029,
+      "slug": "ray-donovan",
+      "title": "Ray Donovan",
+      "year": 2013,
+      "rank": 23
+    },
+    {
+      "id": 27240,
+      "slug": "farewell",
+      "title": "Farewell",
+      "year": 2009,
+      "rank": 24
+    },
+    {
+      "id": 3796,
+      "slug": "rogue",
+      "title": "Rogue",
+      "year": 2013,
+      "rank": 25
+    },
+    {
+      "id": 77263,
+      "slug": "totems",
+      "title": "Totems",
+      "year": 2021,
+      "rank": 26
+    },
+    {
+      "id": 4117,
+      "slug": "deception",
+      "title": "Deception",
+      "year": 2013,
+      "rank": 27
+    },
+    {
+      "id": 27256,
+      "slug": "revenge",
+      "title": "Revenge",
+      "year": 2011,
+      "rank": 28
+    },
+    {
+      "id": 82410,
+      "slug": "the-gordin-cell",
+      "title": "The Gordin Cell",
+      "year": 2012,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919129
+}

@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26606-doctor-who",
+  "id": 26606,
+  "slug": "doctor-who",
+  "title": "Doctor Who",
+  "year": 2005,
+  "rating": 8.5,
+  "votes_text": "262K",
+  "votes": 262000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f7/26606.jpg",
+  "genres": [
+    "Adventure",
+    "Drama",
+    "Sci-Fi"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 45,
+  "story": "The Doctor looks and seems human. He's handsome, witty, and could be mistaken for just another man in the street. But he is a Time Lord: a 900 year old alien with 2 hearts, part of a gifted civilization who mastered time travel. The Doctor saves planets for a living – more of a hobby actually, and he's very, very good at it. He's saved us from alien menaces and evil from before time began – but just who is he?",
+  "tags": [
+    {
+      "id": 2543,
+      "slug": "time-travel",
+      "name": "Time travel",
+      "film_count": 2840
+    },
+    {
+      "id": 2542,
+      "slug": "time-machine",
+      "name": "Time machine",
+      "film_count": 879
+    },
+    {
+      "id": 1339,
+      "slug": "alien",
+      "name": "Alien",
+      "film_count": 2708
+    },
+    {
+      "id": 4302,
+      "slug": "space-travel",
+      "name": "Space travel",
+      "film_count": 1116
+    },
+    {
+      "id": 123412,
+      "slug": "save-the-day",
+      "name": "Save the day",
+      "film_count": 1678
+    },
+    {
+      "id": 8910,
+      "slug": "journey",
+      "name": "Journey",
+      "film_count": 2554
+    },
+    {
+      "id": 10812,
+      "slug": "companion",
+      "name": "Companion",
+      "film_count": 154
+    },
+    {
+      "id": 123954,
+      "slug": "sent-to-the-future",
+      "name": "Sent to the future",
+      "film_count": 85
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 2539,
+      "slug": "space",
+      "name": "Space",
+      "film_count": 2469
+    },
+    {
+      "id": 123335,
+      "slug": "imaginary",
+      "name": "Imaginary",
+      "film_count": 4709
+    },
+    {
+      "id": 123653,
+      "slug": "intergalactic",
+      "name": "Intergalactic",
+      "film_count": 271
+    },
+    {
+      "id": 2851,
+      "slug": "robot",
+      "name": "Robot",
+      "film_count": 2014
+    },
+    {
+      "id": 123492,
+      "slug": "london",
+      "name": "London",
+      "film_count": 3262
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 38728,
+      "slug": "mysterious",
+      "name": "Mysterious",
+      "film_count": 1501
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "suspenseful",
+      "mysterious",
+      "humorous",
+      "futuristic",
+      "tense",
+      "atmospheric",
+      "captivating",
+      "retro",
+      "thought provoking"
+    ],
+    "audience": [
+      "pre-teens",
+      "teens"
+    ],
+    "plot": [
+      "time travel",
+      "time machine",
+      "alien",
+      "space travel",
+      "save the day",
+      "journey",
+      "companion",
+      "danger",
+      "sent to the future",
+      "space and aliens",
+      "save the world",
+      "good versus evil",
+      "self sacrifice",
+      "eccentricity",
+      "heroes",
+      "human alien",
+      "gadget",
+      "escapades",
+      "outer space",
+      "adventurer",
+      "alien encounter",
+      "benign alien",
+      "extraterrestrial",
+      "heroic mission",
+      "space"
+    ],
+    "time": [
+      "future",
+      "2010s",
+      "2000s",
+      "2020s"
+    ],
+    "place": [
+      "london",
+      "wales"
+    ]
+  },
+  "similar": [
+    {
+      "id": 30353,
+      "slug": "doctor-who",
+      "title": "Doctor Who",
+      "year": 1963,
+      "rank": 0
+    },
+    {
+      "id": 35,
+      "slug": "the-sarah-jane-adventures",
+      "title": "The Sarah Jane Adventures",
+      "year": 2007,
+      "rank": 1
+    },
+    {
+      "id": 26645,
+      "slug": "torchwood",
+      "title": "Torchwood",
+      "year": 2006,
+      "rank": 2
+    },
+    {
+      "id": 12265,
+      "slug": "doctor-who",
+      "title": "Doctor Who",
+      "year": 1996,
+      "rank": 3
+    },
+    {
+      "id": 17542,
+      "slug": "lost-in-space",
+      "title": "Lost in Space",
+      "year": 1998,
+      "rank": 4
+    },
+    {
+      "id": 12937,
+      "slug": "eureka",
+      "title": "Eureka",
+      "year": 2006,
+      "rank": 5
+    },
+    {
+      "id": 96902,
+      "slug": "doctor-who",
+      "title": "Doctor Who",
+      "year": 2023,
+      "rank": 6
+    },
+    {
+      "id": 23185,
+      "slug": "stargate-sg-1",
+      "title": "Stargate SG-1",
+      "year": 1997,
+      "rank": 7
+    },
+    {
+      "id": 42763,
+      "slug": "dcs-legends-of-tomorrow",
+      "title": "DC's Legends of Tomorrow",
+      "year": 2016,
+      "rank": 8
+    },
+    {
+      "id": 31899,
+      "slug": "dr-who-and-the-daleks",
+      "title": "Dr. Who and the Daleks",
+      "year": 1965,
+      "rank": 9
+    },
+    {
+      "id": 34076,
+      "slug": "daleks-invasion-earth-2150-a-d",
+      "title": "Daleks' Invasion Earth 2150 A.D.",
+      "year": 1966,
+      "rank": 10
+    },
+    {
+      "id": 30277,
+      "slug": "blakes-7",
+      "title": "Blake's 7",
+      "year": 1978,
+      "rank": 11
+    },
+    {
+      "id": 60214,
+      "slug": "lost-in-space",
+      "title": "Lost in Space",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 5773,
+      "slug": "primeval-new-world",
+      "title": "Primeval: New World",
+      "year": 2012,
+      "rank": 13
+    },
+    {
+      "id": 23186,
+      "slug": "stargate-atlantis",
+      "title": "Stargate Atlantis",
+      "year": 2004,
+      "rank": 14
+    },
+    {
+      "id": 7283,
+      "slug": "interstellar",
+      "title": "Interstellar",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 28889,
+      "slug": "the-expanse",
+      "title": "The Expanse",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 26461,
+      "slug": "star-trek-into-darkness",
+      "title": "Star Trek Into Darkness",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 42670,
+      "slug": "the-orville",
+      "title": "The Orville",
+      "year": 2017,
+      "rank": 18
+    },
+    {
+      "id": 30207,
+      "slug": "star-trek-the-next-generation",
+      "title": "Star Trek: The Next Generation",
+      "year": 1987,
+      "rank": 19
+    },
+    {
+      "id": 42777,
+      "slug": "timeless",
+      "title": "Timeless",
+      "year": 2016,
+      "rank": 20
+    },
+    {
+      "id": 62265,
+      "slug": "power-rangers-r-p-m",
+      "title": "Power Rangers RPM",
+      "year": 2009,
+      "rank": 21
+    },
+    {
+      "id": 62237,
+      "slug": "power-rangers-s-p-d",
+      "title": "Power Rangers S.P.D.",
+      "year": 2005,
+      "rank": 22
+    },
+    {
+      "id": 67023,
+      "slug": "amazing-stories",
+      "title": "Amazing Stories",
+      "year": 2020,
+      "rank": 23
+    },
+    {
+      "id": 30471,
+      "slug": "roswell",
+      "title": "Roswell",
+      "year": 1999,
+      "rank": 24
+    },
+    {
+      "id": 8123,
+      "slug": "alice",
+      "title": "Alice",
+      "year": 2009,
+      "rank": 25
+    },
+    {
+      "id": 20900,
+      "slug": "quantum-leap",
+      "title": "Quantum Leap",
+      "year": 1989,
+      "rank": 26
+    },
+    {
+      "id": 9113,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 2004,
+      "rank": 27
+    },
+    {
+      "id": 27268,
+      "slug": "guardians-of-the-galaxy",
+      "title": "Guardians of the Galaxy",
+      "year": 2014,
+      "rank": 28
+    },
+    {
+      "id": 26555,
+      "slug": "terra-nova",
+      "title": "Terra Nova",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919147
+}

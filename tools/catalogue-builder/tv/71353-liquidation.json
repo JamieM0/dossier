@@ -1,0 +1,377 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/71353-liquidation",
+  "id": 71353,
+  "slug": "liquidation",
+  "title": "Liquidation",
+  "year": 2007,
+  "rating": 8.1,
+  "votes_text": "3K",
+  "votes": 3000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/8e/71353.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Mystery",
+    "Thriller",
+    "War"
+  ],
+  "country": [
+    "Russia"
+  ],
+  "duration_min": 45,
+  "story": "The year is 1946. World War II is over, but it doesn't mean that there is no one to fight with. The post-war city of Odessa is ruled by serial killer prison-escapees and former Nazi collaborators. Fallen into disfavor, Marshal Zhoukov is sent to Odessa by Joseph Stalin to handle the situation. Together with the head of the local criminal investigation unit, David Gottsman, Zhoukov begins a special operation cleanup post-war Odessa from crime.",
+  "tags": [
+    {
+      "id": 3786,
+      "slug": "post-world-war-two",
+      "name": "Post world war two",
+      "film_count": 422
+    },
+    {
+      "id": 40621,
+      "slug": "fighting-crime",
+      "name": "Fighting crime",
+      "film_count": 2118
+    },
+    {
+      "id": 13816,
+      "slug": "saboteur",
+      "name": "Saboteur",
+      "film_count": 79
+    },
+    {
+      "id": 1805,
+      "slug": "military-officer",
+      "name": "Military officer",
+      "film_count": 540
+    },
+    {
+      "id": 5343,
+      "slug": "criminal-gang",
+      "name": "Criminal gang",
+      "film_count": 1120
+    },
+    {
+      "id": 23,
+      "slug": "1940s",
+      "name": "1940s",
+      "film_count": 2394
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 12647,
+      "slug": "crime-spree",
+      "name": "Crime spree",
+      "film_count": 326
+    },
+    {
+      "id": 38110,
+      "slug": "criminality",
+      "name": "Criminality",
+      "film_count": 195
+    },
+    {
+      "id": 22141,
+      "slug": "ussr",
+      "name": "Ussr",
+      "film_count": 772
+    },
+    {
+      "id": 19233,
+      "slug": "period-drama",
+      "name": "Period drama",
+      "film_count": 5527
+    },
+    {
+      "id": 124151,
+      "slug": "interesting",
+      "name": "Interesting",
+      "film_count": 5647
+    },
+    {
+      "id": 124099,
+      "slug": "gangs",
+      "name": "Gangs",
+      "film_count": 1038
+    },
+    {
+      "id": 123332,
+      "slug": "crimes",
+      "name": "Crimes",
+      "film_count": 17551
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspense",
+      "captivating",
+      "atmospheric",
+      "disturbing",
+      "suspenseful",
+      "period drama",
+      "interesting"
+    ],
+    "plot": [
+      "fighting crime",
+      "saboteur",
+      "military officer",
+      "criminal gang",
+      "gang",
+      "murder",
+      "crime boss",
+      "lieutenant colonel",
+      "organized crime",
+      "showdown",
+      "criminal",
+      "military",
+      "outlaw gang",
+      "bandit",
+      "crime spree",
+      "criminality",
+      "gangs",
+      "crimes"
+    ],
+    "time": [
+      "post world war two",
+      "1940s",
+      "20th century"
+    ],
+    "place": [
+      "ukraine",
+      "soviet union",
+      "odessa ukraine",
+      "ussr"
+    ]
+  },
+  "similar": [
+    {
+      "id": 18294,
+      "slug": "cant-change-the-meeting-place",
+      "title": "Can't Change the Meeting Place",
+      "year": 1979,
+      "rank": 0
+    },
+    {
+      "id": 97783,
+      "slug": "leningrad-46",
+      "title": "Leningrad 46",
+      "year": 2014,
+      "rank": 1
+    },
+    {
+      "id": 85751,
+      "slug": "krik-sovy",
+      "title": "The Owl's Cry",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 86630,
+      "slug": "maryina-grove",
+      "title": "Maryina Grove",
+      "year": 2012,
+      "rank": 3
+    },
+    {
+      "id": 90396,
+      "slug": "under-correction",
+      "title": "Under Correction",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 89917,
+      "slug": "summer-of-wolfs",
+      "title": "Summer of Wolfs",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 86621,
+      "slug": "mosgaz-delo-n3-pauk",
+      "title": "MosGaz. Delo N3: Pauk",
+      "year": 2015,
+      "rank": 6
+    },
+    {
+      "id": 82765,
+      "slug": "tulskiy-tokarev",
+      "title": "Tulskiy Tokarev",
+      "year": 2010,
+      "rank": 7
+    },
+    {
+      "id": 80335,
+      "slug": "apostle",
+      "title": "Apostle",
+      "year": 2008,
+      "rank": 8
+    },
+    {
+      "id": 79986,
+      "slug": "boon",
+      "title": "Boon",
+      "year": 2022,
+      "rank": 9
+    },
+    {
+      "id": 80352,
+      "slug": "ash",
+      "title": "Ash",
+      "year": 2013,
+      "rank": 10
+    },
+    {
+      "id": 25253,
+      "slug": "the-thief",
+      "title": "The Thief",
+      "year": 1997,
+      "rank": 11
+    },
+    {
+      "id": 82353,
+      "slug": "the-saboteur",
+      "title": "The Saboteur",
+      "year": 2004,
+      "rank": 12
+    },
+    {
+      "id": 75780,
+      "slug": "maltese-the-mafia-detective",
+      "title": "Maltese",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 73908,
+      "slug": "csi-vegas",
+      "title": "CSI: Vegas",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 81456,
+      "slug": "an-hour-before-the-dawn",
+      "title": "An Hour Before the Dawn",
+      "year": 2021,
+      "rank": 15
+    },
+    {
+      "id": 71624,
+      "slug": "a-rooster-for-esculapio",
+      "title": "A Rooster for Esculapio",
+      "year": 2017,
+      "rank": 16
+    },
+    {
+      "id": 80251,
+      "slug": "chasing-the-undercurrent",
+      "title": "Chasing the Undercurrent",
+      "year": 2022,
+      "rank": 17
+    },
+    {
+      "id": 66394,
+      "slug": "godfather-of-harlem",
+      "title": "Godfather of Harlem",
+      "year": 2019,
+      "rank": 18
+    },
+    {
+      "id": 73533,
+      "slug": "high-and-low-the-story-of-s-w-o-r-d",
+      "title": "High & Low: The Story of S.W.O.R.D.",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 65561,
+      "slug": "the-white-storm-2-drug-lords",
+      "title": "The White Storm 2: Drug Lords",
+      "year": 2019,
+      "rank": 20
+    },
+    {
+      "id": 84181,
+      "slug": "aleks-ljutyj",
+      "title": "Aleks Ljutyj",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 77560,
+      "slug": "nachtschicht",
+      "title": "Nachtschicht",
+      "year": 2003,
+      "rank": 22
+    },
+    {
+      "id": 86285,
+      "slug": "prophecy",
+      "title": "Prophecy",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 80838,
+      "slug": "shoot-the-messenger",
+      "title": "Shoot the Messenger",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 84679,
+      "slug": "furiosis",
+      "title": "Furiosis",
+      "year": 2022,
+      "rank": 25
+    },
+    {
+      "id": 62432,
+      "slug": "pawn",
+      "title": "Pawn",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 87096,
+      "slug": "converts",
+      "title": "Converts",
+      "year": 2007,
+      "rank": 27
+    },
+    {
+      "id": 73722,
+      "slug": "malik",
+      "title": "Malik",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 92243,
+      "slug": "a-matter-of-honor",
+      "title": "A Matter of Honor",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919181
+}

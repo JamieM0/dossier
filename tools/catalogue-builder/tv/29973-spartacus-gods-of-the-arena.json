@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/29973-spartacus-gods-of-the-arena",
+  "id": 29973,
+  "slug": "spartacus-gods-of-the-arena",
+  "title": "Spartacus: Gods of the Arena",
+  "year": 2011,
+  "rating": 8.5,
+  "votes_text": "151K",
+  "votes": 151000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/6f/29973.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Biography",
+    "Drama",
+    "History",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Before Spartacus struck down his first opponent in the arena, there were many gladiators who passed through the gates onto the sand.'Spartacus: Gods of the Arena' tells the story of the original Champion of the House of Batiatus: Gannicus in a more ruthless time before Spartacus' arrival where honor was just finding its way into the arena.",
+  "tags": [
+    {
+      "id": 30168,
+      "slug": "ancient-history",
+      "name": "Ancient history",
+      "film_count": 504
+    },
+    {
+      "id": 16006,
+      "slug": "ancient-rome",
+      "name": "Ancient rome",
+      "film_count": 340
+    },
+    {
+      "id": 21076,
+      "slug": "roman-empire",
+      "name": "Roman empire",
+      "film_count": 343
+    },
+    {
+      "id": 2783,
+      "slug": "gladiator",
+      "name": "Gladiator",
+      "film_count": 261
+    },
+    {
+      "id": 2843,
+      "slug": "warrior",
+      "name": "Warrior",
+      "film_count": 3473
+    },
+    {
+      "id": 5281,
+      "slug": "arena",
+      "name": "Arena",
+      "film_count": 729
+    },
+    {
+      "id": 6511,
+      "slug": "roman",
+      "name": "Roman",
+      "film_count": 130
+    },
+    {
+      "id": 1078,
+      "slug": "ancient-times",
+      "name": "Ancient times",
+      "film_count": 347
+    },
+    {
+      "id": 123732,
+      "slug": "pride-and-honor",
+      "name": "Pride and honor",
+      "film_count": 167
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 1179,
+      "slug": "adultery",
+      "name": "Adultery",
+      "film_count": 4586
+    },
+    {
+      "id": 422,
+      "slug": "friendship-between-men",
+      "name": "Friendship between men",
+      "film_count": 2991
+    },
+    {
+      "id": 90,
+      "slug": "blood",
+      "name": "Blood",
+      "film_count": 12987
+    },
+    {
+      "id": 1250,
+      "slug": "infidelity",
+      "name": "Infidelity",
+      "film_count": 7297
+    },
+    {
+      "id": 2773,
+      "slug": "hand-to-hand-combat",
+      "name": "Hand to hand combat",
+      "film_count": 2809
+    },
+    {
+      "id": 29650,
+      "slug": "ancient",
+      "name": "Ancient",
+      "film_count": 1419
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "epic",
+      "exciting",
+      "sexy",
+      "serious",
+      "realistic",
+      "stylized",
+      "rough",
+      "erotic",
+      "costume drama",
+      "suspense"
+    ],
+    "audience": [
+      "teens",
+      "boys' night"
+    ],
+    "plot": [
+      "ancient history",
+      "ancient rome",
+      "roman empire",
+      "gladiator",
+      "warrior",
+      "arena",
+      "roman",
+      "heroes",
+      "sword fight",
+      "slavery",
+      "slave",
+      "master warrior",
+      "friendship",
+      "strong sexual content",
+      "training",
+      "sex",
+      "group sex",
+      "fight",
+      "sword",
+      "death",
+      "extramarital affair",
+      "male nudity",
+      "pride and honor",
+      "adultery",
+      "friendship between men"
+    ],
+    "time": [
+      "ancient times",
+      "1st century b.c",
+      "1st century"
+    ],
+    "place": [
+      "hawaii"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26615,
+      "slug": "spartacus-war-of-the-damned",
+      "title": "Spartacus",
+      "year": 2010,
+      "rank": 0
+    },
+    {
+      "id": 23025,
+      "slug": "spartacus",
+      "title": "Spartacus",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 5496,
+      "slug": "pompeii",
+      "title": "Pompeii",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 14175,
+      "slug": "gladiator",
+      "title": "Gladiator",
+      "year": 2000,
+      "rank": 3
+    },
+    {
+      "id": 43679,
+      "slug": "barbarians-rising",
+      "title": "Barbarians Rising",
+      "year": 2016,
+      "rank": 4
+    },
+    {
+      "id": 21564,
+      "slug": "rome",
+      "title": "Rome",
+      "year": 2005,
+      "rank": 5
+    },
+    {
+      "id": 18074,
+      "slug": "the-antagonists",
+      "title": "The Antagonists",
+      "year": 1981,
+      "rank": 6
+    },
+    {
+      "id": 63659,
+      "slug": "tut",
+      "title": "Tut",
+      "year": 2015,
+      "rank": 7
+    },
+    {
+      "id": 5056,
+      "slug": "da-vincis-demons",
+      "title": "Da Vinci's Demons",
+      "year": 2013,
+      "rank": 8
+    },
+    {
+      "id": 25901,
+      "slug": "xena-warrior-princess",
+      "title": "Xena: Warrior Princess",
+      "year": 1995,
+      "rank": 9
+    },
+    {
+      "id": 7724,
+      "slug": "300",
+      "title": "300",
+      "year": 2006,
+      "rank": 10
+    },
+    {
+      "id": 8035,
+      "slug": "agora",
+      "title": "Agora",
+      "year": 2009,
+      "rank": 11
+    },
+    {
+      "id": 1029,
+      "slug": "the-arena",
+      "title": "The Arena",
+      "year": 1974,
+      "rank": 12
+    },
+    {
+      "id": 3470,
+      "slug": "black-sails",
+      "title": "Black Sails",
+      "year": 2014,
+      "rank": 13
+    },
+    {
+      "id": 8566,
+      "slug": "genghis-khan-to-the-ends-of-the-earth-and-sea",
+      "title": "Genghis Khan: To the Ends of the Earth and Sea",
+      "year": 2007,
+      "rank": 14
+    },
+    {
+      "id": 8631,
+      "slug": "the-arena",
+      "title": "The Arena",
+      "year": 2001,
+      "rank": 15
+    },
+    {
+      "id": 12779,
+      "slug": "empire",
+      "title": "Empire",
+      "year": 2005,
+      "rank": 16
+    },
+    {
+      "id": 14939,
+      "slug": "helen-of-troy",
+      "title": "Helen of Troy",
+      "year": 2003,
+      "rank": 17
+    },
+    {
+      "id": 111161,
+      "slug": "spartacus-gods-of-the-arena",
+      "title": "Spartacus: Gods of the Arena",
+      "year": 2011,
+      "rank": 18
+    },
+    {
+      "id": 69338,
+      "slug": "ben-hur",
+      "title": "Ben Hur",
+      "year": 2010,
+      "rank": 19
+    },
+    {
+      "id": 64767,
+      "slug": "knightfall",
+      "title": "Knightfall",
+      "year": 2017,
+      "rank": 20
+    },
+    {
+      "id": 27801,
+      "slug": "ben-hur",
+      "title": "Ben-Hur",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 16691,
+      "slug": "kingdom-of-heaven",
+      "title": "Kingdom of Heaven",
+      "year": 2005,
+      "rank": 22
+    },
+    {
+      "id": 19606,
+      "slug": "the-odyssey",
+      "title": "The Odyssey",
+      "year": 1997,
+      "rank": 23
+    },
+    {
+      "id": 27266,
+      "slug": "the-borgias",
+      "title": "The Borgias",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 66756,
+      "slug": "resurrection-ertugrul",
+      "title": "Dirilis: Ertugrul",
+      "year": 2014,
+      "rank": 25
+    },
+    {
+      "id": 74753,
+      "slug": "vikings-valhalla",
+      "title": "Vikings: Valhalla",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 60633,
+      "slug": "into-the-badlands",
+      "title": "Into the Badlands",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 10931,
+      "slug": "cleopatra",
+      "title": "Cleopatra",
+      "year": 1999,
+      "rank": 28
+    },
+    {
+      "id": 12616,
+      "slug": "the-eagle",
+      "title": "The Eagle",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919154
+}

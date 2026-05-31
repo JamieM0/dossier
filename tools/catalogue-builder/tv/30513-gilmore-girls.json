@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/30513-gilmore-girls",
+  "id": 30513,
+  "slug": "gilmore-girls",
+  "title": "Gilmore Girls",
+  "year": 2000,
+  "rating": 8.2,
+  "votes_text": "172K",
+  "votes": 172000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/95/30513.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Set in the charming town of Stars Hollow, Connecticut, the series follows the captivating lives of Lorelai and Rory Gilmore, a mother/daughter pair who have a relationship most people only dream of.",
+  "tags": [
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 4624,
+      "slug": "boyfriend",
+      "name": "Boyfriend",
+      "film_count": 700
+    },
+    {
+      "id": 38504,
+      "slug": "looking-for-love",
+      "name": "Looking for love",
+      "film_count": 1552
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 32616,
+      "slug": "small-town-life",
+      "name": "Small town life",
+      "film_count": 2713
+    },
+    {
+      "id": 83562,
+      "slug": "teenage-life",
+      "name": "Teenage life",
+      "film_count": 6021
+    },
+    {
+      "id": 123846,
+      "slug": "social-relations",
+      "name": "Social relations",
+      "film_count": 3064
+    },
+    {
+      "id": 30957,
+      "slug": "family-life",
+      "name": "Family life",
+      "film_count": 3996
+    },
+    {
+      "id": 4647,
+      "slug": "strong-female-lead",
+      "name": "Strong female lead",
+      "film_count": 2994
+    },
+    {
+      "id": 123337,
+      "slug": "love-and-romance",
+      "name": "Love and romance",
+      "film_count": 17340
+    },
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 123870,
+      "slug": "talky",
+      "name": "Talky",
+      "film_count": 6398
+    },
+    {
+      "id": 13349,
+      "slug": "private-school",
+      "name": "Private school",
+      "film_count": 250
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "humorous",
+      "feel good",
+      "realistic",
+      "witty",
+      "talky",
+      "semi serious",
+      "light",
+      "satirical",
+      "deep",
+      "comedy drama"
+    ],
+    "audience": [
+      "teens",
+      "family outing",
+      "girls' night",
+      "kids",
+      "teen drama"
+    ],
+    "plot": [
+      "small town",
+      "teenager",
+      "friends",
+      "boyfriend",
+      "looking for love",
+      "female protagonist",
+      "small town life",
+      "teenage life",
+      "mother daughter relationship",
+      "female friendship",
+      "friendship",
+      "parents and children",
+      "single mother",
+      "first love",
+      "everyday life",
+      "youth",
+      "lifestyle",
+      "teenage girl",
+      "student",
+      "social relations",
+      "family life",
+      "strong female lead",
+      "love and romance",
+      "high school",
+      "family relations"
+    ],
+    "time": [
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "yale university",
+      "connecticut",
+      "usa",
+      "new england"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65530,
+      "slug": "gilmore-girls-a-year-in-the-life",
+      "title": "Gilmore Girls: A Year in the Life",
+      "year": 2016,
+      "rank": 0
+    },
+    {
+      "id": 3062,
+      "slug": "reba",
+      "title": "Reba",
+      "year": 2001,
+      "rank": 1
+    },
+    {
+      "id": 30350,
+      "slug": "lizzie-mcguire",
+      "title": "Lizzie McGuire",
+      "year": 2001,
+      "rank": 2
+    },
+    {
+      "id": 3047,
+      "slug": "true-jackson-vp",
+      "title": "True Jackson, VP",
+      "year": 2008,
+      "rank": 3
+    },
+    {
+      "id": 22500,
+      "slug": "one-tree-hill",
+      "title": "One Tree Hill",
+      "year": 2003,
+      "rank": 4
+    },
+    {
+      "id": 2348,
+      "slug": "hart-of-dixie",
+      "title": "Hart of Dixie",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 846,
+      "slug": "bunheads",
+      "title": "Bunheads",
+      "year": 2012,
+      "rank": 6
+    },
+    {
+      "id": 3248,
+      "slug": "awkward",
+      "title": "Awkward.",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 22623,
+      "slug": "the-sisterhood-of-the-traveling-pants",
+      "title": "The Sisterhood of the Traveling Pants",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 30416,
+      "slug": "boy-meets-world",
+      "title": "Boy Meets World",
+      "year": 1993,
+      "rank": 9
+    },
+    {
+      "id": 30299,
+      "slug": "my-so-called-life",
+      "title": "My So-Called Life",
+      "year": 1994,
+      "rank": 10
+    },
+    {
+      "id": 30344,
+      "slug": "ed",
+      "title": "Ed",
+      "year": 2000,
+      "rank": 11
+    },
+    {
+      "id": 1908,
+      "slug": "suburgatory",
+      "title": "Suburgatory",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 3391,
+      "slug": "parenthood",
+      "title": "Parenthood",
+      "year": 2010,
+      "rank": 13
+    },
+    {
+      "id": 27259,
+      "slug": "the-o-c",
+      "title": "The O.C.",
+      "year": 2003,
+      "rank": 14
+    },
+    {
+      "id": 3044,
+      "slug": "unfabulous",
+      "title": "Unfabulous",
+      "year": 2004,
+      "rank": 15
+    },
+    {
+      "id": 69064,
+      "slug": "pen15",
+      "title": "PEN15",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 30390,
+      "slug": "what-i-like-about-you",
+      "title": "What I Like About You",
+      "year": 2002,
+      "rank": 17
+    },
+    {
+      "id": 3381,
+      "slug": "girl-in-progress",
+      "title": "Girl in Progress",
+      "year": 2012,
+      "rank": 18
+    },
+    {
+      "id": 63917,
+      "slug": "good-witch",
+      "title": "Good Witch",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 12032,
+      "slug": "desperate-housewives",
+      "title": "Desperate Housewives",
+      "year": 2004,
+      "rank": 20
+    },
+    {
+      "id": 20700,
+      "slug": "princess-protection-program",
+      "title": "Princess Protection Program",
+      "year": 2009,
+      "rank": 21
+    },
+    {
+      "id": 13794,
+      "slug": "friends",
+      "title": "Friends",
+      "year": 1994,
+      "rank": 22
+    },
+    {
+      "id": 30125,
+      "slug": "sister-sister",
+      "title": "Sister, Sister",
+      "year": 1994,
+      "rank": 23
+    },
+    {
+      "id": 26610,
+      "slug": "life-unexpected",
+      "title": "Life Unexpected",
+      "year": 2010,
+      "rank": 24
+    },
+    {
+      "id": 30150,
+      "slug": "blossom",
+      "title": "Blossom",
+      "year": 1990,
+      "rank": 25
+    },
+    {
+      "id": 30401,
+      "slug": "everwood",
+      "title": "Everwood",
+      "year": 2002,
+      "rank": 26
+    },
+    {
+      "id": 8562,
+      "slug": "anywhere-but-here",
+      "title": "Anywhere But Here",
+      "year": 1999,
+      "rank": 27
+    },
+    {
+      "id": 4737,
+      "slug": "girl-meets-world",
+      "title": "Girl Meets World",
+      "year": 2014,
+      "rank": 28
+    },
+    {
+      "id": 30415,
+      "slug": "the-wonder-years",
+      "title": "The Wonder Years",
+      "year": 1988,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919155
+}

@@ -2,6 +2,17 @@
 
 This repository is a desktop-only app. Treat visual QA as desktop-only unless the user explicitly asks for mobile.
 
+## Node backend bundling (read before adding backend modules)
+
+The Tauri shell spawns a Node backend from `apps/dossier-desktop/src/*.ts`, compiled by `tsc` to `apps/dossier-desktop/dist/*.js`. At runtime `dist/backend.js` `import`s its sibling modules (e.g. `./tmdb.js` → `./lens.js`) by relative path, so **every** compiled module must be shipped inside the packaged app, not just `backend.js`.
+
+These modules are copied into the bundle via `bundle.resources` in `apps/dossier-desktop/src-tauri/tauri.conf.json`. That entry is a glob — `"../dist/*.js"` — specifically so new backend modules are picked up automatically. **Do not narrow it back to a hand-listed file** (it was previously `"../dist/backend.js"`, which is exactly what broke the v0.1.14 DMG: `tmdb.js`/`lens.js` were missing at launch).
+
+Rules when touching the Node backend:
+- Adding a new `src/*.ts` backend module needs no config change — the `../dist/*.js` glob already covers it. Just confirm it lands in `dist/` after `pnpm run build`.
+- Test files (`src/**/*.test.ts`) are excluded from the build emit (see `tsconfig.json` `exclude`) so they never reach the production bundle. Keep that exclude in place.
+- If you ever change resource paths, verify a packaged build actually launches — a missing sibling module fails at app start, not at build time.
+
 ## Mandatory After Every Visual Change
 
 When any UI, layout, style, spacing, typography, interaction copy, or visual behavior changes:

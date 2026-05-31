@@ -1,0 +1,375 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/77216-star-trek-strange-new-worlds",
+  "id": 77216,
+  "slug": "star-trek-strange-new-worlds",
+  "title": "Star Trek: Strange New Worlds",
+  "year": 2022,
+  "rating": 8.2,
+  "votes_text": "74K",
+  "votes": 74000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/95/77216.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Sci-Fi"
+  ],
+  "country": [
+    "Canada",
+    "USA"
+  ],
+  "duration_min": 52,
+  "story": "Follow Christopher Pike, Spock and Number One in the years before Captain Kirk boarded the U.S.S. Enterprise, as they explore new worlds around the galaxy. This show is a prequel to the original series and Star Trek: Discovery.",
+  "tags": [
+    {
+      "id": 14215,
+      "slug": "star-trek",
+      "name": "Star trek",
+      "film_count": 98
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    },
+    {
+      "id": 5181,
+      "slug": "space-opera",
+      "name": "Space opera",
+      "film_count": 914
+    },
+    {
+      "id": 1339,
+      "slug": "alien",
+      "name": "Alien",
+      "film_count": 2708
+    },
+    {
+      "id": 1357,
+      "slug": "space-battle",
+      "name": "Space battle",
+      "film_count": 280
+    },
+    {
+      "id": 1356,
+      "slug": "spacecraft",
+      "name": "Spacecraft",
+      "film_count": 1280
+    },
+    {
+      "id": 23322,
+      "slug": "space-adventure",
+      "name": "Space adventure",
+      "film_count": 450
+    },
+    {
+      "id": 1358,
+      "slug": "outer-space",
+      "name": "Outer space",
+      "film_count": 2121
+    },
+    {
+      "id": 5043,
+      "slug": "alien-contact",
+      "name": "Alien contact",
+      "film_count": 454
+    },
+    {
+      "id": 4283,
+      "slug": "space-station",
+      "name": "Space station",
+      "film_count": 369
+    },
+    {
+      "id": 38592,
+      "slug": "disturbing",
+      "name": "Disturbing",
+      "film_count": 16904
+    },
+    {
+      "id": 1373,
+      "slug": "alien-technology",
+      "name": "Alien technology",
+      "film_count": 316
+    },
+    {
+      "id": 137681,
+      "slug": "alien-life-form",
+      "name": "Alien life-form",
+      "film_count": 232
+    },
+    {
+      "id": 4681,
+      "slug": "based-on-tv-series",
+      "name": "Based on tv series",
+      "film_count": 1719
+    },
+    {
+      "id": 5265,
+      "slug": "alien-space-craft",
+      "name": "Alien space craft",
+      "film_count": 172
+    },
+    {
+      "id": 25161,
+      "slug": "alien-encounter",
+      "name": "Alien encounter",
+      "film_count": 926
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "captivating",
+      "entertaining",
+      "disturbing",
+      "futuristic",
+      "whimsical",
+      "nostalgic"
+    ],
+    "plot": [
+      "star trek",
+      "space opera",
+      "alien",
+      "space battle",
+      "spacecraft",
+      "space adventure",
+      "outer space",
+      "teamwork",
+      "space exploration",
+      "crew",
+      "space travel",
+      "planet",
+      "captain",
+      "commander",
+      "space mission",
+      "space shuttle",
+      "friendship",
+      "space and aliens",
+      "friends",
+      "space wars",
+      "alien contact",
+      "space station",
+      "alien technology",
+      "alien life-form",
+      "alien space craft"
+    ],
+    "time": [
+      "future"
+    ]
+  },
+  "similar": [
+    {
+      "id": 30455,
+      "slug": "star-trek-voyager",
+      "title": "Star Trek: Voyager",
+      "year": 1995,
+      "rank": 0
+    },
+    {
+      "id": 66900,
+      "slug": "star-trek-picard",
+      "title": "Star Trek: Picard",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 30207,
+      "slug": "star-trek-the-next-generation",
+      "title": "Star Trek: The Next Generation",
+      "year": 1987,
+      "rank": 2
+    },
+    {
+      "id": 42671,
+      "slug": "star-trek-discovery",
+      "title": "Star Trek: Discovery",
+      "year": 2017,
+      "rank": 3
+    },
+    {
+      "id": 14689,
+      "slug": "star-trek-enterprise",
+      "title": "Star Trek: Enterprise",
+      "year": 2001,
+      "rank": 4
+    },
+    {
+      "id": 28657,
+      "slug": "star-trek-continues",
+      "title": "Star Trek Continues",
+      "year": 2013,
+      "rank": 5
+    },
+    {
+      "id": 42670,
+      "slug": "the-orville",
+      "title": "The Orville",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 23160,
+      "slug": "star-trek",
+      "title": "Star Trek",
+      "year": 1966,
+      "rank": 7
+    },
+    {
+      "id": 65713,
+      "slug": "another-life",
+      "title": "Another Life",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 23186,
+      "slug": "stargate-atlantis",
+      "title": "Stargate Atlantis",
+      "year": 2004,
+      "rank": 9
+    },
+    {
+      "id": 60641,
+      "slug": "killjoys",
+      "title": "Killjoys",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 68935,
+      "slug": "star-trek-phase-ii",
+      "title": "Star Trek: New Voyages",
+      "year": 2004,
+      "rank": 11
+    },
+    {
+      "id": 99128,
+      "slug": "star-trek-renegades",
+      "title": "Star Trek: Renegades",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 23159,
+      "slug": "star-trek",
+      "title": "Star Trek",
+      "year": 2009,
+      "rank": 13
+    },
+    {
+      "id": 26461,
+      "slug": "star-trek-into-darkness",
+      "title": "Star Trek Into Darkness",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 60214,
+      "slug": "lost-in-space",
+      "title": "Lost in Space",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 69683,
+      "slug": "the-mandalorian",
+      "title": "The Mandalorian",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 9113,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 2004,
+      "rank": 17
+    },
+    {
+      "id": 23167,
+      "slug": "star-trek-insurrection",
+      "title": "Star Trek: Insurrection",
+      "year": 1998,
+      "rank": 18
+    },
+    {
+      "id": 23168,
+      "slug": "star-trek-nemesis",
+      "title": "Star Trek: Nemesis",
+      "year": 2002,
+      "rank": 19
+    },
+    {
+      "id": 74770,
+      "slug": "halo",
+      "title": "Halo",
+      "year": 2022,
+      "rank": 20
+    },
+    {
+      "id": 23166,
+      "slug": "star-trek-generations",
+      "title": "Star Trek: Generations",
+      "year": 1994,
+      "rank": 21
+    },
+    {
+      "id": 17542,
+      "slug": "lost-in-space",
+      "title": "Lost in Space",
+      "year": 1998,
+      "rank": 22
+    },
+    {
+      "id": 23165,
+      "slug": "star-trek-first-contact",
+      "title": "Star Trek: First Contact",
+      "year": 1996,
+      "rank": 23
+    },
+    {
+      "id": 30475,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 1978,
+      "rank": 24
+    },
+    {
+      "id": 9111,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 1978,
+      "rank": 25
+    },
+    {
+      "id": 30216,
+      "slug": "earth-final-conflict",
+      "title": "Earth: Final Conflict",
+      "year": 1997,
+      "rank": 26
+    },
+    {
+      "id": 69897,
+      "slug": "the-astronauts",
+      "title": "The Astronauts",
+      "year": 2020,
+      "rank": 27
+    },
+    {
+      "id": 30009,
+      "slug": "earth-2",
+      "title": "Earth 2",
+      "year": 1994,
+      "rank": 28
+    },
+    {
+      "id": 98325,
+      "slug": "star-trek-hidden-frontier",
+      "title": "Star Trek: Hidden Frontier",
+      "year": 2000,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919184
+}

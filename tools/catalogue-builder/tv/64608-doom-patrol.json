@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64608-doom-patrol",
+  "id": 64608,
+  "slug": "doom-patrol",
+  "title": "Doom Patrol",
+  "year": 2019,
+  "rating": 7.7,
+  "votes_text": "63K",
+  "votes": 63000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/ec/64608.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Fantasy",
+    "Mystery",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "The Doom Patrol’s members each suffered horrible accidents that gave them superhuman abilities — but also left them scarred and disfigured. Traumatized and downtrodden, the team found purpose through The Chief, who brought them together to investigate the weirdest phenomena in existence — and to protect Earth from what they find.",
+  "tags": [
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 6264,
+      "slug": "superhero-team",
+      "name": "Superhero team",
+      "film_count": 618
+    },
+    {
+      "id": 7480,
+      "slug": "outcast",
+      "name": "Outcast",
+      "film_count": 571
+    },
+    {
+      "id": 38592,
+      "slug": "disturbing",
+      "name": "Disturbing",
+      "film_count": 16904
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 2945,
+      "slug": "tragedy",
+      "name": "Tragedy",
+      "film_count": 4642
+    },
+    {
+      "id": 48190,
+      "slug": "talking-robot",
+      "name": "Talking robot",
+      "film_count": 153
+    },
+    {
+      "id": 2624,
+      "slug": "superheroine",
+      "name": "Superheroine",
+      "film_count": 460
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 3899,
+      "slug": "wheelchair-bound",
+      "name": "Wheelchair bound",
+      "film_count": 321
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 11181,
+      "slug": "futuristic",
+      "name": "Futuristic",
+      "film_count": 2619
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 2338,
+      "slug": "magic",
+      "name": "Magic",
+      "film_count": 4761
+    },
+    {
+      "id": 2543,
+      "slug": "time-travel",
+      "name": "Time travel",
+      "film_count": 2840
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "disturbing",
+      "captivating",
+      "bleak",
+      "psychological",
+      "thought provoking",
+      "suspense",
+      "ironic",
+      "absurd",
+      "futuristic",
+      "suspenseful"
+    ],
+    "audience": [
+      "teens",
+      "pre-teens",
+      "teen drama"
+    ],
+    "plot": [
+      "superhero",
+      "superhero team",
+      "outcast",
+      "tragedy",
+      "talking robot",
+      "tragic event",
+      "split personality",
+      "misfit",
+      "villain",
+      "androids and robots",
+      "male nudity",
+      "gay",
+      "multiverse",
+      "superheroine",
+      "supernatural",
+      "wheelchair bound",
+      "heroes",
+      "magic",
+      "time travel",
+      "immortality",
+      "orgy",
+      "father daughter relationship",
+      "dissociative identity disorder",
+      "childhood trauma",
+      "abusive father"
+    ],
+    "time": [
+      "80s",
+      "2010s",
+      "2020s",
+      "1950s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64831,
+      "slug": "the-umbrella-academy",
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 58261,
+      "slug": "dirk-gentlys-holistic-detective-agency",
+      "title": "Dirk Gently's Holistic Detective Agency",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 61114,
+      "slug": "the-tick",
+      "title": "The Tick",
+      "year": 2016,
+      "rank": 2
+    },
+    {
+      "id": 65359,
+      "slug": "the-boys",
+      "title": "The Boys",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 83553,
+      "slug": "gen-v",
+      "title": "Gen V",
+      "year": 2023,
+      "rank": 4
+    },
+    {
+      "id": 68583,
+      "slug": "wandavision",
+      "title": "WandaVision",
+      "year": 2021,
+      "rank": 5
+    },
+    {
+      "id": 80498,
+      "slug": "gotham-knights",
+      "title": "Gotham Knights",
+      "year": 2023,
+      "rank": 6
+    },
+    {
+      "id": 9630,
+      "slug": "the-nine-lives-of-chloe-king",
+      "title": "The Nine Lives of Chloe King",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 66967,
+      "slug": "superman-and-lois",
+      "title": "Superman and Lois",
+      "year": 2021,
+      "rank": 8
+    },
+    {
+      "id": 57902,
+      "slug": "the-gifted",
+      "title": "The Gifted",
+      "year": 2017,
+      "rank": 9
+    },
+    {
+      "id": 42763,
+      "slug": "dcs-legends-of-tomorrow",
+      "title": "DC's Legends of Tomorrow",
+      "year": 2016,
+      "rank": 10
+    },
+    {
+      "id": 65522,
+      "slug": "daybreak",
+      "title": "Daybreak",
+      "year": 2019,
+      "rank": 11
+    },
+    {
+      "id": 66997,
+      "slug": "october-faction",
+      "title": "October Faction",
+      "year": 2020,
+      "rank": 12
+    },
+    {
+      "id": 70285,
+      "slug": "jupiters-legacy",
+      "title": "Jupiter's Legacy",
+      "year": 2021,
+      "rank": 13
+    },
+    {
+      "id": 67462,
+      "slug": "vagrant-queen",
+      "title": "Vagrant Queen",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 60496,
+      "slug": "watchmen",
+      "title": "Watchmen",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 75127,
+      "slug": "peacemaker",
+      "title": "Peacemaker",
+      "year": 2022,
+      "rank": 16
+    },
+    {
+      "id": 41779,
+      "slug": "legion",
+      "title": "Legion",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 58503,
+      "slug": "titans",
+      "title": "Titans",
+      "year": 2018,
+      "rank": 18
+    },
+    {
+      "id": 57910,
+      "slug": "marvels-runaways",
+      "title": "Marvel's Runaways",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 93620,
+      "slug": "dead-boy-detectives",
+      "title": "Dead Boy Detectives",
+      "year": 2024,
+      "rank": 20
+    },
+    {
+      "id": 27166,
+      "slug": "the-flash",
+      "title": "The Flash",
+      "year": 2014,
+      "rank": 21
+    },
+    {
+      "id": 76204,
+      "slug": "moon-knight",
+      "title": "Moon Knight",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 96478,
+      "slug": "agatha-all-along",
+      "title": "Agatha All Along",
+      "year": 2024,
+      "rank": 23
+    },
+    {
+      "id": 68903,
+      "slug": "loki",
+      "title": "Loki",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 69621,
+      "slug": "shadow-and-bone",
+      "title": "Shadow and Bone",
+      "year": 2021,
+      "rank": 25
+    },
+    {
+      "id": 93293,
+      "slug": "kamen-rider-zero-one",
+      "title": "Kamen Rider Zero-One",
+      "year": 2019,
+      "rank": 26
+    },
+    {
+      "id": 78912,
+      "slug": "ultraman-decker",
+      "title": "Ultraman Decker",
+      "year": 2022,
+      "rank": 27
+    },
+    {
+      "id": 69875,
+      "slug": "mashin-sentai-kiramager",
+      "title": "Mashin Sentai Kiramager",
+      "year": 2020,
+      "rank": 28
+    },
+    {
+      "id": 88015,
+      "slug": "kamen-rider-zi-o",
+      "title": "Kamen Rider Zi-O",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919170
+}

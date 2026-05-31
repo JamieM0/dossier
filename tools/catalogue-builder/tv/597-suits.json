@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/597-suits",
+  "id": 597,
+  "slug": "suits",
+  "title": "Suits",
+  "year": 2011,
+  "rating": 8.4,
+  "votes_text": "534K",
+  "votes": 534000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/2a/597.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "While running from a drug deal gone bad, Mike Ross, a brilliant young college-dropout, slips into a job interview with one of New York City's best legal closers, Harvey Specter. Tired of cookie-cutter law school grads, Harvey takes a gamble by hiring Mike on the spot after he recognizes his raw talent and photographic memory. Mike and Harvey are a winning team. Even though Mike is a genius, he still has a lot to learn about law. And while Harvey may seem like an emotionless, cold-blooded shark, Mike's sympathy and concern for their cases and clients will help remind Harvey why he went into law in the first place. Mike's other allies in the office include the firm's best paralegal Rachel and Harvey's no-nonsense assistant Donna to help him serve justice. Proving to be an irrepressible duo and invaluable to the practice, Mike and Harvey must keep their secret from everyone including managing partner Jessica and Harvey's arch nemesis Louis, who seems intent on making Mike's life as difficult as possible.",
+  "tags": [
+    {
+      "id": 499,
+      "slug": "lawyer",
+      "name": "Lawyer",
+      "film_count": 3905
+    },
+    {
+      "id": 7858,
+      "slug": "law-firm",
+      "name": "Law firm",
+      "film_count": 310
+    },
+    {
+      "id": 4165,
+      "slug": "new-york",
+      "name": "New york",
+      "film_count": 5521
+    },
+    {
+      "id": 1153,
+      "slug": "legal",
+      "name": "Legal",
+      "film_count": 1656
+    },
+    {
+      "id": 9492,
+      "slug": "photographic-memory",
+      "name": "Photographic memory",
+      "film_count": 52
+    },
+    {
+      "id": 113519,
+      "slug": "hotshot-lawyer",
+      "name": "Hotshot lawyer",
+      "film_count": 189
+    },
+    {
+      "id": 506,
+      "slug": "boss",
+      "name": "Boss",
+      "film_count": 1342
+    },
+    {
+      "id": 10295,
+      "slug": "success",
+      "name": "Success",
+      "film_count": 599
+    },
+    {
+      "id": 20508,
+      "slug": "judiciary",
+      "name": "Judiciary",
+      "film_count": 534
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 6808,
+      "slug": "sexual-attraction",
+      "name": "Sexual attraction",
+      "film_count": 1766
+    },
+    {
+      "id": 62056,
+      "slug": "rivals",
+      "name": "Rivals",
+      "film_count": 1410
+    },
+    {
+      "id": 123881,
+      "slug": "hot-and-sexy",
+      "name": "Hot and sexy",
+      "film_count": 394
+    },
+    {
+      "id": 57439,
+      "slug": "workplace-romance",
+      "name": "Workplace romance",
+      "film_count": 944
+    },
+    {
+      "id": 123845,
+      "slug": "power-relations",
+      "name": "Power relations",
+      "film_count": 3484
+    },
+    {
+      "id": 498,
+      "slug": "ambition",
+      "name": "Ambition",
+      "film_count": 7524
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "witty",
+      "serious",
+      "talky",
+      "sexy",
+      "stylized",
+      "realistic",
+      "funny",
+      "humorous",
+      "political"
+    ],
+    "audience": [
+      "teens",
+      "boys' night",
+      "date night",
+      "family outing"
+    ],
+    "plot": [
+      "lawyer",
+      "law firm",
+      "legal",
+      "photographic memory",
+      "hotshot lawyer",
+      "boss",
+      "success",
+      "corporate world",
+      "workplace situations",
+      "talented",
+      "prodigy",
+      "ambitious",
+      "lawsuit",
+      "mentor",
+      "mastermind",
+      "love and romance",
+      "blackmail",
+      "assistant",
+      "dishonesty",
+      "deal",
+      "power struggle",
+      "ego clash",
+      "judiciary",
+      "workplace",
+      "sexual attraction"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "usa",
+      "chicago",
+      "syria"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 0
+    },
+    {
+      "id": 59803,
+      "slug": "bull",
+      "title": "Bull",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 57868,
+      "slug": "billions",
+      "title": "Billions",
+      "year": 2016,
+      "rank": 2
+    },
+    {
+      "id": 26323,
+      "slug": "the-good-wife",
+      "title": "The Good Wife",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 9846,
+      "slug": "boston-legal",
+      "title": "Boston Legal",
+      "year": 2004,
+      "rank": 4
+    },
+    {
+      "id": 82853,
+      "slug": "suits-webisodes",
+      "title": "Suits Webisodes",
+      "year": 2012,
+      "rank": 5
+    },
+    {
+      "id": 85430,
+      "slug": "just-legal",
+      "title": "Just Legal",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 15347,
+      "slug": "house",
+      "title": "House",
+      "year": 2004,
+      "rank": 7
+    },
+    {
+      "id": 4852,
+      "slug": "fairly-legal",
+      "title": "Fairly Legal",
+      "year": 2011,
+      "rank": 8
+    },
+    {
+      "id": 27016,
+      "slug": "mad-men",
+      "title": "Mad Men",
+      "year": 2007,
+      "rank": 9
+    },
+    {
+      "id": 4022,
+      "slug": "scandal",
+      "title": "Scandal",
+      "year": 2012,
+      "rank": 10
+    },
+    {
+      "id": 28908,
+      "slug": "how-to-get-away-with-murder",
+      "title": "How to Get Away with Murder",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 2261,
+      "slug": "house-of-lies",
+      "title": "House of Lies",
+      "year": 2012,
+      "rank": 12
+    },
+    {
+      "id": 12845,
+      "slug": "entourage",
+      "title": "Entourage",
+      "year": 2004,
+      "rank": 13
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 14
+    },
+    {
+      "id": 25335,
+      "slug": "wall-street-money-never-sleeps",
+      "title": "Wall Street: Money Never Sleeps",
+      "year": 2010,
+      "rank": 15
+    },
+    {
+      "id": 76120,
+      "slug": "legal-high",
+      "title": "Legal High",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 7282,
+      "slug": "better-call-saul",
+      "title": "Better Call Saul",
+      "year": 2015,
+      "rank": 17
+    },
+    {
+      "id": 91613,
+      "slug": "delilah",
+      "title": "Delilah",
+      "year": 2021,
+      "rank": 18
+    },
+    {
+      "id": 4016,
+      "slug": "the-newsroom",
+      "title": "The Newsroom",
+      "year": 2012,
+      "rank": 19
+    },
+    {
+      "id": 5113,
+      "slug": "drop-dead-diva",
+      "title": "Drop Dead Diva",
+      "year": 2009,
+      "rank": 20
+    },
+    {
+      "id": 30308,
+      "slug": "dirty-sexy-money",
+      "title": "Dirty Sexy Money",
+      "year": 2007,
+      "rank": 21
+    },
+    {
+      "id": 3270,
+      "slug": "big-shots",
+      "title": "Big Shots",
+      "year": 2007,
+      "rank": 22
+    },
+    {
+      "id": 79849,
+      "slug": "partner-track",
+      "title": "Partner Track",
+      "year": 2022,
+      "rank": 23
+    },
+    {
+      "id": 85450,
+      "slug": "a-u-s-a",
+      "title": "A.U.S.A.",
+      "year": 2003,
+      "rank": 24
+    },
+    {
+      "id": 1758,
+      "slug": "the-deep-end",
+      "title": "The Deep End",
+      "year": 2010,
+      "rank": 25
+    },
+    {
+      "id": 59213,
+      "slug": "silicon-valley",
+      "title": "Silicon Valley",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 80610,
+      "slug": "queens-supreme",
+      "title": "Queens Supreme",
+      "year": 2003,
+      "rank": 27
+    },
+    {
+      "id": 30511,
+      "slug": "the-practice",
+      "title": "The Practice",
+      "year": 1997,
+      "rank": 28
+    },
+    {
+      "id": 30509,
+      "slug": "l-a-law",
+      "title": "L.A. Law",
+      "year": 1986,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919128
+}

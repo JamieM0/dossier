@@ -1,0 +1,386 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/28860-american-gods",
+  "id": 28860,
+  "slug": "american-gods",
+  "title": "American Gods",
+  "year": 2017,
+  "rating": 7.6,
+  "votes_text": "98K",
+  "votes": 98000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/c2/28860.jpg",
+  "genres": [
+    "Drama",
+    "Fantasy",
+    "Mystery"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Based on Neil Gaiman's fantasy novel about an ex-con who becomes the traveling partner of a conman who turns out to be one of the older gods trying to recruit troops to battle the upstart deities.",
+  "tags": [
+    {
+      "id": 123452,
+      "slug": "legends-and-myths",
+      "name": "Legends and myths",
+      "film_count": 1116
+    },
+    {
+      "id": 436,
+      "slug": "death",
+      "name": "Death",
+      "film_count": 18858
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 1220,
+      "slug": "road-trip",
+      "name": "Road trip",
+      "film_count": 3472
+    },
+    {
+      "id": 682,
+      "slug": "deception",
+      "name": "Deception",
+      "film_count": 6537
+    },
+    {
+      "id": 1747,
+      "slug": "mythology",
+      "name": "Mythology",
+      "film_count": 2138
+    },
+    {
+      "id": 17039,
+      "slug": "deity",
+      "name": "Deity",
+      "film_count": 161
+    },
+    {
+      "id": 2,
+      "slug": "conspiracy",
+      "name": "Conspiracy",
+      "film_count": 6950
+    },
+    {
+      "id": 18025,
+      "slug": "allegory",
+      "name": "Allegory",
+      "film_count": 3009
+    },
+    {
+      "id": 42124,
+      "slug": "black",
+      "name": "Black",
+      "film_count": 2201
+    },
+    {
+      "id": 6456,
+      "slug": "erotic",
+      "name": "Erotic",
+      "film_count": 5476
+    },
+    {
+      "id": 528,
+      "slug": "sex",
+      "name": "Sex",
+      "film_count": 10551
+    },
+    {
+      "id": 8050,
+      "slug": "con-man",
+      "name": "Con man",
+      "film_count": 471
+    },
+    {
+      "id": 55115,
+      "slug": "sensual",
+      "name": "Sensual",
+      "film_count": 1595
+    },
+    {
+      "id": 123297,
+      "slug": "supernatural-thriller",
+      "name": "Supernatural thriller",
+      "film_count": 712
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "serious",
+      "allegory",
+      "erotic",
+      "sensual",
+      "supernatural thriller",
+      "psychedelic",
+      "atmospheric",
+      "spiritual",
+      "absurd"
+    ],
+    "audience": [
+      "boys' night"
+    ],
+    "plot": [
+      "legends and myths",
+      "death",
+      "supernatural",
+      "supernatural ability",
+      "road trip",
+      "deception",
+      "mythology",
+      "deity",
+      "danger",
+      "mysterious character",
+      "ex convict",
+      "dark secret",
+      "travel",
+      "folklore",
+      "god",
+      "female nudity",
+      "rebirth",
+      "human sacrifice",
+      "mysterious man",
+      "dead wife",
+      "sex scene",
+      "conspiracy",
+      "black",
+      "sex",
+      "con man"
+    ],
+    "time": [
+      "future",
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "oklahoma city"
+    ]
+  },
+  "similar": [
+    {
+      "id": 57938,
+      "slug": "preacher",
+      "title": "Preacher",
+      "year": 2016,
+      "rank": 0
+    },
+    {
+      "id": 76730,
+      "slug": "the-sandman",
+      "title": "The Sandman",
+      "year": 2022,
+      "rank": 1
+    },
+    {
+      "id": 15013,
+      "slug": "heroes",
+      "title": "Heroes",
+      "year": 2006,
+      "rank": 2
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 6070,
+      "slug": "witches-of-east-end",
+      "title": "Witches of East End",
+      "year": 2013,
+      "rank": 4
+    },
+    {
+      "id": 26565,
+      "slug": "supernatural",
+      "title": "Supernatural",
+      "year": 2005,
+      "rank": 5
+    },
+    {
+      "id": 17889,
+      "slug": "constantine",
+      "title": "Constantine",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 41305,
+      "slug": "la-feria-ambulante",
+      "title": "Carnivàle",
+      "year": 2003,
+      "rank": 7
+    },
+    {
+      "id": 6159,
+      "slug": "sense8",
+      "title": "Sense8",
+      "year": 2015,
+      "rank": 8
+    },
+    {
+      "id": 41815,
+      "slug": "the-magicians",
+      "title": "The Magicians",
+      "year": 2015,
+      "rank": 9
+    },
+    {
+      "id": 26485,
+      "slug": "true-blood",
+      "title": "True Blood",
+      "year": 2008,
+      "rank": 10
+    },
+    {
+      "id": 5767,
+      "slug": "penny-dreadful",
+      "title": "Penny Dreadful",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 60999,
+      "slug": "the-messengers",
+      "title": "The Messengers",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 27064,
+      "slug": "warehouse-13",
+      "title": "Warehouse 13",
+      "year": 2009,
+      "rank": 13
+    },
+    {
+      "id": 4530,
+      "slug": "sleepy-hollow",
+      "title": "Sleepy Hollow",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 60789,
+      "slug": "the-oa",
+      "title": "The OA",
+      "year": 2016,
+      "rank": 15
+    },
+    {
+      "id": 26924,
+      "slug": "haven",
+      "title": "Haven",
+      "year": 2010,
+      "rank": 16
+    },
+    {
+      "id": 1262,
+      "slug": "hemlock-grove",
+      "title": "Hemlock Grove",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 72915,
+      "slug": "midnight-mass",
+      "title": "Midnight Mass",
+      "year": 2021,
+      "rank": 18
+    },
+    {
+      "id": 30303,
+      "slug": "the-dead-zone",
+      "title": "The Dead Zone",
+      "year": 2002,
+      "rank": 19
+    },
+    {
+      "id": 26240,
+      "slug": "game-of-thrones",
+      "title": "Game of Thrones",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 68304,
+      "slug": "olympus",
+      "title": "Olympus",
+      "year": 2015,
+      "rank": 21
+    },
+    {
+      "id": 69000,
+      "slug": "superstition",
+      "title": "Superstition",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 27138,
+      "slug": "the-leftovers",
+      "title": "The Leftovers",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 66494,
+      "slug": "ragnarok",
+      "title": "Ragnarok",
+      "year": 2020,
+      "rank": 24
+    },
+    {
+      "id": 1502,
+      "slug": "camelot",
+      "title": "Camelot",
+      "year": 2011,
+      "rank": 25
+    },
+    {
+      "id": 91487,
+      "slug": "karmaphal-daata-shani",
+      "title": "Karmaphal Daata Shani",
+      "year": 2016,
+      "rank": 26
+    },
+    {
+      "id": 30061,
+      "slug": "the-dark-secret-of-harvest-home",
+      "title": "The Dark Secret of Harvest Home",
+      "year": 1978,
+      "rank": 27
+    },
+    {
+      "id": 35431,
+      "slug": "the-shannara-chronicles",
+      "title": "The Shannara Chronicles",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 80825,
+      "slug": "naagin",
+      "title": "Naagin",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919153
+}

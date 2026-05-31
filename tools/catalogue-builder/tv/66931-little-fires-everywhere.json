@@ -1,0 +1,382 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/66931-little-fires-everywhere",
+  "id": 66931,
+  "slug": "little-fires-everywhere",
+  "title": "Little Fires Everywhere",
+  "year": 2020,
+  "rating": 7.6,
+  "votes_text": "61K",
+  "votes": 61000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/70/66931.jpg",
+  "genres": [
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 58,
+  "story": "The intertwined fates of the picture-perfect Richardson family and an enigmatic mother and daughter who upend their lives. Explore the weight of secrets, the nature of art and identity, the ferocious pull of motherhood – and the danger in believing that following the rules can avert disaster.",
+  "tags": [
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 211,
+      "slug": "strong-female-character",
+      "name": "Strong female character",
+      "film_count": 1732
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 123562,
+      "slug": "conflict",
+      "name": "Conflict",
+      "film_count": 1805
+    },
+    {
+      "id": 10075,
+      "slug": "racial-tension",
+      "name": "Racial tension",
+      "film_count": 394
+    },
+    {
+      "id": 425,
+      "slug": "mother-daughter-relationship",
+      "name": "Mother daughter relationship",
+      "film_count": 8632
+    },
+    {
+      "id": 22124,
+      "slug": "social",
+      "name": "Social",
+      "film_count": 1886
+    },
+    {
+      "id": 123426,
+      "slug": "parents-and-children",
+      "name": "Parents and children",
+      "film_count": 8214
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 30957,
+      "slug": "family-life",
+      "name": "Family life",
+      "film_count": 3996
+    },
+    {
+      "id": 123775,
+      "slug": "social-problems",
+      "name": "Social problems",
+      "film_count": 3130
+    },
+    {
+      "id": 9396,
+      "slug": "relationship-problems",
+      "name": "Relationship problems",
+      "film_count": 4761
+    },
+    {
+      "id": 16455,
+      "slug": "lifestyle",
+      "name": "Lifestyle",
+      "film_count": 7884
+    },
+    {
+      "id": 7692,
+      "slug": "social-issues",
+      "name": "Social issues",
+      "film_count": 1639
+    },
+    {
+      "id": 20778,
+      "slug": "class-conflict",
+      "name": "Class conflict",
+      "film_count": 1443
+    },
+    {
+      "id": 123753,
+      "slug": "right-and-wrong",
+      "name": "Right and wrong",
+      "film_count": 99
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspense",
+      "social",
+      "captivating",
+      "psychological",
+      "intellectual",
+      "novela",
+      "crying",
+      "pink cinema",
+      "queer cinema"
+    ],
+    "audience": [
+      "chick flick",
+      "teen drama"
+    ],
+    "plot": [
+      "strong female character",
+      "female protagonist",
+      "conflict",
+      "racial tension",
+      "mother daughter relationship",
+      "parents and children",
+      "female artist",
+      "family relations",
+      "lgbtq",
+      "teenage sexuality",
+      "social differences",
+      "lesbian teen",
+      "black",
+      "relationships",
+      "society",
+      "social relations",
+      "lgbtqi",
+      "sapphic",
+      "lgbt teen",
+      "family life",
+      "social problems",
+      "relationship problems",
+      "lifestyle",
+      "social issues",
+      "class conflict"
+    ],
+    "time": [
+      "90s",
+      "year 1997",
+      "1990s"
+    ]
+  },
+  "similar": [
+    {
+      "id": 41776,
+      "slug": "big-little-lies",
+      "title": "Big Little Lies",
+      "year": 2017,
+      "rank": 0
+    },
+    {
+      "id": 41775,
+      "slug": "13-reasons-why",
+      "title": "13 Reasons Why",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 65874,
+      "slug": "the-morning-show",
+      "title": "The Morning Show",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 71170,
+      "slug": "cruel-summer",
+      "title": "Cruel Summer",
+      "year": 2021,
+      "rank": 3
+    },
+    {
+      "id": 60424,
+      "slug": "sharp-objects",
+      "title": "Sharp Objects",
+      "year": 2018,
+      "rank": 4
+    },
+    {
+      "id": 77366,
+      "slug": "pretty-little-liars-original-sin",
+      "title": "Pretty Little Liars: Original Sin",
+      "year": 2022,
+      "rank": 5
+    },
+    {
+      "id": 27256,
+      "slug": "revenge",
+      "title": "Revenge",
+      "year": 2011,
+      "rank": 6
+    },
+    {
+      "id": 72974,
+      "slug": "i-may-destroy-you",
+      "title": "I May Destroy You",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 69275,
+      "slug": "the-wilds",
+      "title": "The Wilds",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 30528,
+      "slug": "brothers-and-sisters",
+      "title": "Brothers and Sisters",
+      "year": 2006,
+      "rank": 9
+    },
+    {
+      "id": 66444,
+      "slug": "almost-family",
+      "title": "Almost Family",
+      "year": 2019,
+      "rank": 10
+    },
+    {
+      "id": 65666,
+      "slug": "the-society",
+      "title": "The Society",
+      "year": 2019,
+      "rank": 11
+    },
+    {
+      "id": 72345,
+      "slug": "t-gged",
+      "title": "T@gged",
+      "year": 2016,
+      "rank": 12
+    },
+    {
+      "id": 77210,
+      "slug": "anatomy-of-a-scandal",
+      "title": "Anatomy of a Scandal",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 67163,
+      "slug": "defending-jacob",
+      "title": "Defending Jacob",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 68791,
+      "slug": "the-haunting-of-bly-manor",
+      "title": "The Haunting of Bly Manor",
+      "year": 2020,
+      "rank": 15
+    },
+    {
+      "id": 67596,
+      "slug": "homecoming",
+      "title": "Homecoming",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 106754,
+      "slug": "the-beast-in-me",
+      "title": "The Beast in Me",
+      "year": 2025,
+      "rank": 17
+    },
+    {
+      "id": 98190,
+      "slug": "the-jetty",
+      "title": "The Jetty",
+      "year": 2024,
+      "rank": 18
+    },
+    {
+      "id": 83475,
+      "slug": "guilty-party",
+      "title": "Guilty Party",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 77406,
+      "slug": "the-age-of-anger",
+      "title": "The Age Of Anger",
+      "year": 2022,
+      "rank": 20
+    },
+    {
+      "id": 79797,
+      "slug": "echoes",
+      "title": "Echoes",
+      "year": 2022,
+      "rank": 21
+    },
+    {
+      "id": 73979,
+      "slug": "i-know-what-you-did-last-summer",
+      "title": "I Know What You Did Last Summer",
+      "year": 2021,
+      "rank": 22
+    },
+    {
+      "id": 77259,
+      "slug": "pieces-of-her",
+      "title": "Pieces of Her",
+      "year": 2022,
+      "rank": 23
+    },
+    {
+      "id": 61212,
+      "slug": "killing-eve",
+      "title": "Killing Eve",
+      "year": 2018,
+      "rank": 24
+    },
+    {
+      "id": 26791,
+      "slug": "pretty-little-liars",
+      "title": "Pretty Little Liars",
+      "year": 2010,
+      "rank": 25
+    },
+    {
+      "id": 69279,
+      "slug": "the-mess-you-leave-behind",
+      "title": "The Mess You Leave Behind",
+      "year": 2020,
+      "rank": 26
+    },
+    {
+      "id": 65660,
+      "slug": "what-if",
+      "title": "What/If",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 88660,
+      "slug": "delete-me",
+      "title": "Delete Me",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 81402,
+      "slug": "the-sister",
+      "title": "The Sister",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919175
+}

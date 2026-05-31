@@ -1,0 +1,397 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/3923-gravity-falls",
+  "id": 3923,
+  "slug": "gravity-falls",
+  "title": "Gravity Falls",
+  "year": 2012,
+  "rating": 8.9,
+  "votes_text": "174K",
+  "votes": 174000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/23/3923.jpg",
+  "genres": [
+    "Animation",
+    "Adventure",
+    "Comedy",
+    "Family",
+    "Fantasy"
+  ],
+  "country": [
+    "USA",
+    "South Korea",
+    "Canada"
+  ],
+  "duration_min": 23,
+  "story": "Twin brother and sister Dipper and Mabel Pines are in for an unexpected adventure when they spend the summer helping their great uncle Stan run a tourist trap in the mysterious town of Gravity Falls, Oregon.",
+  "tags": [
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 87816,
+      "slug": "kids",
+      "name": "Kids",
+      "film_count": 7861
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 8491,
+      "slug": "child-protagonist",
+      "name": "Child protagonist",
+      "film_count": 1340
+    },
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 123691,
+      "slug": "mysterious-place",
+      "name": "Mysterious place",
+      "film_count": 195
+    },
+    {
+      "id": 1450,
+      "slug": "good-versus-evil",
+      "name": "Good versus evil",
+      "film_count": 6642
+    },
+    {
+      "id": 5084,
+      "slug": "diary",
+      "name": "Diary",
+      "film_count": 799
+    },
+    {
+      "id": 18124,
+      "slug": "oregon",
+      "name": "Oregon",
+      "film_count": 274
+    },
+    {
+      "id": 2538,
+      "slug": "children",
+      "name": "Children",
+      "film_count": 6588
+    },
+    {
+      "id": 123745,
+      "slug": "relatives",
+      "name": "Relatives",
+      "film_count": 203
+    },
+    {
+      "id": 2941,
+      "slug": "adult-animation",
+      "name": "Adult animation",
+      "film_count": 1876
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    },
+    {
+      "id": 1039,
+      "slug": "love-triangle",
+      "name": "Love triangle",
+      "film_count": 8400
+    },
+    {
+      "id": 152,
+      "slug": "library",
+      "name": "Library",
+      "film_count": 1141
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "captivating",
+      "offbeat",
+      "adult animation",
+      "anime",
+      "not serious",
+      "funny",
+      "slasher",
+      "controversial",
+      "sitcom"
+    ],
+    "audience": [
+      "kids",
+      "pre-teens",
+      "teens",
+      "family friendly",
+      "adult",
+      "horror for children"
+    ],
+    "plot": [
+      "supernatural",
+      "friendship",
+      "small town",
+      "child protagonist",
+      "youth",
+      "mysterious place",
+      "good versus evil",
+      "summer vacation",
+      "magical",
+      "twins",
+      "imaginary",
+      "summer",
+      "monster",
+      "alternate dimension",
+      "family relations",
+      "siblings relations",
+      "small town life",
+      "creature",
+      "telekinesis",
+      "diary",
+      "children",
+      "relatives",
+      "escapades",
+      "love triangle",
+      "library"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "oregon",
+      "usa",
+      "california",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 3495,
+      "slug": "star-vs-the-forces-of-evil",
+      "title": "Star vs. the Forces of Evil",
+      "year": 2012,
+      "rank": 0
+    },
+    {
+      "id": 67933,
+      "slug": "the-owl-house",
+      "title": "The Owl House",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 17874,
+      "slug": "over-the-garden-wall",
+      "title": "Over the Garden Wall",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 61768,
+      "slug": "hilda",
+      "title": "Hilda",
+      "year": 2018,
+      "rank": 3
+    },
+    {
+      "id": 4239,
+      "slug": "adventure-time",
+      "title": "Adventure Time",
+      "year": 2010,
+      "rank": 4
+    },
+    {
+      "id": 64643,
+      "slug": "amphibia",
+      "title": "Amphibia",
+      "year": 2019,
+      "rank": 5
+    },
+    {
+      "id": 56595,
+      "slug": "rick-and-morty",
+      "title": "Rick and Morty",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 28443,
+      "slug": "steven-universe",
+      "title": "Steven Universe",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 65439,
+      "slug": "infinity-train",
+      "title": "Infinity Train",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 1405,
+      "slug": "scooby-doo-mystery-incorporated",
+      "title": "Scooby-Doo! Mystery Incorporated",
+      "year": 2010,
+      "rank": 9
+    },
+    {
+      "id": 686,
+      "slug": "the-amazing-world-of-gumball",
+      "title": "The Amazing World of Gumball",
+      "year": 2011,
+      "rank": 10
+    },
+    {
+      "id": 61315,
+      "slug": "summer-camp-island",
+      "title": "Summer Camp Island",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 27134,
+      "slug": "phineas-and-ferb",
+      "title": "Phineas and Ferb",
+      "year": 2007,
+      "rank": 12
+    },
+    {
+      "id": 56804,
+      "slug": "camp-lakebottom",
+      "title": "Camp Lakebottom",
+      "year": 2013,
+      "rank": 13
+    },
+    {
+      "id": 42685,
+      "slug": "ducktales",
+      "title": "DuckTales",
+      "year": 2017,
+      "rank": 14
+    },
+    {
+      "id": 61756,
+      "slug": "disenchantment",
+      "title": "Disenchantment",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 96033,
+      "slug": "the-ghost-and-molly-mcgee",
+      "title": "The Ghost and Molly McGee",
+      "year": 2021,
+      "rank": 16
+    },
+    {
+      "id": 11215,
+      "slug": "coraline",
+      "title": "Coraline",
+      "year": 2009,
+      "rank": 17
+    },
+    {
+      "id": 8814,
+      "slug": "avatar-the-last-airbender",
+      "title": "Avatar: The Last Airbender",
+      "year": 2005,
+      "rank": 18
+    },
+    {
+      "id": 42772,
+      "slug": "we-bare-bears",
+      "title": "We Bare Bears",
+      "year": 2014,
+      "rank": 19
+    },
+    {
+      "id": 29867,
+      "slug": "the-grim-adventures-of-billy-and-mandy",
+      "title": "The Grim Adventures of Billy & Mandy",
+      "year": 2003,
+      "rank": 20
+    },
+    {
+      "id": 75323,
+      "slug": "inside-job",
+      "title": "Inside Job",
+      "year": 2021,
+      "rank": 21
+    },
+    {
+      "id": 42733,
+      "slug": "legend-quest",
+      "title": "Legend Quest",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 30003,
+      "slug": "courage-the-cowardly-dog",
+      "title": "Courage the Cowardly Dog",
+      "year": 1999,
+      "rank": 23
+    },
+    {
+      "id": 65885,
+      "slug": "hazbin-hotel",
+      "title": "Hazbin Hotel",
+      "year": 2019,
+      "rank": 24
+    },
+    {
+      "id": 30016,
+      "slug": "danny-phantom",
+      "title": "Danny Phantom",
+      "year": 2003,
+      "rank": 25
+    },
+    {
+      "id": 81307,
+      "slug": "the-fungies",
+      "title": "The Fungies!",
+      "year": 2020,
+      "rank": 26
+    },
+    {
+      "id": 78413,
+      "slug": "ollies-pack",
+      "title": "Ollie's Pack",
+      "year": 2020,
+      "rank": 27
+    },
+    {
+      "id": 7871,
+      "slug": "magical-shopping-arcade-abenobashi",
+      "title": "Magical Shopping Arcade Abenobashi",
+      "year": 2002,
+      "rank": 28
+    },
+    {
+      "id": 63920,
+      "slug": "supernoobs",
+      "title": "Supernoobs",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919131
+}

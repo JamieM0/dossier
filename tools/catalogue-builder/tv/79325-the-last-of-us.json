@@ -1,0 +1,386 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/79325-the-last-of-us",
+  "id": 79325,
+  "slug": "the-last-of-us",
+  "title": "The Last of Us",
+  "year": 2023,
+  "rating": 8.5,
+  "votes_text": "725K",
+  "votes": 725000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/cd/79325.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Horror",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "Canada",
+    "USA"
+  ],
+  "duration_min": 50,
+  "story": "Joel and Ellie, a pair connected through the harshness of the world they live in, are forced to endure brutal circumstances and ruthless killers on a trek across post-pandemic America.",
+  "tags": [
+    {
+      "id": 1839,
+      "slug": "apocalypse",
+      "name": "Apocalypse",
+      "film_count": 3083
+    },
+    {
+      "id": 2377,
+      "slug": "based-on-video-game",
+      "name": "Based on video game",
+      "film_count": 1115
+    },
+    {
+      "id": 4178,
+      "slug": "post-apocalypse",
+      "name": "Post apocalypse",
+      "film_count": 2063
+    },
+    {
+      "id": 1523,
+      "slug": "survival",
+      "name": "Survival",
+      "film_count": 12605
+    },
+    {
+      "id": 5756,
+      "slug": "infection",
+      "name": "Infection",
+      "film_count": 792
+    },
+    {
+      "id": 1932,
+      "slug": "epidemic",
+      "name": "Epidemic",
+      "film_count": 1613
+    },
+    {
+      "id": 1831,
+      "slug": "survival-horror",
+      "name": "Survival horror",
+      "film_count": 1467
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 98122,
+      "slug": "apocalyptic",
+      "name": "Apocalyptic",
+      "film_count": 1629
+    },
+    {
+      "id": 4168,
+      "slug": "2020s",
+      "name": "2020s",
+      "film_count": 2869
+    },
+    {
+      "id": 123552,
+      "slug": "characters-in-danger",
+      "name": "Characters in danger",
+      "film_count": 1677
+    },
+    {
+      "id": 123848,
+      "slug": "scary",
+      "name": "Scary",
+      "film_count": 8899
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 90,
+      "slug": "blood",
+      "name": "Blood",
+      "film_count": 12987
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 2170,
+      "slug": "usa",
+      "name": "Usa",
+      "film_count": 14812
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "suspense",
+      "apocalyptic",
+      "scary",
+      "psychological",
+      "epic",
+      "slasher",
+      "crying",
+      "spectacular",
+      "psychotronic"
+    ],
+    "plot": [
+      "apocalypse",
+      "post apocalypse",
+      "survival",
+      "infection",
+      "epidemic",
+      "survival horror",
+      "pandemic",
+      "post-apocalyptic future",
+      "survivor",
+      "violence",
+      "vestiges of humanity",
+      "zombie",
+      "zombie violence",
+      "danger",
+      "death",
+      "monster",
+      "dystopia",
+      "gunfight",
+      "virus",
+      "supernatural",
+      "young girl",
+      "infected",
+      "characters in danger",
+      "murder",
+      "blood"
+    ],
+    "time": [
+      "2020s",
+      "future"
+    ],
+    "place": [
+      "usa",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 344,
+      "slug": "world-war-z",
+      "title": "World War Z",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 65,
+      "slug": "the-walking-dead",
+      "title": "The Walking Dead",
+      "year": 2010,
+      "rank": 1
+    },
+    {
+      "id": 65621,
+      "slug": "see",
+      "title": "See",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 27223,
+      "slug": "chrysalis",
+      "title": "Chrysalis",
+      "year": 2014,
+      "rank": 3
+    },
+    {
+      "id": 67940,
+      "slug": "the-walking-dead-world-beyond",
+      "title": "The Walking Dead: World Beyond",
+      "year": 2020,
+      "rank": 4
+    },
+    {
+      "id": 15498,
+      "slug": "i-am-legend",
+      "title": "I Am Legend",
+      "year": 2007,
+      "rank": 5
+    },
+    {
+      "id": 74965,
+      "slug": "the-dustwalker",
+      "title": "The Dustwalker",
+      "year": 2019,
+      "rank": 6
+    },
+    {
+      "id": 84418,
+      "slug": "twisted-metal",
+      "title": "Twisted Metal",
+      "year": 2023,
+      "rank": 7
+    },
+    {
+      "id": 75368,
+      "slug": "all-of-us-are-dead",
+      "title": "All of Us Are Dead",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 27065,
+      "slug": "the-day",
+      "title": "The Day",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 65866,
+      "slug": "black-summer",
+      "title": "Black Summer",
+      "year": 2019,
+      "rank": 10
+    },
+    {
+      "id": 93453,
+      "slug": "fallout",
+      "title": "Fallout",
+      "year": 2024,
+      "rank": 11
+    },
+    {
+      "id": 26559,
+      "slug": "revolution",
+      "title": "Revolution",
+      "year": 2012,
+      "rank": 12
+    },
+    {
+      "id": 7702,
+      "slug": "28-weeks-later",
+      "title": "28 Weeks Later",
+      "year": 2007,
+      "rank": 13
+    },
+    {
+      "id": 67599,
+      "slug": "the-rain",
+      "title": "The Rain",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 26458,
+      "slug": "fear-the-walking-dead",
+      "title": "Fear the Walking Dead",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 68441,
+      "slug": "to-the-lake",
+      "title": "To the Lake",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 39876,
+      "slug": "one-last-sunset-redux",
+      "title": "One Last Sunset Redux",
+      "year": 2015,
+      "rank": 17
+    },
+    {
+      "id": 61875,
+      "slug": "the-purge",
+      "title": "The Purge",
+      "year": 2018,
+      "rank": 18
+    },
+    {
+      "id": 26555,
+      "slug": "terra-nova",
+      "title": "Terra Nova",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 69508,
+      "slug": "apocalypse-rising",
+      "title": "Apocalypse Rising",
+      "year": 2018,
+      "rank": 20
+    },
+    {
+      "id": 7597,
+      "slug": "earthquake-10-5",
+      "title": "10.5",
+      "year": 2004,
+      "rank": 21
+    },
+    {
+      "id": 73192,
+      "slug": "sweet-tooth",
+      "title": "Sweet Tooth",
+      "year": 2021,
+      "rank": 22
+    },
+    {
+      "id": 67601,
+      "slug": "edge-of-extinction",
+      "title": "Edge of Extinction",
+      "year": 2020,
+      "rank": 23
+    },
+    {
+      "id": 60498,
+      "slug": "snowpiercer",
+      "title": "Snowpiercer",
+      "year": 2020,
+      "rank": 24
+    },
+    {
+      "id": 65166,
+      "slug": "the-silence",
+      "title": "The Silence",
+      "year": 2019,
+      "rank": 25
+    },
+    {
+      "id": 68073,
+      "slug": "the-stand",
+      "title": "The Stand",
+      "year": 2020,
+      "rank": 26
+    },
+    {
+      "id": 65848,
+      "slug": "freakish",
+      "title": "Freakish",
+      "year": 2016,
+      "rank": 27
+    },
+    {
+      "id": 26532,
+      "slug": "fringe",
+      "title": "Fringe",
+      "year": 2008,
+      "rank": 28
+    },
+    {
+      "id": 60052,
+      "slug": "ravenous",
+      "title": "Ravenous",
+      "year": 2017,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919187
+}

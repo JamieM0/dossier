@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/25455-weeds",
+  "id": 25455,
+  "slug": "weeds",
+  "title": "Weeds",
+  "year": 2005,
+  "rating": 7.9,
+  "votes_text": "122K",
+  "votes": 122000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/67/25455.jpg",
+  "genres": [
+    "Comedy",
+    "Crime",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 30,
+  "story": "Weeds is an American dark comedy-drama series created by Jenji Kohan. The central character is Nancy Botwin, a widowed mother of two boys who begins selling cannabis to support her family after her husband dies suddenly of a heart attack. Over the course of the show, she and her family become increasingly entangled in illegal activities.",
+  "tags": [
+    {
+      "id": 710,
+      "slug": "single-mother",
+      "name": "Single mother",
+      "film_count": 2477
+    },
+    {
+      "id": 5076,
+      "slug": "marijuana",
+      "name": "Marijuana",
+      "film_count": 1903
+    },
+    {
+      "id": 2411,
+      "slug": "dysfunctional-family",
+      "name": "Dysfunctional family",
+      "film_count": 6078
+    },
+    {
+      "id": 6222,
+      "slug": "drug-dealing",
+      "name": "Drug dealing",
+      "film_count": 1460
+    },
+    {
+      "id": 2821,
+      "slug": "drug-dealer",
+      "name": "Drug dealer",
+      "film_count": 1870
+    },
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 30957,
+      "slug": "family-life",
+      "name": "Family life",
+      "film_count": 3996
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 10295,
+      "slug": "success",
+      "name": "Success",
+      "film_count": 599
+    },
+    {
+      "id": 19104,
+      "slug": "realistic",
+      "name": "Realistic",
+      "film_count": 35439
+    },
+    {
+      "id": 123584,
+      "slug": "doubts-and-hesitations",
+      "name": "Doubts and hesitations",
+      "film_count": 125
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 780,
+      "slug": "nudity",
+      "name": "Nudity",
+      "film_count": 10993
+    },
+    {
+      "id": 8414,
+      "slug": "milf",
+      "name": "Milf",
+      "film_count": 277
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 9388,
+      "slug": "housewife",
+      "name": "Housewife",
+      "film_count": 511
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "humorous",
+      "sexy",
+      "sensual",
+      "witty",
+      "erotic",
+      "realistic",
+      "funny",
+      "offbeat",
+      "cynical",
+      "psychedelic"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "single mother",
+      "marijuana",
+      "dysfunctional family",
+      "drug dealing",
+      "drug dealer",
+      "dark humor",
+      "family life",
+      "single parent",
+      "eccentric family",
+      "smuggling",
+      "sexual activity",
+      "widow",
+      "cannabis",
+      "suburbs",
+      "hot and sexy",
+      "friendship",
+      "parents and children",
+      "lifestyle",
+      "profanity",
+      "success",
+      "doubts and hesitations",
+      "family relations",
+      "nudity",
+      "milf",
+      "housewife"
+    ],
+    "time": [
+      "2010s",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "california",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 27059,
+      "slug": "shameless",
+      "title": "Shameless",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 65695,
+      "slug": "why-women-kill",
+      "title": "Why Women Kill",
+      "year": 2019,
+      "rank": 1
+    },
+    {
+      "id": 12845,
+      "slug": "entourage",
+      "title": "Entourage",
+      "year": 2004,
+      "rank": 2
+    },
+    {
+      "id": 2001,
+      "slug": "shameless",
+      "title": "Shameless",
+      "year": 2004,
+      "rank": 3
+    },
+    {
+      "id": 26292,
+      "slug": "breaking-bad",
+      "title": "Breaking Bad",
+      "year": 2008,
+      "rank": 4
+    },
+    {
+      "id": 30194,
+      "slug": "hung",
+      "title": "Hung",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 1186,
+      "slug": "outrageous-fortune",
+      "title": "Outrageous Fortune",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 17106,
+      "slug": "leaves-of-grass",
+      "title": "Leaves of Grass",
+      "year": 2009,
+      "rank": 7
+    },
+    {
+      "id": 3062,
+      "slug": "reba",
+      "title": "Reba",
+      "year": 2001,
+      "rank": 8
+    },
+    {
+      "id": 1367,
+      "slug": "the-client-list",
+      "title": "The Client List",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 26836,
+      "slug": "californication",
+      "title": "Californication",
+      "year": 2007,
+      "rank": 10
+    },
+    {
+      "id": 31730,
+      "slug": "high-times-potluck",
+      "title": "High Times Potluck",
+      "year": 2002,
+      "rank": 11
+    },
+    {
+      "id": 2616,
+      "slug": "lilyhammer",
+      "title": "Lilyhammer",
+      "year": 2012,
+      "rank": 12
+    },
+    {
+      "id": 64153,
+      "slug": "snowfall",
+      "title": "Snowfall",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 1674,
+      "slug": "george-lopez",
+      "title": "George Lopez",
+      "year": 2002,
+      "rank": 14
+    },
+    {
+      "id": 6224,
+      "slug": "orange-is-the-new-black",
+      "title": "Orange Is the New Black",
+      "year": 2013,
+      "rank": 15
+    },
+    {
+      "id": 61589,
+      "slug": "good-girls",
+      "title": "Good Girls",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 12032,
+      "slug": "desperate-housewives",
+      "title": "Desperate Housewives",
+      "year": 2004,
+      "rank": 17
+    },
+    {
+      "id": 4029,
+      "slug": "ray-donovan",
+      "title": "Ray Donovan",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 22956,
+      "slug": "the-sopranos",
+      "title": "The Sopranos",
+      "year": 1999,
+      "rank": 19
+    },
+    {
+      "id": 4497,
+      "slug": "were-the-millers",
+      "title": "We're the Millers",
+      "year": 2013,
+      "rank": 20
+    },
+    {
+      "id": 4970,
+      "slug": "the-riches",
+      "title": "The Riches",
+      "year": 2007,
+      "rank": 21
+    },
+    {
+      "id": 26449,
+      "slug": "dope",
+      "title": "Dope",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 3742,
+      "slug": "humboldt-county",
+      "title": "Humboldt County",
+      "year": 2008,
+      "rank": 23
+    },
+    {
+      "id": 2261,
+      "slug": "house-of-lies",
+      "title": "House of Lies",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 264,
+      "slug": "girls",
+      "title": "Girls",
+      "year": 2012,
+      "rank": 25
+    },
+    {
+      "id": 30413,
+      "slug": "malcolm-in-the-middle",
+      "title": "Malcolm in the Middle",
+      "year": 2000,
+      "rank": 26
+    },
+    {
+      "id": 30223,
+      "slug": "titus",
+      "title": "Titus",
+      "year": 2000,
+      "rank": 27
+    },
+    {
+      "id": 1110,
+      "slug": "magic-city",
+      "title": "Magic City",
+      "year": 2012,
+      "rank": 28
+    },
+    {
+      "id": 3391,
+      "slug": "parenthood",
+      "title": "Parenthood",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919143
+}

@@ -1,0 +1,381 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/65874-the-morning-show",
+  "id": 65874,
+  "slug": "the-morning-show",
+  "title": "The Morning Show",
+  "year": 2019,
+  "rating": 8.1,
+  "votes_text": "149K",
+  "votes": 149000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a9/65874.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "A behind-the-scenes look at the lives of the people who help America wake up in the morning, exploring the unique challenges faced by the men and women who carry out this daily televised ritual.",
+  "tags": [
+    {
+      "id": 5404,
+      "slug": "women",
+      "name": "Women",
+      "film_count": 7008
+    },
+    {
+      "id": 38592,
+      "slug": "disturbing",
+      "name": "Disturbing",
+      "film_count": 16904
+    },
+    {
+      "id": 1291,
+      "slug": "television",
+      "name": "Television",
+      "film_count": 1643
+    },
+    {
+      "id": 15654,
+      "slug": "career-woman",
+      "name": "Career woman",
+      "film_count": 290
+    },
+    {
+      "id": 3739,
+      "slug": "scandal",
+      "name": "Scandal",
+      "film_count": 1472
+    },
+    {
+      "id": 15154,
+      "slug": "job",
+      "name": "Job",
+      "film_count": 1657
+    },
+    {
+      "id": 8489,
+      "slug": "protest",
+      "name": "Protest",
+      "film_count": 1169
+    },
+    {
+      "id": 3868,
+      "slug": "journalism",
+      "name": "Journalism",
+      "film_count": 1984
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 19153,
+      "slug": "talk-show-host",
+      "name": "Talk show host",
+      "film_count": 197
+    },
+    {
+      "id": 816,
+      "slug": "journalist",
+      "name": "Journalist",
+      "film_count": 2091
+    },
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "disturbing",
+      "suspense",
+      "emotional",
+      "social",
+      "captivating",
+      "exciting",
+      "funny",
+      "intellectual",
+      "cynical",
+      "sexploitation film"
+    ],
+    "plot": [
+      "women",
+      "television",
+      "career woman",
+      "scandal",
+      "job",
+      "protest",
+      "journalism",
+      "feminism",
+      "coworker",
+      "co worker co worker relationship",
+      "workplace situations",
+      "female protagonist",
+      "lifestyle",
+      "employer employee relationship",
+      "news report",
+      "betrayal",
+      "society",
+      "nothing goes right",
+      "workplace",
+      "talk show host",
+      "journalist",
+      "lesbian",
+      "lgbt",
+      "power",
+      "feminist"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "usa",
+      "new york"
+    ]
+  },
+  "similar": [
+    {
+      "id": 4016,
+      "slug": "the-newsroom",
+      "title": "The Newsroom",
+      "year": 2012,
+      "rank": 0
+    },
+    {
+      "id": 66931,
+      "slug": "little-fires-everywhere",
+      "title": "Little Fires Everywhere",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 61761,
+      "slug": "press",
+      "title": "Press",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 27016,
+      "slug": "mad-men",
+      "title": "Mad Men",
+      "year": 2007,
+      "rank": 3
+    },
+    {
+      "id": 60771,
+      "slug": "the-bold-type",
+      "title": "The Bold Type",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 65580,
+      "slug": "succession",
+      "title": "Succession",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 79798,
+      "slug": "the-newsreader",
+      "title": "The Newsreader",
+      "year": 2021,
+      "rank": 6
+    },
+    {
+      "id": 57868,
+      "slug": "billions",
+      "title": "Billions",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 641,
+      "slug": "dirt",
+      "title": "Dirt",
+      "year": 2007,
+      "rank": 8
+    },
+    {
+      "id": 66444,
+      "slug": "almost-family",
+      "title": "Almost Family",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 85558,
+      "slug": "the-ropes",
+      "title": "The Ropes",
+      "year": 2011,
+      "rank": 10
+    },
+    {
+      "id": 82948,
+      "slug": "girls-club",
+      "title": "Girls Club",
+      "year": 2002,
+      "rank": 11
+    },
+    {
+      "id": 28573,
+      "slug": "unreal",
+      "title": "UnREAL",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 80716,
+      "slug": "older-sister",
+      "title": "Older Sister",
+      "year": 2005,
+      "rank": 13
+    },
+    {
+      "id": 78286,
+      "slug": "ambitions",
+      "title": "Ambitions",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 65393,
+      "slug": "i-will-not-work-overtime-period",
+      "title": "I Will Not Work Overtime, Period!",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 85527,
+      "slug": "deadline",
+      "title": "Deadline",
+      "year": 2000,
+      "rank": 16
+    },
+    {
+      "id": 89442,
+      "slug": "the-publicist",
+      "title": "The Publicist",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 72996,
+      "slug": "nothing-but-thirty",
+      "title": "Nothing But Thirty",
+      "year": 2020,
+      "rank": 18
+    },
+    {
+      "id": 3907,
+      "slug": "strong-medicine",
+      "title": "Strong Medicine",
+      "year": 2000,
+      "rank": 19
+    },
+    {
+      "id": 84233,
+      "slug": "just-imagine-things-we-know",
+      "title": "Just Imagine Things We Know",
+      "year": 2020,
+      "rank": 20
+    },
+    {
+      "id": 78037,
+      "slug": "argon",
+      "title": "Argon",
+      "year": 2017,
+      "rank": 21
+    },
+    {
+      "id": 73368,
+      "slug": "iron-island",
+      "title": "Iron Island",
+      "year": 2018,
+      "rank": 22
+    },
+    {
+      "id": 68416,
+      "slug": "good-girls-revolt",
+      "title": "Good Girls Revolt",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 78082,
+      "slug": "spotlight",
+      "title": "Spotlight",
+      "year": 2008,
+      "rank": 24
+    },
+    {
+      "id": 76098,
+      "slug": "the-gilded-age",
+      "title": "The Gilded Age",
+      "year": 2022,
+      "rank": 25
+    },
+    {
+      "id": 76491,
+      "slug": "good-sam",
+      "title": "Good Sam",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 85523,
+      "slug": "breaking-news",
+      "title": "Breaking News",
+      "year": 2002,
+      "rank": 27
+    },
+    {
+      "id": 78874,
+      "slug": "unsung-cinderella",
+      "title": "Unsung Cinderella",
+      "year": 2020,
+      "rank": 28
+    },
+    {
+      "id": 61966,
+      "slug": "made-in-jersey",
+      "title": "Made in Jersey",
+      "year": 2012,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919173
+}

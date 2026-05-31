@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/30044-death-note",
+  "id": 30044,
+  "slug": "death-note",
+  "title": "Death Note",
+  "year": 2006,
+  "rating": 8.9,
+  "votes_text": "467K",
+  "votes": 467000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/05/30044.jpg",
+  "genres": [
+    "Animation",
+    "Crime",
+    "Drama",
+    "Fantasy",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "Japan"
+  ],
+  "duration_min": 24,
+  "story": "Light Yagami is an ace student with great prospects—and he’s bored out of his mind. But all that changes when he finds the Death Note, a notebook dropped by a rogue Shinigami death god. Any human whose name is written in the notebook dies, and Light has vowed to use the power of the Death Note to rid the world of evil. But will Light succeed in his noble goal, or will the Death Note turn him into the very thing he fights against?",
+  "tags": [
+    {
+      "id": 2345,
+      "slug": "anime",
+      "name": "Anime",
+      "film_count": 6683
+    },
+    {
+      "id": 11141,
+      "slug": "mind-game",
+      "name": "Mind game",
+      "film_count": 2096
+    },
+    {
+      "id": 23123,
+      "slug": "manga",
+      "name": "Manga",
+      "film_count": 1053
+    },
+    {
+      "id": 5374,
+      "slug": "anti-hero",
+      "name": "Anti hero",
+      "film_count": 5349
+    },
+    {
+      "id": 5396,
+      "slug": "japan",
+      "name": "Japan",
+      "film_count": 4028
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 4237,
+      "slug": "secret-identity",
+      "name": "Secret identity",
+      "film_count": 1314
+    },
+    {
+      "id": 22722,
+      "slug": "law-enforcement",
+      "name": "Law enforcement",
+      "film_count": 5363
+    },
+    {
+      "id": 83562,
+      "slug": "teenage-life",
+      "name": "Teenage life",
+      "film_count": 6021
+    },
+    {
+      "id": 2793,
+      "slug": "police-detective",
+      "name": "Police detective",
+      "film_count": 4048
+    },
+    {
+      "id": 4956,
+      "slug": "fbi",
+      "name": "Fbi",
+      "film_count": 1273
+    },
+    {
+      "id": 1273,
+      "slug": "neo-noir",
+      "name": "Neo noir",
+      "film_count": 4908
+    },
+    {
+      "id": 7066,
+      "slug": "manipulation",
+      "name": "Manipulation",
+      "film_count": 5535
+    },
+    {
+      "id": 3089,
+      "slug": "supernatural-power",
+      "name": "Supernatural power",
+      "film_count": 6202
+    },
+    {
+      "id": 57791,
+      "slug": "playing-god",
+      "name": "Playing god",
+      "film_count": 97
+    },
+    {
+      "id": 52605,
+      "slug": "adult-anime",
+      "name": "Adult anime",
+      "film_count": 236
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "anime",
+      "manga",
+      "suspenseful",
+      "serious",
+      "exciting",
+      "neo noir",
+      "adult anime",
+      "psychological",
+      "smart",
+      "detective"
+    ],
+    "audience": [
+      "teens",
+      "kids",
+      "manly",
+      "boys' night"
+    ],
+    "plot": [
+      "mind game",
+      "anti hero",
+      "secret identity",
+      "law enforcement",
+      "rivals",
+      "heart attack",
+      "battle of wits",
+      "fighting crime",
+      "supernatural",
+      "vigilante",
+      "serial killer",
+      "supernatural ability",
+      "intelligence",
+      "arrogance",
+      "artifact",
+      "villain as protagonist",
+      "student",
+      "teenage life",
+      "police detective",
+      "fbi",
+      "manipulation",
+      "supernatural power",
+      "playing god",
+      "moral dilemma",
+      "darkness"
+    ],
+    "time": [
+      "2000s",
+      "21st century"
+    ],
+    "place": [
+      "japan"
+    ]
+  },
+  "similar": [
+    {
+      "id": 70455,
+      "slug": "death-note-relight-2-ls-successors",
+      "title": "Death Note Relight 2 - L's Successors",
+      "year": 2008,
+      "rank": 0
+    },
+    {
+      "id": 69249,
+      "slug": "moriarty-the-patriot",
+      "title": "Moriarty the Patriot",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 27062,
+      "slug": "code-geass-lelouch-of-the-rebellion",
+      "title": "Code Geass: Lelouch of the Rebellion",
+      "year": 2006,
+      "rank": 2
+    },
+    {
+      "id": 18598,
+      "slug": "monster",
+      "title": "Monster",
+      "year": 2004,
+      "rank": 3
+    },
+    {
+      "id": 59958,
+      "slug": "terror-in-resonance",
+      "title": "Terror in Resonance",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 12045,
+      "slug": "death-note",
+      "title": "Death Note",
+      "year": 2006,
+      "rank": 5
+    },
+    {
+      "id": 18211,
+      "slug": "detective-conan",
+      "title": "Detective Conan",
+      "year": 1996,
+      "rank": 6
+    },
+    {
+      "id": 59752,
+      "slug": "death-parade",
+      "title": "Death Parade",
+      "year": 2015,
+      "rank": 7
+    },
+    {
+      "id": 38236,
+      "slug": "parasyte-the-maxim",
+      "title": "Parasyte: The Maxim",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 66860,
+      "slug": "b-the-beginning",
+      "title": "B: The Beginning",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 15033,
+      "slug": "psycho-pass",
+      "title": "Psycho-Pass",
+      "year": 2012,
+      "rank": 10
+    },
+    {
+      "id": 27054,
+      "slug": "darker-than-black",
+      "title": "Darker Than Black",
+      "year": 2007,
+      "rank": 11
+    },
+    {
+      "id": 70451,
+      "slug": "death-note-relight-1-visions-of-a-god",
+      "title": "Death Note Relight - Visions of a God",
+      "year": 2007,
+      "rank": 12
+    },
+    {
+      "id": 62791,
+      "slug": "the-future-diary",
+      "title": "The Future Diary",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 27055,
+      "slug": "steins-gate",
+      "title": "Steins;Gate",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 60634,
+      "slug": "tokyo-ghoul",
+      "title": "Tokyo Ghoul",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 43666,
+      "slug": "erased",
+      "title": "ERASED",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 65550,
+      "slug": "bungo-stray-dogs",
+      "title": "Bungo Stray Dogs",
+      "year": 2016,
+      "rank": 17
+    },
+    {
+      "id": 57084,
+      "slug": "fate-zero",
+      "title": "Fate/Zero",
+      "year": 2011,
+      "rank": 18
+    },
+    {
+      "id": 27061,
+      "slug": "black-lagoon",
+      "title": "Black Lagoon: The Second Barrage",
+      "year": 2006,
+      "rank": 19
+    },
+    {
+      "id": 5071,
+      "slug": "black-butler",
+      "title": "Black Butler",
+      "year": 2008,
+      "rank": 20
+    },
+    {
+      "id": 6277,
+      "slug": "vampire-knight",
+      "title": "Vampire Knight",
+      "year": 2008,
+      "rank": 21
+    },
+    {
+      "id": 70086,
+      "slug": "death-note-the-last-name",
+      "title": "Death Note: The Last Name",
+      "year": 2006,
+      "rank": 22
+    },
+    {
+      "id": 70839,
+      "slug": "persona-5-the-animation",
+      "title": "PERSONA5 the Animation",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 69380,
+      "slug": "jormungand",
+      "title": "Jormungand",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 85574,
+      "slug": "un-go",
+      "title": "Un-Go",
+      "year": 2011,
+      "rank": 25
+    },
+    {
+      "id": 99434,
+      "slug": "tokyo-ghoul-re",
+      "title": "Tokyo Ghoul: re",
+      "year": 2018,
+      "rank": 26
+    },
+    {
+      "id": 65118,
+      "slug": "shiki",
+      "title": "Shiki",
+      "year": 2010,
+      "rank": 27
+    },
+    {
+      "id": 5085,
+      "slug": "phantom-requiem-for-the-phantom",
+      "title": "Phantom: Requiem for the Phantom",
+      "year": 2009,
+      "rank": 28
+    },
+    {
+      "id": 6177,
+      "slug": "psychic-detective-yakumo",
+      "title": "Psychic Detective Yakumo",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919155
+}

@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64240-the-haunting-of-hill-house",
+  "id": 64240,
+  "slug": "the-haunting-of-hill-house",
+  "title": "The Haunting of Hill House",
+  "year": 2018,
+  "rating": 8.5,
+  "votes_text": "324K",
+  "votes": 324000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/d8/64240.jpg",
+  "genres": [
+    "Drama",
+    "Horror",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "The Crains, a fractured family, confront haunting memories of their old home and the terrifying events that drove them from it.",
+  "tags": [
+    {
+      "id": 1453,
+      "slug": "ghost",
+      "name": "Ghost",
+      "film_count": 5860
+    },
+    {
+      "id": 1738,
+      "slug": "haunted-house",
+      "name": "Haunted house",
+      "film_count": 1911
+    },
+    {
+      "id": 123848,
+      "slug": "scary",
+      "name": "Scary",
+      "film_count": 8899
+    },
+    {
+      "id": 28189,
+      "slug": "old-dark-house",
+      "name": "Old dark house",
+      "film_count": 531
+    },
+    {
+      "id": 15601,
+      "slug": "supernatural-horror",
+      "name": "Supernatural horror",
+      "film_count": 2918
+    },
+    {
+      "id": 19082,
+      "slug": "mysterious-past",
+      "name": "Mysterious past",
+      "film_count": 260
+    },
+    {
+      "id": 2387,
+      "slug": "addiction",
+      "name": "Addiction",
+      "film_count": 1979
+    },
+    {
+      "id": 70720,
+      "slug": "haunted",
+      "name": "Haunted",
+      "film_count": 1139
+    },
+    {
+      "id": 123481,
+      "slug": "emotional",
+      "name": "Emotional",
+      "film_count": 15358
+    },
+    {
+      "id": 3138,
+      "slug": "paranormal",
+      "name": "Paranormal",
+      "film_count": 2937
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 135794,
+      "slug": "spooky",
+      "name": "Spooky",
+      "film_count": 2036
+    },
+    {
+      "id": 3276,
+      "slug": "depression",
+      "name": "Depression",
+      "film_count": 3716
+    },
+    {
+      "id": 702,
+      "slug": "funeral",
+      "name": "Funeral",
+      "film_count": 3749
+    },
+    {
+      "id": 2490,
+      "slug": "haunted-by-the-past",
+      "name": "Haunted by the past",
+      "film_count": 3300
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "scary",
+      "enigmatic",
+      "disturbing",
+      "surreal",
+      "demonic",
+      "emotional",
+      "spooky",
+      "anthology",
+      "supernatural thriller",
+      "slasher"
+    ],
+    "plot": [
+      "ghost",
+      "haunted house",
+      "old dark house",
+      "supernatural horror",
+      "mysterious past",
+      "addiction",
+      "haunted",
+      "sibling relationship",
+      "past coming back to haunt",
+      "haunted castle",
+      "supernatural",
+      "sister sister relationship",
+      "spirit",
+      "life is a bitch",
+      "brother sister relationship",
+      "lesbian",
+      "mysticism",
+      "supernatural power",
+      "family in danger",
+      "paranormal",
+      "supernatural ability",
+      "depression",
+      "funeral",
+      "haunted by the past",
+      "family relations"
+    ],
+    "time": [
+      "90s",
+      "2010s",
+      "20th century",
+      "21st century",
+      "1990s"
+    ],
+    "place": [
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 68791,
+      "slug": "the-haunting-of-bly-manor",
+      "title": "The Haunting of Bly Manor",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 21595,
+      "slug": "rose-red",
+      "title": "Rose Red",
+      "year": 2002,
+      "rank": 1
+    },
+    {
+      "id": 19870,
+      "slug": "the-others",
+      "title": "The Others",
+      "year": 2001,
+      "rank": 2
+    },
+    {
+      "id": 63815,
+      "slug": "the-enfield-haunting",
+      "title": "The Enfield Haunting",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 5112,
+      "slug": "the-secret-of-crickley-hall",
+      "title": "The Secret of Crickley Hall",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 150,
+      "slug": "the-conjuring",
+      "title": "The Conjuring",
+      "year": 2013,
+      "rank": 5
+    },
+    {
+      "id": 24913,
+      "slug": "the-woman-in-black-2-angel-of-death",
+      "title": "The Woman in Black 2: Angel of Death",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 26369,
+      "slug": "american-horror-story",
+      "title": "American Horror Story",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 5292,
+      "slug": "jessabelle",
+      "title": "Jessabelle",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 27670,
+      "slug": "the-conjuring-2",
+      "title": "The Conjuring 2",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 16018,
+      "slug": "it",
+      "title": "It",
+      "year": 1990,
+      "rank": 10
+    },
+    {
+      "id": 15855,
+      "slug": "insidious",
+      "title": "Insidious",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 72915,
+      "slug": "midnight-mass",
+      "title": "Midnight Mass",
+      "year": 2021,
+      "rank": 12
+    },
+    {
+      "id": 26260,
+      "slug": "the-awakening",
+      "title": "The Awakening",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 26827,
+      "slug": "paranormal-activity-3",
+      "title": "Paranormal Activity 3",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 19811,
+      "slug": "the-orphanage",
+      "title": "The Orphanage",
+      "year": 2007,
+      "rank": 15
+    },
+    {
+      "id": 65313,
+      "slug": "scary-stories-to-tell-in-the-dark",
+      "title": "Scary Stories to Tell in the Dark",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 76358,
+      "slug": "archive-81",
+      "title": "Archive 81",
+      "year": 2022,
+      "rank": 17
+    },
+    {
+      "id": 14827,
+      "slug": "the-haunting-in-connecticut",
+      "title": "The Haunting in Connecticut",
+      "year": 2009,
+      "rank": 18
+    },
+    {
+      "id": 62114,
+      "slug": "the-fades",
+      "title": "The Fades",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 43671,
+      "slug": "the-living-and-the-dead",
+      "title": "The Living and the Dead",
+      "year": 2016,
+      "rank": 20
+    },
+    {
+      "id": 26565,
+      "slug": "supernatural",
+      "title": "Supernatural",
+      "year": 2005,
+      "rank": 21
+    },
+    {
+      "id": 14833,
+      "slug": "the-haunting",
+      "title": "The Haunting",
+      "year": 1999,
+      "rank": 22
+    },
+    {
+      "id": 27646,
+      "slug": "crimson-peak",
+      "title": "Crimson Peak",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 2868,
+      "slug": "marchlands",
+      "title": "Marchlands",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 27617,
+      "slug": "paranormal-activity-the-ghost-dimension",
+      "title": "Paranormal Activity: The Ghost Dimension",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 4900,
+      "slug": "insidious-chapter-2",
+      "title": "Insidious: Chapter 2",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 65756,
+      "slug": "marianne",
+      "title": "Marianne",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 25508,
+      "slug": "what-lies-beneath",
+      "title": "What Lies Beneath",
+      "year": 2000,
+      "rank": 28
+    },
+    {
+      "id": 37422,
+      "slug": "burnt-offerings",
+      "title": "Burnt Offerings",
+      "year": 1976,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919169
+}

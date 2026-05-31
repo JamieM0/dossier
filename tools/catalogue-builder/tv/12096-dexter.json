@@ -1,0 +1,392 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/12096-dexter",
+  "id": 12096,
+  "slug": "dexter",
+  "title": "Dexter",
+  "year": 2006,
+  "rating": 8.6,
+  "votes_text": "912K",
+  "votes": 912000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/12/12096.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Dexter is an American television drama series. The series centers on Dexter Morgan, a blood spatter pattern analyst for 'Miami Metro Police Department' who also leads a secret life as a serial killer, hunting down criminals who have slipped through the cracks of justice.",
+  "tags": [
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 715,
+      "slug": "double-life",
+      "name": "Double life",
+      "film_count": 1091
+    },
+    {
+      "id": 49495,
+      "slug": "miami",
+      "name": "Miami",
+      "film_count": 439
+    },
+    {
+      "id": 7265,
+      "slug": "crime-investigation",
+      "name": "Crime investigation",
+      "film_count": 2580
+    },
+    {
+      "id": 8874,
+      "slug": "forensics",
+      "name": "Forensics",
+      "film_count": 1391
+    },
+    {
+      "id": 130,
+      "slug": "loner",
+      "name": "Loner",
+      "film_count": 765
+    },
+    {
+      "id": 123753,
+      "slug": "right-and-wrong",
+      "name": "Right and wrong",
+      "film_count": 99
+    },
+    {
+      "id": 1040,
+      "slug": "hidden-identity",
+      "name": "Hidden identity",
+      "film_count": 1376
+    },
+    {
+      "id": 28538,
+      "slug": "police-department",
+      "name": "Police department",
+      "film_count": 149
+    },
+    {
+      "id": 38592,
+      "slug": "disturbing",
+      "name": "Disturbing",
+      "film_count": 16904
+    },
+    {
+      "id": 5132,
+      "slug": "homicide",
+      "name": "Homicide",
+      "film_count": 695
+    },
+    {
+      "id": 3053,
+      "slug": "murder-investigation",
+      "name": "Murder investigation",
+      "film_count": 3428
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 2793,
+      "slug": "police-detective",
+      "name": "Police detective",
+      "film_count": 4048
+    },
+    {
+      "id": 718,
+      "slug": "secret-life",
+      "name": "Secret life",
+      "film_count": 208
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "bloody",
+      "detective",
+      "captivating",
+      "stylized",
+      "clever",
+      "tense",
+      "disturbing",
+      "suspenseful",
+      "serious",
+      "sexy"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "serial killer",
+      "double life",
+      "crime investigation",
+      "forensics",
+      "loner",
+      "right and wrong",
+      "hidden identity",
+      "dark humor",
+      "serial murder",
+      "dark secret",
+      "anti hero",
+      "vigilantism",
+      "gory",
+      "police station",
+      "psycho killer",
+      "expert",
+      "corpse",
+      "police department",
+      "homicide",
+      "murder investigation",
+      "murder",
+      "police detective",
+      "secret life",
+      "trauma",
+      "law enforcement"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "year 2006",
+      "y2k",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "miami",
+      "florida",
+      "usa",
+      "canada"
+    ]
+  },
+  "similar": [
+    {
+      "id": 542,
+      "slug": "hannibal",
+      "title": "Hannibal",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 65741,
+      "slug": "prodigal-son",
+      "title": "Prodigal Son",
+      "year": 2019,
+      "rank": 1
+    },
+    {
+      "id": 71006,
+      "slug": "the-other-me",
+      "title": "The Other Me",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 75281,
+      "slug": "dexter-new-blood",
+      "title": "Dexter: New Blood",
+      "year": 2021,
+      "rank": 3
+    },
+    {
+      "id": 22528,
+      "slug": "the-silence-of-the-lambs",
+      "title": "The Silence of the Lambs",
+      "year": 1991,
+      "rank": 4
+    },
+    {
+      "id": 61,
+      "slug": "the-following",
+      "title": "The Following",
+      "year": 2013,
+      "rank": 5
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 14724,
+      "slug": "hannibal",
+      "title": "Hannibal",
+      "year": 2001,
+      "rank": 7
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 8
+    },
+    {
+      "id": 65163,
+      "slug": "harrow",
+      "title": "Harrow",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 22034,
+      "slug": "se7en",
+      "title": "Seven",
+      "year": 1995,
+      "rank": 10
+    },
+    {
+      "id": 7853,
+      "slug": "the-fall",
+      "title": "The Fall",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 989,
+      "slug": "prisoners",
+      "title": "Prisoners",
+      "year": 2013,
+      "rank": 12
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 13
+    },
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 57908,
+      "slug": "mindhunter",
+      "title": "Mindhunter",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 27279,
+      "slug": "the-shield",
+      "title": "The Shield",
+      "year": 2002,
+      "rank": 16
+    },
+    {
+      "id": 68925,
+      "slug": "absentia",
+      "title": "Absentia",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 5109,
+      "slug": "banshee",
+      "title": "Banshee",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 26292,
+      "slug": "breaking-bad",
+      "title": "Breaking Bad",
+      "year": 2008,
+      "rank": 19
+    },
+    {
+      "id": 538,
+      "slug": "whitechapel",
+      "title": "Whitechapel",
+      "year": 2009,
+      "rank": 20
+    },
+    {
+      "id": 64562,
+      "slug": "you",
+      "title": "YOU",
+      "year": 2018,
+      "rank": 21
+    },
+    {
+      "id": 63004,
+      "slug": "perception",
+      "title": "Perception",
+      "year": 2012,
+      "rank": 22
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 62281,
+      "slug": "motive",
+      "title": "Motive",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 9774,
+      "slug": "the-bone-collector",
+      "title": "The Bone Collector",
+      "year": 1999,
+      "rank": 25
+    },
+    {
+      "id": 6063,
+      "slug": "fargo",
+      "title": "Fargo",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 26167,
+      "slug": "zodiac",
+      "title": "Zodiac",
+      "year": 2007,
+      "rank": 27
+    },
+    {
+      "id": 18739,
+      "slug": "mr-brooks",
+      "title": "Mr. Brooks",
+      "year": 2007,
+      "rank": 28
+    },
+    {
+      "id": 4029,
+      "slug": "ray-donovan",
+      "title": "Ray Donovan",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919137
+}

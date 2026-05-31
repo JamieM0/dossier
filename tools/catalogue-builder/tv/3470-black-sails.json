@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/3470-black-sails",
+  "id": 3470,
+  "slug": "black-sails",
+  "title": "Black Sails",
+  "year": 2014,
+  "rating": 8.2,
+  "votes_text": "124K",
+  "votes": 124000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/3f/3470.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama"
+  ],
+  "country": [
+    "South Africa",
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "The pirate adventures of Captain Flint and his men twenty years prior to Robert Louis Stevenson’s classic “Treasure Island.” Flint, the most brilliant and most feared pirate captain of his day, takes on a fast-talking young addition to his crew who goes by the name John Silver. Threatened with extinction on all sides, they fight for the survival of New Providence Island, the most notorious criminal haven of its day – a debauched paradise teeming with pirates, prostitutes, thieves and fortune seekers, a place defined by both its enlightened ideals and its stunning brutality.",
+  "tags": [
+    {
+      "id": 4533,
+      "slug": "pirate",
+      "name": "Pirate",
+      "film_count": 666
+    },
+    {
+      "id": 4977,
+      "slug": "captain",
+      "name": "Captain",
+      "film_count": 937
+    },
+    {
+      "id": 4551,
+      "slug": "pirate-ship",
+      "name": "Pirate ship",
+      "film_count": 206
+    },
+    {
+      "id": 10916,
+      "slug": "18th-century",
+      "name": "18th century",
+      "film_count": 798
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 4021,
+      "slug": "swashbuckler",
+      "name": "Swashbuckler",
+      "film_count": 1335
+    },
+    {
+      "id": 4000,
+      "slug": "colonial-america",
+      "name": "Colonial america",
+      "film_count": 60
+    },
+    {
+      "id": 1878,
+      "slug": "sea",
+      "name": "Sea",
+      "film_count": 1748
+    },
+    {
+      "id": 123520,
+      "slug": "twists-and-turns",
+      "name": "Twists and turns",
+      "film_count": 6600
+    },
+    {
+      "id": 1523,
+      "slug": "survival",
+      "name": "Survival",
+      "film_count": 12605
+    },
+    {
+      "id": 907,
+      "slug": "seduction",
+      "name": "Seduction",
+      "film_count": 3871
+    },
+    {
+      "id": 131655,
+      "slug": "historical-drama",
+      "name": "Historical drama",
+      "film_count": 3058
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 1750,
+      "slug": "adventurer",
+      "name": "Adventurer",
+      "film_count": 1640
+    },
+    {
+      "id": 123484,
+      "slug": "stylized",
+      "name": "Stylized",
+      "film_count": 9222
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "costume drama",
+      "sexy",
+      "historical drama",
+      "stylized",
+      "erotic",
+      "suspense",
+      "period piece",
+      "sensual",
+      "epic"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "pirate",
+      "captain",
+      "pirate ship",
+      "swashbuckler",
+      "colonial america",
+      "sea",
+      "gold",
+      "treasure hunt",
+      "medieval",
+      "island",
+      "treasure",
+      "danger",
+      "ship",
+      "sex scene",
+      "lesbian relationship",
+      "power struggle",
+      "graphic violence",
+      "british empire",
+      "gay",
+      "mistrust",
+      "twists and turns",
+      "survival",
+      "seduction",
+      "adventurer",
+      "escapades"
+    ],
+    "time": [
+      "18th century",
+      "ancient times",
+      "19th century",
+      "georgian era"
+    ],
+    "place": [
+      "caribbean",
+      "syria",
+      "america",
+      "west indies",
+      "american"
+    ]
+  },
+  "similar": [
+    {
+      "id": 18095,
+      "slug": "master-and-commander-the-far-side-of-the-world",
+      "title": "Master and Commander: The Far Side of the World",
+      "year": 2003,
+      "rank": 0
+    },
+    {
+      "id": 66752,
+      "slug": "frontier",
+      "title": "Frontier",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 20375,
+      "slug": "pirates-of-the-caribbean-on-stranger-tides",
+      "title": "Pirates of the Caribbean: On Stranger Tides",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 202,
+      "slug": "vikings",
+      "title": "Vikings",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 11247,
+      "slug": "the-count-of-monte-cristo",
+      "title": "The Count of Monte Cristo",
+      "year": 2002,
+      "rank": 4
+    },
+    {
+      "id": 20376,
+      "slug": "pirates-of-the-caribbean-the-curse-of-the-black-pearl",
+      "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+      "year": 2003,
+      "rank": 5
+    },
+    {
+      "id": 26240,
+      "slug": "game-of-thrones",
+      "title": "Game of Thrones",
+      "year": 2011,
+      "rank": 6
+    },
+    {
+      "id": 59952,
+      "slug": "treasure-island",
+      "title": "Treasure Island",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 63121,
+      "slug": "klondike",
+      "title": "Klondike",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 56946,
+      "slug": "marco-polo",
+      "title": "Marco Polo",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 26615,
+      "slug": "spartacus-war-of-the-damned",
+      "title": "Spartacus",
+      "year": 2010,
+      "rank": 10
+    },
+    {
+      "id": 20374,
+      "slug": "pirates-of-the-caribbean-dead-mans-chest",
+      "title": "Pirates of the Caribbean: Dead Man's Chest",
+      "year": 2006,
+      "rank": 11
+    },
+    {
+      "id": 62408,
+      "slug": "crossbones",
+      "title": "Crossbones",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 67952,
+      "slug": "the-luminaries",
+      "title": "The Luminaries",
+      "year": 2020,
+      "rank": 13
+    },
+    {
+      "id": 29973,
+      "slug": "spartacus-gods-of-the-arena",
+      "title": "Spartacus: Gods of the Arena",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 7391,
+      "slug": "outlander",
+      "title": "Outlander",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 31709,
+      "slug": "a-high-wind-in-jamaica",
+      "title": "A High Wind in Jamaica",
+      "year": 1965,
+      "rank": 16
+    },
+    {
+      "id": 18068,
+      "slug": "the-incredible-journey-of-mary-bryant",
+      "title": "The Incredible Journey of Mary Bryant",
+      "year": 2005,
+      "rank": 17
+    },
+    {
+      "id": 18520,
+      "slug": "moby-dick",
+      "title": "Moby Dick",
+      "year": 1998,
+      "rank": 18
+    },
+    {
+      "id": 62264,
+      "slug": "sea-wolf",
+      "title": "Sea Wolf",
+      "year": 2009,
+      "rank": 19
+    },
+    {
+      "id": 42681,
+      "slug": "harlots",
+      "title": "Harlots",
+      "year": 2017,
+      "rank": 20
+    },
+    {
+      "id": 33706,
+      "slug": "kidnapped",
+      "title": "Kidnapped",
+      "year": 1971,
+      "rank": 21
+    },
+    {
+      "id": 11491,
+      "slug": "cutthroat-island",
+      "title": "Cutthroat Island",
+      "year": 1995,
+      "rank": 22
+    },
+    {
+      "id": 66371,
+      "slug": "thieves-of-the-wood",
+      "title": "Thieves of the Wood",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 9510,
+      "slug": "blackbeard",
+      "title": "Blackbeard",
+      "year": 2006,
+      "rank": 24
+    },
+    {
+      "id": 21492,
+      "slug": "robinson-crusoe",
+      "title": "Robinson Crusoe",
+      "year": 1997,
+      "rank": 25
+    },
+    {
+      "id": 4428,
+      "slug": "the-musketeers",
+      "title": "The Musketeers",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 5056,
+      "slug": "da-vincis-demons",
+      "title": "Da Vinci's Demons",
+      "year": 2013,
+      "rank": 27
+    },
+    {
+      "id": 17909,
+      "slug": "the-man-in-the-iron-mask",
+      "title": "The Man in the Iron Mask",
+      "year": 1998,
+      "rank": 28
+    },
+    {
+      "id": 62877,
+      "slug": "the-pirates",
+      "title": "The Pirates",
+      "year": 2014,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919130
+}

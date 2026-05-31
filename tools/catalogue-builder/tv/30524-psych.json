@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/30524-psych",
+  "id": 30524,
+  "slug": "psych",
+  "title": "Psych",
+  "year": 2006,
+  "rating": 8.4,
+  "votes_text": "119K",
+  "votes": 119000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/ad/30524.jpg",
+  "genres": [
+    "Comedy",
+    "Crime",
+    "Mystery"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 44,
+  "story": "Thanks to his police officer father's efforts, Shawn Spencer spent his childhood developing a keen eye for detail (and a lasting dislike of his dad). Years later, Shawn's frequent tips to the police lead to him being falsely accused of a crime he solved. Now, Shawn has no choice but to use his abilities to perpetuate his cover story: psychic crime-solving powers, all the while dragging his best friend, his dad, and the police along for the ride.",
+  "tags": [
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 4196,
+      "slug": "private-detective",
+      "name": "Private detective",
+      "film_count": 1354
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 5419,
+      "slug": "intelligence",
+      "name": "Intelligence",
+      "film_count": 899
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 9223,
+      "slug": "prodigy",
+      "name": "Prodigy",
+      "film_count": 686
+    },
+    {
+      "id": 29023,
+      "slug": "buddies",
+      "name": "Buddies",
+      "film_count": 3540
+    },
+    {
+      "id": 123471,
+      "slug": "who-done-it",
+      "name": "Who done it",
+      "film_count": 1864
+    },
+    {
+      "id": 8671,
+      "slug": "peril",
+      "name": "Peril",
+      "film_count": 1962
+    },
+    {
+      "id": 3042,
+      "slug": "police-investigation",
+      "name": "Police investigation",
+      "film_count": 8669
+    },
+    {
+      "id": 585,
+      "slug": "detective",
+      "name": "Detective",
+      "film_count": 6961
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 123375,
+      "slug": "partners-against-crime",
+      "name": "Partners against crime",
+      "film_count": 1465
+    },
+    {
+      "id": 412,
+      "slug": "bromance",
+      "name": "Bromance",
+      "film_count": 983
+    },
+    {
+      "id": 8862,
+      "slug": "clairvoyant",
+      "name": "Clairvoyant",
+      "film_count": 381
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "witty",
+      "exciting",
+      "detective",
+      "not serious",
+      "humorous",
+      "talky",
+      "realistic",
+      "intellectual",
+      "funny",
+      "offbeat"
+    ],
+    "audience": [
+      "teens",
+      "boys' night"
+    ],
+    "plot": [
+      "investigation",
+      "private detective",
+      "friends",
+      "intelligence",
+      "friendship",
+      "prodigy",
+      "buddies",
+      "who done it",
+      "hotshot",
+      "manhood",
+      "coworker",
+      "cop",
+      "best friend",
+      "talented",
+      "police",
+      "law enforcement",
+      "team",
+      "interracial friendship",
+      "riddles and clues",
+      "police station",
+      "detective agency",
+      "serial killer",
+      "peril",
+      "police investigation",
+      "partners against crime"
+    ],
+    "time": [
+      "future",
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "california",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 67199,
+      "slug": "psych-the-movie",
+      "title": "Psych: The Movie",
+      "year": 2017,
+      "rank": 0
+    },
+    {
+      "id": 30526,
+      "slug": "monk",
+      "title": "Monk",
+      "year": 2002,
+      "rank": 1
+    },
+    {
+      "id": 78631,
+      "slug": "psych-3-this-is-gus",
+      "title": "Psych 3: This Is Gus",
+      "year": 2021,
+      "rank": 2
+    },
+    {
+      "id": 5359,
+      "slug": "brooklyn-nine-nine",
+      "title": "Brooklyn Nine-Nine",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 4
+    },
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 5
+    },
+    {
+      "id": 2155,
+      "slug": "the-finder",
+      "title": "The Finder",
+      "year": 2012,
+      "rank": 6
+    },
+    {
+      "id": 69111,
+      "slug": "psych-2-lassie-come-home",
+      "title": "Psych 2: Lassie Come Home",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 8
+    },
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 9
+    },
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 10
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 11
+    },
+    {
+      "id": 63004,
+      "slug": "perception",
+      "title": "Perception",
+      "year": 2012,
+      "rank": 12
+    },
+    {
+      "id": 30163,
+      "slug": "bored-to-death",
+      "title": "Bored to Death",
+      "year": 2009,
+      "rank": 13
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 14
+    },
+    {
+      "id": 2154,
+      "slug": "terriers",
+      "title": "Terriers",
+      "year": 2010,
+      "rank": 15
+    },
+    {
+      "id": 68427,
+      "slug": "deception",
+      "title": "Deception",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 40726,
+      "slug": "battle-creek",
+      "title": "Battle Creek",
+      "year": 2015,
+      "rank": 17
+    },
+    {
+      "id": 3837,
+      "slug": "dirk-gently",
+      "title": "Dirk Gently",
+      "year": 2010,
+      "rank": 18
+    },
+    {
+      "id": 2915,
+      "slug": "common-law",
+      "title": "Common Law",
+      "year": 2012,
+      "rank": 19
+    },
+    {
+      "id": 26991,
+      "slug": "lie-to-me",
+      "title": "Lie to Me",
+      "year": 2009,
+      "rank": 20
+    },
+    {
+      "id": 26322,
+      "slug": "veronica-mars",
+      "title": "Veronica Mars",
+      "year": 2004,
+      "rank": 21
+    },
+    {
+      "id": 26992,
+      "slug": "leverage",
+      "title": "Leverage",
+      "year": 2008,
+      "rank": 22
+    },
+    {
+      "id": 56568,
+      "slug": "unforgettable",
+      "title": "Unforgettable",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 59158,
+      "slug": "mr-and-mrs-murder",
+      "title": "Mr & Mrs Murder",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 74448,
+      "slug": "nero-wolfe",
+      "title": "Nero Wolfe",
+      "year": 2012,
+      "rank": 25
+    },
+    {
+      "id": 26854,
+      "slug": "chuck",
+      "title": "Chuck",
+      "year": 2007,
+      "rank": 26
+    },
+    {
+      "id": 22335,
+      "slug": "sherlock-holmes",
+      "title": "Sherlock Holmes",
+      "year": 2009,
+      "rank": 27
+    },
+    {
+      "id": 6588,
+      "slug": "vexed",
+      "title": "Vexed",
+      "year": 2010,
+      "rank": 28
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919156
+}

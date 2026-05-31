@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/718-elementary",
+  "id": 718,
+  "slug": "elementary",
+  "title": "Elementary",
+  "year": 2012,
+  "rating": 7.9,
+  "votes_text": "126K",
+  "votes": 126000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/36/718.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "A modern-day drama about a crime-solving duo that cracks the NYPD's most impossible cases. Following his fall from grace in London and a stint in rehab, eccentric Sherlock escapes to Manhattan where his wealthy father forces him to live with his worst nightmare - a sober companion, Dr. Watson.",
+  "tags": [
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 10683,
+      "slug": "sherlock-holmes",
+      "name": "Sherlock holmes",
+      "film_count": 130
+    },
+    {
+      "id": 4196,
+      "slug": "private-detective",
+      "name": "Private detective",
+      "film_count": 1354
+    },
+    {
+      "id": 123790,
+      "slug": "talented",
+      "name": "Talented",
+      "film_count": 250
+    },
+    {
+      "id": 108263,
+      "slug": "female-partner",
+      "name": "Female partner",
+      "film_count": 126
+    },
+    {
+      "id": 9223,
+      "slug": "prodigy",
+      "name": "Prodigy",
+      "film_count": 686
+    },
+    {
+      "id": 123458,
+      "slug": "riddles-and-clues",
+      "name": "Riddles and clues",
+      "film_count": 911
+    },
+    {
+      "id": 11141,
+      "slug": "mind-game",
+      "name": "Mind game",
+      "film_count": 2096
+    },
+    {
+      "id": 33834,
+      "slug": "multiple-suspects",
+      "name": "Multiple suspects",
+      "film_count": 128
+    },
+    {
+      "id": 123636,
+      "slug": "hotshot",
+      "name": "Hotshot",
+      "film_count": 98
+    },
+    {
+      "id": 123710,
+      "slug": "outsmarting",
+      "name": "Outsmarting",
+      "film_count": 129
+    },
+    {
+      "id": 123870,
+      "slug": "talky",
+      "name": "Talky",
+      "film_count": 6398
+    },
+    {
+      "id": 123786,
+      "slug": "supportive-friend",
+      "name": "Supportive friend",
+      "film_count": 178
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 31013,
+      "slug": "expert",
+      "name": "Expert",
+      "film_count": 151
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "detective",
+      "witty",
+      "talky",
+      "suspenseful",
+      "serious",
+      "thought provoking",
+      "entertaining",
+      "sad",
+      "crime drama",
+      "intelligent"
+    ],
+    "audience": [
+      "adult"
+    ],
+    "plot": [
+      "investigation",
+      "sherlock holmes",
+      "private detective",
+      "talented",
+      "female partner",
+      "prodigy",
+      "riddles and clues",
+      "mind game",
+      "unconventional method",
+      "law enforcement",
+      "resourceful",
+      "mastermind",
+      "police investigation",
+      "friends",
+      "intelligence",
+      "teamwork",
+      "friendship",
+      "police detective",
+      "coworker",
+      "loyalty",
+      "whodunit",
+      "multiple suspects",
+      "hotshot",
+      "danger",
+      "outsmarting"
+    ],
+    "time": [
+      "2010s",
+      "victorian era",
+      "21st century",
+      "victorian",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 0
+    },
+    {
+      "id": 26991,
+      "slug": "lie-to-me",
+      "title": "Lie to Me",
+      "year": 2009,
+      "rank": 1
+    },
+    {
+      "id": 56430,
+      "slug": "the-glades",
+      "title": "The Glades",
+      "year": 2010,
+      "rank": 2
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 3
+    },
+    {
+      "id": 63004,
+      "slug": "perception",
+      "title": "Perception",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 30305,
+      "slug": "csi-ny",
+      "title": "CSI: NY",
+      "year": 2004,
+      "rank": 6
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 7
+    },
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 8
+    },
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 9
+    },
+    {
+      "id": 2155,
+      "slug": "the-finder",
+      "title": "The Finder",
+      "year": 2012,
+      "rank": 10
+    },
+    {
+      "id": 19084,
+      "slug": "ncis",
+      "title": "NCIS",
+      "year": 2003,
+      "rank": 11
+    },
+    {
+      "id": 7980,
+      "slug": "the-adventures-of-sherlock-holmes",
+      "title": "The Adventures of Sherlock Holmes",
+      "year": 1984,
+      "rank": 12
+    },
+    {
+      "id": 64158,
+      "slug": "strike",
+      "title": "Strike",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 19127,
+      "slug": "a-nero-wolfe-mystery",
+      "title": "A Nero Wolfe Mystery",
+      "year": 2001,
+      "rank": 14
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 56568,
+      "slug": "unforgettable",
+      "title": "Unforgettable",
+      "year": 2011,
+      "rank": 16
+    },
+    {
+      "id": 68962,
+      "slug": "queens-of-mystery",
+      "title": "Queens of Mystery",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 30526,
+      "slug": "monk",
+      "title": "Monk",
+      "year": 2002,
+      "rank": 18
+    },
+    {
+      "id": 22335,
+      "slug": "sherlock-holmes",
+      "title": "Sherlock Holmes",
+      "year": 2009,
+      "rank": 19
+    },
+    {
+      "id": 30524,
+      "slug": "psych",
+      "title": "Psych",
+      "year": 2006,
+      "rank": 20
+    },
+    {
+      "id": 11446,
+      "slug": "csi-crime-scene-investigation",
+      "title": "CSI: Crime Scene Investigation",
+      "year": 2000,
+      "rank": 21
+    },
+    {
+      "id": 302,
+      "slug": "crossing-jordan",
+      "title": "Crossing Jordan",
+      "year": 2001,
+      "rank": 22
+    },
+    {
+      "id": 56620,
+      "slug": "body-of-proof",
+      "title": "Body of Proof",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 15347,
+      "slug": "house",
+      "title": "House",
+      "year": 2004,
+      "rank": 25
+    },
+    {
+      "id": 19527,
+      "slug": "numb3rs",
+      "title": "Numb3rs",
+      "year": 2005,
+      "rank": 26
+    },
+    {
+      "id": 70425,
+      "slug": "professor-t",
+      "title": "Professor T.",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 20466,
+      "slug": "agatha-christies-poirot",
+      "title": "Agatha Christie's Poirot",
+      "year": 1989,
+      "rank": 28
+    },
+    {
+      "id": 27275,
+      "slug": "forever",
+      "title": "Forever",
+      "year": 2014,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919128
+}

@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/3825-broadchurch",
+  "id": 3825,
+  "slug": "broadchurch",
+  "title": "Broadchurch",
+  "year": 2013,
+  "rating": 8.3,
+  "votes_text": "140K",
+  "votes": 140000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/10/3825.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 48,
+  "story": "The murder of a young boy in a small coastal town brings a media frenzy, which threatens to tear the community apart.",
+  "tags": [
+    {
+      "id": 3053,
+      "slug": "murder-investigation",
+      "name": "Murder investigation",
+      "film_count": 3428
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 3042,
+      "slug": "police-investigation",
+      "name": "Police investigation",
+      "film_count": 8669
+    },
+    {
+      "id": 2793,
+      "slug": "police-detective",
+      "name": "Police detective",
+      "film_count": 4048
+    },
+    {
+      "id": 191,
+      "slug": "england",
+      "name": "England",
+      "film_count": 4022
+    },
+    {
+      "id": 123520,
+      "slug": "twists-and-turns",
+      "name": "Twists and turns",
+      "film_count": 6600
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    },
+    {
+      "id": 4089,
+      "slug": "murderer",
+      "name": "Murderer",
+      "film_count": 4578
+    },
+    {
+      "id": 123426,
+      "slug": "parents-and-children",
+      "name": "Parents and children",
+      "film_count": 8214
+    },
+    {
+      "id": 123471,
+      "slug": "who-done-it",
+      "name": "Who done it",
+      "film_count": 1864
+    },
+    {
+      "id": 3734,
+      "slug": "loss-of-child",
+      "name": "Loss of child",
+      "film_count": 418
+    },
+    {
+      "id": 2675,
+      "slug": "police-officer",
+      "name": "Police officer",
+      "film_count": 9140
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 7502,
+      "slug": "pedophilia",
+      "name": "Pedophilia",
+      "film_count": 366
+    },
+    {
+      "id": 2707,
+      "slug": "police-procedural",
+      "name": "Police procedural",
+      "film_count": 2261
+    },
+    {
+      "id": 123481,
+      "slug": "emotional",
+      "name": "Emotional",
+      "film_count": 15358
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "realistic",
+      "serious",
+      "clever",
+      "tense",
+      "emotional",
+      "gloomy",
+      "dramatic",
+      "crime thriller",
+      "costume drama",
+      "atmospheric"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "murder investigation",
+      "murder",
+      "police investigation",
+      "police detective",
+      "twists and turns",
+      "police",
+      "murderer",
+      "legal",
+      "grief",
+      "multiple suspects",
+      "small town",
+      "pedophile",
+      "reluctant partners",
+      "whodunit",
+      "uncover truth",
+      "small town life",
+      "courtroom drama",
+      "social relations",
+      "under the surface",
+      "beach",
+      "coastal town",
+      "parents and children",
+      "who done it",
+      "loss of child",
+      "police officer"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "england"
+    ]
+  },
+  "similar": [
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 35422,
+      "slug": "unforgotten",
+      "title": "Unforgotten",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 43639,
+      "slug": "marcella",
+      "title": "Marcella",
+      "year": 2016,
+      "rank": 2
+    },
+    {
+      "id": 68972,
+      "slug": "the-bay",
+      "title": "The Bay",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 5157,
+      "slug": "endeavour",
+      "title": "Endeavour",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 63596,
+      "slug": "hinterland",
+      "title": "Hinterland",
+      "year": 2013,
+      "rank": 5
+    },
+    {
+      "id": 22506,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2007,
+      "rank": 6
+    },
+    {
+      "id": 66519,
+      "slug": "deadwater-fell",
+      "title": "Deadwater Fell",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 63127,
+      "slug": "what-remains",
+      "title": "What Remains",
+      "year": 2013,
+      "rank": 8
+    },
+    {
+      "id": 62377,
+      "slug": "shetland",
+      "title": "Shetland",
+      "year": 2013,
+      "rank": 9
+    },
+    {
+      "id": 36814,
+      "slug": "river",
+      "title": "River",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 57082,
+      "slug": "gracepoint",
+      "title": "Gracepoint",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 3036,
+      "slug": "rebus",
+      "title": "Rebus",
+      "year": 2000,
+      "rank": 12
+    },
+    {
+      "id": 36090,
+      "slug": "inspector-lewis",
+      "title": "Lewis",
+      "year": 2006,
+      "rank": 13
+    },
+    {
+      "id": 981,
+      "slug": "vera",
+      "title": "Vera",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 20672,
+      "slug": "prime-suspect",
+      "title": "Prime Suspect",
+      "year": 1991,
+      "rank": 15
+    },
+    {
+      "id": 28951,
+      "slug": "the-missing",
+      "title": "The Missing",
+      "year": 2014,
+      "rank": 16
+    },
+    {
+      "id": 71287,
+      "slug": "mare-of-easttown",
+      "title": "Mare of Easttown",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 56664,
+      "slug": "the-bridge",
+      "title": "The Bridge",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 2402,
+      "slug": "top-of-the-lake",
+      "title": "Top of the Lake",
+      "year": 2013,
+      "rank": 19
+    },
+    {
+      "id": 18360,
+      "slug": "midsomer-murders",
+      "title": "Midsomer Murders",
+      "year": 1997,
+      "rank": 20
+    },
+    {
+      "id": 56427,
+      "slug": "luther",
+      "title": "Luther",
+      "year": 2010,
+      "rank": 21
+    },
+    {
+      "id": 41823,
+      "slug": "trapped",
+      "title": "Trapped",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 60424,
+      "slug": "sharp-objects",
+      "title": "Sharp Objects",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 24
+    },
+    {
+      "id": 56449,
+      "slug": "ripper-street",
+      "title": "Ripper Street",
+      "year": 2012,
+      "rank": 25
+    },
+    {
+      "id": 28587,
+      "slug": "happy-valley",
+      "title": "Happy Valley",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 43656,
+      "slug": "bordertown",
+      "title": "Bordertown",
+      "year": 2016,
+      "rank": 27
+    },
+    {
+      "id": 2053,
+      "slug": "wallander",
+      "title": "Wallander",
+      "year": 2005,
+      "rank": 28
+    },
+    {
+      "id": 1780,
+      "slug": "wallander",
+      "title": "Wallander",
+      "year": 2008,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919131
+}

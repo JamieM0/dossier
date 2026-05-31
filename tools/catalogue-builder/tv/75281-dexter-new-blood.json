@@ -1,0 +1,378 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/75281-dexter-new-blood",
+  "id": 75281,
+  "slug": "dexter-new-blood",
+  "title": "Dexter: New Blood",
+  "year": 2021,
+  "rating": 8.0,
+  "votes_text": "149K",
+  "votes": 149000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/db/75281.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Set 10 years after Dexter Morgan went missing in the eye of Hurricane Laura, he is now living under an assumed name in Upstate New York, far from his original home in Miami.",
+  "tags": [
+    {
+      "id": 3055,
+      "slug": "serial-murder",
+      "name": "Serial murder",
+      "film_count": 1875
+    },
+    {
+      "id": 4179,
+      "slug": "vigilante",
+      "name": "Vigilante",
+      "film_count": 2878
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 578,
+      "slug": "missing-person",
+      "name": "Missing person",
+      "film_count": 2632
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 4237,
+      "slug": "secret-identity",
+      "name": "Secret identity",
+      "film_count": 1314
+    },
+    {
+      "id": 7424,
+      "slug": "homicidal-maniac",
+      "name": "Homicidal maniac",
+      "film_count": 978
+    },
+    {
+      "id": 5121,
+      "slug": "homicide-detective",
+      "name": "Homicide detective",
+      "film_count": 878
+    },
+    {
+      "id": 2435,
+      "slug": "dark-past",
+      "name": "Dark past",
+      "film_count": 1153
+    },
+    {
+      "id": 9207,
+      "slug": "tragic-past",
+      "name": "Tragic past",
+      "film_count": 892
+    },
+    {
+      "id": 17485,
+      "slug": "new-identity",
+      "name": "New identity",
+      "film_count": 258
+    },
+    {
+      "id": 123,
+      "slug": "father-son-relationship",
+      "name": "Father son relationship",
+      "film_count": 11353
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 1839,
+      "slug": "apocalypse",
+      "name": "Apocalypse",
+      "film_count": 3083
+    },
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspense",
+      "tense",
+      "captivating",
+      "suspenseful",
+      "disturbing",
+      "psychological",
+      "detective",
+      "anime",
+      "crime thriller",
+      "thrilling"
+    ],
+    "plot": [
+      "serial murder",
+      "vigilante",
+      "murder",
+      "missing person",
+      "serial killer",
+      "secret identity",
+      "homicidal maniac",
+      "murderer",
+      "kidnapping",
+      "murder investigation",
+      "killing spree",
+      "hidden identity",
+      "killing",
+      "abduction",
+      "investigation",
+      "murder mystery",
+      "forensics",
+      "secret",
+      "homicide detective",
+      "dark past",
+      "tragic past",
+      "new identity",
+      "father son relationship",
+      "small town",
+      "apocalypse"
+    ],
+    "time": [
+      "2020s",
+      "21st century"
+    ]
+  },
+  "similar": [
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 0
+    },
+    {
+      "id": 65741,
+      "slug": "prodigal-son",
+      "title": "Prodigal Son",
+      "year": 2019,
+      "rank": 1
+    },
+    {
+      "id": 68925,
+      "slug": "absentia",
+      "title": "Absentia",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 78670,
+      "slug": "crystal-city",
+      "title": "Crystal City",
+      "year": 2021,
+      "rank": 3
+    },
+    {
+      "id": 78822,
+      "slug": "black-bird",
+      "title": "Black Bird",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 90995,
+      "slug": "the-giza-killer",
+      "title": "The Giza Killer",
+      "year": 2023,
+      "rank": 5
+    },
+    {
+      "id": 74381,
+      "slug": "steppe",
+      "title": "Steppe",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 79226,
+      "slug": "public-enemy",
+      "title": "Public Enemy",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 99932,
+      "slug": "dexter-original-sin",
+      "title": "Dexter: Original Sin",
+      "year": 2024,
+      "rank": 8
+    },
+    {
+      "id": 73217,
+      "slug": "the-chestnut-man",
+      "title": "The Chestnut Man",
+      "year": 2021,
+      "rank": 9
+    },
+    {
+      "id": 75295,
+      "slug": "ragdoll",
+      "title": "Ragdoll",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 58250,
+      "slug": "the-alienist",
+      "title": "The Alienist",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 93990,
+      "slug": "city-on-fire",
+      "title": "City on Fire",
+      "year": 2023,
+      "rank": 12
+    },
+    {
+      "id": 105196,
+      "slug": "dexter-resurrection",
+      "title": "Dexter: Resurrection",
+      "year": 2025,
+      "rank": 13
+    },
+    {
+      "id": 97325,
+      "slug": "maou",
+      "title": "Maou",
+      "year": 2008,
+      "rank": 14
+    },
+    {
+      "id": 63831,
+      "slug": "chasing-shadows",
+      "title": "Chasing Shadows",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 69976,
+      "slug": "mouse",
+      "title": "Mouse",
+      "year": 2021,
+      "rank": 16
+    },
+    {
+      "id": 65678,
+      "slug": "coroner",
+      "title": "Coroner",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 67969,
+      "slug": "nobody-knows",
+      "title": "Nobody Knows",
+      "year": 2020,
+      "rank": 18
+    },
+    {
+      "id": 84766,
+      "slug": "copycat-killer",
+      "title": "Copycat Killer",
+      "year": 2023,
+      "rank": 19
+    },
+    {
+      "id": 71287,
+      "slug": "mare-of-easttown",
+      "title": "Mare of Easttown",
+      "year": 2021,
+      "rank": 20
+    },
+    {
+      "id": 65887,
+      "slug": "dublin-murders",
+      "title": "Dublin Murders",
+      "year": 2019,
+      "rank": 21
+    },
+    {
+      "id": 97638,
+      "slug": "who-is-he",
+      "title": "Who Is He",
+      "year": 2023,
+      "rank": 22
+    },
+    {
+      "id": 95211,
+      "slug": "ultima-pallottola",
+      "title": "Ultima Pallottola",
+      "year": 2003,
+      "rank": 23
+    },
+    {
+      "id": 61580,
+      "slug": "mr-mercedes",
+      "title": "Mr. Mercedes",
+      "year": 2017,
+      "rank": 24
+    },
+    {
+      "id": 43639,
+      "slug": "marcella",
+      "title": "Marcella",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 75213,
+      "slug": "marnow-murders",
+      "title": "Marnow Murders",
+      "year": 2021,
+      "rank": 26
+    },
+    {
+      "id": 93825,
+      "slug": "deerslayer",
+      "title": "Deerslayer",
+      "year": 2022,
+      "rank": 27
+    },
+    {
+      "id": 73131,
+      "slug": "fatma",
+      "title": "Fatma",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 70402,
+      "slug": "the-truth-about-the-harry-quebert-affair",
+      "title": "The Truth About the Harry Quebert Affair",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919183
+}

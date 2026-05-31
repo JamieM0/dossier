@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/28908-how-to-get-away-with-murder",
+  "id": 28908,
+  "slug": "how-to-get-away-with-murder",
+  "title": "How to Get Away with Murder",
+  "year": 2014,
+  "rating": 8.1,
+  "votes_text": "177K",
+  "votes": 177000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/4c/28908.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "A sexy, suspense-driven legal thriller about a group of ambitious law students and their brilliant, mysterious criminal defense professor. They become entangled in a murder plot and will shake the entire university and change the course of their lives.",
+  "tags": [
+    {
+      "id": 5506,
+      "slug": "murder-mystery",
+      "name": "Murder mystery",
+      "film_count": 4248
+    },
+    {
+      "id": 1153,
+      "slug": "legal",
+      "name": "Legal",
+      "film_count": 1656
+    },
+    {
+      "id": 14789,
+      "slug": "defense-attorney",
+      "name": "Defense attorney",
+      "film_count": 318
+    },
+    {
+      "id": 113519,
+      "slug": "hotshot-lawyer",
+      "name": "Hotshot lawyer",
+      "film_count": 189
+    },
+    {
+      "id": 499,
+      "slug": "lawyer",
+      "name": "Lawyer",
+      "film_count": 3905
+    },
+    {
+      "id": 9636,
+      "slug": "law-student",
+      "name": "Law student",
+      "film_count": 157
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 22384,
+      "slug": "court-case",
+      "name": "Court case",
+      "film_count": 324
+    },
+    {
+      "id": 15,
+      "slug": "student",
+      "name": "Student",
+      "film_count": 3934
+    },
+    {
+      "id": 4746,
+      "slug": "gay-relationship",
+      "name": "Gay relationship",
+      "film_count": 1298
+    },
+    {
+      "id": 4647,
+      "slug": "strong-female-lead",
+      "name": "Strong female lead",
+      "film_count": 2994
+    },
+    {
+      "id": 124371,
+      "slug": "woman",
+      "name": "Woman",
+      "film_count": 6596
+    },
+    {
+      "id": 10785,
+      "slug": "female-professor",
+      "name": "Female professor",
+      "film_count": 57
+    },
+    {
+      "id": 3096,
+      "slug": "college-professor",
+      "name": "College professor",
+      "film_count": 305
+    },
+    {
+      "id": 1480,
+      "slug": "affair",
+      "name": "Affair",
+      "film_count": 1662
+    },
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "serious",
+      "realistic",
+      "suspenseful",
+      "captivating",
+      "thrilling",
+      "psychological",
+      "intellectual",
+      "neo noir",
+      "suspense",
+      "dramatic"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "murder mystery",
+      "legal",
+      "defense attorney",
+      "hotshot lawyer",
+      "lawyer",
+      "law student",
+      "murder",
+      "court case",
+      "courtroom",
+      "college",
+      "lgbt",
+      "attorney",
+      "teachers and students",
+      "murder suspect",
+      "lgbtq",
+      "courtroom drama",
+      "gay interest",
+      "manipulation",
+      "student life",
+      "rivalry",
+      "sex",
+      "student",
+      "gay relationship",
+      "strong female lead",
+      "woman"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "philadelphia",
+      "idaho",
+      "chicago",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 4022,
+      "slug": "scandal",
+      "title": "Scandal",
+      "year": 2012,
+      "rank": 0
+    },
+    {
+      "id": 61009,
+      "slug": "secrets-and-lies",
+      "title": "Secrets and Lies",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 30410,
+      "slug": "damages",
+      "title": "Damages",
+      "year": 2007,
+      "rank": 2
+    },
+    {
+      "id": 79013,
+      "slug": "the-lincoln-lawyer",
+      "title": "The Lincoln Lawyer",
+      "year": 2022,
+      "rank": 3
+    },
+    {
+      "id": 30375,
+      "slug": "matlock",
+      "title": "Matlock",
+      "year": 1986,
+      "rank": 4
+    },
+    {
+      "id": 27256,
+      "slug": "revenge",
+      "title": "Revenge",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 17301,
+      "slug": "the-lincoln-lawyer",
+      "title": "The Lincoln Lawyer",
+      "year": 2011,
+      "rank": 6
+    },
+    {
+      "id": 3275,
+      "slug": "justice",
+      "title": "Justice",
+      "year": 2006,
+      "rank": 7
+    },
+    {
+      "id": 26323,
+      "slug": "the-good-wife",
+      "title": "The Good Wife",
+      "year": 2009,
+      "rank": 8
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 9
+    },
+    {
+      "id": 68913,
+      "slug": "the-undoing",
+      "title": "The Undoing",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 30515,
+      "slug": "law-and-order",
+      "title": "Law & Order",
+      "year": 1990,
+      "rank": 11
+    },
+    {
+      "id": 597,
+      "slug": "suits",
+      "title": "Suits",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 13693,
+      "slug": "fracture",
+      "title": "Fracture",
+      "year": 2007,
+      "rank": 13
+    },
+    {
+      "id": 72704,
+      "slug": "pretty-little-liars-the-perfectionists",
+      "title": "Pretty Little Liars: The Perfectionists",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 66496,
+      "slug": "dare-me",
+      "title": "Dare Me",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 35154,
+      "slug": "in-justice",
+      "title": "In Justice",
+      "year": 2006,
+      "rank": 16
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 17
+    },
+    {
+      "id": 73868,
+      "slug": "one-of-us-is-lying",
+      "title": "One of Us Is Lying",
+      "year": 2021,
+      "rank": 18
+    },
+    {
+      "id": 67648,
+      "slug": "hightown",
+      "title": "Hightown",
+      "year": 2020,
+      "rank": 19
+    },
+    {
+      "id": 42673,
+      "slug": "riviera",
+      "title": "Riviera",
+      "year": 2017,
+      "rank": 20
+    },
+    {
+      "id": 30496,
+      "slug": "murder-one",
+      "title": "Murder One",
+      "year": 1995,
+      "rank": 21
+    },
+    {
+      "id": 76165,
+      "slug": "justice",
+      "title": "Justice",
+      "year": 2019,
+      "rank": 22
+    },
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 24
+    },
+    {
+      "id": 93446,
+      "slug": "criminal-justice-behind-closed-doors",
+      "title": "Criminal Justice: Behind Closed Doors",
+      "year": 2020,
+      "rank": 25
+    },
+    {
+      "id": 56668,
+      "slug": "wentworth-prison",
+      "title": "Wentworth",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 20466,
+      "slug": "agatha-christies-poirot",
+      "title": "Agatha Christie's Poirot",
+      "year": 1989,
+      "rank": 27
+    },
+    {
+      "id": 87999,
+      "slug": "in-defense-of",
+      "title": "In Defense Of",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 82473,
+      "slug": "the-judge",
+      "title": "The Judge",
+      "year": 2001,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919154
+}

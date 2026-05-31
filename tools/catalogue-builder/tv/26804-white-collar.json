@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26804-white-collar",
+  "id": 26804,
+  "slug": "white-collar",
+  "title": "White Collar",
+  "year": 2009,
+  "rating": 8.2,
+  "votes_text": "152K",
+  "votes": 152000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/c5/26804.jpg",
+  "genres": [
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Mystery"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 40,
+  "story": "Neal Caffrey, a con man, forger and thief, is captured after a three-year game of cat and mouse with the FBI. With only months left serving a four-year sentence, he escapes to look for Kate, his girlfriend. Peter Burke, the FBI agent who initially captured Caffrey, finds and returns him to prison. This time, Caffrey proposes a deal with the FBI, as part of a work-release program. After some hesitation, Burke agrees, and thus begins this unconventional arrangement where Caffrey helps Burke apprehend white collar criminals.",
+  "tags": [
+    {
+      "id": 4956,
+      "slug": "fbi",
+      "name": "Fbi",
+      "film_count": 1273
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 22722,
+      "slug": "law-enforcement",
+      "name": "Law enforcement",
+      "film_count": 5363
+    },
+    {
+      "id": 52704,
+      "slug": "art-thief",
+      "name": "Art thief",
+      "film_count": 75
+    },
+    {
+      "id": 9497,
+      "slug": "mastermind",
+      "name": "Mastermind",
+      "film_count": 229
+    },
+    {
+      "id": 123387,
+      "slug": "unlikely-partners",
+      "name": "Unlikely partners",
+      "film_count": 535
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 5039,
+      "slug": "fbi-agent",
+      "name": "Fbi agent",
+      "film_count": 825
+    },
+    {
+      "id": 14787,
+      "slug": "ethics",
+      "name": "Ethics",
+      "film_count": 600
+    },
+    {
+      "id": 11539,
+      "slug": "light",
+      "name": "Light",
+      "film_count": 12031
+    },
+    {
+      "id": 6611,
+      "slug": "art-theft",
+      "name": "Art theft",
+      "film_count": 177
+    },
+    {
+      "id": 44125,
+      "slug": "embezzler",
+      "name": "Embezzler",
+      "film_count": 82
+    },
+    {
+      "id": 7265,
+      "slug": "crime-investigation",
+      "name": "Crime investigation",
+      "film_count": 2580
+    },
+    {
+      "id": 5693,
+      "slug": "cop",
+      "name": "Cop",
+      "film_count": 2093
+    },
+    {
+      "id": 123330,
+      "slug": "chases-and-races",
+      "name": "Chases and races",
+      "film_count": 5348
+    },
+    {
+      "id": 19598,
+      "slug": "crime-solving",
+      "name": "Crime solving",
+      "film_count": 1673
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "exciting",
+      "light",
+      "serious",
+      "intellectual",
+      "suspenseful",
+      "realistic",
+      "detective",
+      "thought provoking",
+      "crime drama"
+    ],
+    "audience": [
+      "teens",
+      "family outing"
+    ],
+    "plot": [
+      "fbi",
+      "investigation",
+      "law enforcement",
+      "art thief",
+      "mastermind",
+      "unlikely partners",
+      "friendship",
+      "fbi agent",
+      "criminal",
+      "expert",
+      "talented",
+      "cons and scams",
+      "con artists",
+      "forger",
+      "genius",
+      "deal",
+      "special agent",
+      "thief",
+      "intelligence",
+      "con man",
+      "dishonesty",
+      "ethics",
+      "art theft",
+      "embezzler",
+      "crime investigation"
+    ],
+    "time": [
+      "future",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "manhattan new york city",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 0
+    },
+    {
+      "id": 30396,
+      "slug": "hustle",
+      "title": "Hustle",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 26992,
+      "slug": "leverage",
+      "title": "Leverage",
+      "year": 2008,
+      "rank": 3
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 4
+    },
+    {
+      "id": 597,
+      "slug": "suits",
+      "title": "Suits",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 6
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 8
+    },
+    {
+      "id": 38023,
+      "slug": "limitless",
+      "title": "Limitless",
+      "year": 2015,
+      "rank": 9
+    },
+    {
+      "id": 63004,
+      "slug": "perception",
+      "title": "Perception",
+      "year": 2012,
+      "rank": 10
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 11
+    },
+    {
+      "id": 68427,
+      "slug": "deception",
+      "title": "Deception",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 30524,
+      "slug": "psych",
+      "title": "Psych",
+      "year": 2006,
+      "rank": 13
+    },
+    {
+      "id": 26991,
+      "slug": "lie-to-me",
+      "title": "Lie to Me",
+      "year": 2009,
+      "rank": 14
+    },
+    {
+      "id": 59803,
+      "slug": "bull",
+      "title": "Bull",
+      "year": 2016,
+      "rank": 15
+    },
+    {
+      "id": 27275,
+      "slug": "forever",
+      "title": "Forever",
+      "year": 2014,
+      "rank": 16
+    },
+    {
+      "id": 19084,
+      "slug": "ncis",
+      "title": "NCIS",
+      "year": 2003,
+      "rank": 17
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 18
+    },
+    {
+      "id": 30526,
+      "slug": "monk",
+      "title": "Monk",
+      "year": 2002,
+      "rank": 19
+    },
+    {
+      "id": 3156,
+      "slug": "person-of-interest",
+      "title": "Person of Interest",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 56620,
+      "slug": "body-of-proof",
+      "title": "Body of Proof",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 56434,
+      "slug": "graceland",
+      "title": "Graceland",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 26973,
+      "slug": "hawaii-five-0",
+      "title": "Hawaii Five-0",
+      "year": 2010,
+      "rank": 23
+    },
+    {
+      "id": 62217,
+      "slug": "breakout-kings",
+      "title": "Breakout Kings",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 19527,
+      "slug": "numb3rs",
+      "title": "Numb3rs",
+      "year": 2005,
+      "rank": 25
+    },
+    {
+      "id": 62337,
+      "slug": "traveler",
+      "title": "Traveler",
+      "year": 2007,
+      "rank": 26
+    },
+    {
+      "id": 30493,
+      "slug": "life",
+      "title": "Life",
+      "year": 2007,
+      "rank": 27
+    },
+    {
+      "id": 2155,
+      "slug": "the-finder",
+      "title": "The Finder",
+      "year": 2012,
+      "rank": 28
+    },
+    {
+      "id": 41814,
+      "slug": "quantico",
+      "title": "Quantico",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919148
+}

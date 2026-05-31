@@ -1,0 +1,359 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/104985-landman",
+  "id": 104985,
+  "slug": "landman",
+  "title": "Landman",
+  "year": 2024,
+  "rating": 8.2,
+  "votes_text": "97K",
+  "votes": 97000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/88/104985.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Set in the proverbial boomtowns of West-Texas and a modern-day tale of fortune-seeking in the world of oil rigs, the series is an upstairs/downstairs story of roughnecks and wildcat billionaires that are fueling a boom so big it’s reshaping our climate, our economy and our geopolitics.",
+  "tags": [
+    {
+      "id": 41930,
+      "slug": "oil-industry",
+      "name": "Oil industry",
+      "film_count": 61
+    },
+    {
+      "id": 2165,
+      "slug": "texas",
+      "name": "Texas",
+      "film_count": 1202
+    },
+    {
+      "id": 6448,
+      "slug": "greed",
+      "name": "Greed",
+      "film_count": 6509
+    },
+    {
+      "id": 18585,
+      "slug": "corporate-greed",
+      "name": "Corporate greed",
+      "film_count": 151
+    },
+    {
+      "id": 20778,
+      "slug": "class-conflict",
+      "name": "Class conflict",
+      "film_count": 1443
+    },
+    {
+      "id": 498,
+      "slug": "ambition",
+      "name": "Ambition",
+      "film_count": 7524
+    },
+    {
+      "id": 8724,
+      "slug": "power-struggle",
+      "name": "Power struggle",
+      "film_count": 2612
+    },
+    {
+      "id": 9822,
+      "slug": "moral-ambiguity",
+      "name": "Moral ambiguity",
+      "film_count": 10633
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 3739,
+      "slug": "scandal",
+      "name": "Scandal",
+      "film_count": 1472
+    },
+    {
+      "id": 8217,
+      "slug": "family-secret",
+      "name": "Family secret",
+      "film_count": 2874
+    },
+    {
+      "id": 33786,
+      "slug": "scheming",
+      "name": "Scheming",
+      "film_count": 480
+    },
+    {
+      "id": 682,
+      "slug": "deception",
+      "name": "Deception",
+      "film_count": 6537
+    },
+    {
+      "id": 34517,
+      "slug": "political-intrigue",
+      "name": "Political intrigue",
+      "film_count": 2212
+    },
+    {
+      "id": 11496,
+      "slug": "high-society",
+      "name": "High society",
+      "film_count": 900
+    },
+    {
+      "id": 3301,
+      "slug": "business",
+      "name": "Business",
+      "film_count": 2013
+    }
+  ],
+  "tag_groups_text": {
+    "plot": [
+      "oil industry",
+      "greed",
+      "corporate greed",
+      "class conflict",
+      "ambition",
+      "power struggle",
+      "moral ambiguity",
+      "small town life",
+      "survival",
+      "machismo",
+      "oil company",
+      "male nudity",
+      "fortune",
+      "town",
+      "female nudity",
+      "female full frontal nudity"
+    ],
+    "time": [
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "texas"
+    ]
+  },
+  "similar": [
+    {
+      "id": 108943,
+      "slug": "mayasabha-rise-of-the-titans",
+      "title": "Mayasabha: Rise of the Titans",
+      "year": 2025,
+      "rank": 0
+    },
+    {
+      "id": 106207,
+      "slug": "spartacus-house-of-ashur",
+      "title": "Spartacus: House of Ashur",
+      "year": 2025,
+      "rank": 1
+    },
+    {
+      "id": 83864,
+      "slug": "money-wars",
+      "title": "Money Wars",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 36036,
+      "slug": "master-of-the-game",
+      "title": "Master of the Game",
+      "year": 1984,
+      "rank": 3
+    },
+    {
+      "id": 85670,
+      "slug": "the-diamond-hunters",
+      "title": "The Diamond Hunters",
+      "year": 2001,
+      "rank": 4
+    },
+    {
+      "id": 105790,
+      "slug": "cruel-intentions",
+      "title": "Cruel Intentions",
+      "year": 2024,
+      "rank": 5
+    },
+    {
+      "id": 111208,
+      "slug": "im-her-most-dangerous-obsession",
+      "title": "I'm Her Most Dangerous Obsession",
+      "year": 2025,
+      "rank": 6
+    },
+    {
+      "id": 108832,
+      "slug": "sarpanch-sahab",
+      "title": "Sarpanch Sahab",
+      "year": 2025,
+      "rank": 7
+    },
+    {
+      "id": 106338,
+      "slug": "beauty-in-black",
+      "title": "Beauty in Black",
+      "year": 2024,
+      "rank": 8
+    },
+    {
+      "id": 96114,
+      "slug": "another-era",
+      "title": "Another Era",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 76829,
+      "slug": "saints-and-sinners",
+      "title": "Saints & Sinners",
+      "year": 2016,
+      "rank": 10
+    },
+    {
+      "id": 58624,
+      "slug": "the-legacy-of-guldenburgs",
+      "title": "The Legacy of Guldenburgs",
+      "year": 1987,
+      "rank": 11
+    },
+    {
+      "id": 74993,
+      "slug": "secret-boutique",
+      "title": "Secret Boutique",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 109504,
+      "slug": "divine-retribution",
+      "title": "Divine Retribution",
+      "year": 2000,
+      "rank": 13
+    },
+    {
+      "id": 103308,
+      "slug": "the-family",
+      "title": "The Family",
+      "year": 2007,
+      "rank": 14
+    },
+    {
+      "id": 43596,
+      "slug": "the-art-of-more",
+      "title": "The Art of More",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 111026,
+      "slug": "queens-house",
+      "title": "Queen's House",
+      "year": 2025,
+      "rank": 16
+    },
+    {
+      "id": 107624,
+      "slug": "forever-love",
+      "title": "Forever Love",
+      "year": 2023,
+      "rank": 17
+    },
+    {
+      "id": 83143,
+      "slug": "burn-up",
+      "title": "Burn Up",
+      "year": 2008,
+      "rank": 18
+    },
+    {
+      "id": 80656,
+      "slug": "filthy-rich",
+      "title": "Filthy Rich",
+      "year": 2016,
+      "rank": 19
+    },
+    {
+      "id": 98750,
+      "slug": "the-heir-to-the-throne",
+      "title": "The Heir to The Throne",
+      "year": 2024,
+      "rank": 20
+    },
+    {
+      "id": 106396,
+      "slug": "motorheads",
+      "title": "Motorheads",
+      "year": 2025,
+      "rank": 21
+    },
+    {
+      "id": 111204,
+      "slug": "amadeus",
+      "title": "Amadeus",
+      "year": 2025,
+      "rank": 22
+    },
+    {
+      "id": 67223,
+      "slug": "of-kings-and-prophets",
+      "title": "Of Kings and Prophets",
+      "year": 2016,
+      "rank": 23
+    },
+    {
+      "id": 91281,
+      "slug": "alias-el-mexicano",
+      "title": "Alias el Mexicano",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 108881,
+      "slug": "la-jefa",
+      "title": "La Jefa",
+      "year": 2025,
+      "rank": 25
+    },
+    {
+      "id": 108890,
+      "slug": "suits-la",
+      "title": "Suits LA",
+      "year": 2025,
+      "rank": 26
+    },
+    {
+      "id": 90276,
+      "slug": "born-rich",
+      "title": "Born Rich",
+      "year": 2009,
+      "rank": 27
+    },
+    {
+      "id": 89476,
+      "slug": "agency",
+      "title": "Agency",
+      "year": 2023,
+      "rank": 28
+    },
+    {
+      "id": 82958,
+      "slug": "the-lyons-den",
+      "title": "The Lyon's Den",
+      "year": 2003,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919188
+}

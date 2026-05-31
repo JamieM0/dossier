@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/3323-glee",
+  "id": 3323,
+  "slug": "glee",
+  "title": "Glee",
+  "year": 2009,
+  "rating": 6.8,
+  "votes_text": "161K",
+  "votes": 161000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/97/3323.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Music",
+    "Musical"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Glee is an American teen musical comedy-drama television series that airs on the Fox network in the United States. It focuses on the reconstituted William McKinley High School glee club, New Directions, which competes on the show choir competition circuit while its disparate members deal with relationships, sexuality, social issues, and learning to become an effective team.",
+  "tags": [
+    {
+      "id": 2563,
+      "slug": "high-school",
+      "name": "High school",
+      "film_count": 6025
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 2914,
+      "slug": "cheerleader",
+      "name": "Cheerleader",
+      "film_count": 602
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 83562,
+      "slug": "teenage-life",
+      "name": "Teenage life",
+      "film_count": 6021
+    },
+    {
+      "id": 123397,
+      "slug": "contests-and-competitions",
+      "name": "Contests and competitions",
+      "film_count": 2138
+    },
+    {
+      "id": 1315,
+      "slug": "teenage-girl",
+      "name": "Teenage girl",
+      "film_count": 7053
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 829,
+      "slug": "musician",
+      "name": "Musician",
+      "film_count": 2725
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 5879,
+      "slug": "aspiring-singer",
+      "name": "Aspiring singer",
+      "film_count": 188
+    },
+    {
+      "id": 4777,
+      "slug": "bully",
+      "name": "Bully",
+      "film_count": 2034
+    },
+    {
+      "id": 123790,
+      "slug": "talented",
+      "name": "Talented",
+      "film_count": 250
+    },
+    {
+      "id": 122,
+      "slug": "teacher",
+      "name": "Teacher",
+      "film_count": 4363
+    },
+    {
+      "id": 124292,
+      "slug": "teen",
+      "name": "Teen",
+      "film_count": 2360
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "stylized",
+      "feel good",
+      "sexy",
+      "teen",
+      "humorous",
+      "witty",
+      "semi serious",
+      "romantic drama",
+      "suspense",
+      "multicultural"
+    ],
+    "audience": [
+      "teens",
+      "kids",
+      "chick flick",
+      "girls' night",
+      "teen drama",
+      "adult"
+    ],
+    "plot": [
+      "high school",
+      "gay",
+      "cheerleader",
+      "youth",
+      "teenage life",
+      "contests and competitions",
+      "teenage girl",
+      "outcast",
+      "singing",
+      "sapphic",
+      "gay teenager",
+      "coach",
+      "music band",
+      "teenage pregnancy",
+      "audition",
+      "choir",
+      "teachers and students",
+      "high school life",
+      "friendship",
+      "musical performance",
+      "teenager",
+      "musician",
+      "aspiring singer",
+      "bully",
+      "talented"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "ohio",
+      "idaho",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26535,
+      "slug": "pitch-perfect",
+      "title": "Pitch Perfect",
+      "year": 2012,
+      "rank": 0
+    },
+    {
+      "id": 30319,
+      "slug": "popular",
+      "title": "Popular",
+      "year": 1999,
+      "rank": 1
+    },
+    {
+      "id": 1685,
+      "slug": "spectacular",
+      "title": "Spectacular!",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 588,
+      "slug": "big-time-rush",
+      "title": "Big Time Rush",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 1682,
+      "slug": "lemonade-mouth",
+      "title": "Lemonade Mouth",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 29865,
+      "slug": "zoey-101",
+      "title": "Zoey 101",
+      "year": 2005,
+      "rank": 5
+    },
+    {
+      "id": 12965,
+      "slug": "everybody-hates-chris",
+      "title": "Everybody Hates Chris",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 3041,
+      "slug": "victorious",
+      "title": "Victorious",
+      "year": 2010,
+      "rank": 7
+    },
+    {
+      "id": 14637,
+      "slug": "hairspray",
+      "title": "Hairspray",
+      "year": 1988,
+      "rank": 8
+    },
+    {
+      "id": 11933,
+      "slug": "degrassi-the-next-generation",
+      "title": "Degrassi: The Next Generation",
+      "year": 2001,
+      "rank": 9
+    },
+    {
+      "id": 66425,
+      "slug": "high-school-musical-the-musical-the-series",
+      "title": "High School Musical: The Musical: The Series",
+      "year": 2019,
+      "rank": 10
+    },
+    {
+      "id": 21969,
+      "slug": "school-of-rock",
+      "title": "School of Rock",
+      "year": 2003,
+      "rank": 11
+    },
+    {
+      "id": 30416,
+      "slug": "boy-meets-world",
+      "title": "Boy Meets World",
+      "year": 1993,
+      "rank": 12
+    },
+    {
+      "id": 5020,
+      "slug": "liv-and-maddie",
+      "title": "Liv and Maddie",
+      "year": 2013,
+      "rank": 13
+    },
+    {
+      "id": 36407,
+      "slug": "the-cheetah-girls-2",
+      "title": "The Cheetah Girls 2",
+      "year": 2006,
+      "rank": 14
+    },
+    {
+      "id": 63070,
+      "slug": "sharpays-fabulous-adventure",
+      "title": "Sharpay's Fabulous Adventure",
+      "year": 2011,
+      "rank": 15
+    },
+    {
+      "id": 26910,
+      "slug": "pitch-perfect-2",
+      "title": "Pitch Perfect 2",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 43670,
+      "slug": "the-real-oneals",
+      "title": "The Real O'Neals",
+      "year": 2016,
+      "rank": 17
+    },
+    {
+      "id": 30513,
+      "slug": "gilmore-girls",
+      "title": "Gilmore Girls",
+      "year": 2000,
+      "rank": 18
+    },
+    {
+      "id": 1748,
+      "slug": "smash",
+      "title": "Smash",
+      "year": 2012,
+      "rank": 19
+    },
+    {
+      "id": 15071,
+      "slug": "high-school-musical-2",
+      "title": "High School Musical 2",
+      "year": 2007,
+      "rank": 20
+    },
+    {
+      "id": 28636,
+      "slug": "the-next-step",
+      "title": "The Next Step",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 15070,
+      "slug": "high-school-musical",
+      "title": "High School Musical",
+      "year": 2006,
+      "rank": 22
+    },
+    {
+      "id": 1906,
+      "slug": "physical-or-chemical",
+      "title": "Physics or Chemistry",
+      "year": 2008,
+      "rank": 23
+    },
+    {
+      "id": 62255,
+      "slug": "jane-by-design",
+      "title": "Jane by Design",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 4737,
+      "slug": "girl-meets-world",
+      "title": "Girl Meets World",
+      "year": 2014,
+      "rank": 25
+    },
+    {
+      "id": 15072,
+      "slug": "high-school-musical-3-senior-year",
+      "title": "High School Musical 3: Senior Year",
+      "year": 2008,
+      "rank": 26
+    },
+    {
+      "id": 30350,
+      "slug": "lizzie-mcguire",
+      "title": "Lizzie McGuire",
+      "year": 2001,
+      "rank": 27
+    },
+    {
+      "id": 28522,
+      "slug": "dream-high",
+      "title": "Dream High",
+      "year": 2011,
+      "rank": 28
+    },
+    {
+      "id": 27259,
+      "slug": "the-o-c",
+      "title": "The O.C.",
+      "year": 2003,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919130
+}

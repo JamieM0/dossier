@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/36817-the-last-kingdom",
+  "id": 36817,
+  "slug": "the-last-kingdom",
+  "title": "The Last Kingdom",
+  "year": 2015,
+  "rating": 8.5,
+  "votes_text": "186K",
+  "votes": 186000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/fd/36817.jpg",
+  "genres": [
+    "Action",
+    "Drama",
+    "History"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "A show of heroic deeds and epic battles with a thematic depth that embraces politics, religion, warfare, courage, love, loyalty and our universal search for identity. Combining real historical figures and events with fictional characters, it is the story of how a people combined their strength under one of the most iconic kings of history in order to reclaim their land for themselves and build a place they call home.",
+  "tags": [
+    {
+      "id": 3693,
+      "slug": "middle-ages",
+      "name": "Middle ages",
+      "film_count": 714
+    },
+    {
+      "id": 4145,
+      "slug": "viking",
+      "name": "Viking",
+      "film_count": 410
+    },
+    {
+      "id": 187,
+      "slug": "king",
+      "name": "King",
+      "film_count": 1292
+    },
+    {
+      "id": 191,
+      "slug": "england",
+      "name": "England",
+      "film_count": 4022
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 33701,
+      "slug": "medieval",
+      "name": "Medieval",
+      "film_count": 2110
+    },
+    {
+      "id": 123867,
+      "slug": "battles",
+      "name": "Battles",
+      "film_count": 6580
+    },
+    {
+      "id": 4022,
+      "slug": "kingdom",
+      "name": "Kingdom",
+      "film_count": 878
+    },
+    {
+      "id": 131655,
+      "slug": "historical-drama",
+      "name": "Historical drama",
+      "film_count": 3058
+    },
+    {
+      "id": 3998,
+      "slug": "british",
+      "name": "British",
+      "film_count": 2537
+    },
+    {
+      "id": 540,
+      "slug": "based-on-novel",
+      "name": "Based on novel",
+      "film_count": 11006
+    },
+    {
+      "id": 445,
+      "slug": "royalty",
+      "name": "Royalty",
+      "film_count": 1158
+    },
+    {
+      "id": 2188,
+      "slug": "orphan",
+      "name": "Orphan",
+      "film_count": 2929
+    },
+    {
+      "id": 3694,
+      "slug": "medieval-times",
+      "name": "Medieval times",
+      "film_count": 588
+    },
+    {
+      "id": 35080,
+      "slug": "monarch",
+      "name": "Monarch",
+      "film_count": 191
+    },
+    {
+      "id": 2843,
+      "slug": "warrior",
+      "name": "Warrior",
+      "film_count": 3473
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "captivating",
+      "epic",
+      "serious",
+      "stylized",
+      "realistic",
+      "costume drama",
+      "historical drama",
+      "saga",
+      "tense"
+    ],
+    "plot": [
+      "viking",
+      "king",
+      "medieval",
+      "danger",
+      "battles",
+      "kingdom",
+      "castle",
+      "escapades",
+      "kidnapping",
+      "heroes",
+      "rivalry",
+      "political unrest",
+      "sword",
+      "vengeance",
+      "female nudity",
+      "war",
+      "british",
+      "royalty",
+      "orphan",
+      "monarch",
+      "warrior",
+      "british royal family",
+      "revenge",
+      "fight",
+      "murder"
+    ],
+    "time": [
+      "middle ages",
+      "9th century",
+      "medieval times",
+      "future",
+      "10th century"
+    ],
+    "place": [
+      "england",
+      "britain",
+      "chicago",
+      "europe"
+    ]
+  },
+  "similar": [
+    {
+      "id": 202,
+      "slug": "vikings",
+      "title": "Vikings",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 81689,
+      "slug": "the-last-kingdom-seven-kings-must-die",
+      "title": "The Last Kingdom: Seven Kings Must Die",
+      "year": 2023,
+      "rank": 1
+    },
+    {
+      "id": 15029,
+      "slug": "northmen-a-viking-saga",
+      "title": "Northmen: A Viking Saga",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 65272,
+      "slug": "the-spanish-princess",
+      "title": "The Spanish Princess",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 26240,
+      "slug": "game-of-thrones",
+      "title": "Game of Thrones",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 62746,
+      "slug": "the-hollow-crown",
+      "title": "The Hollow Crown",
+      "year": 2012,
+      "rank": 5
+    },
+    {
+      "id": 64767,
+      "slug": "knightfall",
+      "title": "Knightfall",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 66646,
+      "slug": "the-last-king",
+      "title": "The Last King",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 8655,
+      "slug": "arn-the-knight-templar",
+      "title": "Arn: The Knight Templar",
+      "year": 2007,
+      "rank": 8
+    },
+    {
+      "id": 15038,
+      "slug": "ironclad-battle-for-blood",
+      "title": "Ironclad 2: Battle for Blood",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 74753,
+      "slug": "vikings-valhalla",
+      "title": "Vikings: Valhalla",
+      "year": 2022,
+      "rank": 10
+    },
+    {
+      "id": 26964,
+      "slug": "the-pillars-of-the-earth",
+      "title": "The Pillars of the Earth",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 64624,
+      "slug": "medieval",
+      "title": "Medieval",
+      "year": 2022,
+      "rank": 12
+    },
+    {
+      "id": 15988,
+      "slug": "ironclad",
+      "title": "Ironclad",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 69180,
+      "slug": "barbarians",
+      "title": "Barbarians",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 56946,
+      "slug": "marco-polo",
+      "title": "Marco Polo",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 69905,
+      "slug": "el-cid",
+      "title": "The Legend of El Cid",
+      "year": 2020,
+      "rank": 16
+    },
+    {
+      "id": 4428,
+      "slug": "the-musketeers",
+      "title": "The Musketeers",
+      "year": 2014,
+      "rank": 17
+    },
+    {
+      "id": 9169,
+      "slug": "becket",
+      "title": "Becket",
+      "year": 1964,
+      "rank": 18
+    },
+    {
+      "id": 24446,
+      "slug": "tristan-isolde",
+      "title": "Tristan & Isolde",
+      "year": 2006,
+      "rank": 19
+    },
+    {
+      "id": 66756,
+      "slug": "resurrection-ertugrul",
+      "title": "Dirilis: Ertugrul",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 18074,
+      "slug": "the-antagonists",
+      "title": "The Antagonists",
+      "year": 1981,
+      "rank": 21
+    },
+    {
+      "id": 16051,
+      "slug": "ivanhoe",
+      "title": "Ivanhoe",
+      "year": 1997,
+      "rank": 22
+    },
+    {
+      "id": 21564,
+      "slug": "rome",
+      "title": "Rome",
+      "year": 2005,
+      "rank": 23
+    },
+    {
+      "id": 27002,
+      "slug": "1066-the-battle-for-middle-earth",
+      "title": "1066: The Battle for Middle Earth",
+      "year": 2009,
+      "rank": 24
+    },
+    {
+      "id": 59496,
+      "slug": "britannia",
+      "title": "Britannia",
+      "year": 2017,
+      "rank": 25
+    },
+    {
+      "id": 26615,
+      "slug": "spartacus-war-of-the-damned",
+      "title": "Spartacus",
+      "year": 2010,
+      "rank": 26
+    },
+    {
+      "id": 61215,
+      "slug": "the-outpost",
+      "title": "The Outpost",
+      "year": 2018,
+      "rank": 27
+    },
+    {
+      "id": 7637,
+      "slug": "the-13th-warrior",
+      "title": "The 13th Warrior",
+      "year": 1999,
+      "rank": 28
+    },
+    {
+      "id": 1001,
+      "slug": "the-devils-whore",
+      "title": "The Devil's Whore",
+      "year": 2008,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919157
+}

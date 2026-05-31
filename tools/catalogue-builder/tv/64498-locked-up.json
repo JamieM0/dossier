@@ -1,0 +1,376 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64498-locked-up",
+  "id": 64498,
+  "slug": "locked-up",
+  "title": "Locked Up",
+  "year": 2015,
+  "rating": 7.8,
+  "votes_text": "30K",
+  "votes": 30000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/7e/64498.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "Spain"
+  ],
+  "duration_min": 45,
+  "story": "Set up to take the blame for corporate fraud, young Macarena Ferreiro is locked up in a high-security women's prison surrounded by tough, ruthless criminals in this tense, provocative Spanish thriller.",
+  "tags": [
+    {
+      "id": 820,
+      "slug": "womens-prison",
+      "name": "Women's prison",
+      "film_count": 331
+    },
+    {
+      "id": 13198,
+      "slug": "prison-guard",
+      "name": "Prison guard",
+      "film_count": 607
+    },
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    },
+    {
+      "id": 809,
+      "slug": "women-in-prison",
+      "name": "Women in prison",
+      "film_count": 278
+    },
+    {
+      "id": 4842,
+      "slug": "female-prisoner",
+      "name": "Female prisoner",
+      "film_count": 215
+    },
+    {
+      "id": 806,
+      "slug": "corruption",
+      "name": "Corruption",
+      "film_count": 9994
+    },
+    {
+      "id": 527,
+      "slug": "prison",
+      "name": "Prison",
+      "film_count": 4472
+    },
+    {
+      "id": 131323,
+      "slug": "female-homosexuality",
+      "name": "Female homosexuality",
+      "film_count": 186
+    },
+    {
+      "id": 141326,
+      "slug": "sapphic",
+      "name": "Sapphic",
+      "film_count": 314
+    },
+    {
+      "id": 92805,
+      "slug": "rough",
+      "name": "Rough",
+      "film_count": 8898
+    },
+    {
+      "id": 38592,
+      "slug": "disturbing",
+      "name": "Disturbing",
+      "film_count": 16904
+    },
+    {
+      "id": 123336,
+      "slug": "life-is-a-bitch",
+      "name": "Life is a bitch",
+      "film_count": 9164
+    },
+    {
+      "id": 813,
+      "slug": "lesbian-sex",
+      "name": "Lesbian sex",
+      "film_count": 1962
+    },
+    {
+      "id": 21609,
+      "slug": "guilty-verdict",
+      "name": "Guilty verdict",
+      "film_count": 152
+    },
+    {
+      "id": 58018,
+      "slug": "framed-for-a-crime",
+      "name": "Framed for a crime",
+      "film_count": 196
+    },
+    {
+      "id": 239,
+      "slug": "fraud",
+      "name": "Fraud",
+      "film_count": 967
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "psychological",
+      "suspense",
+      "rough",
+      "disturbing",
+      "tense",
+      "captivating",
+      "clever",
+      "suspenseful",
+      "queer cinema"
+    ],
+    "plot": [
+      "women's prison",
+      "prison guard",
+      "lesbian",
+      "women in prison",
+      "female prisoner",
+      "corruption",
+      "prison",
+      "female homosexuality",
+      "lgbtq",
+      "dishonesty",
+      "jail",
+      "brutality",
+      "money",
+      "prisoner",
+      "riot",
+      "false accusation",
+      "female protagonist",
+      "danger",
+      "struggle for survival",
+      "prison life",
+      "confined",
+      "hidden money",
+      "accusation",
+      "sapphic",
+      "life is a bitch"
+    ],
+    "place": [
+      "new mexico"
+    ]
+  },
+  "similar": [
+    {
+      "id": 56668,
+      "slug": "wentworth-prison",
+      "title": "Wentworth",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 30246,
+      "slug": "bad-girls",
+      "title": "Bad Girls",
+      "year": 1999,
+      "rank": 1
+    },
+    {
+      "id": 20709,
+      "slug": "prison-break",
+      "title": "Prison Break",
+      "year": 2005,
+      "rank": 2
+    },
+    {
+      "id": 56216,
+      "slug": "locked-up",
+      "title": "Locked Up",
+      "year": 2017,
+      "rank": 3
+    },
+    {
+      "id": 84552,
+      "slug": "screw",
+      "title": "Screw",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 985,
+      "slug": "black-mama-white-mama",
+      "title": "Black Mama White Mama",
+      "year": 1973,
+      "rank": 5
+    },
+    {
+      "id": 9007,
+      "slug": "bangkok-hilton",
+      "title": "Bangkok Hilton",
+      "year": 1989,
+      "rank": 6
+    },
+    {
+      "id": 65897,
+      "slug": "the-yard",
+      "title": "The Yard",
+      "year": 2018,
+      "rank": 7
+    },
+    {
+      "id": 6224,
+      "slug": "orange-is-the-new-black",
+      "title": "Orange Is the New Black",
+      "year": 2013,
+      "rank": 8
+    },
+    {
+      "id": 72938,
+      "slug": "stolen-away",
+      "title": "Stolen Away",
+      "year": 2020,
+      "rank": 9
+    },
+    {
+      "id": 79271,
+      "slug": "celblok-h",
+      "title": "Celblok H",
+      "year": 2014,
+      "rank": 10
+    },
+    {
+      "id": 64613,
+      "slug": "elite",
+      "title": "Elite",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 77496,
+      "slug": "the-convict",
+      "title": "The Convict",
+      "year": 2021,
+      "rank": 12
+    },
+    {
+      "id": 14159,
+      "slug": "girls-in-prison",
+      "title": "Girls in Prison",
+      "year": 1994,
+      "rank": 13
+    },
+    {
+      "id": 70692,
+      "slug": "bitter-daisies",
+      "title": "Bitter Daisies",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 70017,
+      "slug": "capadocia",
+      "title": "Capadocia",
+      "year": 2008,
+      "rank": 15
+    },
+    {
+      "id": 20710,
+      "slug": "prison-heat",
+      "title": "Prison Heat",
+      "year": 1993,
+      "rank": 16
+    },
+    {
+      "id": 87809,
+      "slug": "block-b-under-arrest",
+      "title": "Block B - Under Arrest",
+      "year": 2015,
+      "rank": 17
+    },
+    {
+      "id": 83610,
+      "slug": "seven-women-in-prison",
+      "title": "Seven Women in Prison",
+      "year": 2017,
+      "rank": 18
+    },
+    {
+      "id": 106898,
+      "slug": "in-the-mud",
+      "title": "In the Mud",
+      "year": 2025,
+      "rank": 19
+    },
+    {
+      "id": 21185,
+      "slug": "reform-school-girls",
+      "title": "Reform School Girls",
+      "year": 1986,
+      "rank": 20
+    },
+    {
+      "id": 66944,
+      "slug": "for-life",
+      "title": "For Life",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 78036,
+      "slug": "stella-blomkvist",
+      "title": "Stella Blómkvist",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 88119,
+      "slug": "clink",
+      "title": "Clink",
+      "year": 2019,
+      "rank": 23
+    },
+    {
+      "id": 58686,
+      "slug": "hinter-gittern-der-frauenknast",
+      "title": "Hinter Gittern - Der Frauenknast",
+      "year": 1997,
+      "rank": 24
+    },
+    {
+      "id": 75206,
+      "slug": "mayor-of-kingstown",
+      "title": "Mayor of Kingstown",
+      "year": 2021,
+      "rank": 25
+    },
+    {
+      "id": 78972,
+      "slug": "verdict",
+      "title": "Verdict",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 78982,
+      "slug": "the-longest-night",
+      "title": "The Longest Night",
+      "year": 2022,
+      "rank": 27
+    },
+    {
+      "id": 26180,
+      "slug": "the-camp-a-prison-story",
+      "title": "The Camp: A Prison Story",
+      "year": 2006,
+      "rank": 28
+    },
+    {
+      "id": 33489,
+      "slug": "emmanuelle-in-hell",
+      "title": "Emmanuelle in Hell",
+      "year": 1982,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919170
+}

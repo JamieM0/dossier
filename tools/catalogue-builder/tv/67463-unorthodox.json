@@ -1,0 +1,384 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/67463-unorthodox",
+  "id": 67463,
+  "slug": "unorthodox",
+  "title": "Unorthodox",
+  "year": 2020,
+  "rating": 8.0,
+  "votes_text": "98K",
+  "votes": 98000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f6/67463.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "Germany"
+  ],
+  "duration_min": 50,
+  "story": "A Hasidic Jewish woman in Brooklyn flees to Berlin from an arranged marriage and is taken in by a group of musicians -- until her past comes calling.",
+  "tags": [
+    {
+      "id": 9188,
+      "slug": "jewish-family",
+      "name": "Jewish family",
+      "film_count": 168
+    },
+    {
+      "id": 9487,
+      "slug": "judaism",
+      "name": "Judaism",
+      "film_count": 513
+    },
+    {
+      "id": 20969,
+      "slug": "orthodox-jew",
+      "name": "Orthodox jew",
+      "film_count": 74
+    },
+    {
+      "id": 842,
+      "slug": "escape",
+      "name": "Escape",
+      "film_count": 7528
+    },
+    {
+      "id": 123876,
+      "slug": "uplifting",
+      "name": "Uplifting",
+      "film_count": 3819
+    },
+    {
+      "id": 5404,
+      "slug": "women",
+      "name": "Women",
+      "film_count": 7008
+    },
+    {
+      "id": 829,
+      "slug": "musician",
+      "name": "Musician",
+      "film_count": 2725
+    },
+    {
+      "id": 4165,
+      "slug": "new-york",
+      "name": "New york",
+      "film_count": 5521
+    },
+    {
+      "id": 1566,
+      "slug": "based-on-true-story",
+      "name": "Based on true story",
+      "film_count": 8531
+    },
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 4647,
+      "slug": "strong-female-lead",
+      "name": "Strong female lead",
+      "film_count": 2994
+    },
+    {
+      "id": 6422,
+      "slug": "pedophile",
+      "name": "Pedophile",
+      "film_count": 488
+    },
+    {
+      "id": 123481,
+      "slug": "emotional",
+      "name": "Emotional",
+      "film_count": 15358
+    },
+    {
+      "id": 124080,
+      "slug": "entertaining",
+      "name": "Entertaining",
+      "film_count": 17691
+    },
+    {
+      "id": 1585,
+      "slug": "nightclub",
+      "name": "Nightclub",
+      "film_count": 3015
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "uplifting",
+      "gothic",
+      "social",
+      "touching",
+      "suspense",
+      "serious",
+      "emotional",
+      "entertaining",
+      "anthology",
+      "crying"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "jewish family",
+      "judaism",
+      "orthodox jew",
+      "escape",
+      "women",
+      "musician",
+      "sex",
+      "atheism",
+      "husband wife relationship",
+      "feminist",
+      "new life",
+      "follow your dream",
+      "religion",
+      "rabbi",
+      "serial killer",
+      "strong female lead",
+      "pedophile",
+      "nightclub",
+      "rave",
+      "woman",
+      "bald woman",
+      "expose",
+      "lgbtq",
+      "vicious",
+      "religious"
+    ],
+    "time": [
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "new york",
+      "berlin germany",
+      "brooklyn new york city"
+    ]
+  },
+  "similar": [
+    {
+      "id": 29405,
+      "slug": "mendy",
+      "title": "Mendy",
+      "year": 2003,
+      "rank": 0
+    },
+    {
+      "id": 57066,
+      "slug": "shtisel",
+      "title": "Shtisel",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 58254,
+      "slug": "the-marvelous-mrs-maisel",
+      "title": "The Marvelous Mrs. Maisel",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 69280,
+      "slug": "the-queens-gambit",
+      "title": "The Queen's Gambit",
+      "year": 2020,
+      "rank": 3
+    },
+    {
+      "id": 58207,
+      "slug": "menashe",
+      "title": "Menashe",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 69662,
+      "slug": "its-a-sin",
+      "title": "It's a Sin",
+      "year": 2021,
+      "rank": 5
+    },
+    {
+      "id": 64563,
+      "slug": "pose",
+      "title": "POSE",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 72974,
+      "slug": "i-may-destroy-you",
+      "title": "I May Destroy You",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 30310,
+      "slug": "big-love",
+      "title": "Big Love",
+      "year": 2006,
+      "rank": 8
+    },
+    {
+      "id": 65369,
+      "slug": "tales-of-the-city",
+      "title": "Tales of the City",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 73773,
+      "slug": "minyan",
+      "title": "Minyan",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 68416,
+      "slug": "good-girls-revolt",
+      "title": "Good Girls Revolt",
+      "year": 2015,
+      "rank": 11
+    },
+    {
+      "id": 60062,
+      "slug": "disobedience",
+      "title": "Disobedience",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 89145,
+      "slug": "sampurna",
+      "title": "Sampurna",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 56550,
+      "slug": "lip-service",
+      "title": "Lip Service",
+      "year": 2010,
+      "rank": 14
+    },
+    {
+      "id": 89237,
+      "slug": "ask-martha",
+      "title": "Ask Martha",
+      "year": 2022,
+      "rank": 15
+    },
+    {
+      "id": 28607,
+      "slug": "eastsiders",
+      "title": "Eastsiders",
+      "year": 2012,
+      "rank": 16
+    },
+    {
+      "id": 68151,
+      "slug": "lambs-of-god",
+      "title": "Lambs of God",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 95441,
+      "slug": "kuntergrau",
+      "title": "Kuntergrau",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 76326,
+      "slug": "anne-plus",
+      "title": "Anne Plus",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 77774,
+      "slug": "starting-from-now",
+      "title": "Starting From Now",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 30528,
+      "slug": "brothers-and-sisters",
+      "title": "Brothers and Sisters",
+      "year": 2006,
+      "rank": 21
+    },
+    {
+      "id": 84183,
+      "slug": "old-land",
+      "title": "Old Land",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 60125,
+      "slug": "one-day-at-a-time",
+      "title": "One Day at a Time",
+      "year": 2017,
+      "rank": 23
+    },
+    {
+      "id": 4444,
+      "slug": "dont-ever-wipe-tears-without-gloves",
+      "title": "Don't Ever Wipe Tears Without Gloves",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 3598,
+      "slug": "venice-the-series",
+      "title": "Venice: The Series",
+      "year": 2009,
+      "rank": 25
+    },
+    {
+      "id": 61033,
+      "slug": "queen-sugar",
+      "title": "Queen Sugar",
+      "year": 2016,
+      "rank": 26
+    },
+    {
+      "id": 19801,
+      "slug": "oranges-are-not-the-only-fruit",
+      "title": "Oranges Are Not the Only Fruit",
+      "year": 1989,
+      "rank": 27
+    },
+    {
+      "id": 72911,
+      "slug": "maid",
+      "title": "Maid",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 83784,
+      "slug": "a-luv-tale",
+      "title": "A Luv Tale",
+      "year": 2021,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919176
+}

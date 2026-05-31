@@ -1,0 +1,395 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/7391-outlander",
+  "id": 7391,
+  "slug": "outlander",
+  "title": "Outlander",
+  "year": 2014,
+  "rating": 8.3,
+  "votes_text": "197K",
+  "votes": 197000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/79/7391.jpg",
+  "genres": [
+    "Adventure",
+    "Drama",
+    "Fantasy",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "The story of Claire Randall, a married combat nurse from 1945 who is mysteriously swept back in time to 1743, where she is immediately thrown into an unknown world where her life is threatened. When she is forced to marry Jamie, a chivalrous and romantic young Scottish warrior, a passionate affair is ignited that tears Claire's heart between two vastly different men in two irreconcilable lives.",
+  "tags": [
+    {
+      "id": 2543,
+      "slug": "time-travel",
+      "name": "Time travel",
+      "film_count": 2840
+    },
+    {
+      "id": 325,
+      "slug": "scotland",
+      "name": "Scotland",
+      "film_count": 507
+    },
+    {
+      "id": 10916,
+      "slug": "18th-century",
+      "name": "18th century",
+      "film_count": 798
+    },
+    {
+      "id": 121125,
+      "slug": "fall-in-love",
+      "name": "Fall in love",
+      "film_count": 8686
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 29276,
+      "slug": "couples",
+      "name": "Couples",
+      "film_count": 15715
+    },
+    {
+      "id": 95776,
+      "slug": "love-affair",
+      "name": "Love affair",
+      "film_count": 9928
+    },
+    {
+      "id": 11200,
+      "slug": "true-love",
+      "name": "True love",
+      "film_count": 1205
+    },
+    {
+      "id": 44734,
+      "slug": "sentimental",
+      "name": "Sentimental",
+      "film_count": 9110
+    },
+    {
+      "id": 540,
+      "slug": "based-on-novel",
+      "name": "Based on novel",
+      "film_count": 11006
+    },
+    {
+      "id": 2278,
+      "slug": "sex-scene",
+      "name": "Sex scene",
+      "film_count": 9619
+    },
+    {
+      "id": 95,
+      "slug": "nurse",
+      "name": "Nurse",
+      "film_count": 2906
+    },
+    {
+      "id": 528,
+      "slug": "sex",
+      "name": "Sex",
+      "film_count": 10551
+    },
+    {
+      "id": 123335,
+      "slug": "imaginary",
+      "name": "Imaginary",
+      "film_count": 4709
+    },
+    {
+      "id": 65,
+      "slug": "soldier",
+      "name": "Soldier",
+      "film_count": 4688
+    },
+    {
+      "id": 123415,
+      "slug": "uninhibited-rivalry",
+      "name": "Uninhibited rivalry",
+      "film_count": 1134
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "historical drama",
+      "stylized",
+      "exciting",
+      "captivating",
+      "serious",
+      "costume drama",
+      "sentimental",
+      "period piece",
+      "erotic",
+      "gothic"
+    ],
+    "audience": [
+      "chick flick",
+      "teens",
+      "girls' night"
+    ],
+    "plot": [
+      "time travel",
+      "fall in love",
+      "couples",
+      "love affair",
+      "true love",
+      "danger",
+      "life turned upside down",
+      "love and romance",
+      "battles",
+      "rivalry",
+      "escapades",
+      "couple relations",
+      "love triangle",
+      "fish out of water",
+      "friendship",
+      "scotsman",
+      "sex scene",
+      "nurse",
+      "sex",
+      "imaginary",
+      "soldier",
+      "uninhibited rivalry",
+      "magic",
+      "time traveler",
+      "british empire"
+    ],
+    "time": [
+      "18th century",
+      "year 1945",
+      "1940s",
+      "20th century",
+      "georgian era"
+    ],
+    "place": [
+      "scotland",
+      "scottish highlands",
+      "britain",
+      "syria",
+      "europe",
+      "united kingdom"
+    ]
+  },
+  "similar": [
+    {
+      "id": 28887,
+      "slug": "poldark",
+      "title": "Poldark",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 17541,
+      "slug": "lost-in-austen",
+      "title": "Lost in Austen",
+      "year": 2008,
+      "rank": 1
+    },
+    {
+      "id": 64076,
+      "slug": "a-discovery-of-witches",
+      "title": "A Discovery of Witches",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 20648,
+      "slug": "pride-and-prejudice",
+      "title": "Pride & Prejudice",
+      "year": 2005,
+      "rank": 3
+    },
+    {
+      "id": 5344,
+      "slug": "reign",
+      "title": "Reign",
+      "year": 2013,
+      "rank": 4
+    },
+    {
+      "id": 24133,
+      "slug": "the-time-travelers-wife",
+      "title": "The Time Traveler's Wife",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 19445,
+      "slug": "north-and-south",
+      "title": "North & South",
+      "year": 2004,
+      "rank": 6
+    },
+    {
+      "id": 23904,
+      "slug": "tess-of-the-durbervilles",
+      "title": "Tess of the D'Urbervilles",
+      "year": 2008,
+      "rank": 7
+    },
+    {
+      "id": 20650,
+      "slug": "pride-and-prejudice",
+      "title": "Pride and Prejudice",
+      "year": 1995,
+      "rank": 8
+    },
+    {
+      "id": 202,
+      "slug": "vikings",
+      "title": "Vikings",
+      "year": 2013,
+      "rank": 9
+    },
+    {
+      "id": 27349,
+      "slug": "ruby-red",
+      "title": "Ruby Red",
+      "year": 2013,
+      "rank": 10
+    },
+    {
+      "id": 27659,
+      "slug": "the-age-of-adaline",
+      "title": "The Age of Adaline",
+      "year": 2015,
+      "rank": 11
+    },
+    {
+      "id": 22143,
+      "slug": "sense-and-sensibility",
+      "title": "Sense and Sensibility",
+      "year": 1995,
+      "rank": 12
+    },
+    {
+      "id": 7079,
+      "slug": "winters-tale",
+      "title": "Winter's Tale",
+      "year": 2014,
+      "rank": 13
+    },
+    {
+      "id": 5056,
+      "slug": "da-vincis-demons",
+      "title": "Da Vinci's Demons",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 16926,
+      "slug": "the-lake-house",
+      "title": "The Lake House",
+      "year": 2006,
+      "rank": 15
+    },
+    {
+      "id": 35410,
+      "slug": "war-and-peace",
+      "title": "War & Peace",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 61215,
+      "slug": "the-outpost",
+      "title": "The Outpost",
+      "year": 2018,
+      "rank": 17
+    },
+    {
+      "id": 63180,
+      "slug": "the-kings-daughter",
+      "title": "The King's Daughter",
+      "year": 2022,
+      "rank": 18
+    },
+    {
+      "id": 19465,
+      "slug": "the-notebook",
+      "title": "The Notebook",
+      "year": 2004,
+      "rank": 19
+    },
+    {
+      "id": 1001,
+      "slug": "the-devils-whore",
+      "title": "The Devil's Whore",
+      "year": 2008,
+      "rank": 20
+    },
+    {
+      "id": 12267,
+      "slug": "doctor-zhivago",
+      "title": "Doctor Zhivago",
+      "year": 2002,
+      "rank": 21
+    },
+    {
+      "id": 66962,
+      "slug": "eternal-love-of-dream",
+      "title": "Eternal Love of Dream",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 1502,
+      "slug": "camelot",
+      "title": "Camelot",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 3470,
+      "slug": "black-sails",
+      "title": "Black Sails",
+      "year": 2014,
+      "rank": 24
+    },
+    {
+      "id": 69101,
+      "slug": "bridgerton",
+      "title": "Bridgerton",
+      "year": 2020,
+      "rank": 25
+    },
+    {
+      "id": 23182,
+      "slug": "stardust",
+      "title": "Stardust",
+      "year": 2007,
+      "rank": 26
+    },
+    {
+      "id": 63592,
+      "slug": "faith",
+      "title": "Faith",
+      "year": 2012,
+      "rank": 27
+    },
+    {
+      "id": 17029,
+      "slug": "the-last-of-the-mohicans",
+      "title": "The Last of the Mohicans",
+      "year": 1992,
+      "rank": 28
+    },
+    {
+      "id": 22926,
+      "slug": "somewhere-in-time",
+      "title": "Somewhere in Time",
+      "year": 1980,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919136
+}

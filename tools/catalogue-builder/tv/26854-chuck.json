@@ -1,0 +1,384 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26854-chuck",
+  "id": 26854,
+  "slug": "chuck",
+  "title": "Chuck",
+  "year": 2007,
+  "rating": 8.2,
+  "votes_text": "153K",
+  "votes": 153000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/3d/26854.jpg",
+  "genres": [
+    "Action",
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 43,
+  "story": "Chuck is an American action-comedy/spy-drama television series created by Josh Schwartz and Chris Fedak. The series is about an \"average computer-whiz-next-door\" named Chuck, played by Zachary Levi, who receives an encoded e-mail from an old college friend now working for the Central Intelligence Agency; the message embeds the only remaining copy of a software program containing the United States' greatest spy secrets into Chuck's brain.",
+  "tags": [
+    {
+      "id": 4728,
+      "slug": "geek",
+      "name": "Geek",
+      "film_count": 885
+    },
+    {
+      "id": 4195,
+      "slug": "secret-agent",
+      "name": "Secret agent",
+      "film_count": 1570
+    },
+    {
+      "id": 715,
+      "slug": "double-life",
+      "name": "Double life",
+      "film_count": 1091
+    },
+    {
+      "id": 3058,
+      "slug": "espionage",
+      "name": "Espionage",
+      "film_count": 3395
+    },
+    {
+      "id": 5429,
+      "slug": "cia",
+      "name": "Cia",
+      "film_count": 859
+    },
+    {
+      "id": 10,
+      "slug": "spy",
+      "name": "Spy",
+      "film_count": 3331
+    },
+    {
+      "id": 7542,
+      "slug": "undercover",
+      "name": "Undercover",
+      "film_count": 3572
+    },
+    {
+      "id": 16478,
+      "slug": "misfit",
+      "name": "Misfit",
+      "film_count": 4306
+    },
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 33303,
+      "slug": "sweet",
+      "name": "Sweet",
+      "film_count": 3370
+    },
+    {
+      "id": 29954,
+      "slug": "007",
+      "name": "007",
+      "film_count": 526
+    },
+    {
+      "id": 29276,
+      "slug": "couples",
+      "name": "Couples",
+      "film_count": 15715
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 9220,
+      "slug": "manager",
+      "name": "Manager",
+      "film_count": 760
+    },
+    {
+      "id": 123380,
+      "slug": "social-misfits",
+      "name": "Social misfits",
+      "film_count": 1362
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "spy action",
+      "light",
+      "humorous",
+      "semi serious",
+      "spoof",
+      "captivating",
+      "sweet",
+      "offbeat",
+      "sitcom",
+      "comedy drama"
+    ],
+    "audience": [
+      "teens",
+      "boys' night"
+    ],
+    "plot": [
+      "geek",
+      "secret agent",
+      "double life",
+      "espionage",
+      "cia",
+      "spy",
+      "undercover",
+      "misfit",
+      "enemy",
+      "peril",
+      "lifestyle change",
+      "buddies",
+      "dishonesty",
+      "forbidden love",
+      "genius",
+      "best friend",
+      "kickass women",
+      "heroic mission",
+      "superhero",
+      "007",
+      "couples",
+      "heroes",
+      "friends",
+      "manager",
+      "social misfits"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ]
+  },
+  "similar": [
+    {
+      "id": 70883,
+      "slug": "whiskey-cavalier",
+      "title": "Whiskey Cavalier",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 30477,
+      "slug": "burn-notice",
+      "title": "Burn Notice",
+      "year": 2007,
+      "rank": 1
+    },
+    {
+      "id": 4172,
+      "slug": "covert-affairs",
+      "title": "Covert Affairs",
+      "year": 2010,
+      "rank": 2
+    },
+    {
+      "id": 28903,
+      "slug": "scorpion",
+      "title": "Scorpion",
+      "year": 2014,
+      "rank": 3
+    },
+    {
+      "id": 8120,
+      "slug": "alias",
+      "title": "Alias",
+      "year": 2001,
+      "rank": 4
+    },
+    {
+      "id": 14054,
+      "slug": "get-smart",
+      "title": "Get Smart",
+      "year": 2008,
+      "rank": 5
+    },
+    {
+      "id": 63672,
+      "slug": "k-c-undercover",
+      "title": "K.C. Undercover",
+      "year": 2015,
+      "rank": 6
+    },
+    {
+      "id": 30489,
+      "slug": "jack-of-all-trades",
+      "title": "Jack of All Trades",
+      "year": 2000,
+      "rank": 7
+    },
+    {
+      "id": 60966,
+      "slug": "intelligence",
+      "title": "Intelligence",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 4779,
+      "slug": "agents-of-s-h-i-e-l-d",
+      "title": "Agents of S.H.I.E.L.D.",
+      "year": 2013,
+      "rank": 9
+    },
+    {
+      "id": 14056,
+      "slug": "get-smarts-bruce-and-lloyd-out-of-control",
+      "title": "Get Smart's Bruce and Lloyd Out of Control",
+      "year": 2008,
+      "rank": 10
+    },
+    {
+      "id": 3004,
+      "slug": "no-ordinary-family",
+      "title": "No Ordinary Family",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 62009,
+      "slug": "spy",
+      "title": "Spy",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 30524,
+      "slug": "psych",
+      "title": "Psych",
+      "year": 2006,
+      "rank": 13
+    },
+    {
+      "id": 6941,
+      "slug": "i-spy",
+      "title": "I Spy",
+      "year": 1965,
+      "rank": 14
+    },
+    {
+      "id": 12937,
+      "slug": "eureka",
+      "title": "Eureka",
+      "year": 2006,
+      "rank": 15
+    },
+    {
+      "id": 22729,
+      "slug": "sledge-hammer",
+      "title": "Sledge Hammer!",
+      "year": 1986,
+      "rank": 16
+    },
+    {
+      "id": 57213,
+      "slug": "she-spies",
+      "title": "She Spies",
+      "year": 2002,
+      "rank": 17
+    },
+    {
+      "id": 40723,
+      "slug": "jack-ryan-shadow-recruit",
+      "title": "Jack Ryan: Shadow Recruit",
+      "year": 2014,
+      "rank": 18
+    },
+    {
+      "id": 62076,
+      "slug": "my-girlfriend-is-an-agent",
+      "title": "My Girlfriend Is an Agent",
+      "year": 2009,
+      "rank": 19
+    },
+    {
+      "id": 63137,
+      "slug": "secretly-greatly",
+      "title": "Secretly Greatly",
+      "year": 2013,
+      "rank": 20
+    },
+    {
+      "id": 2586,
+      "slug": "undercovers",
+      "title": "Undercovers",
+      "year": 2010,
+      "rank": 21
+    },
+    {
+      "id": 16746,
+      "slug": "knight-and-day",
+      "title": "Knight and Day",
+      "year": 2010,
+      "rank": 22
+    },
+    {
+      "id": 56505,
+      "slug": "danger-5",
+      "title": "Danger 5",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 26564,
+      "slug": "nikita",
+      "title": "Nikita",
+      "year": 2010,
+      "rank": 24
+    },
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 25
+    },
+    {
+      "id": 87821,
+      "slug": "the-girl-from-u-n-c-l-e",
+      "title": "The Girl from U.N.C.L.E.",
+      "year": 1966,
+      "rank": 26
+    },
+    {
+      "id": 56758,
+      "slug": "the-war-next-door",
+      "title": "The War Next Door",
+      "year": 2000,
+      "rank": 27
+    },
+    {
+      "id": 15948,
+      "slug": "the-invisible-man",
+      "title": "The Invisible Man",
+      "year": 2000,
+      "rank": 28
+    },
+    {
+      "id": 6940,
+      "slug": "it-takes-a-thief",
+      "title": "It Takes a Thief",
+      "year": 1968,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919149
+}

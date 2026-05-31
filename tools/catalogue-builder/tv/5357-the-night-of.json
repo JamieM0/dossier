@@ -1,0 +1,384 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/5357-the-night-of",
+  "id": 5357,
+  "slug": "the-night-of",
+  "title": "The Night Of",
+  "year": 2016,
+  "rating": 8.4,
+  "votes_text": "192K",
+  "votes": 192000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/2d/5357.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "After a night of partying with a female stranger, a man wakes up to find her stabbed to death and is charged with her murder.",
+  "tags": [
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 1123,
+      "slug": "courtroom",
+      "name": "Courtroom",
+      "film_count": 2341
+    },
+    {
+      "id": 3053,
+      "slug": "murder-investigation",
+      "name": "Murder investigation",
+      "film_count": 3428
+    },
+    {
+      "id": 5506,
+      "slug": "murder-mystery",
+      "name": "Murder mystery",
+      "film_count": 4248
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 1456,
+      "slug": "jail",
+      "name": "Jail",
+      "film_count": 2173
+    },
+    {
+      "id": 499,
+      "slug": "lawyer",
+      "name": "Lawyer",
+      "film_count": 3905
+    },
+    {
+      "id": 1157,
+      "slug": "justice",
+      "name": "Justice",
+      "film_count": 7030
+    },
+    {
+      "id": 123478,
+      "slug": "bleak",
+      "name": "Bleak",
+      "film_count": 11156
+    },
+    {
+      "id": 2387,
+      "slug": "addiction",
+      "name": "Addiction",
+      "film_count": 1979
+    },
+    {
+      "id": 806,
+      "slug": "corruption",
+      "name": "Corruption",
+      "film_count": 9994
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 6665,
+      "slug": "runaway",
+      "name": "Runaway",
+      "film_count": 9616
+    },
+    {
+      "id": 5130,
+      "slug": "district-attorney",
+      "name": "District attorney",
+      "film_count": 347
+    },
+    {
+      "id": 124150,
+      "slug": "intense",
+      "name": "Intense",
+      "film_count": 10532
+    },
+    {
+      "id": 68803,
+      "slug": "powerful-ending",
+      "name": "Powerful ending",
+      "film_count": 1305
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspense",
+      "clever",
+      "realistic",
+      "psychological",
+      "serious",
+      "tense",
+      "cerebral",
+      "depressing",
+      "bleak",
+      "suspenseful"
+    ],
+    "plot": [
+      "murder",
+      "courtroom",
+      "murder investigation",
+      "murder mystery",
+      "jail",
+      "lawyer",
+      "justice",
+      "drug",
+      "investigation",
+      "relationships",
+      "brutality",
+      "love story",
+      "legal",
+      "attorney",
+      "vengeance",
+      "catastrophe",
+      "twists and turns",
+      "addiction",
+      "corruption",
+      "runaway",
+      "district attorney",
+      "powerful ending",
+      "culture clash",
+      "life philosophy",
+      "moral ambiguity"
+    ],
+    "time": [
+      "2010s",
+      "year 2014",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 96520,
+      "slug": "presumed-innocent",
+      "title": "Presumed Innocent",
+      "year": 2024,
+      "rank": 0
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 1
+    },
+    {
+      "id": 40763,
+      "slug": "american-crime",
+      "title": "American Crime",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 60424,
+      "slug": "sharp-objects",
+      "title": "Sharp Objects",
+      "year": 2018,
+      "rank": 3
+    },
+    {
+      "id": 20665,
+      "slug": "primal-fear",
+      "title": "Primal Fear",
+      "year": 1996,
+      "rank": 4
+    },
+    {
+      "id": 68913,
+      "slug": "the-undoing",
+      "title": "The Undoing",
+      "year": 2020,
+      "rank": 5
+    },
+    {
+      "id": 65264,
+      "slug": "when-they-see-us",
+      "title": "When They See Us",
+      "year": 2019,
+      "rank": 6
+    },
+    {
+      "id": 63690,
+      "slug": "spiral",
+      "title": "Spiral",
+      "year": 2005,
+      "rank": 7
+    },
+    {
+      "id": 67163,
+      "slug": "defending-jacob",
+      "title": "Defending Jacob",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 35447,
+      "slug": "the-people-v-o-j-simpson-american-crime-story",
+      "title": "American Crime Story",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 17301,
+      "slug": "the-lincoln-lawyer",
+      "title": "The Lincoln Lawyer",
+      "year": 2011,
+      "rank": 10
+    },
+    {
+      "id": 62377,
+      "slug": "shetland",
+      "title": "Shetland",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 66511,
+      "slug": "the-outsider",
+      "title": "The Outsider",
+      "year": 2020,
+      "rank": 12
+    },
+    {
+      "id": 61009,
+      "slug": "secrets-and-lies",
+      "title": "Secrets and Lies",
+      "year": 2015,
+      "rank": 13
+    },
+    {
+      "id": 81817,
+      "slug": "accused",
+      "title": "Accused",
+      "year": 2023,
+      "rank": 14
+    },
+    {
+      "id": 28588,
+      "slug": "bosch",
+      "title": "Bosch",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 30410,
+      "slug": "damages",
+      "title": "Damages",
+      "year": 2007,
+      "rank": 16
+    },
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 17
+    },
+    {
+      "id": 23205,
+      "slug": "state-of-play",
+      "title": "State of Play",
+      "year": 2003,
+      "rank": 18
+    },
+    {
+      "id": 78592,
+      "slug": "the-staircase",
+      "title": "The Staircase",
+      "year": 2022,
+      "rank": 19
+    },
+    {
+      "id": 79013,
+      "slug": "the-lincoln-lawyer",
+      "title": "The Lincoln Lawyer",
+      "year": 2022,
+      "rank": 20
+    },
+    {
+      "id": 30202,
+      "slug": "law-and-order-criminal-intent",
+      "title": "Law & Order: Criminal Intent",
+      "year": 2001,
+      "rank": 21
+    },
+    {
+      "id": 93446,
+      "slug": "criminal-justice-behind-closed-doors",
+      "title": "Criminal Justice: Behind Closed Doors",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 2374,
+      "slug": "law-and-order-trial-by-jury",
+      "title": "Law & Order: Trial by Jury",
+      "year": 2005,
+      "rank": 23
+    },
+    {
+      "id": 65361,
+      "slug": "the-fix",
+      "title": "The Fix",
+      "year": 2019,
+      "rank": 24
+    },
+    {
+      "id": 30375,
+      "slug": "matlock",
+      "title": "Matlock",
+      "year": 1986,
+      "rank": 25
+    },
+    {
+      "id": 36814,
+      "slug": "river",
+      "title": "River",
+      "year": 2015,
+      "rank": 26
+    },
+    {
+      "id": 56567,
+      "slug": "trial-and-retribution",
+      "title": "Trial & Retribution",
+      "year": 1997,
+      "rank": 27
+    },
+    {
+      "id": 82766,
+      "slug": "nevskiy",
+      "title": "Nevskiy",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 60137,
+      "slug": "innocent",
+      "title": "Innocent",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919133
+}

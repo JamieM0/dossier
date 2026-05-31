@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/65041-chernobyl",
+  "id": 65041,
+  "slug": "chernobyl",
+  "title": "Chernobyl",
+  "year": 2019,
+  "rating": 9.3,
+  "votes_text": "1.0M",
+  "votes": 1000000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/26/65041.jpg",
+  "genres": [
+    "Drama",
+    "History",
+    "Thriller"
+  ],
+  "country": [
+    "USA",
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "A dramatization of the true story of one of the worst man-made catastrophes in history, the catastrophic nuclear accident at Chernobyl. A tale of the brave men and women who sacrificed to save Europe from unimaginable disaster.",
+  "tags": [
+    {
+      "id": 1566,
+      "slug": "based-on-true-story",
+      "name": "Based on true story",
+      "film_count": 8531
+    },
+    {
+      "id": 1337,
+      "slug": "radiation",
+      "name": "Radiation",
+      "film_count": 295
+    },
+    {
+      "id": 15686,
+      "slug": "chernobyl",
+      "name": "Chernobyl",
+      "film_count": 26
+    },
+    {
+      "id": 20011,
+      "slug": "based-on-true-events",
+      "name": "Based on true events",
+      "film_count": 2373
+    },
+    {
+      "id": 22141,
+      "slug": "ussr",
+      "name": "Ussr",
+      "film_count": 772
+    },
+    {
+      "id": 32580,
+      "slug": "nuclear-power-plant",
+      "name": "Nuclear power plant",
+      "film_count": 103
+    },
+    {
+      "id": 31115,
+      "slug": "nuclear-holocaust",
+      "name": "Nuclear holocaust",
+      "film_count": 189
+    },
+    {
+      "id": 16373,
+      "slug": "nuclear-reactor",
+      "name": "Nuclear reactor",
+      "film_count": 45
+    },
+    {
+      "id": 131655,
+      "slug": "historical-drama",
+      "name": "Historical drama",
+      "film_count": 3058
+    },
+    {
+      "id": 92805,
+      "slug": "rough",
+      "name": "Rough",
+      "film_count": 8898
+    },
+    {
+      "id": 106,
+      "slug": "scientist",
+      "name": "Scientist",
+      "film_count": 2448
+    },
+    {
+      "id": 74487,
+      "slug": "heartbreaking",
+      "name": "Heartbreaking",
+      "film_count": 1655
+    },
+    {
+      "id": 1460,
+      "slug": "accident",
+      "name": "Accident",
+      "film_count": 2002
+    },
+    {
+      "id": 49215,
+      "slug": "nuclear-power",
+      "name": "Nuclear power",
+      "film_count": 42
+    },
+    {
+      "id": 123450,
+      "slug": "heroic-mission",
+      "name": "Heroic mission",
+      "film_count": 2809
+    },
+    {
+      "id": 3073,
+      "slug": "year-1986",
+      "name": "Year 1986",
+      "film_count": 317
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "dark",
+      "atmospheric",
+      "harsh",
+      "realistic",
+      "thought provoking",
+      "historical drama",
+      "rough",
+      "heartbreaking",
+      "depressing",
+      "disturbing"
+    ],
+    "audience": [
+      "chick flick",
+      "boys' night"
+    ],
+    "plot": [
+      "radiation",
+      "nuclear power plant",
+      "nuclear holocaust",
+      "nuclear reactor",
+      "disaster",
+      "radiation poisoning",
+      "save the day",
+      "nuclear explosion",
+      "salvation",
+      "abandoned city",
+      "evacuation",
+      "nuclear threat",
+      "nuclear radiation",
+      "scientist",
+      "accident",
+      "nuclear power",
+      "heroic mission",
+      "propaganda",
+      "government coverup",
+      "save the world",
+      "post nuclear",
+      "government official",
+      "nuclear",
+      "hidden truth",
+      "nuclear war"
+    ],
+    "time": [
+      "year 1986",
+      "2010s",
+      "80s",
+      "20th century"
+    ],
+    "place": [
+      "chernobyl",
+      "ussr",
+      "soviet union",
+      "ukraine",
+      "europe",
+      "russia",
+      "moscow russia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 13097,
+      "slug": "fail-safe",
+      "title": "Fail Safe",
+      "year": 1964,
+      "rank": 0
+    },
+    {
+      "id": 27237,
+      "slug": "moths",
+      "title": "Inseparable",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 67420,
+      "slug": "chernobyl-abyss",
+      "title": "Chernobyl: Abyss",
+      "year": 2021,
+      "rank": 2
+    },
+    {
+      "id": 16413,
+      "slug": "k-19-the-widowmaker",
+      "title": "K-19: The Widowmaker",
+      "year": 2002,
+      "rank": 3
+    },
+    {
+      "id": 82140,
+      "slug": "the-days",
+      "title": "The Days",
+      "year": 2023,
+      "rank": 4
+    },
+    {
+      "id": 2187,
+      "slug": "house-of-cards",
+      "title": "House of Cards",
+      "year": 2013,
+      "rank": 5
+    },
+    {
+      "id": 60128,
+      "slug": "the-terror",
+      "title": "The Terror",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 10652,
+      "slug": "chernobyl-the-final-warning",
+      "title": "Chernobyl: The Final Warning",
+      "year": 1991,
+      "rank": 7
+    },
+    {
+      "id": 81865,
+      "slug": "patient-zero",
+      "title": "Patient Zero",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 37387,
+      "slug": "the-bedford-incident",
+      "title": "The Bedford Incident",
+      "year": 1965,
+      "rank": 9
+    },
+    {
+      "id": 21061,
+      "slug": "collapse",
+      "title": "Collapse",
+      "year": 1990,
+      "rank": 10
+    },
+    {
+      "id": 52600,
+      "slug": "a-dangerous-life",
+      "title": "A Dangerous Life",
+      "year": 1988,
+      "rank": 11
+    },
+    {
+      "id": 104297,
+      "slug": "cobra",
+      "title": "COBRA",
+      "year": 2020,
+      "rank": 12
+    },
+    {
+      "id": 80380,
+      "slug": "island-nation",
+      "title": "Island Nation",
+      "year": 2020,
+      "rank": 13
+    },
+    {
+      "id": 9951,
+      "slug": "breaking-the-waves",
+      "title": "Breaking the Waves",
+      "year": 1996,
+      "rank": 14
+    },
+    {
+      "id": 60885,
+      "slug": "dukla-61",
+      "title": "Dukla 61",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 10184,
+      "slug": "by-dawns-early-light",
+      "title": "By Dawn's Early Light",
+      "year": 1990,
+      "rank": 16
+    },
+    {
+      "id": 30234,
+      "slug": "see-no-evil-the-moors-murders",
+      "title": "See No Evil: The Moors Murders",
+      "year": 2006,
+      "rank": 17
+    },
+    {
+      "id": 24951,
+      "slug": "the-first-circle",
+      "title": "The First Circle",
+      "year": 2006,
+      "rank": 18
+    },
+    {
+      "id": 35426,
+      "slug": "taboo",
+      "title": "Taboo",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 70486,
+      "slug": "underground",
+      "title": "Underground",
+      "year": 2016,
+      "rank": 20
+    },
+    {
+      "id": 8194,
+      "slug": "all-the-presidents-men",
+      "title": "All the President's Men",
+      "year": 1976,
+      "rank": 21
+    },
+    {
+      "id": 87652,
+      "slug": "waco-the-aftermath",
+      "title": "Waco: The Aftermath",
+      "year": 2023,
+      "rank": 22
+    },
+    {
+      "id": 34483,
+      "slug": "world-war-iii",
+      "title": "World War III",
+      "year": 1982,
+      "rank": 23
+    },
+    {
+      "id": 94131,
+      "slug": "17-threads",
+      "title": "17 Threads",
+      "year": 2023,
+      "rank": 24
+    },
+    {
+      "id": 17478,
+      "slug": "longitude",
+      "title": "Longitude",
+      "year": 2000,
+      "rank": 25
+    },
+    {
+      "id": 67599,
+      "slug": "the-rain",
+      "title": "The Rain",
+      "year": 2018,
+      "rank": 26
+    },
+    {
+      "id": 96517,
+      "slug": "manhunt",
+      "title": "Manhunt",
+      "year": 2024,
+      "rank": 27
+    },
+    {
+      "id": 68945,
+      "slug": "saints-and-strangers",
+      "title": "Saints & Strangers",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 8990,
+      "slug": "band-of-brothers",
+      "title": "Band of Brothers",
+      "year": 2001,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919172
+}

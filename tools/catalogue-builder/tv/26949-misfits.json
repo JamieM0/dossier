@@ -1,0 +1,393 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26949-misfits",
+  "id": 26949,
+  "slug": "misfits",
+  "title": "Misfits",
+  "year": 2009,
+  "rating": 8.1,
+  "votes_text": "112K",
+  "votes": 112000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/41/26949.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Fantasy",
+    "Romance",
+    "Sci-Fi"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "When five young outsiders on Community Service get caught in a strange storm, they discover that they have developed superpowers.",
+  "tags": [
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 2543,
+      "slug": "time-travel",
+      "name": "Time travel",
+      "film_count": 2840
+    },
+    {
+      "id": 123382,
+      "slug": "superhuman-powers",
+      "name": "Superhuman powers",
+      "film_count": 1234
+    },
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 3089,
+      "slug": "supernatural-power",
+      "name": "Supernatural power",
+      "film_count": 6202
+    },
+    {
+      "id": 468,
+      "slug": "love",
+      "name": "Love",
+      "film_count": 16907
+    },
+    {
+      "id": 4987,
+      "slug": "telepathy",
+      "name": "Telepathy",
+      "film_count": 521
+    },
+    {
+      "id": 2962,
+      "slug": "homelessness",
+      "name": "Homelessness",
+      "film_count": 814
+    },
+    {
+      "id": 7088,
+      "slug": "immortal",
+      "name": "Immortal",
+      "film_count": 335
+    },
+    {
+      "id": 528,
+      "slug": "sex",
+      "name": "Sex",
+      "film_count": 10551
+    },
+    {
+      "id": 61731,
+      "slug": "young-adult",
+      "name": "Young adult",
+      "film_count": 4167
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 11234,
+      "slug": "invisibility",
+      "name": "Invisibility",
+      "film_count": 352
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "witty",
+      "cynical",
+      "humorous",
+      "semi serious",
+      "surreal",
+      "erotic",
+      "sexual",
+      "sensual",
+      "feel good"
+    ],
+    "audience": [
+      "teens",
+      "kids",
+      "teen drama"
+    ],
+    "plot": [
+      "supernatural",
+      "supernatural ability",
+      "youth",
+      "time travel",
+      "superhuman powers",
+      "superhero",
+      "supernatural power",
+      "teenage life",
+      "swearing",
+      "friends",
+      "danger",
+      "friendship",
+      "heroes",
+      "juvenile delinquent",
+      "imaginary",
+      "twentysomething life",
+      "community service",
+      "misfit",
+      "superpower",
+      "psychic",
+      "love",
+      "telepathy",
+      "homelessness",
+      "immortal",
+      "sex"
+    ],
+    "time": [
+      "2000s",
+      "future",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "europe",
+      "england",
+      "canada"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64831,
+      "slug": "the-umbrella-academy",
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 15013,
+      "slug": "heroes",
+      "title": "Heroes",
+      "year": 2006,
+      "rank": 1
+    },
+    {
+      "id": 3248,
+      "slug": "awkward",
+      "title": "Awkward.",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 30312,
+      "slug": "skins",
+      "title": "Skins",
+      "year": 2007,
+      "rank": 3
+    },
+    {
+      "id": 1412,
+      "slug": "powers",
+      "title": "Powers",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 60979,
+      "slug": "believe",
+      "title": "Believe",
+      "year": 2014,
+      "rank": 5
+    },
+    {
+      "id": 57902,
+      "slug": "the-gifted",
+      "title": "The Gifted",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 56775,
+      "slug": "the-listener",
+      "title": "The Listener",
+      "year": 2009,
+      "rank": 7
+    },
+    {
+      "id": 61916,
+      "slug": "slide",
+      "title": "SLiDE",
+      "year": 2011,
+      "rank": 8
+    },
+    {
+      "id": 5081,
+      "slug": "being-human",
+      "title": "Being Human",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 56689,
+      "slug": "the-almighty-johnsons",
+      "title": "The Almighty Johnsons",
+      "year": 2011,
+      "rank": 10
+    },
+    {
+      "id": 56985,
+      "slug": "being-human",
+      "title": "Being Human",
+      "year": 2008,
+      "rank": 11
+    },
+    {
+      "id": 11763,
+      "slug": "dead-like-me",
+      "title": "Dead Like Me",
+      "year": 2003,
+      "rank": 12
+    },
+    {
+      "id": 1735,
+      "slug": "fresh-meat",
+      "title": "Fresh Meat",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 10098,
+      "slug": "buffy-the-vampire-slayer",
+      "title": "Buffy the Vampire Slayer",
+      "year": 1997,
+      "rank": 14
+    },
+    {
+      "id": 27059,
+      "slug": "shameless",
+      "title": "Shameless",
+      "year": 2011,
+      "rank": 15
+    },
+    {
+      "id": 66932,
+      "slug": "i-am-not-okay-with-this",
+      "title": "I Am Not Okay with This",
+      "year": 2020,
+      "rank": 16
+    },
+    {
+      "id": 57938,
+      "slug": "preacher",
+      "title": "Preacher",
+      "year": 2016,
+      "rank": 17
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 18
+    },
+    {
+      "id": 27028,
+      "slug": "merlin",
+      "title": "Merlin",
+      "year": 2008,
+      "rank": 19
+    },
+    {
+      "id": 25822,
+      "slug": "wonderfalls",
+      "title": "Wonderfalls",
+      "year": 2004,
+      "rank": 20
+    },
+    {
+      "id": 28357,
+      "slug": "my-mad-fat-diary",
+      "title": "My Mad Fat Diary",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 3004,
+      "slug": "no-ordinary-family",
+      "title": "No Ordinary Family",
+      "year": 2010,
+      "rank": 22
+    },
+    {
+      "id": 4415,
+      "slug": "teen-wolf",
+      "title": "Teen Wolf",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 3487,
+      "slug": "wizards-of-waverly-place",
+      "title": "Wizards of Waverly Place",
+      "year": 2007,
+      "rank": 24
+    },
+    {
+      "id": 57093,
+      "slug": "nowhere-boys",
+      "title": "Nowhere Boys",
+      "year": 2013,
+      "rank": 25
+    },
+    {
+      "id": 82423,
+      "slug": "dead-gorgeous",
+      "title": "Dead Gorgeous",
+      "year": 2010,
+      "rank": 26
+    },
+    {
+      "id": 3837,
+      "slug": "dirk-gently",
+      "title": "Dirk Gently",
+      "year": 2010,
+      "rank": 27
+    },
+    {
+      "id": 16866,
+      "slug": "kyle-xy",
+      "title": "Kyle XY",
+      "year": 2006,
+      "rank": 28
+    },
+    {
+      "id": 8771,
+      "slug": "attack-the-block",
+      "title": "Attack the Block",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919150
+}

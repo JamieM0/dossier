@@ -1,0 +1,393 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/27144-how-i-met-your-mother",
+  "id": 27144,
+  "slug": "how-i-met-your-mother",
+  "title": "How I Met Your Mother",
+  "year": 2005,
+  "rating": 8.3,
+  "votes_text": "776K",
+  "votes": 776000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/57/27144.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "How I Met Your Mother is an American sitcom that originally aired on CBS from September 19, 2005, to March 31, 2014. The series follows the main character, Ted Mosby, and his group of friends in Manhattan. As a framing device, Ted, in the year 2030, recounts to his son and daughter the events that led to his meeting their mother.",
+  "tags": [
+    {
+      "id": 25,
+      "slug": "roommate",
+      "name": "Roommate",
+      "film_count": 1415
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 11539,
+      "slug": "light",
+      "name": "Light",
+      "film_count": 12031
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 45403,
+      "slug": "feel-good",
+      "name": "Feel good",
+      "film_count": 17668
+    },
+    {
+      "id": 38504,
+      "slug": "looking-for-love",
+      "name": "Looking for love",
+      "film_count": 1552
+    },
+    {
+      "id": 123430,
+      "slug": "singleness",
+      "name": "Singleness",
+      "film_count": 691
+    },
+    {
+      "id": 29276,
+      "slug": "couples",
+      "name": "Couples",
+      "film_count": 15715
+    },
+    {
+      "id": 29023,
+      "slug": "buddies",
+      "name": "Buddies",
+      "film_count": 3540
+    },
+    {
+      "id": 34648,
+      "slug": "lovers",
+      "name": "Lovers",
+      "film_count": 1230
+    },
+    {
+      "id": 8530,
+      "slug": "career",
+      "name": "Career",
+      "film_count": 919
+    },
+    {
+      "id": 124243,
+      "slug": "relationships",
+      "name": "Relationships",
+      "film_count": 14254
+    },
+    {
+      "id": 3464,
+      "slug": "architect",
+      "name": "Architect",
+      "film_count": 614
+    },
+    {
+      "id": 422,
+      "slug": "friendship-between-men",
+      "name": "Friendship between men",
+      "film_count": 2991
+    },
+    {
+      "id": 123486,
+      "slug": "witty",
+      "name": "Witty",
+      "film_count": 5204
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "light",
+      "feel good",
+      "sexy",
+      "humorous",
+      "funny",
+      "entertaining",
+      "witty",
+      "sexual",
+      "hilarious"
+    ],
+    "audience": [
+      "teens",
+      "date night",
+      "teen drama",
+      "adult"
+    ],
+    "plot": [
+      "roommate",
+      "friendship",
+      "friends",
+      "looking for love",
+      "singleness",
+      "couples",
+      "dating",
+      "couple relations",
+      "womanizer",
+      "group of friends",
+      "best friend",
+      "love and romance",
+      "romantic friendship",
+      "urban",
+      "boyfriend girlfriend relationship",
+      "camaraderie",
+      "male camaraderie",
+      "buddies",
+      "lovers",
+      "career",
+      "relationships",
+      "architect",
+      "friendship between men",
+      "party",
+      "romantic relationship"
+    ],
+    "time": [
+      "2030s",
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "manhattan new york city",
+      "usa",
+      "madagascar"
+    ]
+  },
+  "similar": [
+    {
+      "id": 13794,
+      "slug": "friends",
+      "title": "Friends",
+      "year": 1994,
+      "rank": 0
+    },
+    {
+      "id": 56463,
+      "slug": "mad-love",
+      "title": "Mad Love",
+      "year": 2011,
+      "rank": 1
+    },
+    {
+      "id": 431,
+      "slug": "new-girl",
+      "title": "New Girl",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 9356,
+      "slug": "the-big-bang-theory",
+      "title": "The Big Bang Theory",
+      "year": 2007,
+      "rank": 3
+    },
+    {
+      "id": 26547,
+      "slug": "modern-family",
+      "title": "Modern Family",
+      "year": 2009,
+      "rank": 4
+    },
+    {
+      "id": 22209,
+      "slug": "sex-and-the-city",
+      "title": "Sex and the City",
+      "year": 1998,
+      "rank": 5
+    },
+    {
+      "id": 3657,
+      "slug": "cougar-town",
+      "title": "Cougar Town",
+      "year": 2009,
+      "rank": 6
+    },
+    {
+      "id": 30147,
+      "slug": "rules-of-engagement",
+      "title": "Rules of Engagement",
+      "year": 2007,
+      "rank": 7
+    },
+    {
+      "id": 30516,
+      "slug": "that-70s-show",
+      "title": "That '70s Show",
+      "year": 1998,
+      "rank": 8
+    },
+    {
+      "id": 435,
+      "slug": "happy-endings",
+      "title": "Happy Endings",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 4738,
+      "slug": "that-awkward-moment",
+      "title": "That Awkward Moment",
+      "year": 2014,
+      "rank": 10
+    },
+    {
+      "id": 3370,
+      "slug": "girlfriends",
+      "title": "Girlfriends",
+      "year": 2000,
+      "rank": 11
+    },
+    {
+      "id": 24618,
+      "slug": "two-and-a-half-men",
+      "title": "Two and a Half Men",
+      "year": 2003,
+      "rank": 12
+    },
+    {
+      "id": 3642,
+      "slug": "2-broke-girls",
+      "title": "2 Broke Girls",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 3467,
+      "slug": "baby-daddy",
+      "title": "Baby Daddy",
+      "year": 2012,
+      "rank": 14
+    },
+    {
+      "id": 3248,
+      "slug": "awkward",
+      "title": "Awkward.",
+      "year": 2011,
+      "rank": 15
+    },
+    {
+      "id": 7443,
+      "slug": "togetherness",
+      "title": "Togetherness",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 30390,
+      "slug": "what-i-like-about-you",
+      "title": "What I Like About You",
+      "year": 2002,
+      "rank": 17
+    },
+    {
+      "id": 1062,
+      "slug": "men-at-work",
+      "title": "Men at Work",
+      "year": 2012,
+      "rank": 18
+    },
+    {
+      "id": 36277,
+      "slug": "never-again",
+      "title": "Never Again",
+      "year": 2001,
+      "rank": 19
+    },
+    {
+      "id": 3645,
+      "slug": "partners",
+      "title": "Partners",
+      "year": 2012,
+      "rank": 20
+    },
+    {
+      "id": 11264,
+      "slug": "coupling",
+      "title": "Coupling",
+      "year": 2000,
+      "rank": 21
+    },
+    {
+      "id": 62567,
+      "slug": "mixology",
+      "title": "Mixology",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 28601,
+      "slug": "young-and-hungry",
+      "title": "Young & Hungry",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 73472,
+      "slug": "relationship-status",
+      "title": "Relationship Status",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 22028,
+      "slug": "scrubs",
+      "title": "Scrubs",
+      "year": 2001,
+      "rank": 25
+    },
+    {
+      "id": 63573,
+      "slug": "the-girls-guide-to-depravity",
+      "title": "The Girl's Guide to Depravity",
+      "year": 2012,
+      "rank": 26
+    },
+    {
+      "id": 70034,
+      "slug": "life-on-top",
+      "title": "Life on Top",
+      "year": 2009,
+      "rank": 27
+    },
+    {
+      "id": 30036,
+      "slug": "two-guys-a-girl-and-a-pizza-place",
+      "title": "Two Guys and a Girl",
+      "year": 1998,
+      "rank": 28
+    },
+    {
+      "id": 30507,
+      "slug": "cheers",
+      "title": "Cheers",
+      "year": 1982,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919152
+}

@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/60774-atypical",
+  "id": 60774,
+  "slug": "atypical",
+  "title": "Atypical",
+  "year": 2017,
+  "rating": 8.2,
+  "votes_text": "113K",
+  "votes": 113000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/de/60774.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 30,
+  "story": "Sam, an 18-year-old on the autism spectrum, takes a funny, yet painful, journey of self-discovery for love and independence and upends his family.",
+  "tags": [
+    {
+      "id": 14082,
+      "slug": "autism",
+      "name": "Autism",
+      "film_count": 527
+    },
+    {
+      "id": 3260,
+      "slug": "coming-of-age",
+      "name": "Coming of age",
+      "film_count": 16794
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 5105,
+      "slug": "lesbian-relationship",
+      "name": "Lesbian relationship",
+      "film_count": 905
+    },
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    },
+    {
+      "id": 123302,
+      "slug": "girls-night",
+      "name": "Girls' night",
+      "film_count": 4741
+    },
+    {
+      "id": 123775,
+      "slug": "social-problems",
+      "name": "Social problems",
+      "film_count": 3130
+    },
+    {
+      "id": 141326,
+      "slug": "sapphic",
+      "name": "Sapphic",
+      "film_count": 314
+    },
+    {
+      "id": 27083,
+      "slug": "older-sister",
+      "name": "Older sister",
+      "film_count": 125
+    },
+    {
+      "id": 34787,
+      "slug": "autistic",
+      "name": "Autistic",
+      "film_count": 137
+    },
+    {
+      "id": 15721,
+      "slug": "overprotective-mother",
+      "name": "Overprotective mother",
+      "film_count": 242
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 13980,
+      "slug": "high-school-life",
+      "name": "High school life",
+      "film_count": 3261
+    },
+    {
+      "id": 61731,
+      "slug": "young-adult",
+      "name": "Young adult",
+      "film_count": 4167
+    },
+    {
+      "id": 183773,
+      "slug": "autist",
+      "name": "Autist",
+      "film_count": 60
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "light",
+      "sincere",
+      "saga",
+      "humorous",
+      "funny",
+      "hilarious",
+      "teen",
+      "comedy drama",
+      "touching",
+      "emotional"
+    ],
+    "audience": [
+      "girls' night",
+      "teens",
+      "family friendly",
+      "teen drama"
+    ],
+    "plot": [
+      "autism",
+      "coming of age",
+      "teenager",
+      "lesbian relationship",
+      "lesbian",
+      "social problems",
+      "sapphic",
+      "teenage protagonist",
+      "high school",
+      "penguins",
+      "lgbt",
+      "asperger's syndrome",
+      "brother sister relationship",
+      "therapist",
+      "psychology",
+      "family relations",
+      "lgbtq",
+      "best friend",
+      "older sister",
+      "autistic",
+      "overprotective mother",
+      "gay",
+      "high school life",
+      "young adult",
+      "autist"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "connecticut"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64620,
+      "slug": "sex-education",
+      "title": "Sex Education",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 59845,
+      "slug": "everything-sucks",
+      "title": "Everything Sucks!",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 43577,
+      "slug": "merli",
+      "title": "Merli",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 67707,
+      "slug": "never-have-i-ever",
+      "title": "Never Have I Ever",
+      "year": 2020,
+      "rank": 3
+    },
+    {
+      "id": 70811,
+      "slug": "ginny-and-georgia",
+      "title": "Ginny & Georgia",
+      "year": 2021,
+      "rank": 4
+    },
+    {
+      "id": 57941,
+      "slug": "red-oaks",
+      "title": "Red Oaks",
+      "year": 2014,
+      "rank": 5
+    },
+    {
+      "id": 9934,
+      "slug": "the-breakfast-club",
+      "title": "The Breakfast Club",
+      "year": 1985,
+      "rank": 6
+    },
+    {
+      "id": 2267,
+      "slug": "the-carrie-diaries",
+      "title": "The Carrie Diaries",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 41826,
+      "slug": "one-mississippi",
+      "title": "One Mississippi",
+      "year": 2015,
+      "rank": 8
+    },
+    {
+      "id": 28581,
+      "slug": "faking-it",
+      "title": "Faking It",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 66932,
+      "slug": "i-am-not-okay-with-this",
+      "title": "I Am Not Okay with This",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 28357,
+      "slug": "my-mad-fat-diary",
+      "title": "My Mad Fat Diary",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 2610,
+      "slug": "anyone-but-me",
+      "title": "Anyone But Me",
+      "year": 2008,
+      "rank": 12
+    },
+    {
+      "id": 30513,
+      "slug": "gilmore-girls",
+      "title": "Gilmore Girls",
+      "year": 2000,
+      "rank": 13
+    },
+    {
+      "id": 69863,
+      "slug": "teenage-bounty-hunters",
+      "title": "Teenage Bounty Hunters",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 65384,
+      "slug": "euphoria",
+      "title": "Euphoria",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 1298,
+      "slug": "one-on-one",
+      "title": "One on One",
+      "year": 2001,
+      "rank": 16
+    },
+    {
+      "id": 65619,
+      "slug": "the-politician",
+      "title": "The Politician",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 61950,
+      "slug": "norman",
+      "title": "Norman",
+      "year": 2010,
+      "rank": 18
+    },
+    {
+      "id": 68103,
+      "slug": "on-my-block",
+      "title": "On My Block",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 60125,
+      "slug": "one-day-at-a-time",
+      "title": "One Day at a Time",
+      "year": 2017,
+      "rank": 20
+    },
+    {
+      "id": 43670,
+      "slug": "the-real-oneals",
+      "title": "The Real O'Neals",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 67966,
+      "slug": "love-victor",
+      "title": "Love, Victor",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 59501,
+      "slug": "the-end-of-the-f-ing-world",
+      "title": "The End of the F***ing World",
+      "year": 2017,
+      "rank": 23
+    },
+    {
+      "id": 71807,
+      "slug": "generation",
+      "title": "Generation",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 60800,
+      "slug": "better-things",
+      "title": "Better Things",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 58260,
+      "slug": "derry-girls",
+      "title": "Derry Girls",
+      "year": 2018,
+      "rank": 26
+    },
+    {
+      "id": 60071,
+      "slug": "the-miseducation-of-cameron-post",
+      "title": "The Miseducation of Cameron Post",
+      "year": 2018,
+      "rank": 27
+    },
+    {
+      "id": 257,
+      "slug": "90210",
+      "title": "90210",
+      "year": 2008,
+      "rank": 28
+    },
+    {
+      "id": 60536,
+      "slug": "vida",
+      "title": "Vida",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919166
+}

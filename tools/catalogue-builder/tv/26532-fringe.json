@@ -1,0 +1,395 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26532-fringe",
+  "id": 26532,
+  "slug": "fringe",
+  "title": "Fringe",
+  "year": 2008,
+  "rating": 8.4,
+  "votes_text": "268K",
+  "votes": 268000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/b0/26532.jpg",
+  "genres": [
+    "Drama",
+    "Mystery",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA",
+    "Canada"
+  ],
+  "duration_min": 46,
+  "story": "FBI Special Agent Olivia Dunham, brilliant but formerly institutionalized scientist Walter Bishop and his scheming, reluctant son Peter uncover a deadly mystery involving a series of unbelievable events and realize they may be a part of a larger, more disturbing pattern that blurs the line between science fiction and technology.",
+  "tags": [
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 1893,
+      "slug": "mad-scientist",
+      "name": "Mad scientist",
+      "film_count": 2346
+    },
+    {
+      "id": 14540,
+      "slug": "parallel-universe",
+      "name": "Parallel universe",
+      "film_count": 1470
+    },
+    {
+      "id": 10827,
+      "slug": "alternate-dimension",
+      "name": "Alternate dimension",
+      "film_count": 297
+    },
+    {
+      "id": 2543,
+      "slug": "time-travel",
+      "name": "Time travel",
+      "film_count": 2840
+    },
+    {
+      "id": 4956,
+      "slug": "fbi",
+      "name": "Fbi",
+      "film_count": 1273
+    },
+    {
+      "id": 135,
+      "slug": "top-secret",
+      "name": "Top secret",
+      "film_count": 420
+    },
+    {
+      "id": 22077,
+      "slug": "surreal",
+      "name": "Surreal",
+      "film_count": 6671
+    },
+    {
+      "id": 123691,
+      "slug": "mysterious-place",
+      "name": "Mysterious place",
+      "film_count": 195
+    },
+    {
+      "id": 4578,
+      "slug": "scheme",
+      "name": "Scheme",
+      "film_count": 781
+    },
+    {
+      "id": 497,
+      "slug": "corporation",
+      "name": "Corporation",
+      "film_count": 641
+    },
+    {
+      "id": 89,
+      "slug": "doctor",
+      "name": "Doctor",
+      "film_count": 6165
+    },
+    {
+      "id": 28264,
+      "slug": "federal-bureau-of-investigation",
+      "name": "Federal bureau of investigation",
+      "film_count": 178
+    },
+    {
+      "id": 2170,
+      "slug": "usa",
+      "name": "Usa",
+      "film_count": 14812
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "serious",
+      "suspenseful",
+      "scary",
+      "surreal",
+      "thrilling",
+      "exciting",
+      "psychological thriller",
+      "inspirational",
+      "philosophical",
+      "atmospheric"
+    ],
+    "audience": [
+      "boys' night",
+      "teens"
+    ],
+    "plot": [
+      "supernatural",
+      "investigation",
+      "mad scientist",
+      "parallel universe",
+      "alternate dimension",
+      "time travel",
+      "fbi",
+      "top secret",
+      "alternate reality",
+      "experiment",
+      "danger",
+      "paranormal activity",
+      "research",
+      "peril",
+      "alternate universe",
+      "government facility",
+      "creature",
+      "scientist",
+      "coworker",
+      "father son relationship",
+      "disappearance",
+      "mission",
+      "laboratory",
+      "mysterious place",
+      "scheme"
+    ],
+    "time": [
+      "2000s",
+      "future",
+      "near future",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "boston",
+      "massachusetts",
+      "harvard university",
+      "canada"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26924,
+      "slug": "haven",
+      "title": "Haven",
+      "year": 2010,
+      "rank": 0
+    },
+    {
+      "id": 25895,
+      "slug": "the-x-files",
+      "title": "The X-Files",
+      "year": 1993,
+      "rank": 1
+    },
+    {
+      "id": 27064,
+      "slug": "warehouse-13",
+      "title": "Warehouse 13",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 12937,
+      "slug": "eureka",
+      "title": "Eureka",
+      "year": 2006,
+      "rank": 3
+    },
+    {
+      "id": 58258,
+      "slug": "dark",
+      "title": "Dark",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 24282,
+      "slug": "touch",
+      "title": "Touch",
+      "year": 2012,
+      "rank": 5
+    },
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 6
+    },
+    {
+      "id": 27133,
+      "slug": "orphan-black",
+      "title": "Orphan Black",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 56897,
+      "slug": "the-lost-room",
+      "title": "The Lost Room",
+      "year": 2006,
+      "rank": 8
+    },
+    {
+      "id": 6147,
+      "slug": "sanctuary",
+      "title": "Sanctuary",
+      "year": 2008,
+      "rank": 9
+    },
+    {
+      "id": 4530,
+      "slug": "sleepy-hollow",
+      "title": "Sleepy Hollow",
+      "year": 2013,
+      "rank": 10
+    },
+    {
+      "id": 27012,
+      "slug": "continuum",
+      "title": "Continuum",
+      "year": 2012,
+      "rank": 11
+    },
+    {
+      "id": 24601,
+      "slug": "the-twilight-zone",
+      "title": "The Twilight Zone",
+      "year": 2002,
+      "rank": 12
+    },
+    {
+      "id": 3156,
+      "slug": "person-of-interest",
+      "title": "Person of Interest",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 30533,
+      "slug": "the-4400",
+      "title": "The 4400",
+      "year": 2004,
+      "rank": 14
+    },
+    {
+      "id": 6159,
+      "slug": "sense8",
+      "title": "Sense8",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 13510,
+      "slug": "flashforward",
+      "title": "Flashforward",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 63705,
+      "slug": "the-twilight-zone",
+      "title": "The Twilight Zone",
+      "year": 1985,
+      "rank": 17
+    },
+    {
+      "id": 16961,
+      "slug": "the-langoliers",
+      "title": "The Langoliers",
+      "year": 1995,
+      "rank": 18
+    },
+    {
+      "id": 65171,
+      "slug": "project-blue-book",
+      "title": "Project Blue Book",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 60789,
+      "slug": "the-oa",
+      "title": "The OA",
+      "year": 2016,
+      "rank": 20
+    },
+    {
+      "id": 26937,
+      "slug": "dollhouse",
+      "title": "Dollhouse",
+      "year": 2009,
+      "rank": 21
+    },
+    {
+      "id": 26645,
+      "slug": "torchwood",
+      "title": "Torchwood",
+      "year": 2006,
+      "rank": 22
+    },
+    {
+      "id": 24061,
+      "slug": "threshold",
+      "title": "Threshold",
+      "year": 2005,
+      "rank": 23
+    },
+    {
+      "id": 13321,
+      "slug": "under-the-dome",
+      "title": "Under the Dome",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 15013,
+      "slug": "heroes",
+      "title": "Heroes",
+      "year": 2006,
+      "rank": 25
+    },
+    {
+      "id": 2798,
+      "slug": "psi-factor-chronicles-of-the-paranormal",
+      "title": "PSI Factor: Chronicles of the Paranormal",
+      "year": 1996,
+      "rank": 26
+    },
+    {
+      "id": 18395,
+      "slug": "millennium",
+      "title": "Millennium",
+      "year": 1996,
+      "rank": 27
+    },
+    {
+      "id": 17523,
+      "slug": "lost",
+      "title": "Lost",
+      "year": 2004,
+      "rank": 28
+    },
+    {
+      "id": 30261,
+      "slug": "the-outer-limits",
+      "title": "The Outer Limits",
+      "year": 1963,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919146
+}

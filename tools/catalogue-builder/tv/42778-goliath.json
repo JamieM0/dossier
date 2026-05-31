@@ -1,0 +1,380 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/42778-goliath",
+  "id": 42778,
+  "slug": "goliath",
+  "title": "Goliath",
+  "year": 2016,
+  "rating": 8.1,
+  "votes_text": "63K",
+  "votes": 63000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/1f/42778.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Once a powerful lawyer, Billy McBride is now burned out and washed up, spending more time in a bar than a courtroom. When he reluctantly agrees to pursue a wrongful death lawsuit against the biggest client of Cooperman &amp; McBride, the massive law firm he helped create, Billy and his ragtag team uncover a vast and deadly conspiracy, pitting them all in a life or death trial against the ultimate Goliath.",
+  "tags": [
+    {
+      "id": 499,
+      "slug": "lawyer",
+      "name": "Lawyer",
+      "film_count": 3905
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 8581,
+      "slug": "power",
+      "name": "Power",
+      "film_count": 1831
+    },
+    {
+      "id": 1153,
+      "slug": "legal",
+      "name": "Legal",
+      "film_count": 1656
+    },
+    {
+      "id": 426,
+      "slug": "father-daughter-relationship",
+      "name": "Father daughter relationship",
+      "film_count": 9778
+    },
+    {
+      "id": 7858,
+      "slug": "law-firm",
+      "name": "Law firm",
+      "film_count": 310
+    },
+    {
+      "id": 4395,
+      "slug": "ex-husband-ex-wife-relationship",
+      "name": "Ex husband ex wife relationship",
+      "film_count": 1267
+    },
+    {
+      "id": 6503,
+      "slug": "civil-rights",
+      "name": "Civil rights",
+      "film_count": 525
+    },
+    {
+      "id": 1693,
+      "slug": "2010s",
+      "name": "2010s",
+      "film_count": 6370
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    },
+    {
+      "id": 9808,
+      "slug": "finance",
+      "name": "Finance",
+      "film_count": 295
+    },
+    {
+      "id": 21587,
+      "slug": "gentleman",
+      "name": "Gentleman",
+      "film_count": 89
+    },
+    {
+      "id": 22384,
+      "slug": "court-case",
+      "name": "Court case",
+      "film_count": 324
+    },
+    {
+      "id": 10813,
+      "slug": "nypd",
+      "name": "Nypd",
+      "film_count": 671
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "suspenseful",
+      "rough",
+      "suspense",
+      "disturbing",
+      "serious",
+      "crime thriller",
+      "f word"
+    ],
+    "plot": [
+      "lawyer",
+      "investigation",
+      "murder",
+      "power",
+      "legal",
+      "father daughter relationship",
+      "law firm",
+      "ex husband ex wife relationship",
+      "name calling",
+      "female lawyer",
+      "lawyer client relationship",
+      "politics",
+      "honest",
+      "twists and turns",
+      "revenge",
+      "misfit",
+      "destiny",
+      "law enforcement",
+      "social relations",
+      "civil rights",
+      "police",
+      "finance",
+      "gentleman",
+      "court case",
+      "nypd"
+    ],
+    "time": [
+      "2010s",
+      "future",
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "santa monica california"
+    ]
+  },
+  "similar": [
+    {
+      "id": 9846,
+      "slug": "boston-legal",
+      "title": "Boston Legal",
+      "year": 2004,
+      "rank": 0
+    },
+    {
+      "id": 4887,
+      "slug": "the-escape-artist",
+      "title": "The Escape Artist",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 66463,
+      "slug": "our-boys",
+      "title": "Our Boys",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 77788,
+      "slug": "aber-bergen",
+      "title": "Aber Bergen",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 67646,
+      "slug": "pearson",
+      "title": "Pearson",
+      "year": 2019,
+      "rank": 4
+    },
+    {
+      "id": 61001,
+      "slug": "silver-spoon",
+      "title": "Silver Spoon",
+      "year": 2014,
+      "rank": 5
+    },
+    {
+      "id": 68127,
+      "slug": "perry-mason",
+      "title": "Perry Mason",
+      "year": 2020,
+      "rank": 6
+    },
+    {
+      "id": 57868,
+      "slug": "billions",
+      "title": "Billions",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 28588,
+      "slug": "bosch",
+      "title": "Bosch",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 70967,
+      "slug": "bluff-city-law",
+      "title": "Bluff City Law",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 91613,
+      "slug": "delilah",
+      "title": "Delilah",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 3275,
+      "slug": "justice",
+      "title": "Justice",
+      "year": 2006,
+      "rank": 11
+    },
+    {
+      "id": 30511,
+      "slug": "the-practice",
+      "title": "The Practice",
+      "year": 1997,
+      "rank": 12
+    },
+    {
+      "id": 62000,
+      "slug": "raising-the-bar",
+      "title": "Raising the Bar",
+      "year": 2008,
+      "rank": 13
+    },
+    {
+      "id": 66061,
+      "slug": "burden-of-truth",
+      "title": "Burden of Truth",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 43230,
+      "slug": "da-vincis-city-hall",
+      "title": "Da Vinci's City Hall",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 56176,
+      "slug": "a-married-man",
+      "title": "A Married Man",
+      "year": 1983,
+      "rank": 16
+    },
+    {
+      "id": 82948,
+      "slug": "girls-club",
+      "title": "Girls Club",
+      "year": 2002,
+      "rank": 17
+    },
+    {
+      "id": 66923,
+      "slug": "tommy",
+      "title": "Tommy",
+      "year": 2020,
+      "rank": 18
+    },
+    {
+      "id": 35135,
+      "slug": "sweet-justice",
+      "title": "Sweet Justice",
+      "year": 1994,
+      "rank": 19
+    },
+    {
+      "id": 76631,
+      "slug": "the-jury",
+      "title": "The Jury",
+      "year": 2004,
+      "rank": 20
+    },
+    {
+      "id": 82834,
+      "slug": "justice",
+      "title": "Justice",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 30509,
+      "slug": "l-a-law",
+      "title": "L.A. Law",
+      "year": 1986,
+      "rank": 22
+    },
+    {
+      "id": 82958,
+      "slug": "the-lyons-den",
+      "title": "The Lyon's Den",
+      "year": 2003,
+      "rank": 23
+    },
+    {
+      "id": 70018,
+      "slug": "canterburys-law",
+      "title": "Canterbury's Law",
+      "year": 2008,
+      "rank": 24
+    },
+    {
+      "id": 91391,
+      "slug": "neighborhood-lawyer-jo-deul-ho",
+      "title": "Neighborhood Lawyer Jo Deul-ho",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 72318,
+      "slug": "for-the-people",
+      "title": "For The People",
+      "year": 2018,
+      "rank": 26
+    },
+    {
+      "id": 1203,
+      "slug": "philly",
+      "title": "Philly",
+      "year": 2001,
+      "rank": 27
+    },
+    {
+      "id": 71484,
+      "slug": "doubt",
+      "title": "Doubt",
+      "year": 2017,
+      "rank": 28
+    },
+    {
+      "id": 94499,
+      "slug": "for-the-people",
+      "title": "For the People",
+      "year": 2002,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919160
+}

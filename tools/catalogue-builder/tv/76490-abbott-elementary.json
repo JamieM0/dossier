@@ -1,0 +1,378 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/76490-abbott-elementary",
+  "id": 76490,
+  "slug": "abbott-elementary",
+  "title": "Abbott Elementary",
+  "year": 2021,
+  "rating": 8.2,
+  "votes_text": "51K",
+  "votes": 51000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/59/76490.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "In this workplace comedy, a group of dedicated, passionate teachers — and a slightly tone-deaf principal — are brought together in a Philadelphia public school where, despite the odds stacked against them, they are determined to help their students succeed in life. Though these incredible public servants may be outnumbered and underfunded, they love what they do — even if they don’t love the school district’s less-than-stellar attitude toward educating children.",
+  "tags": [
+    {
+      "id": 6,
+      "slug": "school",
+      "name": "School",
+      "film_count": 7178
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 5415,
+      "slug": "public-school",
+      "name": "Public school",
+      "film_count": 47
+    },
+    {
+      "id": 124250,
+      "slug": "satirical",
+      "name": "Satirical",
+      "film_count": 8467
+    },
+    {
+      "id": 42124,
+      "slug": "black",
+      "name": "Black",
+      "film_count": 2201
+    },
+    {
+      "id": 122,
+      "slug": "teacher",
+      "name": "Teacher",
+      "film_count": 4363
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 5416,
+      "slug": "elementary-school",
+      "name": "Elementary school",
+      "film_count": 485
+    },
+    {
+      "id": 37158,
+      "slug": "philadelphia",
+      "name": "Philadelphia",
+      "film_count": 326
+    },
+    {
+      "id": 2056,
+      "slug": "gay-couple",
+      "name": "Gay couple",
+      "film_count": 1317
+    },
+    {
+      "id": 194,
+      "slug": "friend",
+      "name": "Friend",
+      "film_count": 7965
+    },
+    {
+      "id": 2193,
+      "slug": "mockumentary",
+      "name": "Mockumentary",
+      "film_count": 1254
+    },
+    {
+      "id": 138892,
+      "slug": "thoughtful",
+      "name": "Thoughtful",
+      "film_count": 727
+    },
+    {
+      "id": 15,
+      "slug": "student",
+      "name": "Student",
+      "film_count": 3934
+    },
+    {
+      "id": 2828,
+      "slug": "profanity",
+      "name": "Profanity",
+      "film_count": 5809
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "satirical",
+      "feel good",
+      "humorous",
+      "captivating",
+      "entertaining",
+      "semi serious",
+      "mockumentary",
+      "hilarious"
+    ],
+    "plot": [
+      "school",
+      "satire",
+      "public school",
+      "black",
+      "teacher",
+      "workplace",
+      "lgbt",
+      "coworker",
+      "slice of life",
+      "gay",
+      "african american",
+      "female protagonist",
+      "black american",
+      "women",
+      "friends",
+      "black cast",
+      "parents",
+      "humour",
+      "elementary school",
+      "gay couple",
+      "friend",
+      "thoughtful",
+      "student",
+      "profanity",
+      "female teacher"
+    ],
+    "time": [
+      "2020s"
+    ],
+    "place": [
+      "philadelphia",
+      "pennsylvania"
+    ]
+  },
+  "similar": [
+    {
+      "id": 76755,
+      "slug": "the-carmichael-show",
+      "title": "The Carmichael Show",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 63839,
+      "slug": "teachers",
+      "title": "Teachers",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 98033,
+      "slug": "english-teacher",
+      "title": "English Teacher",
+      "year": 2024,
+      "rank": 2
+    },
+    {
+      "id": 91239,
+      "slug": "under-new-management",
+      "title": "Under New Management",
+      "year": 2004,
+      "rank": 3
+    },
+    {
+      "id": 80641,
+      "slug": "resident-advisors",
+      "title": "Resident Advisors",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 80937,
+      "slug": "night-court",
+      "title": "Night Court",
+      "year": 2023,
+      "rank": 5
+    },
+    {
+      "id": 90364,
+      "slug": "borges",
+      "title": "Borges",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 76579,
+      "slug": "grand-crew",
+      "title": "Grand Crew",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 28487,
+      "slug": "cedric-the-entertainer-presents",
+      "title": "Cedric the Entertainer Presents",
+      "year": 2002,
+      "rank": 8
+    },
+    {
+      "id": 96618,
+      "slug": "educators",
+      "title": "Educators",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 75214,
+      "slug": "the-upshaws",
+      "title": "The Upshaws",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 82951,
+      "slug": "leap-of-faith",
+      "title": "Leap of Faith",
+      "year": 2002,
+      "rank": 11
+    },
+    {
+      "id": 81436,
+      "slug": "south-side",
+      "title": "South Side",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 88177,
+      "slug": "fictitious-ol-diary",
+      "title": "Fictitious OL Diary",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 86979,
+      "slug": "luis",
+      "title": "Luis",
+      "year": 2003,
+      "rank": 14
+    },
+    {
+      "id": 82123,
+      "slug": "animal-control",
+      "title": "Animal Control",
+      "year": 2023,
+      "rank": 15
+    },
+    {
+      "id": 75363,
+      "slug": "harlem",
+      "title": "Harlem",
+      "year": 2021,
+      "rank": 16
+    },
+    {
+      "id": 74975,
+      "slug": "a-black-lady-sketch-show",
+      "title": "A Black Lady Sketch Show",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 87700,
+      "slug": "the-paynes",
+      "title": "The Paynes",
+      "year": 2018,
+      "rank": 18
+    },
+    {
+      "id": 87660,
+      "slug": "teachers",
+      "title": "Teachers",
+      "year": 2012,
+      "rank": 19
+    },
+    {
+      "id": 74365,
+      "slug": "kenan",
+      "title": "Kenan",
+      "year": 2021,
+      "rank": 20
+    },
+    {
+      "id": 88992,
+      "slug": "hullraisers",
+      "title": "Hullraisers",
+      "year": 2022,
+      "rank": 21
+    },
+    {
+      "id": 57989,
+      "slug": "lady-dynamite",
+      "title": "Lady Dynamite",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 91531,
+      "slug": "little-grand-hotel",
+      "title": "Little Grand Hotel",
+      "year": 2019,
+      "rank": 23
+    },
+    {
+      "id": 74486,
+      "slug": "still-game",
+      "title": "Still Game",
+      "year": 2002,
+      "rank": 24
+    },
+    {
+      "id": 74467,
+      "slug": "detroiters",
+      "title": "Detroiters",
+      "year": 2017,
+      "rank": 25
+    },
+    {
+      "id": 78209,
+      "slug": "abbys",
+      "title": "Abby's",
+      "year": 2019,
+      "rank": 26
+    },
+    {
+      "id": 76835,
+      "slug": "fragile-sex",
+      "title": "Fragile Sex",
+      "year": 2003,
+      "rank": 27
+    },
+    {
+      "id": 95172,
+      "slug": "sit-down-shut-up",
+      "title": "Sit Down, Shut Up",
+      "year": 2000,
+      "rank": 28
+    },
+    {
+      "id": 76782,
+      "slug": "work-matters",
+      "title": "Work Matters",
+      "year": 2012,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919184
+}

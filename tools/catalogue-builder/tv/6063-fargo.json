@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/6063-fargo",
+  "id": 6063,
+  "slug": "fargo",
+  "title": "Fargo",
+  "year": 2014,
+  "rating": 8.8,
+  "votes_text": "464K",
+  "votes": 464000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/bc/6063.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "A close-knit anthology series dealing with stories involving malice, violence and murder based in and around Minnesota.",
+  "tags": [
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    },
+    {
+      "id": 1273,
+      "slug": "neo-noir",
+      "name": "Neo noir",
+      "film_count": 4908
+    },
+    {
+      "id": 1225,
+      "slug": "psychopath",
+      "name": "Psychopath",
+      "film_count": 5358
+    },
+    {
+      "id": 22722,
+      "slug": "law-enforcement",
+      "name": "Law enforcement",
+      "film_count": 5363
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 3042,
+      "slug": "police-investigation",
+      "name": "Police investigation",
+      "film_count": 8669
+    },
+    {
+      "id": 5344,
+      "slug": "crime-gone-awry",
+      "name": "Crime gone awry",
+      "film_count": 2833
+    },
+    {
+      "id": 35751,
+      "slug": "dishonesty",
+      "name": "Dishonesty",
+      "film_count": 8408
+    },
+    {
+      "id": 123875,
+      "slug": "cynical",
+      "name": "Cynical",
+      "film_count": 2307
+    },
+    {
+      "id": 1566,
+      "slug": "based-on-true-story",
+      "name": "Based on true story",
+      "film_count": 8531
+    },
+    {
+      "id": 35858,
+      "slug": "psychological-thriller",
+      "name": "Psychological thriller",
+      "film_count": 6685
+    },
+    {
+      "id": 17359,
+      "slug": "north-dakota",
+      "name": "North dakota",
+      "film_count": 43
+    },
+    {
+      "id": 33110,
+      "slug": "gory",
+      "name": "Gory",
+      "film_count": 4331
+    },
+    {
+      "id": 6379,
+      "slug": "shooting",
+      "name": "Shooting",
+      "film_count": 3446
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "atmospheric",
+      "neo noir",
+      "captivating",
+      "detective",
+      "anthology",
+      "clever",
+      "dark comedy",
+      "witty",
+      "offbeat",
+      "cynical"
+    ],
+    "plot": [
+      "dark humor",
+      "psychopath",
+      "law enforcement",
+      "small town",
+      "police investigation",
+      "cop",
+      "scheme",
+      "small town life",
+      "snow",
+      "killer",
+      "police officer",
+      "policewoman",
+      "female police officer",
+      "social relations",
+      "crime gone awry",
+      "dishonesty",
+      "gory",
+      "shooting",
+      "blackmail",
+      "victim",
+      "gangster",
+      "family relations",
+      "twists and turns",
+      "multiple storylines",
+      "serial killer"
+    ],
+    "time": [
+      "2010s",
+      "year 1979",
+      "20th century",
+      "2020s",
+      "year 2006",
+      "1950s",
+      "future"
+    ],
+    "place": [
+      "minnesota",
+      "north dakota",
+      "east germany",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 13194,
+      "slug": "fargo",
+      "title": "Fargo",
+      "year": 1996,
+      "rank": 0
+    },
+    {
+      "id": 22576,
+      "slug": "a-simple-plan",
+      "title": "A Simple Plan",
+      "year": 1998,
+      "rank": 1
+    },
+    {
+      "id": 19358,
+      "slug": "no-country-for-old-men",
+      "title": "No Country for Old Men",
+      "year": 2007,
+      "rank": 2
+    },
+    {
+      "id": 7282,
+      "slug": "better-call-saul",
+      "title": "Better Call Saul",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 26925,
+      "slug": "the-wire",
+      "title": "The Wire",
+      "year": 2002,
+      "rank": 5
+    },
+    {
+      "id": 26292,
+      "slug": "breaking-bad",
+      "title": "Breaking Bad",
+      "year": 2008,
+      "rank": 6
+    },
+    {
+      "id": 27279,
+      "slug": "the-shield",
+      "title": "The Shield",
+      "year": 2002,
+      "rank": 7
+    },
+    {
+      "id": 60779,
+      "slug": "tin-star",
+      "title": "Tin Star",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 2052,
+      "slug": "the-bridge",
+      "title": "The Bridge",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 11826,
+      "slug": "deadwood",
+      "title": "Deadwood",
+      "year": 2004,
+      "rank": 10
+    },
+    {
+      "id": 17937,
+      "slug": "the-man-who-wasnt-there",
+      "title": "The Man Who Wasn't There",
+      "year": 2001,
+      "rank": 11
+    },
+    {
+      "id": 61578,
+      "slug": "ozark",
+      "title": "Ozark",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 24604,
+      "slug": "twin-peaks",
+      "title": "Twin Peaks",
+      "year": 1990,
+      "rank": 13
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 14
+    },
+    {
+      "id": 5109,
+      "slug": "banshee",
+      "title": "Banshee",
+      "year": 2013,
+      "rank": 15
+    },
+    {
+      "id": 57908,
+      "slug": "mindhunter",
+      "title": "Mindhunter",
+      "year": 2017,
+      "rank": 16
+    },
+    {
+      "id": 40767,
+      "slug": "twin-peaks",
+      "title": "Twin Peaks",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 18
+    },
+    {
+      "id": 989,
+      "slug": "prisoners",
+      "title": "Prisoners",
+      "year": 2013,
+      "rank": 19
+    },
+    {
+      "id": 27545,
+      "slug": "nightcrawler",
+      "title": "Nightcrawler",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 9602,
+      "slug": "blood-simple",
+      "title": "Blood Simple",
+      "year": 1984,
+      "rank": 21
+    },
+    {
+      "id": 19712,
+      "slug": "one-false-move",
+      "title": "One False Move",
+      "year": 1991,
+      "rank": 22
+    },
+    {
+      "id": 28587,
+      "slug": "happy-valley",
+      "title": "Happy Valley",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 7853,
+      "slug": "the-fall",
+      "title": "The Fall",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 40762,
+      "slug": "narcos",
+      "title": "Narcos",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 56664,
+      "slug": "the-bridge",
+      "title": "The Bridge",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 22956,
+      "slug": "the-sopranos",
+      "title": "The Sopranos",
+      "year": 1999,
+      "rank": 27
+    },
+    {
+      "id": 21154,
+      "slug": "red-rock-west",
+      "title": "Red Rock West",
+      "year": 1993,
+      "rank": 28
+    },
+    {
+      "id": 3507,
+      "slug": "longmire",
+      "title": "Longmire",
+      "year": 2012,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919135
+}

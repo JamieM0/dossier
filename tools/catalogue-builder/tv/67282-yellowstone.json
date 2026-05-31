@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/67282-yellowstone",
+  "id": 67282,
+  "slug": "yellowstone",
+  "title": "Yellowstone",
+  "year": 2018,
+  "rating": 8.6,
+  "votes_text": "302K",
+  "votes": 302000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/4a/67282.jpg",
+  "genres": [
+    "Drama",
+    "Western"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Follow the violent world of the Dutton family, who controls the largest contiguous ranch in the United States. Led by their patriarch John Dutton, the family defends their property against constant attack by land developers, an Indian reservation, and America’s first National Park.",
+  "tags": [
+    {
+      "id": 2612,
+      "slug": "ranch",
+      "name": "Ranch",
+      "film_count": 500
+    },
+    {
+      "id": 10383,
+      "slug": "family-business",
+      "name": "Family business",
+      "film_count": 1152
+    },
+    {
+      "id": 91568,
+      "slug": "sad",
+      "name": "Sad",
+      "film_count": 2642
+    },
+    {
+      "id": 436,
+      "slug": "death",
+      "name": "Death",
+      "film_count": 18858
+    },
+    {
+      "id": 562,
+      "slug": "violence",
+      "name": "Violence",
+      "film_count": 20112
+    },
+    {
+      "id": 71502,
+      "slug": "scenic",
+      "name": "Scenic",
+      "film_count": 1867
+    },
+    {
+      "id": 1760,
+      "slug": "cowboy",
+      "name": "Cowboy",
+      "film_count": 1185
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 6200,
+      "slug": "montana",
+      "name": "Montana",
+      "film_count": 202
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 2117,
+      "slug": "killing",
+      "name": "Killing",
+      "film_count": 3449
+    },
+    {
+      "id": 92805,
+      "slug": "rough",
+      "name": "Rough",
+      "film_count": 8898
+    },
+    {
+      "id": 123478,
+      "slug": "bleak",
+      "name": "Bleak",
+      "film_count": 11156
+    },
+    {
+      "id": 1502,
+      "slug": "sheriff",
+      "name": "Sheriff",
+      "film_count": 1642
+    },
+    {
+      "id": 506,
+      "slug": "boss",
+      "name": "Boss",
+      "film_count": 1342
+    },
+    {
+      "id": 6379,
+      "slug": "shooting",
+      "name": "Shooting",
+      "film_count": 3446
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sad",
+      "scenic",
+      "tense",
+      "suspense",
+      "neo western",
+      "sexy",
+      "suspenseful",
+      "atmospheric",
+      "captivating",
+      "rough"
+    ],
+    "plot": [
+      "ranch",
+      "family business",
+      "death",
+      "violence",
+      "cowboy",
+      "family relations",
+      "cattle ranch",
+      "rivalry",
+      "power struggle",
+      "society",
+      "old west",
+      "dishonesty",
+      "dishonor among criminals",
+      "gunfight",
+      "small town",
+      "killing",
+      "sheriff",
+      "boss",
+      "shooting",
+      "greed",
+      "lifestyle",
+      "racial slur",
+      "small town life",
+      "sex scene",
+      "father son relationship"
+    ],
+    "time": [
+      "19th century",
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "usa",
+      "montana",
+      "chicago",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 11826,
+      "slug": "deadwood",
+      "title": "Deadwood",
+      "year": 2004,
+      "rank": 0
+    },
+    {
+      "id": 24820,
+      "slug": "unforgiven",
+      "title": "Unforgiven",
+      "year": 1992,
+      "rank": 1
+    },
+    {
+      "id": 74822,
+      "slug": "1883",
+      "title": "1883",
+      "year": 2021,
+      "rank": 2
+    },
+    {
+      "id": 19768,
+      "slug": "open-range",
+      "title": "Open Range",
+      "year": 2003,
+      "rank": 3
+    },
+    {
+      "id": 65817,
+      "slug": "deadwood-the-movie",
+      "title": "Deadwood: The Movie",
+      "year": 2019,
+      "rank": 4
+    },
+    {
+      "id": 3507,
+      "slug": "longmire",
+      "title": "Longmire",
+      "year": 2012,
+      "rank": 5
+    },
+    {
+      "id": 79531,
+      "slug": "1923",
+      "title": "1923",
+      "year": 2022,
+      "rank": 6
+    },
+    {
+      "id": 1372,
+      "slug": "hell-on-wheels",
+      "title": "Hell on Wheels",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 88946,
+      "slug": "lawmen-bass-reeves",
+      "title": "Lawmen: Bass Reeves",
+      "year": 2023,
+      "rank": 8
+    },
+    {
+      "id": 10503,
+      "slug": "once-upon-a-time-in-the-west",
+      "title": "Once Upon a Time in the West",
+      "year": 1968,
+      "rank": 9
+    },
+    {
+      "id": 59801,
+      "slug": "godless",
+      "title": "Godless",
+      "year": 2017,
+      "rank": 10
+    },
+    {
+      "id": 7719,
+      "slug": "3-10-to-yuma",
+      "title": "3:10 to Yuma",
+      "year": 2007,
+      "rank": 11
+    },
+    {
+      "id": 65580,
+      "slug": "succession",
+      "title": "Succession",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 2084,
+      "slug": "hatfields-and-mccoys",
+      "title": "Hatfields & McCoys",
+      "year": 2012,
+      "rank": 13
+    },
+    {
+      "id": 66294,
+      "slug": "the-son",
+      "title": "The Son",
+      "year": 2017,
+      "rank": 14
+    },
+    {
+      "id": 15914,
+      "slug": "into-the-west",
+      "title": "Into the West",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 62846,
+      "slug": "comanche-moon",
+      "title": "Comanche Moon",
+      "year": 2008,
+      "rank": 16
+    },
+    {
+      "id": 76444,
+      "slug": "joe-pickett",
+      "title": "Joe Pickett",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 10093,
+      "slug": "buffalo-girls",
+      "title": "Buffalo Girls",
+      "year": 1995,
+      "rank": 18
+    },
+    {
+      "id": 7497,
+      "slug": "yuma",
+      "title": "Yuma",
+      "year": 1971,
+      "rank": 19
+    },
+    {
+      "id": 81804,
+      "slug": "the-english",
+      "title": "The English",
+      "year": 2022,
+      "rank": 20
+    },
+    {
+      "id": 66443,
+      "slug": "deputy",
+      "title": "Deputy",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 74983,
+      "slug": "once-upon-a-time-in-deadwood",
+      "title": "Once Upon a Time in Deadwood",
+      "year": 2019,
+      "rank": 22
+    },
+    {
+      "id": 108135,
+      "slug": "the-abandons",
+      "title": "The Abandons",
+      "year": 2025,
+      "rank": 23
+    },
+    {
+      "id": 42762,
+      "slug": "the-ranch",
+      "title": "The Ranch",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 59650,
+      "slug": "shane",
+      "title": "Shane",
+      "year": 1966,
+      "rank": 25
+    },
+    {
+      "id": 226,
+      "slug": "lonesome-dove-the-series",
+      "title": "Lonesome Dove: The Series",
+      "year": 1994,
+      "rank": 26
+    },
+    {
+      "id": 92540,
+      "slug": "western-world",
+      "title": "Western World",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 74426,
+      "slug": "wild-boys",
+      "title": "Wild Boys",
+      "year": 2011,
+      "rank": 28
+    },
+    {
+      "id": 24500,
+      "slug": "true-grit",
+      "title": "True Grit",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919176
+}

@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/67430-normal-people",
+  "id": 67430,
+  "slug": "normal-people",
+  "title": "Normal People",
+  "year": 2020,
+  "rating": 8.4,
+  "votes_text": "113K",
+  "votes": 113000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a0/67430.jpg",
+  "genres": [
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "Ireland",
+    "UK",
+    "USA"
+  ],
+  "duration_min": 28,
+  "story": "Marianne and Connell weave in and out of each other’s lives in this exploration of sex, power and the desire to love and be loved. Adaptation of Sally Rooney’s best-selling novel.",
+  "tags": [
+    {
+      "id": 14156,
+      "slug": "star-crossed-lovers",
+      "name": "Star crossed lovers",
+      "film_count": 668
+    },
+    {
+      "id": 19,
+      "slug": "university",
+      "name": "University",
+      "film_count": 1174
+    },
+    {
+      "id": 4637,
+      "slug": "ireland",
+      "name": "Ireland",
+      "film_count": 804
+    },
+    {
+      "id": 124165,
+      "slug": "love-story",
+      "name": "Love story",
+      "film_count": 8186
+    },
+    {
+      "id": 123975,
+      "slug": "affectionate",
+      "name": "Affectionate",
+      "film_count": 2082
+    },
+    {
+      "id": 3260,
+      "slug": "coming-of-age",
+      "name": "Coming of age",
+      "film_count": 16794
+    },
+    {
+      "id": 124248,
+      "slug": "romantic",
+      "name": "Romantic",
+      "film_count": 8409
+    },
+    {
+      "id": 33775,
+      "slug": "secret-relationship",
+      "name": "Secret relationship",
+      "film_count": 465
+    },
+    {
+      "id": 123419,
+      "slug": "couple-relations",
+      "name": "Couple relations",
+      "film_count": 11884
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 124243,
+      "slug": "relationships",
+      "name": "Relationships",
+      "film_count": 14254
+    },
+    {
+      "id": 123873,
+      "slug": "thought-provoking",
+      "name": "Thought provoking",
+      "film_count": 7187
+    },
+    {
+      "id": 22124,
+      "slug": "social",
+      "name": "Social",
+      "film_count": 1886
+    },
+    {
+      "id": 15776,
+      "slug": "feminist",
+      "name": "Feminist",
+      "film_count": 2194
+    },
+    {
+      "id": 17157,
+      "slug": "social-differences",
+      "name": "Social differences",
+      "film_count": 1758
+    },
+    {
+      "id": 133,
+      "slug": "college",
+      "name": "College",
+      "film_count": 3171
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "affectionate",
+      "romantic",
+      "romantic drama",
+      "touching",
+      "erotic",
+      "saga",
+      "sensual",
+      "heartfelt",
+      "psychological",
+      "thought provoking"
+    ],
+    "audience": [
+      "teen drama",
+      "adult"
+    ],
+    "plot": [
+      "star crossed lovers",
+      "university",
+      "love story",
+      "coming of age",
+      "secret relationship",
+      "school",
+      "sex scene",
+      "social misfits",
+      "sex",
+      "passion",
+      "intimacy",
+      "passionate love",
+      "enemies to lovers",
+      "couple relations",
+      "relationships",
+      "feminist",
+      "social differences",
+      "college",
+      "nude",
+      "small town",
+      "male protagonist",
+      "steamy romance",
+      "love",
+      "teenager",
+      "serial killer"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "ireland",
+      "dublin ireland",
+      "europe"
+    ]
+  },
+  "similar": [
+    {
+      "id": 19708,
+      "slug": "one-day",
+      "title": "One Day",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 10845,
+      "slug": "circle-of-friends",
+      "title": "Circle of Friends",
+      "year": 1995,
+      "rank": 1
+    },
+    {
+      "id": 95,
+      "slug": "tell-me-you-love-me",
+      "title": "Tell Me You Love Me",
+      "year": 2007,
+      "rank": 2
+    },
+    {
+      "id": 25323,
+      "slug": "a-walk-to-remember",
+      "title": "A Walk to Remember",
+      "year": 2002,
+      "rank": 3
+    },
+    {
+      "id": 64087,
+      "slug": "newness",
+      "title": "Newness",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 16524,
+      "slug": "keith",
+      "title": "Keith",
+      "year": 2008,
+      "rank": 5
+    },
+    {
+      "id": 79095,
+      "slug": "tell-me-lies",
+      "title": "Tell Me Lies",
+      "year": 2022,
+      "rank": 6
+    },
+    {
+      "id": 64857,
+      "slug": "five-feet-apart",
+      "title": "Five Feet Apart",
+      "year": 2019,
+      "rank": 7
+    },
+    {
+      "id": 26633,
+      "slug": "the-vow",
+      "title": "The Vow",
+      "year": 2012,
+      "rank": 8
+    },
+    {
+      "id": 68305,
+      "slug": "looking-for-alaska",
+      "title": "Looking for Alaska",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 68150,
+      "slug": "chemical-hearts",
+      "title": "Chemical Hearts",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 66641,
+      "slug": "all-the-bright-places",
+      "title": "All the Bright Places",
+      "year": 2020,
+      "rank": 11
+    },
+    {
+      "id": 76983,
+      "slug": "conversations-with-friends",
+      "title": "Conversations with Friends",
+      "year": 2022,
+      "rank": 12
+    },
+    {
+      "id": 77472,
+      "slug": "the-summer-i-turned-pretty",
+      "title": "The Summer I Turned Pretty",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 73184,
+      "slug": "young-royals",
+      "title": "Young Royals",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 76125,
+      "slug": "i-picked-up-a-celebrity-on-the-street",
+      "title": "I Picked Up a Star on the Road",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 69609,
+      "slug": "virgin-river",
+      "title": "Virgin River",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 77462,
+      "slug": "our-beloved-summer",
+      "title": "Our Beloved Summer",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 19465,
+      "slug": "the-notebook",
+      "title": "The Notebook",
+      "year": 2004,
+      "rank": 18
+    },
+    {
+      "id": 98057,
+      "slug": "the-eighth-sense",
+      "title": "The Eighth Sense",
+      "year": 2023,
+      "rank": 19
+    },
+    {
+      "id": 89411,
+      "slug": "hidden-love",
+      "title": "Hidden Love",
+      "year": 2023,
+      "rank": 20
+    },
+    {
+      "id": 27013,
+      "slug": "like-crazy",
+      "title": "Like Crazy",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 76770,
+      "slug": "red-scarf",
+      "title": "Red Scarf",
+      "year": 2011,
+      "rank": 22
+    },
+    {
+      "id": 89522,
+      "slug": "the-forbidden-flower",
+      "title": "The Forbidden Flower",
+      "year": 2023,
+      "rank": 23
+    },
+    {
+      "id": 106364,
+      "slug": "forever",
+      "title": "FOREVER",
+      "year": 2025,
+      "rank": 24
+    },
+    {
+      "id": 12805,
+      "slug": "endless-love",
+      "title": "Endless Love",
+      "year": 1981,
+      "rank": 25
+    },
+    {
+      "id": 97066,
+      "slug": "alice-and-jack",
+      "title": "Alice & Jack",
+      "year": 2023,
+      "rank": 26
+    },
+    {
+      "id": 70412,
+      "slug": "rush-to-the-dead-summer",
+      "title": "Rush to the Dead Summer",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 89262,
+      "slug": "dangerous-romance",
+      "title": "Dangerous Romance",
+      "year": 2023,
+      "rank": 28
+    },
+    {
+      "id": 68146,
+      "slug": "after-we-collided",
+      "title": "After We Collided",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919176
+}

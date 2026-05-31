@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26963-the-tudors",
+  "id": 26963,
+  "slug": "the-tudors",
+  "title": "The Tudors",
+  "year": 2007,
+  "rating": 8.1,
+  "votes_text": "86K",
+  "votes": 86000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/4f/26963.jpg",
+  "genres": [
+    "Drama",
+    "History",
+    "Romance",
+    "War"
+  ],
+  "country": [
+    "Ireland",
+    "Canada",
+    "USA",
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "The Tudors is a history-based drama series following the young, vibrant King Henry VIII, a competitive and lustful monarch who navigates the intrigues of the English court and the human heart with equal vigor and justifiable suspicion.",
+  "tags": [
+    {
+      "id": 191,
+      "slug": "england",
+      "name": "England",
+      "film_count": 4022
+    },
+    {
+      "id": 5510,
+      "slug": "intrigue",
+      "name": "Intrigue",
+      "film_count": 3046
+    },
+    {
+      "id": 134405,
+      "slug": "tudors",
+      "name": "Tudors",
+      "film_count": 91
+    },
+    {
+      "id": 197,
+      "slug": "queen",
+      "name": "Queen",
+      "film_count": 866
+    },
+    {
+      "id": 8724,
+      "slug": "power-struggle",
+      "name": "Power struggle",
+      "film_count": 2612
+    },
+    {
+      "id": 131655,
+      "slug": "historical-drama",
+      "name": "Historical drama",
+      "film_count": 3058
+    },
+    {
+      "id": 90075,
+      "slug": "historical-character",
+      "name": "Historical character",
+      "film_count": 392
+    },
+    {
+      "id": 37220,
+      "slug": "royal-family",
+      "name": "Royal family",
+      "film_count": 906
+    },
+    {
+      "id": 2278,
+      "slug": "sex-scene",
+      "name": "Sex scene",
+      "film_count": 9619
+    },
+    {
+      "id": 16201,
+      "slug": "aristocracy",
+      "name": "Aristocracy",
+      "film_count": 494
+    },
+    {
+      "id": 15200,
+      "slug": "society",
+      "name": "Society",
+      "film_count": 13923
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 29276,
+      "slug": "couples",
+      "name": "Couples",
+      "film_count": 15715
+    },
+    {
+      "id": 696,
+      "slug": "politics",
+      "name": "Politics",
+      "film_count": 5052
+    },
+    {
+      "id": 199,
+      "slug": "king-of-england",
+      "name": "King of england",
+      "film_count": 58
+    },
+    {
+      "id": 2298,
+      "slug": "womanizer",
+      "name": "Womanizer",
+      "film_count": 1325
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "historical drama",
+      "captivating",
+      "stylized",
+      "sexy",
+      "soap opera",
+      "sexual",
+      "costume drama",
+      "period piece",
+      "realistic",
+      "serious"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "intrigue",
+      "tudors",
+      "queen",
+      "power struggle",
+      "historical character",
+      "royal family",
+      "british history",
+      "king",
+      "royalty",
+      "heir",
+      "monarchy",
+      "british royal family",
+      "love triangle",
+      "monarch",
+      "couple relations",
+      "betrayal",
+      "royal court",
+      "throne",
+      "sex scene",
+      "aristocracy",
+      "society",
+      "couples",
+      "politics",
+      "king of england",
+      "womanizer"
+    ],
+    "time": [
+      "16th century",
+      "middle ages",
+      "ancient times",
+      "medieval times",
+      "1500s"
+    ],
+    "place": [
+      "england",
+      "britain",
+      "ireland",
+      "europe"
+    ]
+  },
+  "similar": [
+    {
+      "id": 729,
+      "slug": "the-white-queen",
+      "title": "The White Queen",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 12728,
+      "slug": "elizabeth",
+      "title": "Elizabeth",
+      "year": 1998,
+      "rank": 1
+    },
+    {
+      "id": 27266,
+      "slug": "the-borgias",
+      "title": "The Borgias",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 19858,
+      "slug": "the-other-boleyn-girl",
+      "title": "The Other Boleyn Girl",
+      "year": 2008,
+      "rank": 3
+    },
+    {
+      "id": 12730,
+      "slug": "elizabeth-the-golden-age",
+      "title": "Elizabeth: The Golden Age",
+      "year": 2007,
+      "rank": 4
+    },
+    {
+      "id": 57870,
+      "slug": "the-white-princess",
+      "title": "The White Princess",
+      "year": 2017,
+      "rank": 5
+    },
+    {
+      "id": 5344,
+      "slug": "reign",
+      "title": "Reign",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 35406,
+      "slug": "versailles",
+      "title": "Versailles",
+      "year": 2015,
+      "rank": 7
+    },
+    {
+      "id": 26964,
+      "slug": "the-pillars-of-the-earth",
+      "title": "The Pillars of the Earth",
+      "year": 2010,
+      "rank": 8
+    },
+    {
+      "id": 61338,
+      "slug": "mary-queen-of-scots",
+      "title": "Mary Queen of Scots",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 19308,
+      "slug": "wolf-hall",
+      "title": "Wolf Hall",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 25178,
+      "slug": "the-virgin-queen",
+      "title": "The Virgin Queen",
+      "year": 2005,
+      "rank": 11
+    },
+    {
+      "id": 8637,
+      "slug": "aristocrats",
+      "title": "Aristocrats",
+      "year": 1999,
+      "rank": 12
+    },
+    {
+      "id": 42781,
+      "slug": "medici-masters-of-florence",
+      "title": "Medici",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 26972,
+      "slug": "downton-abbey",
+      "title": "Downton Abbey",
+      "year": 2010,
+      "rank": 14
+    },
+    {
+      "id": 26469,
+      "slug": "a-royal-affair",
+      "title": "A Royal Affair",
+      "year": 2012,
+      "rank": 15
+    },
+    {
+      "id": 14984,
+      "slug": "henry-viii-and-his-six-wives",
+      "title": "Henry VIII and His Six Wives",
+      "year": 1972,
+      "rank": 16
+    },
+    {
+      "id": 65272,
+      "slug": "the-spanish-princess",
+      "title": "The Spanish Princess",
+      "year": 2019,
+      "rank": 17
+    },
+    {
+      "id": 42776,
+      "slug": "victoria",
+      "title": "Victoria",
+      "year": 2016,
+      "rank": 18
+    },
+    {
+      "id": 2867,
+      "slug": "borgia",
+      "title": "Borgia",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 202,
+      "slug": "vikings",
+      "title": "Vikings",
+      "year": 2013,
+      "rank": 20
+    },
+    {
+      "id": 1502,
+      "slug": "camelot",
+      "title": "Camelot",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 59970,
+      "slug": "magnificent-century",
+      "title": "The Magnificent Century",
+      "year": 2011,
+      "rank": 22
+    },
+    {
+      "id": 26240,
+      "slug": "game-of-thrones",
+      "title": "Game of Thrones",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 21564,
+      "slug": "rome",
+      "title": "Rome",
+      "year": 2005,
+      "rank": 24
+    },
+    {
+      "id": 26615,
+      "slug": "spartacus-war-of-the-damned",
+      "title": "Spartacus",
+      "year": 2010,
+      "rank": 25
+    },
+    {
+      "id": 1001,
+      "slug": "the-devils-whore",
+      "title": "The Devil's Whore",
+      "year": 2008,
+      "rank": 26
+    },
+    {
+      "id": 14983,
+      "slug": "henry-viii",
+      "title": "Henry VIII",
+      "year": 2003,
+      "rank": 27
+    },
+    {
+      "id": 18072,
+      "slug": "mary-queen-of-scots",
+      "title": "Mary, Queen of Scots",
+      "year": 1971,
+      "rank": 28
+    },
+    {
+      "id": 57091,
+      "slug": "isabel",
+      "title": "Isabel",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919150
+}

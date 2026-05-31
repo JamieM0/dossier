@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/59501-the-end-of-the-f-ing-world",
+  "id": 59501,
+  "slug": "the-end-of-the-f-ing-world",
+  "title": "The End of the F***ing World",
+  "year": 2017,
+  "rating": 8.0,
+  "votes_text": "244K",
+  "votes": 244000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/72/59501.jpg",
+  "genres": [
+    "Adventure",
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Romance",
+    "Thriller"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 25,
+  "story": "James is 17 and is pretty sure he is a psychopath. Alyssa, also 17, is the cool and moody new girl at school. The pair make a connection and she persuades him to embark on a darkly comedic road trip in search of her real father.",
+  "tags": [
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 24346,
+      "slug": "underage",
+      "name": "Underage",
+      "film_count": 45
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 5457,
+      "slug": "psycho",
+      "name": "Psycho",
+      "film_count": 1168
+    },
+    {
+      "id": 1220,
+      "slug": "road-trip",
+      "name": "Road trip",
+      "film_count": 3472
+    },
+    {
+      "id": 7691,
+      "slug": "teenage-love",
+      "name": "Teenage love",
+      "film_count": 1978
+    },
+    {
+      "id": 124243,
+      "slug": "relationships",
+      "name": "Relationships",
+      "film_count": 14254
+    },
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 10920,
+      "slug": "forbidden-love",
+      "name": "Forbidden love",
+      "film_count": 3096
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    },
+    {
+      "id": 14586,
+      "slug": "intimacy",
+      "name": "Intimacy",
+      "film_count": 708
+    },
+    {
+      "id": 20231,
+      "slug": "teen-rebel",
+      "name": "Teen rebel",
+      "film_count": 129
+    },
+    {
+      "id": 1315,
+      "slug": "teenage-girl",
+      "name": "Teenage girl",
+      "film_count": 7053
+    },
+    {
+      "id": 131263,
+      "slug": "male-female-relationship",
+      "name": "Male female relationship",
+      "film_count": 14063
+    },
+    {
+      "id": 1839,
+      "slug": "apocalypse",
+      "name": "Apocalypse",
+      "film_count": 3083
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tragicomedy",
+      "ironic",
+      "captivating",
+      "dark comedy",
+      "road movie",
+      "saga",
+      "exciting",
+      "sentimental",
+      "entertaining",
+      "sad"
+    ],
+    "audience": [
+      "teens",
+      "date night",
+      "teen drama"
+    ],
+    "plot": [
+      "teenager",
+      "underage",
+      "murder",
+      "psycho",
+      "road trip",
+      "teenage love",
+      "relationships",
+      "dark humor",
+      "love",
+      "psychopath",
+      "enemies to lovers",
+      "tragic love",
+      "love interest",
+      "boyfriend girlfriend relationship",
+      "search for father",
+      "coming of age",
+      "police investigation",
+      "serial killer",
+      "forbidden love",
+      "intimacy",
+      "teen rebel",
+      "teenage girl",
+      "male female relationship",
+      "apocalypse",
+      "superhero"
+    ],
+    "time": [
+      "2010s",
+      "21st century"
+    ],
+    "place": [
+      "united kingdom"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64620,
+      "slug": "sex-education",
+      "title": "Sex Education",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 41775,
+      "slug": "13-reasons-why",
+      "title": "13 Reasons Why",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 64629,
+      "slug": "wayne",
+      "title": "Wayne",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 59845,
+      "slug": "everything-sucks",
+      "title": "Everything Sucks!",
+      "year": 2018,
+      "rank": 3
+    },
+    {
+      "id": 65231,
+      "slug": "how-to-sell-drugs-online-fast",
+      "title": "How to Sell Drugs Online (Fast)",
+      "year": 2019,
+      "rank": 4
+    },
+    {
+      "id": 26350,
+      "slug": "its-kind-of-a-funny-story",
+      "title": "It's Kind of a Funny Story",
+      "year": 2010,
+      "rank": 5
+    },
+    {
+      "id": 61744,
+      "slug": "heathers",
+      "title": "Heathers",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 38538,
+      "slug": "american-honey",
+      "title": "American Honey",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 66966,
+      "slug": "crash-landing-on-you",
+      "title": "Crash Landing on You",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 64562,
+      "slug": "you",
+      "title": "YOU",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 68405,
+      "slug": "two-weeks-to-live",
+      "title": "Two Weeks to Live",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 68103,
+      "slug": "on-my-block",
+      "title": "On My Block",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 6615,
+      "slug": "adult-world",
+      "title": "Adult World",
+      "year": 2013,
+      "rank": 12
+    },
+    {
+      "id": 60774,
+      "slug": "atypical",
+      "title": "Atypical",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 64832,
+      "slug": "deadly-class",
+      "title": "Deadly Class",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 41817,
+      "slug": "shame",
+      "title": "Skam",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 26436,
+      "slug": "paper-towns",
+      "title": "Paper Towns",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 17
+    },
+    {
+      "id": 67966,
+      "slug": "love-victor",
+      "title": "Love, Victor",
+      "year": 2020,
+      "rank": 18
+    },
+    {
+      "id": 38446,
+      "slug": "the-space-between-us",
+      "title": "The Space Between Us",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 28357,
+      "slug": "my-mad-fat-diary",
+      "title": "My Mad Fat Diary",
+      "year": 2013,
+      "rank": 20
+    },
+    {
+      "id": 96719,
+      "slug": "my-comic-boyfriend",
+      "title": "My Comic Boyfriend",
+      "year": 2022,
+      "rank": 21
+    },
+    {
+      "id": 89337,
+      "slug": "love-addicts",
+      "title": "Love Addicts",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 85131,
+      "slug": "you-and-me",
+      "title": "You & Me",
+      "year": 2023,
+      "rank": 23
+    },
+    {
+      "id": 97044,
+      "slug": "everyone-loves-me",
+      "title": "Everyone Loves Me",
+      "year": 2024,
+      "rank": 24
+    },
+    {
+      "id": 83988,
+      "slug": "brothers-friend",
+      "title": "Anitomo",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 67430,
+      "slug": "normal-people",
+      "title": "Normal People",
+      "year": 2020,
+      "rank": 26
+    },
+    {
+      "id": 7853,
+      "slug": "the-fall",
+      "title": "The Fall",
+      "year": 2013,
+      "rank": 27
+    },
+    {
+      "id": 98531,
+      "slug": "shubharambh",
+      "title": "Shubharambh",
+      "year": 2019,
+      "rank": 28
+    },
+    {
+      "id": 91990,
+      "slug": "ao-haru-ride",
+      "title": "Ao Haru Ride",
+      "year": 2023,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919165
+}

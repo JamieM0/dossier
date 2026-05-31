@@ -1,0 +1,386 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/22028-scrubs",
+  "id": 22028,
+  "slug": "scrubs",
+  "title": "Scrubs",
+  "year": 2001,
+  "rating": 8.4,
+  "votes_text": "282K",
+  "votes": 282000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/48/22028.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 30,
+  "story": "In the unreal world of Sacred Heart Hospital, John \"J.D\" Dorian learns the ways of medicine, friendship and life.",
+  "tags": [
+    {
+      "id": 1455,
+      "slug": "hospital",
+      "name": "Hospital",
+      "film_count": 8344
+    },
+    {
+      "id": 8125,
+      "slug": "medical",
+      "name": "Medical",
+      "film_count": 1106
+    },
+    {
+      "id": 123422,
+      "slug": "doctors-and-patients",
+      "name": "Doctors and patients",
+      "film_count": 899
+    },
+    {
+      "id": 412,
+      "slug": "bromance",
+      "name": "Bromance",
+      "film_count": 983
+    },
+    {
+      "id": 29276,
+      "slug": "couples",
+      "name": "Couples",
+      "film_count": 15715
+    },
+    {
+      "id": 123486,
+      "slug": "witty",
+      "name": "Witty",
+      "film_count": 5204
+    },
+    {
+      "id": 89,
+      "slug": "doctor",
+      "name": "Doctor",
+      "film_count": 6165
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 123845,
+      "slug": "power-relations",
+      "name": "Power relations",
+      "film_count": 3484
+    },
+    {
+      "id": 123889,
+      "slug": "uptight-character",
+      "name": "Uptight character",
+      "film_count": 119
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 733,
+      "slug": "parody",
+      "name": "Parody",
+      "film_count": 4207
+    },
+    {
+      "id": 126467,
+      "slug": "mind-blowing",
+      "name": "Mind blowing",
+      "film_count": 1163
+    },
+    {
+      "id": 45403,
+      "slug": "feel-good",
+      "name": "Feel good",
+      "film_count": 17668
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 6311,
+      "slug": "physician",
+      "name": "Physician",
+      "film_count": 814
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "witty",
+      "humorous",
+      "medical drama",
+      "sincere",
+      "surreal",
+      "funny",
+      "parody",
+      "mind blowing",
+      "feel good"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "hospital",
+      "medical",
+      "doctors and patients",
+      "bromance",
+      "couples",
+      "doctor",
+      "workplace situations",
+      "workplace romance",
+      "friendship",
+      "friends",
+      "love and romance",
+      "workplace",
+      "medicine",
+      "roommate",
+      "mentor",
+      "verbal byplay",
+      "workplace problem",
+      "power relations",
+      "uptight character",
+      "physician",
+      "workplace humor",
+      "buddies",
+      "couple relations",
+      "friendship between men",
+      "narration"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "california"
+    ]
+  },
+  "similar": [
+    {
+      "id": 5097,
+      "slug": "royal-pains",
+      "title": "Royal Pains",
+      "year": 2009,
+      "rank": 0
+    },
+    {
+      "id": 30449,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2001,
+      "rank": 1
+    },
+    {
+      "id": 57883,
+      "slug": "dr-ken",
+      "title": "Dr. Ken",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 12845,
+      "slug": "entourage",
+      "title": "Entourage",
+      "year": 2004,
+      "rank": 3
+    },
+    {
+      "id": 27144,
+      "slug": "how-i-met-your-mother",
+      "title": "How I Met Your Mother",
+      "year": 2005,
+      "rank": 4
+    },
+    {
+      "id": 30052,
+      "slug": "green-wing",
+      "title": "Green Wing",
+      "year": 2004,
+      "rank": 5
+    },
+    {
+      "id": 12863,
+      "slug": "er",
+      "title": "ER",
+      "year": 1994,
+      "rank": 6
+    },
+    {
+      "id": 56462,
+      "slug": "interny",
+      "title": "Interns",
+      "year": 2010,
+      "rank": 7
+    },
+    {
+      "id": 1708,
+      "slug": "men-of-a-certain-age",
+      "title": "Men of a Certain Age",
+      "year": 2009,
+      "rank": 8
+    },
+    {
+      "id": 62026,
+      "slug": "sirens",
+      "title": "Sirens",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 65247,
+      "slug": "welcome-to-waikiki",
+      "title": "Welcome to Waikiki",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 73157,
+      "slug": "hacks",
+      "title": "Hacks",
+      "year": 2021,
+      "rank": 11
+    },
+    {
+      "id": 7,
+      "slug": "after-mash",
+      "title": "AfterMASH",
+      "year": 1983,
+      "rank": 12
+    },
+    {
+      "id": 3901,
+      "slug": "emily-owens-m-d",
+      "title": "Emily Owens M.D.",
+      "year": 2012,
+      "rank": 13
+    },
+    {
+      "id": 30438,
+      "slug": "st-elsewhere",
+      "title": "St. Elsewhere",
+      "year": 1982,
+      "rank": 14
+    },
+    {
+      "id": 62739,
+      "slug": "getting-on",
+      "title": "Getting On",
+      "year": 2013,
+      "rank": 15
+    },
+    {
+      "id": 26562,
+      "slug": "community",
+      "title": "Community",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 1204,
+      "slug": "childrens-hospital",
+      "title": "Childrens Hospital",
+      "year": 2008,
+      "rank": 17
+    },
+    {
+      "id": 30481,
+      "slug": "doogie-howser-m-d",
+      "title": "Doogie Howser, M.D.",
+      "year": 1989,
+      "rank": 18
+    },
+    {
+      "id": 30160,
+      "slug": "party-down",
+      "title": "Party Down",
+      "year": 2009,
+      "rank": 19
+    },
+    {
+      "id": 15347,
+      "slug": "house",
+      "title": "House",
+      "year": 2004,
+      "rank": 20
+    },
+    {
+      "id": 63655,
+      "slug": "offspring",
+      "title": "Offspring",
+      "year": 2010,
+      "rank": 21
+    },
+    {
+      "id": 28895,
+      "slug": "red-band-society",
+      "title": "Red Band Society",
+      "year": 2014,
+      "rank": 22
+    },
+    {
+      "id": 2143,
+      "slug": "private-practice",
+      "title": "Private Practice",
+      "year": 2007,
+      "rank": 23
+    },
+    {
+      "id": 30507,
+      "slug": "cheers",
+      "title": "Cheers",
+      "year": 1982,
+      "rank": 24
+    },
+    {
+      "id": 1233,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2005,
+      "rank": 25
+    },
+    {
+      "id": 62578,
+      "slug": "ground-floor",
+      "title": "Ground Floor",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 83722,
+      "slug": "familia-moderna",
+      "title": "Familia Moderna",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 5852,
+      "slug": "no-angels",
+      "title": "No Angels",
+      "year": 2004,
+      "rank": 28
+    },
+    {
+      "id": 30348,
+      "slug": "becker",
+      "title": "Becker",
+      "year": 1998,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919140
+}

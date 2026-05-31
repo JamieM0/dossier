@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26458-fear-the-walking-dead",
+  "id": 26458,
+  "slug": "fear-the-walking-dead",
+  "title": "Fear the Walking Dead",
+  "year": 2015,
+  "rating": 6.8,
+  "votes_text": "153K",
+  "votes": 153000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/86/26458.jpg",
+  "genres": [
+    "Drama",
+    "Horror",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 44,
+  "story": "What did the world look like as it was transforming into the horrifying apocalypse depicted in \"The Walking Dead\"? This spin-off set in Los Angeles, following new characters as they face the beginning of the end of the world, will answer that question.",
+  "tags": [
+    {
+      "id": 1600,
+      "slug": "zombie",
+      "name": "Zombie",
+      "film_count": 2688
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 1839,
+      "slug": "apocalypse",
+      "name": "Apocalypse",
+      "film_count": 3083
+    },
+    {
+      "id": 1768,
+      "slug": "zombie-apocalypse",
+      "name": "Zombie apocalypse",
+      "film_count": 516
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 15200,
+      "slug": "society",
+      "name": "Society",
+      "film_count": 13923
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 2699,
+      "slug": "chaos",
+      "name": "Chaos",
+      "film_count": 3060
+    },
+    {
+      "id": 5581,
+      "slug": "single-parent",
+      "name": "Single parent",
+      "film_count": 2410
+    },
+    {
+      "id": 123426,
+      "slug": "parents-and-children",
+      "name": "Parents and children",
+      "film_count": 8214
+    },
+    {
+      "id": 123493,
+      "slug": "los-angeles",
+      "name": "Los angeles",
+      "film_count": 3890
+    },
+    {
+      "id": 98122,
+      "slug": "apocalyptic",
+      "name": "Apocalyptic",
+      "film_count": 1629
+    },
+    {
+      "id": 1106,
+      "slug": "halloween",
+      "name": "Halloween",
+      "film_count": 1397
+    },
+    {
+      "id": 538,
+      "slug": "propaganda",
+      "name": "Propaganda",
+      "film_count": 1556
+    },
+    {
+      "id": 10731,
+      "slug": "dystopia",
+      "name": "Dystopia",
+      "film_count": 2376
+    },
+    {
+      "id": 1831,
+      "slug": "survival-horror",
+      "name": "Survival horror",
+      "film_count": 1467
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "suspenseful",
+      "surreal",
+      "captivating",
+      "apocalyptic",
+      "grindhouse",
+      "creepy",
+      "scary",
+      "bleak",
+      "serious"
+    ],
+    "audience": [
+      "boys' night",
+      "adult"
+    ],
+    "plot": [
+      "zombie",
+      "apocalypse",
+      "zombie apocalypse",
+      "danger",
+      "society",
+      "chaos",
+      "plague",
+      "post apocalypse",
+      "survival",
+      "post-apocalyptic future",
+      "family in danger",
+      "gory",
+      "walking dead",
+      "family relations",
+      "life is a bitch",
+      "social decay",
+      "virus",
+      "epidemic",
+      "infection",
+      "infected",
+      "single parent",
+      "parents and children",
+      "halloween",
+      "propaganda",
+      "dystopia"
+    ],
+    "time": [
+      "2010s",
+      "21st century"
+    ],
+    "place": [
+      "los angeles",
+      "california",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65,
+      "slug": "the-walking-dead",
+      "title": "The Walking Dead",
+      "year": 2010,
+      "rank": 0
+    },
+    {
+      "id": 7701,
+      "slug": "28-days-later",
+      "title": "28 Days Later",
+      "year": 2002,
+      "rank": 1
+    },
+    {
+      "id": 60632,
+      "slug": "z-nation",
+      "title": "Z Nation",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 67,
+      "slug": "dead-season",
+      "title": "Dead Season",
+      "year": 2012,
+      "rank": 3
+    },
+    {
+      "id": 75368,
+      "slug": "all-of-us-are-dead",
+      "title": "All of Us Are Dead",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 67940,
+      "slug": "the-walking-dead-world-beyond",
+      "title": "The Walking Dead: World Beyond",
+      "year": 2020,
+      "rank": 5
+    },
+    {
+      "id": 27450,
+      "slug": "remains",
+      "title": "Remains",
+      "year": 2011,
+      "rank": 6
+    },
+    {
+      "id": 3006,
+      "slug": "dead-set",
+      "title": "Dead Set",
+      "year": 2008,
+      "rank": 7
+    },
+    {
+      "id": 65866,
+      "slug": "black-summer",
+      "title": "Black Summer",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 64175,
+      "slug": "fear-the-walking-dead-flight-462",
+      "title": "Fear the Walking Dead: Flight 462",
+      "year": 2015,
+      "rank": 9
+    },
+    {
+      "id": 7702,
+      "slug": "28-weeks-later",
+      "title": "28 Weeks Later",
+      "year": 2007,
+      "rank": 10
+    },
+    {
+      "id": 344,
+      "slug": "world-war-z",
+      "title": "World War Z",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 34423,
+      "slug": "aftermath",
+      "title": "Aftermath",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 67599,
+      "slug": "the-rain",
+      "title": "The Rain",
+      "year": 2018,
+      "rank": 13
+    },
+    {
+      "id": 66075,
+      "slug": "v-wars",
+      "title": "V-Wars",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 77174,
+      "slug": "resident-evil",
+      "title": "Resident Evil",
+      "year": 2022,
+      "rank": 15
+    },
+    {
+      "id": 79325,
+      "slug": "the-last-of-us",
+      "title": "The Last of Us",
+      "year": 2023,
+      "rank": 16
+    },
+    {
+      "id": 66,
+      "slug": "extinction-the-g-m-o-chronicles",
+      "title": "Extinction: The G.M.O. Chronicles",
+      "year": 2011,
+      "rank": 17
+    },
+    {
+      "id": 61023,
+      "slug": "between",
+      "title": "Between",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 39638,
+      "slug": "a-capital-dos-mortos-2-mundo-morto",
+      "title": "A Capital dos Mortos 2: Mundo Morto",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 20902,
+      "slug": "quarantine",
+      "title": "Quarantine",
+      "year": 2008,
+      "rank": 20
+    },
+    {
+      "id": 15498,
+      "slug": "i-am-legend",
+      "title": "I Am Legend",
+      "year": 2007,
+      "rank": 21
+    },
+    {
+      "id": 73192,
+      "slug": "sweet-tooth",
+      "title": "Sweet Tooth",
+      "year": 2021,
+      "rank": 22
+    },
+    {
+      "id": 36878,
+      "slug": "you-me-and-the-apocalypse",
+      "title": "You, Me and the Apocalypse",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 60419,
+      "slug": "the-mist",
+      "title": "The Mist",
+      "year": 2017,
+      "rank": 24
+    },
+    {
+      "id": 42751,
+      "slug": "infected",
+      "title": "Infected",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 30171,
+      "slug": "survivors",
+      "title": "Survivors",
+      "year": 2008,
+      "rank": 26
+    },
+    {
+      "id": 16169,
+      "slug": "jeremiah",
+      "title": "Jeremiah",
+      "year": 2002,
+      "rank": 27
+    },
+    {
+      "id": 92038,
+      "slug": "survivors",
+      "title": "Survivors",
+      "year": 1975,
+      "rank": 28
+    },
+    {
+      "id": 1596,
+      "slug": "deadland",
+      "title": "Deadland",
+      "year": 2009,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919145
+}

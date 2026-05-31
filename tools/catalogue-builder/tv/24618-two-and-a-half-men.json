@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/24618-two-and-a-half-men",
+  "id": 24618,
+  "slug": "two-and-a-half-men",
+  "title": "Two and a Half Men",
+  "year": 2003,
+  "rating": 7.1,
+  "votes_text": "296K",
+  "votes": 296000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/ad/24618.jpg",
+  "genres": [
+    "Comedy",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "A hedonistic jingle writer's free-wheeling life comes to an abrupt halt when his brother and 10-year-old nephew move into his beach-front house.",
+  "tags": [
+    {
+      "id": 11375,
+      "slug": "beach-house",
+      "name": "Beach house",
+      "film_count": 309
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 18140,
+      "slug": "odd-couple",
+      "name": "Odd couple",
+      "film_count": 1010
+    },
+    {
+      "id": 1316,
+      "slug": "teenager",
+      "name": "Teenager",
+      "film_count": 12556
+    },
+    {
+      "id": 123868,
+      "slug": "silly-humor",
+      "name": "Silly humor",
+      "film_count": 2367
+    },
+    {
+      "id": 2298,
+      "slug": "womanizer",
+      "name": "Womanizer",
+      "film_count": 1325
+    },
+    {
+      "id": 11012,
+      "slug": "slacker",
+      "name": "Slacker",
+      "film_count": 593
+    },
+    {
+      "id": 196,
+      "slug": "divorce",
+      "name": "Divorce",
+      "film_count": 2924
+    },
+    {
+      "id": 29276,
+      "slug": "couples",
+      "name": "Couples",
+      "film_count": 15715
+    },
+    {
+      "id": 123889,
+      "slug": "uptight-character",
+      "name": "Uptight character",
+      "film_count": 119
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 422,
+      "slug": "friendship-between-men",
+      "name": "Friendship between men",
+      "film_count": 2991
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 12438,
+      "slug": "malibu-california",
+      "name": "Malibu california",
+      "film_count": 122
+    },
+    {
+      "id": 13248,
+      "slug": "libertine",
+      "name": "Libertine",
+      "film_count": 119
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "humorous",
+      "realistic",
+      "not serious",
+      "funny",
+      "buddy comedy",
+      "hilarious",
+      "situational comedy",
+      "exciting",
+      "intellectual"
+    ],
+    "audience": [
+      "teens",
+      "date night"
+    ],
+    "plot": [
+      "beach house",
+      "friends",
+      "odd couple",
+      "teenager",
+      "silly humor",
+      "womanizer",
+      "slacker",
+      "ex husband",
+      "parents and children",
+      "lifestyle",
+      "sibling relationship",
+      "family relations",
+      "family life",
+      "young kid",
+      "family problems",
+      "single parent",
+      "lifestyle change",
+      "eccentric family",
+      "immature",
+      "overbearing parent",
+      "casual sex",
+      "divorce",
+      "couples",
+      "uptight character",
+      "friendship between men"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "california",
+      "malibu california",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 30147,
+      "slug": "rules-of-engagement",
+      "title": "Rules of Engagement",
+      "year": 2007,
+      "rank": 0
+    },
+    {
+      "id": 3244,
+      "slug": "melissa-and-joey",
+      "title": "Melissa & Joey",
+      "year": 2010,
+      "rank": 1
+    },
+    {
+      "id": 1284,
+      "slug": "anger-management",
+      "title": "Anger Management",
+      "year": 2012,
+      "rank": 2
+    },
+    {
+      "id": 13794,
+      "slug": "friends",
+      "title": "Friends",
+      "year": 1994,
+      "rank": 3
+    },
+    {
+      "id": 62482,
+      "slug": "the-millers",
+      "title": "The Millers",
+      "year": 2013,
+      "rank": 4
+    },
+    {
+      "id": 9356,
+      "slug": "the-big-bang-theory",
+      "title": "The Big Bang Theory",
+      "year": 2007,
+      "rank": 5
+    },
+    {
+      "id": 5006,
+      "slug": "the-goldbergs",
+      "title": "The Goldbergs",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 30304,
+      "slug": "according-to-jim",
+      "title": "According to Jim",
+      "year": 2001,
+      "rank": 7
+    },
+    {
+      "id": 27144,
+      "slug": "how-i-met-your-mother",
+      "title": "How I Met Your Mother",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 60971,
+      "slug": "undateable",
+      "title": "Undateable",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 30506,
+      "slug": "seinfeld",
+      "title": "Seinfeld",
+      "year": 1989,
+      "rank": 10
+    },
+    {
+      "id": 30516,
+      "slug": "that-70s-show",
+      "title": "That '70s Show",
+      "year": 1998,
+      "rank": 11
+    },
+    {
+      "id": 3657,
+      "slug": "cougar-town",
+      "title": "Cougar Town",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 433,
+      "slug": "dont-trust-the-b-in-apartment-23",
+      "title": "Don't Trust the B---- in Apartment 23",
+      "year": 2012,
+      "rank": 13
+    },
+    {
+      "id": 5597,
+      "slug": "mom",
+      "title": "Mom",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 26561,
+      "slug": "its-always-sunny-in-philadelphia",
+      "title": "It's Always Sunny in Philadelphia",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 26547,
+      "slug": "modern-family",
+      "title": "Modern Family",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 3474,
+      "slug": "the-new-adventures-of-old-christine",
+      "title": "The New Adventures of Old Christine",
+      "year": 2006,
+      "rank": 17
+    },
+    {
+      "id": 30521,
+      "slug": "dharma-and-greg",
+      "title": "Dharma & Greg",
+      "year": 1997,
+      "rank": 18
+    },
+    {
+      "id": 2812,
+      "slug": "workaholics",
+      "title": "Workaholics",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 500,
+      "slug": "the-war-at-home",
+      "title": "The War at Home",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 29898,
+      "slug": "grace-under-fire",
+      "title": "Grace Under Fire",
+      "year": 1993,
+      "rank": 21
+    },
+    {
+      "id": 3656,
+      "slug": "mike-and-molly",
+      "title": "Mike & Molly",
+      "year": 2010,
+      "rank": 22
+    },
+    {
+      "id": 3644,
+      "slug": "happily-divorced",
+      "title": "Happily Divorced",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 29900,
+      "slug": "living-with-fran",
+      "title": "Living with Fran",
+      "year": 2005,
+      "rank": 24
+    },
+    {
+      "id": 27259,
+      "slug": "the-o-c",
+      "title": "The O.C.",
+      "year": 2003,
+      "rank": 25
+    },
+    {
+      "id": 30519,
+      "slug": "frasier",
+      "title": "Frasier",
+      "year": 1993,
+      "rank": 26
+    },
+    {
+      "id": 3803,
+      "slug": "yes-dear",
+      "title": "Yes, Dear",
+      "year": 2000,
+      "rank": 27
+    },
+    {
+      "id": 1908,
+      "slug": "suburgatory",
+      "title": "Suburgatory",
+      "year": 2011,
+      "rank": 28
+    },
+    {
+      "id": 60970,
+      "slug": "trophy-wife",
+      "title": "Trophy Wife",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919143
+}

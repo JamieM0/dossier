@@ -1,0 +1,397 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26369-american-horror-story",
+  "id": 26369,
+  "slug": "american-horror-story",
+  "title": "American Horror Story",
+  "year": 2011,
+  "rating": 7.9,
+  "votes_text": "361K",
+  "votes": 361000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/3c/26369.jpg",
+  "genres": [
+    "Drama",
+    "Horror",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "American Horror Story is an anthology horror drama series.",
+  "tags": [
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 11124,
+      "slug": "anthology",
+      "name": "Anthology",
+      "film_count": 1957
+    },
+    {
+      "id": 3943,
+      "slug": "witch",
+      "name": "Witch",
+      "film_count": 2159
+    },
+    {
+      "id": 1453,
+      "slug": "ghost",
+      "name": "Ghost",
+      "film_count": 5860
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 1738,
+      "slug": "haunted-house",
+      "name": "Haunted house",
+      "film_count": 1911
+    },
+    {
+      "id": 3871,
+      "slug": "serial-killer",
+      "name": "Serial killer",
+      "film_count": 7331
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 2884,
+      "slug": "nun",
+      "name": "Nun",
+      "film_count": 1304
+    },
+    {
+      "id": 2627,
+      "slug": "vampire",
+      "name": "Vampire",
+      "film_count": 1688
+    },
+    {
+      "id": 1163,
+      "slug": "estate",
+      "name": "Estate",
+      "film_count": 998
+    },
+    {
+      "id": 124307,
+      "slug": "unusual-plot-structure",
+      "name": "Unusual plot structure",
+      "film_count": 6123
+    },
+    {
+      "id": 43113,
+      "slug": "sexy",
+      "name": "Sexy",
+      "film_count": 9887
+    },
+    {
+      "id": 3731,
+      "slug": "paranormal-activity",
+      "name": "Paranormal activity",
+      "film_count": 751
+    },
+    {
+      "id": 10218,
+      "slug": "freakshow",
+      "name": "Freakshow",
+      "film_count": 88
+    },
+    {
+      "id": 123419,
+      "slug": "couple-relations",
+      "name": "Couple relations",
+      "film_count": 11884
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "anthology",
+      "psychological",
+      "tense",
+      "atmospheric",
+      "scary",
+      "captivating",
+      "unusual plot structure",
+      "sexy",
+      "bad ending",
+      "offbeat"
+    ],
+    "audience": [
+      "teens",
+      "teen drama"
+    ],
+    "plot": [
+      "supernatural",
+      "witch",
+      "ghost",
+      "danger",
+      "haunted house",
+      "serial killer",
+      "evil force",
+      "death",
+      "nightmare",
+      "insanity",
+      "mental institution",
+      "creature",
+      "witchcraft",
+      "murderer",
+      "doctors and patients",
+      "coven",
+      "evil",
+      "haunted by the past",
+      "nun",
+      "vampire",
+      "estate",
+      "paranormal activity",
+      "freakshow",
+      "couple relations",
+      "family in danger"
+    ],
+    "time": [
+      "80s",
+      "2000s",
+      "20th century",
+      "60s",
+      "year 2011",
+      "year 1952",
+      "year 1964"
+    ],
+    "place": [
+      "new orleans",
+      "los angeles",
+      "usa",
+      "massachusetts",
+      "florida",
+      "north carolina",
+      "louisiana"
+    ]
+  },
+  "similar": [
+    {
+      "id": 69898,
+      "slug": "american-horror-stories",
+      "title": "American Horror Stories",
+      "year": 2021,
+      "rank": 0
+    },
+    {
+      "id": 64240,
+      "slug": "the-haunting-of-hill-house",
+      "title": "The Haunting of Hill House",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 5767,
+      "slug": "penny-dreadful",
+      "title": "Penny Dreadful",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 13319,
+      "slug": "bates-motel",
+      "title": "Bates Motel",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 15855,
+      "slug": "insidious",
+      "title": "Insidious",
+      "year": 2010,
+      "rank": 4
+    },
+    {
+      "id": 64239,
+      "slug": "chilling-adventures-of-sabrina",
+      "title": "Chilling Adventures of Sabrina",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 19826,
+      "slug": "orphan",
+      "title": "Orphan",
+      "year": 2009,
+      "rank": 6
+    },
+    {
+      "id": 1860,
+      "slug": "666-park-avenue",
+      "title": "666 Park Avenue",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 36812,
+      "slug": "scream-queens",
+      "title": "Scream Queens",
+      "year": 2015,
+      "rank": 8
+    },
+    {
+      "id": 64182,
+      "slug": "channel-zero",
+      "title": "Channel Zero",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 30498,
+      "slug": "night-gallery",
+      "title": "Night Gallery",
+      "year": 1969,
+      "rank": 10
+    },
+    {
+      "id": 30116,
+      "slug": "dantes-cove",
+      "title": "Dante's Cove",
+      "year": 2004,
+      "rank": 11
+    },
+    {
+      "id": 68791,
+      "slug": "the-haunting-of-bly-manor",
+      "title": "The Haunting of Bly Manor",
+      "year": 2020,
+      "rank": 12
+    },
+    {
+      "id": 21601,
+      "slug": "rosemarys-baby",
+      "title": "Rosemary's Baby",
+      "year": 1968,
+      "rank": 13
+    },
+    {
+      "id": 26485,
+      "slug": "true-blood",
+      "title": "True Blood",
+      "year": 2008,
+      "rank": 14
+    },
+    {
+      "id": 2159,
+      "slug": "the-presence",
+      "title": "The Presence",
+      "year": 2010,
+      "rank": 15
+    },
+    {
+      "id": 150,
+      "slug": "the-conjuring",
+      "title": "The Conjuring",
+      "year": 2013,
+      "rank": 16
+    },
+    {
+      "id": 542,
+      "slug": "hannibal",
+      "title": "Hannibal",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 8371,
+      "slug": "the-amityville-horror",
+      "title": "The Amityville Horror",
+      "year": 2005,
+      "rank": 18
+    },
+    {
+      "id": 64855,
+      "slug": "into-the-dark",
+      "title": "Into the Dark",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 5072,
+      "slug": "masters-of-horror",
+      "title": "Masters of Horror",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 25508,
+      "slug": "what-lies-beneath",
+      "title": "What Lies Beneath",
+      "year": 2000,
+      "rank": 21
+    },
+    {
+      "id": 19811,
+      "slug": "the-orphanage",
+      "title": "The Orphanage",
+      "year": 2007,
+      "rank": 22
+    },
+    {
+      "id": 145,
+      "slug": "sinister",
+      "title": "Sinister",
+      "year": 2012,
+      "rank": 23
+    },
+    {
+      "id": 13014,
+      "slug": "the-exorcism-of-emily-rose",
+      "title": "The Exorcism of Emily Rose",
+      "year": 2005,
+      "rank": 24
+    },
+    {
+      "id": 71305,
+      "slug": "them",
+      "title": "THEM",
+      "year": 2021,
+      "rank": 25
+    },
+    {
+      "id": 65842,
+      "slug": "the-twilight-zone",
+      "title": "The Twilight Zone",
+      "year": 2019,
+      "rank": 26
+    },
+    {
+      "id": 78495,
+      "slug": "dahmer-monster-the-jeffrey-dahmer-story",
+      "title": "Dahmer - Monster: The Jeffrey Dahmer Story",
+      "year": 2022,
+      "rank": 27
+    },
+    {
+      "id": 10410,
+      "slug": "case-39",
+      "title": "Case 39",
+      "year": 2009,
+      "rank": 28
+    },
+    {
+      "id": 16018,
+      "slug": "it",
+      "title": "It",
+      "year": 1990,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919145
+}

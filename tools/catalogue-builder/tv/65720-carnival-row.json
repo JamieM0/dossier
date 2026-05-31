@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/65720-carnival-row",
+  "id": 65720,
+  "slug": "carnival-row",
+  "title": "Carnival Row",
+  "year": 2019,
+  "rating": 7.7,
+  "votes_text": "88K",
+  "votes": 88000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/df/65720.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Fantasy",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 56,
+  "story": "In a mystical and dark city filled with humans, fairies and other creatures, a police detective investigates a series of gruesome murders leveled against the fairy population. During his investigation, the detective becomes the prime suspect and must find the real killer to clear his name.",
+  "tags": [
+    {
+      "id": 1871,
+      "slug": "mythical-creature",
+      "name": "Mythical creature",
+      "film_count": 579
+    },
+    {
+      "id": 11019,
+      "slug": "steampunk",
+      "name": "Steampunk",
+      "film_count": 497
+    },
+    {
+      "id": 35547,
+      "slug": "interspecies-romance",
+      "name": "Interspecies romance",
+      "film_count": 268
+    },
+    {
+      "id": 6898,
+      "slug": "dark-fantasy",
+      "name": "Dark fantasy",
+      "film_count": 2029
+    },
+    {
+      "id": 2297,
+      "slug": "victorian-era",
+      "name": "Victorian era",
+      "film_count": 1068
+    },
+    {
+      "id": 191,
+      "slug": "england",
+      "name": "England",
+      "film_count": 4022
+    },
+    {
+      "id": 2498,
+      "slug": "fairy",
+      "name": "Fairy",
+      "film_count": 681
+    },
+    {
+      "id": 10307,
+      "slug": "fantasy-world",
+      "name": "Fantasy world",
+      "film_count": 7231
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 2475,
+      "slug": "prejudice",
+      "name": "Prejudice",
+      "film_count": 2464
+    },
+    {
+      "id": 18753,
+      "slug": "political-oppression",
+      "name": "Political oppression",
+      "film_count": 107
+    },
+    {
+      "id": 3853,
+      "slug": "incest",
+      "name": "Incest",
+      "film_count": 1859
+    },
+    {
+      "id": 7915,
+      "slug": "manipulative-woman",
+      "name": "Manipulative woman",
+      "film_count": 495
+    },
+    {
+      "id": 35551,
+      "slug": "interspecies-sex",
+      "name": "Interspecies sex",
+      "film_count": 67
+    },
+    {
+      "id": 2472,
+      "slug": "racist",
+      "name": "Racist",
+      "film_count": 589
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "dark fantasy",
+      "erotic",
+      "gothic",
+      "costume drama",
+      "sensual",
+      "captivating",
+      "atmospheric",
+      "sweet",
+      "sad",
+      "gloomy"
+    ],
+    "audience": [
+      "family friendly"
+    ],
+    "plot": [
+      "mythical creature",
+      "steampunk",
+      "interspecies romance",
+      "fairy",
+      "fantasy world",
+      "social injustice",
+      "monster",
+      "politician",
+      "alternate reality",
+      "class differences",
+      "sorceress",
+      "female friendship",
+      "family secret",
+      "police detective",
+      "political conspiracy",
+      "racism",
+      "love triangle",
+      "terrorist",
+      "black magic",
+      "murder investigation",
+      "witch",
+      "prejudice",
+      "political oppression",
+      "incest",
+      "manipulative woman"
+    ],
+    "time": [
+      "victorian era",
+      "19th century",
+      "victorian"
+    ],
+    "place": [
+      "england"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26924,
+      "slug": "haven",
+      "title": "Haven",
+      "year": 2010,
+      "rank": 0
+    },
+    {
+      "id": 1262,
+      "slug": "hemlock-grove",
+      "title": "Hemlock Grove",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 5767,
+      "slug": "penny-dreadful",
+      "title": "Penny Dreadful",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 4530,
+      "slug": "sleepy-hollow",
+      "title": "Sleepy Hollow",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 4
+    },
+    {
+      "id": 69824,
+      "slug": "the-irregulars",
+      "title": "The Irregulars",
+      "year": 2021,
+      "rank": 5
+    },
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 6
+    },
+    {
+      "id": 64239,
+      "slug": "chilling-adventures-of-sabrina",
+      "title": "Chilling Adventures of Sabrina",
+      "year": 2018,
+      "rank": 7
+    },
+    {
+      "id": 2265,
+      "slug": "the-gates",
+      "title": "The Gates",
+      "year": 2010,
+      "rank": 8
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 9
+    },
+    {
+      "id": 67990,
+      "slug": "penny-dreadful-city-of-angels",
+      "title": "Penny Dreadful: City of Angels",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 56449,
+      "slug": "ripper-street",
+      "title": "Ripper Street",
+      "year": 2012,
+      "rank": 11
+    },
+    {
+      "id": 27646,
+      "slug": "crimson-peak",
+      "title": "Crimson Peak",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 13
+    },
+    {
+      "id": 26489,
+      "slug": "lucifer",
+      "title": "Lucifer",
+      "year": 2016,
+      "rank": 14
+    },
+    {
+      "id": 41815,
+      "slug": "the-magicians",
+      "title": "The Magicians",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 58250,
+      "slug": "the-alienist",
+      "title": "The Alienist",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 26485,
+      "slug": "true-blood",
+      "title": "True Blood",
+      "year": 2008,
+      "rank": 17
+    },
+    {
+      "id": 69215,
+      "slug": "the-watch",
+      "title": "The Watch",
+      "year": 2020,
+      "rank": 18
+    },
+    {
+      "id": 68083,
+      "slug": "ratched",
+      "title": "Ratched",
+      "year": 2020,
+      "rank": 19
+    },
+    {
+      "id": 43660,
+      "slug": "american-gothic",
+      "title": "American Gothic",
+      "year": 2016,
+      "rank": 20
+    },
+    {
+      "id": 65741,
+      "slug": "prodigal-son",
+      "title": "Prodigal Son",
+      "year": 2019,
+      "rank": 21
+    },
+    {
+      "id": 63824,
+      "slug": "the-frankenstein-chronicles",
+      "title": "The Frankenstein Chronicles",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 15013,
+      "slug": "heroes",
+      "title": "Heroes",
+      "year": 2006,
+      "rank": 23
+    },
+    {
+      "id": 67003,
+      "slug": "the-valhalla-murders",
+      "title": "The Valhalla Murders",
+      "year": 2019,
+      "rank": 24
+    },
+    {
+      "id": 66660,
+      "slug": "the-white-orchid",
+      "title": "White Orchid",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 73217,
+      "slug": "the-chestnut-man",
+      "title": "The Chestnut Man",
+      "year": 2021,
+      "rank": 26
+    },
+    {
+      "id": 68913,
+      "slug": "the-undoing",
+      "title": "The Undoing",
+      "year": 2020,
+      "rank": 27
+    },
+    {
+      "id": 68748,
+      "slug": "the-woods",
+      "title": "The Woods",
+      "year": 2020,
+      "rank": 28
+    },
+    {
+      "id": 61750,
+      "slug": "bodyguard",
+      "title": "Bodyguard",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919173
+}

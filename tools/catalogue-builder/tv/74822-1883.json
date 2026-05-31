@@ -1,0 +1,383 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/74822-1883",
+  "id": 74822,
+  "slug": "1883",
+  "title": "1883",
+  "year": 2021,
+  "rating": 8.7,
+  "votes_text": "160K",
+  "votes": 160000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/ca/74822.jpg",
+  "genres": [
+    "Drama",
+    "Western"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Follow the Dutton family as they embark on a journey west through the Great Plains toward the last bastion of untamed America. A stark retelling of Western expansion, and an intense study of one family fleeing poverty to seek a better future in America’s promised land — Montana.",
+  "tags": [
+    {
+      "id": 2468,
+      "slug": "19th-century",
+      "name": "19th century",
+      "film_count": 2885
+    },
+    {
+      "id": 8910,
+      "slug": "journey",
+      "name": "Journey",
+      "film_count": 2554
+    },
+    {
+      "id": 2165,
+      "slug": "texas",
+      "name": "Texas",
+      "film_count": 1202
+    },
+    {
+      "id": 1760,
+      "slug": "cowboy",
+      "name": "Cowboy",
+      "film_count": 1185
+    },
+    {
+      "id": 70,
+      "slug": "husband-wife-relationship",
+      "name": "Husband wife relationship",
+      "film_count": 13715
+    },
+    {
+      "id": 2645,
+      "slug": "old-west",
+      "name": "Old west",
+      "film_count": 773
+    },
+    {
+      "id": 4685,
+      "slug": "wild-west",
+      "name": "Wild west",
+      "film_count": 562
+    },
+    {
+      "id": 1481,
+      "slug": "travel",
+      "name": "Travel",
+      "film_count": 3366
+    },
+    {
+      "id": 40989,
+      "slug": "victorian-england",
+      "name": "Victorian england",
+      "film_count": 539
+    },
+    {
+      "id": 24174,
+      "slug": "quarantine",
+      "name": "Quarantine",
+      "film_count": 518
+    },
+    {
+      "id": 91568,
+      "slug": "sad",
+      "name": "Sad",
+      "film_count": 2642
+    },
+    {
+      "id": 5510,
+      "slug": "intrigue",
+      "name": "Intrigue",
+      "film_count": 3046
+    },
+    {
+      "id": 1413,
+      "slug": "van",
+      "name": "Van",
+      "film_count": 1805
+    },
+    {
+      "id": 2345,
+      "slug": "anime",
+      "name": "Anime",
+      "film_count": 6683
+    },
+    {
+      "id": 4055,
+      "slug": "southern-gothic",
+      "name": "Southern gothic",
+      "film_count": 351
+    },
+    {
+      "id": 5693,
+      "slug": "cop",
+      "name": "Cop",
+      "film_count": 2093
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "suspense",
+      "disturbing",
+      "psychological",
+      "epic",
+      "sad",
+      "anime",
+      "southern gothic",
+      "costume drama",
+      "historical drama"
+    ],
+    "plot": [
+      "journey",
+      "cowboy",
+      "husband wife relationship",
+      "old west",
+      "wild west",
+      "travel",
+      "wildlife",
+      "family relations",
+      "life is a bitch",
+      "road trip",
+      "coming of age",
+      "horse",
+      "female nudity",
+      "violence",
+      "ancient",
+      "victorian england",
+      "quarantine",
+      "intrigue",
+      "van",
+      "cop",
+      "law",
+      "scenery",
+      "convoy",
+      "family drama",
+      "civil war veteran"
+    ],
+    "time": [
+      "19th century",
+      "victorian era",
+      "1880s"
+    ],
+    "place": [
+      "texas",
+      "america",
+      "montana"
+    ]
+  },
+  "similar": [
+    {
+      "id": 79531,
+      "slug": "1923",
+      "title": "1923",
+      "year": 2022,
+      "rank": 0
+    },
+    {
+      "id": 1372,
+      "slug": "hell-on-wheels",
+      "title": "Hell on Wheels",
+      "year": 2011,
+      "rank": 1
+    },
+    {
+      "id": 11826,
+      "slug": "deadwood",
+      "title": "Deadwood",
+      "year": 2004,
+      "rank": 2
+    },
+    {
+      "id": 67282,
+      "slug": "yellowstone",
+      "title": "Yellowstone",
+      "year": 2018,
+      "rank": 3
+    },
+    {
+      "id": 81804,
+      "slug": "the-english",
+      "title": "The English",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 24227,
+      "slug": "tombstone",
+      "title": "Tombstone",
+      "year": 1993,
+      "rank": 5
+    },
+    {
+      "id": 27161,
+      "slug": "the-homesman",
+      "title": "The Homesman",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 17446,
+      "slug": "lonesome-dove",
+      "title": "Lonesome Dove",
+      "year": 1989,
+      "rank": 7
+    },
+    {
+      "id": 62846,
+      "slug": "comanche-moon",
+      "title": "Comanche Moon",
+      "year": 2008,
+      "rank": 8
+    },
+    {
+      "id": 58113,
+      "slug": "hostiles",
+      "title": "Hostiles",
+      "year": 2017,
+      "rank": 9
+    },
+    {
+      "id": 79973,
+      "slug": "that-dirty-black-bag",
+      "title": "That Dirty Black Bag",
+      "year": 2022,
+      "rank": 10
+    },
+    {
+      "id": 30087,
+      "slug": "return-to-lonesome-dove",
+      "title": "Return to Lonesome Dove",
+      "year": 1993,
+      "rank": 11
+    },
+    {
+      "id": 73377,
+      "slug": "the-good-lord-bird",
+      "title": "The Good Lord Bird",
+      "year": 2020,
+      "rank": 12
+    },
+    {
+      "id": 23373,
+      "slug": "streets-of-laredo",
+      "title": "Streets of Laredo",
+      "year": 1995,
+      "rank": 13
+    },
+    {
+      "id": 76444,
+      "slug": "joe-pickett",
+      "title": "Joe Pickett",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 66294,
+      "slug": "the-son",
+      "title": "The Son",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 15914,
+      "slug": "into-the-west",
+      "title": "Into the West",
+      "year": 2005,
+      "rank": 16
+    },
+    {
+      "id": 59828,
+      "slug": "children-of-the-dust",
+      "title": "Children of the Dust",
+      "year": 1995,
+      "rank": 17
+    },
+    {
+      "id": 10027,
+      "slug": "broken-trail",
+      "title": "Broken Trail",
+      "year": 2006,
+      "rank": 18
+    },
+    {
+      "id": 78781,
+      "slug": "billy-the-kid",
+      "title": "Billy the Kid",
+      "year": 2022,
+      "rank": 19
+    },
+    {
+      "id": 88946,
+      "slug": "lawmen-bass-reeves",
+      "title": "Lawmen: Bass Reeves",
+      "year": 2023,
+      "rank": 20
+    },
+    {
+      "id": 48250,
+      "slug": "how-the-west-was-won",
+      "title": "How the West Was Won",
+      "year": 1976,
+      "rank": 21
+    },
+    {
+      "id": 108135,
+      "slug": "the-abandons",
+      "title": "The Abandons",
+      "year": 2025,
+      "rank": 22
+    },
+    {
+      "id": 59750,
+      "slug": "texas-rising",
+      "title": "Texas Rising",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 103136,
+      "slug": "jericho",
+      "title": "Jericho",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 24500,
+      "slug": "true-grit",
+      "title": "True Grit",
+      "year": 2010,
+      "rank": 25
+    },
+    {
+      "id": 53399,
+      "slug": "the-macahans",
+      "title": "The Macahan's",
+      "year": 1976,
+      "rank": 26
+    },
+    {
+      "id": 96505,
+      "slug": "horizon-an-american-saga-chapter-1",
+      "title": "Horizon: An American Saga - Chapter 1",
+      "year": 2024,
+      "rank": 27
+    },
+    {
+      "id": 46286,
+      "slug": "wild-times",
+      "title": "Wild Times",
+      "year": 1980,
+      "rank": 28
+    },
+    {
+      "id": 57330,
+      "slug": "the-chisholms",
+      "title": "The Chisholms",
+      "year": 1979,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919182
+}

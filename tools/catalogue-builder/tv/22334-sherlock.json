@@ -1,0 +1,394 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/22334-sherlock",
+  "id": 22334,
+  "slug": "sherlock",
+  "title": "Sherlock",
+  "year": 2010,
+  "rating": 9.0,
+  "votes_text": "1.1M",
+  "votes": 1100000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a6/22334.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "UK",
+    "USA"
+  ],
+  "duration_min": 90,
+  "story": "A modern update finds the famous sleuth and his doctor partner solving crime in 21st century London.",
+  "tags": [
+    {
+      "id": 10683,
+      "slug": "sherlock-holmes",
+      "name": "Sherlock holmes",
+      "film_count": 130
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 5506,
+      "slug": "murder-mystery",
+      "name": "Murder mystery",
+      "film_count": 4248
+    },
+    {
+      "id": 4196,
+      "slug": "private-detective",
+      "name": "Private detective",
+      "film_count": 1354
+    },
+    {
+      "id": 24,
+      "slug": "genius",
+      "name": "Genius",
+      "film_count": 914
+    },
+    {
+      "id": 123479,
+      "slug": "clever",
+      "name": "Clever",
+      "film_count": 7167
+    },
+    {
+      "id": 585,
+      "slug": "detective",
+      "name": "Detective",
+      "film_count": 6961
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 15783,
+      "slug": "inspector",
+      "name": "Inspector",
+      "film_count": 346
+    },
+    {
+      "id": 2793,
+      "slug": "police-detective",
+      "name": "Police detective",
+      "film_count": 4048
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    },
+    {
+      "id": 29023,
+      "slug": "buddies",
+      "name": "Buddies",
+      "film_count": 3540
+    },
+    {
+      "id": 123374,
+      "slug": "mysterious-character",
+      "name": "Mysterious character",
+      "film_count": 1151
+    },
+    {
+      "id": 107786,
+      "slug": "mind-bending",
+      "name": "Mind bending",
+      "film_count": 2846
+    },
+    {
+      "id": 191,
+      "slug": "england",
+      "name": "England",
+      "film_count": 4022
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "clever",
+      "detective",
+      "witty",
+      "captivating",
+      "exciting",
+      "serious",
+      "psychological",
+      "mind bending",
+      "suspenseful",
+      "costume drama"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "sherlock holmes",
+      "investigation",
+      "murder mystery",
+      "private detective",
+      "genius",
+      "friendship",
+      "mastermind",
+      "deduction",
+      "murder",
+      "british",
+      "mind game",
+      "riddles and clues",
+      "partner",
+      "prodigy",
+      "danger",
+      "eccentricity",
+      "intelligence",
+      "talented",
+      "friendship between men",
+      "inspector",
+      "police detective",
+      "escapades",
+      "buddies",
+      "mysterious character",
+      "whodunit"
+    ],
+    "time": [
+      "2010s",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "london",
+      "england",
+      "wales",
+      "afghanistan",
+      "scotland yard",
+      "britain",
+      "europe"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 0
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 1
+    },
+    {
+      "id": 22335,
+      "slug": "sherlock-holmes",
+      "title": "Sherlock Holmes",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 63004,
+      "slug": "perception",
+      "title": "Perception",
+      "year": 2012,
+      "rank": 3
+    },
+    {
+      "id": 26991,
+      "slug": "lie-to-me",
+      "title": "Lie to Me",
+      "year": 2009,
+      "rank": 4
+    },
+    {
+      "id": 15347,
+      "slug": "house",
+      "title": "House",
+      "year": 2004,
+      "rank": 5
+    },
+    {
+      "id": 68427,
+      "slug": "deception",
+      "title": "Deception",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 30524,
+      "slug": "psych",
+      "title": "Psych",
+      "year": 2006,
+      "rank": 7
+    },
+    {
+      "id": 64158,
+      "slug": "strike",
+      "title": "Strike",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 9
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 10
+    },
+    {
+      "id": 7980,
+      "slug": "the-adventures-of-sherlock-holmes",
+      "title": "The Adventures of Sherlock Holmes",
+      "year": 1984,
+      "rank": 11
+    },
+    {
+      "id": 20466,
+      "slug": "agatha-christies-poirot",
+      "title": "Agatha Christie's Poirot",
+      "year": 1989,
+      "rank": 12
+    },
+    {
+      "id": 65163,
+      "slug": "harrow",
+      "title": "Harrow",
+      "year": 2018,
+      "rank": 13
+    },
+    {
+      "id": 30526,
+      "slug": "monk",
+      "title": "Monk",
+      "year": 2002,
+      "rank": 14
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 15
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 26967,
+      "slug": "columbo",
+      "title": "Columbo",
+      "year": 1971,
+      "rank": 17
+    },
+    {
+      "id": 7237,
+      "slug": "the-return-of-sherlock-holmes",
+      "title": "The Return of Sherlock Holmes",
+      "year": 1986,
+      "rank": 18
+    },
+    {
+      "id": 3837,
+      "slug": "dirk-gently",
+      "title": "Dirk Gently",
+      "year": 2010,
+      "rank": 19
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 38023,
+      "slug": "limitless",
+      "title": "Limitless",
+      "year": 2015,
+      "rank": 21
+    },
+    {
+      "id": 13325,
+      "slug": "sherlock-holmes-a-game-of-shadows",
+      "title": "Sherlock Holmes: A Game of Shadows",
+      "year": 2011,
+      "rank": 22
+    },
+    {
+      "id": 22336,
+      "slug": "sherlock-holmes-and-the-case-of-the-silk-stocking",
+      "title": "Sherlock Holmes and the Case of the Silk Stocking",
+      "year": 2004,
+      "rank": 23
+    },
+    {
+      "id": 19527,
+      "slug": "numb3rs",
+      "title": "Numb3rs",
+      "year": 2005,
+      "rank": 24
+    },
+    {
+      "id": 716,
+      "slug": "the-case-book-of-sherlock-holmes",
+      "title": "The Case-Book of Sherlock Holmes",
+      "year": 1991,
+      "rank": 25
+    },
+    {
+      "id": 28919,
+      "slug": "grantchester",
+      "title": "Grantchester",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 27275,
+      "slug": "forever",
+      "title": "Forever",
+      "year": 2014,
+      "rank": 27
+    },
+    {
+      "id": 3156,
+      "slug": "person-of-interest",
+      "title": "Person of Interest",
+      "year": 2011,
+      "rank": 28
+    },
+    {
+      "id": 11446,
+      "slug": "csi-crime-scene-investigation",
+      "title": "CSI: Crime Scene Investigation",
+      "year": 2000,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919141
+}

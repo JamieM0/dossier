@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/14460-greys-anatomy",
+  "id": 14460,
+  "slug": "greys-anatomy",
+  "title": "Grey's Anatomy",
+  "year": 2005,
+  "rating": 7.6,
+  "votes_text": "371K",
+  "votes": 371000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/b8/14460.jpg",
+  "genres": [
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital.",
+  "tags": [
+    {
+      "id": 1455,
+      "slug": "hospital",
+      "name": "Hospital",
+      "film_count": 8344
+    },
+    {
+      "id": 89,
+      "slug": "doctor",
+      "name": "Doctor",
+      "film_count": 6165
+    },
+    {
+      "id": 9329,
+      "slug": "medical-drama",
+      "name": "Medical drama",
+      "film_count": 770
+    },
+    {
+      "id": 6320,
+      "slug": "workplace",
+      "name": "Workplace",
+      "film_count": 3756
+    },
+    {
+      "id": 123422,
+      "slug": "doctors-and-patients",
+      "name": "Doctors and patients",
+      "film_count": 899
+    },
+    {
+      "id": 8125,
+      "slug": "medical",
+      "name": "Medical",
+      "film_count": 1106
+    },
+    {
+      "id": 2073,
+      "slug": "surgery",
+      "name": "Surgery",
+      "film_count": 940
+    },
+    {
+      "id": 2062,
+      "slug": "surgeon",
+      "name": "Surgeon",
+      "film_count": 546
+    },
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    },
+    {
+      "id": 8530,
+      "slug": "career",
+      "name": "Career",
+      "film_count": 919
+    },
+    {
+      "id": 29276,
+      "slug": "couples",
+      "name": "Couples",
+      "film_count": 15715
+    },
+    {
+      "id": 123757,
+      "slug": "romancing-partners",
+      "name": "Romancing partners",
+      "film_count": 314
+    },
+    {
+      "id": 15557,
+      "slug": "lgbtq",
+      "name": "Lgbtq",
+      "film_count": 3701
+    },
+    {
+      "id": 70,
+      "slug": "husband-wife-relationship",
+      "name": "Husband wife relationship",
+      "film_count": 13715
+    },
+    {
+      "id": 1461,
+      "slug": "trauma",
+      "name": "Trauma",
+      "film_count": 3787
+    },
+    {
+      "id": 6311,
+      "slug": "physician",
+      "name": "Physician",
+      "film_count": 814
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "medical drama",
+      "sincere",
+      "sentimental",
+      "erotic",
+      "captivating",
+      "cliffhanger",
+      "inspirational",
+      "bloody",
+      "entertaining",
+      "dramatic"
+    ],
+    "audience": [
+      "teens",
+      "girls' night",
+      "adult"
+    ],
+    "plot": [
+      "hospital",
+      "doctor",
+      "workplace",
+      "doctors and patients",
+      "medical",
+      "surgery",
+      "surgeon",
+      "patient",
+      "coworker relationship",
+      "workplace romance",
+      "relationships",
+      "nurse",
+      "intern",
+      "treatment",
+      "workplace intrigue",
+      "medical student",
+      "loss",
+      "couple relations",
+      "female protagonist",
+      "sex at work",
+      "lesbian",
+      "career",
+      "couples",
+      "romancing partners",
+      "lgbtq"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "future",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "seattle",
+      "idaho",
+      "usa",
+      "seattle washington"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65607,
+      "slug": "new-amsterdam",
+      "title": "New Amsterdam",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 2143,
+      "slug": "private-practice",
+      "title": "Private Practice",
+      "year": 2007,
+      "rank": 1
+    },
+    {
+      "id": 61583,
+      "slug": "the-resident",
+      "title": "The Resident",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 5396,
+      "slug": "the-night-shift",
+      "title": "The Night Shift",
+      "year": 2014,
+      "rank": 3
+    },
+    {
+      "id": 64497,
+      "slug": "code-black",
+      "title": "Code Black",
+      "year": 2015,
+      "rank": 4
+    },
+    {
+      "id": 41818,
+      "slug": "chicago-med",
+      "title": "Chicago Med",
+      "year": 2015,
+      "rank": 5
+    },
+    {
+      "id": 6821,
+      "slug": "saving-hope",
+      "title": "Saving Hope",
+      "year": 2012,
+      "rank": 6
+    },
+    {
+      "id": 12863,
+      "slug": "er",
+      "title": "ER",
+      "year": 1994,
+      "rank": 7
+    },
+    {
+      "id": 3908,
+      "slug": "mercy",
+      "title": "Mercy",
+      "year": 2009,
+      "rank": 8
+    },
+    {
+      "id": 67031,
+      "slug": "transplant",
+      "title": "Transplant",
+      "year": 2020,
+      "rank": 9
+    },
+    {
+      "id": 60216,
+      "slug": "station-19",
+      "title": "Station 19",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 15347,
+      "slug": "house",
+      "title": "House",
+      "year": 2004,
+      "rank": 11
+    },
+    {
+      "id": 70798,
+      "slug": "greys-anatomy-b-team",
+      "title": "Grey's Anatomy: B-Team",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 43711,
+      "slug": "doctors",
+      "title": "Doctors",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 5549,
+      "slug": "doctors",
+      "title": "Doctors",
+      "year": 2000,
+      "rank": 14
+    },
+    {
+      "id": 69791,
+      "slug": "nurses",
+      "title": "Nurses",
+      "year": 2020,
+      "rank": 15
+    },
+    {
+      "id": 2348,
+      "slug": "hart-of-dixie",
+      "title": "Hart of Dixie",
+      "year": 2011,
+      "rank": 16
+    },
+    {
+      "id": 800,
+      "slug": "casualty",
+      "title": "Casualty",
+      "year": 1986,
+      "rank": 17
+    },
+    {
+      "id": 3904,
+      "slug": "doc",
+      "title": "Doc",
+      "year": 2001,
+      "rank": 18
+    },
+    {
+      "id": 3901,
+      "slug": "emily-owens-m-d",
+      "title": "Emily Owens M.D.",
+      "year": 2012,
+      "rank": 19
+    },
+    {
+      "id": 58050,
+      "slug": "medical-top-team",
+      "title": "Medical Top Team",
+      "year": 2013,
+      "rank": 20
+    },
+    {
+      "id": 19350,
+      "slug": "nip-tuck",
+      "title": "Nip/Tuck",
+      "year": 2003,
+      "rank": 21
+    },
+    {
+      "id": 78907,
+      "slug": "the-town-doctor",
+      "title": "The Town Doctor",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 7124,
+      "slug": "chasing-life",
+      "title": "Chasing Life",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 85560,
+      "slug": "general-hospital-night-shift",
+      "title": "General Hospital: Night Shift",
+      "year": 2007,
+      "rank": 24
+    },
+    {
+      "id": 42385,
+      "slug": "brain",
+      "title": "Brain",
+      "year": 2011,
+      "rank": 25
+    },
+    {
+      "id": 4027,
+      "slug": "hospital-central",
+      "title": "Hospital Central",
+      "year": 2000,
+      "rank": 26
+    },
+    {
+      "id": 79719,
+      "slug": "nurses",
+      "title": "Nurses",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 74872,
+      "slug": "risky-romance",
+      "title": "Risky Romance",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 3907,
+      "slug": "strong-medicine",
+      "title": "Strong Medicine",
+      "year": 2000,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919138
+}

@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/61207-barry",
+  "id": 61207,
+  "slug": "barry",
+  "title": "Barry",
+  "year": 2018,
+  "rating": 8.3,
+  "votes_text": "140K",
+  "votes": 140000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/94/61207.jpg",
+  "genres": [
+    "Action",
+    "Comedy",
+    "Crime",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 30,
+  "story": "A hit man from the Midwest moves to Los Angeles and gets caught up in the city's theatre arts scene.",
+  "tags": [
+    {
+      "id": 3997,
+      "slug": "hitman",
+      "name": "Hitman",
+      "film_count": 3651
+    },
+    {
+      "id": 2056,
+      "slug": "gay-couple",
+      "name": "Gay couple",
+      "film_count": 1317
+    },
+    {
+      "id": 31276,
+      "slug": "male-male-relationship",
+      "name": "Male male relationship",
+      "film_count": 662
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 5090,
+      "slug": "aspiring-actor",
+      "name": "Aspiring actor",
+      "film_count": 211
+    },
+    {
+      "id": 14361,
+      "slug": "gay-latino",
+      "name": "Gay latino",
+      "film_count": 63
+    },
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 3042,
+      "slug": "police-investigation",
+      "name": "Police investigation",
+      "film_count": 8669
+    },
+    {
+      "id": 4746,
+      "slug": "gay-relationship",
+      "name": "Gay relationship",
+      "film_count": 1298
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 2629,
+      "slug": "homosexual",
+      "name": "Homosexual",
+      "film_count": 2589
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    },
+    {
+      "id": 123873,
+      "slug": "thought-provoking",
+      "name": "Thought provoking",
+      "film_count": 7187
+    },
+    {
+      "id": 2658,
+      "slug": "assassin",
+      "name": "Assassin",
+      "film_count": 3166
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 123481,
+      "slug": "emotional",
+      "name": "Emotional",
+      "film_count": 15358
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "sitcom",
+      "dark comedy",
+      "funny",
+      "captivating",
+      "suspense",
+      "ironic",
+      "atmospheric",
+      "thought provoking",
+      "humorous"
+    ],
+    "audience": [
+      "date night"
+    ],
+    "plot": [
+      "hitman",
+      "gay couple",
+      "male male relationship",
+      "aspiring actor",
+      "gay latino",
+      "dark humor",
+      "mentor",
+      "police investigation",
+      "betrayal",
+      "criminal",
+      "danger",
+      "murder",
+      "friends",
+      "shooting",
+      "satire",
+      "ambition",
+      "culture clash",
+      "adaptation",
+      "gay relationship",
+      "gay",
+      "homosexual",
+      "assassin",
+      "deception",
+      "humour",
+      "manipulation"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "california",
+      "los angeles"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65876,
+      "slug": "mr-inbetween",
+      "title": "Mr Inbetween",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 7282,
+      "slug": "better-call-saul",
+      "title": "Better Call Saul",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 60780,
+      "slug": "happy",
+      "title": "HAPPY!",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 2779,
+      "slug": "little-fish-strange-pond",
+      "title": "Little Fish, Strange Pond",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 36891,
+      "slug": "quarry",
+      "title": "Quarry",
+      "year": 2016,
+      "rank": 4
+    },
+    {
+      "id": 28579,
+      "slug": "backstrom",
+      "title": "Backstrom",
+      "year": 2015,
+      "rank": 5
+    },
+    {
+      "id": 61096,
+      "slug": "claws",
+      "title": "Claws",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 6063,
+      "slug": "fargo",
+      "title": "Fargo",
+      "year": 2014,
+      "rank": 7
+    },
+    {
+      "id": 64629,
+      "slug": "wayne",
+      "title": "Wayne",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 59267,
+      "slug": "mad-dogs",
+      "title": "Mad Dogs",
+      "year": 2015,
+      "rank": 9
+    },
+    {
+      "id": 61589,
+      "slug": "good-girls",
+      "title": "Good Girls",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 67221,
+      "slug": "jean-claude-van-johnson",
+      "title": "Jean-Claude Van Johnson",
+      "year": 2016,
+      "rank": 11
+    },
+    {
+      "id": 73438,
+      "slug": "the-blacklist-redemption",
+      "title": "The Blacklist: Redemption",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 69416,
+      "slug": "sr-avila",
+      "title": "Sr. Ávila",
+      "year": 2013,
+      "rank": 13
+    },
+    {
+      "id": 76977,
+      "slug": "carl-webers-the-family-business",
+      "title": "The Family Business",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 60767,
+      "slug": "sneaky-pete",
+      "title": "Sneaky Pete",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 80938,
+      "slug": "the-legend",
+      "title": "The Legend",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 77301,
+      "slug": "the-thing-about-pam",
+      "title": "The Thing About Pam",
+      "year": 2022,
+      "rank": 17
+    },
+    {
+      "id": 65695,
+      "slug": "why-women-kill",
+      "title": "Why Women Kill",
+      "year": 2019,
+      "rank": 18
+    },
+    {
+      "id": 64853,
+      "slug": "the-other-two",
+      "title": "The Other Two",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 68405,
+      "slug": "two-weeks-to-live",
+      "title": "Two Weeks to Live",
+      "year": 2020,
+      "rank": 20
+    },
+    {
+      "id": 64768,
+      "slug": "training-day",
+      "title": "Training Day",
+      "year": 2017,
+      "rank": 21
+    },
+    {
+      "id": 74898,
+      "slug": "reacher",
+      "title": "Reacher",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 66394,
+      "slug": "godfather-of-harlem",
+      "title": "Godfather of Harlem",
+      "year": 2019,
+      "rank": 23
+    },
+    {
+      "id": 80800,
+      "slug": "serie-noire",
+      "title": "Série Noire",
+      "year": 2014,
+      "rank": 24
+    },
+    {
+      "id": 65912,
+      "slug": "dead-to-me",
+      "title": "Dead to Me",
+      "year": 2019,
+      "rank": 25
+    },
+    {
+      "id": 80623,
+      "slug": "black-midnight",
+      "title": "Black Midnight",
+      "year": 2008,
+      "rank": 26
+    },
+    {
+      "id": 71887,
+      "slug": "50m2",
+      "title": "50M2",
+      "year": 2021,
+      "rank": 27
+    },
+    {
+      "id": 84429,
+      "slug": "australian-gangster",
+      "title": "Australian Gangster",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 79972,
+      "slug": "kaleidoscope",
+      "title": "Kaleidoscope",
+      "year": 2023,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919167
+}

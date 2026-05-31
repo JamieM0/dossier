@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/69280-the-queens-gambit",
+  "id": 69280,
+  "slug": "the-queens-gambit",
+  "title": "The Queen's Gambit",
+  "year": 2020,
+  "rating": 8.5,
+  "votes_text": "653K",
+  "votes": 653000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/88/69280.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "In a Kentucky orphanage in the 1950s, a young girl discovers an astonishing talent for chess while struggling with addiction.",
+  "tags": [
+    {
+      "id": 2697,
+      "slug": "chess",
+      "name": "Chess",
+      "film_count": 847
+    },
+    {
+      "id": 24,
+      "slug": "genius",
+      "name": "Genius",
+      "film_count": 914
+    },
+    {
+      "id": 2387,
+      "slug": "addiction",
+      "name": "Addiction",
+      "film_count": 1979
+    },
+    {
+      "id": 3260,
+      "slug": "coming-of-age",
+      "name": "Coming of age",
+      "film_count": 16794
+    },
+    {
+      "id": 9223,
+      "slug": "prodigy",
+      "name": "Prodigy",
+      "film_count": 686
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 26627,
+      "slug": "child-prodigy",
+      "name": "Child prodigy",
+      "film_count": 244
+    },
+    {
+      "id": 6535,
+      "slug": "competition",
+      "name": "Competition",
+      "film_count": 2574
+    },
+    {
+      "id": 3352,
+      "slug": "orphanage",
+      "name": "Orphanage",
+      "film_count": 554
+    },
+    {
+      "id": 502,
+      "slug": "obsession",
+      "name": "Obsession",
+      "film_count": 10538
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 131655,
+      "slug": "historical-drama",
+      "name": "Historical drama",
+      "film_count": 3058
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 14082,
+      "slug": "autism",
+      "name": "Autism",
+      "film_count": 527
+    },
+    {
+      "id": 8600,
+      "slug": "mental-health",
+      "name": "Mental health",
+      "film_count": 1512
+    },
+    {
+      "id": 194,
+      "slug": "friend",
+      "name": "Friend",
+      "film_count": 7965
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "period piece",
+      "psychological",
+      "captivating",
+      "tense",
+      "historical drama",
+      "suspense",
+      "unusual plot structure",
+      "visually appealing",
+      "inspirational",
+      "thought provoking"
+    ],
+    "plot": [
+      "chess",
+      "genius",
+      "addiction",
+      "coming of age",
+      "prodigy",
+      "female protagonist",
+      "child prodigy",
+      "competition",
+      "champion",
+      "girl power",
+      "adoptive mother",
+      "girl",
+      "strong female lead",
+      "female friendship",
+      "mathematics",
+      "rags to riches",
+      "championship",
+      "orphanage",
+      "obsession",
+      "autism",
+      "storytelling",
+      "mental health",
+      "friend",
+      "feminism",
+      "love and romance"
+    ],
+    "time": [
+      "60s",
+      "1950s",
+      "50s",
+      "2020s",
+      "20th century",
+      "1960s",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "europe",
+      "kentucky",
+      "paris france",
+      "las vegas",
+      "mexico city",
+      "russia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 89454,
+      "slug": "lessons-in-chemistry",
+      "title": "Lessons in Chemistry",
+      "year": 2023,
+      "rank": 0
+    },
+    {
+      "id": 27966,
+      "slug": "pawn-sacrifice",
+      "title": "Pawn Sacrifice",
+      "year": 2014,
+      "rank": 1
+    },
+    {
+      "id": 87871,
+      "slug": "v-c-andrews-dawn",
+      "title": "V.C. Andrews' Dawn",
+      "year": 2023,
+      "rank": 2
+    },
+    {
+      "id": 61940,
+      "slug": "south-riding",
+      "title": "South Riding",
+      "year": 2011,
+      "rank": 3
+    },
+    {
+      "id": 64237,
+      "slug": "the-romanoffs",
+      "title": "The Romanoffs",
+      "year": 2018,
+      "rank": 4
+    },
+    {
+      "id": 42681,
+      "slug": "harlots",
+      "title": "Harlots",
+      "year": 2017,
+      "rank": 5
+    },
+    {
+      "id": 84593,
+      "slug": "the-cry-of-the-butterflies",
+      "title": "The Cry of the Butterflies",
+      "year": 2023,
+      "rank": 6
+    },
+    {
+      "id": 72262,
+      "slug": "guidance",
+      "title": "Guidance",
+      "year": 2015,
+      "rank": 7
+    },
+    {
+      "id": 65927,
+      "slug": "mickey-and-the-bear",
+      "title": "Mickey and the Bear",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 85312,
+      "slug": "las-pelotaris",
+      "title": "Las Pelotaris",
+      "year": 2023,
+      "rank": 9
+    },
+    {
+      "id": 59266,
+      "slug": "the-outcast",
+      "title": "The Outcast",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 91380,
+      "slug": "you-are-a-gift",
+      "title": "You Are a Gift",
+      "year": 2016,
+      "rank": 11
+    },
+    {
+      "id": 60468,
+      "slug": "patrick-melrose",
+      "title": "Patrick Melrose",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 75145,
+      "slug": "inventing-anna",
+      "title": "Inventing Anna",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 22043,
+      "slug": "searching-for-bobby-fischer",
+      "title": "Searching for Bobby Fischer",
+      "year": 1993,
+      "rank": 14
+    },
+    {
+      "id": 65591,
+      "slug": "my-brilliant-friend",
+      "title": "My Brilliant Friend",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 27016,
+      "slug": "mad-men",
+      "title": "Mad Men",
+      "year": 2007,
+      "rank": 16
+    },
+    {
+      "id": 73880,
+      "slug": "champion-of-the-world",
+      "title": "The World Champion",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 17697,
+      "slug": "the-luzhin-defence",
+      "title": "The Luzhin Defence",
+      "year": 2000,
+      "rank": 18
+    },
+    {
+      "id": 57903,
+      "slug": "genius",
+      "title": "Genius",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 74951,
+      "slug": "david-makes-man",
+      "title": "David Makes Man",
+      "year": 2019,
+      "rank": 20
+    },
+    {
+      "id": 96340,
+      "slug": "the-stars-are-shining",
+      "title": "The Stars Are Shining",
+      "year": 2015,
+      "rank": 21
+    },
+    {
+      "id": 79375,
+      "slug": "sea-of-the-woman",
+      "title": "Sea of the Woman",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 14413,
+      "slug": "great-expectations",
+      "title": "Great Expectations",
+      "year": 1989,
+      "rank": 23
+    },
+    {
+      "id": 70001,
+      "slug": "carnation",
+      "title": "Carnation",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 91613,
+      "slug": "delilah",
+      "title": "Delilah",
+      "year": 2021,
+      "rank": 25
+    },
+    {
+      "id": 16452,
+      "slug": "kane-and-abel",
+      "title": "Kane & Abel",
+      "year": 1985,
+      "rank": 26
+    },
+    {
+      "id": 81229,
+      "slug": "investor-z",
+      "title": "Investor-Z",
+      "year": 2018,
+      "rank": 27
+    },
+    {
+      "id": 80475,
+      "slug": "transparent-cradle",
+      "title": "Transparent Cradle",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 73714,
+      "slug": "o-rangreza",
+      "title": "O Rangreza",
+      "year": 2017,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919179
+}

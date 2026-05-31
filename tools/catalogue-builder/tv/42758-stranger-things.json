@@ -1,0 +1,402 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/42758-stranger-things",
+  "id": 42758,
+  "slug": "stranger-things",
+  "title": "Stranger Things",
+  "year": 2016,
+  "rating": 8.6,
+  "votes_text": "1.7M",
+  "votes": 1700000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/82/42758.jpg",
+  "genres": [
+    "Drama",
+    "Fantasy",
+    "Horror",
+    "Mystery",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl.",
+  "tags": [
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 1882,
+      "slug": "monster",
+      "name": "Monster",
+      "film_count": 6768
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 2874,
+      "slug": "telekinesis",
+      "name": "Telekinesis",
+      "film_count": 524
+    },
+    {
+      "id": 14540,
+      "slug": "parallel-universe",
+      "name": "Parallel universe",
+      "film_count": 1470
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 18036,
+      "slug": "parallel-world",
+      "name": "Parallel world",
+      "film_count": 881
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 10827,
+      "slug": "alternate-dimension",
+      "name": "Alternate dimension",
+      "film_count": 297
+    },
+    {
+      "id": 39663,
+      "slug": "secret-experiment",
+      "name": "Secret experiment",
+      "film_count": 85
+    },
+    {
+      "id": 538,
+      "slug": "propaganda",
+      "name": "Propaganda",
+      "film_count": 1556
+    },
+    {
+      "id": 1315,
+      "slug": "teenage-girl",
+      "name": "Teenage girl",
+      "film_count": 7053
+    },
+    {
+      "id": 61673,
+      "slug": "group-of-teenagers",
+      "name": "Group of teenagers",
+      "film_count": 69
+    },
+    {
+      "id": 123483,
+      "slug": "sincere",
+      "name": "Sincere",
+      "film_count": 8382
+    },
+    {
+      "id": 3095,
+      "slug": "missing-child",
+      "name": "Missing child",
+      "film_count": 860
+    },
+    {
+      "id": 23730,
+      "slug": "secret-laboratory",
+      "name": "Secret laboratory",
+      "film_count": 202
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "captivating",
+      "suspenseful",
+      "sincere",
+      "psychological thriller",
+      "disturbing",
+      "mysterious",
+      "saga",
+      "period piece",
+      "spectacular"
+    ],
+    "audience": [
+      "teens",
+      "pre-teens",
+      "teen fantasy",
+      "teen drama",
+      "adult"
+    ],
+    "plot": [
+      "supernatural",
+      "monster",
+      "small town",
+      "telekinesis",
+      "parallel universe",
+      "friendship",
+      "parallel world",
+      "super powers",
+      "supernatural power",
+      "government conspiracy",
+      "group of friends",
+      "fear",
+      "boy",
+      "experiment",
+      "parents and children",
+      "paranormal phenomena",
+      "missing person",
+      "middle school",
+      "teenage boy",
+      "investigation",
+      "alternate dimension",
+      "secret experiment",
+      "propaganda",
+      "teenage girl",
+      "group of teenagers"
+    ],
+    "time": [
+      "80s",
+      "year 1983",
+      "future",
+      "year 1985",
+      "year 1986",
+      "20th century",
+      "year 1987"
+    ],
+    "place": [
+      "indiana",
+      "chicago",
+      "usa",
+      "soviet union",
+      "ussr",
+      "united states of america",
+      "russian"
+    ]
+  },
+  "similar": [
+    {
+      "id": 66429,
+      "slug": "locke-and-key",
+      "title": "Locke & Key",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 40395,
+      "slug": "it",
+      "title": "It",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 58258,
+      "slug": "dark",
+      "title": "Dark",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 57093,
+      "slug": "nowhere-boys",
+      "title": "Nowhere Boys",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 64239,
+      "slug": "chilling-adventures-of-sabrina",
+      "title": "Chilling Adventures of Sabrina",
+      "year": 2018,
+      "rank": 4
+    },
+    {
+      "id": 77299,
+      "slug": "from",
+      "title": "From",
+      "year": 2022,
+      "rank": 5
+    },
+    {
+      "id": 30037,
+      "slug": "are-you-afraid-of-the-dark",
+      "title": "Are You Afraid of the Dark?",
+      "year": 1990,
+      "rank": 6
+    },
+    {
+      "id": 4415,
+      "slug": "teen-wolf",
+      "title": "Teen Wolf",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 24604,
+      "slug": "twin-peaks",
+      "title": "Twin Peaks",
+      "year": 1990,
+      "rank": 8
+    },
+    {
+      "id": 65666,
+      "slug": "the-society",
+      "title": "The Society",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 16018,
+      "slug": "it",
+      "title": "It",
+      "year": 1990,
+      "rank": 10
+    },
+    {
+      "id": 10098,
+      "slug": "buffy-the-vampire-slayer",
+      "title": "Buffy the Vampire Slayer",
+      "year": 1997,
+      "rank": 11
+    },
+    {
+      "id": 23491,
+      "slug": "super-8",
+      "title": "Super 8",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 26532,
+      "slug": "fringe",
+      "title": "Fringe",
+      "year": 2008,
+      "rank": 13
+    },
+    {
+      "id": 60789,
+      "slug": "the-oa",
+      "title": "The OA",
+      "year": 2016,
+      "rank": 14
+    },
+    {
+      "id": 30040,
+      "slug": "goosebumps",
+      "title": "Goosebumps",
+      "year": 1995,
+      "rank": 15
+    },
+    {
+      "id": 63705,
+      "slug": "the-twilight-zone",
+      "title": "The Twilight Zone",
+      "year": 1985,
+      "rank": 16
+    },
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 17
+    },
+    {
+      "id": 66932,
+      "slug": "i-am-not-okay-with-this",
+      "title": "I Am Not Okay with This",
+      "year": 2020,
+      "rank": 18
+    },
+    {
+      "id": 25895,
+      "slug": "the-x-files",
+      "title": "The X-Files",
+      "year": 1993,
+      "rank": 19
+    },
+    {
+      "id": 61205,
+      "slug": "castle-rock",
+      "title": "Castle Rock",
+      "year": 2018,
+      "rank": 20
+    },
+    {
+      "id": 75318,
+      "slug": "the-girl-in-the-woods",
+      "title": "The Girl in the Woods",
+      "year": 2021,
+      "rank": 21
+    },
+    {
+      "id": 30242,
+      "slug": "eerie-indiana",
+      "title": "Eerie, Indiana",
+      "year": 1991,
+      "rank": 22
+    },
+    {
+      "id": 30533,
+      "slug": "the-4400",
+      "title": "The 4400",
+      "year": 2004,
+      "rank": 23
+    },
+    {
+      "id": 66942,
+      "slug": "motherland-fort-salem",
+      "title": "Motherland: Fort Salem",
+      "year": 2020,
+      "rank": 24
+    },
+    {
+      "id": 64182,
+      "slug": "channel-zero",
+      "title": "Channel Zero",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 26924,
+      "slug": "haven",
+      "title": "Haven",
+      "year": 2010,
+      "rank": 26
+    },
+    {
+      "id": 42764,
+      "slug": "wynonna-earp",
+      "title": "Wynonna Earp",
+      "year": 2016,
+      "rank": 27
+    },
+    {
+      "id": 68798,
+      "slug": "paranormal",
+      "title": "Paranormal",
+      "year": 2020,
+      "rank": 28
+    },
+    {
+      "id": 76730,
+      "slug": "the-sandman",
+      "title": "The Sandman",
+      "year": 2022,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919159
+}

@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/2942-justified",
+  "id": 2942,
+  "slug": "justified",
+  "title": "Justified",
+  "year": 2010,
+  "rating": 8.6,
+  "votes_text": "129K",
+  "votes": 129000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/5b/2942.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller",
+    "Western"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "A character drama based on the 2001 Elmore Leonard short story \"Fire in the Hole.\" Leonard's tale centers around U.S. Marshal Raylan Givens of Kentucky, a quiet but strong-willed official of the law. The tale covers his high-stakes job, as well as his strained relationships with his ex-wife and father.",
+  "tags": [
+    {
+      "id": 2432,
+      "slug": "kentucky",
+      "name": "Kentucky",
+      "film_count": 114
+    },
+    {
+      "id": 1157,
+      "slug": "justice",
+      "name": "Justice",
+      "film_count": 7030
+    },
+    {
+      "id": 1756,
+      "slug": "gunfight",
+      "name": "Gunfight",
+      "film_count": 6738
+    },
+    {
+      "id": 2133,
+      "slug": "u-s-marshal",
+      "name": "U.s. marshal",
+      "film_count": 140
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 40621,
+      "slug": "fighting-crime",
+      "name": "Fighting crime",
+      "film_count": 2118
+    },
+    {
+      "id": 17472,
+      "slug": "officer",
+      "name": "Officer",
+      "film_count": 460
+    },
+    {
+      "id": 5881,
+      "slug": "drug-lord",
+      "name": "Drug lord",
+      "film_count": 591
+    },
+    {
+      "id": 600,
+      "slug": "criminal",
+      "name": "Criminal",
+      "film_count": 6483
+    },
+    {
+      "id": 1273,
+      "slug": "neo-noir",
+      "name": "Neo noir",
+      "film_count": 4908
+    },
+    {
+      "id": 16556,
+      "slug": "afghanistan-veteran",
+      "name": "Afghanistan veteran",
+      "film_count": 79
+    },
+    {
+      "id": 26304,
+      "slug": "crime-family",
+      "name": "Crime family",
+      "film_count": 797
+    },
+    {
+      "id": 2185,
+      "slug": "arrest",
+      "name": "Arrest",
+      "film_count": 3496
+    },
+    {
+      "id": 26305,
+      "slug": "dumb-criminal",
+      "name": "Dumb criminal",
+      "film_count": 50
+    },
+    {
+      "id": 2675,
+      "slug": "police-officer",
+      "name": "Police officer",
+      "film_count": 9140
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "serious",
+      "crime drama",
+      "realistic",
+      "neo noir",
+      "detective",
+      "southern gothic",
+      "neo western",
+      "exciting",
+      "gothic"
+    ],
+    "audience": [
+      "boys' night"
+    ],
+    "plot": [
+      "justice",
+      "gunfight",
+      "u.s. marshal",
+      "fighting crime",
+      "officer",
+      "drug lord",
+      "lone wolves",
+      "small town",
+      "shooting",
+      "tough law enforcer",
+      "ex convict",
+      "family feud",
+      "cowboy",
+      "rivals",
+      "conflict",
+      "machismo",
+      "killing",
+      "mafia",
+      "dirty cop",
+      "criminal",
+      "afghanistan veteran",
+      "crime family",
+      "arrest",
+      "dumb criminal",
+      "police officer"
+    ],
+    "time": [
+      "2010s",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "kentucky",
+      "south america",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 3507,
+      "slug": "longmire",
+      "title": "Longmire",
+      "year": 2012,
+      "rank": 0
+    },
+    {
+      "id": 66443,
+      "slug": "deputy",
+      "title": "Deputy",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 61024,
+      "slug": "hap-and-leonard",
+      "title": "Hap and Leonard",
+      "year": 2016,
+      "rank": 2
+    },
+    {
+      "id": 5109,
+      "slug": "banshee",
+      "title": "Banshee",
+      "year": 2013,
+      "rank": 3
+    },
+    {
+      "id": 1778,
+      "slug": "vegas",
+      "title": "Vegas",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 11826,
+      "slug": "deadwood",
+      "title": "Deadwood",
+      "year": 2004,
+      "rank": 5
+    },
+    {
+      "id": 27279,
+      "slug": "the-shield",
+      "title": "The Shield",
+      "year": 2002,
+      "rank": 6
+    },
+    {
+      "id": 3033,
+      "slug": "southland",
+      "title": "Southland",
+      "year": 2009,
+      "rank": 7
+    },
+    {
+      "id": 62168,
+      "slug": "line-of-duty",
+      "title": "Line of Duty",
+      "year": 2012,
+      "rank": 8
+    },
+    {
+      "id": 84828,
+      "slug": "justified-city-primeval",
+      "title": "Justified: City Primeval",
+      "year": 2023,
+      "rank": 9
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 10
+    },
+    {
+      "id": 24475,
+      "slug": "elite-squad",
+      "title": "Elite Squad",
+      "year": 2007,
+      "rank": 11
+    },
+    {
+      "id": 12460,
+      "slug": "dragnet",
+      "title": "L.A. Dragnet",
+      "year": 2003,
+      "rank": 12
+    },
+    {
+      "id": 27229,
+      "slug": "gotham",
+      "title": "Gotham",
+      "year": 2014,
+      "rank": 13
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 4800,
+      "slug": "sons-of-anarchy",
+      "title": "Sons of Anarchy",
+      "year": 2008,
+      "rank": 15
+    },
+    {
+      "id": 63063,
+      "slug": "john-doe-vigilante",
+      "title": "John Doe: Vigilante",
+      "year": 2014,
+      "rank": 16
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 17
+    },
+    {
+      "id": 62647,
+      "slug": "gang-related",
+      "title": "Gang Related",
+      "year": 2014,
+      "rank": 18
+    },
+    {
+      "id": 30367,
+      "slug": "nash-bridges",
+      "title": "Nash Bridges",
+      "year": 1996,
+      "rank": 19
+    },
+    {
+      "id": 19084,
+      "slug": "ncis",
+      "title": "NCIS",
+      "year": 2003,
+      "rank": 20
+    },
+    {
+      "id": 30459,
+      "slug": "law-and-order-special-victims-unit",
+      "title": "Law & Order: Special Victims Unit",
+      "year": 1999,
+      "rank": 21
+    },
+    {
+      "id": 19548,
+      "slug": "nypd-blue",
+      "title": "NYPD Blue",
+      "year": 1993,
+      "rank": 22
+    },
+    {
+      "id": 30372,
+      "slug": "boomtown",
+      "title": "Boomtown",
+      "year": 2002,
+      "rank": 23
+    },
+    {
+      "id": 30205,
+      "slug": "without-a-trace",
+      "title": "Without a Trace",
+      "year": 2002,
+      "rank": 24
+    },
+    {
+      "id": 30515,
+      "slug": "law-and-order",
+      "title": "Law & Order",
+      "year": 1990,
+      "rank": 25
+    },
+    {
+      "id": 64900,
+      "slug": "murphys-law",
+      "title": "Murphy's Law",
+      "year": 2003,
+      "rank": 26
+    },
+    {
+      "id": 57953,
+      "slug": "big-apple",
+      "title": "Big Apple",
+      "year": 2001,
+      "rank": 27
+    },
+    {
+      "id": 59751,
+      "slug": "shades-of-blue",
+      "title": "Shades of Blue",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 61229,
+      "slug": "sacred-games",
+      "title": "Sacred Games",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919130
+}

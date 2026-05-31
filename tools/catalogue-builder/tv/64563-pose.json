@@ -1,0 +1,382 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64563-pose",
+  "id": 64563,
+  "slug": "pose",
+  "title": "POSE",
+  "year": 2018,
+  "rating": 8.6,
+  "votes_text": "36K",
+  "votes": 36000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a3/64563.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "A dance musical that explores the juxtaposition of several segments of 1980s life and society in New York: the ball culture world, the rise of the luxury Trump-era universe and the downtown social and literary scene.",
+  "tags": [
+    {
+      "id": 15557,
+      "slug": "lgbtq",
+      "name": "Lgbtq",
+      "film_count": 3701
+    },
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 10295,
+      "slug": "success",
+      "name": "Success",
+      "film_count": 599
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    },
+    {
+      "id": 11862,
+      "slug": "transsexual",
+      "name": "Transsexual",
+      "film_count": 886
+    },
+    {
+      "id": 3785,
+      "slug": "female-impersonator",
+      "name": "Female impersonator",
+      "film_count": 394
+    },
+    {
+      "id": 37718,
+      "slug": "80s",
+      "name": "80s",
+      "film_count": 7238
+    },
+    {
+      "id": 17191,
+      "slug": "black-history",
+      "name": "Black history",
+      "film_count": 587
+    },
+    {
+      "id": 128765,
+      "slug": "black-lives-matter",
+      "name": "Black lives matter",
+      "film_count": 237
+    },
+    {
+      "id": 17157,
+      "slug": "social-differences",
+      "name": "Social differences",
+      "film_count": 1758
+    },
+    {
+      "id": 15200,
+      "slug": "society",
+      "name": "Society",
+      "film_count": 13923
+    },
+    {
+      "id": 6082,
+      "slug": "cultural-difference",
+      "name": "Cultural difference",
+      "film_count": 421
+    },
+    {
+      "id": 16455,
+      "slug": "lifestyle",
+      "name": "Lifestyle",
+      "film_count": 7884
+    },
+    {
+      "id": 123846,
+      "slug": "social-relations",
+      "name": "Social relations",
+      "film_count": 3064
+    },
+    {
+      "id": 737,
+      "slug": "african-american",
+      "name": "African american",
+      "film_count": 3714
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "atmospheric",
+      "sexy",
+      "light",
+      "entertaining",
+      "educational",
+      "visual",
+      "powerful",
+      "inspirational",
+      "cynical",
+      "queer cinema"
+    ],
+    "audience": [
+      "chick flick"
+    ],
+    "plot": [
+      "lgbtq",
+      "lgbt",
+      "gay",
+      "success",
+      "transsexual",
+      "female impersonator",
+      "transgender",
+      "fashion",
+      "businessman",
+      "dance school",
+      "desire for fame",
+      "socialite",
+      "lgbtqi",
+      "showgirl",
+      "aids",
+      "dance",
+      "black",
+      "sex",
+      "black history",
+      "black lives matter",
+      "social differences",
+      "society",
+      "cultural difference",
+      "lifestyle",
+      "social relations"
+    ],
+    "time": [
+      "80s"
+    ],
+    "place": [
+      "new york",
+      "indiana"
+    ]
+  },
+  "similar": [
+    {
+      "id": 4444,
+      "slug": "dont-ever-wipe-tears-without-gloves",
+      "title": "Don't Ever Wipe Tears Without Gloves",
+      "year": 2012,
+      "rank": 0
+    },
+    {
+      "id": 69662,
+      "slug": "its-a-sin",
+      "title": "It's a Sin",
+      "year": 2021,
+      "rank": 1
+    },
+    {
+      "id": 42697,
+      "slug": "when-we-rise",
+      "title": "When We Rise",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 65384,
+      "slug": "euphoria",
+      "title": "Euphoria",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 58051,
+      "slug": "coming-out",
+      "title": "Coming Out",
+      "year": 2013,
+      "rank": 4
+    },
+    {
+      "id": 82991,
+      "slug": "boystown",
+      "title": "BoysTown",
+      "year": 2008,
+      "rank": 5
+    },
+    {
+      "id": 78410,
+      "slug": "veneno",
+      "title": "Veneno",
+      "year": 2020,
+      "rank": 6
+    },
+    {
+      "id": 66251,
+      "slug": "aj-and-the-queen",
+      "title": "AJ and the Queen",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 88980,
+      "slug": "queer-as-folk",
+      "title": "Queer as Folk",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 63676,
+      "slug": "banana",
+      "title": "Banana",
+      "year": 2015,
+      "rank": 9
+    },
+    {
+      "id": 69839,
+      "slug": "grand-army",
+      "title": "Grand Army",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 65369,
+      "slug": "tales-of-the-city",
+      "title": "Tales of the City",
+      "year": 2019,
+      "rank": 11
+    },
+    {
+      "id": 28896,
+      "slug": "empire",
+      "title": "Empire",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 28526,
+      "slug": "transparent",
+      "title": "Transparent",
+      "year": 2014,
+      "rank": 13
+    },
+    {
+      "id": 78231,
+      "slug": "september-mornings",
+      "title": "September Mornings",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 5078,
+      "slug": "hit-and-miss",
+      "title": "Hit & Miss",
+      "year": 2012,
+      "rank": 15
+    },
+    {
+      "id": 76073,
+      "slug": "proud",
+      "title": "Proud",
+      "year": 2018,
+      "rank": 16
+    },
+    {
+      "id": 43342,
+      "slug": "pretty-handsome",
+      "title": "Pretty/Handsome",
+      "year": 2008,
+      "rank": 17
+    },
+    {
+      "id": 19350,
+      "slug": "nip-tuck",
+      "title": "Nip/Tuck",
+      "year": 2003,
+      "rank": 18
+    },
+    {
+      "id": 69996,
+      "slug": "pariah",
+      "title": "Pariah",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 19438,
+      "slug": "normal",
+      "title": "Normal",
+      "year": 2003,
+      "rank": 20
+    },
+    {
+      "id": 3598,
+      "slug": "venice-the-series",
+      "title": "Venice: The Series",
+      "year": 2009,
+      "rank": 21
+    },
+    {
+      "id": 90579,
+      "slug": "rurangi",
+      "title": "Rūrangi",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 1279,
+      "slug": "pedro",
+      "title": "Pedro",
+      "year": 2008,
+      "rank": 23
+    },
+    {
+      "id": 60125,
+      "slug": "one-day-at-a-time",
+      "title": "One Day at a Time",
+      "year": 2017,
+      "rank": 24
+    },
+    {
+      "id": 76985,
+      "slug": "butterfly",
+      "title": "Butterfly",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 31913,
+      "slug": "holiday-heart",
+      "title": "Holiday Heart",
+      "year": 2000,
+      "rank": 26
+    },
+    {
+      "id": 38810,
+      "slug": "viva",
+      "title": "Viva",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 10045,
+      "slug": "brother-to-brother",
+      "title": "Brother to Brother",
+      "year": 2004,
+      "rank": 28
+    },
+    {
+      "id": 56550,
+      "slug": "lip-service",
+      "title": "Lip Service",
+      "year": 2010,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919170
+}

@@ -1,0 +1,392 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/19302-daredevil",
+  "id": 19302,
+  "slug": "daredevil",
+  "title": "Daredevil",
+  "year": 2015,
+  "rating": 8.6,
+  "votes_text": "523K",
+  "votes": 523000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/c0/19302.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Lawyer-by-day Matt Murdock uses his heightened senses from being blinded as a young boy to fight crime at night on the streets of Hell’s Kitchen as Daredevil.",
+  "tags": [
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 4179,
+      "slug": "vigilante",
+      "name": "Vigilante",
+      "film_count": 2878
+    },
+    {
+      "id": 4237,
+      "slug": "secret-identity",
+      "name": "Secret identity",
+      "film_count": 1314
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 5248,
+      "slug": "blind-man",
+      "name": "Blind man",
+      "film_count": 764
+    },
+    {
+      "id": 123450,
+      "slug": "heroic-mission",
+      "name": "Heroic mission",
+      "film_count": 2809
+    },
+    {
+      "id": 499,
+      "slug": "lawyer",
+      "name": "Lawyer",
+      "film_count": 3905
+    },
+    {
+      "id": 28907,
+      "slug": "blind-character",
+      "name": "Blind character",
+      "film_count": 298
+    },
+    {
+      "id": 8213,
+      "slug": "partnership",
+      "name": "Partnership",
+      "film_count": 373
+    },
+    {
+      "id": 4893,
+      "slug": "prison-fight",
+      "name": "Prison fight",
+      "film_count": 171
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 797,
+      "slug": "reporter",
+      "name": "Reporter",
+      "film_count": 2037
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    },
+    {
+      "id": 1273,
+      "slug": "neo-noir",
+      "name": "Neo noir",
+      "film_count": 4908
+    },
+    {
+      "id": 4099,
+      "slug": "blindness",
+      "name": "Blindness",
+      "film_count": 1390
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "suspenseful",
+      "saga",
+      "neo noir",
+      "spectacular",
+      "epic",
+      "serious",
+      "inspirational",
+      "thought provoking",
+      "brutal"
+    ],
+    "audience": [
+      "teens",
+      "boys' night",
+      "family friendly",
+      "adult"
+    ],
+    "plot": [
+      "superhero",
+      "vigilante",
+      "secret identity",
+      "heroes",
+      "blind man",
+      "heroic mission",
+      "lawyer",
+      "hand to hand combat",
+      "blood",
+      "daredevil",
+      "superhuman powers",
+      "ninja",
+      "good versus evil",
+      "vigilantism",
+      "corruption",
+      "one against many",
+      "fighting crime",
+      "danger",
+      "male objectification",
+      "one man army",
+      "crime boss",
+      "multiverse",
+      "blind character",
+      "partnership",
+      "prison fight"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "usa",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 57869,
+      "slug": "marvels-the-defenders",
+      "title": "The Defenders",
+      "year": 2017,
+      "rank": 0
+    },
+    {
+      "id": 1801,
+      "slug": "arrow",
+      "title": "Arrow",
+      "year": 2012,
+      "rank": 1
+    },
+    {
+      "id": 57900,
+      "slug": "the-punisher",
+      "title": "The Punisher",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 35427,
+      "slug": "luke-cage",
+      "title": "Luke Cage",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 35425,
+      "slug": "iron-fist",
+      "title": "Iron Fist",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 69645,
+      "slug": "the-equalizer",
+      "title": "The Equalizer",
+      "year": 2021,
+      "rank": 5
+    },
+    {
+      "id": 26355,
+      "slug": "alphas",
+      "title": "Alphas",
+      "year": 2011,
+      "rank": 6
+    },
+    {
+      "id": 4779,
+      "slug": "agents-of-s-h-i-e-l-d",
+      "title": "Agents of S.H.I.E.L.D.",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 74898,
+      "slug": "reacher",
+      "title": "Reacher",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 64831,
+      "slug": "the-umbrella-academy",
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 35428,
+      "slug": "jessica-jones",
+      "title": "Marvel's Jessica Jones",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 27166,
+      "slug": "the-flash",
+      "title": "The Flash",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 11611,
+      "slug": "daredevil",
+      "title": "Daredevil",
+      "year": 2003,
+      "rank": 12
+    },
+    {
+      "id": 9486,
+      "slug": "black-mask-2-city-of-masks",
+      "title": "Black Mask 2: City of Masks",
+      "year": 2002,
+      "rank": 13
+    },
+    {
+      "id": 11634,
+      "slug": "the-dark-knight",
+      "title": "The Dark Knight",
+      "year": 2008,
+      "rank": 14
+    },
+    {
+      "id": 59638,
+      "slug": "black-lightning",
+      "title": "Black Lightning",
+      "year": 2018,
+      "rank": 15
+    },
+    {
+      "id": 74372,
+      "slug": "the-batman",
+      "title": "The Batman",
+      "year": 2022,
+      "rank": 16
+    },
+    {
+      "id": 98625,
+      "slug": "daredevil-born-again",
+      "title": "Daredevil: Born Again",
+      "year": 2025,
+      "rank": 17
+    },
+    {
+      "id": 26794,
+      "slug": "punisher-war-zone",
+      "title": "Punisher: War Zone",
+      "year": 2008,
+      "rank": 18
+    },
+    {
+      "id": 22781,
+      "slug": "smallville",
+      "title": "Smallville",
+      "year": 2001,
+      "rank": 19
+    },
+    {
+      "id": 65359,
+      "slug": "the-boys",
+      "title": "The Boys",
+      "year": 2019,
+      "rank": 20
+    },
+    {
+      "id": 67884,
+      "slug": "stargirl",
+      "title": "DC's Stargirl",
+      "year": 2020,
+      "rank": 21
+    },
+    {
+      "id": 56775,
+      "slug": "the-listener",
+      "title": "The Listener",
+      "year": 2009,
+      "rank": 22
+    },
+    {
+      "id": 1412,
+      "slug": "powers",
+      "title": "Powers",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 58503,
+      "slug": "titans",
+      "title": "Titans",
+      "year": 2018,
+      "rank": 24
+    },
+    {
+      "id": 41779,
+      "slug": "legion",
+      "title": "Legion",
+      "year": 2017,
+      "rank": 25
+    },
+    {
+      "id": 30461,
+      "slug": "macgyver",
+      "title": "MacGyver",
+      "year": 1985,
+      "rank": 26
+    },
+    {
+      "id": 15035,
+      "slug": "agent-carter",
+      "title": "Agent Carter",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 15769,
+      "slug": "the-incredible-hulk",
+      "title": "The Incredible Hulk",
+      "year": 1977,
+      "rank": 28
+    },
+    {
+      "id": 26654,
+      "slug": "justice-league",
+      "title": "Justice League",
+      "year": 2001,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919139
+}

@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/3156-person-of-interest",
+  "id": 3156,
+  "slug": "person-of-interest",
+  "title": "Person of Interest",
+  "year": 2011,
+  "rating": 8.5,
+  "votes_text": "203K",
+  "votes": 203000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/19/3156.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 43,
+  "story": "Person of Interest follows former CIA paramilitary operative, John Reese, who is presumed dead and teams up with reclusive billionaire Finch to prevent violent crimes in New York City by initiating their own type of justice. With the special training that Reese has had in Covert Operations and Finch's genius software inventing mind, the two are a perfect match for the job that they have to complete. With the help of surveillance equipment, they work \"outside the law\" and get the right criminal behind bars.",
+  "tags": [
+    {
+      "id": 5008,
+      "slug": "artificial-intelligence",
+      "name": "Artificial intelligence",
+      "film_count": 1041
+    },
+    {
+      "id": 2946,
+      "slug": "surveillance",
+      "name": "Surveillance",
+      "film_count": 3119
+    },
+    {
+      "id": 65724,
+      "slug": "computer-system",
+      "name": "Computer system",
+      "film_count": 101
+    },
+    {
+      "id": 123634,
+      "slug": "hi-tech",
+      "name": "Hi-tech",
+      "film_count": 505
+    },
+    {
+      "id": 4165,
+      "slug": "new-york",
+      "name": "New york",
+      "film_count": 5521
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 123375,
+      "slug": "partners-against-crime",
+      "name": "Partners against crime",
+      "film_count": 1465
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 29687,
+      "slug": "protector",
+      "name": "Protector",
+      "film_count": 720
+    },
+    {
+      "id": 107143,
+      "slug": "heroes",
+      "name": "Heroes",
+      "film_count": 11812
+    },
+    {
+      "id": 5111,
+      "slug": "female-detective",
+      "name": "Female detective",
+      "film_count": 681
+    },
+    {
+      "id": 123479,
+      "slug": "clever",
+      "name": "Clever",
+      "film_count": 7167
+    },
+    {
+      "id": 123578,
+      "slug": "inventions-and-discoveries",
+      "name": "Inventions and discoveries",
+      "film_count": 315
+    },
+    {
+      "id": 123549,
+      "slug": "changing-lives",
+      "name": "Changing lives",
+      "film_count": 2161
+    },
+    {
+      "id": 4882,
+      "slug": "ex-military",
+      "name": "Ex military",
+      "film_count": 274
+    },
+    {
+      "id": 12394,
+      "slug": "cyberpunk",
+      "name": "Cyberpunk",
+      "film_count": 1119
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "captivating",
+      "serious",
+      "clever",
+      "spy action",
+      "cyber",
+      "tension",
+      "surprise ending",
+      "atmospheric",
+      "mysterious"
+    ],
+    "audience": [
+      "teens",
+      "boys' night"
+    ],
+    "plot": [
+      "artificial intelligence",
+      "surveillance",
+      "computer system",
+      "hi-tech",
+      "partners against crime",
+      "computer genius",
+      "privacy invasion",
+      "mysterious character",
+      "computer",
+      "fighting crime",
+      "law enforcer",
+      "hacker",
+      "secret",
+      "ex cia agent",
+      "programmer",
+      "teamwork",
+      "characters in danger",
+      "hitman",
+      "computers and web",
+      "threat",
+      "unconventional method",
+      "protector",
+      "heroes",
+      "female detective",
+      "inventions and discoveries"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 26564,
+      "slug": "nikita",
+      "title": "Nikita",
+      "year": 2010,
+      "rank": 1
+    },
+    {
+      "id": 60966,
+      "slug": "intelligence",
+      "title": "Intelligence",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 3
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 4
+    },
+    {
+      "id": 26992,
+      "slug": "leverage",
+      "title": "Leverage",
+      "year": 2008,
+      "rank": 5
+    },
+    {
+      "id": 30477,
+      "slug": "burn-notice",
+      "title": "Burn Notice",
+      "year": 2007,
+      "rank": 6
+    },
+    {
+      "id": 249,
+      "slug": "human-target",
+      "title": "Human Target",
+      "year": 2010,
+      "rank": 7
+    },
+    {
+      "id": 28903,
+      "slug": "scorpion",
+      "title": "Scorpion",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 26327,
+      "slug": "24",
+      "title": "24",
+      "year": 2001,
+      "rank": 9
+    },
+    {
+      "id": 19084,
+      "slug": "ncis",
+      "title": "NCIS",
+      "year": 2003,
+      "rank": 10
+    },
+    {
+      "id": 26971,
+      "slug": "homeland",
+      "title": "Homeland",
+      "year": 2011,
+      "rank": 11
+    },
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 8120,
+      "slug": "alias",
+      "title": "Alias",
+      "year": 2001,
+      "rank": 13
+    },
+    {
+      "id": 26532,
+      "slug": "fringe",
+      "title": "Fringe",
+      "year": 2008,
+      "rank": 14
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 15
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 20709,
+      "slug": "prison-break",
+      "title": "Prison Break",
+      "year": 2005,
+      "rank": 17
+    },
+    {
+      "id": 27275,
+      "slug": "forever",
+      "title": "Forever",
+      "year": 2014,
+      "rank": 18
+    },
+    {
+      "id": 63004,
+      "slug": "perception",
+      "title": "Perception",
+      "year": 2012,
+      "rank": 19
+    },
+    {
+      "id": 4779,
+      "slug": "agents-of-s-h-i-e-l-d",
+      "title": "Agents of S.H.I.E.L.D.",
+      "year": 2013,
+      "rank": 20
+    },
+    {
+      "id": 17297,
+      "slug": "limitless",
+      "title": "Limitless",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 5109,
+      "slug": "banshee",
+      "title": "Banshee",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 67679,
+      "slug": "fbi-most-wanted",
+      "title": "FBI: Most Wanted",
+      "year": 2020,
+      "rank": 23
+    },
+    {
+      "id": 38023,
+      "slug": "limitless",
+      "title": "Limitless",
+      "year": 2015,
+      "rank": 24
+    },
+    {
+      "id": 30014,
+      "slug": "the-equalizer",
+      "title": "The Equalizer",
+      "year": 1985,
+      "rank": 25
+    },
+    {
+      "id": 27012,
+      "slug": "continuum",
+      "title": "Continuum",
+      "year": 2012,
+      "rank": 26
+    },
+    {
+      "id": 35428,
+      "slug": "jessica-jones",
+      "title": "Marvel's Jessica Jones",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 69087,
+      "slug": "next",
+      "title": "Next",
+      "year": 2020,
+      "rank": 28
+    },
+    {
+      "id": 66836,
+      "slug": "fbi",
+      "title": "FBI",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919130
+}

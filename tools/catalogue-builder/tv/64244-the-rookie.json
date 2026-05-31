@@ -1,0 +1,383 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64244-the-rookie",
+  "id": 64244,
+  "slug": "the-rookie",
+  "title": "The Rookie",
+  "year": 2018,
+  "rating": 8.0,
+  "votes_text": "120K",
+  "votes": 120000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f2/64244.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 43,
+  "story": "Starting over isn’t easy, especially for small-town guy John Nolan who, after a life-altering incident, is pursuing his dream of being an LAPD officer. As the force’s oldest rookie, he’s met with skepticism from some higher-ups who see him as just a walking midlife crisis.",
+  "tags": [
+    {
+      "id": 5137,
+      "slug": "lapd",
+      "name": "Lapd",
+      "film_count": 272
+    },
+    {
+      "id": 2675,
+      "slug": "police-officer",
+      "name": "Police officer",
+      "film_count": 9140
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    },
+    {
+      "id": 4920,
+      "slug": "male-protagonist",
+      "name": "Male protagonist",
+      "film_count": 6600
+    },
+    {
+      "id": 1457,
+      "slug": "police-station",
+      "name": "Police station",
+      "film_count": 2726
+    },
+    {
+      "id": 92,
+      "slug": "suspense",
+      "name": "Suspense",
+      "film_count": 30387
+    },
+    {
+      "id": 7265,
+      "slug": "crime-investigation",
+      "name": "Crime investigation",
+      "film_count": 2580
+    },
+    {
+      "id": 123493,
+      "slug": "los-angeles",
+      "name": "Los angeles",
+      "film_count": 3890
+    },
+    {
+      "id": 7542,
+      "slug": "undercover",
+      "name": "Undercover",
+      "film_count": 3572
+    },
+    {
+      "id": 21583,
+      "slug": "demotion",
+      "name": "Demotion",
+      "film_count": 45
+    },
+    {
+      "id": 123520,
+      "slug": "twists-and-turns",
+      "name": "Twists and turns",
+      "film_count": 6600
+    },
+    {
+      "id": 5283,
+      "slug": "capture",
+      "name": "Capture",
+      "film_count": 910
+    },
+    {
+      "id": 12210,
+      "slug": "personal-growth",
+      "name": "Personal growth",
+      "film_count": 3034
+    },
+    {
+      "id": 9660,
+      "slug": "second-chance",
+      "name": "Second chance",
+      "film_count": 2872
+    },
+    {
+      "id": 24054,
+      "slug": "perseverance",
+      "name": "Perseverance",
+      "film_count": 1207
+    },
+    {
+      "id": 4352,
+      "slug": "one-day",
+      "name": "One day",
+      "film_count": 557
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspense",
+      "captivating",
+      "tense",
+      "serious",
+      "detective",
+      "crime drama",
+      "emotional",
+      "realistic",
+      "inspirational",
+      "complex"
+    ],
+    "plot": [
+      "lapd",
+      "police officer",
+      "police",
+      "male protagonist",
+      "police station",
+      "crime investigation",
+      "daring rescue",
+      "life risking",
+      "terrorism",
+      "race against time",
+      "forced into action",
+      "policewoman",
+      "criminality",
+      "investigation",
+      "corruption",
+      "rookie",
+      "heroes",
+      "one man army",
+      "workplace",
+      "save the day",
+      "undercover",
+      "danger",
+      "demotion",
+      "twists and turns",
+      "capture"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "los angeles"
+    ]
+  },
+  "similar": [
+    {
+      "id": 60495,
+      "slug": "1-9-2001",
+      "title": "9-1-1",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 60776,
+      "slug": "s-w-a-t",
+      "title": "S.W.A.T.",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 56683,
+      "slug": "chicago-p-d",
+      "title": "Chicago P.D.",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 28588,
+      "slug": "bosch",
+      "title": "Bosch",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 26973,
+      "slug": "hawaii-five-0",
+      "title": "Hawaii Five-0",
+      "year": 2010,
+      "rank": 5
+    },
+    {
+      "id": 30162,
+      "slug": "ncis-los-angeles",
+      "title": "NCIS: Los Angeles",
+      "year": 2009,
+      "rank": 6
+    },
+    {
+      "id": 4119,
+      "slug": "chicago-fire",
+      "title": "Chicago Fire",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 19084,
+      "slug": "ncis",
+      "title": "NCIS",
+      "year": 2003,
+      "rank": 8
+    },
+    {
+      "id": 60143,
+      "slug": "lethal-weapon",
+      "title": "Lethal Weapon",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 80075,
+      "slug": "the-rookie-feds",
+      "title": "The Rookie: Feds",
+      "year": 2022,
+      "rank": 10
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 11
+    },
+    {
+      "id": 3287,
+      "slug": "rookie-blue",
+      "title": "Rookie Blue",
+      "year": 2010,
+      "rank": 12
+    },
+    {
+      "id": 66836,
+      "slug": "fbi",
+      "title": "FBI",
+      "year": 2018,
+      "rank": 13
+    },
+    {
+      "id": 74898,
+      "slug": "reacher",
+      "title": "Reacher",
+      "year": 2022,
+      "rank": 14
+    },
+    {
+      "id": 30172,
+      "slug": "the-closer",
+      "title": "The Closer",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 93668,
+      "slug": "team-bled",
+      "title": "Team Bled",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 26327,
+      "slug": "24",
+      "title": "24",
+      "year": 2001,
+      "rank": 17
+    },
+    {
+      "id": 66443,
+      "slug": "deputy",
+      "title": "Deputy",
+      "year": 2020,
+      "rank": 18
+    },
+    {
+      "id": 64181,
+      "slug": "apb",
+      "title": "APB",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 35435,
+      "slug": "decker",
+      "title": "Decker",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 3033,
+      "slug": "southland",
+      "title": "Southland",
+      "year": 2009,
+      "rank": 21
+    },
+    {
+      "id": 56577,
+      "slug": "nyc-22",
+      "title": "NYC 22",
+      "year": 2012,
+      "rank": 22
+    },
+    {
+      "id": 30305,
+      "slug": "csi-ny",
+      "title": "CSI: NY",
+      "year": 2004,
+      "rank": 23
+    },
+    {
+      "id": 2741,
+      "slug": "the-chicago-code",
+      "title": "The Chicago Code",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 30439,
+      "slug": "t-j-hooker",
+      "title": "T.J. Hooker",
+      "year": 1982,
+      "rank": 25
+    },
+    {
+      "id": 307,
+      "slug": "major-crimes",
+      "title": "Major Crimes",
+      "year": 2012,
+      "rank": 26
+    },
+    {
+      "id": 30314,
+      "slug": "adam-12",
+      "title": "Adam-12",
+      "year": 1968,
+      "rank": 27
+    },
+    {
+      "id": 30141,
+      "slug": "third-watch",
+      "title": "Third Watch",
+      "year": 1999,
+      "rank": 28
+    },
+    {
+      "id": 72012,
+      "slug": "the-evidence",
+      "title": "The Evidence",
+      "year": 2006,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919169
+}

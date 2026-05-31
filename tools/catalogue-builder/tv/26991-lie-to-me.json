@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26991-lie-to-me",
+  "id": 26991,
+  "slug": "lie-to-me",
+  "title": "Lie to Me",
+  "year": 2009,
+  "rating": 8.0,
+  "votes_text": "134K",
+  "votes": 134000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/b5/26991.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 43,
+  "story": "The world's leading deception researcher, Dr. Cal Lightman, studies facial expression, body language and tone of voice to determine when a person is lying and why, which helps law enforcement and government agencies uncover the truth. But his skills also make it easier for him to deceive others.",
+  "tags": [
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 10719,
+      "slug": "psychology",
+      "name": "Psychology",
+      "film_count": 2501
+    },
+    {
+      "id": 6966,
+      "slug": "team",
+      "name": "Team",
+      "film_count": 1512
+    },
+    {
+      "id": 31013,
+      "slug": "expert",
+      "name": "Expert",
+      "film_count": 151
+    },
+    {
+      "id": 123790,
+      "slug": "talented",
+      "name": "Talented",
+      "film_count": 250
+    },
+    {
+      "id": 215,
+      "slug": "lie",
+      "name": "Lie",
+      "film_count": 3493
+    },
+    {
+      "id": 7265,
+      "slug": "crime-investigation",
+      "name": "Crime investigation",
+      "film_count": 2580
+    },
+    {
+      "id": 123710,
+      "slug": "outsmarting",
+      "name": "Outsmarting",
+      "film_count": 129
+    },
+    {
+      "id": 10683,
+      "slug": "sherlock-holmes",
+      "name": "Sherlock holmes",
+      "film_count": 130
+    },
+    {
+      "id": 3042,
+      "slug": "police-investigation",
+      "name": "Police investigation",
+      "film_count": 8669
+    },
+    {
+      "id": 123418,
+      "slug": "boss-and-employee",
+      "name": "Boss and employee",
+      "film_count": 701
+    },
+    {
+      "id": 585,
+      "slug": "detective",
+      "name": "Detective",
+      "film_count": 6961
+    },
+    {
+      "id": 25166,
+      "slug": "hidden-truth",
+      "name": "Hidden truth",
+      "film_count": 400
+    },
+    {
+      "id": 5693,
+      "slug": "cop",
+      "name": "Cop",
+      "film_count": 2093
+    },
+    {
+      "id": 10201,
+      "slug": "teenage-daughter",
+      "name": "Teenage daughter",
+      "film_count": 620
+    },
+    {
+      "id": 18,
+      "slug": "secret",
+      "name": "Secret",
+      "film_count": 5596
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "clever",
+      "psychological",
+      "serious",
+      "detective",
+      "suspenseful",
+      "realistic",
+      "mind blowing",
+      "thrilling",
+      "surprise ending",
+      "philosophical"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "investigation",
+      "psychology",
+      "team",
+      "expert",
+      "talented",
+      "lie",
+      "crime investigation",
+      "outsmarting",
+      "deception",
+      "riddles and clues",
+      "sign language",
+      "human nature",
+      "uncover truth",
+      "truth",
+      "research",
+      "law enforcement",
+      "fbi",
+      "interrogation",
+      "leader",
+      "dishonesty",
+      "workplace situations",
+      "doctor",
+      "sherlock holmes",
+      "police investigation",
+      "boss and employee"
+    ],
+    "time": [
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "washington d.c"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 0
+    },
+    {
+      "id": 68427,
+      "slug": "deception",
+      "title": "Deception",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 2
+    },
+    {
+      "id": 63004,
+      "slug": "perception",
+      "title": "Perception",
+      "year": 2012,
+      "rank": 3
+    },
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 4
+    },
+    {
+      "id": 59803,
+      "slug": "bull",
+      "title": "Bull",
+      "year": 2016,
+      "rank": 5
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 30205,
+      "slug": "without-a-trace",
+      "title": "Without a Trace",
+      "year": 2002,
+      "rank": 7
+    },
+    {
+      "id": 19527,
+      "slug": "numb3rs",
+      "title": "Numb3rs",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 9
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 10
+    },
+    {
+      "id": 56620,
+      "slug": "body-of-proof",
+      "title": "Body of Proof",
+      "year": 2011,
+      "rank": 11
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 12
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 13
+    },
+    {
+      "id": 65163,
+      "slug": "harrow",
+      "title": "Harrow",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 30305,
+      "slug": "csi-ny",
+      "title": "CSI: NY",
+      "year": 2004,
+      "rank": 15
+    },
+    {
+      "id": 19084,
+      "slug": "ncis",
+      "title": "NCIS",
+      "year": 2003,
+      "rank": 16
+    },
+    {
+      "id": 30493,
+      "slug": "life",
+      "title": "Life",
+      "year": 2007,
+      "rank": 17
+    },
+    {
+      "id": 28902,
+      "slug": "csi-cyber",
+      "title": "CSI: Cyber",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 30526,
+      "slug": "monk",
+      "title": "Monk",
+      "year": 2002,
+      "rank": 19
+    },
+    {
+      "id": 313,
+      "slug": "rubicon",
+      "title": "Rubicon",
+      "year": 2010,
+      "rank": 20
+    },
+    {
+      "id": 26967,
+      "slug": "columbo",
+      "title": "Columbo",
+      "year": 1971,
+      "rank": 21
+    },
+    {
+      "id": 1815,
+      "slug": "csi-miami",
+      "title": "CSI: Miami",
+      "year": 2002,
+      "rank": 22
+    },
+    {
+      "id": 61316,
+      "slug": "criminal-minds-suspect-behavior",
+      "title": "Criminal Minds: Suspect Behavior",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 15347,
+      "slug": "house",
+      "title": "House",
+      "year": 2004,
+      "rank": 24
+    },
+    {
+      "id": 11446,
+      "slug": "csi-crime-scene-investigation",
+      "title": "CSI: Crime Scene Investigation",
+      "year": 2000,
+      "rank": 25
+    },
+    {
+      "id": 6684,
+      "slug": "endgame",
+      "title": "Endgame",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 41814,
+      "slug": "quantico",
+      "title": "Quantico",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 30477,
+      "slug": "burn-notice",
+      "title": "Burn Notice",
+      "year": 2007,
+      "rank": 28
+    },
+    {
+      "id": 30172,
+      "slug": "the-closer",
+      "title": "The Closer",
+      "year": 2005,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919150
+}

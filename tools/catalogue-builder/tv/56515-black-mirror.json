@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/56515-black-mirror",
+  "id": 56515,
+  "slug": "black-mirror",
+  "title": "Black Mirror",
+  "year": 2011,
+  "rating": 8.7,
+  "votes_text": "728K",
+  "votes": 728000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/34/56515.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "A contemporary British re-working of The Twilight Zone with stories that tap into the collective unease about our modern world. Over the last ten years, technology has transformed almost every aspect of our lives before we've had time to stop and question it. In every home; on every desk; in every palm - a plasma screen; a monitor; a smartphone - a black mirror of our 21st Century existence.",
+  "tags": [
+    {
+      "id": 11124,
+      "slug": "anthology",
+      "name": "Anthology",
+      "film_count": 1957
+    },
+    {
+      "id": 2727,
+      "slug": "technology",
+      "name": "Technology",
+      "film_count": 3201
+    },
+    {
+      "id": 123873,
+      "slug": "thought-provoking",
+      "name": "Thought provoking",
+      "film_count": 7187
+    },
+    {
+      "id": 25980,
+      "slug": "philosophical",
+      "name": "Philosophical",
+      "film_count": 2616
+    },
+    {
+      "id": 51200,
+      "slug": "dystopian-future",
+      "name": "Dystopian future",
+      "film_count": 1320
+    },
+    {
+      "id": 10731,
+      "slug": "dystopia",
+      "name": "Dystopia",
+      "film_count": 2376
+    },
+    {
+      "id": 123520,
+      "slug": "twists-and-turns",
+      "name": "Twists and turns",
+      "film_count": 6600
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 123875,
+      "slug": "cynical",
+      "name": "Cynical",
+      "film_count": 2307
+    },
+    {
+      "id": 123478,
+      "slug": "bleak",
+      "name": "Bleak",
+      "film_count": 11156
+    },
+    {
+      "id": 4969,
+      "slug": "media-coverage",
+      "name": "Media coverage",
+      "film_count": 616
+    },
+    {
+      "id": 191,
+      "slug": "england",
+      "name": "England",
+      "film_count": 4022
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    },
+    {
+      "id": 7925,
+      "slug": "mind-control",
+      "name": "Mind control",
+      "film_count": 1027
+    },
+    {
+      "id": 12960,
+      "slug": "biting",
+      "name": "Biting",
+      "film_count": 1826
+    },
+    {
+      "id": 126467,
+      "slug": "mind-blowing",
+      "name": "Mind blowing",
+      "film_count": 1163
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "anthology",
+      "thought provoking",
+      "philosophical",
+      "serious",
+      "disturbing",
+      "clever",
+      "stylized",
+      "cynical",
+      "bleak",
+      "atmospheric"
+    ],
+    "audience": [
+      "teens",
+      "family friendly"
+    ],
+    "plot": [
+      "technology",
+      "dystopian future",
+      "dystopia",
+      "twists and turns",
+      "satire",
+      "human nature",
+      "social decay",
+      "computers and web",
+      "alternate reality",
+      "society",
+      "social satire",
+      "media",
+      "dark humor",
+      "distopia",
+      "gadget",
+      "technology gone awry",
+      "media satire",
+      "media coverage",
+      "mind control",
+      "chaos",
+      "serial killer",
+      "storytelling",
+      "political satire",
+      "cyberpunk",
+      "paranoia"
+    ],
+    "time": [
+      "future",
+      "2010s",
+      "near future",
+      "contemporary"
+    ],
+    "place": [
+      "england",
+      "london",
+      "united kingdom"
+    ]
+  },
+  "similar": [
+    {
+      "id": 57913,
+      "slug": "philip-k-dicks-electric-dreams",
+      "title": "Philip K. Dick's Electric Dreams",
+      "year": 2017,
+      "rank": 0
+    },
+    {
+      "id": 409,
+      "slug": "utopia",
+      "title": "Utopia",
+      "year": 2013,
+      "rank": 1
+    },
+    {
+      "id": 63705,
+      "slug": "the-twilight-zone",
+      "title": "The Twilight Zone",
+      "year": 1985,
+      "rank": 2
+    },
+    {
+      "id": 75978,
+      "slug": "severance",
+      "title": "Severance",
+      "year": 2022,
+      "rank": 3
+    },
+    {
+      "id": 27091,
+      "slug": "ex-machina",
+      "title": "Ex Machina",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 13977,
+      "slug": "gattaca",
+      "title": "Gattaca",
+      "year": 1997,
+      "rank": 5
+    },
+    {
+      "id": 15975,
+      "slug": "humans",
+      "title": "Humans",
+      "year": 2015,
+      "rank": 6
+    },
+    {
+      "id": 10690,
+      "slug": "children-of-men",
+      "title": "Children of Men",
+      "year": 2006,
+      "rank": 7
+    },
+    {
+      "id": 24586,
+      "slug": "twelve-monkeys",
+      "title": "Twelve Monkeys",
+      "year": 1995,
+      "rank": 8
+    },
+    {
+      "id": 61106,
+      "slug": "maniac",
+      "title": "Maniac",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 38475,
+      "slug": "the-circle",
+      "title": "The Circle",
+      "year": 2017,
+      "rank": 10
+    },
+    {
+      "id": 27572,
+      "slug": "wild-tales",
+      "title": "Wild Tales",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 6168,
+      "slug": "transcendence",
+      "title": "Transcendence",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 61103,
+      "slug": "dimension-404",
+      "title": "Dimension 404",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 78453,
+      "slug": "the-peripheral",
+      "title": "The Peripheral",
+      "year": 2022,
+      "rank": 14
+    },
+    {
+      "id": 57983,
+      "slug": "incorporated",
+      "title": "Incorporated",
+      "year": 2016,
+      "rank": 15
+    },
+    {
+      "id": 65693,
+      "slug": "years-and-years",
+      "title": "Years and Years",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 13358,
+      "slug": "fight-club",
+      "title": "Fight Club",
+      "year": 1999,
+      "rank": 17
+    },
+    {
+      "id": 24513,
+      "slug": "the-truman-show",
+      "title": "The Truman Show",
+      "year": 1998,
+      "rank": 18
+    },
+    {
+      "id": 9926,
+      "slug": "brazil",
+      "title": "Brazil",
+      "year": 1985,
+      "rank": 19
+    },
+    {
+      "id": 8684,
+      "slug": "a-i-artificial-intelligence",
+      "title": "A.I. Artificial Intelligence",
+      "year": 2001,
+      "rank": 20
+    },
+    {
+      "id": 18625,
+      "slug": "moon",
+      "title": "Moon",
+      "year": 2009,
+      "rank": 21
+    },
+    {
+      "id": 35423,
+      "slug": "westworld",
+      "title": "Westworld",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 26937,
+      "slug": "dollhouse",
+      "title": "Dollhouse",
+      "year": 2009,
+      "rank": 23
+    },
+    {
+      "id": 10175,
+      "slug": "the-butterfly-effect",
+      "title": "The Butterfly Effect",
+      "year": 2004,
+      "rank": 24
+    },
+    {
+      "id": 30258,
+      "slug": "the-prisoner",
+      "title": "The Prisoner",
+      "year": 1967,
+      "rank": 25
+    },
+    {
+      "id": 9523,
+      "slug": "blade-runner",
+      "title": "Blade Runner",
+      "year": 1982,
+      "rank": 26
+    },
+    {
+      "id": 67935,
+      "slug": "brave-new-world",
+      "title": "Brave New World",
+      "year": 2020,
+      "rank": 27
+    },
+    {
+      "id": 38504,
+      "slug": "arrival",
+      "title": "Arrival",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 42669,
+      "slug": "the-handmaids-tale",
+      "title": "The Handmaid's Tale",
+      "year": 2017,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919161
+}

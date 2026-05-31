@@ -1,0 +1,377 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/66753-letterkenny",
+  "id": 66753,
+  "slug": "letterkenny",
+  "title": "Letterkenny",
+  "year": 2016,
+  "rating": 8.6,
+  "votes_text": "34K",
+  "votes": 34000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/3b/66753.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "Canada"
+  ],
+  "duration_min": 30,
+  "story": "Letterkenny follows Wayne, a good-ol’ country boy in Letterkenny, Ontario trying to protect his homegrown way of life on the farm, against a world that is constantly evolving around him. The residents of Letterkenny belong to one of three groups: Hicks, Skids, and Hockey Players. The three groups are constantly feuding with each other over seemingly trivial matters; often ending with someone getting their ass kicked.",
+  "tags": [
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 45403,
+      "slug": "feel-good",
+      "name": "Feel good",
+      "film_count": 17668
+    },
+    {
+      "id": 8280,
+      "slug": "countryside",
+      "name": "Countryside",
+      "film_count": 3601
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 17999,
+      "slug": "punk",
+      "name": "Punk",
+      "film_count": 600
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 6406,
+      "slug": "athlete",
+      "name": "Athlete",
+      "film_count": 824
+    },
+    {
+      "id": 7802,
+      "slug": "pastor",
+      "name": "Pastor",
+      "film_count": 359
+    },
+    {
+      "id": 4920,
+      "slug": "male-protagonist",
+      "name": "Male protagonist",
+      "film_count": 6600
+    },
+    {
+      "id": 10386,
+      "slug": "hick",
+      "name": "Hick",
+      "film_count": 60
+    },
+    {
+      "id": 1693,
+      "slug": "2010s",
+      "name": "2010s",
+      "film_count": 6370
+    },
+    {
+      "id": 2109,
+      "slug": "fistfight",
+      "name": "Fistfight",
+      "film_count": 5187
+    },
+    {
+      "id": 4168,
+      "slug": "2020s",
+      "name": "2020s",
+      "film_count": 2869
+    },
+    {
+      "id": 12523,
+      "slug": "bisexual-woman",
+      "name": "Bisexual woman",
+      "film_count": 601
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "funny",
+      "sitcom",
+      "humorous",
+      "feel good",
+      "exciting",
+      "captivating",
+      "cult film"
+    ],
+    "plot": [
+      "small town",
+      "countryside",
+      "punk",
+      "society",
+      "worker",
+      "protection",
+      "closeted gay",
+      "drinking",
+      "hockey",
+      "gay",
+      "lgbt",
+      "male nudity",
+      "bisexual",
+      "farm",
+      "ice fishing",
+      "native",
+      "brother sister relationship",
+      "drug use",
+      "smoking",
+      "athlete",
+      "pastor",
+      "male protagonist",
+      "hick",
+      "fistfight",
+      "bisexual woman"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "canada"
+    ]
+  },
+  "similar": [
+    {
+      "id": 60129,
+      "slug": "a-p-bio",
+      "title": "A.P. Bio",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 75772,
+      "slug": "this-country",
+      "title": "This Country",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 79967,
+      "slug": "reboot",
+      "title": "Reboot",
+      "year": 2022,
+      "rank": 2
+    },
+    {
+      "id": 57980,
+      "slug": "american-housewife",
+      "title": "American Housewife",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 86917,
+      "slug": "the-neighbors",
+      "title": "The Neighbors",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 85128,
+      "slug": "shelved",
+      "title": "Shelved",
+      "year": 2023,
+      "rank": 5
+    },
+    {
+      "id": 72645,
+      "slug": "the-crew",
+      "title": "The Crew",
+      "year": 2021,
+      "rank": 6
+    },
+    {
+      "id": 90312,
+      "slug": "madame-lebrun",
+      "title": "Madame Lebrun",
+      "year": 2015,
+      "rank": 7
+    },
+    {
+      "id": 88984,
+      "slug": "smother-in-law",
+      "title": "Smother-in-Law",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 80289,
+      "slug": "center-of-the-universe",
+      "title": "Center of the Universe",
+      "year": 2004,
+      "rank": 9
+    },
+    {
+      "id": 70353,
+      "slug": "grandfathered",
+      "title": "Grandfathered",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 66770,
+      "slug": "the-great-indoors",
+      "title": "The Great Indoors",
+      "year": 2016,
+      "rank": 11
+    },
+    {
+      "id": 28571,
+      "slug": "schitts-creek",
+      "title": "Schitt's Creek",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 72684,
+      "slug": "the-neighborhood",
+      "title": "The Neighborhood",
+      "year": 2018,
+      "rank": 13
+    },
+    {
+      "id": 74486,
+      "slug": "still-game",
+      "title": "Still Game",
+      "year": 2002,
+      "rank": 14
+    },
+    {
+      "id": 72922,
+      "slug": "rutherford-falls",
+      "title": "Rutherford Falls",
+      "year": 2021,
+      "rank": 15
+    },
+    {
+      "id": 72340,
+      "slug": "our-little-village",
+      "title": "A mi kis falunk",
+      "year": 2017,
+      "rank": 16
+    },
+    {
+      "id": 78480,
+      "slug": "call-your-mother",
+      "title": "Call Your Mother",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 57997,
+      "slug": "kims-convenience",
+      "title": "Kim's Convenience",
+      "year": 2016,
+      "rank": 18
+    },
+    {
+      "id": 65834,
+      "slug": "im-sorry",
+      "title": "I'm Sorry",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 64893,
+      "slug": "warren",
+      "title": "Warren",
+      "year": 2019,
+      "rank": 20
+    },
+    {
+      "id": 99966,
+      "slug": "pink-is",
+      "title": "Pink Is",
+      "year": 2021,
+      "rank": 21
+    },
+    {
+      "id": 94279,
+      "slug": "kangs-family",
+      "title": "Kang's Family",
+      "year": 2000,
+      "rank": 22
+    },
+    {
+      "id": 57890,
+      "slug": "last-man-standing",
+      "title": "Last Man Standing",
+      "year": 2011,
+      "rank": 23
+    },
+    {
+      "id": 28595,
+      "slug": "from-here-on-out",
+      "title": "From Here on OUT",
+      "year": 2014,
+      "rank": 24
+    },
+    {
+      "id": 110426,
+      "slug": "trailer-park-boys-park-after-dark",
+      "title": "Trailer Park Boys: Park After Dark",
+      "year": 2019,
+      "rank": 25
+    },
+    {
+      "id": 1063,
+      "slug": "dan-for-mayor",
+      "title": "Dan for Mayor",
+      "year": 2010,
+      "rank": 26
+    },
+    {
+      "id": 59682,
+      "slug": "so-that-happened",
+      "title": "So That Happened",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 92275,
+      "slug": "spun-out",
+      "title": "Spun Out",
+      "year": 2014,
+      "rank": 28
+    },
+    {
+      "id": 98331,
+      "slug": "killinaskully",
+      "title": "Killinaskully",
+      "year": 2003,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919174
+}

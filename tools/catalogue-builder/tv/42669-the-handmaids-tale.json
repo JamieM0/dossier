@@ -1,0 +1,383 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/42669-the-handmaids-tale",
+  "id": 42669,
+  "slug": "the-handmaids-tale",
+  "title": "The Handmaid's Tale",
+  "year": 2017,
+  "rating": 8.3,
+  "votes_text": "294K",
+  "votes": 294000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/0a/42669.jpg",
+  "genres": [
+    "Drama",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Set in a dystopian future, a woman is forced to live as a concubine under a fundamentalist theocratic dictatorship. A TV adaptation of Margaret Atwood's novel.",
+  "tags": [
+    {
+      "id": 2295,
+      "slug": "sexism",
+      "name": "Sexism",
+      "film_count": 792
+    },
+    {
+      "id": 756,
+      "slug": "rape",
+      "name": "Rape",
+      "film_count": 4552
+    },
+    {
+      "id": 10731,
+      "slug": "dystopia",
+      "name": "Dystopia",
+      "film_count": 2376
+    },
+    {
+      "id": 3631,
+      "slug": "surrogate-mother",
+      "name": "Surrogate mother",
+      "film_count": 220
+    },
+    {
+      "id": 11815,
+      "slug": "infertility",
+      "name": "Infertility",
+      "film_count": 299
+    },
+    {
+      "id": 8489,
+      "slug": "protest",
+      "name": "Protest",
+      "film_count": 1169
+    },
+    {
+      "id": 25960,
+      "slug": "tyranny",
+      "name": "Tyranny",
+      "film_count": 190
+    },
+    {
+      "id": 9883,
+      "slug": "belief",
+      "name": "Belief",
+      "film_count": 267
+    },
+    {
+      "id": 123478,
+      "slug": "bleak",
+      "name": "Bleak",
+      "film_count": 11156
+    },
+    {
+      "id": 540,
+      "slug": "based-on-novel",
+      "name": "Based on novel",
+      "film_count": 11006
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 124061,
+      "slug": "distopia",
+      "name": "Distopia",
+      "film_count": 3296
+    },
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    },
+    {
+      "id": 17824,
+      "slug": "alternate-reality",
+      "name": "Alternate reality",
+      "film_count": 1572
+    },
+    {
+      "id": 22844,
+      "slug": "fertility",
+      "name": "Fertility",
+      "film_count": 79
+    },
+    {
+      "id": 5579,
+      "slug": "spying",
+      "name": "Spying",
+      "film_count": 583
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "psychological",
+      "rough",
+      "melancholic",
+      "bleak",
+      "captivating",
+      "thought provoking",
+      "apocalyptic",
+      "erotic",
+      "saga",
+      "costume drama"
+    ],
+    "plot": [
+      "sexism",
+      "rape",
+      "dystopia",
+      "surrogate mother",
+      "infertility",
+      "protest",
+      "tyranny",
+      "belief",
+      "women's rights",
+      "religion",
+      "totalitarianism",
+      "kidnapping",
+      "violence against women",
+      "slavery",
+      "violence",
+      "misogyny",
+      "soldier",
+      "coup d'etat",
+      "torture",
+      "society",
+      "distopia",
+      "lesbian",
+      "alternate reality",
+      "fertility",
+      "spying"
+    ],
+    "time": [
+      "future",
+      "near future",
+      "2010s",
+      "21st century"
+    ],
+    "place": [
+      "syria"
+    ]
+  },
+  "similar": [
+    {
+      "id": 14707,
+      "slug": "the-handmaids-tale",
+      "title": "The Handmaid's Tale",
+      "year": 1990,
+      "rank": 0
+    },
+    {
+      "id": 64782,
+      "slug": "3",
+      "title": "3%",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 77634,
+      "slug": "shining-girls",
+      "title": "Shining Girls",
+      "year": 2022,
+      "rank": 2
+    },
+    {
+      "id": 17788,
+      "slug": "the-magdalene-sisters",
+      "title": "The Magdalene Sisters",
+      "year": 2002,
+      "rank": 3
+    },
+    {
+      "id": 80035,
+      "slug": "last-light",
+      "title": "Last Light",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 56515,
+      "slug": "black-mirror",
+      "title": "Black Mirror",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 57913,
+      "slug": "philip-k-dicks-electric-dreams",
+      "title": "Philip K. Dick's Electric Dreams",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 67935,
+      "slug": "brave-new-world",
+      "title": "Brave New World",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 35420,
+      "slug": "the-man-in-the-high-castle",
+      "title": "The Man in the High Castle",
+      "year": 2015,
+      "rank": 8
+    },
+    {
+      "id": 28627,
+      "slug": "the-lottery",
+      "title": "The Lottery",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 96556,
+      "slug": "dark-matter",
+      "title": "Dark Matter",
+      "year": 2024,
+      "rank": 10
+    },
+    {
+      "id": 105699,
+      "slug": "pluribus",
+      "title": "Pluribus",
+      "year": 2025,
+      "rank": 11
+    },
+    {
+      "id": 59497,
+      "slug": "counterpart",
+      "title": "Counterpart",
+      "year": 2017,
+      "rank": 12
+    },
+    {
+      "id": 42717,
+      "slug": "shatter-me",
+      "title": "Shatter Me",
+      "year": 2020,
+      "rank": 13
+    },
+    {
+      "id": 75978,
+      "slug": "severance",
+      "title": "Severance",
+      "year": 2022,
+      "rank": 14
+    },
+    {
+      "id": 78453,
+      "slug": "the-peripheral",
+      "title": "The Peripheral",
+      "year": 2022,
+      "rank": 15
+    },
+    {
+      "id": 6159,
+      "slug": "sense8",
+      "title": "Sense8",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 10690,
+      "slug": "children-of-men",
+      "title": "Children of Men",
+      "year": 2006,
+      "rank": 17
+    },
+    {
+      "id": 85156,
+      "slug": "silo",
+      "title": "Silo",
+      "year": 2023,
+      "rank": 18
+    },
+    {
+      "id": 19338,
+      "slug": "1984",
+      "title": "Nineteen Eighty-Four",
+      "year": 1984,
+      "rank": 19
+    },
+    {
+      "id": 98029,
+      "slug": "the-plague",
+      "title": "The Plague",
+      "year": 2024,
+      "rank": 20
+    },
+    {
+      "id": 15975,
+      "slug": "humans",
+      "title": "Humans",
+      "year": 2015,
+      "rank": 21
+    },
+    {
+      "id": 93914,
+      "slug": "goodbye-earth",
+      "title": "Goodbye Earth",
+      "year": 2024,
+      "rank": 22
+    },
+    {
+      "id": 74976,
+      "slug": "station-eleven",
+      "title": "Station Eleven",
+      "year": 2021,
+      "rank": 23
+    },
+    {
+      "id": 35423,
+      "slug": "westworld",
+      "title": "Westworld",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 65693,
+      "slug": "years-and-years",
+      "title": "Years and Years",
+      "year": 2019,
+      "rank": 25
+    },
+    {
+      "id": 5694,
+      "slug": "the-100",
+      "title": "The 100",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 35428,
+      "slug": "jessica-jones",
+      "title": "Marvel's Jessica Jones",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 65666,
+      "slug": "the-society",
+      "title": "The Society",
+      "year": 2019,
+      "rank": 28
+    },
+    {
+      "id": 65621,
+      "slug": "see",
+      "title": "See",
+      "year": 2019,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919159
+}

@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/27229-gotham",
+  "id": 27229,
+  "slug": "gotham",
+  "title": "Gotham",
+  "year": 2014,
+  "rating": 7.8,
+  "votes_text": "251K",
+  "votes": 251000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/1a/27229.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 42,
+  "story": "Before there was Batman, there was GOTHAM. Everyone knows the name Commissioner Gordon. He is one of the crime world's greatest foes, a man whose reputation is synonymous with law and order. But what is known of Gordon's story and his rise from rookie detective to Police Commissioner? What did it take to navigate the multiple layers of corruption that secretly ruled Gotham City, the spawning ground of the world's most iconic villains? And what circumstances created them – the larger-than-life personas who would become Catwoman, The Penguin, The Riddler, Two-Face and The Joker?",
+  "tags": [
+    {
+      "id": 7087,
+      "slug": "batman",
+      "name": "Batman",
+      "film_count": 523
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    },
+    {
+      "id": 806,
+      "slug": "corruption",
+      "name": "Corruption",
+      "film_count": 9994
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 1147,
+      "slug": "police-corruption",
+      "name": "Police corruption",
+      "film_count": 2007
+    },
+    {
+      "id": 1457,
+      "slug": "police-station",
+      "name": "Police station",
+      "film_count": 2726
+    },
+    {
+      "id": 4235,
+      "slug": "super-villain",
+      "name": "Super villain",
+      "film_count": 963
+    },
+    {
+      "id": 4455,
+      "slug": "first-love",
+      "name": "First love",
+      "film_count": 1822
+    },
+    {
+      "id": 585,
+      "slug": "detective",
+      "name": "Detective",
+      "film_count": 6961
+    },
+    {
+      "id": 7685,
+      "slug": "superpower",
+      "name": "Superpower",
+      "film_count": 2014
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 17258,
+      "slug": "exodus",
+      "name": "Exodus",
+      "film_count": 1279
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    },
+    {
+      "id": 172234,
+      "slug": "teen-superhero",
+      "name": "Teen superhero",
+      "film_count": 323
+    },
+    {
+      "id": 1450,
+      "slug": "good-versus-evil",
+      "name": "Good versus evil",
+      "film_count": 6642
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "exciting",
+      "tense",
+      "detective",
+      "saga",
+      "neo noir",
+      "bleak",
+      "atmospheric",
+      "offbeat",
+      "intellectual"
+    ],
+    "audience": [
+      "teens",
+      "boys' night"
+    ],
+    "plot": [
+      "batman",
+      "police",
+      "corruption",
+      "police corruption",
+      "police station",
+      "super villain",
+      "superhero",
+      "mafia",
+      "friendship",
+      "organized crime",
+      "police detective",
+      "justice",
+      "couple relations",
+      "gang war",
+      "twists and turns",
+      "crime boss",
+      "orphan",
+      "multiverse",
+      "city",
+      "first love",
+      "superpower",
+      "supernatural",
+      "exodus",
+      "teen superhero",
+      "good versus evil"
+    ],
+    "time": [
+      "90s",
+      "2000s",
+      "20th century",
+      "21st century",
+      "1990s"
+    ],
+    "place": [
+      "new jersey"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65712,
+      "slug": "pennyworth",
+      "title": "Pennyworth",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 57900,
+      "slug": "the-punisher",
+      "title": "The Punisher",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 80498,
+      "slug": "gotham-knights",
+      "title": "Gotham Knights",
+      "year": 2023,
+      "rank": 2
+    },
+    {
+      "id": 74898,
+      "slug": "reacher",
+      "title": "Reacher",
+      "year": 2022,
+      "rank": 3
+    },
+    {
+      "id": 35427,
+      "slug": "luke-cage",
+      "title": "Luke Cage",
+      "year": 2016,
+      "rank": 4
+    },
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 5
+    },
+    {
+      "id": 1801,
+      "slug": "arrow",
+      "title": "Arrow",
+      "year": 2012,
+      "rank": 6
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 58503,
+      "slug": "titans",
+      "title": "Titans",
+      "year": 2018,
+      "rank": 8
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 9
+    },
+    {
+      "id": 11634,
+      "slug": "the-dark-knight",
+      "title": "The Dark Knight",
+      "year": 2008,
+      "rank": 10
+    },
+    {
+      "id": 58505,
+      "slug": "marvels-cloak-and-dagger",
+      "title": "Cloak & Dagger",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 65359,
+      "slug": "the-boys",
+      "title": "The Boys",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 30236,
+      "slug": "the-flash",
+      "title": "The Flash",
+      "year": 1990,
+      "rank": 13
+    },
+    {
+      "id": 35428,
+      "slug": "jessica-jones",
+      "title": "Marvel's Jessica Jones",
+      "year": 2015,
+      "rank": 14
+    },
+    {
+      "id": 38023,
+      "slug": "limitless",
+      "title": "Limitless",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 5341,
+      "slug": "true-detective",
+      "title": "True Detective",
+      "year": 2014,
+      "rank": 16
+    },
+    {
+      "id": 98625,
+      "slug": "daredevil-born-again",
+      "title": "Daredevil: Born Again",
+      "year": 2025,
+      "rank": 17
+    },
+    {
+      "id": 15035,
+      "slug": "agent-carter",
+      "title": "Agent Carter",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 71175,
+      "slug": "the-children-of-the-street",
+      "title": "The Children of the Street",
+      "year": 2020,
+      "rank": 19
+    },
+    {
+      "id": 9081,
+      "slug": "batman-begins",
+      "title": "Batman Begins",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 60868,
+      "slug": "krypton",
+      "title": "Krypton",
+      "year": 2018,
+      "rank": 21
+    },
+    {
+      "id": 19302,
+      "slug": "daredevil",
+      "title": "Daredevil",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 57869,
+      "slug": "marvels-the-defenders",
+      "title": "The Defenders",
+      "year": 2017,
+      "rank": 23
+    },
+    {
+      "id": 2942,
+      "slug": "justified",
+      "title": "Justified",
+      "year": 2010,
+      "rank": 24
+    },
+    {
+      "id": 1412,
+      "slug": "powers",
+      "title": "Powers",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 22781,
+      "slug": "smallville",
+      "title": "Smallville",
+      "year": 2001,
+      "rank": 26
+    },
+    {
+      "id": 27166,
+      "slug": "the-flash",
+      "title": "The Flash",
+      "year": 2014,
+      "rank": 27
+    },
+    {
+      "id": 69528,
+      "slug": "the-falcon-and-the-winter-soldier",
+      "title": "The Falcon and the Winter Soldier",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 64832,
+      "slug": "deadly-class",
+      "title": "Deadly Class",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919152
+}

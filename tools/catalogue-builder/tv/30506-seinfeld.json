@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/30506-seinfeld",
+  "id": 30506,
+  "slug": "seinfeld",
+  "title": "Seinfeld",
+  "year": 1989,
+  "rating": 8.9,
+  "votes_text": "381K",
+  "votes": 381000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a7/30506.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "Seinfeld is an American television sitcom that originally aired on NBC from July 5, 1989, to May 14, 1998. It lasted nine seasons, and is now in syndication. It was created by Larry David and Jerry Seinfeld, the latter starring as a fictionalized version of himself. Set predominantly in an apartment block in Manhattan's Upper West Side in New York City, the show features a handful of Jerry's friends and acquaintances, particularly best friend George Costanza, former girlfriend Elaine Benes, and neighbor across the hall Cosmo Kramer.",
+  "tags": [
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 124,
+      "slug": "dating",
+      "name": "Dating",
+      "film_count": 2403
+    },
+    {
+      "id": 736,
+      "slug": "comedian",
+      "name": "Comedian",
+      "film_count": 1127
+    },
+    {
+      "id": 4165,
+      "slug": "new-york",
+      "name": "New york",
+      "film_count": 5521
+    },
+    {
+      "id": 10118,
+      "slug": "everyday-life",
+      "name": "Everyday life",
+      "film_count": 1642
+    },
+    {
+      "id": 123409,
+      "slug": "nothing-goes-right",
+      "name": "Nothing goes right",
+      "film_count": 1881
+    },
+    {
+      "id": 5738,
+      "slug": "neighbor-neighbor-relationship",
+      "name": "Neighbor neighbor relationship",
+      "film_count": 1141
+    },
+    {
+      "id": 10739,
+      "slug": "psychedelic",
+      "name": "Psychedelic",
+      "film_count": 1881
+    },
+    {
+      "id": 1616,
+      "slug": "manhattan-new-york-city",
+      "name": "Manhattan new york city",
+      "film_count": 1353
+    },
+    {
+      "id": 53649,
+      "slug": "eternal-love",
+      "name": "Eternal love",
+      "film_count": 153
+    },
+    {
+      "id": 734,
+      "slug": "stand-up-comedian",
+      "name": "Stand up comedian",
+      "film_count": 776
+    },
+    {
+      "id": 481,
+      "slug": "neighbor",
+      "name": "Neighbor",
+      "film_count": 2569
+    },
+    {
+      "id": 2345,
+      "slug": "anime",
+      "name": "Anime",
+      "film_count": 6683
+    },
+    {
+      "id": 58481,
+      "slug": "meme",
+      "name": "Meme",
+      "film_count": 526
+    },
+    {
+      "id": 422,
+      "slug": "friendship-between-men",
+      "name": "Friendship between men",
+      "film_count": 2991
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "humorous",
+      "witty",
+      "buddy comedy",
+      "situational comedy",
+      "talky",
+      "not serious",
+      "funny",
+      "hilarious",
+      "psychedelic"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "friendship",
+      "dating",
+      "comedian",
+      "everyday life",
+      "nothing goes right",
+      "neighbor neighbor relationship",
+      "comedy of errors",
+      "lifestyle",
+      "adult humor",
+      "new york yankees",
+      "antisocial behavior",
+      "disorder",
+      "uptight character",
+      "food",
+      "eternal love",
+      "stand up comedian",
+      "neighbor",
+      "meme",
+      "friendship between men",
+      "narcissism",
+      "joke",
+      "diner",
+      "monologue",
+      "immorality",
+      "controversy"
+    ],
+    "time": [
+      "20th century",
+      "90s",
+      "1990s",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "manhattan new york city",
+      "usa",
+      "manhattan",
+      "new york city",
+      "united states of america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 11462,
+      "slug": "curb-your-enthusiasm",
+      "title": "Curb Your Enthusiasm",
+      "year": 2000,
+      "rank": 0
+    },
+    {
+      "id": 30519,
+      "slug": "frasier",
+      "title": "Frasier",
+      "year": 1993,
+      "rank": 1
+    },
+    {
+      "id": 30523,
+      "slug": "30-rock",
+      "title": "30 Rock",
+      "year": 2006,
+      "rank": 2
+    },
+    {
+      "id": 13794,
+      "slug": "friends",
+      "title": "Friends",
+      "year": 1994,
+      "rank": 3
+    },
+    {
+      "id": 30518,
+      "slug": "everybody-loves-raymond",
+      "title": "Everybody Loves Raymond",
+      "year": 1996,
+      "rank": 4
+    },
+    {
+      "id": 30451,
+      "slug": "married-with-children",
+      "title": "Married... with Children",
+      "year": 1987,
+      "rank": 5
+    },
+    {
+      "id": 79574,
+      "slug": "jerry-seinfeld-23-hours-to-kill",
+      "title": "Jerry Seinfeld: 23 Hours to Kill",
+      "year": 2020,
+      "rank": 6
+    },
+    {
+      "id": 62572,
+      "slug": "hello-ladies",
+      "title": "Hello Ladies",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 9356,
+      "slug": "the-big-bang-theory",
+      "title": "The Big Bang Theory",
+      "year": 2007,
+      "rank": 8
+    },
+    {
+      "id": 62517,
+      "slug": "friends-with-better-lives",
+      "title": "Friends with Better Lives",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 2249,
+      "slug": "veep",
+      "title": "Veep",
+      "year": 2012,
+      "rank": 10
+    },
+    {
+      "id": 7524,
+      "slug": "mulaney",
+      "title": "Mulaney",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 30495,
+      "slug": "mary-tyler-moore",
+      "title": "The Mary Tyler Moore Show",
+      "year": 1970,
+      "rank": 12
+    },
+    {
+      "id": 30165,
+      "slug": "peep-show",
+      "title": "Peep Show",
+      "year": 2003,
+      "rank": 13
+    },
+    {
+      "id": 3474,
+      "slug": "the-new-adventures-of-old-christine",
+      "title": "The New Adventures of Old Christine",
+      "year": 2006,
+      "rank": 14
+    },
+    {
+      "id": 1233,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 30321,
+      "slug": "taxi",
+      "title": "Taxi",
+      "year": 1978,
+      "rank": 16
+    },
+    {
+      "id": 24618,
+      "slug": "two-and-a-half-men",
+      "title": "Two and a Half Men",
+      "year": 2003,
+      "rank": 17
+    },
+    {
+      "id": 264,
+      "slug": "girls",
+      "title": "Girls",
+      "year": 2012,
+      "rank": 18
+    },
+    {
+      "id": 30420,
+      "slug": "black-books",
+      "title": "Black Books",
+      "year": 2000,
+      "rank": 19
+    },
+    {
+      "id": 26561,
+      "slug": "its-always-sunny-in-philadelphia",
+      "title": "It's Always Sunny in Philadelphia",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 26681,
+      "slug": "parks-and-recreation",
+      "title": "Parks and Recreation",
+      "year": 2009,
+      "rank": 21
+    },
+    {
+      "id": 18931,
+      "slug": "my-name-is-earl",
+      "title": "My Name Is Earl",
+      "year": 2005,
+      "rank": 22
+    },
+    {
+      "id": 30140,
+      "slug": "stella",
+      "title": "Stella",
+      "year": 2005,
+      "rank": 23
+    },
+    {
+      "id": 2812,
+      "slug": "workaholics",
+      "title": "Workaholics",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 60631,
+      "slug": "the-odd-couple",
+      "title": "The Odd Couple",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 98203,
+      "slug": "friend-me",
+      "title": "Friend Me",
+      "year": 2012,
+      "rank": 26
+    },
+    {
+      "id": 30364,
+      "slug": "the-larry-sanders-show",
+      "title": "The Larry Sanders Show",
+      "year": 1992,
+      "rank": 27
+    },
+    {
+      "id": 1707,
+      "slug": "the-george-carlin-show",
+      "title": "The George Carlin Show",
+      "year": 1994,
+      "rank": 28
+    },
+    {
+      "id": 30002,
+      "slug": "im-alan-partridge",
+      "title": "I'm Alan Partridge",
+      "year": 1997,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919155
+}

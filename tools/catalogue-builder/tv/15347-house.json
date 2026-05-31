@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/15347-house",
+  "id": 15347,
+  "slug": "house",
+  "title": "House",
+  "year": 2004,
+  "rating": 8.7,
+  "votes_text": "586K",
+  "votes": 586000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/e8/15347.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Dr. Gregory House, a drug-addicted, unconventional, misanthropic medical genius, leads a team of diagnosticians at the fictional Princeton–Plainsboro Teaching Hospital in New Jersey.",
+  "tags": [
+    {
+      "id": 9329,
+      "slug": "medical-drama",
+      "name": "Medical drama",
+      "film_count": 770
+    },
+    {
+      "id": 89,
+      "slug": "doctor",
+      "name": "Doctor",
+      "film_count": 6165
+    },
+    {
+      "id": 44,
+      "slug": "medicine",
+      "name": "Medicine",
+      "film_count": 1100
+    },
+    {
+      "id": 1455,
+      "slug": "hospital",
+      "name": "Hospital",
+      "film_count": 8344
+    },
+    {
+      "id": 123790,
+      "slug": "talented",
+      "name": "Talented",
+      "film_count": 250
+    },
+    {
+      "id": 9497,
+      "slug": "mastermind",
+      "name": "Mastermind",
+      "film_count": 229
+    },
+    {
+      "id": 123479,
+      "slug": "clever",
+      "name": "Clever",
+      "film_count": 7167
+    },
+    {
+      "id": 9223,
+      "slug": "prodigy",
+      "name": "Prodigy",
+      "film_count": 686
+    },
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 123636,
+      "slug": "hotshot",
+      "name": "Hotshot",
+      "film_count": 98
+    },
+    {
+      "id": 123458,
+      "slug": "riddles-and-clues",
+      "name": "Riddles and clues",
+      "film_count": 911
+    },
+    {
+      "id": 6966,
+      "slug": "team",
+      "name": "Team",
+      "film_count": 1512
+    },
+    {
+      "id": 10305,
+      "slug": "troublemaker",
+      "name": "Troublemaker",
+      "film_count": 149
+    },
+    {
+      "id": 12968,
+      "slug": "rebelliousness",
+      "name": "Rebelliousness",
+      "film_count": 915
+    },
+    {
+      "id": 12960,
+      "slug": "biting",
+      "name": "Biting",
+      "film_count": 1826
+    },
+    {
+      "id": 14627,
+      "slug": "medical-profession",
+      "name": "Medical profession",
+      "film_count": 156
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "medical drama",
+      "clever",
+      "cynical",
+      "emotional",
+      "witty",
+      "psychological",
+      "biting",
+      "captivating",
+      "sincere",
+      "serious"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "doctor",
+      "medicine",
+      "hospital",
+      "talented",
+      "mastermind",
+      "prodigy",
+      "loner",
+      "doctors and patients",
+      "expert",
+      "medical",
+      "patient",
+      "surgery",
+      "unconventional method",
+      "human nature",
+      "peril",
+      "insubordination",
+      "antisocial behavior",
+      "teamwork",
+      "dark humor",
+      "hotshot",
+      "danger",
+      "riddles and clues",
+      "team",
+      "troublemaker",
+      "rebelliousness"
+    ],
+    "time": [
+      "2000s",
+      "future",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new jersey",
+      "usa",
+      "syria"
+    ]
+  },
+  "similar": [
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 0
+    },
+    {
+      "id": 57906,
+      "slug": "the-good-doctor",
+      "title": "The Good Doctor",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 61583,
+      "slug": "the-resident",
+      "title": "The Resident",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 74632,
+      "slug": "young-doctors",
+      "title": "Young Doctors",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 7156,
+      "slug": "the-knick",
+      "title": "The Knick",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 5
+    },
+    {
+      "id": 26991,
+      "slug": "lie-to-me",
+      "title": "Lie to Me",
+      "year": 2009,
+      "rank": 6
+    },
+    {
+      "id": 67031,
+      "slug": "transplant",
+      "title": "Transplant",
+      "year": 2020,
+      "rank": 7
+    },
+    {
+      "id": 68735,
+      "slug": "hekimoglu",
+      "title": "Hekimoglu",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 66792,
+      "slug": "dr-romantic",
+      "title": "Dr. Romantic",
+      "year": 2016,
+      "rank": 9
+    },
+    {
+      "id": 12863,
+      "slug": "er",
+      "title": "ER",
+      "year": 1994,
+      "rank": 10
+    },
+    {
+      "id": 14460,
+      "slug": "greys-anatomy",
+      "title": "Grey's Anatomy",
+      "year": 2005,
+      "rank": 11
+    },
+    {
+      "id": 27030,
+      "slug": "nurse-jackie",
+      "title": "Nurse Jackie",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 41818,
+      "slug": "chicago-med",
+      "title": "Chicago Med",
+      "year": 2015,
+      "rank": 13
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 14
+    },
+    {
+      "id": 62397,
+      "slug": "monroe",
+      "title": "Monroe",
+      "year": 2011,
+      "rank": 15
+    },
+    {
+      "id": 62092,
+      "slug": "mental",
+      "title": "Mental",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 5396,
+      "slug": "the-night-shift",
+      "title": "The Night Shift",
+      "year": 2014,
+      "rank": 17
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 18
+    },
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 19
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 30526,
+      "slug": "monk",
+      "title": "Monk",
+      "year": 2002,
+      "rank": 21
+    },
+    {
+      "id": 28638,
+      "slug": "rush",
+      "title": "Rush",
+      "year": 2014,
+      "rank": 22
+    },
+    {
+      "id": 19350,
+      "slug": "nip-tuck",
+      "title": "Nip/Tuck",
+      "year": 2003,
+      "rank": 23
+    },
+    {
+      "id": 597,
+      "slug": "suits",
+      "title": "Suits",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 5938,
+      "slug": "medical-investigation",
+      "title": "Medical Investigation",
+      "year": 2004,
+      "rank": 25
+    },
+    {
+      "id": 27227,
+      "slug": "the-freudian-method",
+      "title": "Freud's Method",
+      "year": 2003,
+      "rank": 26
+    },
+    {
+      "id": 56620,
+      "slug": "body-of-proof",
+      "title": "Body of Proof",
+      "year": 2011,
+      "rank": 27
+    },
+    {
+      "id": 66941,
+      "slug": "dispatches-from-elsewhere",
+      "title": "Dispatches from Elsewhere",
+      "year": 2020,
+      "rank": 28
+    },
+    {
+      "id": 3908,
+      "slug": "mercy",
+      "title": "Mercy",
+      "year": 2009,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919139
+}

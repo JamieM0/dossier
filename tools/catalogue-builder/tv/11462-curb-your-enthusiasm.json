@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/11462-curb-your-enthusiasm",
+  "id": 11462,
+  "slug": "curb-your-enthusiasm",
+  "title": "Curb Your Enthusiasm",
+  "year": 2000,
+  "rating": 8.8,
+  "votes_text": "165K",
+  "votes": 165000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/7f/11462.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 30,
+  "story": "The off-kilter, unscripted comic vision of Larry David, who plays himself in a parallel universe in which he can't seem to do anything right, and, by his standards, neither can anyone else.",
+  "tags": [
+    {
+      "id": 52589,
+      "slug": "mishap",
+      "name": "Mishap",
+      "film_count": 419
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 2955,
+      "slug": "bad-luck",
+      "name": "Bad luck",
+      "film_count": 163
+    },
+    {
+      "id": 736,
+      "slug": "comedian",
+      "name": "Comedian",
+      "film_count": 1127
+    },
+    {
+      "id": 123486,
+      "slug": "witty",
+      "name": "Witty",
+      "film_count": 5204
+    },
+    {
+      "id": 120516,
+      "slug": "antisocial-behavior",
+      "name": "Antisocial behavior",
+      "film_count": 229
+    },
+    {
+      "id": 21689,
+      "slug": "conversation",
+      "name": "Conversation",
+      "film_count": 464
+    },
+    {
+      "id": 10287,
+      "slug": "misunderstanding",
+      "name": "Misunderstanding",
+      "film_count": 1142
+    },
+    {
+      "id": 53649,
+      "slug": "eternal-love",
+      "name": "Eternal love",
+      "film_count": 153
+    },
+    {
+      "id": 11539,
+      "slug": "light",
+      "name": "Light",
+      "film_count": 12031
+    },
+    {
+      "id": 124139,
+      "slug": "hilarious",
+      "name": "Hilarious",
+      "film_count": 1767
+    },
+    {
+      "id": 124330,
+      "slug": "writers",
+      "name": "Writers",
+      "film_count": 6133
+    },
+    {
+      "id": 1693,
+      "slug": "2010s",
+      "name": "2010s",
+      "film_count": 6370
+    },
+    {
+      "id": 1302,
+      "slug": "celebrity",
+      "name": "Celebrity",
+      "film_count": 1240
+    },
+    {
+      "id": 70,
+      "slug": "husband-wife-relationship",
+      "name": "Husband wife relationship",
+      "film_count": 13715
+    },
+    {
+      "id": 8927,
+      "slug": "discussion",
+      "name": "Discussion",
+      "film_count": 244
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "humorous",
+      "witty",
+      "dark comedy",
+      "light",
+      "hilarious",
+      "thought provoking",
+      "feel good",
+      "epic",
+      "entertaining"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "mishap",
+      "bad luck",
+      "comedian",
+      "antisocial behavior",
+      "conversation",
+      "misunderstanding",
+      "lifestyle",
+      "socially awkward",
+      "success",
+      "career",
+      "actor",
+      "showbiz",
+      "actress",
+      "social misfits",
+      "everyday life",
+      "nothing goes right",
+      "buddies",
+      "divorce",
+      "alienation",
+      "workplace",
+      "artists and showbiz",
+      "eternal love",
+      "writers",
+      "celebrity",
+      "husband wife relationship"
+    ],
+    "time": [
+      "2010s",
+      "90s",
+      "20th century",
+      "2020s",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "california",
+      "los angeles",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26561,
+      "slug": "its-always-sunny-in-philadelphia",
+      "title": "It's Always Sunny in Philadelphia",
+      "year": 2005,
+      "rank": 0
+    },
+    {
+      "id": 1306,
+      "slug": "lifes-too-short",
+      "title": "Life's Too Short",
+      "year": 2011,
+      "rank": 1
+    },
+    {
+      "id": 30506,
+      "slug": "seinfeld",
+      "title": "Seinfeld",
+      "year": 1989,
+      "rank": 2
+    },
+    {
+      "id": 56546,
+      "slug": "klovn",
+      "title": "Klovn",
+      "year": 2005,
+      "rank": 3
+    },
+    {
+      "id": 30523,
+      "slug": "30-rock",
+      "title": "30 Rock",
+      "year": 2006,
+      "rank": 4
+    },
+    {
+      "id": 61904,
+      "slug": "lead-balloon",
+      "title": "Lead Balloon",
+      "year": 2006,
+      "rank": 5
+    },
+    {
+      "id": 69394,
+      "slug": "pastewka",
+      "title": "Pastewka",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 62572,
+      "slug": "hello-ladies",
+      "title": "Hello Ladies",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 8662,
+      "slug": "arrested-development",
+      "title": "Arrested Development",
+      "year": 2003,
+      "rank": 8
+    },
+    {
+      "id": 30165,
+      "slug": "peep-show",
+      "title": "Peep Show",
+      "year": 2003,
+      "rank": 9
+    },
+    {
+      "id": 56471,
+      "slug": "episodes",
+      "title": "Episodes",
+      "year": 2011,
+      "rank": 10
+    },
+    {
+      "id": 30420,
+      "slug": "black-books",
+      "title": "Black Books",
+      "year": 2000,
+      "rank": 11
+    },
+    {
+      "id": 26562,
+      "slug": "community",
+      "title": "Community",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 16022,
+      "slug": "the-it-crowd",
+      "title": "The IT Crowd",
+      "year": 2006,
+      "rank": 13
+    },
+    {
+      "id": 12845,
+      "slug": "entourage",
+      "title": "Entourage",
+      "year": 2004,
+      "rank": 14
+    },
+    {
+      "id": 58094,
+      "slug": "british-men-behaving-badly",
+      "title": "Men Behaving Badly",
+      "year": 1992,
+      "rank": 15
+    },
+    {
+      "id": 30364,
+      "slug": "the-larry-sanders-show",
+      "title": "The Larry Sanders Show",
+      "year": 1992,
+      "rank": 16
+    },
+    {
+      "id": 64912,
+      "slug": "real-husbands-of-hollywood",
+      "title": "Real Husbands of Hollywood",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 18931,
+      "slug": "my-name-is-earl",
+      "title": "My Name Is Earl",
+      "year": 2005,
+      "rank": 18
+    },
+    {
+      "id": 62235,
+      "slug": "legit",
+      "title": "Legit",
+      "year": 2013,
+      "rank": 19
+    },
+    {
+      "id": 30002,
+      "slug": "im-alan-partridge",
+      "title": "I'm Alan Partridge",
+      "year": 1997,
+      "rank": 20
+    },
+    {
+      "id": 56480,
+      "slug": "starlets",
+      "title": "Grosse Pointe",
+      "year": 2000,
+      "rank": 21
+    },
+    {
+      "id": 30176,
+      "slug": "the-comeback",
+      "title": "The Comeback",
+      "year": 2005,
+      "rank": 22
+    },
+    {
+      "id": 68282,
+      "slug": "clark-and-michael",
+      "title": "Clark and Michael",
+      "year": 2007,
+      "rank": 23
+    },
+    {
+      "id": 30038,
+      "slug": "mr-show-with-bob-and-david",
+      "title": "Mr. Show with Bob and David",
+      "year": 1995,
+      "rank": 24
+    },
+    {
+      "id": 2914,
+      "slug": "louie",
+      "title": "Louie",
+      "year": 2010,
+      "rank": 25
+    },
+    {
+      "id": 179,
+      "slug": "back-to-you",
+      "title": "Back to You",
+      "year": 2007,
+      "rank": 26
+    },
+    {
+      "id": 30294,
+      "slug": "fat-actress",
+      "title": "Fat Actress",
+      "year": 2005,
+      "rank": 27
+    },
+    {
+      "id": 64383,
+      "slug": "lateline",
+      "title": "LateLine",
+      "year": 1998,
+      "rank": 28
+    },
+    {
+      "id": 2136,
+      "slug": "portlandia",
+      "title": "Portlandia",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919137
+}

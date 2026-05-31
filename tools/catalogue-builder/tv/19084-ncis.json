@@ -1,0 +1,393 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/19084-ncis",
+  "id": 19084,
+  "slug": "ncis",
+  "title": "NCIS",
+  "year": 2003,
+  "rating": 7.8,
+  "votes_text": "175K",
+  "votes": 175000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/2f/19084.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "From murder and espionage to terrorism and stolen submarines, a team of special agents investigates any crime that has a shred of evidence connected to Navy and Marine Corps personnel, regardless of rank or position.",
+  "tags": [
+    {
+      "id": 22722,
+      "slug": "law-enforcement",
+      "name": "Law enforcement",
+      "film_count": 5363
+    },
+    {
+      "id": 19598,
+      "slug": "crime-solving",
+      "name": "Crime solving",
+      "film_count": 1673
+    },
+    {
+      "id": 1449,
+      "slug": "teamwork",
+      "name": "Teamwork",
+      "film_count": 4610
+    },
+    {
+      "id": 12605,
+      "slug": "special-agent",
+      "name": "Special agent",
+      "film_count": 1226
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 123375,
+      "slug": "partners-against-crime",
+      "name": "Partners against crime",
+      "film_count": 1465
+    },
+    {
+      "id": 5506,
+      "slug": "murder-mystery",
+      "name": "Murder mystery",
+      "film_count": 4248
+    },
+    {
+      "id": 4681,
+      "slug": "based-on-tv-series",
+      "name": "Based on tv series",
+      "film_count": 1719
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 3042,
+      "slug": "police-investigation",
+      "name": "Police investigation",
+      "film_count": 8669
+    },
+    {
+      "id": 8140,
+      "slug": "babe-scientist",
+      "name": "Babe scientist",
+      "film_count": 253
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 8672,
+      "slug": "investigator",
+      "name": "Investigator",
+      "film_count": 1032
+    },
+    {
+      "id": 12651,
+      "slug": "graphic-violence",
+      "name": "Graphic violence",
+      "film_count": 6084
+    },
+    {
+      "id": 13115,
+      "slug": "naval-officer",
+      "name": "Naval officer",
+      "film_count": 139
+    },
+    {
+      "id": 2803,
+      "slug": "partner",
+      "name": "Partner",
+      "film_count": 4482
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "serious",
+      "exciting",
+      "suspense",
+      "semi serious",
+      "tense",
+      "cliffhanger",
+      "thrilling",
+      "dramatic",
+      "realistic"
+    ],
+    "audience": [
+      "teens",
+      "boys' night",
+      "adult"
+    ],
+    "plot": [
+      "law enforcement",
+      "crime solving",
+      "teamwork",
+      "special agent",
+      "partners against crime",
+      "murder mystery",
+      "crime investigation",
+      "evidence",
+      "victim",
+      "military",
+      "investigation",
+      "forensics",
+      "computer genius",
+      "medical examiner",
+      "secret service",
+      "government agency",
+      "police procedural",
+      "army investigation",
+      "fighting crime",
+      "murder investigation",
+      "swat team",
+      "navy",
+      "murder",
+      "police investigation",
+      "babe scientist"
+    ],
+    "time": [
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "south america",
+      "washington d.c",
+      "virginia",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 30162,
+      "slug": "ncis-los-angeles",
+      "title": "NCIS: Los Angeles",
+      "year": 2009,
+      "rank": 0
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 1
+    },
+    {
+      "id": 26973,
+      "slug": "hawaii-five-0",
+      "title": "Hawaii Five-0",
+      "year": 2010,
+      "rank": 2
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 3
+    },
+    {
+      "id": 11446,
+      "slug": "csi-crime-scene-investigation",
+      "title": "CSI: Crime Scene Investigation",
+      "year": 2000,
+      "rank": 4
+    },
+    {
+      "id": 56683,
+      "slug": "chicago-p-d",
+      "title": "Chicago P.D.",
+      "year": 2014,
+      "rank": 5
+    },
+    {
+      "id": 30305,
+      "slug": "csi-ny",
+      "title": "CSI: NY",
+      "year": 2004,
+      "rank": 6
+    },
+    {
+      "id": 73936,
+      "slug": "ncis-hawaii",
+      "title": "NCIS: Hawaii",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 8
+    },
+    {
+      "id": 30205,
+      "slug": "without-a-trace",
+      "title": "Without a Trace",
+      "year": 2002,
+      "rank": 9
+    },
+    {
+      "id": 28904,
+      "slug": "ncis-new-orleans",
+      "title": "NCIS: New Orleans",
+      "year": 2014,
+      "rank": 10
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 11
+    },
+    {
+      "id": 1815,
+      "slug": "csi-miami",
+      "title": "CSI: Miami",
+      "year": 2002,
+      "rank": 12
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 13
+    },
+    {
+      "id": 30349,
+      "slug": "jag",
+      "title": "JAG",
+      "year": 1995,
+      "rank": 14
+    },
+    {
+      "id": 26991,
+      "slug": "lie-to-me",
+      "title": "Lie to Me",
+      "year": 2009,
+      "rank": 15
+    },
+    {
+      "id": 60776,
+      "slug": "s-w-a-t",
+      "title": "S.W.A.T.",
+      "year": 2017,
+      "rank": 16
+    },
+    {
+      "id": 5960,
+      "slug": "the-blacklist",
+      "title": "The Blacklist",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 302,
+      "slug": "crossing-jordan",
+      "title": "Crossing Jordan",
+      "year": 2001,
+      "rank": 18
+    },
+    {
+      "id": 66836,
+      "slug": "fbi",
+      "title": "FBI",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 3156,
+      "slug": "person-of-interest",
+      "title": "Person of Interest",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 28902,
+      "slug": "csi-cyber",
+      "title": "CSI: Cyber",
+      "year": 2015,
+      "rank": 21
+    },
+    {
+      "id": 67679,
+      "slug": "fbi-most-wanted",
+      "title": "FBI: Most Wanted",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 19527,
+      "slug": "numb3rs",
+      "title": "Numb3rs",
+      "year": 2005,
+      "rank": 23
+    },
+    {
+      "id": 307,
+      "slug": "major-crimes",
+      "title": "Major Crimes",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 63953,
+      "slug": "criminal-minds-beyond-borders",
+      "title": "Criminal Minds: Beyond Borders",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 30459,
+      "slug": "law-and-order-special-victims-unit",
+      "title": "Law & Order: Special Victims Unit",
+      "year": 1999,
+      "rank": 26
+    },
+    {
+      "id": 30316,
+      "slug": "cold-case",
+      "title": "Cold Case",
+      "year": 2003,
+      "rank": 27
+    },
+    {
+      "id": 56434,
+      "slug": "graceland",
+      "title": "Graceland",
+      "year": 2013,
+      "rank": 28
+    },
+    {
+      "id": 59135,
+      "slug": "silent-witness",
+      "title": "Silent Witness",
+      "year": 1996,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919139
+}

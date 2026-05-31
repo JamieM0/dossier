@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/69179-lupin",
+  "id": 69179,
+  "slug": "lupin",
+  "title": "Lupin",
+  "year": 2021,
+  "rating": 7.5,
+  "votes_text": "156K",
+  "votes": 156000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/cd/69179.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Mystery"
+  ],
+  "country": [
+    "France",
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Inspired by the adventures of Arsène Lupin, gentleman thief Assane Diop sets out to avenge his father for an injustice inflicted by a wealthy family.",
+  "tags": [
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 1734,
+      "slug": "france",
+      "name": "France",
+      "film_count": 3782
+    },
+    {
+      "id": 480,
+      "slug": "paris-france",
+      "name": "Paris france",
+      "film_count": 2807
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 123,
+      "slug": "father-son-relationship",
+      "name": "Father son relationship",
+      "film_count": 11353
+    },
+    {
+      "id": 511,
+      "slug": "revenge",
+      "name": "Revenge",
+      "film_count": 19339
+    },
+    {
+      "id": 2720,
+      "slug": "heist",
+      "name": "Heist",
+      "film_count": 3557
+    },
+    {
+      "id": 38592,
+      "slug": "disturbing",
+      "name": "Disturbing",
+      "film_count": 16904
+    },
+    {
+      "id": 33744,
+      "slug": "unsolved-crime",
+      "name": "Unsolved crime",
+      "film_count": 507
+    },
+    {
+      "id": 13994,
+      "slug": "true-crime",
+      "name": "True crime",
+      "film_count": 1551
+    },
+    {
+      "id": 35751,
+      "slug": "dishonesty",
+      "name": "Dishonesty",
+      "film_count": 8408
+    },
+    {
+      "id": 123350,
+      "slug": "criminal-heroes",
+      "name": "Criminal heroes",
+      "film_count": 2481
+    },
+    {
+      "id": 4168,
+      "slug": "2020s",
+      "name": "2020s",
+      "film_count": 2869
+    },
+    {
+      "id": 585,
+      "slug": "detective",
+      "name": "Detective",
+      "film_count": 6961
+    },
+    {
+      "id": 5509,
+      "slug": "whodunit",
+      "name": "Whodunit",
+      "film_count": 1967
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "psychological",
+      "suspense",
+      "tense",
+      "suspenseful",
+      "captivating",
+      "disturbing",
+      "detective",
+      "intellectual",
+      "serious"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "investigation",
+      "father son relationship",
+      "revenge",
+      "heist",
+      "police",
+      "black",
+      "prisoner",
+      "father",
+      "missing person",
+      "father figure",
+      "escapades",
+      "chase",
+      "love affair",
+      "vengeance",
+      "society",
+      "danger",
+      "unsolved crime",
+      "true crime",
+      "dishonesty",
+      "criminal heroes",
+      "whodunit",
+      "lesbian",
+      "lgbt",
+      "warrior",
+      "villain"
+    ],
+    "time": [
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "france",
+      "paris france",
+      "europe"
+    ]
+  },
+  "similar": [
+    {
+      "id": 30396,
+      "slug": "hustle",
+      "title": "Hustle",
+      "year": 2004,
+      "rank": 0
+    },
+    {
+      "id": 20709,
+      "slug": "prison-break",
+      "title": "Prison Break",
+      "year": 2005,
+      "rank": 1
+    },
+    {
+      "id": 60133,
+      "slug": "money-heist",
+      "title": "Money Heist",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 57946,
+      "slug": "macgyver",
+      "title": "MacGyver",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 76750,
+      "slug": "trace",
+      "title": "Trace",
+      "year": 2007,
+      "rank": 4
+    },
+    {
+      "id": 63953,
+      "slug": "criminal-minds-beyond-borders",
+      "title": "Criminal Minds: Beyond Borders",
+      "year": 2016,
+      "rank": 5
+    },
+    {
+      "id": 69645,
+      "slug": "the-equalizer",
+      "title": "The Equalizer",
+      "year": 2021,
+      "rank": 6
+    },
+    {
+      "id": 85938,
+      "slug": "the-spiral",
+      "title": "The Spiral",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 78431,
+      "slug": "hunting",
+      "title": "Hunting",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 98190,
+      "slug": "the-jetty",
+      "title": "The Jetty",
+      "year": 2024,
+      "rank": 9
+    },
+    {
+      "id": 28951,
+      "slug": "the-missing",
+      "title": "The Missing",
+      "year": 2014,
+      "rank": 10
+    },
+    {
+      "id": 85676,
+      "slug": "frank-riva",
+      "title": "Frank Riva",
+      "year": 2003,
+      "rank": 11
+    },
+    {
+      "id": 74806,
+      "slug": "crime-is-her-game",
+      "title": "Crime Is Her Game",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 94100,
+      "slug": "furies",
+      "title": "Furies",
+      "year": 2024,
+      "rank": 13
+    },
+    {
+      "id": 74513,
+      "slug": "suspects",
+      "title": "Suspects",
+      "year": 2014,
+      "rank": 14
+    },
+    {
+      "id": 64768,
+      "slug": "training-day",
+      "title": "Training Day",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 95437,
+      "slug": "deep",
+      "title": "Deep",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 78543,
+      "slug": "miu-404",
+      "title": "MIU404",
+      "year": 2020,
+      "rank": 17
+    },
+    {
+      "id": 76085,
+      "slug": "crimson-wedding",
+      "title": "Crimson Wedding",
+      "year": 2018,
+      "rank": 18
+    },
+    {
+      "id": 75281,
+      "slug": "dexter-new-blood",
+      "title": "Dexter: New Blood",
+      "year": 2021,
+      "rank": 19
+    },
+    {
+      "id": 30075,
+      "slug": "crime-story",
+      "title": "Crime Story",
+      "year": 1986,
+      "rank": 20
+    },
+    {
+      "id": 60227,
+      "slug": "deadwind",
+      "title": "Deadwind",
+      "year": 2018,
+      "rank": 21
+    },
+    {
+      "id": 71620,
+      "slug": "cold-case-shinjitsu-no-tobira",
+      "title": "Cold Case: Shinjitsu No Tobira",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 4057,
+      "slug": "arne-dahl-europa-blues",
+      "title": "Arne Dahl: The Europe Blues",
+      "year": 2012,
+      "rank": 23
+    },
+    {
+      "id": 61001,
+      "slug": "silver-spoon",
+      "title": "Silver Spoon",
+      "year": 2014,
+      "rank": 24
+    },
+    {
+      "id": 63690,
+      "slug": "spiral",
+      "title": "Spiral",
+      "year": 2005,
+      "rank": 25
+    },
+    {
+      "id": 97041,
+      "slug": "chief-detective-1958",
+      "title": "Chief Detective 1958",
+      "year": 2024,
+      "rank": 26
+    },
+    {
+      "id": 43613,
+      "slug": "from-darkness",
+      "title": "From Darkness",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 85235,
+      "slug": "full-circle",
+      "title": "Full Circle",
+      "year": 2023,
+      "rank": 28
+    },
+    {
+      "id": 68176,
+      "slug": "riot-police",
+      "title": "Riot Police",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919178
+}

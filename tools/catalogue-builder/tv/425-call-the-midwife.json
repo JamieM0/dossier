@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/425-call-the-midwife",
+  "id": 425,
+  "slug": "call-the-midwife",
+  "title": "Call the Midwife",
+  "year": 2012,
+  "rating": 8.6,
+  "votes_text": "35K",
+  "votes": 35000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/d7/425.jpg",
+  "genres": [
+    "Drama",
+    "History"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "Drama following the lives of a group of midwives working in the poverty-stricken East End of London during the 1950s, based on the best-selling memoirs of Jennifer Worth.",
+  "tags": [
+    {
+      "id": 108664,
+      "slug": "50s",
+      "name": "50s",
+      "film_count": 1411
+    },
+    {
+      "id": 3498,
+      "slug": "midwife",
+      "name": "Midwife",
+      "film_count": 104
+    },
+    {
+      "id": 3511,
+      "slug": "childbirth",
+      "name": "Childbirth",
+      "film_count": 1074
+    },
+    {
+      "id": 1697,
+      "slug": "pregnancy",
+      "name": "Pregnancy",
+      "film_count": 4923
+    },
+    {
+      "id": 3536,
+      "slug": "convent",
+      "name": "Convent",
+      "film_count": 352
+    },
+    {
+      "id": 22763,
+      "slug": "costume-drama",
+      "name": "Costume drama",
+      "film_count": 1839
+    },
+    {
+      "id": 31614,
+      "slug": "nursing",
+      "name": "Nursing",
+      "film_count": 249
+    },
+    {
+      "id": 123844,
+      "slug": "friends",
+      "name": "Friends",
+      "film_count": 13111
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 2884,
+      "slug": "nun",
+      "name": "Nun",
+      "film_count": 1304
+    },
+    {
+      "id": 5404,
+      "slug": "women",
+      "name": "Women",
+      "film_count": 7008
+    },
+    {
+      "id": 44,
+      "slug": "medicine",
+      "name": "Medicine",
+      "film_count": 1100
+    },
+    {
+      "id": 1455,
+      "slug": "hospital",
+      "name": "Hospital",
+      "film_count": 8344
+    },
+    {
+      "id": 6040,
+      "slug": "unrequited-love",
+      "name": "Unrequited love",
+      "film_count": 2930
+    },
+    {
+      "id": 436,
+      "slug": "death",
+      "name": "Death",
+      "film_count": 18858
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "costume drama",
+      "sincere",
+      "touching",
+      "realistic",
+      "stylized",
+      "period piece",
+      "suspenseful",
+      "historical drama",
+      "retro",
+      "medical drama"
+    ],
+    "audience": [
+      "girls' night"
+    ],
+    "plot": [
+      "midwife",
+      "childbirth",
+      "pregnancy",
+      "convent",
+      "nursing",
+      "friends",
+      "doctor",
+      "nurse",
+      "medical",
+      "family life",
+      "home birth",
+      "friendship",
+      "family relations",
+      "nun",
+      "women",
+      "medicine",
+      "hospital",
+      "unrequited love",
+      "death",
+      "strong female lead",
+      "woman",
+      "lgbtq",
+      "pregnant woman",
+      "poverty",
+      "bicycle"
+    ],
+    "time": [
+      "50s",
+      "60s",
+      "1950s",
+      "year 1961",
+      "2010s",
+      "2020s",
+      "20th century"
+    ],
+    "place": [
+      "england",
+      "london",
+      "europe",
+      "britain"
+    ]
+  },
+  "similar": [
+    {
+      "id": 61942,
+      "slug": "land-girls",
+      "title": "Land Girls",
+      "year": 2009,
+      "rank": 0
+    },
+    {
+      "id": 3624,
+      "slug": "lilies",
+      "title": "Lilies",
+      "year": 2007,
+      "rank": 1
+    },
+    {
+      "id": 57087,
+      "slug": "a-place-to-call-home",
+      "title": "A Place to Call Home",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 1904,
+      "slug": "lark-rise-to-candleford",
+      "title": "Lark Rise to Candleford",
+      "year": 2008,
+      "rank": 3
+    },
+    {
+      "id": 7156,
+      "slug": "the-knick",
+      "title": "The Knick",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 29911,
+      "slug": "berkeley-square",
+      "title": "Berkeley Square",
+      "year": 1998,
+      "rank": 5
+    },
+    {
+      "id": 1046,
+      "slug": "mr-selfridge",
+      "title": "Mr Selfridge",
+      "year": 2013,
+      "rank": 6
+    },
+    {
+      "id": 66304,
+      "slug": "charite-at-war",
+      "title": "Charité at War",
+      "year": 2017,
+      "rank": 7
+    },
+    {
+      "id": 4024,
+      "slug": "the-paradise",
+      "title": "The Paradise",
+      "year": 2012,
+      "rank": 8
+    },
+    {
+      "id": 26972,
+      "slug": "downton-abbey",
+      "title": "Downton Abbey",
+      "year": 2010,
+      "rank": 9
+    },
+    {
+      "id": 28597,
+      "slug": "love-child",
+      "title": "Love Child",
+      "year": 2014,
+      "rank": 10
+    },
+    {
+      "id": 56519,
+      "slug": "upstairs-downstairs",
+      "title": "Upstairs Downstairs",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 27203,
+      "slug": "cranford",
+      "title": "Cranford",
+      "year": 2007,
+      "rank": 12
+    },
+    {
+      "id": 62795,
+      "slug": "breathless",
+      "title": "Breathless",
+      "year": 2013,
+      "rank": 13
+    },
+    {
+      "id": 62346,
+      "slug": "the-village",
+      "title": "The Village",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 421,
+      "slug": "small-island",
+      "title": "Small Island",
+      "year": 2009,
+      "rank": 15
+    },
+    {
+      "id": 35408,
+      "slug": "home-fires",
+      "title": "Home Fires",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 61940,
+      "slug": "south-riding",
+      "title": "South Riding",
+      "year": 2011,
+      "rank": 17
+    },
+    {
+      "id": 5177,
+      "slug": "the-house-of-eliott",
+      "title": "The House of Eliott",
+      "year": 1991,
+      "rank": 18
+    },
+    {
+      "id": 22515,
+      "slug": "the-bletchley-circle",
+      "title": "The Bletchley Circle",
+      "year": 2012,
+      "rank": 19
+    },
+    {
+      "id": 30180,
+      "slug": "china-beach",
+      "title": "China Beach",
+      "year": 1988,
+      "rank": 20
+    },
+    {
+      "id": 29811,
+      "slug": "pan-am",
+      "title": "Pan Am",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 59266,
+      "slug": "the-outcast",
+      "title": "The Outcast",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 1880,
+      "slug": "upstairs-downstairs",
+      "title": "Upstairs, Downstairs",
+      "year": 1971,
+      "rank": 23
+    },
+    {
+      "id": 59493,
+      "slug": "cable-girls",
+      "title": "Cable Girls",
+      "year": 2017,
+      "rank": 24
+    },
+    {
+      "id": 35442,
+      "slug": "life-in-squares",
+      "title": "Life in Squares",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 42774,
+      "slug": "the-crown",
+      "title": "The Crown",
+      "year": 2016,
+      "rank": 26
+    },
+    {
+      "id": 68151,
+      "slug": "lambs-of-god",
+      "title": "Lambs of God",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 3319,
+      "slug": "dancing-on-the-edge",
+      "title": "Dancing on the Edge",
+      "year": 2013,
+      "rank": 28
+    },
+    {
+      "id": 9977,
+      "slug": "brides-of-christ",
+      "title": "Brides of Christ",
+      "year": 1991,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919128
+}

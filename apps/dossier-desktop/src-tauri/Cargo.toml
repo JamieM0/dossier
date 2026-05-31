@@ -1,6 +1,6 @@
 [package]
 name = "dossier-desktop"
-version = "0.1.14"
+version = "0.1.15"
 description = "Dossier desktop shell (Tauri)"
 authors = ["Dossier"]
 license = "UNLICENSED"

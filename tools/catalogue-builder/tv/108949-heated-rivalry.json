@@ -1,0 +1,376 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/108949-heated-rivalry",
+  "id": 108949,
+  "slug": "heated-rivalry",
+  "title": "Heated Rivalry",
+  "year": 2025,
+  "rating": 8.9,
+  "votes_text": "83K",
+  "votes": 83000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/ac/108949.jpg",
+  "genres": [
+    "Drama",
+    "Romance",
+    "Sport"
+  ],
+  "country": [
+    "Canada"
+  ],
+  "duration_min": null,
+  "story": "Two of the biggest stars in Major League Hockey are bound by ambition, rivalry, and a magnetic pull neither of them fully understands. What begins as a secret fling between two fresh faced rookies evolves into a years-long journey of love, denial, and self-discovery. Over the next eight years, as they chase glory on the ice, they struggle to navigate their feelings for each other. Torn between the sport they live for and the love they can’t ignore, they must decide if there’s room in their fiercely competitive world for something as fragile – and powerful – as real love.",
+  "tags": [
+    {
+      "id": 4773,
+      "slug": "closeted-homosexual",
+      "name": "Closeted homosexual",
+      "film_count": 714
+    },
+    {
+      "id": 6334,
+      "slug": "ice-hockey",
+      "name": "Ice hockey",
+      "film_count": 301
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 4762,
+      "slug": "gay-athlete",
+      "name": "Gay athlete",
+      "film_count": 60
+    },
+    {
+      "id": 143,
+      "slug": "rivalry",
+      "name": "Rivalry",
+      "film_count": 16927
+    },
+    {
+      "id": 9108,
+      "slug": "gay-sex",
+      "name": "Gay sex",
+      "film_count": 1090
+    },
+    {
+      "id": 1091,
+      "slug": "male-nudity",
+      "name": "Male nudity",
+      "film_count": 12261
+    },
+    {
+      "id": 62056,
+      "slug": "rivals",
+      "name": "Rivals",
+      "film_count": 1410
+    },
+    {
+      "id": 1346,
+      "slug": "sacrifice",
+      "name": "Sacrifice",
+      "film_count": 5320
+    },
+    {
+      "id": 14586,
+      "slug": "intimacy",
+      "name": "Intimacy",
+      "film_count": 708
+    },
+    {
+      "id": 2825,
+      "slug": "machismo",
+      "name": "Machismo",
+      "film_count": 1712
+    },
+    {
+      "id": 3752,
+      "slug": "identity",
+      "name": "Identity",
+      "film_count": 6773
+    },
+    {
+      "id": 1184,
+      "slug": "jealousy",
+      "name": "Jealousy",
+      "film_count": 6442
+    },
+    {
+      "id": 17790,
+      "slug": "urban",
+      "name": "Urban",
+      "film_count": 14273
+    },
+    {
+      "id": 8600,
+      "slug": "mental-health",
+      "name": "Mental health",
+      "film_count": 1512
+    },
+    {
+      "id": 15179,
+      "slug": "north-america",
+      "name": "North america",
+      "film_count": 618
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sincere",
+      "romantic",
+      "earnest",
+      "queer cinema"
+    ],
+    "plot": [
+      "closeted homosexual",
+      "ice hockey",
+      "gay",
+      "gay athlete",
+      "rivalry",
+      "gay sex",
+      "male nudity",
+      "rivals",
+      "enemies to lovers",
+      "gay relationship",
+      "sexuality",
+      "gay interest",
+      "gay love",
+      "male star appears nude",
+      "secret relationship",
+      "steamy romance",
+      "boys love",
+      "hockey",
+      "competition",
+      "self discovery",
+      "ambition",
+      "professional sports",
+      "lgbtq",
+      "forbidden love",
+      "sacrifice"
+    ],
+    "time": [
+      "2010s",
+      "contemporary"
+    ],
+    "place": [
+      "north america",
+      "russian"
+    ]
+  },
+  "similar": [
+    {
+      "id": 108736,
+      "slug": "10-dance",
+      "title": "10 Dance",
+      "year": 2025,
+      "rank": 0
+    },
+    {
+      "id": 79228,
+      "slug": "barracuda",
+      "title": "Barracuda",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 73184,
+      "slug": "young-royals",
+      "title": "Young Royals",
+      "year": 2021,
+      "rank": 2
+    },
+    {
+      "id": 89250,
+      "slug": "fellow-travelers",
+      "title": "Fellow Travelers",
+      "year": 2023,
+      "rank": 3
+    },
+    {
+      "id": 30317,
+      "slug": "queer-as-folk",
+      "title": "Queer as Folk",
+      "year": 2000,
+      "rank": 4
+    },
+    {
+      "id": 76486,
+      "slug": "heartstopper",
+      "title": "Heartstopper",
+      "year": 2022,
+      "rank": 5
+    },
+    {
+      "id": 96874,
+      "slug": "playboyy-the-series",
+      "title": "Playboyy the Series",
+      "year": 2023,
+      "rank": 6
+    },
+    {
+      "id": 75307,
+      "slug": "we-best-love",
+      "title": "We Best Love",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 107154,
+      "slug": "my-golden-blood",
+      "title": "My Golden Blood",
+      "year": 2025,
+      "rank": 8
+    },
+    {
+      "id": 60777,
+      "slug": "man-in-an-orange-shirt",
+      "title": "Man in an Orange Shirt",
+      "year": 2017,
+      "rank": 9
+    },
+    {
+      "id": 78295,
+      "slug": "in-from-the-side",
+      "title": "In from the Side",
+      "year": 2022,
+      "rank": 10
+    },
+    {
+      "id": 78847,
+      "slug": "punch",
+      "title": "Punch",
+      "year": 2022,
+      "rank": 11
+    },
+    {
+      "id": 59643,
+      "slug": "mario",
+      "title": "Mario",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 79974,
+      "slug": "semantic-error",
+      "title": "Semantic Error",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 37700,
+      "slug": "like-it-is",
+      "title": "Like It Is",
+      "year": 1998,
+      "rank": 14
+    },
+    {
+      "id": 7012,
+      "slug": "please-like-me",
+      "title": "Please Like Me",
+      "year": 2013,
+      "rank": 15
+    },
+    {
+      "id": 64885,
+      "slug": "the-blonde-one",
+      "title": "The Blonde One",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 28541,
+      "slug": "looking",
+      "title": "Looking",
+      "year": 2014,
+      "rank": 17
+    },
+    {
+      "id": 7817,
+      "slug": "youll-get-over-it",
+      "title": "You'll Get Over It",
+      "year": 2002,
+      "rank": 18
+    },
+    {
+      "id": 39365,
+      "slug": "beautiful-something",
+      "title": "Beautiful Something",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 99601,
+      "slug": "i-told-sunset-about-you",
+      "title": "I Told Sunset About You",
+      "year": 2020,
+      "rank": 20
+    },
+    {
+      "id": 98193,
+      "slug": "the-rebound",
+      "title": "The Rebound",
+      "year": 2024,
+      "rank": 21
+    },
+    {
+      "id": 65731,
+      "slug": "cousins",
+      "title": "Cousins",
+      "year": 2019,
+      "rank": 22
+    },
+    {
+      "id": 38772,
+      "slug": "soft-lad",
+      "title": "Soft Lad",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 90863,
+      "slug": "egoist",
+      "title": "Egoist",
+      "year": 2022,
+      "rank": 24
+    },
+    {
+      "id": 71260,
+      "slug": "life-love-on-the-line",
+      "title": "Life: Love on the Line",
+      "year": 2020,
+      "rank": 25
+    },
+    {
+      "id": 81809,
+      "slug": "lie-with-me",
+      "title": "Lie with Me",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 72644,
+      "slug": "history",
+      "title": "HIStory",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 7044,
+      "slug": "free-fall",
+      "title": "Free Fall",
+      "year": 2013,
+      "rank": 28
+    },
+    {
+      "id": 32910,
+      "slug": "from-beginning-to-end",
+      "title": "From Beginning to End",
+      "year": 2009,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919189
+}

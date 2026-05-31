@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26547-modern-family",
+  "id": 26547,
+  "slug": "modern-family",
+  "title": "Modern Family",
+  "year": 2009,
+  "rating": 8.5,
+  "votes_text": "534K",
+  "votes": 534000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/bc/26547.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "The Pritchett-Dunphy-Tucker clan is a wonderfully large and blended family. They give us an honest and often hilarious look into the sometimes warm, sometimes twisted, embrace of the modern family.",
+  "tags": [
+    {
+      "id": 10118,
+      "slug": "everyday-life",
+      "name": "Everyday life",
+      "film_count": 1642
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 23340,
+      "slug": "generation-gap",
+      "name": "Generation gap",
+      "film_count": 536
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 14601,
+      "slug": "adolescence",
+      "name": "Adolescence",
+      "film_count": 3285
+    },
+    {
+      "id": 21917,
+      "slug": "gay-adoption",
+      "name": "Gay adoption",
+      "film_count": 48
+    },
+    {
+      "id": 30957,
+      "slug": "family-life",
+      "name": "Family life",
+      "film_count": 3996
+    },
+    {
+      "id": 123426,
+      "slug": "parents-and-children",
+      "name": "Parents and children",
+      "film_count": 8214
+    },
+    {
+      "id": 23298,
+      "slug": "lgbt",
+      "name": "Lgbt",
+      "film_count": 5852
+    },
+    {
+      "id": 15200,
+      "slug": "society",
+      "name": "Society",
+      "film_count": 13923
+    },
+    {
+      "id": 2014,
+      "slug": "gay-parent",
+      "name": "Gay parent",
+      "film_count": 297
+    },
+    {
+      "id": 4760,
+      "slug": "interracial-adoption",
+      "name": "Interracial adoption",
+      "film_count": 85
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 670,
+      "slug": "adoption",
+      "name": "Adoption",
+      "film_count": 1858
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 9388,
+      "slug": "housewife",
+      "name": "Housewife",
+      "film_count": 511
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "humorous",
+      "sitcom",
+      "funny",
+      "saga",
+      "entertaining",
+      "hilarious",
+      "teen",
+      "mockumentary",
+      "realistic",
+      "exciting"
+    ],
+    "audience": [
+      "teens",
+      "teen drama"
+    ],
+    "plot": [
+      "everyday life",
+      "family relations",
+      "generation gap",
+      "gay",
+      "adolescence",
+      "gay adoption",
+      "family life",
+      "parents and children",
+      "couple relations",
+      "couples",
+      "mother daughter relationship",
+      "blended family",
+      "family values",
+      "marriage",
+      "traditional versus modern",
+      "gay couple",
+      "hot and sexy",
+      "gay father",
+      "parenthood",
+      "parents",
+      "gays and lesbians",
+      "eccentric family",
+      "gay relationship",
+      "lgbt",
+      "society"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "california",
+      "southern california",
+      "usa",
+      "los angeles"
+    ]
+  },
+  "similar": [
+    {
+      "id": 431,
+      "slug": "new-girl",
+      "title": "New Girl",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 12965,
+      "slug": "everybody-hates-chris",
+      "title": "Everybody Hates Chris",
+      "year": 2005,
+      "rank": 1
+    },
+    {
+      "id": 27144,
+      "slug": "how-i-met-your-mother",
+      "title": "How I Met Your Mother",
+      "year": 2005,
+      "rank": 2
+    },
+    {
+      "id": 13794,
+      "slug": "friends",
+      "title": "Friends",
+      "year": 1994,
+      "rank": 3
+    },
+    {
+      "id": 5006,
+      "slug": "the-goldbergs",
+      "title": "The Goldbergs",
+      "year": 2013,
+      "rank": 4
+    },
+    {
+      "id": 415,
+      "slug": "the-middle",
+      "title": "The Middle",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 3391,
+      "slug": "parenthood",
+      "title": "Parenthood",
+      "year": 2010,
+      "rank": 6
+    },
+    {
+      "id": 5597,
+      "slug": "mom",
+      "title": "Mom",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 30304,
+      "slug": "according-to-jim",
+      "title": "According to Jim",
+      "year": 2001,
+      "rank": 8
+    },
+    {
+      "id": 3244,
+      "slug": "melissa-and-joey",
+      "title": "Melissa & Joey",
+      "year": 2010,
+      "rank": 9
+    },
+    {
+      "id": 5054,
+      "slug": "the-fosters",
+      "title": "The Fosters",
+      "year": 2013,
+      "rank": 10
+    },
+    {
+      "id": 9356,
+      "slug": "the-big-bang-theory",
+      "title": "The Big Bang Theory",
+      "year": 2007,
+      "rank": 11
+    },
+    {
+      "id": 30406,
+      "slug": "soap",
+      "title": "Soap",
+      "year": 1977,
+      "rank": 12
+    },
+    {
+      "id": 30164,
+      "slug": "step-by-step",
+      "title": "Step by Step",
+      "year": 1991,
+      "rank": 13
+    },
+    {
+      "id": 3656,
+      "slug": "mike-and-molly",
+      "title": "Mike & Molly",
+      "year": 2010,
+      "rank": 14
+    },
+    {
+      "id": 28571,
+      "slug": "schitts-creek",
+      "title": "Schitt's Creek",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 3657,
+      "slug": "cougar-town",
+      "title": "Cougar Town",
+      "year": 2009,
+      "rank": 16
+    },
+    {
+      "id": 24618,
+      "slug": "two-and-a-half-men",
+      "title": "Two and a Half Men",
+      "year": 2003,
+      "rank": 17
+    },
+    {
+      "id": 59507,
+      "slug": "this-is-us",
+      "title": "This Is Us",
+      "year": 2016,
+      "rank": 18
+    },
+    {
+      "id": 30528,
+      "slug": "brothers-and-sisters",
+      "title": "Brothers and Sisters",
+      "year": 2006,
+      "rank": 19
+    },
+    {
+      "id": 2600,
+      "slug": "the-new-normal",
+      "title": "The New Normal",
+      "year": 2012,
+      "rank": 20
+    },
+    {
+      "id": 30518,
+      "slug": "everybody-loves-raymond",
+      "title": "Everybody Loves Raymond",
+      "year": 1996,
+      "rank": 21
+    },
+    {
+      "id": 30425,
+      "slug": "8-simple-rules",
+      "title": "8 Simple Rules",
+      "year": 2002,
+      "rank": 22
+    },
+    {
+      "id": 27259,
+      "slug": "the-o-c",
+      "title": "The O.C.",
+      "year": 2003,
+      "rank": 23
+    },
+    {
+      "id": 30451,
+      "slug": "married-with-children",
+      "title": "Married... with Children",
+      "year": 1987,
+      "rank": 24
+    },
+    {
+      "id": 30463,
+      "slug": "roseanne",
+      "title": "Roseanne",
+      "year": 1988,
+      "rank": 25
+    },
+    {
+      "id": 67966,
+      "slug": "love-victor",
+      "title": "Love, Victor",
+      "year": 2020,
+      "rank": 26
+    },
+    {
+      "id": 3062,
+      "slug": "reba",
+      "title": "Reba",
+      "year": 2001,
+      "rank": 27
+    },
+    {
+      "id": 7012,
+      "slug": "please-like-me",
+      "title": "Please Like Me",
+      "year": 2013,
+      "rank": 28
+    },
+    {
+      "id": 2550,
+      "slug": "noahs-arc",
+      "title": "Noah's Arc",
+      "year": 2005,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919146
+}

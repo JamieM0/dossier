@@ -1,0 +1,393 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/65-the-walking-dead",
+  "id": 65,
+  "slug": "the-walking-dead",
+  "title": "The Walking Dead",
+  "year": 2010,
+  "rating": 8.1,
+  "votes_text": "1.2M",
+  "votes": 1200000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/1f/65.jpg",
+  "genres": [
+    "Drama",
+    "Horror",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Sheriff's deputy Rick Grimes awakens from a coma to find a post-apocalyptic world dominated by flesh-eating zombies. He sets out to find his family and encounters many other survivors along the way.",
+  "tags": [
+    {
+      "id": 1600,
+      "slug": "zombie",
+      "name": "Zombie",
+      "film_count": 2688
+    },
+    {
+      "id": 1523,
+      "slug": "survival",
+      "name": "Survival",
+      "film_count": 12605
+    },
+    {
+      "id": 1933,
+      "slug": "virus",
+      "name": "Virus",
+      "film_count": 1404
+    },
+    {
+      "id": 4178,
+      "slug": "post-apocalypse",
+      "name": "Post apocalypse",
+      "film_count": 2063
+    },
+    {
+      "id": 1839,
+      "slug": "apocalypse",
+      "name": "Apocalypse",
+      "film_count": 3083
+    },
+    {
+      "id": 5755,
+      "slug": "pandemic",
+      "name": "Pandemic",
+      "film_count": 1278
+    },
+    {
+      "id": 1937,
+      "slug": "walking-dead",
+      "name": "Walking dead",
+      "film_count": 348
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 123638,
+      "slug": "human-existence",
+      "name": "Human existence",
+      "film_count": 273
+    },
+    {
+      "id": 16199,
+      "slug": "moral-dilemma",
+      "name": "Moral dilemma",
+      "film_count": 5159
+    },
+    {
+      "id": 123815,
+      "slug": "vestiges-of-humanity",
+      "name": "Vestiges of humanity",
+      "film_count": 220
+    },
+    {
+      "id": 123598,
+      "slug": "fate-of-humanity",
+      "name": "Fate of humanity",
+      "film_count": 384
+    },
+    {
+      "id": 3732,
+      "slug": "insanity",
+      "name": "Insanity",
+      "film_count": 3809
+    },
+    {
+      "id": 51200,
+      "slug": "dystopian-future",
+      "name": "Dystopian future",
+      "film_count": 1320
+    },
+    {
+      "id": 33110,
+      "slug": "gory",
+      "name": "Gory",
+      "film_count": 4331
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspenseful",
+      "tense",
+      "captivating",
+      "frightening",
+      "scary",
+      "apocalyptic",
+      "spooky",
+      "serious",
+      "epic",
+      "bloody"
+    ],
+    "audience": [
+      "teens",
+      "boys' night",
+      "teen drama",
+      "adult"
+    ],
+    "plot": [
+      "zombie",
+      "survival",
+      "virus",
+      "post apocalypse",
+      "apocalypse",
+      "pandemic",
+      "walking dead",
+      "supernatural",
+      "zombie apocalypse",
+      "peril",
+      "plague",
+      "fear",
+      "graphic violence",
+      "danger",
+      "survivor",
+      "living dead",
+      "undead",
+      "zombie outbreak",
+      "epidemic",
+      "zombie attack",
+      "death",
+      "human existence",
+      "moral dilemma",
+      "vestiges of humanity",
+      "fate of humanity"
+    ],
+    "time": [
+      "future",
+      "2000s",
+      "2010s",
+      "21st century"
+    ],
+    "place": [
+      "usa",
+      "america",
+      "atlanta georgia",
+      "georgia",
+      "united states of america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26458,
+      "slug": "fear-the-walking-dead",
+      "title": "Fear the Walking Dead",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 7701,
+      "slug": "28-days-later",
+      "title": "28 Days Later",
+      "year": 2002,
+      "rank": 1
+    },
+    {
+      "id": 75368,
+      "slug": "all-of-us-are-dead",
+      "title": "All of Us Are Dead",
+      "year": 2022,
+      "rank": 2
+    },
+    {
+      "id": 79325,
+      "slug": "the-last-of-us",
+      "title": "The Last of Us",
+      "year": 2023,
+      "rank": 3
+    },
+    {
+      "id": 15498,
+      "slug": "i-am-legend",
+      "title": "I Am Legend",
+      "year": 2007,
+      "rank": 4
+    },
+    {
+      "id": 91490,
+      "slug": "the-walking-dead-the-ones-who-live",
+      "title": "The Walking Dead: The Ones Who Live",
+      "year": 2024,
+      "rank": 5
+    },
+    {
+      "id": 27497,
+      "slug": "the-strain",
+      "title": "The Strain",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 60632,
+      "slug": "z-nation",
+      "title": "Z Nation",
+      "year": 2014,
+      "rank": 7
+    },
+    {
+      "id": 63399,
+      "slug": "the-last-light",
+      "title": "The Last Light",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 10389,
+      "slug": "carriers",
+      "title": "Carriers",
+      "year": 2009,
+      "rank": 9
+    },
+    {
+      "id": 11682,
+      "slug": "dawn-of-the-dead",
+      "title": "Dawn of the Dead",
+      "year": 2004,
+      "rank": 10
+    },
+    {
+      "id": 67599,
+      "slug": "the-rain",
+      "title": "The Rain",
+      "year": 2018,
+      "rank": 11
+    },
+    {
+      "id": 3006,
+      "slug": "dead-set",
+      "title": "Dead Set",
+      "year": 2008,
+      "rank": 12
+    },
+    {
+      "id": 344,
+      "slug": "world-war-z",
+      "title": "World War Z",
+      "year": 2013,
+      "rank": 13
+    },
+    {
+      "id": 16954,
+      "slug": "land-of-the-dead",
+      "title": "Land of the Dead",
+      "year": 2005,
+      "rank": 14
+    },
+    {
+      "id": 65866,
+      "slug": "black-summer",
+      "title": "Black Summer",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 68498,
+      "slug": "the-walking-dead-red-machete",
+      "title": "The Walking Dead: Red Machete",
+      "year": 2017,
+      "rank": 16
+    },
+    {
+      "id": 7702,
+      "slug": "28-weeks-later",
+      "title": "28 Weeks Later",
+      "year": 2007,
+      "rank": 17
+    },
+    {
+      "id": 64576,
+      "slug": "kingdom",
+      "title": "Kingdom",
+      "year": 2019,
+      "rank": 18
+    },
+    {
+      "id": 64175,
+      "slug": "fear-the-walking-dead-flight-462",
+      "title": "Fear the Walking Dead: Flight 462",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 67940,
+      "slug": "the-walking-dead-world-beyond",
+      "title": "The Walking Dead: World Beyond",
+      "year": 2020,
+      "rank": 20
+    },
+    {
+      "id": 66,
+      "slug": "extinction-the-g-m-o-chronicles",
+      "title": "Extinction: The G.M.O. Chronicles",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 60790,
+      "slug": "van-helsing",
+      "title": "Van Helsing",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 81726,
+      "slug": "the-walking-dead-dead-city",
+      "title": "The Walking Dead: Dead City",
+      "year": 2023,
+      "rank": 23
+    },
+    {
+      "id": 69502,
+      "slug": "army-of-the-dead",
+      "title": "Army of the Dead",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 30171,
+      "slug": "survivors",
+      "title": "Survivors",
+      "year": 2008,
+      "rank": 25
+    },
+    {
+      "id": 73137,
+      "slug": "the-bite",
+      "title": "The Bite",
+      "year": 2021,
+      "rank": 26
+    },
+    {
+      "id": 76088,
+      "slug": "raccoon-valley",
+      "title": "Raccoon Valley",
+      "year": 2018,
+      "rank": 27
+    },
+    {
+      "id": 11691,
+      "slug": "day-of-the-dead",
+      "title": "Day of the Dead",
+      "year": 1985,
+      "rank": 28
+    },
+    {
+      "id": 39638,
+      "slug": "a-capital-dos-mortos-2-mundo-morto",
+      "title": "A Capital dos Mortos 2: Mundo Morto",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919128
+}

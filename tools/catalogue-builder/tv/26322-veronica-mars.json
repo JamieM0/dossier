@@ -1,0 +1,393 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26322-veronica-mars",
+  "id": 26322,
+  "slug": "veronica-mars",
+  "title": "Veronica Mars",
+  "year": 2004,
+  "rating": 8.3,
+  "votes_text": "82K",
+  "votes": 82000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/62/26322.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "The series is set in the fictional town of Neptune, California, and stars Kristen Bell as the title character, a student who progresses from high school to college while moonlighting as a private investigator under the tutelage of her detective father. In each episode, Veronica solves a different stand-alone case while working to solve a more complex mystery. The first two seasons of the series each had a season-long mystery arc, introduced in the first episode of the season and solved in the season finale. The third season took a different format, focusing on smaller mystery arcs that would last the course of several episodes.",
+  "tags": [
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 7727,
+      "slug": "amateur-detective",
+      "name": "Amateur detective",
+      "film_count": 962
+    },
+    {
+      "id": 5111,
+      "slug": "female-detective",
+      "name": "Female detective",
+      "film_count": 681
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 3279,
+      "slug": "private-investigator",
+      "name": "Private investigator",
+      "film_count": 804
+    },
+    {
+      "id": 27853,
+      "slug": "cliffhanger",
+      "name": "Cliffhanger",
+      "film_count": 418
+    },
+    {
+      "id": 19104,
+      "slug": "realistic",
+      "name": "Realistic",
+      "film_count": 35439
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 1093,
+      "slug": "california",
+      "name": "California",
+      "film_count": 3955
+    },
+    {
+      "id": 58865,
+      "slug": "touching",
+      "name": "Touching",
+      "film_count": 11989
+    },
+    {
+      "id": 29276,
+      "slug": "couples",
+      "name": "Couples",
+      "film_count": 15715
+    },
+    {
+      "id": 955,
+      "slug": "wealth",
+      "name": "Wealth",
+      "film_count": 1608
+    },
+    {
+      "id": 12492,
+      "slug": "peer-pressure",
+      "name": "Peer pressure",
+      "film_count": 977
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "witty",
+      "neo noir",
+      "detective",
+      "offbeat",
+      "cliffhanger",
+      "realistic",
+      "suspenseful",
+      "touching",
+      "exciting",
+      "tense"
+    ],
+    "audience": [
+      "teens",
+      "chick flick",
+      "pre-teens",
+      "teen drama"
+    ],
+    "plot": [
+      "youth",
+      "investigation",
+      "amateur detective",
+      "female detective",
+      "friendship",
+      "female protagonist",
+      "private investigator",
+      "student",
+      "private detective",
+      "danger",
+      "parents and children",
+      "strong female lead",
+      "high school",
+      "teenage life",
+      "teacher",
+      "ex couple relations",
+      "evidence",
+      "young adult",
+      "father daughter relationship",
+      "spy",
+      "couples",
+      "wealth",
+      "peer pressure",
+      "loss of friend",
+      "murder mystery"
+    ],
+    "time": [
+      "future",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "california",
+      "usa",
+      "southern california",
+      "seattle"
+    ]
+  },
+  "similar": [
+    {
+      "id": 7291,
+      "slug": "veronica-mars",
+      "title": "Veronica Mars",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 27088,
+      "slug": "izombie",
+      "title": "iZombie",
+      "year": 2015,
+      "rank": 1
+    },
+    {
+      "id": 26320,
+      "slug": "castle",
+      "title": "Castle",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 65937,
+      "slug": "nancy-drew",
+      "title": "Nancy Drew",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 4
+    },
+    {
+      "id": 56582,
+      "slug": "the-lying-game",
+      "title": "The Lying Game",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 66496,
+      "slug": "dare-me",
+      "title": "Dare Me",
+      "year": 2019,
+      "rank": 6
+    },
+    {
+      "id": 64158,
+      "slug": "strike",
+      "title": "Strike",
+      "year": 2017,
+      "rank": 7
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 8
+    },
+    {
+      "id": 28907,
+      "slug": "the-mysteries-of-laura",
+      "title": "The Mysteries of Laura",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 30524,
+      "slug": "psych",
+      "title": "Psych",
+      "year": 2006,
+      "rank": 10
+    },
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 11
+    },
+    {
+      "id": 19039,
+      "slug": "nancy-drew",
+      "title": "Nancy Drew",
+      "year": 2007,
+      "rank": 12
+    },
+    {
+      "id": 63701,
+      "slug": "in-plain-sight",
+      "title": "In Plain Sight",
+      "year": 2008,
+      "rank": 13
+    },
+    {
+      "id": 60872,
+      "slug": "impulse",
+      "title": "Impulse",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 12226,
+      "slug": "disturbia",
+      "title": "Disturbia",
+      "year": 2007,
+      "rank": 15
+    },
+    {
+      "id": 63219,
+      "slug": "garage-sale-mystery-the-deadly-room",
+      "title": "Garage Sale Mystery: The Deadly Room",
+      "year": 2015,
+      "rank": 16
+    },
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 17
+    },
+    {
+      "id": 26791,
+      "slug": "pretty-little-liars",
+      "title": "Pretty Little Liars",
+      "year": 2010,
+      "rank": 18
+    },
+    {
+      "id": 35667,
+      "slug": "father-brown",
+      "title": "Father Brown",
+      "year": 2013,
+      "rank": 19
+    },
+    {
+      "id": 85355,
+      "slug": "only-murders-in-the-building",
+      "title": "Only Murders in the Building",
+      "year": 2021,
+      "rank": 20
+    },
+    {
+      "id": 302,
+      "slug": "crossing-jordan",
+      "title": "Crossing Jordan",
+      "year": 2001,
+      "rank": 21
+    },
+    {
+      "id": 24604,
+      "slug": "twin-peaks",
+      "title": "Twin Peaks",
+      "year": 1990,
+      "rank": 22
+    },
+    {
+      "id": 30316,
+      "slug": "cold-case",
+      "title": "Cold Case",
+      "year": 2003,
+      "rank": 23
+    },
+    {
+      "id": 3831,
+      "slug": "womens-murder-club",
+      "title": "Women's Murder Club",
+      "year": 2007,
+      "rank": 24
+    },
+    {
+      "id": 2154,
+      "slug": "terriers",
+      "title": "Terriers",
+      "year": 2010,
+      "rank": 25
+    },
+    {
+      "id": 26564,
+      "slug": "nikita",
+      "title": "Nikita",
+      "year": 2010,
+      "rank": 26
+    },
+    {
+      "id": 66397,
+      "slug": "truth-be-told",
+      "title": "Truth Be Told",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 35180,
+      "slug": "city-homicide",
+      "title": "City Homicide",
+      "year": 2006,
+      "rank": 28
+    },
+    {
+      "id": 30526,
+      "slug": "monk",
+      "title": "Monk",
+      "year": 2002,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919144
+}

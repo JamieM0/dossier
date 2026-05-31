@@ -1,0 +1,393 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/65695-why-women-kill",
+  "id": 65695,
+  "slug": "why-women-kill",
+  "title": "Why Women Kill",
+  "year": 2019,
+  "rating": 8.3,
+  "votes_text": "38K",
+  "votes": 38000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/45/65695.jpg",
+  "genres": [
+    "Comedy",
+    "Crime",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 984,
+  "story": "Three women living in three different decades: a housewife in the '60s, a socialite in the '80s and a lawyer in 2018, deal with infidelity in their marriages.",
+  "tags": [
+    {
+      "id": 175,
+      "slug": "marriage",
+      "name": "Marriage",
+      "film_count": 6801
+    },
+    {
+      "id": 5404,
+      "slug": "women",
+      "name": "Women",
+      "film_count": 7008
+    },
+    {
+      "id": 123398,
+      "slug": "crumbling-marriage",
+      "name": "Crumbling marriage",
+      "film_count": 1308
+    },
+    {
+      "id": 24843,
+      "slug": "chick-flick",
+      "name": "Chick flick",
+      "film_count": 3500
+    },
+    {
+      "id": 123447,
+      "slug": "family-in-crisis",
+      "name": "Family in crisis",
+      "film_count": 1011
+    },
+    {
+      "id": 15808,
+      "slug": "open-marriage",
+      "name": "Open marriage",
+      "film_count": 236
+    },
+    {
+      "id": 9388,
+      "slug": "housewife",
+      "name": "Housewife",
+      "film_count": 511
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 10753,
+      "slug": "interracial-couple",
+      "name": "Interracial couple",
+      "film_count": 433
+    },
+    {
+      "id": 34269,
+      "slug": "older-woman-younger-man-sex",
+      "name": "Older woman younger man sex",
+      "film_count": 385
+    },
+    {
+      "id": 6456,
+      "slug": "erotic",
+      "name": "Erotic",
+      "film_count": 5476
+    },
+    {
+      "id": 14481,
+      "slug": "gay-husband",
+      "name": "Gay husband",
+      "film_count": 129
+    },
+    {
+      "id": 5533,
+      "slug": "love-hate-relationship",
+      "name": "Love hate relationship",
+      "film_count": 331
+    },
+    {
+      "id": 1250,
+      "slug": "infidelity",
+      "name": "Infidelity",
+      "film_count": 7297
+    },
+    {
+      "id": 3739,
+      "slug": "scandal",
+      "name": "Scandal",
+      "film_count": 1472
+    },
+    {
+      "id": 23,
+      "slug": "1940s",
+      "name": "1940s",
+      "film_count": 2394
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "atmospheric",
+      "captivating",
+      "witty",
+      "erotic",
+      "humorous",
+      "dark comedy",
+      "entertaining",
+      "light",
+      "funny",
+      "anthology"
+    ],
+    "audience": [
+      "chick flick",
+      "girls' night"
+    ],
+    "plot": [
+      "marriage",
+      "women",
+      "crumbling marriage",
+      "family in crisis",
+      "open marriage",
+      "housewife",
+      "female protagonist",
+      "male female relationship",
+      "up and down relationship",
+      "adultery",
+      "society",
+      "strong female lead",
+      "character change",
+      "marriage crisis",
+      "jealousy",
+      "changing lives",
+      "older woman younger man relationship",
+      "closeted homosexual",
+      "extramarital affair",
+      "betrayal",
+      "interracial couple",
+      "older woman younger man sex",
+      "gay husband",
+      "love hate relationship",
+      "infidelity"
+    ],
+    "time": [
+      "1940s",
+      "60s",
+      "2010s",
+      "80s",
+      "year 1949",
+      "year 2019",
+      "year 1963"
+    ],
+    "place": [
+      "usa",
+      "california",
+      "pasadena california",
+      "los angeles"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65912,
+      "slug": "dead-to-me",
+      "title": "Dead to Me",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 12032,
+      "slug": "desperate-housewives",
+      "title": "Desperate Housewives",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 27238,
+      "slug": "devious-maids",
+      "title": "Devious Maids",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 41776,
+      "slug": "big-little-lies",
+      "title": "Big Little Lies",
+      "year": 2017,
+      "rank": 3
+    },
+    {
+      "id": 58254,
+      "slug": "the-marvelous-mrs-maisel",
+      "title": "The Marvelous Mrs. Maisel",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 61589,
+      "slug": "good-girls",
+      "title": "Good Girls",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 25455,
+      "slug": "weeds",
+      "title": "Weeds",
+      "year": 2005,
+      "rank": 6
+    },
+    {
+      "id": 73157,
+      "slug": "hacks",
+      "title": "Hacks",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 22633,
+      "slug": "six-feet-under",
+      "title": "Six Feet Under",
+      "year": 2001,
+      "rank": 8
+    },
+    {
+      "id": 72947,
+      "slug": "kevin-can-f-k-himself",
+      "title": "Kevin Can F**k Himself",
+      "year": 2021,
+      "rank": 9
+    },
+    {
+      "id": 65260,
+      "slug": "l-a-s-finest",
+      "title": "L.A.'s Finest",
+      "year": 2019,
+      "rank": 10
+    },
+    {
+      "id": 77381,
+      "slug": "roar",
+      "title": "Roar",
+      "year": 2022,
+      "rank": 11
+    },
+    {
+      "id": 71888,
+      "slug": "physical",
+      "title": "Physical",
+      "year": 2021,
+      "rank": 12
+    },
+    {
+      "id": 63564,
+      "slug": "girlfriends-guide-to-divorce",
+      "title": "Girlfriends' Guide to Divorce",
+      "year": 2014,
+      "rank": 13
+    },
+    {
+      "id": 43642,
+      "slug": "fleabag",
+      "title": "Fleabag",
+      "year": 2016,
+      "rank": 14
+    },
+    {
+      "id": 60769,
+      "slug": "glow",
+      "title": "GLOW",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 61096,
+      "slug": "claws",
+      "title": "Claws",
+      "year": 2017,
+      "rank": 16
+    },
+    {
+      "id": 60131,
+      "slug": "workin-moms",
+      "title": "Workin' Moms",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 6063,
+      "slug": "fargo",
+      "title": "Fargo",
+      "year": 2014,
+      "rank": 18
+    },
+    {
+      "id": 42679,
+      "slug": "the-good-fight",
+      "title": "The Good Fight",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 1635,
+      "slug": "cashmere-mafia",
+      "title": "Cashmere Mafia",
+      "year": 2008,
+      "rank": 20
+    },
+    {
+      "id": 64180,
+      "slug": "easy",
+      "title": "Easy",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 80794,
+      "slug": "black-widows",
+      "title": "Black Widows",
+      "year": 2014,
+      "rank": 22
+    },
+    {
+      "id": 27016,
+      "slug": "mad-men",
+      "title": "Mad Men",
+      "year": 2007,
+      "rank": 23
+    },
+    {
+      "id": 83502,
+      "slug": "betrayed-by-lies",
+      "title": "Betrayed by Lies",
+      "year": 2018,
+      "rank": 24
+    },
+    {
+      "id": 57090,
+      "slug": "grace-and-frankie",
+      "title": "Grace and Frankie",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 63576,
+      "slug": "married",
+      "title": "Married",
+      "year": 2014,
+      "rank": 26
+    },
+    {
+      "id": 44515,
+      "slug": "amas-de-casa-desesperadas",
+      "title": "Desperate Housewives",
+      "year": 2006,
+      "rank": 27
+    },
+    {
+      "id": 80194,
+      "slug": "mammals",
+      "title": "Mammals",
+      "year": 2022,
+      "rank": 28
+    },
+    {
+      "id": 30310,
+      "slug": "big-love",
+      "title": "Big Love",
+      "year": 2006,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919173
+}

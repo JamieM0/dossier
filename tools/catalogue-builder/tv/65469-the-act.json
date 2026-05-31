@@ -1,0 +1,386 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/65469-the-act",
+  "id": 65469,
+  "slug": "the-act",
+  "title": "The Act",
+  "year": 2019,
+  "rating": 7.8,
+  "votes_text": "42K",
+  "votes": 42000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/80/65469.jpg",
+  "genres": [
+    "Biography",
+    "Crime",
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Dee Dee Blanchard is overprotective of her daughter, Gypsy, who is trying to escape the toxic relationship she has with her mother. Gypsy's quest for independence opens up a Pandora's box of secrets, which ultimately leads to murder. The stranger-than-fiction true-crime series is based on a 2016 BuzzFeed article that detailed the shocking 2015 crime. Oscar winner Patricia Arquette and Oscar nominee Chloë Sevigny star in the Hulu original series.",
+  "tags": [
+    {
+      "id": 1566,
+      "slug": "based-on-true-story",
+      "name": "Based on true story",
+      "film_count": 8531
+    },
+    {
+      "id": 19526,
+      "slug": "overprotective-parent",
+      "name": "Overprotective parent",
+      "film_count": 93
+    },
+    {
+      "id": 13994,
+      "slug": "true-crime",
+      "name": "True crime",
+      "film_count": 1551
+    },
+    {
+      "id": 20011,
+      "slug": "based-on-true-events",
+      "name": "Based on true events",
+      "film_count": 2373
+    },
+    {
+      "id": 38592,
+      "slug": "disturbing",
+      "name": "Disturbing",
+      "film_count": 16904
+    },
+    {
+      "id": 18899,
+      "slug": "treatment",
+      "name": "Treatment",
+      "film_count": 273
+    },
+    {
+      "id": 8253,
+      "slug": "murder-of-mother",
+      "name": "Murder of mother",
+      "film_count": 145
+    },
+    {
+      "id": 13313,
+      "slug": "fake-illness",
+      "name": "Fake illness",
+      "film_count": 60
+    },
+    {
+      "id": 7895,
+      "slug": "syria",
+      "name": "Syria",
+      "film_count": 121
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 3679,
+      "slug": "illness",
+      "name": "Illness",
+      "film_count": 2702
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 686,
+      "slug": "child-abuse",
+      "name": "Child abuse",
+      "film_count": 1367
+    },
+    {
+      "id": 1260,
+      "slug": "vengeance",
+      "name": "Vengeance",
+      "film_count": 13036
+    },
+    {
+      "id": 13125,
+      "slug": "criminal-psychologist",
+      "name": "Criminal psychologist",
+      "film_count": 91
+    },
+    {
+      "id": 25030,
+      "slug": "traumatic-childhood",
+      "name": "Traumatic childhood",
+      "film_count": 476
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "disturbing",
+      "suspense",
+      "rough",
+      "psychological",
+      "anime",
+      "southern gothic",
+      "thought provoking",
+      "anthology",
+      "humorous",
+      "fun"
+    ],
+    "plot": [
+      "overprotective parent",
+      "true crime",
+      "treatment",
+      "murder of mother",
+      "fake illness",
+      "manipulation",
+      "mother daughter relationship",
+      "deception",
+      "pretense",
+      "teenage life",
+      "murder investigation",
+      "female warrior",
+      "trial",
+      "real life",
+      "bald woman",
+      "mutilation",
+      "investigation",
+      "illness",
+      "family relations",
+      "child abuse",
+      "vengeance",
+      "criminal psychologist",
+      "traumatic childhood",
+      "mind game",
+      "court martial"
+    ],
+    "time": [
+      "2010s",
+      "2000s",
+      "year 2015",
+      "21st century"
+    ],
+    "place": [
+      "usa",
+      "syria",
+      "united states of america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 70924,
+      "slug": "love-you-to-death",
+      "title": "Love You To Death",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 78495,
+      "slug": "dahmer-monster-the-jeffrey-dahmer-story",
+      "title": "Dahmer - Monster: The Jeffrey Dahmer Story",
+      "year": 2022,
+      "rank": 1
+    },
+    {
+      "id": 70894,
+      "slug": "believe-me-the-abduction-of-lisa-mcvey",
+      "title": "Believe Me: The Abduction of Lisa McVey",
+      "year": 2018,
+      "rank": 2
+    },
+    {
+      "id": 78822,
+      "slug": "black-bird",
+      "title": "Black Bird",
+      "year": 2022,
+      "rank": 3
+    },
+    {
+      "id": 81742,
+      "slug": "a-friend-of-the-family",
+      "title": "A Friend of the Family",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 78592,
+      "slug": "the-staircase",
+      "title": "The Staircase",
+      "year": 2022,
+      "rank": 5
+    },
+    {
+      "id": 77301,
+      "slug": "the-thing-about-pam",
+      "title": "The Thing About Pam",
+      "year": 2022,
+      "rank": 6
+    },
+    {
+      "id": 64566,
+      "slug": "escape-at-dannemora",
+      "title": "Escape at Dannemora",
+      "year": 2018,
+      "rank": 7
+    },
+    {
+      "id": 58248,
+      "slug": "the-sinner",
+      "title": "The Sinner",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 26927,
+      "slug": "cleveland-abduction",
+      "title": "Cleveland Abduction",
+      "year": 2015,
+      "rank": 9
+    },
+    {
+      "id": 70689,
+      "slug": "the-lost-wife-of-robert-durst",
+      "title": "The Lost Wife of Robert Durst",
+      "year": 2017,
+      "rank": 10
+    },
+    {
+      "id": 72846,
+      "slug": "dr-death",
+      "title": "Dr. Death",
+      "year": 2021,
+      "rank": 11
+    },
+    {
+      "id": 9847,
+      "slug": "the-boston-strangler",
+      "title": "The Boston Strangler",
+      "year": 1968,
+      "rank": 12
+    },
+    {
+      "id": 69126,
+      "slug": "the-serpent",
+      "title": "The Serpent",
+      "year": 2021,
+      "rank": 13
+    },
+    {
+      "id": 65745,
+      "slug": "a-confession",
+      "title": "A Confession",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 57033,
+      "slug": "outlaw-prophet-warren-jeffs",
+      "title": "Outlaw Prophet: Warren Jeffs",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 68083,
+      "slug": "ratched",
+      "title": "Ratched",
+      "year": 2020,
+      "rank": 16
+    },
+    {
+      "id": 4020,
+      "slug": "compliance",
+      "title": "Compliance",
+      "year": 2012,
+      "rank": 17
+    },
+    {
+      "id": 60424,
+      "slug": "sharp-objects",
+      "title": "Sharp Objects",
+      "year": 2018,
+      "rank": 18
+    },
+    {
+      "id": 59491,
+      "slug": "manhunt-unabomber",
+      "title": "Manhunt",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 90075,
+      "slug": "rayya-and-sakina",
+      "title": "Rayya and Sakina",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 77990,
+      "slug": "maria-marta-the-country-club-crime",
+      "title": "María Marta: The Country Club Crime",
+      "year": 2022,
+      "rank": 21
+    },
+    {
+      "id": 89109,
+      "slug": "maxine",
+      "title": "Maxine",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 106775,
+      "slug": "murdaugh-death-in-the-family",
+      "title": "Murdaugh: Death in the Family",
+      "year": 2025,
+      "rank": 23
+    },
+    {
+      "id": 93962,
+      "slug": "under-the-bridge",
+      "title": "Under the Bridge",
+      "year": 2024,
+      "rank": 24
+    },
+    {
+      "id": 69673,
+      "slug": "des",
+      "title": "Des",
+      "year": 2020,
+      "rank": 25
+    },
+    {
+      "id": 90995,
+      "slug": "the-giza-killer",
+      "title": "The Giza Killer",
+      "year": 2023,
+      "rank": 26
+    },
+    {
+      "id": 18828,
+      "slug": "murder-in-the-heartland",
+      "title": "Murder in the Heartland",
+      "year": 1993,
+      "rank": 27
+    },
+    {
+      "id": 24177,
+      "slug": "to-catch-a-killer",
+      "title": "To Catch a Killer",
+      "year": 1992,
+      "rank": 28
+    },
+    {
+      "id": 5145,
+      "slug": "the-capture-of-the-green-river-killer",
+      "title": "The Capture of the Green River Killer",
+      "year": 2008,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919172
+}

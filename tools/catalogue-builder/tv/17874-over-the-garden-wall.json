@@ -1,0 +1,393 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/17874-over-the-garden-wall",
+  "id": 17874,
+  "slug": "over-the-garden-wall",
+  "title": "Over the Garden Wall",
+  "year": 2014,
+  "rating": 8.7,
+  "votes_text": "87K",
+  "votes": 87000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/6e/17874.jpg",
+  "genres": [
+    "Animation",
+    "Short",
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Family",
+    "Fantasy",
+    "Horror",
+    "Mystery"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 11,
+  "story": "Two brothers find themselves lost in a mysterious land and try to find their way home.",
+  "tags": [
+    {
+      "id": 33046,
+      "slug": "folk-horror",
+      "name": "Folk horror",
+      "film_count": 1761
+    },
+    {
+      "id": 6898,
+      "slug": "dark-fantasy",
+      "name": "Dark fantasy",
+      "film_count": 2029
+    },
+    {
+      "id": 123429,
+      "slug": "siblings-relations",
+      "name": "Siblings relations",
+      "film_count": 3435
+    },
+    {
+      "id": 122834,
+      "slug": "family-outing",
+      "name": "Family outing",
+      "film_count": 5827
+    },
+    {
+      "id": 2850,
+      "slug": "forest",
+      "name": "Forest",
+      "film_count": 4824
+    },
+    {
+      "id": 123404,
+      "slug": "getting-home",
+      "name": "Getting home",
+      "film_count": 1738
+    },
+    {
+      "id": 439,
+      "slug": "brother-brother-relationship",
+      "name": "Brother brother relationship",
+      "film_count": 5059
+    },
+    {
+      "id": 18686,
+      "slug": "beast",
+      "name": "Beast",
+      "film_count": 1040
+    },
+    {
+      "id": 96019,
+      "slug": "cult-classic",
+      "name": "Cult classic",
+      "film_count": 7007
+    },
+    {
+      "id": 124080,
+      "slug": "entertaining",
+      "name": "Entertaining",
+      "film_count": 17691
+    },
+    {
+      "id": 6620,
+      "slug": "lost",
+      "name": "Lost",
+      "film_count": 1094
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 1264,
+      "slug": "dark",
+      "name": "Dark",
+      "film_count": 10440
+    },
+    {
+      "id": 8656,
+      "slug": "moving",
+      "name": "Moving",
+      "film_count": 2026
+    },
+    {
+      "id": 3093,
+      "slug": "darkness",
+      "name": "Darkness",
+      "film_count": 1959
+    },
+    {
+      "id": 124160,
+      "slug": "life-and-death",
+      "name": "Life & death",
+      "film_count": 4515
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "dark fantasy",
+      "atmospheric",
+      "enigmatic",
+      "period piece",
+      "adult animation",
+      "captivating",
+      "anime",
+      "philosophical",
+      "cult classic",
+      "entertaining"
+    ],
+    "audience": [
+      "family outing",
+      "kids",
+      "teens",
+      "pre-teens",
+      "family friendly",
+      "horror for children",
+      "preschool"
+    ],
+    "plot": [
+      "folk horror",
+      "siblings relations",
+      "forest",
+      "danger",
+      "getting home",
+      "brother brother relationship",
+      "beast",
+      "child protagonist",
+      "children",
+      "imaginary",
+      "brothers",
+      "lost in the woods",
+      "travel",
+      "halloween",
+      "lost",
+      "moving",
+      "darkness",
+      "life & death",
+      "trippy",
+      "hipster",
+      "woods",
+      "adaptation",
+      "frog",
+      "forest ranger",
+      "male protagonist"
+    ],
+    "time": [
+      "2010s",
+      "80s"
+    ]
+  },
+  "similar": [
+    {
+      "id": 3923,
+      "slug": "gravity-falls",
+      "title": "Gravity Falls",
+      "year": 2012,
+      "rank": 0
+    },
+    {
+      "id": 61768,
+      "slug": "hilda",
+      "title": "Hilda",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 11215,
+      "slug": "coraline",
+      "title": "Coraline",
+      "year": 2009,
+      "rank": 2
+    },
+    {
+      "id": 4239,
+      "slug": "adventure-time",
+      "title": "Adventure Time",
+      "year": 2010,
+      "rank": 3
+    },
+    {
+      "id": 67933,
+      "slug": "the-owl-house",
+      "title": "The Owl House",
+      "year": 2020,
+      "rank": 4
+    },
+    {
+      "id": 18849,
+      "slug": "mushi-shi",
+      "title": "Mushi-Shi",
+      "year": 2005,
+      "rank": 5
+    },
+    {
+      "id": 30003,
+      "slug": "courage-the-cowardly-dog",
+      "title": "Courage the Cowardly Dog",
+      "year": 1999,
+      "rank": 6
+    },
+    {
+      "id": 64643,
+      "slug": "amphibia",
+      "title": "Amphibia",
+      "year": 2019,
+      "rank": 7
+    },
+    {
+      "id": 19281,
+      "slug": "the-nightmare-before-christmas",
+      "title": "The Nightmare Before Christmas",
+      "year": 1993,
+      "rank": 8
+    },
+    {
+      "id": 3495,
+      "slug": "star-vs-the-forces-of-evil",
+      "title": "Star vs. the Forces of Evil",
+      "year": 2012,
+      "rank": 9
+    },
+    {
+      "id": 67074,
+      "slug": "beyond-beyond",
+      "title": "Beyond Beyond",
+      "year": 2014,
+      "rank": 10
+    },
+    {
+      "id": 6094,
+      "slug": "teen-titans-go",
+      "title": "Teen Titans Go!",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 65692,
+      "slug": "the-promised-neverland",
+      "title": "The Promised Neverland",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 29867,
+      "slug": "the-grim-adventures-of-billy-and-mandy",
+      "title": "The Grim Adventures of Billy & Mandy",
+      "year": 2003,
+      "rank": 13
+    },
+    {
+      "id": 28443,
+      "slug": "steven-universe",
+      "title": "Steven Universe",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 8814,
+      "slug": "avatar-the-last-airbender",
+      "title": "Avatar: The Last Airbender",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 62162,
+      "slug": "supernatural-the-animation",
+      "title": "Supernatural: The Anime Series",
+      "year": 2011,
+      "rank": 16
+    },
+    {
+      "id": 92039,
+      "slug": "dragon-hunters",
+      "title": "Dragon Hunters",
+      "year": 2004,
+      "rank": 17
+    },
+    {
+      "id": 81307,
+      "slug": "the-fungies",
+      "title": "The Fungies!",
+      "year": 2020,
+      "rank": 18
+    },
+    {
+      "id": 76793,
+      "slug": "angry-birds-blues",
+      "title": "Angry Birds Blues",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 35204,
+      "slug": "gerald-mcboing-boing",
+      "title": "Gerald McBoing Boing",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 1405,
+      "slug": "scooby-doo-mystery-incorporated",
+      "title": "Scooby-Doo! Mystery Incorporated",
+      "year": 2010,
+      "rank": 21
+    },
+    {
+      "id": 28482,
+      "slug": "clarence",
+      "title": "Clarence",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 72571,
+      "slug": "cackling-kitarou",
+      "title": "Cackling Kitarou",
+      "year": 2007,
+      "rank": 23
+    },
+    {
+      "id": 60508,
+      "slug": "craig-of-the-creek",
+      "title": "Craig of the Creek",
+      "year": 2017,
+      "rank": 24
+    },
+    {
+      "id": 1304,
+      "slug": "the-marvelous-misadventures-of-flapjack",
+      "title": "The Marvelous Misadventures of Flapjack",
+      "year": 2008,
+      "rank": 25
+    },
+    {
+      "id": 56437,
+      "slug": "the-secret-saturdays",
+      "title": "The Secret Saturdays",
+      "year": 2008,
+      "rank": 26
+    },
+    {
+      "id": 29839,
+      "slug": "pokemon",
+      "title": "Pokemon",
+      "year": 1997,
+      "rank": 27
+    },
+    {
+      "id": 74899,
+      "slug": "abby-hatcher",
+      "title": "Abby Hatcher",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 87387,
+      "slug": "luna-petunia",
+      "title": "Luna Petunia",
+      "year": 2016,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919139
+}

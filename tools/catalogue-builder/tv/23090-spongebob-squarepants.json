@@ -1,0 +1,395 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/23090-spongebob-squarepants",
+  "id": 23090,
+  "slug": "spongebob-squarepants",
+  "title": "SpongeBob SquarePants",
+  "year": 1999,
+  "rating": 8.2,
+  "votes_text": "124K",
+  "votes": 124000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f7/23090.jpg",
+  "genres": [
+    "Animation",
+    "Comedy",
+    "Family",
+    "Fantasy"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 23,
+  "story": "Deep down in the Pacific Ocean in the subterranean city of Bikini Bottom lives a square yellow sponge named SpongeBob SquarePants. SpongeBob lives in a pineapple with his pet snail, Gary, loves his job as a fry cook at the Krusty Krab, and has a knack for getting into all kinds of trouble without really trying. When he's not getting on the nerves of his cranky next door neighbor Squidward, SpongeBob can usually be found smack in the middle of all sorts of strange situations with his best buddy, the simple yet lovable starfish, Patrick, or his thrill-seeking surfer-girl squirrel pal, Sandy Cheeks.",
+  "tags": [
+    {
+      "id": 87816,
+      "slug": "kids",
+      "name": "Kids",
+      "film_count": 7861
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 8496,
+      "slug": "optimism",
+      "name": "Optimism",
+      "film_count": 572
+    },
+    {
+      "id": 1984,
+      "slug": "underwater",
+      "name": "Underwater",
+      "film_count": 861
+    },
+    {
+      "id": 10725,
+      "slug": "fast-food",
+      "name": "Fast food",
+      "film_count": 223
+    },
+    {
+      "id": 2937,
+      "slug": "talking-animal",
+      "name": "Talking animal",
+      "film_count": 1360
+    },
+    {
+      "id": 123335,
+      "slug": "imaginary",
+      "name": "Imaginary",
+      "film_count": 4709
+    },
+    {
+      "id": 124139,
+      "slug": "hilarious",
+      "name": "Hilarious",
+      "film_count": 1767
+    },
+    {
+      "id": 1567,
+      "slug": "water",
+      "name": "Water",
+      "film_count": 2103
+    },
+    {
+      "id": 4194,
+      "slug": "villain",
+      "name": "Villain",
+      "film_count": 3789
+    },
+    {
+      "id": 2364,
+      "slug": "slapstick-comedy",
+      "name": "Slapstick comedy",
+      "film_count": 1733
+    },
+    {
+      "id": 2772,
+      "slug": "martial-arts",
+      "name": "Martial arts",
+      "film_count": 6239
+    },
+    {
+      "id": 280,
+      "slug": "money",
+      "name": "Money",
+      "film_count": 5243
+    },
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 9039,
+      "slug": "pacific-ocean",
+      "name": "Pacific ocean",
+      "film_count": 239
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "humorous",
+      "not serious",
+      "adult animation",
+      "anime",
+      "sincere",
+      "captivating",
+      "sitcom",
+      "hilarious",
+      "slapstick comedy",
+      "slapstick"
+    ],
+    "audience": [
+      "kids",
+      "teens",
+      "family friendly",
+      "family outing",
+      "pre-teens",
+      "preschool"
+    ],
+    "plot": [
+      "friendship",
+      "optimism",
+      "underwater",
+      "fast food",
+      "talking animal",
+      "imaginary",
+      "best friend",
+      "absurdism",
+      "asexual",
+      "escapades",
+      "disorder",
+      "boat",
+      "goofy hero",
+      "anthropomorphic animal",
+      "squirrel",
+      "surrealism",
+      "neighbor",
+      "creature",
+      "water",
+      "villain",
+      "martial arts",
+      "money",
+      "dark humor",
+      "snail",
+      "animal that acts human"
+    ],
+    "time": [
+      "90s",
+      "20th century",
+      "2000s",
+      "2010s",
+      "2020s",
+      "21st century",
+      "1990s"
+    ],
+    "place": [
+      "pacific ocean"
+    ]
+  },
+  "similar": [
+    {
+      "id": 27096,
+      "slug": "the-spongebob-movie-sponge-out-of-water",
+      "title": "The SpongeBob Movie: Sponge Out of Water",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 27046,
+      "slug": "hey-arnold",
+      "title": "Hey Arnold!",
+      "year": 1996,
+      "rank": 1
+    },
+    {
+      "id": 23091,
+      "slug": "the-spongebob-squarepants-movie",
+      "title": "The SpongeBob SquarePants Movie",
+      "year": 2004,
+      "rank": 2
+    },
+    {
+      "id": 66009,
+      "slug": "the-spongebob-movie-sponge-on-the-run",
+      "title": "The SpongeBob Movie: Sponge on the Run",
+      "year": 2020,
+      "rank": 3
+    },
+    {
+      "id": 30024,
+      "slug": "the-fairly-oddparents",
+      "title": "The Fairly OddParents",
+      "year": 2001,
+      "rank": 4
+    },
+    {
+      "id": 30031,
+      "slug": "rugrats",
+      "title": "Rugrats",
+      "year": 1991,
+      "rank": 5
+    },
+    {
+      "id": 8482,
+      "slug": "the-angry-beavers",
+      "title": "The Angry Beavers",
+      "year": 1997,
+      "rank": 6
+    },
+    {
+      "id": 30152,
+      "slug": "snorks",
+      "title": "Snorks",
+      "year": 1984,
+      "rank": 7
+    },
+    {
+      "id": 29998,
+      "slug": "rockos-modern-life",
+      "title": "Rocko's Modern Life",
+      "year": 1993,
+      "rank": 8
+    },
+    {
+      "id": 4123,
+      "slug": "regular-show-in-space",
+      "title": "Regular Show",
+      "year": 2010,
+      "rank": 9
+    },
+    {
+      "id": 67611,
+      "slug": "spongebob-squarepants-sea-side-story",
+      "title": "SpongeBob SquarePants: Sea Side Story",
+      "year": 2017,
+      "rank": 10
+    },
+    {
+      "id": 56571,
+      "slug": "jimmy-two-shoes",
+      "title": "Jimmy Two-Shoes",
+      "year": 2009,
+      "rank": 11
+    },
+    {
+      "id": 686,
+      "slug": "the-amazing-world-of-gumball",
+      "title": "The Amazing World of Gumball",
+      "year": 2011,
+      "rank": 12
+    },
+    {
+      "id": 706,
+      "slug": "the-care-bears-family",
+      "title": "The Care Bears",
+      "year": 1986,
+      "rank": 13
+    },
+    {
+      "id": 10452,
+      "slug": "catdog",
+      "title": "CatDog",
+      "year": 1998,
+      "rank": 14
+    },
+    {
+      "id": 40765,
+      "slug": "harvey-beaks",
+      "title": "Harvey Beaks",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 12039,
+      "slug": "despicable-me",
+      "title": "Despicable Me",
+      "year": 2010,
+      "rank": 16
+    },
+    {
+      "id": 2118,
+      "slug": "tom-and-jerry-tales",
+      "title": "Tom and Jerry Tales",
+      "year": 2006,
+      "rank": 17
+    },
+    {
+      "id": 1574,
+      "slug": "brandy-and-mr-whiskers",
+      "title": "Brandy & Mr. Whiskers",
+      "year": 2004,
+      "rank": 18
+    },
+    {
+      "id": 105484,
+      "slug": "the-spongebob-movie-search-for-squarepants",
+      "title": "The SpongeBob Movie: Search for SquarePants",
+      "year": 2025,
+      "rank": 19
+    },
+    {
+      "id": 69825,
+      "slug": "kamp-koral-spongebobs-under-years",
+      "title": "Kamp Koral: SpongeBob's Under Years",
+      "year": 2021,
+      "rank": 20
+    },
+    {
+      "id": 4122,
+      "slug": "the-looney-tunes-show",
+      "title": "The Looney Tunes Show",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 4239,
+      "slug": "adventure-time",
+      "title": "Adventure Time",
+      "year": 2010,
+      "rank": 22
+    },
+    {
+      "id": 74670,
+      "slug": "spongebob-squarepants-spongicus",
+      "title": "SpongeBob SquarePants: Spongicus",
+      "year": 2009,
+      "rank": 23
+    },
+    {
+      "id": 29966,
+      "slug": "the-pink-panther-show",
+      "title": "The Pink Panther Show",
+      "year": 1969,
+      "rank": 24
+    },
+    {
+      "id": 1874,
+      "slug": "my-gym-partners-a-monkey",
+      "title": "My Gym Partner's a Monkey",
+      "year": 2005,
+      "rank": 25
+    },
+    {
+      "id": 101936,
+      "slug": "secret-mountain-fort-awesome",
+      "title": "Secret Mountain Fort Awesome",
+      "year": 2007,
+      "rank": 26
+    },
+    {
+      "id": 97590,
+      "slug": "saving-bikini-bottom-the-sandy-cheeks-movie",
+      "title": "Saving Bikini Bottom: The Sandy Cheeks Movie",
+      "year": 2024,
+      "rank": 27
+    },
+    {
+      "id": 58888,
+      "slug": "flipper-and-lopaka",
+      "title": "Flipper and Lopaka",
+      "year": 1999,
+      "rank": 28
+    },
+    {
+      "id": 22581,
+      "slug": "the-simpsons",
+      "title": "The Simpsons",
+      "year": 1989,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919142
+}

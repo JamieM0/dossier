@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/67549-gangs-of-london",
+  "id": 67549,
+  "slug": "gangs-of-london",
+  "title": "Gangs of London",
+  "year": 2020,
+  "rating": 8.0,
+  "votes_text": "52K",
+  "votes": 52000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/6a/67549.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Thriller",
+    "War"
+  ],
+  "country": [
+    "UK",
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "When the head of a criminal organisation, Finn Wallace is assassinated, the sudden power vacuum his death creates threatens the fragile peace between the intricate web of gangs operating on the streets of the city. Now it’s up to the grieving, volatile and impulsive Sean Wallace to restore control and find those responsible for killing his father.",
+  "tags": [
+    {
+      "id": 1054,
+      "slug": "organized-crime",
+      "name": "Organized crime",
+      "film_count": 3969
+    },
+    {
+      "id": 1274,
+      "slug": "mafia",
+      "name": "Mafia",
+      "film_count": 2780
+    },
+    {
+      "id": 562,
+      "slug": "violence",
+      "name": "Violence",
+      "film_count": 20112
+    },
+    {
+      "id": 3032,
+      "slug": "gang-war",
+      "name": "Gang war",
+      "film_count": 679
+    },
+    {
+      "id": 26304,
+      "slug": "crime-family",
+      "name": "Crime family",
+      "film_count": 797
+    },
+    {
+      "id": 123492,
+      "slug": "london",
+      "name": "London",
+      "film_count": 3262
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 123,
+      "slug": "father-son-relationship",
+      "name": "Father son relationship",
+      "film_count": 11353
+    },
+    {
+      "id": 1441,
+      "slug": "torture",
+      "name": "Torture",
+      "film_count": 4899
+    },
+    {
+      "id": 1470,
+      "slug": "brother",
+      "name": "Brother",
+      "film_count": 1653
+    },
+    {
+      "id": 17806,
+      "slug": "irish-gangster",
+      "name": "Irish gangster",
+      "film_count": 47
+    },
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 124061,
+      "slug": "distopia",
+      "name": "Distopia",
+      "film_count": 3296
+    },
+    {
+      "id": 17651,
+      "slug": "intellectual",
+      "name": "Intellectual",
+      "film_count": 2967
+    },
+    {
+      "id": 4194,
+      "slug": "villain",
+      "name": "Villain",
+      "film_count": 3789
+    },
+    {
+      "id": 6455,
+      "slug": "hustler",
+      "name": "Hustler",
+      "film_count": 629
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "rough",
+      "exciting",
+      "brutal",
+      "intellectual",
+      "detective",
+      "neo noir",
+      "suspense"
+    ],
+    "plot": [
+      "organized crime",
+      "mafia",
+      "violence",
+      "gang war",
+      "crime family",
+      "murder",
+      "father son relationship",
+      "mercenary",
+      "gangster",
+      "danger",
+      "irish mob",
+      "mobster",
+      "blood",
+      "bandit",
+      "gunfight",
+      "investigation",
+      "brotherhood",
+      "gang",
+      "revenge",
+      "criminal",
+      "killing",
+      "torture",
+      "brother",
+      "irish gangster",
+      "superhero"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "london",
+      "england",
+      "ireland",
+      "turkey"
+    ]
+  },
+  "similar": [
+    {
+      "id": 56631,
+      "slug": "peaky-blinders",
+      "title": "Peaky Blinders",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 74002,
+      "slug": "ganglands",
+      "title": "Ganglands",
+      "year": 2021,
+      "rank": 1
+    },
+    {
+      "id": 95834,
+      "slug": "brutal",
+      "title": "Brutal",
+      "year": 2021,
+      "rank": 2
+    },
+    {
+      "id": 65442,
+      "slug": "top-boy",
+      "title": "Top Boy",
+      "year": 2011,
+      "rank": 3
+    },
+    {
+      "id": 64805,
+      "slug": "suburra-blood-on-rome",
+      "title": "Suburra: Blood on Rome",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 65165,
+      "slug": "warrior",
+      "title": "Warrior",
+      "year": 2019,
+      "rank": 5
+    },
+    {
+      "id": 66394,
+      "slug": "godfather-of-harlem",
+      "title": "Godfather of Harlem",
+      "year": 2019,
+      "rank": 6
+    },
+    {
+      "id": 81024,
+      "slug": "blood-out-of-blood",
+      "title": "Blood for Blood",
+      "year": 2012,
+      "rank": 7
+    },
+    {
+      "id": 57900,
+      "slug": "the-punisher",
+      "title": "The Punisher",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 66300,
+      "slug": "bad-blood",
+      "title": "Bad Blood",
+      "year": 2017,
+      "rank": 9
+    },
+    {
+      "id": 79930,
+      "slug": "tulsa-king",
+      "title": "Tulsa King",
+      "year": 2022,
+      "rank": 10
+    },
+    {
+      "id": 58092,
+      "slug": "gomorrah",
+      "title": "Gomorrah",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 15680,
+      "slug": "22-bullets",
+      "title": "22 Bullets",
+      "year": 2010,
+      "rank": 12
+    },
+    {
+      "id": 75554,
+      "slug": "boost",
+      "title": "Boost",
+      "year": 2017,
+      "rank": 13
+    },
+    {
+      "id": 2114,
+      "slug": "romanzo-criminale",
+      "title": "Crime novel - The series",
+      "year": 2008,
+      "rank": 14
+    },
+    {
+      "id": 26845,
+      "slug": "boardwalk-empire",
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "rank": 15
+    },
+    {
+      "id": 100224,
+      "slug": "mobland",
+      "title": "MobLand",
+      "year": 2025,
+      "rank": 16
+    },
+    {
+      "id": 62468,
+      "slug": "love-hate",
+      "title": "Love/Hate",
+      "year": 2010,
+      "rank": 17
+    },
+    {
+      "id": 98625,
+      "slug": "daredevil-born-again",
+      "title": "Daredevil: Born Again",
+      "year": 2025,
+      "rank": 18
+    },
+    {
+      "id": 77368,
+      "slug": "kin",
+      "title": "Kin",
+      "year": 2021,
+      "rank": 19
+    },
+    {
+      "id": 98997,
+      "slug": "brotherhood",
+      "title": "Brotherhood",
+      "year": 2016,
+      "rank": 20
+    },
+    {
+      "id": 76406,
+      "slug": "dealer",
+      "title": "Dealer",
+      "year": 2021,
+      "rank": 21
+    },
+    {
+      "id": 61578,
+      "slug": "ozark",
+      "title": "Ozark",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 57700,
+      "slug": "black-luck",
+      "title": "Black Luck",
+      "year": 2016,
+      "rank": 23
+    },
+    {
+      "id": 56525,
+      "slug": "undercover",
+      "title": "Undercover",
+      "year": 2011,
+      "rank": 24
+    },
+    {
+      "id": 76977,
+      "slug": "carl-webers-the-family-business",
+      "title": "The Family Business",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 41562,
+      "slug": "toro",
+      "title": "Toro",
+      "year": 2016,
+      "rank": 26
+    },
+    {
+      "id": 4800,
+      "slug": "sons-of-anarchy",
+      "title": "Sons of Anarchy",
+      "year": 2008,
+      "rank": 27
+    },
+    {
+      "id": 60781,
+      "slug": "mcmafia",
+      "title": "McMafia",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 98309,
+      "slug": "look-of-a-killer",
+      "title": "Look of a Killer",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919176
+}

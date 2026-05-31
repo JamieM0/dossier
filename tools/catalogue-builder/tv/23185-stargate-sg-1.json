@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/23185-stargate-sg-1",
+  "id": 23185,
+  "slug": "stargate-sg-1",
+  "title": "Stargate SG-1",
+  "year": 1997,
+  "rating": 8.4,
+  "votes_text": "107K",
+  "votes": 107000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/08/23185.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA",
+    "Canada"
+  ],
+  "duration_min": 44,
+  "story": "The story of Stargate SG-1 begins about a year after the events of the feature film, when the United States government learns that an ancient alien device called the Stargate can access a network of such devices on a multitude of planets. SG-1 is an elite Air Force special operations team, one of more than two dozen teams from Earth who explore the galaxy and defend against alien threats such as the Goa'uld, Replicators, and the Ori.",
+  "tags": [
+    {
+      "id": 4302,
+      "slug": "space-travel",
+      "name": "Space travel",
+      "film_count": 1116
+    },
+    {
+      "id": 2543,
+      "slug": "time-travel",
+      "name": "Time travel",
+      "film_count": 2840
+    },
+    {
+      "id": 123339,
+      "slug": "space-and-aliens",
+      "name": "Space and aliens",
+      "film_count": 1666
+    },
+    {
+      "id": 14540,
+      "slug": "parallel-universe",
+      "name": "Parallel universe",
+      "film_count": 1470
+    },
+    {
+      "id": 18036,
+      "slug": "parallel-world",
+      "name": "Parallel world",
+      "film_count": 881
+    },
+    {
+      "id": 5053,
+      "slug": "alien-planet",
+      "name": "Alien planet",
+      "film_count": 326
+    },
+    {
+      "id": 1374,
+      "slug": "alien-race",
+      "name": "Alien race",
+      "film_count": 272
+    },
+    {
+      "id": 7206,
+      "slug": "save-the-world",
+      "name": "Save the world",
+      "film_count": 1913
+    },
+    {
+      "id": 7680,
+      "slug": "earth",
+      "name": "Earth",
+      "film_count": 642
+    },
+    {
+      "id": 4308,
+      "slug": "race-against-time",
+      "name": "Race against time",
+      "film_count": 3416
+    },
+    {
+      "id": 1355,
+      "slug": "spaceship",
+      "name": "Spaceship",
+      "film_count": 987
+    },
+    {
+      "id": 26160,
+      "slug": "90s",
+      "name": "90s",
+      "film_count": 9177
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 2290,
+      "slug": "ufo",
+      "name": "Ufo",
+      "film_count": 778
+    },
+    {
+      "id": 17985,
+      "slug": "retro",
+      "name": "Retro",
+      "film_count": 3344
+    },
+    {
+      "id": 24084,
+      "slug": "time-loop",
+      "name": "Time loop",
+      "film_count": 703
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspenseful",
+      "atmospheric",
+      "serious",
+      "retro",
+      "saga",
+      "exciting",
+      "epic",
+      "captivating",
+      "funny",
+      "uplifting"
+    ],
+    "audience": [
+      "boys' night",
+      "teens"
+    ],
+    "plot": [
+      "space travel",
+      "time travel",
+      "space and aliens",
+      "parallel universe",
+      "parallel world",
+      "alien planet",
+      "alien race",
+      "save the world",
+      "ancient mystery",
+      "space opera",
+      "stargate",
+      "escapades",
+      "unrequited love",
+      "female soldier",
+      "egyptology",
+      "egyptian mythology",
+      "megalomaniac",
+      "military",
+      "intergalactic",
+      "changing the past or future",
+      "rivalry",
+      "earth",
+      "race against time",
+      "spaceship",
+      "ufo"
+    ],
+    "time": [
+      "90s",
+      "20th century",
+      "near future",
+      "2000s",
+      "21st century",
+      "1990s",
+      "contemporary"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26279,
+      "slug": "stargate-continuum",
+      "title": "Stargate: Continuum",
+      "year": 2008,
+      "rank": 0
+    },
+    {
+      "id": 23186,
+      "slug": "stargate-atlantis",
+      "title": "Stargate Atlantis",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 23187,
+      "slug": "stargate-the-ark-of-truth",
+      "title": "Stargate: The Ark of Truth",
+      "year": 2008,
+      "rank": 2
+    },
+    {
+      "id": 26429,
+      "slug": "sgu-stargate-universe",
+      "title": "Stargate Universe",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 23184,
+      "slug": "stargate",
+      "title": "Stargate",
+      "year": 1994,
+      "rank": 4
+    },
+    {
+      "id": 73237,
+      "slug": "stargate-sg-1-children-of-the-gods",
+      "title": "Stargate SG-1: Children of the Gods",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 13198,
+      "slug": "farscape",
+      "title": "Farscape",
+      "year": 1999,
+      "rank": 6
+    },
+    {
+      "id": 13199,
+      "slug": "farscape-the-peacekeeper-wars",
+      "title": "Farscape: The Peacekeeper Wars",
+      "year": 2004,
+      "rank": 7
+    },
+    {
+      "id": 30455,
+      "slug": "star-trek-voyager",
+      "title": "Star Trek: Voyager",
+      "year": 1995,
+      "rank": 8
+    },
+    {
+      "id": 30238,
+      "slug": "andromeda",
+      "title": "Andromeda",
+      "year": 2000,
+      "rank": 9
+    },
+    {
+      "id": 26929,
+      "slug": "dark-matter",
+      "title": "Dark Matter",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 9113,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 2004,
+      "rank": 11
+    },
+    {
+      "id": 10688,
+      "slug": "children-of-dune",
+      "title": "Frank Herbert's Children of Dune",
+      "year": 2003,
+      "rank": 12
+    },
+    {
+      "id": 30458,
+      "slug": "star-trek-deep-space-nine",
+      "title": "Star Trek: Deep Space Nine",
+      "year": 1993,
+      "rank": 13
+    },
+    {
+      "id": 23165,
+      "slug": "star-trek-first-contact",
+      "title": "Star Trek: First Contact",
+      "year": 1996,
+      "rank": 14
+    },
+    {
+      "id": 30207,
+      "slug": "star-trek-the-next-generation",
+      "title": "Star Trek: The Next Generation",
+      "year": 1987,
+      "rank": 15
+    },
+    {
+      "id": 8882,
+      "slug": "babylon-5-the-river-of-souls",
+      "title": "Babylon 5: The River of Souls",
+      "year": 1998,
+      "rank": 16
+    },
+    {
+      "id": 26606,
+      "slug": "doctor-who",
+      "title": "Doctor Who",
+      "year": 2005,
+      "rank": 17
+    },
+    {
+      "id": 12573,
+      "slug": "dune",
+      "title": "Frank Herbert's Dune",
+      "year": 2000,
+      "rank": 18
+    },
+    {
+      "id": 23160,
+      "slug": "star-trek",
+      "title": "Star Trek",
+      "year": 1966,
+      "rank": 19
+    },
+    {
+      "id": 20900,
+      "slug": "quantum-leap",
+      "title": "Quantum Leap",
+      "year": 1989,
+      "rank": 20
+    },
+    {
+      "id": 26555,
+      "slug": "terra-nova",
+      "title": "Terra Nova",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 11427,
+      "slug": "crusade",
+      "title": "Crusade",
+      "year": 1999,
+      "rank": 22
+    },
+    {
+      "id": 8879,
+      "slug": "babylon-5-a-call-to-arms",
+      "title": "Babylon 5: A Call to Arms",
+      "year": 1999,
+      "rank": 23
+    },
+    {
+      "id": 42763,
+      "slug": "dcs-legends-of-tomorrow",
+      "title": "DC's Legends of Tomorrow",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 8883,
+      "slug": "babylon-5-thirdspace",
+      "title": "Babylon 5: Thirdspace",
+      "year": 1998,
+      "rank": 25
+    },
+    {
+      "id": 30277,
+      "slug": "blakes-7",
+      "title": "Blake's 7",
+      "year": 1978,
+      "rank": 26
+    },
+    {
+      "id": 64161,
+      "slug": "stargate-origins",
+      "title": "Stargate Origins",
+      "year": 2018,
+      "rank": 27
+    },
+    {
+      "id": 22753,
+      "slug": "sliders",
+      "title": "Sliders",
+      "year": 1995,
+      "rank": 28
+    },
+    {
+      "id": 68013,
+      "slug": "riese-kingdom-falling",
+      "title": "Riese: Kingdom Falling",
+      "year": 2009,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919142
+}

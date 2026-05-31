@@ -1,0 +1,391 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/30516-that-70s-show",
+  "id": 30516,
+  "slug": "that-70s-show",
+  "title": "That '70s Show",
+  "year": 1998,
+  "rating": 8.1,
+  "votes_text": "198K",
+  "votes": 198000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/b5/30516.jpg",
+  "genres": [
+    "Comedy",
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "Crank up the 8-track and flash back to a time when platform shoes and puka shells were all the rage in this hilarious retro-sitcom. For Eric, Kelso, Jackie, Hyde, Donna and Fez, a group of high school teens who spend most of their time hanging out in Eric’s basement, life in the ‘70s isn’t always so groovy. But between trying to figure out the meaning of life, avoiding their parents, and dealing with out-of-control hormones, they’ve learned one thing for sure: they’ll always get by with a little help from their friends.",
+  "tags": [
+    {
+      "id": 1645,
+      "slug": "group-of-friends",
+      "name": "Group of friends",
+      "film_count": 2216
+    },
+    {
+      "id": 123303,
+      "slug": "teens",
+      "name": "Teens",
+      "film_count": 10386
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 658,
+      "slug": "basement",
+      "name": "Basement",
+      "film_count": 1492
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 11821,
+      "slug": "wisconsin",
+      "name": "Wisconsin",
+      "film_count": 157
+    },
+    {
+      "id": 7691,
+      "slug": "teenage-love",
+      "name": "Teenage love",
+      "film_count": 1978
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 123843,
+      "slug": "family-relations",
+      "name": "Family relations",
+      "film_count": 23196
+    },
+    {
+      "id": 18461,
+      "slug": "70s",
+      "name": "70s",
+      "film_count": 6014
+    },
+    {
+      "id": 426,
+      "slug": "father-daughter-relationship",
+      "name": "Father daughter relationship",
+      "film_count": 9778
+    },
+    {
+      "id": 425,
+      "slug": "mother-daughter-relationship",
+      "name": "Mother daughter relationship",
+      "film_count": 8632
+    },
+    {
+      "id": 123,
+      "slug": "father-son-relationship",
+      "name": "Father son relationship",
+      "film_count": 11353
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 14041,
+      "slug": "stoner",
+      "name": "Stoner",
+      "film_count": 1434
+    },
+    {
+      "id": 3891,
+      "slug": "high-school-student",
+      "name": "High school student",
+      "film_count": 2043
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "humorous",
+      "sentimental",
+      "realistic",
+      "not serious",
+      "funny",
+      "mystical",
+      "parody",
+      "light",
+      "atmospheric"
+    ],
+    "audience": [
+      "teens",
+      "kids",
+      "date night",
+      "teen drama",
+      "adult"
+    ],
+    "plot": [
+      "group of friends",
+      "friendship",
+      "basement",
+      "teenage love",
+      "small town",
+      "teenager",
+      "parents and children",
+      "couples",
+      "generation gap",
+      "couple relations",
+      "first love",
+      "adolescence vs adulthood",
+      "teenage girl",
+      "dysfunctional family",
+      "gay student",
+      "high school",
+      "dating",
+      "youth",
+      "family relations",
+      "father daughter relationship",
+      "mother daughter relationship",
+      "father son relationship",
+      "stoner",
+      "high school student",
+      "girl next door"
+    ],
+    "time": [
+      "70s",
+      "20th century",
+      "90s",
+      "1990s"
+    ],
+    "place": [
+      "wisconsin",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 30422,
+      "slug": "saved-by-the-bell",
+      "title": "Saved by the Bell",
+      "year": 1989,
+      "rank": 0
+    },
+    {
+      "id": 13794,
+      "slug": "friends",
+      "title": "Friends",
+      "year": 1994,
+      "rank": 1
+    },
+    {
+      "id": 27144,
+      "slug": "how-i-met-your-mother",
+      "title": "How I Met Your Mother",
+      "year": 2005,
+      "rank": 2
+    },
+    {
+      "id": 30452,
+      "slug": "freaks-and-geeks",
+      "title": "Freaks and Geeks",
+      "year": 1999,
+      "rank": 3
+    },
+    {
+      "id": 30416,
+      "slug": "boy-meets-world",
+      "title": "Boy Meets World",
+      "year": 1993,
+      "rank": 4
+    },
+    {
+      "id": 30456,
+      "slug": "7th-heaven",
+      "title": "7th Heaven",
+      "year": 1996,
+      "rank": 5
+    },
+    {
+      "id": 30425,
+      "slug": "8-simple-rules",
+      "title": "8 Simple Rules",
+      "year": 2002,
+      "rank": 6
+    },
+    {
+      "id": 30107,
+      "slug": "saved-by-the-bell-the-college-years",
+      "title": "Saved by the Bell: The College Years",
+      "year": 1993,
+      "rank": 7
+    },
+    {
+      "id": 12965,
+      "slug": "everybody-hates-chris",
+      "title": "Everybody Hates Chris",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 30415,
+      "slug": "the-wonder-years",
+      "title": "The Wonder Years",
+      "year": 1988,
+      "rank": 9
+    },
+    {
+      "id": 30319,
+      "slug": "popular",
+      "title": "Popular",
+      "year": 1999,
+      "rank": 10
+    },
+    {
+      "id": 431,
+      "slug": "new-girl",
+      "title": "New Girl",
+      "year": 2011,
+      "rank": 11
+    },
+    {
+      "id": 24618,
+      "slug": "two-and-a-half-men",
+      "title": "Two and a Half Men",
+      "year": 2003,
+      "rank": 12
+    },
+    {
+      "id": 9356,
+      "slug": "the-big-bang-theory",
+      "title": "The Big Bang Theory",
+      "year": 2007,
+      "rank": 13
+    },
+    {
+      "id": 9312,
+      "slug": "beverly-hills-90210",
+      "title": "Beverly Hills, 90210",
+      "year": 1990,
+      "rank": 14
+    },
+    {
+      "id": 30450,
+      "slug": "the-fresh-prince-of-bel-air",
+      "title": "The Fresh Prince of Bel-Air",
+      "year": 1990,
+      "rank": 15
+    },
+    {
+      "id": 30513,
+      "slug": "gilmore-girls",
+      "title": "Gilmore Girls",
+      "year": 2000,
+      "rank": 16
+    },
+    {
+      "id": 5082,
+      "slug": "october-road",
+      "title": "October Road",
+      "year": 2007,
+      "rank": 17
+    },
+    {
+      "id": 26783,
+      "slug": "the-inbetweeners",
+      "title": "The Inbetweeners",
+      "year": 2008,
+      "rank": 18
+    },
+    {
+      "id": 30451,
+      "slug": "married-with-children",
+      "title": "Married... with Children",
+      "year": 1987,
+      "rank": 19
+    },
+    {
+      "id": 3248,
+      "slug": "awkward",
+      "title": "Awkward.",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 30300,
+      "slug": "happy-days",
+      "title": "Happy Days",
+      "year": 1974,
+      "rank": 21
+    },
+    {
+      "id": 257,
+      "slug": "90210",
+      "title": "90210",
+      "year": 2008,
+      "rank": 22
+    },
+    {
+      "id": 66425,
+      "slug": "high-school-musical-the-musical-the-series",
+      "title": "High School Musical: The Musical: The Series",
+      "year": 2019,
+      "rank": 23
+    },
+    {
+      "id": 22209,
+      "slug": "sex-and-the-city",
+      "title": "Sex and the City",
+      "year": 1998,
+      "rank": 24
+    },
+    {
+      "id": 1062,
+      "slug": "men-at-work",
+      "title": "Men at Work",
+      "year": 2012,
+      "rank": 25
+    },
+    {
+      "id": 30413,
+      "slug": "malcolm-in-the-middle",
+      "title": "Malcolm in the Middle",
+      "year": 2000,
+      "rank": 26
+    },
+    {
+      "id": 1908,
+      "slug": "suburgatory",
+      "title": "Suburgatory",
+      "year": 2011,
+      "rank": 27
+    },
+    {
+      "id": 61334,
+      "slug": "about-a-boy",
+      "title": "About a Boy",
+      "year": 2014,
+      "rank": 28
+    },
+    {
+      "id": 63576,
+      "slug": "married",
+      "title": "Married",
+      "year": 2014,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919156
+}

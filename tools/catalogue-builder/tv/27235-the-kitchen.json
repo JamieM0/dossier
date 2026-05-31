@@ -1,0 +1,381 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/27235-the-kitchen",
+  "id": 27235,
+  "slug": "the-kitchen",
+  "title": "The Kitchen",
+  "year": 2012,
+  "rating": 8.4,
+  "votes_text": "7K",
+  "votes": 7000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/d9/27235.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "Russia"
+  ],
+  "duration_min": 25,
+  "story": "Maksim \"Max\" Lavrov wants to become a great chef. But he finds out that the kitchen isn't the place for an easy career. And in restaurant \"Claude Monet\" this job looks even harder and much more complicated than just cooking.",
+  "tags": [
+    {
+      "id": 297,
+      "slug": "food",
+      "name": "Food",
+      "film_count": 3483
+    },
+    {
+      "id": 692,
+      "slug": "cooking",
+      "name": "Cooking",
+      "film_count": 1865
+    },
+    {
+      "id": 5439,
+      "slug": "coworker-relationship",
+      "name": "Coworker relationship",
+      "film_count": 1349
+    },
+    {
+      "id": 45403,
+      "slug": "feel-good",
+      "name": "Feel good",
+      "film_count": 17668
+    },
+    {
+      "id": 123419,
+      "slug": "couple-relations",
+      "name": "Couple relations",
+      "film_count": 11884
+    },
+    {
+      "id": 144,
+      "slug": "restaurant",
+      "name": "Restaurant",
+      "film_count": 5103
+    },
+    {
+      "id": 124080,
+      "slug": "entertaining",
+      "name": "Entertaining",
+      "film_count": 17691
+    },
+    {
+      "id": 15154,
+      "slug": "job",
+      "name": "Job",
+      "film_count": 1657
+    },
+    {
+      "id": 122834,
+      "slug": "family-outing",
+      "name": "Family outing",
+      "film_count": 5827
+    },
+    {
+      "id": 124243,
+      "slug": "relationships",
+      "name": "Relationships",
+      "film_count": 14254
+    },
+    {
+      "id": 32308,
+      "slug": "female-chef",
+      "name": "Female chef",
+      "film_count": 59
+    },
+    {
+      "id": 123481,
+      "slug": "emotional",
+      "name": "Emotional",
+      "film_count": 15358
+    },
+    {
+      "id": 733,
+      "slug": "parody",
+      "name": "Parody",
+      "film_count": 4207
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    },
+    {
+      "id": 10608,
+      "slug": "meal",
+      "name": "Meal",
+      "film_count": 97
+    },
+    {
+      "id": 528,
+      "slug": "sex",
+      "name": "Sex",
+      "film_count": 10551
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "feel good",
+      "entertaining",
+      "light",
+      "captivating",
+      "humorous",
+      "talky",
+      "not serious",
+      "sex comedy",
+      "sitcom",
+      "emotional"
+    ],
+    "audience": [
+      "family outing"
+    ],
+    "plot": [
+      "food",
+      "cooking",
+      "coworker relationship",
+      "couple relations",
+      "restaurant",
+      "job",
+      "friendship",
+      "chef",
+      "justice",
+      "happy ending",
+      "love",
+      "rivalry",
+      "competition",
+      "waiter",
+      "waitress",
+      "youth",
+      "ambition",
+      "relationships",
+      "female chef",
+      "escapades",
+      "meal",
+      "sex",
+      "kitchen",
+      "french restaurant",
+      "shower"
+    ],
+    "time": [
+      "21st century"
+    ],
+    "place": [
+      "russian"
+    ]
+  },
+  "similar": [
+    {
+      "id": 56991,
+      "slug": "the-kitchen-in-paris",
+      "title": "Kitchen in Paris",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 61088,
+      "slug": "the-kitchen-world-chef-battle",
+      "title": "The Kitchen: World Chef Battle",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 71223,
+      "slug": "the-kitchen-war-for-the-hotel",
+      "title": "The Kitchen. War for the hotel",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 60761,
+      "slug": "hotel-eleon",
+      "title": "Hotel Eleon",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 82737,
+      "slug": "senya-fedya",
+      "title": "Senya Fedya",
+      "year": 2018,
+      "rank": 4
+    },
+    {
+      "id": 70899,
+      "slug": "grand",
+      "title": "Grand",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 72030,
+      "slug": "my-fair-nanny",
+      "title": "My Fair Nanny",
+      "year": 2004,
+      "rank": 6
+    },
+    {
+      "id": 93600,
+      "slug": "yes-chef",
+      "title": "Yes, Chef!",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 71240,
+      "slug": "unprincipled",
+      "title": "Unprincipled",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 76064,
+      "slug": "ulyotnyy-ekipazh",
+      "title": "Ulyotnyy ekipazh",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 78775,
+      "slug": "the-bear",
+      "title": "The Bear",
+      "year": 2022,
+      "rank": 10
+    },
+    {
+      "id": 61086,
+      "slug": "two-fathers-and-two-sons",
+      "title": "Two Fathers and Two Sons",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 65286,
+      "slug": "whites",
+      "title": "Whites",
+      "year": 2010,
+      "rank": 12
+    },
+    {
+      "id": 70211,
+      "slug": "university",
+      "title": "Uni",
+      "year": 2008,
+      "rank": 13
+    },
+    {
+      "id": 80396,
+      "slug": "gourmet-wars",
+      "title": "Gourmet Wars",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 100068,
+      "slug": "doctors-diary",
+      "title": "Doctor's Diary",
+      "year": 2012,
+      "rank": 15
+    },
+    {
+      "id": 67025,
+      "slug": "gentefied",
+      "title": "Gentefied",
+      "year": 2020,
+      "rank": 16
+    },
+    {
+      "id": 82048,
+      "slug": "lets-eat",
+      "title": "Let's Eat",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 31487,
+      "slug": "magic-kitchen",
+      "title": "Magic Kitchen",
+      "year": 2004,
+      "rank": 18
+    },
+    {
+      "id": 85384,
+      "slug": "in-with-the-flynns",
+      "title": "In with the Flynns",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 60695,
+      "slug": "bitter-sweet",
+      "title": "Bitter Sweet",
+      "year": 2016,
+      "rank": 20
+    },
+    {
+      "id": 94751,
+      "slug": "lets-eat",
+      "title": "Let's Eat!",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 5002,
+      "slug": "the-parent-family",
+      "title": "The Parent Family",
+      "year": 2008,
+      "rank": 22
+    },
+    {
+      "id": 72631,
+      "slug": "gochisousan",
+      "title": "Gochisousan",
+      "year": 2013,
+      "rank": 23
+    },
+    {
+      "id": 80559,
+      "slug": "panda-and-hedgehog",
+      "title": "Panda and Hedgehog",
+      "year": 2012,
+      "rank": 24
+    },
+    {
+      "id": 60416,
+      "slug": "university-the-new-dorm",
+      "title": "University. The New Dorm",
+      "year": 2011,
+      "rank": 25
+    },
+    {
+      "id": 1063,
+      "slug": "dan-for-mayor",
+      "title": "Dan for Mayor",
+      "year": 2010,
+      "rank": 26
+    },
+    {
+      "id": 83598,
+      "slug": "the-restaurant-with-problems",
+      "title": "The Restaurant with Problems",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 100625,
+      "slug": "a-man-with-warranty",
+      "title": "A Man with Warranty",
+      "year": 2012,
+      "rank": 28
+    },
+    {
+      "id": 63662,
+      "slug": "your-family-or-mine",
+      "title": "Your Family or Mine",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919152
+}

@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/30515-law-and-order",
+  "id": 30515,
+  "slug": "law-and-order",
+  "title": "Law & Order",
+  "year": 1990,
+  "rating": 7.8,
+  "votes_text": "50K",
+  "votes": 50000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/3a/30515.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "Law & Order is an American police procedural and legal drama television series, created by Dick Wolf and part of the Law & Order franchise. It originally aired on NBC and, in syndication, on various cable networks. Law & Order premiered on September 13, 1990, and completed its 20th and final season on May 24, 2010. At the time of its cancellation, Law & Order was the longest-running crime drama on American primetime television. After The Simpsons, both Law & Order and Gunsmoke tied for the second longest-running scripted American primetime series with ongoing characters.",
+  "tags": [
+    {
+      "id": 7265,
+      "slug": "crime-investigation",
+      "name": "Crime investigation",
+      "film_count": 2580
+    },
+    {
+      "id": 479,
+      "slug": "police",
+      "name": "Police",
+      "film_count": 11084
+    },
+    {
+      "id": 1153,
+      "slug": "legal",
+      "name": "Legal",
+      "film_count": 1656
+    },
+    {
+      "id": 2113,
+      "slug": "law-and-order",
+      "name": "Law and order",
+      "film_count": 359
+    },
+    {
+      "id": 2675,
+      "slug": "police-officer",
+      "name": "Police officer",
+      "film_count": 9140
+    },
+    {
+      "id": 3053,
+      "slug": "murder-investigation",
+      "name": "Murder investigation",
+      "film_count": 3428
+    },
+    {
+      "id": 2163,
+      "slug": "evidence",
+      "name": "Evidence",
+      "film_count": 1344
+    },
+    {
+      "id": 5121,
+      "slug": "homicide-detective",
+      "name": "Homicide detective",
+      "film_count": 878
+    },
+    {
+      "id": 14076,
+      "slug": "law",
+      "name": "Law",
+      "film_count": 1088
+    },
+    {
+      "id": 26160,
+      "slug": "90s",
+      "name": "90s",
+      "film_count": 9177
+    },
+    {
+      "id": 499,
+      "slug": "lawyer",
+      "name": "Lawyer",
+      "film_count": 3905
+    },
+    {
+      "id": 6966,
+      "slug": "team",
+      "name": "Team",
+      "film_count": 1512
+    },
+    {
+      "id": 2707,
+      "slug": "police-procedural",
+      "name": "Police procedural",
+      "film_count": 2261
+    },
+    {
+      "id": 122196,
+      "slug": "die-hard",
+      "name": "Die hard",
+      "film_count": 954
+    },
+    {
+      "id": 10813,
+      "slug": "nypd",
+      "name": "Nypd",
+      "film_count": 671
+    },
+    {
+      "id": 5125,
+      "slug": "coroner",
+      "name": "Coroner",
+      "film_count": 274
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "realistic",
+      "rough",
+      "serious",
+      "suspenseful",
+      "dramatic",
+      "thrilling",
+      "detective",
+      "clever",
+      "psychological thriller"
+    ],
+    "plot": [
+      "crime investigation",
+      "police",
+      "legal",
+      "law and order",
+      "police officer",
+      "murder investigation",
+      "evidence",
+      "homicide detective",
+      "dedicated lawyer",
+      "trial",
+      "rivalry",
+      "punishment",
+      "coworker",
+      "partner",
+      "cop",
+      "investigator",
+      "cop witness relations",
+      "investigation",
+      "criminal",
+      "law",
+      "lawyer",
+      "team",
+      "police procedural",
+      "die hard",
+      "nypd"
+    ],
+    "time": [
+      "20th century",
+      "90s",
+      "80s",
+      "2000s",
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "usa",
+      "manhattan new york city",
+      "new york"
+    ]
+  },
+  "similar": [
+    {
+      "id": 30202,
+      "slug": "law-and-order-criminal-intent",
+      "title": "Law & Order: Criminal Intent",
+      "year": 2001,
+      "rank": 0
+    },
+    {
+      "id": 56683,
+      "slug": "chicago-p-d",
+      "title": "Chicago P.D.",
+      "year": 2014,
+      "rank": 1
+    },
+    {
+      "id": 30316,
+      "slug": "cold-case",
+      "title": "Cold Case",
+      "year": 2003,
+      "rank": 2
+    },
+    {
+      "id": 1956,
+      "slug": "law-and-order-uk",
+      "title": "Law & Order: UK",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 30514,
+      "slug": "homicide-life-on-the-street",
+      "title": "Homicide: Life on the Street",
+      "year": 1993,
+      "rank": 4
+    },
+    {
+      "id": 30172,
+      "slug": "the-closer",
+      "title": "The Closer",
+      "year": 2005,
+      "rank": 5
+    },
+    {
+      "id": 30459,
+      "slug": "law-and-order-special-victims-unit",
+      "title": "Law & Order: Special Victims Unit",
+      "year": 1999,
+      "rank": 6
+    },
+    {
+      "id": 2374,
+      "slug": "law-and-order-trial-by-jury",
+      "title": "Law & Order: Trial by Jury",
+      "year": 2005,
+      "rank": 7
+    },
+    {
+      "id": 35180,
+      "slug": "city-homicide",
+      "title": "City Homicide",
+      "year": 2006,
+      "rank": 8
+    },
+    {
+      "id": 28588,
+      "slug": "bosch",
+      "title": "Bosch",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 11446,
+      "slug": "csi-crime-scene-investigation",
+      "title": "CSI: Crime Scene Investigation",
+      "year": 2000,
+      "rank": 10
+    },
+    {
+      "id": 30305,
+      "slug": "csi-ny",
+      "title": "CSI: NY",
+      "year": 2004,
+      "rank": 11
+    },
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 12
+    },
+    {
+      "id": 307,
+      "slug": "major-crimes",
+      "title": "Major Crimes",
+      "year": 2012,
+      "rank": 13
+    },
+    {
+      "id": 27269,
+      "slug": "the-killing",
+      "title": "The Killing",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 38233,
+      "slug": "murder-in-the-first",
+      "title": "Murder in the First",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 16
+    },
+    {
+      "id": 3273,
+      "slug": "jake-and-the-fatman",
+      "title": "Jake and the Fatman",
+      "year": 1987,
+      "rank": 17
+    },
+    {
+      "id": 30336,
+      "slug": "quincy-m-e",
+      "title": "Quincy, M.E.",
+      "year": 1976,
+      "rank": 18
+    },
+    {
+      "id": 28908,
+      "slug": "how-to-get-away-with-murder",
+      "title": "How to Get Away with Murder",
+      "year": 2014,
+      "rank": 19
+    },
+    {
+      "id": 19548,
+      "slug": "nypd-blue",
+      "title": "NYPD Blue",
+      "year": 1993,
+      "rank": 20
+    },
+    {
+      "id": 56528,
+      "slug": "law-and-order-la",
+      "title": "Law & Order Los Angeles",
+      "year": 2010,
+      "rank": 21
+    },
+    {
+      "id": 1815,
+      "slug": "csi-miami",
+      "title": "CSI: Miami",
+      "year": 2002,
+      "rank": 22
+    },
+    {
+      "id": 30496,
+      "slug": "murder-one",
+      "title": "Murder One",
+      "year": 1995,
+      "rank": 23
+    },
+    {
+      "id": 27279,
+      "slug": "the-shield",
+      "title": "The Shield",
+      "year": 2002,
+      "rank": 24
+    },
+    {
+      "id": 30349,
+      "slug": "jag",
+      "title": "JAG",
+      "year": 1995,
+      "rank": 25
+    },
+    {
+      "id": 62281,
+      "slug": "motive",
+      "title": "Motive",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 63690,
+      "slug": "spiral",
+      "title": "Spiral",
+      "year": 2005,
+      "rank": 27
+    },
+    {
+      "id": 30410,
+      "slug": "damages",
+      "title": "Damages",
+      "year": 2007,
+      "rank": 28
+    },
+    {
+      "id": 73007,
+      "slug": "law-and-order-organized-crime",
+      "title": "Law & Order: Organized Crime",
+      "year": 2021,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919156
+}

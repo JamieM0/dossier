@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/43642-fleabag",
+  "id": 43642,
+  "slug": "fleabag",
+  "title": "Fleabag",
+  "year": 2016,
+  "rating": 8.7,
+  "votes_text": "241K",
+  "votes": 241000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/2e/43642.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 30,
+  "story": "As she hurls herself headlong at modern living, Fleabag is thrown roughly up against the walls of contemporary London, sleeping with anyone who dares to stand too close, squeezing money from wherever she can, rejecting anyone who tries to help her, and keeping up her bravado throughout.",
+  "tags": [
+    {
+      "id": 1328,
+      "slug": "sister-sister-relationship",
+      "name": "Sister sister relationship",
+      "film_count": 3119
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 4703,
+      "slug": "female-friendship",
+      "name": "Female friendship",
+      "film_count": 2186
+    },
+    {
+      "id": 1115,
+      "slug": "boyfriend-girlfriend-relationship",
+      "name": "Boyfriend girlfriend relationship",
+      "film_count": 8791
+    },
+    {
+      "id": 1299,
+      "slug": "sexual-humor",
+      "name": "Sexual humor",
+      "film_count": 882
+    },
+    {
+      "id": 504,
+      "slug": "female-protagonist",
+      "name": "Female protagonist",
+      "film_count": 14534
+    },
+    {
+      "id": 1330,
+      "slug": "sexuality",
+      "name": "Sexuality",
+      "film_count": 2681
+    },
+    {
+      "id": 10874,
+      "slug": "dark-comedy",
+      "name": "Dark comedy",
+      "film_count": 7481
+    },
+    {
+      "id": 1145,
+      "slug": "priest",
+      "name": "Priest",
+      "film_count": 3094
+    },
+    {
+      "id": 774,
+      "slug": "female-masturbation",
+      "name": "Female masturbation",
+      "film_count": 1024
+    },
+    {
+      "id": 22486,
+      "slug": "stepmother-stepdaughter-relationship",
+      "name": "Stepmother stepdaughter relationship",
+      "film_count": 259
+    },
+    {
+      "id": 6456,
+      "slug": "erotic",
+      "name": "Erotic",
+      "film_count": 5476
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    },
+    {
+      "id": 12523,
+      "slug": "bisexual-woman",
+      "name": "Bisexual woman",
+      "film_count": 601
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 11539,
+      "slug": "light",
+      "name": "Light",
+      "film_count": 12031
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "funny",
+      "dark comedy",
+      "sitcom",
+      "raunchy comedy",
+      "absurd",
+      "erotic",
+      "saga",
+      "psychological",
+      "light",
+      "humorous"
+    ],
+    "audience": [
+      "chick flick"
+    ],
+    "plot": [
+      "sister sister relationship",
+      "female friendship",
+      "boyfriend girlfriend relationship",
+      "sexual humor",
+      "female protagonist",
+      "sexuality",
+      "dark humor",
+      "promiscuity",
+      "women",
+      "single woman",
+      "bisexual",
+      "father daughter relationship",
+      "promiscuous woman",
+      "dating",
+      "best friend",
+      "sex addict",
+      "breakup",
+      "death of friend",
+      "british",
+      "priest",
+      "female masturbation",
+      "stepmother stepdaughter relationship",
+      "bisexual woman",
+      "stepmother",
+      "evil stepmother"
+    ],
+    "time": [
+      "future",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "london"
+    ]
+  },
+  "similar": [
+    {
+      "id": 64610,
+      "slug": "pure",
+      "title": "Pure",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 67219,
+      "slug": "crashing",
+      "title": "Crashing",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 66940,
+      "slug": "national-theatre-live-fleabag",
+      "title": "National Theatre Live: Fleabag",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 58254,
+      "slug": "the-marvelous-mrs-maisel",
+      "title": "The Marvelous Mrs. Maisel",
+      "year": 2017,
+      "rank": 3
+    },
+    {
+      "id": 264,
+      "slug": "girls",
+      "title": "Girls",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 27059,
+      "slug": "shameless",
+      "title": "Shameless",
+      "year": 2011,
+      "rank": 5
+    },
+    {
+      "id": 66081,
+      "slug": "flack",
+      "title": "Flack",
+      "year": 2019,
+      "rank": 6
+    },
+    {
+      "id": 72403,
+      "slug": "flowers",
+      "title": "Flowers",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 58260,
+      "slug": "derry-girls",
+      "title": "Derry Girls",
+      "year": 2018,
+      "rank": 8
+    },
+    {
+      "id": 22633,
+      "slug": "six-feet-under",
+      "title": "Six Feet Under",
+      "year": 2001,
+      "rank": 9
+    },
+    {
+      "id": 61212,
+      "slug": "killing-eve",
+      "title": "Killing Eve",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 43710,
+      "slug": "love-nina",
+      "title": "Love, Nina",
+      "year": 2016,
+      "rank": 11
+    },
+    {
+      "id": 65920,
+      "slug": "mrs-fletcher",
+      "title": "Mrs. Fletcher",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 65695,
+      "slug": "why-women-kill",
+      "title": "Why Women Kill",
+      "year": 2019,
+      "rank": 13
+    },
+    {
+      "id": 68763,
+      "slug": "masaba-masaba",
+      "title": "Masaba Masaba",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 66918,
+      "slug": "after-life",
+      "title": "After Life",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 67409,
+      "slug": "breeders",
+      "title": "Breeders",
+      "year": 2020,
+      "rank": 16
+    },
+    {
+      "id": 72260,
+      "slug": "chewing-gum",
+      "title": "Chewing Gum",
+      "year": 2015,
+      "rank": 17
+    },
+    {
+      "id": 72293,
+      "slug": "derek",
+      "title": "Derek",
+      "year": 2012,
+      "rank": 18
+    },
+    {
+      "id": 64620,
+      "slug": "sex-education",
+      "title": "Sex Education",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 60131,
+      "slug": "workin-moms",
+      "title": "Workin' Moms",
+      "year": 2017,
+      "rank": 20
+    },
+    {
+      "id": 64167,
+      "slug": "atlanta",
+      "title": "Atlanta",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 60771,
+      "slug": "the-bold-type",
+      "title": "The Bold Type",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 26836,
+      "slug": "californication",
+      "title": "Californication",
+      "year": 2007,
+      "rank": 23
+    },
+    {
+      "id": 5852,
+      "slug": "no-angels",
+      "title": "No Angels",
+      "year": 2004,
+      "rank": 24
+    },
+    {
+      "id": 30449,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2001,
+      "rank": 25
+    },
+    {
+      "id": 105703,
+      "slug": "big-mood",
+      "title": "Big Mood",
+      "year": 2024,
+      "rank": 26
+    },
+    {
+      "id": 87017,
+      "slug": "jane-hall",
+      "title": "Jane Hall",
+      "year": 2006,
+      "rank": 27
+    },
+    {
+      "id": 80957,
+      "slug": "sick-of-it",
+      "title": "Sick of It",
+      "year": 2018,
+      "rank": 28
+    },
+    {
+      "id": 70352,
+      "slug": "master-of-none",
+      "title": "Master of None",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919160
+}

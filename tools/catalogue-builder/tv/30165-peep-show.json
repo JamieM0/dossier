@@ -1,0 +1,382 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/30165-peep-show",
+  "id": 30165,
+  "slug": "peep-show",
+  "title": "Peep Show",
+  "year": 2003,
+  "rating": 8.7,
+  "votes_text": "73K",
+  "votes": 73000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/53/30165.jpg",
+  "genres": [
+    "Comedy"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 25,
+  "story": "Peep Show is an award-winning British sitcom starring David Mitchell and Robert Webb. The television programme is written by Jesse Armstrong and Sam Bain, with additional material by Mitchell and Webb amongst others. It has been broadcast on Channel 4 since 2003. The show's eighth series makes it the longest-returning comedy in Channel 4 history. Stylistically, the show uses point of view shots with the thoughts of main characters Mark and Jeremy audible as voiceovers. Peep Show follows the lives of two men from their twenties to thirties, Mark Corrigan, who has steady employment for most of the series, and Jeremy \"Jez\" Usbourne, an unemployed would-be musician. The pair met at the fictional Dartmouth University, and now share a flat in Croydon, South London. Mark is initially a loan manager at the fictional JLB Credit, later becoming a waiter, and then a bathroom supplies salesman. He is financially secure, but awkward and socially inept, with a pessimistic and cynical attitude. Jeremy, having split up with his girlfriend Big Suze prior to the first episode, now lives in Mark's spare room. He usually has a much more optimistic and energetic outlook on the world than Mark, yet his self-proclaimed talent as a musician has yet to be recognised, and he is not as popular or attractive as he would like to think himself, although he is more successful with the opposite sex than Mark.",
+  "tags": [
+    {
+      "id": 25,
+      "slug": "roommate",
+      "name": "Roommate",
+      "film_count": 1415
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 18140,
+      "slug": "odd-couple",
+      "name": "Odd couple",
+      "film_count": 1010
+    },
+    {
+      "id": 11012,
+      "slug": "slacker",
+      "name": "Slacker",
+      "film_count": 593
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 35,
+      "slug": "socially-awkward",
+      "name": "Socially awkward",
+      "film_count": 611
+    },
+    {
+      "id": 3180,
+      "slug": "point-of-view",
+      "name": "Point of view",
+      "film_count": 126
+    },
+    {
+      "id": 12877,
+      "slug": "cynicism",
+      "name": "Cynicism",
+      "film_count": 712
+    },
+    {
+      "id": 11539,
+      "slug": "light",
+      "name": "Light",
+      "film_count": 12031
+    },
+    {
+      "id": 124080,
+      "slug": "entertaining",
+      "name": "Entertaining",
+      "film_count": 17691
+    },
+    {
+      "id": 422,
+      "slug": "friendship-between-men",
+      "name": "Friendship between men",
+      "film_count": 2991
+    },
+    {
+      "id": 412,
+      "slug": "bromance",
+      "name": "Bromance",
+      "film_count": 983
+    },
+    {
+      "id": 124139,
+      "slug": "hilarious",
+      "name": "Hilarious",
+      "film_count": 1767
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 123333,
+      "slug": "escapades",
+      "name": "Escapades",
+      "film_count": 12880
+    },
+    {
+      "id": 123775,
+      "slug": "social-problems",
+      "name": "Social problems",
+      "film_count": 3130
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "humorous",
+      "funny",
+      "feel good",
+      "witty",
+      "not serious",
+      "buddy comedy",
+      "light",
+      "entertaining",
+      "hilarious"
+    ],
+    "plot": [
+      "roommate",
+      "odd couple",
+      "slacker",
+      "socially awkward",
+      "point of view",
+      "cynicism",
+      "satire",
+      "inner voice",
+      "immaturity",
+      "humour",
+      "neighbor",
+      "everyday life",
+      "loser",
+      "lifestyle",
+      "buddies",
+      "unlikely friendships",
+      "misfit",
+      "living together",
+      "friendship between men",
+      "bromance",
+      "escapades",
+      "social problems",
+      "financial problem",
+      "weirdo",
+      "social satire"
+    ],
+    "time": [
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "london",
+      "england",
+      "europe"
+    ]
+  },
+  "similar": [
+    {
+      "id": 63826,
+      "slug": "detectorists",
+      "title": "Detectorists",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 59919,
+      "slug": "him-and-her",
+      "title": "Him & Her",
+      "year": 2010,
+      "rank": 1
+    },
+    {
+      "id": 26561,
+      "slug": "its-always-sunny-in-philadelphia",
+      "title": "It's Always Sunny in Philadelphia",
+      "year": 2005,
+      "rank": 2
+    },
+    {
+      "id": 30420,
+      "slug": "black-books",
+      "title": "Black Books",
+      "year": 2000,
+      "rank": 3
+    },
+    {
+      "id": 26783,
+      "slug": "the-inbetweeners",
+      "title": "The Inbetweeners",
+      "year": 2008,
+      "rank": 4
+    },
+    {
+      "id": 17799,
+      "slug": "magicians",
+      "title": "Magicians",
+      "year": 2007,
+      "rank": 5
+    },
+    {
+      "id": 30506,
+      "slug": "seinfeld",
+      "title": "Seinfeld",
+      "year": 1989,
+      "rank": 6
+    },
+    {
+      "id": 5064,
+      "slug": "little-britain",
+      "title": "Little Britain",
+      "year": 2003,
+      "rank": 7
+    },
+    {
+      "id": 18931,
+      "slug": "my-name-is-earl",
+      "title": "My Name Is Earl",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 11462,
+      "slug": "curb-your-enthusiasm",
+      "title": "Curb Your Enthusiasm",
+      "year": 2000,
+      "rank": 9
+    },
+    {
+      "id": 30052,
+      "slug": "green-wing",
+      "title": "Green Wing",
+      "year": 2004,
+      "rank": 10
+    },
+    {
+      "id": 30414,
+      "slug": "spaced",
+      "title": "Spaced",
+      "year": 1999,
+      "rank": 11
+    },
+    {
+      "id": 61943,
+      "slug": "how-not-to-live-your-life",
+      "title": "How Not to Live Your Life",
+      "year": 2007,
+      "rank": 12
+    },
+    {
+      "id": 16022,
+      "slug": "the-it-crowd",
+      "title": "The IT Crowd",
+      "year": 2006,
+      "rank": 13
+    },
+    {
+      "id": 64424,
+      "slug": "plebs",
+      "title": "Plebs",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 1233,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 2812,
+      "slug": "workaholics",
+      "title": "Workaholics",
+      "year": 2011,
+      "rank": 16
+    },
+    {
+      "id": 30184,
+      "slug": "that-mitchell-and-webb-look",
+      "title": "That Mitchell and Webb Look",
+      "year": 2006,
+      "rank": 17
+    },
+    {
+      "id": 30160,
+      "slug": "party-down",
+      "title": "Party Down",
+      "year": 2009,
+      "rank": 18
+    },
+    {
+      "id": 58094,
+      "slug": "british-men-behaving-badly",
+      "title": "Men Behaving Badly",
+      "year": 1992,
+      "rank": 19
+    },
+    {
+      "id": 82938,
+      "slug": "the-mitchell-and-webb-situation",
+      "title": "The Mitchell and Webb Situation",
+      "year": 2001,
+      "rank": 20
+    },
+    {
+      "id": 70003,
+      "slug": "the-old-guys",
+      "title": "The Old Guys",
+      "year": 2009,
+      "rank": 21
+    },
+    {
+      "id": 1306,
+      "slug": "lifes-too-short",
+      "title": "Life's Too Short",
+      "year": 2011,
+      "rank": 22
+    },
+    {
+      "id": 61994,
+      "slug": "the-increasingly-poor-decisions-of-todd-margaret",
+      "title": "The Increasingly Poor Decisions of Todd Margaret",
+      "year": 2009,
+      "rank": 23
+    },
+    {
+      "id": 61904,
+      "slug": "lead-balloon",
+      "title": "Lead Balloon",
+      "year": 2006,
+      "rank": 24
+    },
+    {
+      "id": 5146,
+      "slug": "come-fly-with-me",
+      "title": "Come Fly with Me",
+      "year": 2010,
+      "rank": 25
+    },
+    {
+      "id": 30002,
+      "slug": "im-alan-partridge",
+      "title": "I'm Alan Partridge",
+      "year": 1997,
+      "rank": 26
+    },
+    {
+      "id": 98373,
+      "slug": "blessed",
+      "title": "Blessed",
+      "year": 2005,
+      "rank": 27
+    },
+    {
+      "id": 62572,
+      "slug": "hello-ladies",
+      "title": "Hello Ladies",
+      "year": 2013,
+      "rank": 28
+    },
+    {
+      "id": 62517,
+      "slug": "friends-with-better-lives",
+      "title": "Friends with Better Lives",
+      "year": 2014,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919155
+}

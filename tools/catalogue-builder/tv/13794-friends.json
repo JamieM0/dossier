@@ -1,0 +1,397 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/13794-friends",
+  "id": 13794,
+  "slug": "friends",
+  "title": "Friends",
+  "year": 1994,
+  "rating": 8.9,
+  "votes_text": "1.2M",
+  "votes": 1200000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/7c/13794.jpg",
+  "genres": [
+    "Comedy",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "The misadventures of a group of friends as they navigate the pitfalls of work, life and love in Manhattan.",
+  "tags": [
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 4276,
+      "slug": "best-friend",
+      "name": "Best friend",
+      "film_count": 4850
+    },
+    {
+      "id": 45403,
+      "slug": "feel-good",
+      "name": "Feel good",
+      "film_count": 17668
+    },
+    {
+      "id": 4165,
+      "slug": "new-york",
+      "name": "New york",
+      "film_count": 5521
+    },
+    {
+      "id": 123302,
+      "slug": "girls-night",
+      "name": "Girls' night",
+      "film_count": 4741
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 10118,
+      "slug": "everyday-life",
+      "name": "Everyday life",
+      "film_count": 1642
+    },
+    {
+      "id": 38504,
+      "slug": "looking-for-love",
+      "name": "Looking for love",
+      "film_count": 1552
+    },
+    {
+      "id": 70,
+      "slug": "husband-wife-relationship",
+      "name": "Husband wife relationship",
+      "film_count": 13715
+    },
+    {
+      "id": 61731,
+      "slug": "young-adult",
+      "name": "Young adult",
+      "film_count": 4167
+    },
+    {
+      "id": 123439,
+      "slug": "city-life",
+      "name": "City life",
+      "film_count": 2403
+    },
+    {
+      "id": 196,
+      "slug": "divorce",
+      "name": "Divorce",
+      "film_count": 2924
+    },
+    {
+      "id": 194,
+      "slug": "friend",
+      "name": "Friend",
+      "film_count": 7965
+    },
+    {
+      "id": 34648,
+      "slug": "lovers",
+      "name": "Lovers",
+      "film_count": 1230
+    },
+    {
+      "id": 677,
+      "slug": "cafe",
+      "name": "Cafe",
+      "film_count": 2091
+    },
+    {
+      "id": 123429,
+      "slug": "siblings-relations",
+      "name": "Siblings relations",
+      "film_count": 3435
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sitcom",
+      "feel good",
+      "humorous",
+      "entertaining",
+      "not serious",
+      "witty",
+      "funny",
+      "talky",
+      "hilarious",
+      "saga"
+    ],
+    "audience": [
+      "girls' night",
+      "teens",
+      "family outing",
+      "boys' night",
+      "teen drama",
+      "adult"
+    ],
+    "plot": [
+      "friendship",
+      "best friend",
+      "everyday life",
+      "looking for love",
+      "couple relations",
+      "love and romance",
+      "sex life",
+      "group of friends",
+      "roommate",
+      "female friendship",
+      "couples",
+      "friends",
+      "boyfriend girlfriend relationship",
+      "family relations",
+      "friendship between men",
+      "husband wife relationship",
+      "young adult",
+      "city life",
+      "divorce",
+      "friend",
+      "lovers",
+      "cafe",
+      "siblings relations",
+      "teenager",
+      "paleontologist"
+    ],
+    "time": [
+      "90s",
+      "year 1994",
+      "20th century",
+      "2000s",
+      "21st century",
+      "1990s",
+      "contemporary"
+    ],
+    "place": [
+      "new york",
+      "manhattan new york city",
+      "usa",
+      "manhattan",
+      "new york city"
+    ]
+  },
+  "similar": [
+    {
+      "id": 27144,
+      "slug": "how-i-met-your-mother",
+      "title": "How I Met Your Mother",
+      "year": 2005,
+      "rank": 0
+    },
+    {
+      "id": 9356,
+      "slug": "the-big-bang-theory",
+      "title": "The Big Bang Theory",
+      "year": 2007,
+      "rank": 1
+    },
+    {
+      "id": 16250,
+      "slug": "joey",
+      "title": "Joey",
+      "year": 2004,
+      "rank": 2
+    },
+    {
+      "id": 3467,
+      "slug": "baby-daddy",
+      "title": "Baby Daddy",
+      "year": 2012,
+      "rank": 3
+    },
+    {
+      "id": 431,
+      "slug": "new-girl",
+      "title": "New Girl",
+      "year": 2011,
+      "rank": 4
+    },
+    {
+      "id": 30516,
+      "slug": "that-70s-show",
+      "title": "That '70s Show",
+      "year": 1998,
+      "rank": 5
+    },
+    {
+      "id": 26547,
+      "slug": "modern-family",
+      "title": "Modern Family",
+      "year": 2009,
+      "rank": 6
+    },
+    {
+      "id": 19045,
+      "slug": "the-nanny",
+      "title": "The Nanny",
+      "year": 1993,
+      "rank": 7
+    },
+    {
+      "id": 30506,
+      "slug": "seinfeld",
+      "title": "Seinfeld",
+      "year": 1989,
+      "rank": 8
+    },
+    {
+      "id": 6115,
+      "slug": "samantha-who",
+      "title": "Samantha Who?",
+      "year": 2007,
+      "rank": 9
+    },
+    {
+      "id": 11264,
+      "slug": "coupling",
+      "title": "Coupling",
+      "year": 2000,
+      "rank": 10
+    },
+    {
+      "id": 24618,
+      "slug": "two-and-a-half-men",
+      "title": "Two and a Half Men",
+      "year": 2003,
+      "rank": 11
+    },
+    {
+      "id": 22209,
+      "slug": "sex-and-the-city",
+      "title": "Sex and the City",
+      "year": 1998,
+      "rank": 12
+    },
+    {
+      "id": 30513,
+      "slug": "gilmore-girls",
+      "title": "Gilmore Girls",
+      "year": 2000,
+      "rank": 13
+    },
+    {
+      "id": 3642,
+      "slug": "2-broke-girls",
+      "title": "2 Broke Girls",
+      "year": 2011,
+      "rank": 14
+    },
+    {
+      "id": 3657,
+      "slug": "cougar-town",
+      "title": "Cougar Town",
+      "year": 2009,
+      "rank": 15
+    },
+    {
+      "id": 435,
+      "slug": "happy-endings",
+      "title": "Happy Endings",
+      "year": 2011,
+      "rank": 16
+    },
+    {
+      "id": 62567,
+      "slug": "mixology",
+      "title": "Mixology",
+      "year": 2013,
+      "rank": 17
+    },
+    {
+      "id": 30453,
+      "slug": "will-and-grace",
+      "title": "Will & Grace",
+      "year": 1998,
+      "rank": 18
+    },
+    {
+      "id": 30147,
+      "slug": "rules-of-engagement",
+      "title": "Rules of Engagement",
+      "year": 2007,
+      "rank": 19
+    },
+    {
+      "id": 30107,
+      "slug": "saved-by-the-bell-the-college-years",
+      "title": "Saved by the Bell: The College Years",
+      "year": 1993,
+      "rank": 20
+    },
+    {
+      "id": 30519,
+      "slug": "frasier",
+      "title": "Frasier",
+      "year": 1993,
+      "rank": 21
+    },
+    {
+      "id": 56463,
+      "slug": "mad-love",
+      "title": "Mad Love",
+      "year": 2011,
+      "rank": 22
+    },
+    {
+      "id": 636,
+      "slug": "til-death",
+      "title": "'Til Death",
+      "year": 2006,
+      "rank": 23
+    },
+    {
+      "id": 56488,
+      "slug": "my-boys",
+      "title": "My Boys",
+      "year": 2006,
+      "rank": 24
+    },
+    {
+      "id": 12032,
+      "slug": "desperate-housewives",
+      "title": "Desperate Housewives",
+      "year": 2004,
+      "rank": 25
+    },
+    {
+      "id": 30457,
+      "slug": "the-king-of-queens",
+      "title": "The King of Queens",
+      "year": 1998,
+      "rank": 26
+    },
+    {
+      "id": 3043,
+      "slug": "icarly",
+      "title": "iCarly",
+      "year": 2007,
+      "rank": 27
+    },
+    {
+      "id": 3656,
+      "slug": "mike-and-molly",
+      "title": "Mike & Molly",
+      "year": 2010,
+      "rank": 28
+    },
+    {
+      "id": 62030,
+      "slug": "traffic-light",
+      "title": "Traffic Light",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919138
+}

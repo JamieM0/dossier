@@ -1,0 +1,393 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26565-supernatural",
+  "id": 26565,
+  "slug": "supernatural",
+  "title": "Supernatural",
+  "year": 2005,
+  "rating": 8.4,
+  "votes_text": "532K",
+  "votes": 532000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/0f/26565.jpg",
+  "genres": [
+    "Drama",
+    "Fantasy",
+    "Horror",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 44,
+  "story": "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way.",
+  "tags": [
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 2627,
+      "slug": "vampire",
+      "name": "Vampire",
+      "film_count": 1688
+    },
+    {
+      "id": 1882,
+      "slug": "monster",
+      "name": "Monster",
+      "film_count": 6768
+    },
+    {
+      "id": 3138,
+      "slug": "paranormal",
+      "name": "Paranormal",
+      "film_count": 2937
+    },
+    {
+      "id": 1453,
+      "slug": "ghost",
+      "name": "Ghost",
+      "film_count": 5860
+    },
+    {
+      "id": 3147,
+      "slug": "demon",
+      "name": "Demon",
+      "film_count": 3750
+    },
+    {
+      "id": 439,
+      "slug": "brother-brother-relationship",
+      "name": "Brother brother relationship",
+      "film_count": 5059
+    },
+    {
+      "id": 106409,
+      "slug": "supernatural-ability",
+      "name": "Supernatural ability",
+      "film_count": 4126
+    },
+    {
+      "id": 123353,
+      "slug": "deadly-creature",
+      "name": "Deadly creature",
+      "film_count": 2454
+    },
+    {
+      "id": 3060,
+      "slug": "exorcism",
+      "name": "Exorcism",
+      "film_count": 1495
+    },
+    {
+      "id": 104387,
+      "slug": "obsessive-quest",
+      "name": "Obsessive quest",
+      "film_count": 2023
+    },
+    {
+      "id": 123485,
+      "slug": "suspenseful",
+      "name": "Suspenseful",
+      "film_count": 30277
+    },
+    {
+      "id": 12966,
+      "slug": "brotherhood",
+      "name": "Brotherhood",
+      "film_count": 1201
+    },
+    {
+      "id": 12080,
+      "slug": "paranormal-investigation",
+      "name": "Paranormal investigation",
+      "film_count": 1290
+    },
+    {
+      "id": 123848,
+      "slug": "scary",
+      "name": "Scary",
+      "film_count": 8899
+    },
+    {
+      "id": 2335,
+      "slug": "rescue",
+      "name": "Rescue",
+      "film_count": 7614
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspenseful",
+      "scary",
+      "serious",
+      "sexy",
+      "gothic horror",
+      "rough",
+      "mythical",
+      "mind blowing",
+      "horrifying",
+      "suspense"
+    ],
+    "audience": [
+      "teens",
+      "adult"
+    ],
+    "plot": [
+      "supernatural",
+      "vampire",
+      "monster",
+      "paranormal",
+      "ghost",
+      "demon",
+      "brother brother relationship",
+      "supernatural ability",
+      "creature",
+      "angel",
+      "supernatural power",
+      "peril",
+      "mission",
+      "paranormal phenomena",
+      "danger",
+      "good versus evil",
+      "demon hunter",
+      "hunting",
+      "characters in danger",
+      "evil",
+      "urban legend",
+      "death",
+      "curses spells and rituals",
+      "god or devil",
+      "deadly creature"
+    ],
+    "time": [
+      "90s",
+      "80s",
+      "70s",
+      "2000s",
+      "2010s",
+      "year 1973",
+      "20th century"
+    ],
+    "place": [
+      "arizona",
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 17889,
+      "slug": "constantine",
+      "title": "Constantine",
+      "year": 2014,
+      "rank": 1
+    },
+    {
+      "id": 4415,
+      "slug": "teen-wolf",
+      "title": "Teen Wolf",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 3
+    },
+    {
+      "id": 4530,
+      "slug": "sleepy-hollow",
+      "title": "Sleepy Hollow",
+      "year": 2013,
+      "rank": 4
+    },
+    {
+      "id": 8442,
+      "slug": "angel",
+      "title": "Angel",
+      "year": 1999,
+      "rank": 5
+    },
+    {
+      "id": 10596,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 1998,
+      "rank": 6
+    },
+    {
+      "id": 6070,
+      "slug": "witches-of-east-end",
+      "title": "Witches of East End",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 11162,
+      "slug": "constantine",
+      "title": "Constantine",
+      "year": 2005,
+      "rank": 8
+    },
+    {
+      "id": 62162,
+      "slug": "supernatural-the-animation",
+      "title": "Supernatural: The Anime Series",
+      "year": 2011,
+      "rank": 9
+    },
+    {
+      "id": 65716,
+      "slug": "evil",
+      "title": "Evil",
+      "year": 2019,
+      "rank": 10
+    },
+    {
+      "id": 57898,
+      "slug": "midnight-texas",
+      "title": "Midnight, Texas",
+      "year": 2017,
+      "rank": 11
+    },
+    {
+      "id": 10098,
+      "slug": "buffy-the-vampire-slayer",
+      "title": "Buffy the Vampire Slayer",
+      "year": 1997,
+      "rank": 12
+    },
+    {
+      "id": 42764,
+      "slug": "wynonna-earp",
+      "title": "Wynonna Earp",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 41815,
+      "slug": "the-magicians",
+      "title": "The Magicians",
+      "year": 2015,
+      "rank": 14
+    },
+    {
+      "id": 30482,
+      "slug": "the-dresden-files",
+      "title": "The Dresden Files",
+      "year": 2007,
+      "rank": 15
+    },
+    {
+      "id": 64980,
+      "slug": "good-omens",
+      "title": "Good Omens",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 17
+    },
+    {
+      "id": 5081,
+      "slug": "being-human",
+      "title": "Being Human",
+      "year": 2011,
+      "rank": 18
+    },
+    {
+      "id": 5865,
+      "slug": "the-originals",
+      "title": "The Originals",
+      "year": 2013,
+      "rank": 19
+    },
+    {
+      "id": 26489,
+      "slug": "lucifer",
+      "title": "Lucifer",
+      "year": 2016,
+      "rank": 20
+    },
+    {
+      "id": 4514,
+      "slug": "the-mortal-instruments-city-of-bones",
+      "title": "The Mortal Instruments: City of Bones",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 26485,
+      "slug": "true-blood",
+      "title": "True Blood",
+      "year": 2008,
+      "rank": 22
+    },
+    {
+      "id": 30257,
+      "slug": "poltergeist-the-legacy",
+      "title": "Poltergeist: The Legacy",
+      "year": 1996,
+      "rank": 23
+    },
+    {
+      "id": 64335,
+      "slug": "legacies",
+      "title": "Legacies",
+      "year": 2018,
+      "rank": 24
+    },
+    {
+      "id": 27501,
+      "slug": "dominion",
+      "title": "Dominion",
+      "year": 2014,
+      "rank": 25
+    },
+    {
+      "id": 64239,
+      "slug": "chilling-adventures-of-sabrina",
+      "title": "Chilling Adventures of Sabrina",
+      "year": 2018,
+      "rank": 26
+    },
+    {
+      "id": 28860,
+      "slug": "american-gods",
+      "title": "American Gods",
+      "year": 2017,
+      "rank": 27
+    },
+    {
+      "id": 5063,
+      "slug": "lost-girl",
+      "title": "Lost Girl",
+      "year": 2010,
+      "rank": 28
+    },
+    {
+      "id": 7561,
+      "slug": "bitten",
+      "title": "Bitten",
+      "year": 2014,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919146
+}

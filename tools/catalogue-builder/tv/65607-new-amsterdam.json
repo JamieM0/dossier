@@ -1,0 +1,378 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/65607-new-amsterdam",
+  "id": 65607,
+  "slug": "new-amsterdam",
+  "title": "New Amsterdam",
+  "year": 2018,
+  "rating": 7.9,
+  "votes_text": "55K",
+  "votes": 55000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a6/65607.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 43,
+  "story": "Dr. Max Goodwin, the hospital's newest medical director, sets out to tear up the bureaucracy and provide exceptional care.",
+  "tags": [
+    {
+      "id": 9329,
+      "slug": "medical-drama",
+      "name": "Medical drama",
+      "film_count": 770
+    },
+    {
+      "id": 1455,
+      "slug": "hospital",
+      "name": "Hospital",
+      "film_count": 8344
+    },
+    {
+      "id": 8125,
+      "slug": "medical",
+      "name": "Medical",
+      "film_count": 1106
+    },
+    {
+      "id": 6311,
+      "slug": "physician",
+      "name": "Physician",
+      "film_count": 814
+    },
+    {
+      "id": 9327,
+      "slug": "patient",
+      "name": "Patient",
+      "film_count": 618
+    },
+    {
+      "id": 88302,
+      "slug": "inspirational",
+      "name": "Inspirational",
+      "film_count": 5426
+    },
+    {
+      "id": 123483,
+      "slug": "sincere",
+      "name": "Sincere",
+      "film_count": 8382
+    },
+    {
+      "id": 89,
+      "slug": "doctor",
+      "name": "Doctor",
+      "film_count": 6165
+    },
+    {
+      "id": 11441,
+      "slug": "new-job",
+      "name": "New job",
+      "film_count": 738
+    },
+    {
+      "id": 123569,
+      "slug": "coworker",
+      "name": "Coworker",
+      "film_count": 1306
+    },
+    {
+      "id": 120620,
+      "slug": "co-worker-co-worker-relationship",
+      "name": "Co worker co worker relationship",
+      "film_count": 779
+    },
+    {
+      "id": 503,
+      "slug": "employer-employee-relationship",
+      "name": "Employer employee relationship",
+      "film_count": 1646
+    },
+    {
+      "id": 29879,
+      "slug": "employee-employee-relationship",
+      "name": "Employee employee relationship",
+      "film_count": 88
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 70,
+      "slug": "husband-wife-relationship",
+      "name": "Husband wife relationship",
+      "film_count": 13715
+    },
+    {
+      "id": 811,
+      "slug": "lesbian",
+      "name": "Lesbian",
+      "film_count": 4942
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "medical drama",
+      "inspirational",
+      "sincere",
+      "disturbing",
+      "emotional",
+      "captivating"
+    ],
+    "plot": [
+      "hospital",
+      "medical",
+      "physician",
+      "patient",
+      "doctor",
+      "surgery",
+      "nursing",
+      "doctor patient relationship",
+      "nurse",
+      "coworker relationship",
+      "rivalry",
+      "medicine",
+      "cancer",
+      "male protagonist",
+      "workplace",
+      "workplace situations",
+      "new job",
+      "coworker",
+      "co worker co worker relationship",
+      "employer employee relationship",
+      "employee employee relationship",
+      "husband wife relationship",
+      "lesbian",
+      "lgbt",
+      "hunting"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "new york",
+      "usa",
+      "united states of america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 41818,
+      "slug": "chicago-med",
+      "title": "Chicago Med",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 14460,
+      "slug": "greys-anatomy",
+      "title": "Grey's Anatomy",
+      "year": 2005,
+      "rank": 1
+    },
+    {
+      "id": 57906,
+      "slug": "the-good-doctor",
+      "title": "The Good Doctor",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 64497,
+      "slug": "code-black",
+      "title": "Code Black",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 61583,
+      "slug": "the-resident",
+      "title": "The Resident",
+      "year": 2018,
+      "rank": 4
+    },
+    {
+      "id": 5396,
+      "slug": "the-night-shift",
+      "title": "The Night Shift",
+      "year": 2014,
+      "rank": 5
+    },
+    {
+      "id": 67031,
+      "slug": "transplant",
+      "title": "Transplant",
+      "year": 2020,
+      "rank": 6
+    },
+    {
+      "id": 59538,
+      "slug": "pure-genius",
+      "title": "Pure Genius",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 12863,
+      "slug": "er",
+      "title": "ER",
+      "year": 1994,
+      "rank": 8
+    },
+    {
+      "id": 797,
+      "slug": "monday-mornings",
+      "title": "Monday Mornings",
+      "year": 2013,
+      "rank": 9
+    },
+    {
+      "id": 69791,
+      "slug": "nurses",
+      "title": "Nurses",
+      "year": 2020,
+      "rank": 10
+    },
+    {
+      "id": 28916,
+      "slug": "trapper-john-m-d",
+      "title": "Trapper John, M.D.",
+      "year": 1979,
+      "rank": 11
+    },
+    {
+      "id": 3903,
+      "slug": "hawthorne",
+      "title": "Hawthorne",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 554,
+      "slug": "off-the-map",
+      "title": "Off the Map",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 28895,
+      "slug": "red-band-society",
+      "title": "Red Band Society",
+      "year": 2014,
+      "rank": 14
+    },
+    {
+      "id": 41763,
+      "slug": "sklifosovskiy",
+      "title": "Sklifosovsky",
+      "year": 2012,
+      "rank": 15
+    },
+    {
+      "id": 43140,
+      "slug": "bodies",
+      "title": "Bodies",
+      "year": 2004,
+      "rank": 16
+    },
+    {
+      "id": 78698,
+      "slug": "skymed",
+      "title": "SkyMed",
+      "year": 2022,
+      "rank": 17
+    },
+    {
+      "id": 42615,
+      "slug": "medics",
+      "title": "Medics",
+      "year": 2012,
+      "rank": 18
+    },
+    {
+      "id": 58894,
+      "slug": "dr-kildare",
+      "title": "Dr. Kildare",
+      "year": 1961,
+      "rank": 19
+    },
+    {
+      "id": 76605,
+      "slug": "this-is-going-to-hurt",
+      "title": "This Is Going to Hurt",
+      "year": 2022,
+      "rank": 20
+    },
+    {
+      "id": 57972,
+      "slug": "good-doctor",
+      "title": "Good Doctor",
+      "year": 2013,
+      "rank": 21
+    },
+    {
+      "id": 58050,
+      "slug": "medical-top-team",
+      "title": "Medical Top Team",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 87278,
+      "slug": "emergency-center",
+      "title": "Emergency Center",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 3908,
+      "slug": "mercy",
+      "title": "Mercy",
+      "year": 2009,
+      "rank": 24
+    },
+    {
+      "id": 70798,
+      "slug": "greys-anatomy-b-team",
+      "title": "Grey's Anatomy: B-Team",
+      "year": 2009,
+      "rank": 25
+    },
+    {
+      "id": 26974,
+      "slug": "in-treatment",
+      "title": "In Treatment",
+      "year": 2008,
+      "rank": 26
+    },
+    {
+      "id": 58480,
+      "slug": "doctors-the-ultimate-surgeon",
+      "title": "DOCTORS: The Ultimate Surgeon",
+      "year": 2011,
+      "rank": 27
+    },
+    {
+      "id": 6821,
+      "slug": "saving-hope",
+      "title": "Saving Hope",
+      "year": 2012,
+      "rank": 28
+    },
+    {
+      "id": 91564,
+      "slug": "in-aller-freundschaft-die-krankenschwestern",
+      "title": "In aller Freundschaft - Die Krankenschwestern",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919173
+}

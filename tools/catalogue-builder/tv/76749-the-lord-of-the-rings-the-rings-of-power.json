@@ -1,0 +1,376 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/76749-the-lord-of-the-rings-the-rings-of-power",
+  "id": 76749,
+  "slug": "the-lord-of-the-rings-the-rings-of-power",
+  "title": "The Lord of the Rings: The Rings of Power",
+  "year": 2022,
+  "rating": 6.9,
+  "votes_text": "436K",
+  "votes": 436000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/0a/76749.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Fantasy"
+  ],
+  "country": [
+    "USA",
+    "New Zealand",
+    "Canada"
+  ],
+  "duration_min": 60,
+  "story": "Beginning in a time of relative peace, we follow an ensemble cast of characters as they confront the re-emergence of evil to Middle-earth. From the darkest depths of the Misty Mountains, to the majestic forests of Lindon, to the breathtaking island kingdom of Númenor, to the furthest reaches of the map, these kingdoms and characters will carve out legacies that live on long after they are gone.",
+  "tags": [
+    {
+      "id": 29650,
+      "slug": "ancient",
+      "name": "Ancient",
+      "film_count": 1419
+    },
+    {
+      "id": 79130,
+      "slug": "middle-earth",
+      "name": "Middle earth",
+      "film_count": 19
+    },
+    {
+      "id": 1749,
+      "slug": "sword",
+      "name": "Sword",
+      "film_count": 2878
+    },
+    {
+      "id": 10307,
+      "slug": "fantasy-world",
+      "name": "Fantasy world",
+      "film_count": 7231
+    },
+    {
+      "id": 8581,
+      "slug": "power",
+      "name": "Power",
+      "film_count": 1831
+    },
+    {
+      "id": 71287,
+      "slug": "hobbit",
+      "name": "Hobbit",
+      "film_count": 16
+    },
+    {
+      "id": 2328,
+      "slug": "bow-and-arrow",
+      "name": "Bow and arrow",
+      "film_count": 897
+    },
+    {
+      "id": 85979,
+      "slug": "lord-of-the-rings",
+      "name": "Lord of the rings",
+      "film_count": 16
+    },
+    {
+      "id": 2551,
+      "slug": "magician",
+      "name": "Magician",
+      "film_count": 913
+    },
+    {
+      "id": 48776,
+      "slug": "magical-creature",
+      "name": "Magical creature",
+      "film_count": 548
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 11619,
+      "slug": "magical-girl",
+      "name": "Magical girl",
+      "film_count": 411
+    },
+    {
+      "id": 1449,
+      "slug": "teamwork",
+      "name": "Teamwork",
+      "film_count": 4610
+    },
+    {
+      "id": 8724,
+      "slug": "power-struggle",
+      "name": "Power struggle",
+      "film_count": 2612
+    },
+    {
+      "id": 26499,
+      "slug": "magical-power",
+      "name": "Magical power",
+      "film_count": 586
+    },
+    {
+      "id": 11963,
+      "slug": "dream-world",
+      "name": "Dream world",
+      "film_count": 268
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "exciting",
+      "atmospheric",
+      "captivating",
+      "thrilling",
+      "fairy tale",
+      "psychotronic",
+      "epic fantasy",
+      "dramatic",
+      "lighthearted"
+    ],
+    "plot": [
+      "ancient",
+      "middle earth",
+      "sword",
+      "fantasy world",
+      "power",
+      "hobbit",
+      "bow and arrow",
+      "lord of the rings",
+      "kingdom",
+      "good versus evil",
+      "journey",
+      "master",
+      "wizards and magicians",
+      "fight",
+      "battles",
+      "medieval",
+      "save the world",
+      "magical ring",
+      "magical object",
+      "magic",
+      "magician",
+      "magical creature",
+      "magical girl",
+      "teamwork",
+      "power struggle"
+    ]
+  },
+  "similar": [
+    {
+      "id": 35431,
+      "slug": "the-shannara-chronicles",
+      "title": "The Shannara Chronicles",
+      "year": 2016,
+      "rank": 0
+    },
+    {
+      "id": 69553,
+      "slug": "the-wheel-of-time",
+      "title": "The Wheel of Time",
+      "year": 2021,
+      "rank": 1
+    },
+    {
+      "id": 78581,
+      "slug": "the-witcher-blood-origin",
+      "title": "The Witcher: Blood Origin",
+      "year": 2022,
+      "rank": 2
+    },
+    {
+      "id": 69621,
+      "slug": "shadow-and-bone",
+      "title": "Shadow and Bone",
+      "year": 2021,
+      "rank": 3
+    },
+    {
+      "id": 79536,
+      "slug": "willow",
+      "title": "Willow",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 17509,
+      "slug": "the-lord-of-the-rings-the-two-towers",
+      "title": "The Lord of the Rings: The Two Towers",
+      "year": 2002,
+      "rank": 5
+    },
+    {
+      "id": 26566,
+      "slug": "legend-of-the-seeker",
+      "title": "Legend of the Seeker",
+      "year": 2008,
+      "rank": 6
+    },
+    {
+      "id": 77122,
+      "slug": "house-of-the-dragon",
+      "title": "House of the Dragon",
+      "year": 2022,
+      "rank": 7
+    },
+    {
+      "id": 1208,
+      "slug": "the-hobbit-the-desolation-of-smaug",
+      "title": "The Hobbit: The Desolation of Smaug",
+      "year": 2013,
+      "rank": 8
+    },
+    {
+      "id": 64723,
+      "slug": "the-witcher",
+      "title": "The Witcher",
+      "year": 2019,
+      "rank": 9
+    },
+    {
+      "id": 91580,
+      "slug": "avatar-the-last-airbender",
+      "title": "Avatar: The Last Airbender",
+      "year": 2024,
+      "rank": 10
+    },
+    {
+      "id": 17508,
+      "slug": "the-lord-of-the-rings-the-return-of-the-king",
+      "title": "The Lord of the Rings: The Return of the King",
+      "year": 2003,
+      "rank": 11
+    },
+    {
+      "id": 17507,
+      "slug": "the-lord-of-the-rings-the-fellowship-of-the-ring",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "rank": 12
+    },
+    {
+      "id": 38913,
+      "slug": "warcraft-the-beginning",
+      "title": "Warcraft",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 91346,
+      "slug": "mulawin-vs-ravena",
+      "title": "Mulawin vs. Ravena",
+      "year": 2017,
+      "rank": 14
+    },
+    {
+      "id": 12866,
+      "slug": "eragon",
+      "title": "Eragon",
+      "year": 2006,
+      "rank": 15
+    },
+    {
+      "id": 78424,
+      "slug": "the-school-for-good-and-evil",
+      "title": "The School for Good and Evil",
+      "year": 2022,
+      "rank": 16
+    },
+    {
+      "id": 69183,
+      "slug": "fate-the-winx-saga",
+      "title": "Fate: The Winx Saga",
+      "year": 2021,
+      "rank": 17
+    },
+    {
+      "id": 70114,
+      "slug": "the-hexer",
+      "title": "The Hexer",
+      "year": 2002,
+      "rank": 18
+    },
+    {
+      "id": 15273,
+      "slug": "the-hobbit-the-battle-of-the-five-armies",
+      "title": "The Hobbit: The Battle of the Five Armies",
+      "year": 2014,
+      "rank": 19
+    },
+    {
+      "id": 99716,
+      "slug": "nautilus",
+      "title": "Nautilus",
+      "year": 2024,
+      "rank": 20
+    },
+    {
+      "id": 64185,
+      "slug": "ice-fantasy",
+      "title": "Ice Fantasy",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 28943,
+      "slug": "the-hobbits",
+      "title": "The Hobbits",
+      "year": 1993,
+      "rank": 22
+    },
+    {
+      "id": 80845,
+      "slug": "encantadia",
+      "title": "Encantadia",
+      "year": 2016,
+      "rank": 23
+    },
+    {
+      "id": 3337,
+      "slug": "beastmaster",
+      "title": "BeastMaster",
+      "year": 1999,
+      "rank": 24
+    },
+    {
+      "id": 12625,
+      "slug": "earthsea",
+      "title": "Earthsea",
+      "year": 2004,
+      "rank": 25
+    },
+    {
+      "id": 68053,
+      "slug": "cursed",
+      "title": "Cursed",
+      "year": 2020,
+      "rank": 26
+    },
+    {
+      "id": 58813,
+      "slug": "the-mystic-knights-of-tir-na-nog",
+      "title": "The Mystic Knights of Tir Na Nog",
+      "year": 1998,
+      "rank": 27
+    },
+    {
+      "id": 99191,
+      "slug": "xena-warrior-princess-a-friend-in-need-the-directors-cut",
+      "title": "Xena: Warrior Princess - A Friend in Need (The Director's Cut)",
+      "year": 2002,
+      "rank": 28
+    },
+    {
+      "id": 72734,
+      "slug": "martial-universe",
+      "title": "Martial Universe",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919184
+}

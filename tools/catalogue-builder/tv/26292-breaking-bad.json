@@ -1,0 +1,392 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26292-breaking-bad",
+  "id": 26292,
+  "slug": "breaking-bad",
+  "title": "Breaking Bad",
+  "year": 2008,
+  "rating": 9.5,
+  "votes_text": "2.5M",
+  "votes": 2500000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/80/26292.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 48,
+  "story": "When Walter White, a New Mexico chemistry teacher, is diagnosed with Stage III cancer and given a prognosis of only two years left to live, he becomes filled with a sense of fearlessness and an unrelenting desire to secure his family's financial future at any cost as he enters the dangerous world of drugs and crime.",
+  "tags": [
+    {
+      "id": 7050,
+      "slug": "cancer",
+      "name": "Cancer",
+      "film_count": 1696
+    },
+    {
+      "id": 600,
+      "slug": "criminal",
+      "name": "Criminal",
+      "film_count": 6483
+    },
+    {
+      "id": 8671,
+      "slug": "peril",
+      "name": "Peril",
+      "film_count": 1962
+    },
+    {
+      "id": 5881,
+      "slug": "drug-lord",
+      "name": "Drug lord",
+      "film_count": 591
+    },
+    {
+      "id": 29898,
+      "slug": "master-criminal",
+      "name": "Master criminal",
+      "film_count": 1041
+    },
+    {
+      "id": 6222,
+      "slug": "drug-dealing",
+      "name": "Drug dealing",
+      "film_count": 1460
+    },
+    {
+      "id": 4638,
+      "slug": "drug",
+      "name": "Drug",
+      "film_count": 4645
+    },
+    {
+      "id": 123387,
+      "slug": "unlikely-partners",
+      "name": "Unlikely partners",
+      "film_count": 535
+    },
+    {
+      "id": 92805,
+      "slug": "rough",
+      "name": "Rough",
+      "film_count": 8898
+    },
+    {
+      "id": 2821,
+      "slug": "drug-dealer",
+      "name": "Drug dealer",
+      "film_count": 1870
+    },
+    {
+      "id": 17654,
+      "slug": "methamphetamine",
+      "name": "Methamphetamine",
+      "film_count": 111
+    },
+    {
+      "id": 5374,
+      "slug": "anti-hero",
+      "name": "Anti hero",
+      "film_count": 5349
+    },
+    {
+      "id": 498,
+      "slug": "ambition",
+      "name": "Ambition",
+      "film_count": 7524
+    },
+    {
+      "id": 123666,
+      "slug": "lifestyle-change",
+      "name": "Lifestyle change",
+      "film_count": 1896
+    },
+    {
+      "id": 44658,
+      "slug": "mexican-cartel",
+      "name": "Mexican cartel",
+      "film_count": 44
+    },
+    {
+      "id": 123479,
+      "slug": "clever",
+      "name": "Clever",
+      "film_count": 7167
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "serious",
+      "captivating",
+      "tense",
+      "psychological",
+      "rough",
+      "clever",
+      "neo noir",
+      "cynical",
+      "bleak",
+      "epic"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "cancer",
+      "criminal",
+      "peril",
+      "drug lord",
+      "master criminal",
+      "drug dealing",
+      "drug",
+      "unlikely partners",
+      "drug cartel",
+      "life turned upside down",
+      "meth lab",
+      "family problems",
+      "desperation",
+      "double life",
+      "success",
+      "life is a bitch",
+      "drug trade",
+      "chemistry",
+      "hidden identity",
+      "cartel",
+      "drug dealer",
+      "methamphetamine",
+      "anti hero",
+      "ambition",
+      "lifestyle change"
+    ],
+    "time": [
+      "year 2008",
+      "y2k",
+      "2000s",
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "new mexico",
+      "albuquerque new mexico",
+      "south america",
+      "usa",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 7282,
+      "slug": "better-call-saul",
+      "title": "Better Call Saul",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 61578,
+      "slug": "ozark",
+      "title": "Ozark",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 40762,
+      "slug": "narcos",
+      "title": "Narcos",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 6063,
+      "slug": "fargo",
+      "title": "Fargo",
+      "year": 2014,
+      "rank": 3
+    },
+    {
+      "id": 22956,
+      "slug": "the-sopranos",
+      "title": "The Sopranos",
+      "year": 1999,
+      "rank": 4
+    },
+    {
+      "id": 64352,
+      "slug": "narcos-mexico",
+      "title": "Narcos: Mexico",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 26925,
+      "slug": "the-wire",
+      "title": "The Wire",
+      "year": 2002,
+      "rank": 6
+    },
+    {
+      "id": 21929,
+      "slug": "scarface",
+      "title": "Scarface",
+      "year": 1983,
+      "rank": 7
+    },
+    {
+      "id": 64153,
+      "slug": "snowfall",
+      "title": "Snowfall",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 28539,
+      "slug": "power",
+      "title": "Power",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 38503,
+      "slug": "the-infiltrator",
+      "title": "The Infiltrator",
+      "year": 2016,
+      "rank": 10
+    },
+    {
+      "id": 25455,
+      "slug": "weeds",
+      "title": "Weeds",
+      "year": 2005,
+      "rank": 11
+    },
+    {
+      "id": 65747,
+      "slug": "el-camino-a-breaking-bad-movie",
+      "title": "El Camino: A Breaking Bad Movie",
+      "year": 2019,
+      "rank": 12
+    },
+    {
+      "id": 4029,
+      "slug": "ray-donovan",
+      "title": "Ray Donovan",
+      "year": 2013,
+      "rank": 13
+    },
+    {
+      "id": 24346,
+      "slug": "training-day",
+      "title": "Training Day",
+      "year": 2001,
+      "rank": 14
+    },
+    {
+      "id": 61579,
+      "slug": "el-chapo",
+      "title": "El Chapo",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 16
+    },
+    {
+      "id": 4800,
+      "slug": "sons-of-anarchy",
+      "title": "Sons of Anarchy",
+      "year": 2008,
+      "rank": 17
+    },
+    {
+      "id": 11994,
+      "slug": "the-departed",
+      "title": "The Departed",
+      "year": 2006,
+      "rank": 18
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 19
+    },
+    {
+      "id": 41413,
+      "slug": "the-godfather-a-novel-for-television",
+      "title": "The Godfather: A Novel for Television",
+      "year": 1977,
+      "rank": 20
+    },
+    {
+      "id": 19358,
+      "slug": "no-country-for-old-men",
+      "title": "No Country for Old Men",
+      "year": 2007,
+      "rank": 21
+    },
+    {
+      "id": 56693,
+      "slug": "the-lord-of-the-skies",
+      "title": "The Lord of the Skies",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 26845,
+      "slug": "boardwalk-empire",
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "rank": 23
+    },
+    {
+      "id": 42759,
+      "slug": "animal-kingdom",
+      "title": "Animal Kingdom",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 60787,
+      "slug": "queen-of-the-south",
+      "title": "Queen of the South",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 15127,
+      "slug": "a-history-of-violence",
+      "title": "A History of Violence",
+      "year": 2005,
+      "rank": 26
+    },
+    {
+      "id": 20709,
+      "slug": "prison-break",
+      "title": "Prison Break",
+      "year": 2005,
+      "rank": 27
+    },
+    {
+      "id": 27545,
+      "slug": "nightcrawler",
+      "title": "Nightcrawler",
+      "year": 2014,
+      "rank": 28
+    },
+    {
+      "id": 56668,
+      "slug": "wentworth-prison",
+      "title": "Wentworth",
+      "year": 2013,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919144
+}

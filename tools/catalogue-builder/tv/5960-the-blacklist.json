@@ -1,0 +1,392 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/5960-the-blacklist",
+  "id": 5960,
+  "slug": "the-blacklist",
+  "title": "The Blacklist",
+  "year": 2013,
+  "rating": 7.9,
+  "votes_text": "298K",
+  "votes": 298000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/68/5960.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 43,
+  "story": "Raymond \"Red\" Reddington, one of the FBI's most wanted fugitives, surrenders in person at FBI Headquarters in Washington, D.C. He claims that he and the FBI have the same interests: bringing down dangerous criminals and terrorists. In the last two decades, he's made a list of criminals and terrorists that matter the most but the FBI cannot find because it does not know they exist. Reddington calls this \"The Blacklist\". Reddington will co-operate, but insists that he will speak only to Elizabeth Keen, a rookie FBI profiler.",
+  "tags": [
+    {
+      "id": 4956,
+      "slug": "fbi",
+      "name": "Fbi",
+      "film_count": 1273
+    },
+    {
+      "id": 2615,
+      "slug": "investigation",
+      "name": "Investigation",
+      "film_count": 14816
+    },
+    {
+      "id": 123387,
+      "slug": "unlikely-partners",
+      "name": "Unlikely partners",
+      "film_count": 535
+    },
+    {
+      "id": 29898,
+      "slug": "master-criminal",
+      "name": "Master criminal",
+      "film_count": 1041
+    },
+    {
+      "id": 22722,
+      "slug": "law-enforcement",
+      "name": "Law enforcement",
+      "film_count": 5363
+    },
+    {
+      "id": 5510,
+      "slug": "intrigue",
+      "name": "Intrigue",
+      "film_count": 3046
+    },
+    {
+      "id": 18,
+      "slug": "secret",
+      "name": "Secret",
+      "film_count": 5596
+    },
+    {
+      "id": 3968,
+      "slug": "terrorism",
+      "name": "Terrorism",
+      "film_count": 2522
+    },
+    {
+      "id": 123569,
+      "slug": "coworker",
+      "name": "Coworker",
+      "film_count": 1306
+    },
+    {
+      "id": 135,
+      "slug": "top-secret",
+      "name": "Top secret",
+      "film_count": 420
+    },
+    {
+      "id": 47,
+      "slug": "agent",
+      "name": "Agent",
+      "film_count": 1731
+    },
+    {
+      "id": 143,
+      "slug": "rivalry",
+      "name": "Rivalry",
+      "film_count": 16927
+    },
+    {
+      "id": 1000,
+      "slug": "machine-gun",
+      "name": "Machine gun",
+      "film_count": 3131
+    },
+    {
+      "id": 123787,
+      "slug": "surprising-revelation",
+      "name": "Surprising revelation",
+      "film_count": 117
+    },
+    {
+      "id": 123863,
+      "slug": "ex-law-enforcer",
+      "name": "Ex law enforcer",
+      "film_count": 103
+    },
+    {
+      "id": 2946,
+      "slug": "surveillance",
+      "name": "Surveillance",
+      "film_count": 3119
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "exciting",
+      "serious",
+      "captivating",
+      "clever",
+      "detective",
+      "costume drama",
+      "realistic",
+      "disturbing",
+      "intellectual"
+    ],
+    "audience": [
+      "family friendly",
+      "boys' night",
+      "adult"
+    ],
+    "plot": [
+      "fbi",
+      "investigation",
+      "unlikely partners",
+      "master criminal",
+      "law enforcement",
+      "danger",
+      "intrigue",
+      "secret",
+      "terrorism",
+      "mind game",
+      "outsmarting",
+      "murder investigation",
+      "threat",
+      "twists and turns",
+      "shooting",
+      "partners against crime",
+      "hidden identity",
+      "cia",
+      "mastermind",
+      "fbi agent",
+      "bomb",
+      "coworker",
+      "top secret",
+      "agent",
+      "rivalry"
+    ],
+    "time": [
+      "future",
+      "2010s",
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "usa",
+      "chicago",
+      "washington d.c"
+    ]
+  },
+  "similar": [
+    {
+      "id": 38031,
+      "slug": "blindspot",
+      "title": "Blindspot",
+      "year": 2015,
+      "rank": 0
+    },
+    {
+      "id": 26804,
+      "slug": "white-collar",
+      "title": "White Collar",
+      "year": 2009,
+      "rank": 1
+    },
+    {
+      "id": 3156,
+      "slug": "person-of-interest",
+      "title": "Person of Interest",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 26837,
+      "slug": "the-mentalist",
+      "title": "The Mentalist",
+      "year": 2008,
+      "rank": 3
+    },
+    {
+      "id": 60124,
+      "slug": "tom-clancys-jack-ryan",
+      "title": "Tom Clancy's Jack Ryan",
+      "year": 2018,
+      "rank": 4
+    },
+    {
+      "id": 11364,
+      "slug": "criminal-minds",
+      "title": "Criminal Minds",
+      "year": 2005,
+      "rank": 5
+    },
+    {
+      "id": 41814,
+      "slug": "quantico",
+      "title": "Quantico",
+      "year": 2015,
+      "rank": 6
+    },
+    {
+      "id": 66836,
+      "slug": "fbi",
+      "title": "FBI",
+      "year": 2018,
+      "rank": 7
+    },
+    {
+      "id": 4172,
+      "slug": "covert-affairs",
+      "title": "Covert Affairs",
+      "year": 2010,
+      "rank": 8
+    },
+    {
+      "id": 22334,
+      "slug": "sherlock",
+      "title": "Sherlock",
+      "year": 2010,
+      "rank": 9
+    },
+    {
+      "id": 30477,
+      "slug": "burn-notice",
+      "title": "Burn Notice",
+      "year": 2007,
+      "rank": 10
+    },
+    {
+      "id": 26971,
+      "slug": "homeland",
+      "title": "Homeland",
+      "year": 2011,
+      "rank": 11
+    },
+    {
+      "id": 68427,
+      "slug": "deception",
+      "title": "Deception",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 26564,
+      "slug": "nikita",
+      "title": "Nikita",
+      "year": 2010,
+      "rank": 13
+    },
+    {
+      "id": 26803,
+      "slug": "bones",
+      "title": "Bones",
+      "year": 2005,
+      "rank": 14
+    },
+    {
+      "id": 26991,
+      "slug": "lie-to-me",
+      "title": "Lie to Me",
+      "year": 2009,
+      "rank": 15
+    },
+    {
+      "id": 36881,
+      "slug": "the-night-manager",
+      "title": "The Night Manager",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 718,
+      "slug": "elementary",
+      "title": "Elementary",
+      "year": 2012,
+      "rank": 17
+    },
+    {
+      "id": 2088,
+      "slug": "the-americans",
+      "title": "The Americans",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 61,
+      "slug": "the-following",
+      "title": "The Following",
+      "year": 2013,
+      "rank": 19
+    },
+    {
+      "id": 19084,
+      "slug": "ncis",
+      "title": "NCIS",
+      "year": 2003,
+      "rank": 20
+    },
+    {
+      "id": 30305,
+      "slug": "csi-ny",
+      "title": "CSI: NY",
+      "year": 2004,
+      "rank": 21
+    },
+    {
+      "id": 8120,
+      "slug": "alias",
+      "title": "Alias",
+      "year": 2001,
+      "rank": 22
+    },
+    {
+      "id": 26321,
+      "slug": "rizzoli-and-isles",
+      "title": "Rizzoli & Isles",
+      "year": 2010,
+      "rank": 23
+    },
+    {
+      "id": 67679,
+      "slug": "fbi-most-wanted",
+      "title": "FBI: Most Wanted",
+      "year": 2020,
+      "rank": 24
+    },
+    {
+      "id": 63004,
+      "slug": "perception",
+      "title": "Perception",
+      "year": 2012,
+      "rank": 25
+    },
+    {
+      "id": 64168,
+      "slug": "berlin-station",
+      "title": "Berlin Station",
+      "year": 2016,
+      "rank": 26
+    },
+    {
+      "id": 26327,
+      "slug": "24",
+      "title": "24",
+      "year": 2001,
+      "rank": 27
+    },
+    {
+      "id": 696,
+      "slug": "alcatraz",
+      "title": "Alcatraz",
+      "year": 2012,
+      "rank": 28
+    },
+    {
+      "id": 66498,
+      "slug": "lincoln-rhyme-hunt-for-the-bone-collector",
+      "title": "Lincoln Rhyme: Hunt for the Bone Collector",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919135
+}

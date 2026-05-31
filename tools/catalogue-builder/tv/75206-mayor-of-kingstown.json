@@ -1,0 +1,376 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/75206-mayor-of-kingstown",
+  "id": 75206,
+  "slug": "mayor-of-kingstown",
+  "title": "Mayor of Kingstown",
+  "year": 2021,
+  "rating": 8.2,
+  "votes_text": "71K",
+  "votes": 71000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/02/75206.jpg",
+  "genres": [
+    "Crime",
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": null,
+  "story": "Set in a small Michigan town where the only industry remaining are federal, state, and private prisons, the story follows the McClusky family, the power brokers between the police, criminals, inmates, prison guards and politicians, in a city completely dependent on prisons and the prisoners they contain.",
+  "tags": [
+    {
+      "id": 527,
+      "slug": "prison",
+      "name": "Prison",
+      "film_count": 4472
+    },
+    {
+      "id": 1054,
+      "slug": "organized-crime",
+      "name": "Organized crime",
+      "film_count": 3969
+    },
+    {
+      "id": 806,
+      "slug": "corruption",
+      "name": "Corruption",
+      "film_count": 9994
+    },
+    {
+      "id": 2278,
+      "slug": "sex-scene",
+      "name": "Sex scene",
+      "film_count": 9619
+    },
+    {
+      "id": 2926,
+      "slug": "strip-club",
+      "name": "Strip club",
+      "film_count": 1101
+    },
+    {
+      "id": 3514,
+      "slug": "pole-dancer",
+      "name": "Pole dancer",
+      "film_count": 156
+    },
+    {
+      "id": 3301,
+      "slug": "business",
+      "name": "Business",
+      "film_count": 2013
+    },
+    {
+      "id": 20514,
+      "slug": "corrupt-politician",
+      "name": "Corrupt politician",
+      "film_count": 367
+    },
+    {
+      "id": 439,
+      "slug": "brother-brother-relationship",
+      "name": "Brother brother relationship",
+      "film_count": 5059
+    },
+    {
+      "id": 3908,
+      "slug": "michigan",
+      "name": "Michigan",
+      "film_count": 180
+    },
+    {
+      "id": 5029,
+      "slug": "imprisonment",
+      "name": "Imprisonment",
+      "film_count": 791
+    },
+    {
+      "id": 13198,
+      "slug": "prison-guard",
+      "name": "Prison guard",
+      "film_count": 607
+    },
+    {
+      "id": 136576,
+      "slug": "crime-thriller",
+      "name": "Crime thriller",
+      "film_count": 2273
+    },
+    {
+      "id": 199947,
+      "slug": "thrilling",
+      "name": "Thrilling",
+      "film_count": 7712
+    },
+    {
+      "id": 585,
+      "slug": "detective",
+      "name": "Detective",
+      "film_count": 6961
+    },
+    {
+      "id": 35858,
+      "slug": "psychological-thriller",
+      "name": "Psychological thriller",
+      "film_count": 6685
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "tense",
+      "captivating",
+      "suspense",
+      "disturbing",
+      "psychological",
+      "crime thriller",
+      "thrilling",
+      "detective",
+      "psychological thriller"
+    ],
+    "plot": [
+      "prison",
+      "organized crime",
+      "corruption",
+      "sex scene",
+      "strip club",
+      "pole dancer",
+      "business",
+      "corrupt politician",
+      "racism",
+      "political corruption",
+      "inequality",
+      "corrupt mayor",
+      "mayor",
+      "town mayor",
+      "murder",
+      "criminal",
+      "conspiracy",
+      "legal",
+      "nypd",
+      "brother brother relationship",
+      "imprisonment",
+      "prison guard",
+      "swat team",
+      "murderer",
+      "women's prison"
+    ],
+    "place": [
+      "michigan"
+    ]
+  },
+  "similar": [
+    {
+      "id": 74898,
+      "slug": "reacher",
+      "title": "Reacher",
+      "year": 2022,
+      "rank": 0
+    },
+    {
+      "id": 73123,
+      "slug": "snabba-cash",
+      "title": "Snabba Cash",
+      "year": 2021,
+      "rank": 1
+    },
+    {
+      "id": 78592,
+      "slug": "the-staircase",
+      "title": "The Staircase",
+      "year": 2022,
+      "rank": 2
+    },
+    {
+      "id": 27279,
+      "slug": "the-shield",
+      "title": "The Shield",
+      "year": 2002,
+      "rank": 3
+    },
+    {
+      "id": 84552,
+      "slug": "screw",
+      "title": "Screw",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 79930,
+      "slug": "tulsa-king",
+      "title": "Tulsa King",
+      "year": 2022,
+      "rank": 5
+    },
+    {
+      "id": 78822,
+      "slug": "black-bird",
+      "title": "Black Bird",
+      "year": 2022,
+      "rank": 6
+    },
+    {
+      "id": 19941,
+      "slug": "oz",
+      "title": "Oz",
+      "year": 1997,
+      "rank": 7
+    },
+    {
+      "id": 77194,
+      "slug": "manayek",
+      "title": "Manayek",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 64352,
+      "slug": "narcos-mexico",
+      "title": "Narcos: Mexico",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 77207,
+      "slug": "the-endgame",
+      "title": "The Endgame",
+      "year": 2022,
+      "rank": 10
+    },
+    {
+      "id": 74707,
+      "slug": "punch",
+      "title": "Punch",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 76559,
+      "slug": "power-book-iv-force",
+      "title": "Power Book IV: Force",
+      "year": 2022,
+      "rank": 12
+    },
+    {
+      "id": 4800,
+      "slug": "sons-of-anarchy",
+      "title": "Sons of Anarchy",
+      "year": 2008,
+      "rank": 13
+    },
+    {
+      "id": 75286,
+      "slug": "true-story",
+      "title": "True Story",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 79271,
+      "slug": "celblok-h",
+      "title": "Celblok H",
+      "year": 2014,
+      "rank": 15
+    },
+    {
+      "id": 65871,
+      "slug": "city-on-a-hill",
+      "title": "City on a Hill",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 57953,
+      "slug": "big-apple",
+      "title": "Big Apple",
+      "year": 2001,
+      "rank": 17
+    },
+    {
+      "id": 26925,
+      "slug": "the-wire",
+      "title": "The Wire",
+      "year": 2002,
+      "rank": 18
+    },
+    {
+      "id": 60779,
+      "slug": "tin-star",
+      "title": "Tin Star",
+      "year": 2017,
+      "rank": 19
+    },
+    {
+      "id": 78121,
+      "slug": "fenix",
+      "title": "Fenix",
+      "year": 2018,
+      "rank": 20
+    },
+    {
+      "id": 97733,
+      "slug": "parish",
+      "title": "Parish",
+      "year": 2024,
+      "rank": 21
+    },
+    {
+      "id": 78036,
+      "slug": "stella-blomkvist",
+      "title": "Stella Blómkvist",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 80632,
+      "slug": "the-red-road",
+      "title": "The Red Road",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 80838,
+      "slug": "shoot-the-messenger",
+      "title": "Shoot the Messenger",
+      "year": 2016,
+      "rank": 24
+    },
+    {
+      "id": 64498,
+      "slug": "locked-up",
+      "title": "Locked Up",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 98309,
+      "slug": "look-of-a-killer",
+      "title": "Look of a Killer",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 81853,
+      "slug": "better",
+      "title": "Better",
+      "year": 2023,
+      "rank": 27
+    },
+    {
+      "id": 65519,
+      "slug": "jett",
+      "title": "Jett",
+      "year": 2019,
+      "rank": 28
+    },
+    {
+      "id": 106023,
+      "slug": "ferry-the-series",
+      "title": "Ferry: The Series",
+      "year": 2023,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919183
+}

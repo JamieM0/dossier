@@ -1,0 +1,382 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/77122-house-of-the-dragon",
+  "id": 77122,
+  "slug": "house-of-the-dragon",
+  "title": "House of the Dragon",
+  "year": 2022,
+  "rating": 8.3,
+  "votes_text": "506K",
+  "votes": 506000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/1f/77122.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Fantasy",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "The prequel series finds the Targaryen dynasty at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires—real and imagined—crumble from such heights. In the case of the Targaryens, their slow fall begins almost 193 years before the events of Game of Thrones, when King Viserys Targaryen breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
+  "tags": [
+    {
+      "id": 2346,
+      "slug": "dragon",
+      "name": "Dragon",
+      "film_count": 1050
+    },
+    {
+      "id": 6888,
+      "slug": "knight",
+      "name": "Knight",
+      "film_count": 738
+    },
+    {
+      "id": 4022,
+      "slug": "kingdom",
+      "name": "Kingdom",
+      "film_count": 878
+    },
+    {
+      "id": 33701,
+      "slug": "medieval",
+      "name": "Medieval",
+      "film_count": 2110
+    },
+    {
+      "id": 89094,
+      "slug": "husband-and-wife",
+      "name": "Husband and wife",
+      "film_count": 339
+    },
+    {
+      "id": 187,
+      "slug": "king",
+      "name": "King",
+      "film_count": 1292
+    },
+    {
+      "id": 2411,
+      "slug": "dysfunctional-family",
+      "name": "Dysfunctional family",
+      "film_count": 6078
+    },
+    {
+      "id": 165593,
+      "slug": "epic-fantasy",
+      "name": "Epic fantasy",
+      "film_count": 463
+    },
+    {
+      "id": 1934,
+      "slug": "evil",
+      "name": "Evil",
+      "film_count": 3820
+    },
+    {
+      "id": 15527,
+      "slug": "strength",
+      "name": "Strength",
+      "film_count": 540
+    },
+    {
+      "id": 8298,
+      "slug": "interracial-love-relationship",
+      "name": "Interracial love relationship",
+      "film_count": 427
+    },
+    {
+      "id": 2484,
+      "slug": "interracial-romance",
+      "name": "Interracial romance",
+      "film_count": 1574
+    },
+    {
+      "id": 19918,
+      "slug": "adaptation",
+      "name": "Adaptation",
+      "film_count": 9376
+    },
+    {
+      "id": 4168,
+      "slug": "2020s",
+      "name": "2020s",
+      "film_count": 2869
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 11057,
+      "slug": "former-yugoslavia",
+      "name": "Former yugoslavia",
+      "film_count": 379
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "epic fantasy",
+      "exciting",
+      "captivating",
+      "tense",
+      "dramatic",
+      "stylized",
+      "fairy tale",
+      "sad",
+      "anime",
+      "spectacular"
+    ],
+    "plot": [
+      "dragon",
+      "knight",
+      "kingdom",
+      "medieval",
+      "husband and wife",
+      "king",
+      "dysfunctional family",
+      "queen",
+      "female nudity",
+      "serial killer",
+      "sword and sorcery",
+      "incest",
+      "female pubic hair",
+      "revenge",
+      "women",
+      "evil",
+      "strength",
+      "interracial love relationship",
+      "interracial romance",
+      "adaptation",
+      "wizard",
+      "sorcery",
+      "giant monster",
+      "fantasy world",
+      "castle"
+    ],
+    "time": [
+      "2020s"
+    ],
+    "place": [
+      "former yugoslavia"
+    ]
+  },
+  "similar": [
+    {
+      "id": 26240,
+      "slug": "game-of-thrones",
+      "title": "Game of Thrones",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 64735,
+      "slug": "dragonheart-battle-for-the-heartfire",
+      "title": "Dragonheart: Battle for the Heartfire",
+      "year": 2017,
+      "rank": 1
+    },
+    {
+      "id": 64723,
+      "slug": "the-witcher",
+      "title": "The Witcher",
+      "year": 2019,
+      "rank": 2
+    },
+    {
+      "id": 76749,
+      "slug": "the-lord-of-the-rings-the-rings-of-power",
+      "title": "The Lord of the Rings: The Rings of Power",
+      "year": 2022,
+      "rank": 3
+    },
+    {
+      "id": 13431,
+      "slug": "fire-and-ice",
+      "title": "Fire and Ice: The Dragon Chronicles",
+      "year": 2008,
+      "rank": 4
+    },
+    {
+      "id": 35431,
+      "slug": "the-shannara-chronicles",
+      "title": "The Shannara Chronicles",
+      "year": 2016,
+      "rank": 5
+    },
+    {
+      "id": 14939,
+      "slug": "helen-of-troy",
+      "title": "Helen of Troy",
+      "year": 2003,
+      "rank": 6
+    },
+    {
+      "id": 58813,
+      "slug": "the-mystic-knights-of-tir-na-nog",
+      "title": "The Mystic Knights of Tir Na Nog",
+      "year": 1998,
+      "rank": 7
+    },
+    {
+      "id": 70114,
+      "slug": "the-hexer",
+      "title": "The Hexer",
+      "year": 2002,
+      "rank": 8
+    },
+    {
+      "id": 78581,
+      "slug": "the-witcher-blood-origin",
+      "title": "The Witcher: Blood Origin",
+      "year": 2022,
+      "rank": 9
+    },
+    {
+      "id": 69621,
+      "slug": "shadow-and-bone",
+      "title": "Shadow and Bone",
+      "year": 2021,
+      "rank": 10
+    },
+    {
+      "id": 12466,
+      "slug": "dragon-storm",
+      "title": "Dragon Storm",
+      "year": 2004,
+      "rank": 11
+    },
+    {
+      "id": 61215,
+      "slug": "the-outpost",
+      "title": "The Outpost",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 7392,
+      "slug": "maleficent",
+      "title": "Maleficent",
+      "year": 2014,
+      "rank": 13
+    },
+    {
+      "id": 26235,
+      "slug": "merlin-and-the-war-of-the-dragons",
+      "title": "Merlin and the War of the Dragons",
+      "year": 2008,
+      "rank": 14
+    },
+    {
+      "id": 79536,
+      "slug": "willow",
+      "title": "Willow",
+      "year": 2022,
+      "rank": 15
+    },
+    {
+      "id": 64831,
+      "slug": "the-umbrella-academy",
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 82401,
+      "slug": "dragon-age-redemption",
+      "title": "Dragon Age: Redemption",
+      "year": 2011,
+      "rank": 17
+    },
+    {
+      "id": 25901,
+      "slug": "xena-warrior-princess",
+      "title": "Xena: Warrior Princess",
+      "year": 1995,
+      "rank": 18
+    },
+    {
+      "id": 12625,
+      "slug": "earthsea",
+      "title": "Earthsea",
+      "year": 2004,
+      "rank": 19
+    },
+    {
+      "id": 42783,
+      "slug": "emerald-city",
+      "title": "Emerald City",
+      "year": 2016,
+      "rank": 20
+    },
+    {
+      "id": 93475,
+      "slug": "damsel",
+      "title": "Damsel",
+      "year": 2024,
+      "rank": 21
+    },
+    {
+      "id": 26566,
+      "slug": "legend-of-the-seeker",
+      "title": "Legend of the Seeker",
+      "year": 2008,
+      "rank": 22
+    },
+    {
+      "id": 69553,
+      "slug": "the-wheel-of-time",
+      "title": "The Wheel of Time",
+      "year": 2021,
+      "rank": 23
+    },
+    {
+      "id": 13159,
+      "slug": "the-cave-of-the-golden-rose",
+      "title": "The Cave of the Golden Rose",
+      "year": 1991,
+      "rank": 24
+    },
+    {
+      "id": 44178,
+      "slug": "mulawin",
+      "title": "Mulawin",
+      "year": 2004,
+      "rank": 25
+    },
+    {
+      "id": 1502,
+      "slug": "camelot",
+      "title": "Camelot",
+      "year": 2011,
+      "rank": 26
+    },
+    {
+      "id": 7391,
+      "slug": "outlander",
+      "title": "Outlander",
+      "year": 2014,
+      "rank": 27
+    },
+    {
+      "id": 16753,
+      "slug": "knights-of-bloodsteel",
+      "title": "Knights of Bloodsteel",
+      "year": 2009,
+      "rank": 28
+    },
+    {
+      "id": 26238,
+      "slug": "age-of-the-dragons",
+      "title": "Age of the Dragons",
+      "year": 2011,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919184
+}

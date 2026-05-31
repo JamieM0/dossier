@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/72844-squid-game",
+  "id": 72844,
+  "slug": "squid-game",
+  "title": "Squid Game",
+  "year": 2021,
+  "rating": 7.9,
+  "votes_text": "744K",
+  "votes": 744000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/30/72844.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Mystery",
+    "Thriller"
+  ],
+  "country": [
+    "South Korea"
+  ],
+  "duration_min": 60,
+  "story": "\"Round Six\" is a story of people who fail at life for various reasons, but suddenly receive a mysterious invitation to participate in a survival game to win ten million US dollars. The game takes place at an unknown location, and the participants are locked up until there is a final winner. The story will incorporate popular children’s games from the 1970s and 1980s of Korea, such as squid game, literal translation of its Korean name, which is a type of tag where offense and defense use a squid-shaped board drawn in the dirt.",
+  "tags": [
+    {
+      "id": 1523,
+      "slug": "survival",
+      "name": "Survival",
+      "film_count": 12605
+    },
+    {
+      "id": 13483,
+      "slug": "game-of-death",
+      "name": "Game of death",
+      "film_count": 411
+    },
+    {
+      "id": 5392,
+      "slug": "cruelty",
+      "name": "Cruelty",
+      "film_count": 1818
+    },
+    {
+      "id": 13864,
+      "slug": "prize",
+      "name": "Prize",
+      "film_count": 120
+    },
+    {
+      "id": 818,
+      "slug": "brutality",
+      "name": "Brutality",
+      "film_count": 11304
+    },
+    {
+      "id": 13411,
+      "slug": "game",
+      "name": "Game",
+      "film_count": 968
+    },
+    {
+      "id": 4284,
+      "slug": "sole-survivor",
+      "name": "Sole survivor",
+      "film_count": 370
+    },
+    {
+      "id": 123397,
+      "slug": "contests-and-competitions",
+      "name": "Contests and competitions",
+      "film_count": 2138
+    },
+    {
+      "id": 17157,
+      "slug": "social-differences",
+      "name": "Social differences",
+      "film_count": 1758
+    },
+    {
+      "id": 857,
+      "slug": "dead-body",
+      "name": "Dead body",
+      "film_count": 3533
+    },
+    {
+      "id": 2117,
+      "slug": "killing",
+      "name": "Killing",
+      "film_count": 3449
+    },
+    {
+      "id": 1831,
+      "slug": "survival-horror",
+      "name": "Survival horror",
+      "film_count": 1467
+    },
+    {
+      "id": 26960,
+      "slug": "social-decay",
+      "name": "Social decay",
+      "film_count": 778
+    },
+    {
+      "id": 123871,
+      "slug": "exciting",
+      "name": "Exciting",
+      "film_count": 15385
+    },
+    {
+      "id": 23894,
+      "slug": "fictional-game-show",
+      "name": "Fictional game show",
+      "film_count": 64
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "suspense",
+      "exciting",
+      "saga",
+      "suspenseful",
+      "disturbing",
+      "psychological",
+      "tense",
+      "bleak",
+      "rough",
+      "philosophical"
+    ],
+    "plot": [
+      "survival",
+      "game of death",
+      "cruelty",
+      "prize",
+      "brutality",
+      "game",
+      "sole survivor",
+      "contests and competitions",
+      "graphic violence",
+      "violence",
+      "violent man",
+      "most dangerous game",
+      "allies",
+      "deathtrap",
+      "characters killed one by one",
+      "death",
+      "last man standing",
+      "strong violent content",
+      "poverty",
+      "blood",
+      "survivor",
+      "rich and poor",
+      "social differences",
+      "dead body",
+      "killing"
+    ],
+    "time": [
+      "2020s",
+      "80s",
+      "70s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "south korea",
+      "asia",
+      "korea"
+    ]
+  },
+  "similar": [
+    {
+      "id": 69834,
+      "slug": "alice-in-borderland",
+      "title": "Alice in Borderland",
+      "year": 2020,
+      "rank": 0
+    },
+    {
+      "id": 96984,
+      "slug": "the-8-show",
+      "title": "The 8 Show",
+      "year": 2024,
+      "rank": 1
+    },
+    {
+      "id": 9092,
+      "slug": "battle-royale",
+      "title": "Battle Royale",
+      "year": 2000,
+      "rank": 2
+    },
+    {
+      "id": 26205,
+      "slug": "the-hunger-games",
+      "title": "The Hunger Games",
+      "year": 2012,
+      "rank": 3
+    },
+    {
+      "id": 80805,
+      "slug": "the-hunter",
+      "title": "The Hunter",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 94181,
+      "slug": "night-has-come",
+      "title": "Night Has Come",
+      "year": 2023,
+      "rank": 5
+    },
+    {
+      "id": 60133,
+      "slug": "money-heist",
+      "title": "Money Heist",
+      "year": 2017,
+      "rank": 6
+    },
+    {
+      "id": 72759,
+      "slug": "escape-room-tournament-of-champions",
+      "title": "Escape Room: Tournament of Champions",
+      "year": 2021,
+      "rank": 7
+    },
+    {
+      "id": 76165,
+      "slug": "justice",
+      "title": "Justice",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 96990,
+      "slug": "pyramid-game",
+      "title": "Pyramid Game",
+      "year": 2024,
+      "rank": 9
+    },
+    {
+      "id": 61875,
+      "slug": "the-purge",
+      "title": "The Purge",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 9093,
+      "slug": "battle-royale-ii",
+      "title": "Battle Royale II: Requiem",
+      "year": 2003,
+      "rank": 11
+    },
+    {
+      "id": 73780,
+      "slug": "most-dangerous-game",
+      "title": "Most Dangerous Game",
+      "year": 2020,
+      "rank": 12
+    },
+    {
+      "id": 75368,
+      "slug": "all-of-us-are-dead",
+      "title": "All of Us Are Dead",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 73130,
+      "slug": "panic",
+      "title": "Panic",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 15350,
+      "slug": "house-of-9",
+      "title": "House of 9",
+      "year": 2005,
+      "rank": 15
+    },
+    {
+      "id": 21785,
+      "slug": "memories-of-murder",
+      "title": "Memories of Murder",
+      "year": 2003,
+      "rank": 16
+    },
+    {
+      "id": 76074,
+      "slug": "sketch",
+      "title": "Sketch",
+      "year": 2018,
+      "rank": 17
+    },
+    {
+      "id": 12096,
+      "slug": "dexter",
+      "title": "Dexter",
+      "year": 2006,
+      "rank": 18
+    },
+    {
+      "id": 78475,
+      "slug": "the-big-game",
+      "title": "The Big Game",
+      "year": 2020,
+      "rank": 19
+    },
+    {
+      "id": 19653,
+      "slug": "oldboy",
+      "title": "Oldboy",
+      "year": 2003,
+      "rank": 20
+    },
+    {
+      "id": 64754,
+      "slug": "curfew",
+      "title": "Curfew",
+      "year": 2019,
+      "rank": 21
+    },
+    {
+      "id": 38420,
+      "slug": "circle",
+      "title": "Circle",
+      "year": 2015,
+      "rank": 22
+    },
+    {
+      "id": 68205,
+      "slug": "alive",
+      "title": "#Alive",
+      "year": 2020,
+      "rank": 23
+    },
+    {
+      "id": 73147,
+      "slug": "my-name",
+      "title": "My Name",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 85281,
+      "slug": "the-worst-evil",
+      "title": "The Worst of Evil",
+      "year": 2023,
+      "rank": 25
+    },
+    {
+      "id": 79015,
+      "slug": "the-king-of-pigs",
+      "title": "The King of Pigs",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 72906,
+      "slug": "inspector-rojas-in-cold-blood",
+      "title": "Inspector Rojas: In Cold Blood",
+      "year": 2018,
+      "rank": 27
+    },
+    {
+      "id": 57908,
+      "slug": "mindhunter",
+      "title": "Mindhunter",
+      "year": 2017,
+      "rank": 28
+    },
+    {
+      "id": 105487,
+      "slug": "shark-the-storm",
+      "title": "Shark: The Storm",
+      "year": 2025,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919181
+}

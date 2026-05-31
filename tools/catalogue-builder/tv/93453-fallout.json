@@ -1,0 +1,380 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/93453-fallout",
+  "id": 93453,
+  "slug": "fallout",
+  "title": "Fallout",
+  "year": 2024,
+  "rating": 8.3,
+  "votes_text": "374K",
+  "votes": 374000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/db/93453.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "The story of haves and have-nots in a world in which there’s almost nothing left to have. 200 years after the apocalypse, the gentle denizens of luxury fallout shelters are forced to return to the irradiated hellscape their ancestors left behind — and are shocked to discover an incredibly complex, gleefully weird, and highly violent universe waiting for them.",
+  "tags": [
+    {
+      "id": 2377,
+      "slug": "based-on-video-game",
+      "name": "Based on video game",
+      "film_count": 1115
+    },
+    {
+      "id": 4178,
+      "slug": "post-apocalypse",
+      "name": "Post apocalypse",
+      "film_count": 2063
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    },
+    {
+      "id": 8731,
+      "slug": "nuclear",
+      "name": "Nuclear",
+      "film_count": 436
+    },
+    {
+      "id": 81428,
+      "slug": "arizona-desert",
+      "name": "Arizona desert",
+      "film_count": 300
+    },
+    {
+      "id": 1499,
+      "slug": "desert",
+      "name": "Desert",
+      "film_count": 2752
+    },
+    {
+      "id": 1875,
+      "slug": "mutation",
+      "name": "Mutation",
+      "film_count": 829
+    },
+    {
+      "id": 5184,
+      "slug": "destruction",
+      "name": "Destruction",
+      "film_count": 1121
+    },
+    {
+      "id": 50850,
+      "slug": "post-apocalyptic",
+      "name": "Post apocalyptic",
+      "film_count": 1501
+    },
+    {
+      "id": 17643,
+      "slug": "nuclear-war",
+      "name": "Nuclear war",
+      "film_count": 206
+    },
+    {
+      "id": 1933,
+      "slug": "virus",
+      "name": "Virus",
+      "film_count": 1404
+    },
+    {
+      "id": 521,
+      "slug": "murder",
+      "name": "Murder",
+      "film_count": 25036
+    },
+    {
+      "id": 2121,
+      "slug": "gunslinger",
+      "name": "Gunslinger",
+      "film_count": 442
+    },
+    {
+      "id": 31115,
+      "slug": "nuclear-holocaust",
+      "name": "Nuclear holocaust",
+      "film_count": 189
+    },
+    {
+      "id": 14799,
+      "slug": "nuclear-bomb",
+      "name": "Nuclear bomb",
+      "film_count": 245
+    },
+    {
+      "id": 8474,
+      "slug": "nuclear-threat",
+      "name": "Nuclear threat",
+      "film_count": 240
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "spaghetti western",
+      "psychotronic",
+      "dark comedy",
+      "retro",
+      "biting"
+    ],
+    "plot": [
+      "post apocalypse",
+      "nuclear",
+      "arizona desert",
+      "desert",
+      "mutation",
+      "destruction",
+      "capitalism",
+      "bandit",
+      "wasteland",
+      "underground bunker",
+      "ruins",
+      "post-apocalyptic future",
+      "violence",
+      "nuclear explosion",
+      "ghoul",
+      "mutant",
+      "bunker",
+      "apocalypse",
+      "survival",
+      "struggle for survival",
+      "adventure hero",
+      "post apocalyptic",
+      "nuclear war",
+      "virus",
+      "murder"
+    ],
+    "time": [
+      "future",
+      "23rd century",
+      "21st century"
+    ],
+    "place": [
+      "los angeles",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 85156,
+      "slug": "silo",
+      "title": "Silo",
+      "year": 2023,
+      "rank": 0
+    },
+    {
+      "id": 59494,
+      "slug": "altered-carbon",
+      "title": "Altered Carbon",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 60498,
+      "slug": "snowpiercer",
+      "title": "Snowpiercer",
+      "year": 2020,
+      "rank": 2
+    },
+    {
+      "id": 79325,
+      "slug": "the-last-of-us",
+      "title": "The Last of Us",
+      "year": 2023,
+      "rank": 3
+    },
+    {
+      "id": 84418,
+      "slug": "twisted-metal",
+      "title": "Twisted Metal",
+      "year": 2023,
+      "rank": 4
+    },
+    {
+      "id": 22640,
+      "slug": "six-string-samurai",
+      "title": "Six-String Samurai",
+      "year": 1998,
+      "rank": 5
+    },
+    {
+      "id": 60632,
+      "slug": "z-nation",
+      "title": "Z Nation",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 36892,
+      "slug": "colony",
+      "title": "Colony",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 16172,
+      "slug": "jericho",
+      "title": "Jericho",
+      "year": 2006,
+      "rank": 8
+    },
+    {
+      "id": 5694,
+      "slug": "the-100",
+      "title": "The 100",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 20560,
+      "slug": "the-postman",
+      "title": "The Postman",
+      "year": 1997,
+      "rank": 10
+    },
+    {
+      "id": 26559,
+      "slug": "revolution",
+      "title": "Revolution",
+      "year": 2012,
+      "rank": 11
+    },
+    {
+      "id": 18863,
+      "slug": "mutant-chronicles",
+      "title": "Mutant Chronicles",
+      "year": 2008,
+      "rank": 12
+    },
+    {
+      "id": 72754,
+      "slug": "y-the-last-man",
+      "title": "Y: The Last Man",
+      "year": 2021,
+      "rank": 13
+    },
+    {
+      "id": 73192,
+      "slug": "sweet-tooth",
+      "title": "Sweet Tooth",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 36479,
+      "slug": "solarbabies",
+      "title": "Solarbabies",
+      "year": 1986,
+      "rank": 15
+    },
+    {
+      "id": 65621,
+      "slug": "see",
+      "title": "See",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 16169,
+      "slug": "jeremiah",
+      "title": "Jeremiah",
+      "year": 2002,
+      "rank": 17
+    },
+    {
+      "id": 78493,
+      "slug": "dmz",
+      "title": "DMZ",
+      "year": 2022,
+      "rank": 18
+    },
+    {
+      "id": 59214,
+      "slug": "the-last-man-on-earth",
+      "title": "The Last Man on Earth",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 100338,
+      "slug": "the-last-ship-prequel-dr-scotts-video-journal",
+      "title": "The Last Ship Prequel: Dr. Scott's Video Journal",
+      "year": 2014,
+      "rank": 20
+    },
+    {
+      "id": 29926,
+      "slug": "the-last-train",
+      "title": "The Last Train",
+      "year": 1999,
+      "rank": 21
+    },
+    {
+      "id": 59436,
+      "slug": "wastelander",
+      "title": "Wastelander",
+      "year": 2018,
+      "rank": 22
+    },
+    {
+      "id": 9112,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 2003,
+      "rank": 23
+    },
+    {
+      "id": 54457,
+      "slug": "wheels-of-fire",
+      "title": "Wheels of Fire",
+      "year": 1985,
+      "rank": 24
+    },
+    {
+      "id": 72319,
+      "slug": "extinct",
+      "title": "Extinct",
+      "year": 2017,
+      "rank": 25
+    },
+    {
+      "id": 97867,
+      "slug": "dune-prophecy",
+      "title": "Dune: Prophecy",
+      "year": 2024,
+      "rank": 26
+    },
+    {
+      "id": 15769,
+      "slug": "the-incredible-hulk",
+      "title": "The Incredible Hulk",
+      "year": 1977,
+      "rank": 27
+    },
+    {
+      "id": 3297,
+      "slug": "logans-run",
+      "title": "Logan's Run",
+      "year": 1977,
+      "rank": 28
+    },
+    {
+      "id": 60633,
+      "slug": "into-the-badlands",
+      "title": "Into the Badlands",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919188
+}

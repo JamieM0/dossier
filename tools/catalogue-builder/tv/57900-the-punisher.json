@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/57900-the-punisher",
+  "id": 57900,
+  "slug": "the-punisher",
+  "title": "The Punisher",
+  "year": 2017,
+  "rating": 8.4,
+  "votes_text": "297K",
+  "votes": 297000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/5a/57900.jpg",
+  "genres": [
+    "Action",
+    "Crime",
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "A former Marine out to punish the criminals responsible for his family's murder finds himself ensnared in a military conspiracy.",
+  "tags": [
+    {
+      "id": 4179,
+      "slug": "vigilante",
+      "name": "Vigilante",
+      "film_count": 2878
+    },
+    {
+      "id": 511,
+      "slug": "revenge",
+      "name": "Revenge",
+      "film_count": 19339
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 1157,
+      "slug": "justice",
+      "name": "Justice",
+      "film_count": 7030
+    },
+    {
+      "id": 1260,
+      "slug": "vengeance",
+      "name": "Vengeance",
+      "film_count": 13036
+    },
+    {
+      "id": 2846,
+      "slug": "one-man-army",
+      "name": "One man army",
+      "film_count": 1781
+    },
+    {
+      "id": 6190,
+      "slug": "avenger",
+      "name": "Avenger",
+      "film_count": 371
+    },
+    {
+      "id": 124091,
+      "slug": "fight-scenes",
+      "name": "Fight scenes",
+      "film_count": 5029
+    },
+    {
+      "id": 90,
+      "slug": "blood",
+      "name": "Blood",
+      "film_count": 12987
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 32650,
+      "slug": "multiverse",
+      "name": "Multiverse",
+      "film_count": 598
+    },
+    {
+      "id": 124135,
+      "slug": "harsh",
+      "name": "Harsh",
+      "film_count": 4491
+    },
+    {
+      "id": 95962,
+      "slug": "perverse",
+      "name": "Perverse",
+      "film_count": 1351
+    },
+    {
+      "id": 17067,
+      "slug": "afghanistan",
+      "name": "Afghanistan",
+      "film_count": 264
+    },
+    {
+      "id": 4194,
+      "slug": "villain",
+      "name": "Villain",
+      "film_count": 3789
+    },
+    {
+      "id": 7517,
+      "slug": "comic-book",
+      "name": "Comic book",
+      "film_count": 1063
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "disturbing",
+      "brutal",
+      "suspense",
+      "bloody",
+      "exciting",
+      "tense",
+      "harsh",
+      "perverse",
+      "intense",
+      "suspenseful"
+    ],
+    "audience": [
+      "boys' night",
+      "teens"
+    ],
+    "plot": [
+      "vigilante",
+      "revenge",
+      "justice",
+      "vengeance",
+      "one man army",
+      "avenger",
+      "fight scenes",
+      "violence",
+      "vigilantism",
+      "murder",
+      "hacker",
+      "gunfight",
+      "superhero",
+      "brutality",
+      "male protagonist",
+      "government corruption",
+      "blood",
+      "multiverse",
+      "villain",
+      "comic book",
+      "gory",
+      "badass",
+      "death",
+      "corruption",
+      "cia"
+    ],
+    "time": [
+      "2010s",
+      "future",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "afghanistan",
+      "new york"
+    ]
+  },
+  "similar": [
+    {
+      "id": 15037,
+      "slug": "john-wick",
+      "title": "John Wick",
+      "year": 2014,
+      "rank": 0
+    },
+    {
+      "id": 19393,
+      "slug": "the-equalizer",
+      "title": "The Equalizer",
+      "year": 2014,
+      "rank": 1
+    },
+    {
+      "id": 20848,
+      "slug": "the-punisher",
+      "title": "The Punisher",
+      "year": 2004,
+      "rank": 2
+    },
+    {
+      "id": 8071,
+      "slug": "the-man-from-nowhere",
+      "title": "The Man from Nowhere",
+      "year": 2010,
+      "rank": 3
+    },
+    {
+      "id": 74898,
+      "slug": "reacher",
+      "title": "Reacher",
+      "year": 2022,
+      "rank": 4
+    },
+    {
+      "id": 77262,
+      "slug": "the-terminal-list",
+      "title": "The Terminal List",
+      "year": 2022,
+      "rank": 5
+    },
+    {
+      "id": 23667,
+      "slug": "taken",
+      "title": "Taken",
+      "year": 2008,
+      "rank": 6
+    },
+    {
+      "id": 26794,
+      "slug": "punisher-war-zone",
+      "title": "Punisher: War Zone",
+      "year": 2008,
+      "rank": 7
+    },
+    {
+      "id": 19302,
+      "slug": "daredevil",
+      "title": "Daredevil",
+      "year": 2015,
+      "rank": 8
+    },
+    {
+      "id": 27229,
+      "slug": "gotham",
+      "title": "Gotham",
+      "year": 2014,
+      "rank": 9
+    },
+    {
+      "id": 6056,
+      "slug": "blue-ruin",
+      "title": "Blue Ruin",
+      "year": 2013,
+      "rank": 10
+    },
+    {
+      "id": 5109,
+      "slug": "banshee",
+      "title": "Banshee",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 11860,
+      "slug": "death-sentence",
+      "title": "Death Sentence",
+      "year": 2007,
+      "rank": 12
+    },
+    {
+      "id": 65893,
+      "slug": "a-score-to-settle",
+      "title": "A Score to Settle",
+      "year": 2019,
+      "rank": 13
+    },
+    {
+      "id": 65359,
+      "slug": "the-boys",
+      "title": "The Boys",
+      "year": 2019,
+      "rank": 14
+    },
+    {
+      "id": 20847,
+      "slug": "the-punisher",
+      "title": "The Punisher",
+      "year": 1989,
+      "rank": 15
+    },
+    {
+      "id": 74121,
+      "slug": "kremen",
+      "title": "Kremen",
+      "year": 2012,
+      "rank": 16
+    },
+    {
+      "id": 17920,
+      "slug": "man-on-fire",
+      "title": "Man on Fire",
+      "year": 2004,
+      "rank": 17
+    },
+    {
+      "id": 17887,
+      "slug": "a-man-apart",
+      "title": "A Man Apart",
+      "year": 2003,
+      "rank": 18
+    },
+    {
+      "id": 17080,
+      "slug": "law-abiding-citizen",
+      "title": "Law Abiding Citizen",
+      "year": 2009,
+      "rank": 19
+    },
+    {
+      "id": 15680,
+      "slug": "22-bullets",
+      "title": "22 Bullets",
+      "year": 2010,
+      "rank": 20
+    },
+    {
+      "id": 59506,
+      "slug": "shooter",
+      "title": "Shooter",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 57486,
+      "slug": "rendel",
+      "title": "Rendel",
+      "year": 2017,
+      "rank": 22
+    },
+    {
+      "id": 60869,
+      "slug": "condor",
+      "title": "Condor",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 249,
+      "slug": "human-target",
+      "title": "Human Target",
+      "year": 2010,
+      "rank": 24
+    },
+    {
+      "id": 58503,
+      "slug": "titans",
+      "title": "Titans",
+      "year": 2018,
+      "rank": 25
+    },
+    {
+      "id": 1801,
+      "slug": "arrow",
+      "title": "Arrow",
+      "year": 2012,
+      "rank": 26
+    },
+    {
+      "id": 67549,
+      "slug": "gangs-of-london",
+      "title": "Gangs of London",
+      "year": 2020,
+      "rank": 27
+    },
+    {
+      "id": 7417,
+      "slug": "assault-on-wall-street",
+      "title": "Assault on Wall Street",
+      "year": 2013,
+      "rank": 28
+    },
+    {
+      "id": 68192,
+      "slug": "south-wind",
+      "title": "Juzni vetar",
+      "year": 2019,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919162
+}

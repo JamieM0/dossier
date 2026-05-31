@@ -1,0 +1,380 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/78254-star-wars-andor",
+  "id": 78254,
+  "slug": "star-wars-andor",
+  "title": "Andor",
+  "year": 2022,
+  "rating": 8.6,
+  "votes_text": "267K",
+  "votes": 267000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/56/78254.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Fantasy",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "The tale of the burgeoning rebellion against the Empire and how people and planets became involved. In an era filled with danger, deception and intrigue, Cassian Andor embarks on the path that is destined to turn him into a rebel hero.",
+  "tags": [
+    {
+      "id": 34430,
+      "slug": "star-wars",
+      "name": "Star wars",
+      "film_count": 386
+    },
+    {
+      "id": 10946,
+      "slug": "rebellion",
+      "name": "Rebellion",
+      "film_count": 3391
+    },
+    {
+      "id": 2539,
+      "slug": "space",
+      "name": "Space",
+      "film_count": 2469
+    },
+    {
+      "id": 18704,
+      "slug": "galaxy",
+      "name": "Galaxy",
+      "film_count": 232
+    },
+    {
+      "id": 26797,
+      "slug": "empire",
+      "name": "Empire",
+      "film_count": 3737
+    },
+    {
+      "id": 4313,
+      "slug": "mission",
+      "name": "Mission",
+      "film_count": 3740
+    },
+    {
+      "id": 56,
+      "slug": "military",
+      "name": "Military",
+      "film_count": 4375
+    },
+    {
+      "id": 123460,
+      "slug": "space-wars",
+      "name": "Space wars",
+      "film_count": 466
+    },
+    {
+      "id": 123339,
+      "slug": "space-and-aliens",
+      "name": "Space and aliens",
+      "film_count": 1666
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 13809,
+      "slug": "space-pirate",
+      "name": "Space pirate",
+      "film_count": 50
+    },
+    {
+      "id": 4283,
+      "slug": "space-station",
+      "name": "Space station",
+      "film_count": 369
+    },
+    {
+      "id": 4295,
+      "slug": "space-shuttle",
+      "name": "Space shuttle",
+      "film_count": 206
+    },
+    {
+      "id": 6577,
+      "slug": "secret-mission",
+      "name": "Secret mission",
+      "film_count": 699
+    },
+    {
+      "id": 10625,
+      "slug": "adventure-hero",
+      "name": "Adventure hero",
+      "film_count": 942
+    },
+    {
+      "id": 14202,
+      "slug": "spy-hero",
+      "name": "Spy hero",
+      "film_count": 216
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "futuristic",
+      "political thriller",
+      "saga",
+      "exciting",
+      "tense",
+      "captivating",
+      "political",
+      "epic fantasy",
+      "spy action",
+      "dark fantasy"
+    ],
+    "audience": [
+      "family friendly"
+    ],
+    "plot": [
+      "star wars",
+      "rebellion",
+      "space",
+      "galaxy",
+      "empire",
+      "mission",
+      "military",
+      "space wars",
+      "laser gun",
+      "spy",
+      "space opera",
+      "battles",
+      "espionage",
+      "space battle",
+      "insurgent",
+      "space mission",
+      "space marine",
+      "fight",
+      "spacecraft",
+      "space and aliens",
+      "space pirate",
+      "space station",
+      "space shuttle",
+      "secret mission",
+      "adventure hero"
+    ]
+  },
+  "similar": [
+    {
+      "id": 23012,
+      "slug": "space-above-and-beyond",
+      "title": "Space: Above and Beyond",
+      "year": 1995,
+      "rank": 0
+    },
+    {
+      "id": 38939,
+      "slug": "rogue-one-a-star-wars-story",
+      "title": "Rogue One: A Star Wars Story",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 84014,
+      "slug": "skeleton-crew",
+      "title": "Star Wars: Skeleton Crew",
+      "year": 2024,
+      "rank": 2
+    },
+    {
+      "id": 99128,
+      "slug": "star-trek-renegades",
+      "title": "Star Trek: Renegades",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 30455,
+      "slug": "star-trek-voyager",
+      "title": "Star Trek: Voyager",
+      "year": 1995,
+      "rank": 4
+    },
+    {
+      "id": 87083,
+      "slug": "starship-farragut",
+      "title": "Starship Farragut",
+      "year": 2007,
+      "rank": 5
+    },
+    {
+      "id": 11427,
+      "slug": "crusade",
+      "title": "Crusade",
+      "year": 1999,
+      "rank": 6
+    },
+    {
+      "id": 30458,
+      "slug": "star-trek-deep-space-nine",
+      "title": "Star Trek: Deep Space Nine",
+      "year": 1993,
+      "rank": 7
+    },
+    {
+      "id": 30475,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 1978,
+      "rank": 8
+    },
+    {
+      "id": 66900,
+      "slug": "star-trek-picard",
+      "title": "Star Trek: Picard",
+      "year": 2020,
+      "rank": 9
+    },
+    {
+      "id": 8878,
+      "slug": "babylon-5",
+      "title": "Babylon 5",
+      "year": 1993,
+      "rank": 10
+    },
+    {
+      "id": 98325,
+      "slug": "star-trek-hidden-frontier",
+      "title": "Star Trek: Hidden Frontier",
+      "year": 2000,
+      "rank": 11
+    },
+    {
+      "id": 14689,
+      "slug": "star-trek-enterprise",
+      "title": "Star Trek: Enterprise",
+      "year": 2001,
+      "rank": 12
+    },
+    {
+      "id": 9112,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 2003,
+      "rank": 13
+    },
+    {
+      "id": 9113,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 2004,
+      "rank": 14
+    },
+    {
+      "id": 30207,
+      "slug": "star-trek-the-next-generation",
+      "title": "Star Trek: The Next Generation",
+      "year": 1987,
+      "rank": 15
+    },
+    {
+      "id": 68935,
+      "slug": "star-trek-phase-ii",
+      "title": "Star Trek: New Voyages",
+      "year": 2004,
+      "rank": 16
+    },
+    {
+      "id": 23186,
+      "slug": "stargate-atlantis",
+      "title": "Stargate Atlantis",
+      "year": 2004,
+      "rank": 17
+    },
+    {
+      "id": 77216,
+      "slug": "star-trek-strange-new-worlds",
+      "title": "Star Trek: Strange New Worlds",
+      "year": 2022,
+      "rank": 18
+    },
+    {
+      "id": 30378,
+      "slug": "buck-rogers-in-the-25th-century",
+      "title": "Buck Rogers in the 25th Century",
+      "year": 1979,
+      "rank": 19
+    },
+    {
+      "id": 8883,
+      "slug": "babylon-5-thirdspace",
+      "title": "Babylon 5: Thirdspace",
+      "year": 1998,
+      "rank": 20
+    },
+    {
+      "id": 23160,
+      "slug": "star-trek",
+      "title": "Star Trek",
+      "year": 1966,
+      "rank": 21
+    },
+    {
+      "id": 74770,
+      "slug": "halo",
+      "title": "Halo",
+      "year": 2022,
+      "rank": 22
+    },
+    {
+      "id": 13199,
+      "slug": "farscape-the-peacekeeper-wars",
+      "title": "Farscape: The Peacekeeper Wars",
+      "year": 2004,
+      "rank": 23
+    },
+    {
+      "id": 66968,
+      "slug": "treadstone",
+      "title": "Treadstone",
+      "year": 2019,
+      "rank": 24
+    },
+    {
+      "id": 8881,
+      "slug": "babylon-5-the-gathering",
+      "title": "Babylon 5: The Gathering",
+      "year": 1993,
+      "rank": 25
+    },
+    {
+      "id": 13198,
+      "slug": "farscape",
+      "title": "Farscape",
+      "year": 1999,
+      "rank": 26
+    },
+    {
+      "id": 13442,
+      "slug": "firefly",
+      "title": "Firefly",
+      "year": 2002,
+      "rank": 27
+    },
+    {
+      "id": 42671,
+      "slug": "star-trek-discovery",
+      "title": "Star Trek: Discovery",
+      "year": 2017,
+      "rank": 28
+    },
+    {
+      "id": 23178,
+      "slug": "star-wars-episode-vi-return-of-the-jedi",
+      "title": "Return of the Jedi",
+      "year": 1983,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919185
+}

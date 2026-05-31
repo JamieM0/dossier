@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/57906-the-good-doctor",
+  "id": 57906,
+  "slug": "the-good-doctor",
+  "title": "The Good Doctor",
+  "year": 2017,
+  "rating": 8.0,
+  "votes_text": "128K",
+  "votes": 128000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/32/57906.jpg",
+  "genres": [
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 45,
+  "story": "A young surgeon with Savant syndrome is recruited into the surgical unit of a prestigious hospital. The question will arise: can a person who doesn't have the ability to relate to people actually save their lives?",
+  "tags": [
+    {
+      "id": 14082,
+      "slug": "autism",
+      "name": "Autism",
+      "film_count": 527
+    },
+    {
+      "id": 8125,
+      "slug": "medical",
+      "name": "Medical",
+      "film_count": 1106
+    },
+    {
+      "id": 44,
+      "slug": "medicine",
+      "name": "Medicine",
+      "film_count": 1100
+    },
+    {
+      "id": 89,
+      "slug": "doctor",
+      "name": "Doctor",
+      "film_count": 6165
+    },
+    {
+      "id": 9329,
+      "slug": "medical-drama",
+      "name": "Medical drama",
+      "film_count": 770
+    },
+    {
+      "id": 1455,
+      "slug": "hospital",
+      "name": "Hospital",
+      "film_count": 8344
+    },
+    {
+      "id": 9223,
+      "slug": "prodigy",
+      "name": "Prodigy",
+      "film_count": 686
+    },
+    {
+      "id": 123790,
+      "slug": "talented",
+      "name": "Talented",
+      "film_count": 250
+    },
+    {
+      "id": 18341,
+      "slug": "aspergers-syndrome",
+      "name": "Asperger's syndrome",
+      "film_count": 131
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    },
+    {
+      "id": 44047,
+      "slug": "disabled-character",
+      "name": "Disabled character",
+      "film_count": 99
+    },
+    {
+      "id": 34787,
+      "slug": "autistic",
+      "name": "Autistic",
+      "film_count": 137
+    },
+    {
+      "id": 183773,
+      "slug": "autist",
+      "name": "Autist",
+      "film_count": 60
+    },
+    {
+      "id": 1693,
+      "slug": "2010s",
+      "name": "2010s",
+      "film_count": 6370
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "medical drama",
+      "clever",
+      "psychological",
+      "serious",
+      "emotional",
+      "saga",
+      "captivating",
+      "inspirational",
+      "thought provoking",
+      "sad"
+    ],
+    "audience": [
+      "teens"
+    ],
+    "plot": [
+      "autism",
+      "medical",
+      "medicine",
+      "doctor",
+      "hospital",
+      "prodigy",
+      "talented",
+      "surgeon",
+      "surgical operation",
+      "talent",
+      "male doctor",
+      "sick",
+      "childhood memory",
+      "nursing",
+      "flashback",
+      "physician",
+      "nurse",
+      "flashback sequence",
+      "asperger's syndrome",
+      "disabled character",
+      "autistic",
+      "autist",
+      "genius",
+      "psychopath",
+      "mission"
+    ],
+    "time": [
+      "future",
+      "2010s",
+      "contemporary"
+    ],
+    "place": [
+      "syria",
+      "san francisco",
+      "chicago"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65607,
+      "slug": "new-amsterdam",
+      "title": "New Amsterdam",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 61583,
+      "slug": "the-resident",
+      "title": "The Resident",
+      "year": 2018,
+      "rank": 1
+    },
+    {
+      "id": 57972,
+      "slug": "good-doctor",
+      "title": "Good Doctor",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 71051,
+      "slug": "miracle-doctor",
+      "title": "A Miracle",
+      "year": 2019,
+      "rank": 3
+    },
+    {
+      "id": 15347,
+      "slug": "house",
+      "title": "House",
+      "year": 2004,
+      "rank": 4
+    },
+    {
+      "id": 67031,
+      "slug": "transplant",
+      "title": "Transplant",
+      "year": 2020,
+      "rank": 5
+    },
+    {
+      "id": 59538,
+      "slug": "pure-genius",
+      "title": "Pure Genius",
+      "year": 2016,
+      "rank": 6
+    },
+    {
+      "id": 41818,
+      "slug": "chicago-med",
+      "title": "Chicago Med",
+      "year": 2015,
+      "rank": 7
+    },
+    {
+      "id": 5396,
+      "slug": "the-night-shift",
+      "title": "The Night Shift",
+      "year": 2014,
+      "rank": 8
+    },
+    {
+      "id": 64497,
+      "slug": "code-black",
+      "title": "Code Black",
+      "year": 2015,
+      "rank": 9
+    },
+    {
+      "id": 74632,
+      "slug": "young-doctors",
+      "title": "Young Doctors",
+      "year": 2015,
+      "rank": 10
+    },
+    {
+      "id": 35451,
+      "slug": "3-lbs",
+      "title": "3 lbs",
+      "year": 2006,
+      "rank": 11
+    },
+    {
+      "id": 43244,
+      "slug": "for-better-or-worse",
+      "title": "For Better or Worse",
+      "year": 2005,
+      "rank": 12
+    },
+    {
+      "id": 3908,
+      "slug": "mercy",
+      "title": "Mercy",
+      "year": 2009,
+      "rank": 13
+    },
+    {
+      "id": 81131,
+      "slug": "good-doctor",
+      "title": "Good Doctor",
+      "year": 2018,
+      "rank": 14
+    },
+    {
+      "id": 6821,
+      "slug": "saving-hope",
+      "title": "Saving Hope",
+      "year": 2012,
+      "rank": 15
+    },
+    {
+      "id": 92179,
+      "slug": "interventions",
+      "title": "Interventions",
+      "year": 2014,
+      "rank": 16
+    },
+    {
+      "id": 87278,
+      "slug": "emergency-center",
+      "title": "Emergency Center",
+      "year": 2014,
+      "rank": 17
+    },
+    {
+      "id": 85079,
+      "slug": "the-travel-nurse",
+      "title": "The Travel Nurse",
+      "year": 2022,
+      "rank": 18
+    },
+    {
+      "id": 83929,
+      "slug": "the-holy-monsters",
+      "title": "The Holy Monsters",
+      "year": 2012,
+      "rank": 19
+    },
+    {
+      "id": 97300,
+      "slug": "emergency-room-24-hours",
+      "title": "Emergency Room 24 Hours",
+      "year": 2001,
+      "rank": 20
+    },
+    {
+      "id": 90421,
+      "slug": "godhand-teru",
+      "title": "Godhand Teru",
+      "year": 2009,
+      "rank": 21
+    },
+    {
+      "id": 94297,
+      "slug": "city-of-angels",
+      "title": "City of Angels",
+      "year": 2000,
+      "rank": 22
+    },
+    {
+      "id": 94054,
+      "slug": "daily-dose-of-sunshine",
+      "title": "Daily Dose of Sunshine",
+      "year": 2023,
+      "rank": 23
+    },
+    {
+      "id": 12863,
+      "slug": "er",
+      "title": "ER",
+      "year": 1994,
+      "rank": 24
+    },
+    {
+      "id": 87056,
+      "slug": "jozi-h",
+      "title": "Jozi-H",
+      "year": 2006,
+      "rank": 25
+    },
+    {
+      "id": 89484,
+      "slug": "beloved-life",
+      "title": "Beloved Life",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 80998,
+      "slug": "dr-dmat",
+      "title": "Dr. DMAT",
+      "year": 2014,
+      "rank": 27
+    },
+    {
+      "id": 98627,
+      "slug": "the-trauma-code-heroes-on-call",
+      "title": "The Trauma Code: Heroes on Call",
+      "year": 2025,
+      "rank": 28
+    },
+    {
+      "id": 87779,
+      "slug": "fragile",
+      "title": "Fragile",
+      "year": 2016,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919162
+}

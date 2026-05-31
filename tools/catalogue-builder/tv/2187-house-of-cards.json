@@ -1,0 +1,389 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/2187-house-of-cards",
+  "id": 2187,
+  "slug": "house-of-cards",
+  "title": "House of Cards",
+  "year": 2013,
+  "rating": 8.6,
+  "votes_text": "557K",
+  "votes": 557000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/a1/2187.jpg",
+  "genres": [
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 50,
+  "story": "Set in present day Washington, D.C., House of Cards is the story of Frank Underwood, a ruthless and cunning politician, and his wife Claire who will stop at nothing to conquer everything. This wicked political drama penetrates the shadowy world of greed, sex and corruption in modern D.C. House of Cards is an adaptation of a previous BBC miniseries of the same name, which is based on the novel by Michael Dobbs.",
+  "tags": [
+    {
+      "id": 696,
+      "slug": "politics",
+      "name": "Politics",
+      "film_count": 5052
+    },
+    {
+      "id": 34517,
+      "slug": "political-intrigue",
+      "name": "Political intrigue",
+      "film_count": 2212
+    },
+    {
+      "id": 21760,
+      "slug": "political-corruption",
+      "name": "Political corruption",
+      "film_count": 1214
+    },
+    {
+      "id": 123340,
+      "slug": "state-affairs",
+      "name": "State affairs",
+      "film_count": 2444
+    },
+    {
+      "id": 7066,
+      "slug": "manipulation",
+      "name": "Manipulation",
+      "film_count": 5535
+    },
+    {
+      "id": 5510,
+      "slug": "intrigue",
+      "name": "Intrigue",
+      "film_count": 3046
+    },
+    {
+      "id": 21895,
+      "slug": "strategy",
+      "name": "Strategy",
+      "film_count": 505
+    },
+    {
+      "id": 141964,
+      "slug": "usa-politics",
+      "name": "Usa politics",
+      "film_count": 121
+    },
+    {
+      "id": 175,
+      "slug": "marriage",
+      "name": "Marriage",
+      "film_count": 6801
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 538,
+      "slug": "propaganda",
+      "name": "Propaganda",
+      "film_count": 1556
+    },
+    {
+      "id": 123874,
+      "slug": "tense",
+      "name": "Tense",
+      "film_count": 25919
+    },
+    {
+      "id": 185,
+      "slug": "based-on-book",
+      "name": "Based on book",
+      "film_count": 10720
+    },
+    {
+      "id": 35751,
+      "slug": "dishonesty",
+      "name": "Dishonesty",
+      "film_count": 8408
+    },
+    {
+      "id": 123845,
+      "slug": "power-relations",
+      "name": "Power relations",
+      "film_count": 3484
+    },
+    {
+      "id": 2170,
+      "slug": "usa",
+      "name": "Usa",
+      "film_count": 14812
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "clever",
+      "serious",
+      "political",
+      "cynical",
+      "captivating",
+      "tense",
+      "talky",
+      "postmodern",
+      "saga",
+      "political thriller"
+    ],
+    "audience": [
+      "boys' night",
+      "teens",
+      "adult"
+    ],
+    "plot": [
+      "politics",
+      "political intrigue",
+      "political corruption",
+      "state affairs",
+      "manipulation",
+      "intrigue",
+      "strategy",
+      "usa politics",
+      "lobbyist",
+      "u.s. president",
+      "journalism",
+      "media",
+      "media manipulation",
+      "morality",
+      "politician",
+      "husband wife relationship",
+      "political conflict",
+      "government corruption",
+      "revenge",
+      "u.s. congress",
+      "marriage",
+      "propaganda",
+      "dishonesty",
+      "power relations",
+      "blackmail"
+    ],
+    "time": [
+      "2010s",
+      "2000s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "washington d.c",
+      "usa",
+      "syria"
+    ]
+  },
+  "similar": [
+    {
+      "id": 2250,
+      "slug": "the-fortress",
+      "title": "Borgen: Power & Glory",
+      "year": 2010,
+      "rank": 0
+    },
+    {
+      "id": 57868,
+      "slug": "billions",
+      "title": "Billions",
+      "year": 2016,
+      "rank": 1
+    },
+    {
+      "id": 15594,
+      "slug": "the-ides-of-march",
+      "title": "The Ides of March",
+      "year": 2011,
+      "rank": 2
+    },
+    {
+      "id": 2175,
+      "slug": "boss",
+      "title": "Boss",
+      "year": 2011,
+      "rank": 3
+    },
+    {
+      "id": 30443,
+      "slug": "house-of-cards",
+      "title": "House of Cards",
+      "year": 1990,
+      "rank": 4
+    },
+    {
+      "id": 4022,
+      "slug": "scandal",
+      "title": "Scandal",
+      "year": 2012,
+      "rank": 5
+    },
+    {
+      "id": 38606,
+      "slug": "miss-sloane",
+      "title": "Miss Sloane",
+      "year": 2016,
+      "rank": 6
+    },
+    {
+      "id": 56622,
+      "slug": "the-politicians-husband",
+      "title": "The Politician's Husband",
+      "year": 2013,
+      "rank": 7
+    },
+    {
+      "id": 25489,
+      "slug": "the-west-wing",
+      "title": "The West Wing",
+      "year": 1999,
+      "rank": 8
+    },
+    {
+      "id": 4029,
+      "slug": "ray-donovan",
+      "title": "Ray Donovan",
+      "year": 2013,
+      "rank": 9
+    },
+    {
+      "id": 27016,
+      "slug": "mad-men",
+      "title": "Mad Men",
+      "year": 2007,
+      "rank": 10
+    },
+    {
+      "id": 18006,
+      "slug": "margin-call",
+      "title": "Margin Call",
+      "year": 2011,
+      "rank": 11
+    },
+    {
+      "id": 9628,
+      "slug": "political-animals",
+      "title": "Political Animals",
+      "year": 2012,
+      "rank": 12
+    },
+    {
+      "id": 20574,
+      "slug": "power",
+      "title": "Power",
+      "year": 1986,
+      "rank": 13
+    },
+    {
+      "id": 23205,
+      "slug": "state-of-play",
+      "title": "State of Play",
+      "year": 2003,
+      "rank": 14
+    },
+    {
+      "id": 65374,
+      "slug": "the-loudest-voice",
+      "title": "The Loudest Voice",
+      "year": 2019,
+      "rank": 15
+    },
+    {
+      "id": 26971,
+      "slug": "homeland",
+      "title": "Homeland",
+      "year": 2011,
+      "rank": 16
+    },
+    {
+      "id": 25294,
+      "slug": "wag-the-dog",
+      "title": "Wag the Dog",
+      "year": 1997,
+      "rank": 17
+    },
+    {
+      "id": 30132,
+      "slug": "to-play-the-king",
+      "title": "To Play the King",
+      "year": 1993,
+      "rank": 18
+    },
+    {
+      "id": 40762,
+      "slug": "narcos",
+      "title": "Narcos",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 24912,
+      "slug": "mr-robot",
+      "title": "Mr. Robot",
+      "year": 2015,
+      "rank": 20
+    },
+    {
+      "id": 4016,
+      "slug": "the-newsroom",
+      "title": "The Newsroom",
+      "year": 2012,
+      "rank": 21
+    },
+    {
+      "id": 26845,
+      "slug": "boardwalk-empire",
+      "title": "Boardwalk Empire",
+      "year": 2010,
+      "rank": 22
+    },
+    {
+      "id": 57112,
+      "slug": "madam-secretary",
+      "title": "Madam Secretary",
+      "year": 2014,
+      "rank": 23
+    },
+    {
+      "id": 7984,
+      "slug": "advise-and-consent",
+      "title": "Advise & Consent",
+      "year": 1962,
+      "rank": 24
+    },
+    {
+      "id": 26925,
+      "slug": "the-wire",
+      "title": "The Wire",
+      "year": 2002,
+      "rank": 25
+    },
+    {
+      "id": 8194,
+      "slug": "all-the-presidents-men",
+      "title": "All the President's Men",
+      "year": 1976,
+      "rank": 26
+    },
+    {
+      "id": 595,
+      "slug": "k-street",
+      "title": "K Street",
+      "year": 2003,
+      "rank": 27
+    },
+    {
+      "id": 11171,
+      "slug": "the-contender",
+      "title": "The Contender",
+      "year": 2000,
+      "rank": 28
+    },
+    {
+      "id": 93259,
+      "slug": "morten",
+      "title": "Morten",
+      "year": 2019,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919129
+}

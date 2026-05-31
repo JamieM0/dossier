@@ -1,0 +1,390 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/28887-poldark",
+  "id": 28887,
+  "slug": "poldark",
+  "title": "Poldark",
+  "year": 2015,
+  "rating": 8.3,
+  "votes_text": "40K",
+  "votes": 40000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/57/28887.jpg",
+  "genres": [
+    "Drama",
+    "Romance"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 60,
+  "story": "Britain is in the grip of a chilling recession... falling wages, rising prices, civil unrest - only the bankers are smiling. It's 1783 and Ross Poldark returns from the American War of Independence to his beloved Cornwall to find his world in ruins: his father dead, the family mine long since closed, his house wrecked and his sweetheart pledged to marry his cousin. But Ross finds that hope and love can be found when you are least expecting it in the wild but beautiful Cornish landscape.",
+  "tags": [
+    {
+      "id": 8280,
+      "slug": "countryside",
+      "name": "Countryside",
+      "film_count": 3601
+    },
+    {
+      "id": 10916,
+      "slug": "18th-century",
+      "name": "18th century",
+      "film_count": 798
+    },
+    {
+      "id": 1163,
+      "slug": "estate",
+      "name": "Estate",
+      "film_count": 998
+    },
+    {
+      "id": 191,
+      "slug": "england",
+      "name": "England",
+      "film_count": 4022
+    },
+    {
+      "id": 95776,
+      "slug": "love-affair",
+      "name": "Love affair",
+      "film_count": 9928
+    },
+    {
+      "id": 123427,
+      "slug": "rich-and-poor",
+      "name": "Rich and poor",
+      "film_count": 803
+    },
+    {
+      "id": 123419,
+      "slug": "couple-relations",
+      "name": "Couple relations",
+      "film_count": 11884
+    },
+    {
+      "id": 123337,
+      "slug": "love-and-romance",
+      "name": "Love and romance",
+      "film_count": 17340
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    },
+    {
+      "id": 3998,
+      "slug": "british",
+      "name": "British",
+      "film_count": 2537
+    },
+    {
+      "id": 123466,
+      "slug": "village-life",
+      "name": "Village life",
+      "film_count": 2114
+    },
+    {
+      "id": 6094,
+      "slug": "wedding-planning",
+      "name": "Wedding planning",
+      "film_count": 519
+    },
+    {
+      "id": 2297,
+      "slug": "victorian-era",
+      "name": "Victorian era",
+      "film_count": 1068
+    },
+    {
+      "id": 33286,
+      "slug": "1790s",
+      "name": "1790s",
+      "film_count": 59
+    },
+    {
+      "id": 35080,
+      "slug": "monarch",
+      "name": "Monarch",
+      "film_count": 191
+    },
+    {
+      "id": 206,
+      "slug": "monarchy",
+      "name": "Monarchy",
+      "film_count": 238
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "family saga",
+      "costume drama",
+      "period piece",
+      "realistic",
+      "saga",
+      "serious",
+      "crying",
+      "romantic",
+      "historical drama"
+    ],
+    "audience": [
+      "family friendly"
+    ],
+    "plot": [
+      "countryside",
+      "estate",
+      "love affair",
+      "rich and poor",
+      "couple relations",
+      "love and romance",
+      "society",
+      "master and servant",
+      "poverty",
+      "social differences",
+      "family relations",
+      "english countryside",
+      "gentleman",
+      "love triangle",
+      "mine",
+      "british",
+      "village life",
+      "wedding planning",
+      "monarch",
+      "monarchy",
+      "mining",
+      "ship",
+      "ancient rome",
+      "world war one",
+      "rich man"
+    ],
+    "time": [
+      "18th century",
+      "victorian era",
+      "1790s",
+      "19th century",
+      "1800s",
+      "1780s",
+      "regency period"
+    ],
+    "place": [
+      "england",
+      "cornwall",
+      "britain"
+    ]
+  },
+  "similar": [
+    {
+      "id": 29821,
+      "slug": "poldark",
+      "title": "Poldark",
+      "year": 1975,
+      "rank": 0
+    },
+    {
+      "id": 19445,
+      "slug": "north-and-south",
+      "title": "North & South",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 69101,
+      "slug": "bridgerton",
+      "title": "Bridgerton",
+      "year": 2020,
+      "rank": 2
+    },
+    {
+      "id": 17334,
+      "slug": "little-dorrit",
+      "title": "Little Dorrit",
+      "year": 2008,
+      "rank": 3
+    },
+    {
+      "id": 26972,
+      "slug": "downton-abbey",
+      "title": "Downton Abbey",
+      "year": 2010,
+      "rank": 4
+    },
+    {
+      "id": 11597,
+      "slug": "daniel-deronda",
+      "title": "Daniel Deronda",
+      "year": 2002,
+      "rank": 5
+    },
+    {
+      "id": 16109,
+      "slug": "jane-eyre",
+      "title": "Jane Eyre",
+      "year": 2006,
+      "rank": 6
+    },
+    {
+      "id": 56494,
+      "slug": "pride-and-prejudice",
+      "title": "Pride and Prejudice",
+      "year": 1967,
+      "rank": 7
+    },
+    {
+      "id": 25886,
+      "slug": "wuthering-heights",
+      "title": "Wuthering Heights",
+      "year": 2009,
+      "rank": 8
+    },
+    {
+      "id": 23904,
+      "slug": "tess-of-the-durbervilles",
+      "title": "Tess of the D'Urbervilles",
+      "year": 2008,
+      "rank": 9
+    },
+    {
+      "id": 20650,
+      "slug": "pride-and-prejudice",
+      "title": "Pride and Prejudice",
+      "year": 1995,
+      "rank": 10
+    },
+    {
+      "id": 9979,
+      "slug": "brideshead-revisited",
+      "title": "Brideshead Revisited",
+      "year": 1981,
+      "rank": 11
+    },
+    {
+      "id": 40741,
+      "slug": "lady-chatterleys-lover",
+      "title": "Lady Chatterley's Lover",
+      "year": 2015,
+      "rank": 12
+    },
+    {
+      "id": 20648,
+      "slug": "pride-and-prejudice",
+      "title": "Pride & Prejudice",
+      "year": 2005,
+      "rank": 13
+    },
+    {
+      "id": 20239,
+      "slug": "persuasion",
+      "title": "Persuasion",
+      "year": 2007,
+      "rank": 14
+    },
+    {
+      "id": 57984,
+      "slug": "doctor-thorne",
+      "title": "Doctor Thorne",
+      "year": 2016,
+      "rank": 15
+    },
+    {
+      "id": 25706,
+      "slug": "the-wingless-bird",
+      "title": "The Wingless Bird",
+      "year": 1997,
+      "rank": 16
+    },
+    {
+      "id": 13654,
+      "slug": "the-forsyte-saga",
+      "title": "The Forsyte Saga",
+      "year": 1967,
+      "rank": 17
+    },
+    {
+      "id": 21935,
+      "slug": "scarlett",
+      "title": "Scarlett",
+      "year": 1994,
+      "rank": 18
+    },
+    {
+      "id": 22143,
+      "slug": "sense-and-sensibility",
+      "title": "Sense and Sensibility",
+      "year": 1995,
+      "rank": 19
+    },
+    {
+      "id": 6812,
+      "slug": "death-comes-to-pemberley",
+      "title": "Death Comes to Pemberley",
+      "year": 2013,
+      "rank": 20
+    },
+    {
+      "id": 16110,
+      "slug": "jane-eyre",
+      "title": "Jane Eyre",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 65954,
+      "slug": "sanditon",
+      "title": "Sanditon",
+      "year": 2019,
+      "rank": 22
+    },
+    {
+      "id": 27203,
+      "slug": "cranford",
+      "title": "Cranford",
+      "year": 2007,
+      "rank": 23
+    },
+    {
+      "id": 12267,
+      "slug": "doctor-zhivago",
+      "title": "Doctor Zhivago",
+      "year": 2002,
+      "rank": 24
+    },
+    {
+      "id": 7391,
+      "slug": "outlander",
+      "title": "Outlander",
+      "year": 2014,
+      "rank": 25
+    },
+    {
+      "id": 64499,
+      "slug": "jamestown",
+      "title": "Jamestown",
+      "year": 2017,
+      "rank": 26
+    },
+    {
+      "id": 25887,
+      "slug": "wuthering-heights",
+      "title": "Wuthering Heights",
+      "year": 1992,
+      "rank": 27
+    },
+    {
+      "id": 16107,
+      "slug": "jane-eyre",
+      "title": "Jane Eyre",
+      "year": 1983,
+      "rank": 28
+    },
+    {
+      "id": 25429,
+      "slug": "the-way-we-live-now",
+      "title": "The Way We Live Now",
+      "year": 2001,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919154
+}

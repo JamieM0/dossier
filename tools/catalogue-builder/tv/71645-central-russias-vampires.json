@@ -1,0 +1,380 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/71645-central-russias-vampires",
+  "id": 71645,
+  "slug": "central-russias-vampires",
+  "title": "Central Russia's Vampires",
+  "year": 2021,
+  "rating": 7.5,
+  "votes_text": "2K",
+  "votes": 2000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/55/71645.jpg",
+  "genres": [
+    "Comedy",
+    "Fantasy",
+    "Mystery"
+  ],
+  "country": [
+    "Russia"
+  ],
+  "duration_min": 50,
+  "story": "Grandpa Slava is the oldest of the Midland vampire family. They live quietly. They live by the law. They live the unremarkable life of an ordinary Russian family and they never kill humans - ever. Although, of course, everyone knows they drink blood. And when some lifeless corpses are found in a birch grove near Smolensk - their peaceful life falls under threat.",
+  "tags": [
+    {
+      "id": 2627,
+      "slug": "vampire",
+      "name": "Vampire",
+      "film_count": 1688
+    },
+    {
+      "id": 50548,
+      "slug": "child-vampire",
+      "name": "Child vampire",
+      "film_count": 49
+    },
+    {
+      "id": 16150,
+      "slug": "immortality",
+      "name": "Immortality",
+      "film_count": 1383
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 123482,
+      "slug": "humorous",
+      "name": "Humorous",
+      "film_count": 24890
+    },
+    {
+      "id": 3053,
+      "slug": "murder-investigation",
+      "name": "Murder investigation",
+      "film_count": 3428
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 124172,
+      "slug": "melancholic",
+      "name": "Melancholic",
+      "film_count": 14074
+    },
+    {
+      "id": 1308,
+      "slug": "satire",
+      "name": "Satire",
+      "film_count": 12968
+    },
+    {
+      "id": 18722,
+      "slug": "identity-crisis",
+      "name": "Identity crisis",
+      "film_count": 3296
+    },
+    {
+      "id": 5496,
+      "slug": "suspicion",
+      "name": "Suspicion",
+      "film_count": 3420
+    },
+    {
+      "id": 20837,
+      "slug": "slow-burn",
+      "name": "Slow burn",
+      "film_count": 4402
+    },
+    {
+      "id": 123297,
+      "slug": "supernatural-thriller",
+      "name": "Supernatural thriller",
+      "film_count": 712
+    },
+    {
+      "id": 1304,
+      "slug": "absurdism",
+      "name": "Absurdism",
+      "film_count": 1159
+    },
+    {
+      "id": 814,
+      "slug": "female-nudity",
+      "name": "Female nudity",
+      "film_count": 21159
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "funny",
+      "humorous",
+      "captivating",
+      "light",
+      "entertaining",
+      "atmospheric",
+      "dark comedy",
+      "melancholic",
+      "supernatural thriller",
+      "feel good"
+    ],
+    "plot": [
+      "vampire",
+      "child vampire",
+      "immortality",
+      "supernatural",
+      "murder investigation",
+      "supernatural ability",
+      "humour",
+      "family secret",
+      "secret",
+      "blood",
+      "paranormal",
+      "family drama",
+      "everyday life",
+      "small town",
+      "ethical dilemma",
+      "survival",
+      "investigation",
+      "satire",
+      "identity crisis",
+      "suspicion",
+      "slow burn",
+      "absurdism",
+      "female nudity",
+      "bare breasts",
+      "woman on top"
+    ],
+    "time": [
+      "contemporary"
+    ],
+    "place": [
+      "russian"
+    ]
+  },
+  "similar": [
+    {
+      "id": 65520,
+      "slug": "what-we-do-in-the-shadows",
+      "title": "What We Do in the Shadows",
+      "year": 2019,
+      "rank": 0
+    },
+    {
+      "id": 90616,
+      "slug": "kitchenblock",
+      "title": "Kitchenblock",
+      "year": 2021,
+      "rank": 1
+    },
+    {
+      "id": 63583,
+      "slug": "deadbeat",
+      "title": "Deadbeat",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 71892,
+      "slug": "the-wayward-guide-for-the-untrained-eye",
+      "title": "The Wayward Guide for the Untrained Eye",
+      "year": 2020,
+      "rank": 3
+    },
+    {
+      "id": 72747,
+      "slug": "dear-heirs",
+      "title": "Dear Heirs",
+      "year": 2019,
+      "rank": 4
+    },
+    {
+      "id": 75241,
+      "slug": "the-year-of-culture",
+      "title": "The Year of Culture",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 83225,
+      "slug": "the-invisibles",
+      "title": "The Invisibles",
+      "year": 2014,
+      "rank": 6
+    },
+    {
+      "id": 89099,
+      "slug": "dead-canny",
+      "title": "Dead Canny",
+      "year": 2022,
+      "rank": 7
+    },
+    {
+      "id": 79573,
+      "slug": "wednesday",
+      "title": "Wednesday",
+      "year": 2022,
+      "rank": 8
+    },
+    {
+      "id": 73964,
+      "slug": "zombie-detective",
+      "title": "Zombie Detective",
+      "year": 2020,
+      "rank": 9
+    },
+    {
+      "id": 90487,
+      "slug": "minkavlerne",
+      "title": "Minkavlerne",
+      "year": 2019,
+      "rank": 10
+    },
+    {
+      "id": 81778,
+      "slug": "doomsday",
+      "title": "Doomsday",
+      "year": 2022,
+      "rank": 11
+    },
+    {
+      "id": 72332,
+      "slug": "wellington-paranormal",
+      "title": "Wellington Paranormal",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 91279,
+      "slug": "whisper-naked-shadow",
+      "title": "Whisper Naked Shadow",
+      "year": 2019,
+      "rank": 13
+    },
+    {
+      "id": 93959,
+      "slug": "aoki-vampires-trouble",
+      "title": "Aoki Vampire's Trouble",
+      "year": 2021,
+      "rank": 14
+    },
+    {
+      "id": 91949,
+      "slug": "my-man-is-cupid",
+      "title": "My Man Is Cupid",
+      "year": 2023,
+      "rank": 15
+    },
+    {
+      "id": 95466,
+      "slug": "drunk-history-el-lado-borroso-de-la-historia",
+      "title": "Drunk History El Lado Borroso De La Historia",
+      "year": 2016,
+      "rank": 16
+    },
+    {
+      "id": 91168,
+      "slug": "seksenler",
+      "title": "Seksenler",
+      "year": 2012,
+      "rank": 17
+    },
+    {
+      "id": 90477,
+      "slug": "raya-knows",
+      "title": "Raya Knows",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 74435,
+      "slug": "vampire-prosecutor",
+      "title": "Vampire Prosecutor",
+      "year": 2011,
+      "rank": 19
+    },
+    {
+      "id": 106156,
+      "slug": "a-vampire-in-the-family",
+      "title": "A Vampire in the Family",
+      "year": 2023,
+      "rank": 20
+    },
+    {
+      "id": 76492,
+      "slug": "ghosts",
+      "title": "Ghosts",
+      "year": 2021,
+      "rank": 21
+    },
+    {
+      "id": 64629,
+      "slug": "wayne",
+      "title": "Wayne",
+      "year": 2019,
+      "rank": 22
+    },
+    {
+      "id": 3101,
+      "slug": "young-dracula",
+      "title": "Young Dracula",
+      "year": 2006,
+      "rank": 23
+    },
+    {
+      "id": 89931,
+      "slug": "russian-horror-stories",
+      "title": "Russian Horror Stories",
+      "year": 2001,
+      "rank": 24
+    },
+    {
+      "id": 85941,
+      "slug": "recipe-for-crime",
+      "title": "Recipe for Crime",
+      "year": 2010,
+      "rank": 25
+    },
+    {
+      "id": 61226,
+      "slug": "dwarf",
+      "title": "Dwarf",
+      "year": 2017,
+      "rank": 26
+    },
+    {
+      "id": 41765,
+      "slug": "how-i-became-russian",
+      "title": "How I Became a Russian",
+      "year": 2015,
+      "rank": 27
+    },
+    {
+      "id": 81325,
+      "slug": "pest",
+      "title": "Pest!",
+      "year": 2020,
+      "rank": 28
+    },
+    {
+      "id": 90161,
+      "slug": "brotherhood",
+      "title": "Brotherhood",
+      "year": 2015,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919181
+}

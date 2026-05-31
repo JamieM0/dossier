@@ -1,0 +1,383 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/78553-1899",
+  "id": 78553,
+  "slug": "1899",
+  "title": "1899",
+  "year": 2022,
+  "rating": 7.3,
+  "votes_text": "122K",
+  "votes": 122000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/e1/78553.jpg",
+  "genres": [
+    "Adventure",
+    "Drama",
+    "Thriller"
+  ],
+  "country": [
+    "Germany",
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Passengers on an immigrant ship traveling to the new continent get caught in a mysterious riddle when they find a second vessel adrift on the open sea.",
+  "tags": [
+    {
+      "id": 1973,
+      "slug": "ship",
+      "name": "Ship",
+      "film_count": 1953
+    },
+    {
+      "id": 1808,
+      "slug": "nightmare",
+      "name": "Nightmare",
+      "film_count": 3617
+    },
+    {
+      "id": 2468,
+      "slug": "19th-century",
+      "name": "19th century",
+      "film_count": 2885
+    },
+    {
+      "id": 1878,
+      "slug": "sea",
+      "name": "Sea",
+      "film_count": 1748
+    },
+    {
+      "id": 1971,
+      "slug": "passenger",
+      "name": "Passenger",
+      "film_count": 301
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 22763,
+      "slug": "costume-drama",
+      "name": "Costume drama",
+      "film_count": 1839
+    },
+    {
+      "id": 3089,
+      "slug": "supernatural-power",
+      "name": "Supernatural power",
+      "film_count": 6202
+    },
+    {
+      "id": 18889,
+      "slug": "new-year",
+      "name": "New year",
+      "film_count": 892
+    },
+    {
+      "id": 5482,
+      "slug": "winter",
+      "name": "Winter",
+      "film_count": 2542
+    },
+    {
+      "id": 3134,
+      "slug": "experiment",
+      "name": "Experiment",
+      "film_count": 1446
+    },
+    {
+      "id": 29650,
+      "slug": "ancient",
+      "name": "Ancient",
+      "film_count": 1419
+    },
+    {
+      "id": 13423,
+      "slug": "parents",
+      "name": "Parents",
+      "film_count": 1610
+    },
+    {
+      "id": 123691,
+      "slug": "mysterious-place",
+      "name": "Mysterious place",
+      "film_count": 195
+    },
+    {
+      "id": 121984,
+      "slug": "trippy",
+      "name": "Trippy",
+      "film_count": 910
+    },
+    {
+      "id": 19151,
+      "slug": "near-future",
+      "name": "Near future",
+      "film_count": 1031
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "psychological",
+      "costume drama",
+      "tense",
+      "enigmatic",
+      "captivating",
+      "suspenseful",
+      "thrilling",
+      "period piece",
+      "horrifying",
+      "historical drama"
+    ],
+    "plot": [
+      "ship",
+      "nightmare",
+      "sea",
+      "passenger",
+      "supernatural power",
+      "crew",
+      "sea voyage",
+      "secret",
+      "bermuda triangle",
+      "parallel universe",
+      "sea disaster",
+      "undercover",
+      "language barrier",
+      "alternate history",
+      "new year",
+      "winter",
+      "experiment",
+      "ancient",
+      "parents",
+      "mysterious place",
+      "trippy",
+      "space",
+      "drug",
+      "immigration",
+      "secrets"
+    ],
+    "time": [
+      "19th century",
+      "near future",
+      "1890s"
+    ],
+    "place": [
+      "atlantic ocean"
+    ]
+  },
+  "similar": [
+    {
+      "id": 58258,
+      "slug": "dark",
+      "title": "Dark",
+      "year": 2017,
+      "rank": 0
+    },
+    {
+      "id": 85156,
+      "slug": "silo",
+      "title": "Silo",
+      "year": 2023,
+      "rank": 1
+    },
+    {
+      "id": 77299,
+      "slug": "from",
+      "title": "From",
+      "year": 2022,
+      "rank": 2
+    },
+    {
+      "id": 81830,
+      "slug": "three-body",
+      "title": "Three-Body",
+      "year": 2023,
+      "rank": 3
+    },
+    {
+      "id": 60789,
+      "slug": "the-oa",
+      "title": "The OA",
+      "year": 2016,
+      "rank": 4
+    },
+    {
+      "id": 58250,
+      "slug": "the-alienist",
+      "title": "The Alienist",
+      "year": 2018,
+      "rank": 5
+    },
+    {
+      "id": 101984,
+      "slug": "the-watchful-eye",
+      "title": "The Watchful Eye",
+      "year": 2023,
+      "rank": 6
+    },
+    {
+      "id": 83719,
+      "slug": "the-ark",
+      "title": "The Ark",
+      "year": 2023,
+      "rank": 7
+    },
+    {
+      "id": 68791,
+      "slug": "the-haunting-of-bly-manor",
+      "title": "The Haunting of Bly Manor",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 18520,
+      "slug": "moby-dick",
+      "title": "Moby Dick",
+      "year": 1998,
+      "rank": 9
+    },
+    {
+      "id": 60128,
+      "slug": "the-terror",
+      "title": "The Terror",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 85325,
+      "slug": "montecristo",
+      "title": "Montecristo",
+      "year": 2023,
+      "rank": 11
+    },
+    {
+      "id": 96180,
+      "slug": "sleepless-society-two-pillows-and-a-lost-soul",
+      "title": "Sleepless Society: Two Pillows & A Lost Soul",
+      "year": 2020,
+      "rank": 12
+    },
+    {
+      "id": 3194,
+      "slug": "moby-dick",
+      "title": "Moby Dick",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 105549,
+      "slug": "the-irrational",
+      "title": "The Irrational",
+      "year": 2023,
+      "rank": 14
+    },
+    {
+      "id": 28542,
+      "slug": "bloodline",
+      "title": "Bloodline",
+      "year": 2015,
+      "rank": 15
+    },
+    {
+      "id": 42669,
+      "slug": "the-handmaids-tale",
+      "title": "The Handmaid's Tale",
+      "year": 2017,
+      "rank": 16
+    },
+    {
+      "id": 78674,
+      "slug": "boundless",
+      "title": "Boundless",
+      "year": 2022,
+      "rank": 17
+    },
+    {
+      "id": 58724,
+      "slug": "the-onedin-line",
+      "title": "The Onedin Line",
+      "year": 1971,
+      "rank": 18
+    },
+    {
+      "id": 103142,
+      "slug": "the-secret-agent",
+      "title": "The Secret Agent",
+      "year": 2016,
+      "rank": 19
+    },
+    {
+      "id": 72785,
+      "slug": "nine-perfect-strangers",
+      "title": "Nine Perfect Strangers",
+      "year": 2021,
+      "rank": 20
+    },
+    {
+      "id": 89252,
+      "slug": "riptide",
+      "title": "Riptide",
+      "year": 2022,
+      "rank": 21
+    },
+    {
+      "id": 97691,
+      "slug": "blood",
+      "title": "Blood",
+      "year": 2023,
+      "rank": 22
+    },
+    {
+      "id": 85116,
+      "slug": "who-were-we-running-from",
+      "title": "Who Were We Running From?",
+      "year": 2023,
+      "rank": 23
+    },
+    {
+      "id": 106575,
+      "slug": "wonderful-world",
+      "title": "Wonderful World",
+      "year": 2024,
+      "rank": 24
+    },
+    {
+      "id": 62264,
+      "slug": "sea-wolf",
+      "title": "Sea Wolf",
+      "year": 2009,
+      "rank": 25
+    },
+    {
+      "id": 88939,
+      "slug": "the-suspect",
+      "title": "The Suspect",
+      "year": 2022,
+      "rank": 26
+    },
+    {
+      "id": 78881,
+      "slug": "two-summers",
+      "title": "Two Summers",
+      "year": 2022,
+      "rank": 27
+    },
+    {
+      "id": 98543,
+      "slug": "bandoleros",
+      "title": "Bandoleros",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 61212,
+      "slug": "killing-eve",
+      "title": "Killing Eve",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919185
+}

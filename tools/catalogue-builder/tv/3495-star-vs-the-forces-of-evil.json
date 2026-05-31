@@ -1,0 +1,385 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/3495-star-vs-the-forces-of-evil",
+  "id": 3495,
+  "slug": "star-vs-the-forces-of-evil",
+  "title": "Star vs. the Forces of Evil",
+  "year": 2012,
+  "rating": 7.9,
+  "votes_text": "22K",
+  "votes": 22000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/aa/3495.jpg",
+  "genres": [
+    "Animation",
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Family",
+    "Fantasy",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 22,
+  "story": "Intergalactic warrior Star Butterfly arrives on Earth to live with the Diaz family. She continues to battle villains throughout the universe and high school, mainly to protect her extremely powerful wand, an object that still confuses her.",
+  "tags": [
+    {
+      "id": 281,
+      "slug": "princess",
+      "name": "Princess",
+      "film_count": 1223
+    },
+    {
+      "id": 1450,
+      "slug": "good-versus-evil",
+      "name": "Good versus evil",
+      "film_count": 6642
+    },
+    {
+      "id": 158,
+      "slug": "friendship",
+      "name": "Friendship",
+      "film_count": 28179
+    },
+    {
+      "id": 83562,
+      "slug": "teenage-life",
+      "name": "Teenage life",
+      "film_count": 6021
+    },
+    {
+      "id": 11330,
+      "slug": "magic-wand",
+      "name": "Magic wand",
+      "film_count": 97
+    },
+    {
+      "id": 9071,
+      "slug": "butterfly",
+      "name": "Butterfly",
+      "film_count": 367
+    },
+    {
+      "id": 11619,
+      "slug": "magical-girl",
+      "name": "Magical girl",
+      "film_count": 411
+    },
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 123483,
+      "slug": "sincere",
+      "name": "Sincere",
+      "film_count": 8382
+    },
+    {
+      "id": 3635,
+      "slug": "unicorn",
+      "name": "Unicorn",
+      "film_count": 152
+    },
+    {
+      "id": 87816,
+      "slug": "kids",
+      "name": "Kids",
+      "film_count": 7861
+    },
+    {
+      "id": 15527,
+      "slug": "strength",
+      "name": "Strength",
+      "film_count": 540
+    },
+    {
+      "id": 2338,
+      "slug": "magic",
+      "name": "Magic",
+      "film_count": 4761
+    },
+    {
+      "id": 14019,
+      "slug": "heiress",
+      "name": "Heiress",
+      "film_count": 388
+    },
+    {
+      "id": 1041,
+      "slug": "fish-out-of-water",
+      "name": "Fish out of water",
+      "film_count": 3831
+    },
+    {
+      "id": 120361,
+      "slug": "disney-princess",
+      "name": "Disney princess",
+      "film_count": 125
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "captivating",
+      "exciting",
+      "sincere",
+      "semi serious",
+      "anime",
+      "adult cartoon",
+      "dark fantasy",
+      "humorous",
+      "teen comedy",
+      "2d animation"
+    ],
+    "audience": [
+      "kids",
+      "pre-teens",
+      "teens",
+      "teen fantasy",
+      "preschool"
+    ],
+    "plot": [
+      "princess",
+      "good versus evil",
+      "friendship",
+      "teenage life",
+      "magic wand",
+      "butterfly",
+      "magical girl",
+      "youth",
+      "family relations",
+      "imaginary",
+      "high school life",
+      "portal",
+      "parents and children",
+      "monster",
+      "kingdom",
+      "rivalry",
+      "heir to the throne",
+      "fight",
+      "female protagonist",
+      "teenage girl",
+      "disorder",
+      "high school",
+      "unicorn",
+      "strength",
+      "magic"
+    ]
+  },
+  "similar": [
+    {
+      "id": 3923,
+      "slug": "gravity-falls",
+      "title": "Gravity Falls",
+      "year": 2012,
+      "rank": 0
+    },
+    {
+      "id": 4239,
+      "slug": "adventure-time",
+      "title": "Adventure Time",
+      "year": 2010,
+      "rank": 1
+    },
+    {
+      "id": 67933,
+      "slug": "the-owl-house",
+      "title": "The Owl House",
+      "year": 2020,
+      "rank": 2
+    },
+    {
+      "id": 41822,
+      "slug": "miraculous-tales-of-ladybug-and-cat-noir",
+      "title": "Miraculous: Tales of Ladybug & Cat Noir",
+      "year": 2015,
+      "rank": 3
+    },
+    {
+      "id": 66985,
+      "slug": "kipo-and-the-age-of-wonderbeasts",
+      "title": "Kipo and the Age of Wonderbeasts",
+      "year": 2020,
+      "rank": 4
+    },
+    {
+      "id": 27513,
+      "slug": "how-to-train-your-dragon-2",
+      "title": "How to Train Your Dragon 2",
+      "year": 2014,
+      "rank": 5
+    },
+    {
+      "id": 64295,
+      "slug": "she-ra-and-the-princesses-of-power",
+      "title": "She-Ra and the Princesses of Power",
+      "year": 2018,
+      "rank": 6
+    },
+    {
+      "id": 64643,
+      "slug": "amphibia",
+      "title": "Amphibia",
+      "year": 2019,
+      "rank": 7
+    },
+    {
+      "id": 65439,
+      "slug": "infinity-train",
+      "title": "Infinity Train",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 28443,
+      "slug": "steven-universe",
+      "title": "Steven Universe",
+      "year": 2013,
+      "rank": 9
+    },
+    {
+      "id": 61768,
+      "slug": "hilda",
+      "title": "Hilda",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 8814,
+      "slug": "avatar-the-last-airbender",
+      "title": "Avatar: The Last Airbender",
+      "year": 2005,
+      "rank": 11
+    },
+    {
+      "id": 36909,
+      "slug": "sailor-moon-crystal",
+      "title": "Sailor Moon Crystal",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 45936,
+      "slug": "regal-academy",
+      "title": "Regal Academy",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 66835,
+      "slug": "glitch-techs",
+      "title": "Glitch Techs",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 802,
+      "slug": "winx-club",
+      "title": "Winx Club",
+      "year": 2004,
+      "rank": 15
+    },
+    {
+      "id": 65885,
+      "slug": "hazbin-hotel",
+      "title": "Hazbin Hotel",
+      "year": 2019,
+      "rank": 16
+    },
+    {
+      "id": 64619,
+      "slug": "the-dragon-prince",
+      "title": "The Dragon Prince",
+      "year": 2018,
+      "rank": 17
+    },
+    {
+      "id": 42685,
+      "slug": "ducktales",
+      "title": "DuckTales",
+      "year": 2017,
+      "rank": 18
+    },
+    {
+      "id": 43644,
+      "slug": "trollhunters",
+      "title": "Trollhunters: Tales of Arcadia",
+      "year": 2016,
+      "rank": 19
+    },
+    {
+      "id": 30016,
+      "slug": "danny-phantom",
+      "title": "Danny Phantom",
+      "year": 2003,
+      "rank": 20
+    },
+    {
+      "id": 30144,
+      "slug": "kim-possible",
+      "title": "Kim Possible",
+      "year": 2002,
+      "rank": 21
+    },
+    {
+      "id": 73205,
+      "slug": "the-daily-life-of-the-immortal-king",
+      "title": "The Daily Life of the Immortal King",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 43634,
+      "slug": "the-loud-house",
+      "title": "The Loud House",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 64590,
+      "slug": "3below-tales-of-arcadia",
+      "title": "3Below: Tales of Arcadia",
+      "year": 2018,
+      "rank": 24
+    },
+    {
+      "id": 64587,
+      "slug": "carmen-sandiego",
+      "title": "Carmen Sandiego",
+      "year": 2019,
+      "rank": 25
+    },
+    {
+      "id": 4855,
+      "slug": "w-i-t-c-h",
+      "title": "W.I.T.C.H.",
+      "year": 2004,
+      "rank": 26
+    },
+    {
+      "id": 65185,
+      "slug": "randy-cunningham-9th-grade-ninja",
+      "title": "Randy Cunningham: 9th Grade Ninja",
+      "year": 2012,
+      "rank": 27
+    },
+    {
+      "id": 9449,
+      "slug": "sailor-moon",
+      "title": "Sailor Moon",
+      "year": 1992,
+      "rank": 28
+    },
+    {
+      "id": 26793,
+      "slug": "the-legend-of-korra",
+      "title": "The Legend of Korra",
+      "year": 2012,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919131
+}

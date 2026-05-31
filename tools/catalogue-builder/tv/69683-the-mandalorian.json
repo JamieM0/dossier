@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/69683-the-mandalorian",
+  "id": 69683,
+  "slug": "the-mandalorian",
+  "title": "The Mandalorian",
+  "year": 2019,
+  "rating": 8.6,
+  "votes_text": "647K",
+  "votes": 647000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/c3/69683.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Fantasy",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 40,
+  "story": "Plot under wraps",
+  "tags": [
+    {
+      "id": 34430,
+      "slug": "star-wars",
+      "name": "Star wars",
+      "film_count": 386
+    },
+    {
+      "id": 1358,
+      "slug": "outer-space",
+      "name": "Outer space",
+      "film_count": 2121
+    },
+    {
+      "id": 4302,
+      "slug": "space-travel",
+      "name": "Space travel",
+      "film_count": 1116
+    },
+    {
+      "id": 5181,
+      "slug": "space-opera",
+      "name": "Space opera",
+      "film_count": 914
+    },
+    {
+      "id": 1758,
+      "slug": "bounty-hunter",
+      "name": "Bounty hunter",
+      "film_count": 598
+    },
+    {
+      "id": 2843,
+      "slug": "warrior",
+      "name": "Warrior",
+      "film_count": 3473
+    },
+    {
+      "id": 130,
+      "slug": "loner",
+      "name": "Loner",
+      "film_count": 765
+    },
+    {
+      "id": 123339,
+      "slug": "space-and-aliens",
+      "name": "Space and aliens",
+      "film_count": 1666
+    },
+    {
+      "id": 18704,
+      "slug": "galaxy",
+      "name": "Galaxy",
+      "film_count": 232
+    },
+    {
+      "id": 9091,
+      "slug": "saga",
+      "name": "Saga",
+      "film_count": 1185
+    },
+    {
+      "id": 4570,
+      "slug": "heroism",
+      "name": "Heroism",
+      "film_count": 1777
+    },
+    {
+      "id": 14215,
+      "slug": "star-trek",
+      "name": "Star trek",
+      "film_count": 98
+    },
+    {
+      "id": 3124,
+      "slug": "child-in-peril",
+      "name": "Child in peril",
+      "film_count": 2013
+    },
+    {
+      "id": 126161,
+      "slug": "action-adventure",
+      "name": "Action adventure",
+      "film_count": 1422
+    },
+    {
+      "id": 123867,
+      "slug": "battles",
+      "name": "Battles",
+      "film_count": 6580
+    },
+    {
+      "id": 1037,
+      "slug": "pursuit",
+      "name": "Pursuit",
+      "film_count": 2974
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "futuristic",
+      "exciting",
+      "saga",
+      "action adventure",
+      "suspenseful",
+      "enigmatic",
+      "retro",
+      "atmospheric",
+      "epic",
+      "serious"
+    ],
+    "audience": [
+      "kids",
+      "adult"
+    ],
+    "plot": [
+      "star wars",
+      "outer space",
+      "space travel",
+      "space opera",
+      "bounty hunter",
+      "warrior",
+      "loner",
+      "space and aliens",
+      "one man army",
+      "alien civilization",
+      "tough guy",
+      "space adventure",
+      "gunslinger",
+      "man with no name",
+      "space exploration",
+      "androids and robots",
+      "gunfight",
+      "spacecraft",
+      "giant animal",
+      "baby",
+      "male protagonist",
+      "galaxy",
+      "heroism",
+      "star trek",
+      "child in peril"
+    ],
+    "time": [
+      "90s",
+      "future",
+      "contemporary"
+    ],
+    "place": [
+      "space western"
+    ]
+  },
+  "similar": [
+    {
+      "id": 73864,
+      "slug": "the-book-of-boba-fett",
+      "title": "The Book of Boba Fett",
+      "year": 2021,
+      "rank": 0
+    },
+    {
+      "id": 27268,
+      "slug": "guardians-of-the-galaxy",
+      "title": "Guardians of the Galaxy",
+      "year": 2014,
+      "rank": 1
+    },
+    {
+      "id": 23178,
+      "slug": "star-wars-episode-vi-return-of-the-jedi",
+      "title": "Return of the Jedi",
+      "year": 1983,
+      "rank": 2
+    },
+    {
+      "id": 23175,
+      "slug": "star-wars-episode-iii-revenge-of-the-sith",
+      "title": "Star Wars: Episode III - Revenge of the Sith",
+      "year": 2005,
+      "rank": 3
+    },
+    {
+      "id": 23171,
+      "slug": "star-wars-episode-iv-a-new-hope",
+      "title": "Star Wars: Episode IV - A New Hope",
+      "year": 1977,
+      "rank": 4
+    },
+    {
+      "id": 13442,
+      "slug": "firefly",
+      "title": "Firefly",
+      "year": 2002,
+      "rank": 5
+    },
+    {
+      "id": 35100,
+      "slug": "jason-of-star-command",
+      "title": "Jason of Star Command",
+      "year": 1978,
+      "rank": 6
+    },
+    {
+      "id": 38939,
+      "slug": "rogue-one-a-star-wars-story",
+      "title": "Rogue One: A Star Wars Story",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 69802,
+      "slug": "cowboy-bebop",
+      "title": "Cowboy Bebop",
+      "year": 2021,
+      "rank": 8
+    },
+    {
+      "id": 13198,
+      "slug": "farscape",
+      "title": "Farscape",
+      "year": 1999,
+      "rank": 9
+    },
+    {
+      "id": 74770,
+      "slug": "halo",
+      "title": "Halo",
+      "year": 2022,
+      "rank": 10
+    },
+    {
+      "id": 11427,
+      "slug": "crusade",
+      "title": "Crusade",
+      "year": 1999,
+      "rank": 11
+    },
+    {
+      "id": 23012,
+      "slug": "space-above-and-beyond",
+      "title": "Space: Above and Beyond",
+      "year": 1995,
+      "rank": 12
+    },
+    {
+      "id": 76090,
+      "slug": "obi-wan-kenobi",
+      "title": "Obi-Wan Kenobi",
+      "year": 2022,
+      "rank": 13
+    },
+    {
+      "id": 26556,
+      "slug": "battlestar-galactica-blood-and-chrome",
+      "title": "Battlestar Galactica: Blood & Chrome",
+      "year": 2012,
+      "rank": 14
+    },
+    {
+      "id": 14689,
+      "slug": "star-trek-enterprise",
+      "title": "Star Trek: Enterprise",
+      "year": 2001,
+      "rank": 15
+    },
+    {
+      "id": 13199,
+      "slug": "farscape-the-peacekeeper-wars",
+      "title": "Farscape: The Peacekeeper Wars",
+      "year": 2004,
+      "rank": 16
+    },
+    {
+      "id": 30475,
+      "slug": "battlestar-galactica",
+      "title": "Battlestar Galactica",
+      "year": 1978,
+      "rank": 17
+    },
+    {
+      "id": 23016,
+      "slug": "spacehunter-adventures-in-the-forbidden-zone",
+      "title": "Spacehunter: Adventures in the Forbidden Zone",
+      "year": 1983,
+      "rank": 18
+    },
+    {
+      "id": 23174,
+      "slug": "star-wars-episode-ii-attack-of-the-clones",
+      "title": "Star Wars: Episode II - Attack of the Clones",
+      "year": 2002,
+      "rank": 19
+    },
+    {
+      "id": 8881,
+      "slug": "babylon-5-the-gathering",
+      "title": "Babylon 5: The Gathering",
+      "year": 1993,
+      "rank": 20
+    },
+    {
+      "id": 30277,
+      "slug": "blakes-7",
+      "title": "Blake's 7",
+      "year": 1978,
+      "rank": 21
+    },
+    {
+      "id": 26957,
+      "slug": "riddick",
+      "title": "Riddick",
+      "year": 2013,
+      "rank": 22
+    },
+    {
+      "id": 59291,
+      "slug": "solo-a-star-wars-story",
+      "title": "Solo: A Star Wars Story",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 77216,
+      "slug": "star-trek-strange-new-worlds",
+      "title": "Star Trek: Strange New Worlds",
+      "year": 2022,
+      "rank": 24
+    },
+    {
+      "id": 84014,
+      "slug": "skeleton-crew",
+      "title": "Star Wars: Skeleton Crew",
+      "year": 2024,
+      "rank": 25
+    },
+    {
+      "id": 60641,
+      "slug": "killjoys",
+      "title": "Killjoys",
+      "year": 2015,
+      "rank": 26
+    },
+    {
+      "id": 9099,
+      "slug": "battle-beyond-the-stars",
+      "title": "Battle Beyond the Stars",
+      "year": 1980,
+      "rank": 27
+    },
+    {
+      "id": 33578,
+      "slug": "space-raiders",
+      "title": "Space Raiders",
+      "year": 1983,
+      "rank": 28
+    },
+    {
+      "id": 22165,
+      "slug": "serenity",
+      "title": "Serenity",
+      "year": 2005,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919180
+}

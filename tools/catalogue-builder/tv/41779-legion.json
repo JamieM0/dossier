@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/41779-legion",
+  "id": 41779,
+  "slug": "legion",
+  "title": "Legion",
+  "year": 2017,
+  "rating": 8.1,
+  "votes_text": "103K",
+  "votes": 103000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/99/41779.jpg",
+  "genres": [
+    "Action",
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "David Haller, AKA Legion, is a troubled young man who may be more than human. Diagnosed as schizophrenic, David has been in and out of psychiatric hospitals for years. But after a strange encounter with a fellow patient, he’s confronted with the possibility that the voices he hears and the visions he sees might be real.",
+  "tags": [
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 4987,
+      "slug": "telepathy",
+      "name": "Telepathy",
+      "film_count": 521
+    },
+    {
+      "id": 28601,
+      "slug": "x-men",
+      "name": "X men",
+      "film_count": 39
+    },
+    {
+      "id": 4,
+      "slug": "mental-illness",
+      "name": "Mental illness",
+      "film_count": 3669
+    },
+    {
+      "id": 3089,
+      "slug": "supernatural-power",
+      "name": "Supernatural power",
+      "film_count": 6202
+    },
+    {
+      "id": 127,
+      "slug": "schizophrenia",
+      "name": "Schizophrenia",
+      "film_count": 586
+    },
+    {
+      "id": 7685,
+      "slug": "superpower",
+      "name": "Superpower",
+      "film_count": 2014
+    },
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 4441,
+      "slug": "teleportation",
+      "name": "Teleportation",
+      "film_count": 585
+    },
+    {
+      "id": 1839,
+      "slug": "apocalypse",
+      "name": "Apocalypse",
+      "film_count": 3083
+    },
+    {
+      "id": 92242,
+      "slug": "psychological",
+      "name": "Psychological",
+      "film_count": 24609
+    },
+    {
+      "id": 4145,
+      "slug": "viking",
+      "name": "Viking",
+      "film_count": 410
+    },
+    {
+      "id": 2721,
+      "slug": "future",
+      "name": "Future",
+      "film_count": 3588
+    },
+    {
+      "id": 10719,
+      "slug": "psychology",
+      "name": "Psychology",
+      "film_count": 2501
+    },
+    {
+      "id": 25980,
+      "slug": "philosophical",
+      "name": "Philosophical",
+      "film_count": 2616
+    },
+    {
+      "id": 123477,
+      "slug": "atmospheric",
+      "name": "Atmospheric",
+      "film_count": 9722
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "psychological thriller",
+      "captivating",
+      "saga",
+      "mysterious",
+      "exciting",
+      "psychological",
+      "philosophical",
+      "atmospheric",
+      "spiritual",
+      "epic"
+    ],
+    "audience": [
+      "boys' night",
+      "teens",
+      "teen drama"
+    ],
+    "plot": [
+      "telepathy",
+      "x men",
+      "mental illness",
+      "supernatural power",
+      "schizophrenia",
+      "superpower",
+      "superhero",
+      "telekinesis",
+      "superhuman",
+      "memory",
+      "mental institution",
+      "mutant",
+      "multiverse",
+      "time travel",
+      "male protagonist",
+      "reality vs fantasy",
+      "hiding place",
+      "teleportation",
+      "apocalypse",
+      "viking",
+      "psychology",
+      "psychopath",
+      "obsession",
+      "addiction",
+      "villain"
+    ],
+    "time": [
+      "future",
+      "2010s",
+      "contemporary"
+    ],
+    "place": [
+      "usa"
+    ]
+  },
+  "similar": [
+    {
+      "id": 68583,
+      "slug": "wandavision",
+      "title": "WandaVision",
+      "year": 2021,
+      "rank": 0
+    },
+    {
+      "id": 64831,
+      "slug": "the-umbrella-academy",
+      "title": "The Umbrella Academy",
+      "year": 2019,
+      "rank": 1
+    },
+    {
+      "id": 57902,
+      "slug": "the-gifted",
+      "title": "The Gifted",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 75127,
+      "slug": "peacemaker",
+      "title": "Peacemaker",
+      "year": 2022,
+      "rank": 3
+    },
+    {
+      "id": 64608,
+      "slug": "doom-patrol",
+      "title": "Doom Patrol",
+      "year": 2019,
+      "rank": 4
+    },
+    {
+      "id": 4779,
+      "slug": "agents-of-s-h-i-e-l-d",
+      "title": "Agents of S.H.I.E.L.D.",
+      "year": 2013,
+      "rank": 5
+    },
+    {
+      "id": 19302,
+      "slug": "daredevil",
+      "title": "Daredevil",
+      "year": 2015,
+      "rank": 6
+    },
+    {
+      "id": 38911,
+      "slug": "x-men-apocalypse",
+      "title": "X-Men: Apocalypse",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 57869,
+      "slug": "marvels-the-defenders",
+      "title": "The Defenders",
+      "year": 2017,
+      "rank": 8
+    },
+    {
+      "id": 58503,
+      "slug": "titans",
+      "title": "Titans",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 60496,
+      "slug": "watchmen",
+      "title": "Watchmen",
+      "year": 2019,
+      "rank": 10
+    },
+    {
+      "id": 27166,
+      "slug": "the-flash",
+      "title": "The Flash",
+      "year": 2014,
+      "rank": 11
+    },
+    {
+      "id": 68903,
+      "slug": "loki",
+      "title": "Loki",
+      "year": 2021,
+      "rank": 12
+    },
+    {
+      "id": 60868,
+      "slug": "krypton",
+      "title": "Krypton",
+      "year": 2018,
+      "rank": 13
+    },
+    {
+      "id": 41829,
+      "slug": "minority-report",
+      "title": "Minority Report",
+      "year": 2015,
+      "rank": 14
+    },
+    {
+      "id": 69084,
+      "slug": "utopia",
+      "title": "Utopia",
+      "year": 2020,
+      "rank": 15
+    },
+    {
+      "id": 27012,
+      "slug": "continuum",
+      "title": "Continuum",
+      "year": 2012,
+      "rank": 16
+    },
+    {
+      "id": 76204,
+      "slug": "moon-knight",
+      "title": "Moon Knight",
+      "year": 2022,
+      "rank": 17
+    },
+    {
+      "id": 30203,
+      "slug": "mutant-x",
+      "title": "Mutant X",
+      "year": 2001,
+      "rank": 18
+    },
+    {
+      "id": 72609,
+      "slug": "mob-psycho-100",
+      "title": "Mob Psycho 100",
+      "year": 2018,
+      "rank": 19
+    },
+    {
+      "id": 29992,
+      "slug": "birds-of-prey",
+      "title": "Birds of Prey",
+      "year": 2002,
+      "rank": 20
+    },
+    {
+      "id": 25922,
+      "slug": "x-men-first-class",
+      "title": "X-Men: First Class",
+      "year": 2011,
+      "rank": 21
+    },
+    {
+      "id": 75811,
+      "slug": "quantum-break",
+      "title": "Quantum Break",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 38910,
+      "slug": "wonder-woman",
+      "title": "Wonder Woman",
+      "year": 2017,
+      "rank": 23
+    },
+    {
+      "id": 60632,
+      "slug": "z-nation",
+      "title": "Z Nation",
+      "year": 2014,
+      "rank": 24
+    },
+    {
+      "id": 38907,
+      "slug": "10-cloverfield-lane",
+      "title": "10 Cloverfield Lane",
+      "year": 2016,
+      "rank": 25
+    },
+    {
+      "id": 4560,
+      "slug": "almost-human",
+      "title": "Almost Human",
+      "year": 2013,
+      "rank": 26
+    },
+    {
+      "id": 40370,
+      "slug": "maximum-ride",
+      "title": "Maximum Ride",
+      "year": 2016,
+      "rank": 27
+    },
+    {
+      "id": 60789,
+      "slug": "the-oa",
+      "title": "The OA",
+      "year": 2016,
+      "rank": 28
+    },
+    {
+      "id": 25920,
+      "slug": "x-men-origins-wolverine",
+      "title": "X-Men Origins: Wolverine",
+      "year": 2009,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919158
+}

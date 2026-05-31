@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/64076-a-discovery-of-witches",
+  "id": 64076,
+  "slug": "a-discovery-of-witches",
+  "title": "A Discovery of Witches",
+  "year": 2018,
+  "rating": 7.8,
+  "votes_text": "74K",
+  "votes": 74000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/55/64076.jpg",
+  "genres": [
+    "Drama",
+    "Fantasy",
+    "Romance"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 45,
+  "story": "Diana Bishop, historian and witch, accesses Ashmole 782 and knows she must solve its mysteries. She is offered help by the enigmatic Matthew Clairmont, but he's a vampire and witches should never trust vampires.",
+  "tags": [
+    {
+      "id": 3943,
+      "slug": "witch",
+      "name": "Witch",
+      "film_count": 2159
+    },
+    {
+      "id": 2627,
+      "slug": "vampire",
+      "name": "Vampire",
+      "film_count": 1688
+    },
+    {
+      "id": 2338,
+      "slug": "magic",
+      "name": "Magic",
+      "film_count": 4761
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 29217,
+      "slug": "vampire-human-love",
+      "name": "Vampire human love",
+      "film_count": 811
+    },
+    {
+      "id": 123337,
+      "slug": "love-and-romance",
+      "name": "Love and romance",
+      "film_count": 17340
+    },
+    {
+      "id": 35547,
+      "slug": "interspecies-romance",
+      "name": "Interspecies romance",
+      "film_count": 268
+    },
+    {
+      "id": 11272,
+      "slug": "impossible-love",
+      "name": "Impossible love",
+      "film_count": 460
+    },
+    {
+      "id": 123520,
+      "slug": "twists-and-turns",
+      "name": "Twists and turns",
+      "film_count": 6600
+    },
+    {
+      "id": 123492,
+      "slug": "london",
+      "name": "London",
+      "film_count": 3262
+    },
+    {
+      "id": 8255,
+      "slug": "gothic",
+      "name": "Gothic",
+      "film_count": 2678
+    },
+    {
+      "id": 3697,
+      "slug": "religion",
+      "name": "Religion",
+      "film_count": 3492
+    },
+    {
+      "id": 2091,
+      "slug": "fight",
+      "name": "Fight",
+      "film_count": 12186
+    },
+    {
+      "id": 124243,
+      "slug": "relationships",
+      "name": "Relationships",
+      "film_count": 14254
+    },
+    {
+      "id": 25397,
+      "slug": "enigmatic",
+      "name": "Enigmatic",
+      "film_count": 4877
+    },
+    {
+      "id": 4217,
+      "slug": "black-magic",
+      "name": "Black magic",
+      "film_count": 736
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "romantic",
+      "stylized",
+      "scenic",
+      "captivating",
+      "epic fantasy",
+      "costume drama",
+      "gothic",
+      "enigmatic",
+      "epic",
+      "sad"
+    ],
+    "plot": [
+      "witch",
+      "vampire",
+      "magic",
+      "supernatural",
+      "danger",
+      "vampire human love",
+      "love and romance",
+      "interspecies romance",
+      "impossible love",
+      "witchcraft",
+      "time travel",
+      "magical power",
+      "book",
+      "magical",
+      "female protagonist",
+      "demon",
+      "love interest",
+      "supernatural ability",
+      "superhero",
+      "wizard",
+      "twists and turns",
+      "religion",
+      "fight",
+      "relationships",
+      "black magic"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century"
+    ],
+    "place": [
+      "london",
+      "chicago",
+      "france",
+      "venice",
+      "britain",
+      "united kingdom"
+    ]
+  },
+  "similar": [
+    {
+      "id": 6070,
+      "slug": "witches-of-east-end",
+      "title": "Witches of East End",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 67019,
+      "slug": "luna-nera",
+      "title": "Luna Nera",
+      "year": 2020,
+      "rank": 1
+    },
+    {
+      "id": 5865,
+      "slug": "the-originals",
+      "title": "The Originals",
+      "year": 2013,
+      "rank": 2
+    },
+    {
+      "id": 5063,
+      "slug": "lost-girl",
+      "title": "Lost Girl",
+      "year": 2010,
+      "rank": 3
+    },
+    {
+      "id": 5767,
+      "slug": "penny-dreadful",
+      "title": "Penny Dreadful",
+      "year": 2014,
+      "rank": 4
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 5
+    },
+    {
+      "id": 41815,
+      "slug": "the-magicians",
+      "title": "The Magicians",
+      "year": 2015,
+      "rank": 6
+    },
+    {
+      "id": 35431,
+      "slug": "the-shannara-chronicles",
+      "title": "The Shannara Chronicles",
+      "year": 2016,
+      "rank": 7
+    },
+    {
+      "id": 66942,
+      "slug": "motherland-fort-salem",
+      "title": "Motherland: Fort Salem",
+      "year": 2020,
+      "rank": 8
+    },
+    {
+      "id": 17541,
+      "slug": "lost-in-austen",
+      "title": "Lost in Austen",
+      "year": 2008,
+      "rank": 9
+    },
+    {
+      "id": 27309,
+      "slug": "salem",
+      "title": "Salem",
+      "year": 2014,
+      "rank": 10
+    },
+    {
+      "id": 2264,
+      "slug": "beautiful-creatures",
+      "title": "Beautiful Creatures",
+      "year": 2013,
+      "rank": 11
+    },
+    {
+      "id": 64335,
+      "slug": "legacies",
+      "title": "Legacies",
+      "year": 2018,
+      "rank": 12
+    },
+    {
+      "id": 2266,
+      "slug": "the-secret-circle",
+      "title": "The Secret Circle",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 7391,
+      "slug": "outlander",
+      "title": "Outlander",
+      "year": 2014,
+      "rank": 14
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 15
+    },
+    {
+      "id": 27028,
+      "slug": "merlin",
+      "title": "Merlin",
+      "year": 2008,
+      "rank": 16
+    },
+    {
+      "id": 61215,
+      "slug": "the-outpost",
+      "title": "The Outpost",
+      "year": 2018,
+      "rank": 17
+    },
+    {
+      "id": 57898,
+      "slug": "midnight-texas",
+      "title": "Midnight, Texas",
+      "year": 2017,
+      "rank": 18
+    },
+    {
+      "id": 26563,
+      "slug": "moonlight",
+      "title": "Moonlight",
+      "year": 2007,
+      "rank": 19
+    },
+    {
+      "id": 69183,
+      "slug": "fate-the-winx-saga",
+      "title": "Fate: The Winx Saga",
+      "year": 2021,
+      "rank": 20
+    },
+    {
+      "id": 60790,
+      "slug": "van-helsing",
+      "title": "Van Helsing",
+      "year": 2016,
+      "rank": 21
+    },
+    {
+      "id": 61827,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 2018,
+      "rank": 22
+    },
+    {
+      "id": 67834,
+      "slug": "warrior-nun",
+      "title": "Warrior Nun",
+      "year": 2020,
+      "rank": 23
+    },
+    {
+      "id": 10596,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 1998,
+      "rank": 24
+    },
+    {
+      "id": 61028,
+      "slug": "my-love-from-another-star",
+      "title": "My Love from the Star",
+      "year": 2013,
+      "rank": 25
+    },
+    {
+      "id": 71031,
+      "slug": "the-nevers",
+      "title": "The Nevers",
+      "year": 2021,
+      "rank": 26
+    },
+    {
+      "id": 65640,
+      "slug": "the-order",
+      "title": "The Order",
+      "year": 2019,
+      "rank": 27
+    },
+    {
+      "id": 75210,
+      "slug": "lovers-of-the-red-sky",
+      "title": "Lovers of the Red Sky",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 68053,
+      "slug": "cursed",
+      "title": "Cursed",
+      "year": 2020,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919168
+}

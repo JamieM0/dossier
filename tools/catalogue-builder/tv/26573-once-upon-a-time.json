@@ -1,0 +1,397 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/26573-once-upon-a-time",
+  "id": 26573,
+  "slug": "once-upon-a-time",
+  "title": "Once Upon a Time",
+  "year": 2011,
+  "rating": 7.7,
+  "votes_text": "247K",
+  "votes": 247000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/89/26573.jpg",
+  "genres": [
+    "Adventure",
+    "Fantasy",
+    "Romance"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "There is a town in Maine where every story book character you've ever known is trapped between two worlds, victims of a powerful curse. Only one knows the truth and only one can break the spell. Emma Swan is a 28-year-old bail bonds collector who has been supporting herself since she was abandoned as a baby. Things change for her when her son Henry, whom she abandoned years ago, finds her and asks for her help explaining that she is from a different world where she is Snow White's missing daughter.",
+  "tags": [
+    {
+      "id": 1287,
+      "slug": "fairy-tale",
+      "name": "Fairy tale",
+      "film_count": 2340
+    },
+    {
+      "id": 2338,
+      "slug": "magic",
+      "name": "Magic",
+      "film_count": 4761
+    },
+    {
+      "id": 10307,
+      "slug": "fantasy-world",
+      "name": "Fantasy world",
+      "film_count": 7231
+    },
+    {
+      "id": 98289,
+      "slug": "power-of-love",
+      "name": "Power of love",
+      "film_count": 216
+    },
+    {
+      "id": 18687,
+      "slug": "based-on-fairy-tale",
+      "name": "Based on fairy tale",
+      "film_count": 262
+    },
+    {
+      "id": 123674,
+      "slug": "magical",
+      "name": "Magical",
+      "film_count": 1507
+    },
+    {
+      "id": 11200,
+      "slug": "true-love",
+      "name": "True love",
+      "film_count": 1205
+    },
+    {
+      "id": 1450,
+      "slug": "good-versus-evil",
+      "name": "Good versus evil",
+      "film_count": 6642
+    },
+    {
+      "id": 123672,
+      "slug": "lovers-apart",
+      "name": "Lovers apart",
+      "film_count": 180
+    },
+    {
+      "id": 123426,
+      "slug": "parents-and-children",
+      "name": "Parents and children",
+      "film_count": 8214
+    },
+    {
+      "id": 730,
+      "slug": "small-town",
+      "name": "Small town",
+      "film_count": 12799
+    },
+    {
+      "id": 197,
+      "slug": "queen",
+      "name": "Queen",
+      "film_count": 866
+    },
+    {
+      "id": 40915,
+      "slug": "disorder",
+      "name": "Disorder",
+      "film_count": 8159
+    },
+    {
+      "id": 123621,
+      "slug": "goodhearted",
+      "name": "Goodhearted",
+      "film_count": 134
+    },
+    {
+      "id": 25321,
+      "slug": "offbeat",
+      "name": "Offbeat",
+      "film_count": 6022
+    },
+    {
+      "id": 48781,
+      "slug": "sleeping-beauty",
+      "name": "Sleeping beauty",
+      "film_count": 31
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "fairy tale",
+      "offbeat",
+      "stylized",
+      "sentimental",
+      "modern fairy tale",
+      "captivating",
+      "touching",
+      "mysterious",
+      "costume drama",
+      "serious"
+    ],
+    "audience": [
+      "teens",
+      "family outing",
+      "teen fantasy",
+      "boys' night",
+      "pre-teens",
+      "adult"
+    ],
+    "plot": [
+      "magic",
+      "fantasy world",
+      "power of love",
+      "magical",
+      "true love",
+      "good versus evil",
+      "fairy",
+      "imaginary kingdom",
+      "prince",
+      "hopes",
+      "friends",
+      "curses spells and rituals",
+      "rivalry",
+      "princess",
+      "imaginary",
+      "friendship",
+      "long lost daughter",
+      "mayor",
+      "family relations",
+      "legends and myths",
+      "evil queen",
+      "snow white",
+      "lovers apart",
+      "parents and children",
+      "small town"
+    ],
+    "time": [
+      "2010s",
+      "medieval times",
+      "19th century",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "maine",
+      "seattle",
+      "idaho",
+      "fictional island",
+      "usa",
+      "new england"
+    ]
+  },
+  "similar": [
+    {
+      "id": 4510,
+      "slug": "once-upon-a-time-in-wonderland",
+      "title": "Once Upon a Time in Wonderland",
+      "year": 2013,
+      "rank": 0
+    },
+    {
+      "id": 7614,
+      "slug": "the-10th-kingdom",
+      "title": "The 10th Kingdom",
+      "year": 2000,
+      "rank": 1
+    },
+    {
+      "id": 7392,
+      "slug": "maleficent",
+      "title": "Maleficent",
+      "year": 2014,
+      "rank": 2
+    },
+    {
+      "id": 8127,
+      "slug": "alice-in-wonderland",
+      "title": "Alice in Wonderland",
+      "year": 2010,
+      "rank": 3
+    },
+    {
+      "id": 26404,
+      "slug": "snow-white-and-the-huntsman",
+      "title": "Snow White and the Huntsman",
+      "year": 2012,
+      "rank": 4
+    },
+    {
+      "id": 27028,
+      "slug": "merlin",
+      "title": "Merlin",
+      "year": 2008,
+      "rank": 5
+    },
+    {
+      "id": 4415,
+      "slug": "teen-wolf",
+      "title": "Teen Wolf",
+      "year": 2011,
+      "rank": 6
+    },
+    {
+      "id": 26643,
+      "slug": "grimm",
+      "title": "Grimm",
+      "year": 2011,
+      "rank": 7
+    },
+    {
+      "id": 42760,
+      "slug": "shadowhunters",
+      "title": "Shadowhunters",
+      "year": 2016,
+      "rank": 8
+    },
+    {
+      "id": 26566,
+      "slug": "legend-of-the-seeker",
+      "title": "Legend of the Seeker",
+      "year": 2008,
+      "rank": 9
+    },
+    {
+      "id": 26308,
+      "slug": "mirror-mirror",
+      "title": "Mirror Mirror",
+      "year": 2012,
+      "rank": 10
+    },
+    {
+      "id": 69183,
+      "slug": "fate-the-winx-saga",
+      "title": "Fate: The Winx Saga",
+      "year": 2021,
+      "rank": 11
+    },
+    {
+      "id": 42783,
+      "slug": "emerald-city",
+      "title": "Emerald City",
+      "year": 2016,
+      "rank": 12
+    },
+    {
+      "id": 64953,
+      "slug": "maleficent-mistress-of-evil",
+      "title": "Maleficent: Mistress of Evil",
+      "year": 2019,
+      "rank": 13
+    },
+    {
+      "id": 18273,
+      "slug": "merlins-apprentice",
+      "title": "Merlin's Apprentice",
+      "year": 2006,
+      "rank": 14
+    },
+    {
+      "id": 10596,
+      "slug": "charmed",
+      "title": "Charmed",
+      "year": 1998,
+      "rank": 15
+    },
+    {
+      "id": 10797,
+      "slug": "the-chronicles-of-narnia-the-lion-the-witch-and-the-wardrobe",
+      "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+      "year": 2005,
+      "rank": 16
+    },
+    {
+      "id": 38336,
+      "slug": "beauty-and-the-beast",
+      "title": "Beauty and the Beast",
+      "year": 2017,
+      "rank": 17
+    },
+    {
+      "id": 40742,
+      "slug": "descendants",
+      "title": "Descendants",
+      "year": 2015,
+      "rank": 18
+    },
+    {
+      "id": 23182,
+      "slug": "stardust",
+      "title": "Stardust",
+      "year": 2007,
+      "rank": 19
+    },
+    {
+      "id": 8123,
+      "slug": "alice",
+      "title": "Alice",
+      "year": 2009,
+      "rank": 20
+    },
+    {
+      "id": 12732,
+      "slug": "ella-enchanted",
+      "title": "Ella Enchanted",
+      "year": 2004,
+      "rank": 21
+    },
+    {
+      "id": 14803,
+      "slug": "harry-potter-and-the-sorcerers-stone",
+      "title": "Harry Potter and the Sorcerer's Stone",
+      "year": 2001,
+      "rank": 22
+    },
+    {
+      "id": 41815,
+      "slug": "the-magicians",
+      "title": "The Magicians",
+      "year": 2015,
+      "rank": 23
+    },
+    {
+      "id": 23061,
+      "slug": "the-spiderwick-chronicles",
+      "title": "The Spiderwick Chronicles",
+      "year": 2008,
+      "rank": 24
+    },
+    {
+      "id": 24147,
+      "slug": "tin-man",
+      "title": "Tin Man",
+      "year": 2007,
+      "rank": 25
+    },
+    {
+      "id": 26215,
+      "slug": "the-vampire-diaries",
+      "title": "The Vampire Diaries",
+      "year": 2009,
+      "rank": 26
+    },
+    {
+      "id": 35431,
+      "slug": "the-shannara-chronicles",
+      "title": "The Shannara Chronicles",
+      "year": 2016,
+      "rank": 27
+    },
+    {
+      "id": 24901,
+      "slug": "cinderella",
+      "title": "Cinderella",
+      "year": 2015,
+      "rank": 28
+    },
+    {
+      "id": 10098,
+      "slug": "buffy-the-vampire-slayer",
+      "title": "Buffy the Vampire Slayer",
+      "year": 1997,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919147
+}

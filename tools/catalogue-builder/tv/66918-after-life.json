@@ -1,0 +1,382 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/66918-after-life",
+  "id": 66918,
+  "slug": "after-life",
+  "title": "After Life",
+  "year": 2019,
+  "rating": 8.4,
+  "votes_text": "167K",
+  "votes": 167000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/f7/66918.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "UK"
+  ],
+  "duration_min": 30,
+  "story": "Tony had a perfect life. But after his wife Lisa suddenly dies, Tony changes. After contemplating taking his own life, he decides instead to live long enough to punish the world by saying and doing whatever he likes from now on.",
+  "tags": [
+    {
+      "id": 15322,
+      "slug": "bereavement",
+      "name": "Bereavement",
+      "film_count": 509
+    },
+    {
+      "id": 1551,
+      "slug": "death-of-wife",
+      "name": "Death of wife",
+      "film_count": 1233
+    },
+    {
+      "id": 22713,
+      "slug": "sex-worker",
+      "name": "Sex worker",
+      "film_count": 316
+    },
+    {
+      "id": 275,
+      "slug": "dog",
+      "name": "Dog",
+      "film_count": 7735
+    },
+    {
+      "id": 17431,
+      "slug": "starting-over",
+      "name": "Starting over",
+      "film_count": 1290
+    },
+    {
+      "id": 19792,
+      "slug": "death-wish",
+      "name": "Death wish",
+      "film_count": 159
+    },
+    {
+      "id": 436,
+      "slug": "death",
+      "name": "Death",
+      "film_count": 18858
+    },
+    {
+      "id": 10874,
+      "slug": "dark-comedy",
+      "name": "Dark comedy",
+      "film_count": 7481
+    },
+    {
+      "id": 123872,
+      "slug": "captivating",
+      "name": "Captivating",
+      "film_count": 43611
+    },
+    {
+      "id": 123336,
+      "slug": "life-is-a-bitch",
+      "name": "Life is a bitch",
+      "film_count": 9164
+    },
+    {
+      "id": 91568,
+      "slug": "sad",
+      "name": "Sad",
+      "film_count": 2642
+    },
+    {
+      "id": 9396,
+      "slug": "relationship-problems",
+      "name": "Relationship problems",
+      "film_count": 4761
+    },
+    {
+      "id": 49648,
+      "slug": "family-problems",
+      "name": "Family problems",
+      "film_count": 7225
+    },
+    {
+      "id": 123666,
+      "slug": "lifestyle-change",
+      "name": "Lifestyle change",
+      "film_count": 1896
+    },
+    {
+      "id": 2939,
+      "slug": "gross-out-humor",
+      "name": "Gross out humor",
+      "film_count": 204
+    },
+    {
+      "id": 14192,
+      "slug": "change-of-heart",
+      "name": "Change of heart",
+      "film_count": 301
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "dark comedy",
+      "funny",
+      "ironic",
+      "compassionate",
+      "humorous",
+      "powerful",
+      "captivating",
+      "sad",
+      "uplifting",
+      "atmospheric"
+    ],
+    "plot": [
+      "bereavement",
+      "death of wife",
+      "sex worker",
+      "dog",
+      "starting over",
+      "death wish",
+      "death",
+      "journalism",
+      "depression",
+      "suicide",
+      "sadness",
+      "grief",
+      "newspaper office",
+      "life",
+      "changing lives",
+      "newspaper reporter",
+      "character change",
+      "cancer",
+      "life is a bitch",
+      "relationship problems",
+      "family problems",
+      "lifestyle change",
+      "gross out humor",
+      "change of heart",
+      "complex characters"
+    ],
+    "time": [
+      "2010s",
+      "2020s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "syria"
+    ]
+  },
+  "similar": [
+    {
+      "id": 72731,
+      "slug": "sorry-for-your-loss",
+      "title": "Sorry for Your Loss",
+      "year": 2018,
+      "rank": 0
+    },
+    {
+      "id": 73567,
+      "slug": "the-starling",
+      "title": "The Starling",
+      "year": 2021,
+      "rank": 1
+    },
+    {
+      "id": 84960,
+      "slug": "shrinking",
+      "title": "Shrinking",
+      "year": 2023,
+      "rank": 2
+    },
+    {
+      "id": 43642,
+      "slug": "fleabag",
+      "title": "Fleabag",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 58254,
+      "slug": "the-marvelous-mrs-maisel",
+      "title": "The Marvelous Mrs. Maisel",
+      "year": 2017,
+      "rank": 4
+    },
+    {
+      "id": 74826,
+      "slug": "back-to-life",
+      "title": "Back to Life",
+      "year": 2019,
+      "rank": 5
+    },
+    {
+      "id": 78775,
+      "slug": "the-bear",
+      "title": "The Bear",
+      "year": 2022,
+      "rank": 6
+    },
+    {
+      "id": 70400,
+      "slug": "loudermilk",
+      "title": "Loudermilk",
+      "year": 2017,
+      "rank": 7
+    },
+    {
+      "id": 72573,
+      "slug": "recipe-for-life",
+      "title": "Recipe for Life",
+      "year": 2011,
+      "rank": 8
+    },
+    {
+      "id": 80309,
+      "slug": "life-begins",
+      "title": "Life Begins",
+      "year": 2004,
+      "rank": 9
+    },
+    {
+      "id": 75896,
+      "slug": "back",
+      "title": "Back",
+      "year": 2017,
+      "rank": 10
+    },
+    {
+      "id": 79326,
+      "slug": "ricky-gervais-supernature",
+      "title": "Ricky Gervais: SuperNature",
+      "year": 2022,
+      "rank": 11
+    },
+    {
+      "id": 76026,
+      "slug": "finding-alice",
+      "title": "Finding Alice",
+      "year": 2021,
+      "rank": 12
+    },
+    {
+      "id": 1306,
+      "slug": "lifes-too-short",
+      "title": "Life's Too Short",
+      "year": 2011,
+      "rank": 13
+    },
+    {
+      "id": 67409,
+      "slug": "breeders",
+      "title": "Breeders",
+      "year": 2020,
+      "rank": 14
+    },
+    {
+      "id": 80194,
+      "slug": "mammals",
+      "title": "Mammals",
+      "year": 2022,
+      "rank": 15
+    },
+    {
+      "id": 73120,
+      "slug": "wagle-ki-duniya",
+      "title": "Wagle Ki Duniya",
+      "year": 2021,
+      "rank": 16
+    },
+    {
+      "id": 89960,
+      "slug": "el-gordo-a-true-story",
+      "title": "El Gordo: A True Story",
+      "year": 2010,
+      "rank": 17
+    },
+    {
+      "id": 89260,
+      "slug": "in-limbo",
+      "title": "In Limbo",
+      "year": 2023,
+      "rank": 18
+    },
+    {
+      "id": 67086,
+      "slug": "happyish",
+      "title": "HAPPYish",
+      "year": 2015,
+      "rank": 19
+    },
+    {
+      "id": 86747,
+      "slug": "shit-faced",
+      "title": "Shit faced",
+      "year": 2011,
+      "rank": 20
+    },
+    {
+      "id": 81384,
+      "slug": "the-dry",
+      "title": "The Dry",
+      "year": 2022,
+      "rank": 21
+    },
+    {
+      "id": 72958,
+      "slug": "b-positive",
+      "title": "B Positive",
+      "year": 2020,
+      "rank": 22
+    },
+    {
+      "id": 71678,
+      "slug": "the-kominsky-method",
+      "title": "The Kominsky Method",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 72947,
+      "slug": "kevin-can-f-k-himself",
+      "title": "Kevin Can F**k Himself",
+      "year": 2021,
+      "rank": 24
+    },
+    {
+      "id": 80680,
+      "slug": "born-on-saturday",
+      "title": "Βorn on Saturday",
+      "year": 2003,
+      "rank": 25
+    },
+    {
+      "id": 104520,
+      "slug": "here-we-go",
+      "title": "Here We Go",
+      "year": 2020,
+      "rank": 26
+    },
+    {
+      "id": 72403,
+      "slug": "flowers",
+      "title": "Flowers",
+      "year": 2016,
+      "rank": 27
+    },
+    {
+      "id": 30449,
+      "slug": "the-office",
+      "title": "The Office",
+      "year": 2001,
+      "rank": 28
+    },
+    {
+      "id": 80957,
+      "slug": "sick-of-it",
+      "title": "Sick of It",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919174
+}

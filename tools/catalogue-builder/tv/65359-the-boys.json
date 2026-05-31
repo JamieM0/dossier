@@ -1,0 +1,388 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/65359-the-boys",
+  "id": 65359,
+  "slug": "the-boys",
+  "title": "The Boys",
+  "year": 2019,
+  "rating": 8.6,
+  "votes_text": "833K",
+  "votes": 833000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/94/65359.jpg",
+  "genres": [
+    "Action",
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Sci-Fi"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "A group of vigilantes known informally as “The Boys” set out to take down corrupt superheroes with no more than blue-collar grit and a willingness to fight dirty.",
+  "tags": [
+    {
+      "id": 1448,
+      "slug": "superhero",
+      "name": "Superhero",
+      "film_count": 4709
+    },
+    {
+      "id": 4198,
+      "slug": "based-on-comic",
+      "name": "Based on comic",
+      "film_count": 4745
+    },
+    {
+      "id": 2391,
+      "slug": "dark-humor",
+      "name": "Dark humor",
+      "film_count": 6058
+    },
+    {
+      "id": 1260,
+      "slug": "vengeance",
+      "name": "Vengeance",
+      "film_count": 13036
+    },
+    {
+      "id": 3089,
+      "slug": "supernatural-power",
+      "name": "Supernatural power",
+      "film_count": 6202
+    },
+    {
+      "id": 562,
+      "slug": "violence",
+      "name": "Violence",
+      "film_count": 20112
+    },
+    {
+      "id": 5052,
+      "slug": "superhuman",
+      "name": "Superhuman",
+      "film_count": 260
+    },
+    {
+      "id": 806,
+      "slug": "corruption",
+      "name": "Corruption",
+      "film_count": 9994
+    },
+    {
+      "id": 107798,
+      "slug": "pretty-girl",
+      "name": "Pretty girl",
+      "film_count": 409
+    },
+    {
+      "id": 4763,
+      "slug": "bisexual",
+      "name": "Bisexual",
+      "film_count": 1481
+    },
+    {
+      "id": 497,
+      "slug": "corporation",
+      "name": "Corporation",
+      "film_count": 641
+    },
+    {
+      "id": 3488,
+      "slug": "name-calling",
+      "name": "Name calling",
+      "film_count": 1039
+    },
+    {
+      "id": 4168,
+      "slug": "2020s",
+      "name": "2020s",
+      "film_count": 2869
+    },
+    {
+      "id": 4179,
+      "slug": "vigilante",
+      "name": "Vigilante",
+      "film_count": 2878
+    },
+    {
+      "id": 3135,
+      "slug": "supernatural",
+      "name": "Supernatural",
+      "film_count": 12896
+    },
+    {
+      "id": 124097,
+      "slug": "funny",
+      "name": "Funny",
+      "film_count": 8566
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "satirical",
+      "tense",
+      "entertaining",
+      "bloody",
+      "funny",
+      "erotic",
+      "political",
+      "dark",
+      "captivating",
+      "dark comedy"
+    ],
+    "audience": [
+      "date night"
+    ],
+    "plot": [
+      "superhero",
+      "dark humor",
+      "vengeance",
+      "supernatural power",
+      "violence",
+      "superhuman",
+      "corruption",
+      "super speed",
+      "murder",
+      "superheroine",
+      "society",
+      "superhero team",
+      "rivalry",
+      "blood",
+      "investigation",
+      "super powers",
+      "brutality",
+      "sex scene",
+      "revenge",
+      "pretty girl",
+      "bisexual",
+      "corporation",
+      "name calling",
+      "vigilante",
+      "supernatural"
+    ],
+    "time": [
+      "2020s",
+      "future",
+      "2010s"
+    ],
+    "place": [
+      "new york",
+      "north america"
+    ]
+  },
+  "similar": [
+    {
+      "id": 75127,
+      "slug": "peacemaker",
+      "title": "Peacemaker",
+      "year": 2022,
+      "rank": 0
+    },
+    {
+      "id": 83553,
+      "slug": "gen-v",
+      "title": "Gen V",
+      "year": 2023,
+      "rank": 1
+    },
+    {
+      "id": 57900,
+      "slug": "the-punisher",
+      "title": "The Punisher",
+      "year": 2017,
+      "rank": 2
+    },
+    {
+      "id": 27799,
+      "slug": "deadpool",
+      "title": "Deadpool",
+      "year": 2016,
+      "rank": 3
+    },
+    {
+      "id": 26489,
+      "slug": "lucifer",
+      "title": "Lucifer",
+      "year": 2016,
+      "rank": 4
+    },
+    {
+      "id": 64608,
+      "slug": "doom-patrol",
+      "title": "Doom Patrol",
+      "year": 2019,
+      "rank": 5
+    },
+    {
+      "id": 57938,
+      "slug": "preacher",
+      "title": "Preacher",
+      "year": 2016,
+      "rank": 6
+    },
+    {
+      "id": 60780,
+      "slug": "happy",
+      "title": "HAPPY!",
+      "year": 2017,
+      "rank": 7
+    },
+    {
+      "id": 60496,
+      "slug": "watchmen",
+      "title": "Watchmen",
+      "year": 2019,
+      "rank": 8
+    },
+    {
+      "id": 59494,
+      "slug": "altered-carbon",
+      "title": "Altered Carbon",
+      "year": 2018,
+      "rank": 9
+    },
+    {
+      "id": 64832,
+      "slug": "deadly-class",
+      "title": "Deadly Class",
+      "year": 2018,
+      "rank": 10
+    },
+    {
+      "id": 19302,
+      "slug": "daredevil",
+      "title": "Daredevil",
+      "year": 2015,
+      "rank": 11
+    },
+    {
+      "id": 27229,
+      "slug": "gotham",
+      "title": "Gotham",
+      "year": 2014,
+      "rank": 12
+    },
+    {
+      "id": 1412,
+      "slug": "powers",
+      "title": "Powers",
+      "year": 2015,
+      "rank": 13
+    },
+    {
+      "id": 16548,
+      "slug": "kick-ass",
+      "title": "Kick-Ass",
+      "year": 2010,
+      "rank": 14
+    },
+    {
+      "id": 57902,
+      "slug": "the-gifted",
+      "title": "The Gifted",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 26423,
+      "slug": "dredd",
+      "title": "Dredd",
+      "year": 2012,
+      "rank": 16
+    },
+    {
+      "id": 59638,
+      "slug": "black-lightning",
+      "title": "Black Lightning",
+      "year": 2018,
+      "rank": 17
+    },
+    {
+      "id": 5109,
+      "slug": "banshee",
+      "title": "Banshee",
+      "year": 2013,
+      "rank": 18
+    },
+    {
+      "id": 35427,
+      "slug": "luke-cage",
+      "title": "Luke Cage",
+      "year": 2016,
+      "rank": 19
+    },
+    {
+      "id": 60633,
+      "slug": "into-the-badlands",
+      "title": "Into the Badlands",
+      "year": 2015,
+      "rank": 20
+    },
+    {
+      "id": 74898,
+      "slug": "reacher",
+      "title": "Reacher",
+      "year": 2022,
+      "rank": 21
+    },
+    {
+      "id": 60790,
+      "slug": "van-helsing",
+      "title": "Van Helsing",
+      "year": 2016,
+      "rank": 22
+    },
+    {
+      "id": 61744,
+      "slug": "heathers",
+      "title": "Heathers",
+      "year": 2018,
+      "rank": 23
+    },
+    {
+      "id": 1997,
+      "slug": "kick-ass-2",
+      "title": "Kick-Ass 2",
+      "year": 2013,
+      "rank": 24
+    },
+    {
+      "id": 35428,
+      "slug": "jessica-jones",
+      "title": "Marvel's Jessica Jones",
+      "year": 2015,
+      "rank": 25
+    },
+    {
+      "id": 1801,
+      "slug": "arrow",
+      "title": "Arrow",
+      "year": 2012,
+      "rank": 26
+    },
+    {
+      "id": 58503,
+      "slug": "titans",
+      "title": "Titans",
+      "year": 2018,
+      "rank": 27
+    },
+    {
+      "id": 69179,
+      "slug": "lupin",
+      "title": "Lupin",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 70285,
+      "slug": "jupiters-legacy",
+      "title": "Jupiter's Legacy",
+      "year": 2021,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919172
+}

@@ -1,0 +1,387 @@
+{
+  "source": "bestsimilar",
+  "source_url": "https://bestsimilar.com/movies/27059-shameless",
+  "id": 27059,
+  "slug": "shameless",
+  "title": "Shameless",
+  "year": 2011,
+  "rating": 8.5,
+  "votes_text": "329K",
+  "votes": 329000,
+  "poster_url": "https://bestsimilar.com/img/movie/thumb/4a/27059.jpg",
+  "genres": [
+    "Comedy",
+    "Drama"
+  ],
+  "country": [
+    "USA"
+  ],
+  "duration_min": 60,
+  "story": "Chicagoan Frank Gallagher is the proud single dad of six smart, industrious, independent kids, who without him would be... perhaps better off. When Frank's not at the bar spending what little money they have, he's passed out on the floor. But the kids have found ways to grow up in spite of him. They may not be like any family you know, but they make no apologies for being exactly who they are.",
+  "tags": [
+    {
+      "id": 2411,
+      "slug": "dysfunctional-family",
+      "name": "Dysfunctional family",
+      "film_count": 6078
+    },
+    {
+      "id": 5456,
+      "slug": "youth",
+      "name": "Youth",
+      "film_count": 14696
+    },
+    {
+      "id": 4789,
+      "slug": "gay-teenager",
+      "name": "Gay teenager",
+      "film_count": 571
+    },
+    {
+      "id": 24270,
+      "slug": "bipolar-disorder",
+      "name": "Bipolar disorder",
+      "film_count": 166
+    },
+    {
+      "id": 2055,
+      "slug": "gay",
+      "name": "Gay",
+      "film_count": 6508
+    },
+    {
+      "id": 83562,
+      "slug": "teenage-life",
+      "name": "Teenage life",
+      "film_count": 6021
+    },
+    {
+      "id": 49648,
+      "slug": "family-problems",
+      "name": "Family problems",
+      "film_count": 7225
+    },
+    {
+      "id": 123429,
+      "slug": "siblings-relations",
+      "name": "Siblings relations",
+      "film_count": 3435
+    },
+    {
+      "id": 2629,
+      "slug": "homosexual",
+      "name": "Homosexual",
+      "film_count": 2589
+    },
+    {
+      "id": 124080,
+      "slug": "entertaining",
+      "name": "Entertaining",
+      "film_count": 17691
+    },
+    {
+      "id": 13658,
+      "slug": "alcohol-abuse",
+      "name": "Alcohol abuse",
+      "film_count": 1560
+    },
+    {
+      "id": 4,
+      "slug": "mental-illness",
+      "name": "Mental illness",
+      "film_count": 3669
+    },
+    {
+      "id": 12960,
+      "slug": "biting",
+      "name": "Biting",
+      "film_count": 1826
+    },
+    {
+      "id": 4746,
+      "slug": "gay-relationship",
+      "name": "Gay relationship",
+      "film_count": 1298
+    },
+    {
+      "id": 10715,
+      "slug": "large-family",
+      "name": "Large family",
+      "film_count": 438
+    },
+    {
+      "id": 10118,
+      "slug": "everyday-life",
+      "name": "Everyday life",
+      "film_count": 1642
+    }
+  ],
+  "tag_groups_text": {
+    "style": [
+      "sexy",
+      "emotional",
+      "offbeat",
+      "entertaining",
+      "biting",
+      "dark comedy",
+      "realistic",
+      "humorous",
+      "sensual",
+      "funny"
+    ],
+    "audience": [
+      "teens",
+      "adult"
+    ],
+    "plot": [
+      "dysfunctional family",
+      "youth",
+      "gay teenager",
+      "bipolar disorder",
+      "gay",
+      "teenage life",
+      "family problems",
+      "siblings relations",
+      "juvenile delinquency",
+      "life is a bitch",
+      "drinking problem",
+      "dark humor",
+      "alcoholic father",
+      "parents and children",
+      "family relations",
+      "sex scene",
+      "teenage sex",
+      "alcoholic",
+      "poverty",
+      "lesbian love",
+      "poor family",
+      "homosexual",
+      "alcohol abuse",
+      "mental illness",
+      "gay relationship"
+    ],
+    "time": [
+      "2010s",
+      "21st century",
+      "contemporary"
+    ],
+    "place": [
+      "chicago",
+      "usa",
+      "idaho"
+    ]
+  },
+  "similar": [
+    {
+      "id": 255,
+      "slug": "skins",
+      "title": "Skins",
+      "year": 2011,
+      "rank": 0
+    },
+    {
+      "id": 2001,
+      "slug": "shameless",
+      "title": "Shameless",
+      "year": 2004,
+      "rank": 1
+    },
+    {
+      "id": 60766,
+      "slug": "casual",
+      "title": "Casual",
+      "year": 2015,
+      "rank": 2
+    },
+    {
+      "id": 30312,
+      "slug": "skins",
+      "title": "Skins",
+      "year": 2007,
+      "rank": 3
+    },
+    {
+      "id": 25455,
+      "slug": "weeds",
+      "title": "Weeds",
+      "year": 2005,
+      "rank": 4
+    },
+    {
+      "id": 30194,
+      "slug": "hung",
+      "title": "Hung",
+      "year": 2009,
+      "rank": 5
+    },
+    {
+      "id": 64620,
+      "slug": "sex-education",
+      "title": "Sex Education",
+      "year": 2019,
+      "rank": 6
+    },
+    {
+      "id": 26836,
+      "slug": "californication",
+      "title": "Californication",
+      "year": 2007,
+      "rank": 7
+    },
+    {
+      "id": 2261,
+      "slug": "house-of-lies",
+      "title": "House of Lies",
+      "year": 2012,
+      "rank": 8
+    },
+    {
+      "id": 62571,
+      "slug": "scoundrels",
+      "title": "Scoundrels",
+      "year": 2010,
+      "rank": 9
+    },
+    {
+      "id": 30406,
+      "slug": "soap",
+      "title": "Soap",
+      "year": 1977,
+      "rank": 10
+    },
+    {
+      "id": 26949,
+      "slug": "misfits",
+      "title": "Misfits",
+      "year": 2009,
+      "rank": 11
+    },
+    {
+      "id": 1772,
+      "slug": "united-states-of-tara",
+      "title": "United States of Tara",
+      "year": 2009,
+      "rank": 12
+    },
+    {
+      "id": 43642,
+      "slug": "fleabag",
+      "title": "Fleabag",
+      "year": 2016,
+      "rank": 13
+    },
+    {
+      "id": 7012,
+      "slug": "please-like-me",
+      "title": "Please Like Me",
+      "year": 2013,
+      "rank": 14
+    },
+    {
+      "id": 66813,
+      "slug": "our-story",
+      "title": "Our Story",
+      "year": 2017,
+      "rank": 15
+    },
+    {
+      "id": 56681,
+      "slug": "less-than-kind",
+      "title": "Less Than Kind",
+      "year": 2008,
+      "rank": 16
+    },
+    {
+      "id": 3391,
+      "slug": "parenthood",
+      "title": "Parenthood",
+      "year": 2010,
+      "rank": 17
+    },
+    {
+      "id": 43670,
+      "slug": "the-real-oneals",
+      "title": "The Real O'Neals",
+      "year": 2016,
+      "rank": 18
+    },
+    {
+      "id": 65769,
+      "slug": "the-righteous-gemstones",
+      "title": "The Righteous Gemstones",
+      "year": 2019,
+      "rank": 19
+    },
+    {
+      "id": 1186,
+      "slug": "outrageous-fortune",
+      "title": "Outrageous Fortune",
+      "year": 2005,
+      "rank": 20
+    },
+    {
+      "id": 22633,
+      "slug": "six-feet-under",
+      "title": "Six Feet Under",
+      "year": 2001,
+      "rank": 21
+    },
+    {
+      "id": 9282,
+      "slug": "the-best-thief-in-the-world",
+      "title": "The Best Thief in the World",
+      "year": 2004,
+      "rank": 22
+    },
+    {
+      "id": 7014,
+      "slug": "geography-club",
+      "title": "Geography Club",
+      "year": 2013,
+      "rank": 23
+    },
+    {
+      "id": 61744,
+      "slug": "heathers",
+      "title": "Heathers",
+      "year": 2018,
+      "rank": 24
+    },
+    {
+      "id": 65920,
+      "slug": "mrs-fletcher",
+      "title": "Mrs. Fletcher",
+      "year": 2019,
+      "rank": 25
+    },
+    {
+      "id": 57924,
+      "slug": "smilf",
+      "title": "SMILF",
+      "year": 2017,
+      "rank": 26
+    },
+    {
+      "id": 67966,
+      "slug": "love-victor",
+      "title": "Love, Victor",
+      "year": 2020,
+      "rank": 27
+    },
+    {
+      "id": 71807,
+      "slug": "generation",
+      "title": "Generation",
+      "year": 2021,
+      "rank": 28
+    },
+    {
+      "id": 61590,
+      "slug": "insatiable",
+      "title": "Insatiable",
+      "year": 2018,
+      "rank": 29
+    }
+  ],
+  "scraped_at": 1779919151
+}
