@@ -37,67 +37,60 @@ If the scope changes, add/update Playwright specs so the affected UI is covered 
 
 ## Version Bumps and Releases
 
+Releases are built, signed, and published **entirely locally** — there is no
+GitHub Actions release pipeline. Releases ship from the main `dossier` repo
+(the old `dossier-builds` repo is no longer used now that the project is open
+source). Builds are **macOS-only (aarch64)**; Windows is not built.
+
 ### Using the version-bump Script
 
 Claude should **always use `version-bump` without parameters**:
 
 ```bash
-python scripts/version-bump.py
+python version-bump.py
 ```
 
-This script automatically:
-- Bumps the patch version (X.Y.Z → X.Y.Z+1)
-- Updates all three version files simultaneously:
-  - `apps/dossier-desktop/src-tauri/tauri.conf.json`
-  - `apps/dossier-desktop/src-tauri/Cargo.toml`
-  - `apps/dossier-desktop/package.json`
-- Verifies all three versions are in sync
+This one script does the whole release. In order, it:
+1. Runs pre-flight checks (on `main`; `gh`, `pnpm`, `node` present; `gh` is
+   authenticated; the local updater signing key + password files exist).
+2. Bumps the patch version (X.Y.Z → X.Y.Z+1) across all three version files:
+   - `apps/dossier-desktop/src-tauri/tauri.conf.json`
+   - `apps/dossier-desktop/src-tauri/Cargo.toml`
+   - `apps/dossier-desktop/package.json`
+3. **Builds + signs locally** (`tauri build --target aarch64-apple-darwin`),
+   reading the signing key from `~/.tauri/dossier-updater.key` and its password
+   from `~/.tauri/dossier-updater.password.txt`. **If the build fails, the
+   script aborts before any commit/tag/push — a broken build can never ship.**
+4. Collects the DMG + updater archive (`.app.tar.gz` + `.sig`) into `dist/`
+   and generates `latest.json`.
+5. Commits the version bump, tags `vX.Y.Z`, and pushes `main` + tag.
+6. Creates a **published** GitHub release on `JamieM0/dossier` with the
+   artifacts + `latest.json`.
 
-**The script does not touch git at all.** After running it, you must manually stage, commit, and push the changes.
+Use `--minor` / `--major` to bump those parts, or pass a commit message as a
+positional arg to fold all current working-tree changes into the bump commit.
 
 **Do not manually edit version files.** Always use the script.
 
-### Tagging and Pushing a Release
+### Prerequisites (one-time)
 
-After running the version-bump script:
+- `gh auth login` — the script will refuse to run if `gh` is not authenticated.
+- `~/.tauri/dossier-updater.key` and `~/.tauri/dossier-updater.password.txt`
+  must be present (they hold the minisign key + its password).
 
-1. Stage and commit the version changes:
-   ```bash
-   git add apps/dossier-desktop/src-tauri/tauri.conf.json apps/dossier-desktop/src-tauri/Cargo.toml apps/dossier-desktop/package.json
-   git commit -m "Bump version to X.Y.Z"
-   git push origin main
-   ```
+### After the script runs
 
-2. Create and push the version tag:
-   ```bash
-   git tag v<VERSION> && git push origin v<VERSION>
-   ```
-
-3. This triggers the `.github/workflows/publish.yml` CI/CD pipeline which:
-   - Builds macOS and Windows releases
-   - Generates the updater manifest (`latest.json`)
-   - Creates a draft release in the `dossier-builds` repository
-
-4. Go to `github.com/JamieM0/dossier-builds/releases` and **publish the draft release manually**
-
-5. Users receive the update on next app launch (via `tauri-plugin-updater v2`)
-
-### Release Checklist
-
-- [ ] Run `python scripts/version-bump.py`
-- [ ] Verify all 3 version files were updated (check git diff)
-- [ ] Commit and push the version changes to main
-- [ ] Create and push the version tag: `git tag v<VERSION> && git push origin v<VERSION>`
-- [ ] Wait ~15 minutes for CI to complete
-- [ ] Publish the draft release in `dossier-builds` repo
+Users receive the update on next app launch (via `tauri-plugin-updater v2`).
+The updater endpoint is the main repo:
+`https://github.com/JamieM0/dossier/releases/latest/download/latest.json`.
+There is no draft to publish manually — the release goes out live immediately.
 
 ### Key Release Files
 
-- `.github/workflows/publish.yml` — CI/CD pipeline that builds and creates draft releases
-- `.github/scripts/generate-latest-json.mjs` — generates Tauri updater manifest
-- `apps/dossier-desktop/src-tauri/tauri.conf.json` — Tauri config (version, pubkey, endpoint)
+- `version-bump.py` — local build-sign-publish release script (the only path)
+- `.github/scripts/generate-latest-json.mjs` — generates the Tauri updater manifest (`latest.json`)
+- `apps/dossier-desktop/src-tauri/tauri.conf.json` — Tauri config (version, pubkey, updater endpoint)
 - `apps/dossier-desktop/src-tauri/src/main.rs` — Rust main with auto-update logic
-- `scripts/version-bump.py` — automated version bumping script
 
 ## Inference pipeline rules
 

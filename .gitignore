@@ -6,6 +6,9 @@ node_modules/
 .vite/
 dist/
 build/
+
+# generated updater manifest (built locally by version-bump.py)
+/latest.json
 .vercel/
 .netlify/
 
