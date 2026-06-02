@@ -47,6 +47,49 @@ BUNDLE_DIR = DESKTOP / "src-tauri/target" / TARGET_TRIPLE / "release/bundle"
 DIST = ROOT / "dist"
 LATEST_JSON = ROOT / "latest.json"
 
+# The no-install web build is the SvelteKit static output produced by the
+# tauri build's beforeBuildCommand (adapter-static → apps/dossier-ui/build).
+WEB_BUILD_DIR = ROOT / "apps/dossier-ui/build"
+
+WEB_README = """\
+Dossier — Web version (no install)
+==================================
+
+This is the lightweight, no-install version of Dossier. It runs entirely in
+your browser as plain HTML/JS/CSS — nothing is installed and there is no
+background process. Your library is encrypted with a passphrase you choose and
+saved to a folder you pick on this device.
+
+Requirements
+------------
+- A Chromium browser: Chrome, Edge, Brave, or Arc. (Firefox and Safari can't
+  store the library — they don't support the File System Access API.)
+- Node.js, to serve the files locally.
+
+Run it
+------
+From inside this folder, start any static file server, for example:
+
+    npx http-server -p 8080
+
+then open the printed http://127.0.0.1:8080 address in a Chromium browser.
+(Opening index.html directly with file:// will NOT work — it must be served
+over http.)
+
+You'll be asked to choose a folder for your library and set a passphrase, then
+to paste your own TMDB API Read Access Token (v4). See:
+https://www.themoviedb.org/settings/api
+
+Want the full app?
+------------------
+The installed desktop app stores your credentials in the macOS Keychain (no
+passphrase to remember) and runs without a browser. Download it from:
+https://github.com/JamieM0/dossier/releases/latest
+
+Your libraries are separate; use Settings → Library → Export / Import to move
+data between the web version and the app.
+"""
+
 
 def die(msg):
     sys.exit(f"\n\033[31m✗ {msg}\033[0m")
@@ -209,6 +252,25 @@ def collect_artifacts():
     return collected
 
 
+def build_web_zip(new_version):
+    """Package the static web build + a README into a release zip. Reuses the
+    SvelteKit output the tauri build already produced (no extra build)."""
+    if not WEB_BUILD_DIR.is_dir():
+        die(f"Web build not found at {WEB_BUILD_DIR} — the tauri build should have produced it.")
+
+    staging = DIST / "_web-staging"
+    if staging.exists():
+        shutil.rmtree(staging)
+    shutil.copytree(WEB_BUILD_DIR, staging)
+    (staging / "README.txt").write_text(WEB_README)
+
+    zip_base = DIST / f"Dossier-web-{new_version}"
+    archive = shutil.make_archive(str(zip_base), "zip", root_dir=staging)
+    shutil.rmtree(staging)
+    print(f"Built web bundle: {Path(archive).name}")
+    return archive
+
+
 def generate_latest_json(tag):
     env = os.environ.copy()
     env.update({
@@ -271,6 +333,8 @@ def main():
     build_release()
     collect_artifacts()
     generate_latest_json(tag)
+    # Built after latest.json so the updater manifest never sees the web zip.
+    build_web_zip(new_version)
 
     # 3. Only now do we touch git / publish.
     print("\n── Build succeeded — committing and publishing ─────────────────")

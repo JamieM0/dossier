@@ -40,7 +40,11 @@ console.log = log;
 console.error = logError;
 
 import { pathToFileURL } from "node:url";
-import { TmdbClient, TmdbConfigError, type TmdbMedium } from "./tmdb.js";
+
+/** TMDB media kinds. Kept as a local union so the backend has no direct
+ * import of @dossier/domain — all domain logic flows through the
+ * dynamically-loaded @dossier/store module (see loadStoreModule). */
+type TmdbMedium = "movie" | "tv";
 
 type DossierSettings = {
   theme: string;
@@ -100,6 +104,35 @@ type StoreServicePort = {
   getTmdbToken: () => Promise<string | null>;
   setTmdbToken: (token: string) => Promise<void>;
   clearTmdbToken: () => Promise<void>;
+  exportLibrary: (passphrase: string) => Promise<string>;
+  importLibrary: (fileContent: string, passphrase: string) => Promise<void>;
+};
+
+/** The subset of the TMDB client (from @dossier/domain, constructed by the
+ * store module) that the control server uses. */
+type TmdbClientPort = {
+  validate: () => Promise<void>;
+  genres: (medium: TmdbMedium) => Promise<Map<number, string>>;
+  trending: (medium: TmdbMedium, page?: number) => Promise<unknown>;
+  discover: (
+    medium: TmdbMedium,
+    params: {
+      sortBy?: string | undefined;
+      withGenres?: string | undefined;
+      minVotes?: number | undefined;
+      page?: number | undefined;
+    }
+  ) => Promise<unknown>;
+  search: (medium: TmdbMedium, query: string, year?: number) => Promise<unknown>;
+  detail: (medium: TmdbMedium, id: number) => Promise<unknown>;
+};
+
+/** The dynamically-loaded @dossier/store module surface used by the backend. */
+type StoreModulePort = {
+  DossierStoreService: { init: (dataDir: string) => Promise<StoreServicePort> };
+  createTmdbClient: (token: string, cacheDir: string) => TmdbClientPort;
+  TmdbConfigError: new (message?: string) => Error;
+  PortableImportError: new (message?: string) => Error;
 };
 
 type ControlErrorCode = "BAD_REQUEST" | "NOT_FOUND" | "UNAUTHORIZED" | "INTERNAL";
@@ -117,15 +150,16 @@ class ControlError extends Error {
 const CONTROL_HEADER = "x-dossier-control-token";
 const controlToken = randomBytes(24).toString("base64url");
 
+let storeModule: StoreModulePort | null = null;
 let storeService: StoreServicePort | null = null;
 let settingsCache: DossierSettings = { ...defaultSettings };
 
 /** Cached TMDB client, rebuilt only when the stored token changes. The
  * client owns the long-lived metadata disk cache under the data dir. */
-let tmdbClient: { token: string; client: TmdbClient } | null = null;
+let tmdbClient: { token: string; client: TmdbClientPort } | null = null;
 
-async function getTmdbClient(): Promise<TmdbClient> {
-  if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+async function getTmdbClient(): Promise<TmdbClientPort> {
+  if (!storeService || !storeModule) throw new ControlError(500, "INTERNAL", "store unavailable");
   const token = await storeService.getTmdbToken();
   if (!token) {
     throw new ControlError(400, "BAD_REQUEST", "TMDB token is not configured");
@@ -133,7 +167,7 @@ async function getTmdbClient(): Promise<TmdbClient> {
   if (!tmdbClient || tmdbClient.token !== token) {
     tmdbClient = {
       token,
-      client: new TmdbClient(token, storeService.getDataPath("tmdb-cache"))
+      client: storeModule.createTmdbClient(token, storeService.getDataPath("tmdb-cache"))
     };
   }
   return tmdbClient.client;
@@ -309,7 +343,7 @@ function createControlRequestHandler() {
 
       if (method === "PUT" && path === "/control/tmdb/token") {
         log("PUT /control/tmdb/token received");
-        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        if (!storeService || !storeModule) throw new ControlError(500, "INTERNAL", "store unavailable");
         const body = (await readJsonBody(req)) as { token?: string };
         log(`token length in body: ${body?.token?.length ?? "undefined"}`);
         
@@ -330,12 +364,12 @@ function createControlRequestHandler() {
         // Validate against TMDB before persisting so a bad token never sticks.
         try {
           log("probing TMDB with token...");
-          const probe = new TmdbClient(token, storeService.getDataPath("tmdb-cache"));
+          const probe = storeModule.createTmdbClient(token, storeService.getDataPath("tmdb-cache"));
           await probe.validate();
           log("TMDB probe successful");
         } catch (error) {
           logError(`TMDB validation failed: ${error instanceof Error ? error.message : String(error)}`);
-          if (error instanceof TmdbConfigError) {
+          if (error instanceof storeModule.TmdbConfigError) {
             throw new ControlError(400, "BAD_REQUEST", error.message);
           }
           throw error;
@@ -401,6 +435,42 @@ function createControlRequestHandler() {
         return;
       }
 
+      // --- Library export / import (the bridge to/from the web build) ----
+      if (method === "POST" && path === "/control/library/export") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        const body = (await readJsonBody(req)) as { passphrase?: string };
+        if (!body || typeof body.passphrase !== "string" || !body.passphrase) {
+          throw new ControlError(400, "BAD_REQUEST", "passphrase (string) required");
+        }
+        const file = await storeService.exportLibrary(body.passphrase);
+        sendJson(res, 200, { file });
+        return;
+      }
+
+      if (method === "POST" && path === "/control/library/import") {
+        if (!storeService || !storeModule) throw new ControlError(500, "INTERNAL", "store unavailable");
+        const body = (await readJsonBody(req)) as { fileContent?: string; passphrase?: string };
+        if (!body || typeof body.fileContent !== "string" || typeof body.passphrase !== "string") {
+          throw new ControlError(400, "BAD_REQUEST", "fileContent and passphrase (strings) required");
+        }
+        try {
+          await storeService.importLibrary(body.fileContent, body.passphrase);
+        } catch (error) {
+          if (error instanceof storeModule.PortableImportError) {
+            throw new ControlError(400, "BAD_REQUEST", error.message);
+          }
+          throw error;
+        }
+        // Surface the freshly imported library so the UI can rehydrate.
+        sendJson(res, 200, {
+          ok: true,
+          ratings: storeService.getRatings(),
+          pairwise: storeService.getPairwise(),
+          skipped: storeService.getSkipped()
+        });
+        return;
+      }
+
       if (method === "POST" && path === "/control/shutdown") {
         sendJson(res, 200, { ok: true });
         process.nextTick(() => process.exit(0));
@@ -414,7 +484,7 @@ function createControlRequestHandler() {
         sendControlError(res, error);
         return;
       }
-      if (error instanceof TmdbConfigError) {
+      if (storeModule && error instanceof storeModule.TmdbConfigError) {
         sendControlError(res, new ControlError(400, "BAD_REQUEST", error.message));
         return;
       }
@@ -426,7 +496,7 @@ function createControlRequestHandler() {
   };
 }
 
-async function loadStoreService(dataDir: string): Promise<StoreServicePort> {
+async function loadStoreModule(): Promise<StoreModulePort> {
   const candidates = [
     process.env.DOSSIER_PACKAGES_ROOT,
     join(process.cwd(), "packages"),
@@ -438,7 +508,7 @@ async function loadStoreService(dataDir: string): Promise<StoreServicePort> {
     const storePath = join(root, "store", "dist", "index.js");
     if (!existsSync(storePath)) continue;
     const mod = await import(pathToFileURL(storePath).href);
-    return (await mod.DossierStoreService.init(dataDir)) as StoreServicePort;
+    return mod as StoreModulePort;
   }
 
   throw new Error(
@@ -457,7 +527,8 @@ async function bootstrap(): Promise<void> {
   logPath = join(dataDir, "backend-debug.log");
   log("Backend bootstrapping...");
 
-  storeService = await loadStoreService(dataDir);
+  storeModule = await loadStoreModule();
+  storeService = await storeModule.DossierStoreService.init(dataDir);
   settingsCache = {
     ...defaultSettings,
     ...(storeService.getSettings() as Partial<DossierSettings>)

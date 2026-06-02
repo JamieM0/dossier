@@ -15,6 +15,11 @@ declare module "phosphor-icons-svelte";
 declare global {
   interface Window {
     dossier?: {
+      /** Which runtime is backing this bridge. "app" = the installed Tauri
+       * desktop app (keychain-encrypted store, Node backend); "web" = the
+       * no-install browser build (passphrase-encrypted File System Access
+       * vault). UI differentiators gate on this. */
+      platform: "app" | "web";
       app: { getVersion: () => Promise<string> };
       window: { show: () => Promise<void>; hide: () => Promise<void>; quit: () => Promise<void> };
       updater: {
@@ -51,6 +56,12 @@ declare global {
         search: (medium: TmdbMedium, query: string, year?: number) => Promise<TmdbListResult>;
         detail: (medium: TmdbMedium, id: number) => Promise<TmdbItem>;
         posterUrl: (posterPath: string | null, size?: string) => string | null;
+      };
+      /** Portable, passphrase-encrypted library export/import — the only
+       * bridge between the desktop app's library and the web build's. */
+      library: {
+        export: (passphrase: string) => Promise<string>;
+        import: (fileContent: string, passphrase: string) => Promise<void>;
       };
     };
   }

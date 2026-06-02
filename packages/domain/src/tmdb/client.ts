@@ -1,51 +1,35 @@
-/** TMDB metadata client used by the backend control server.
+/** TMDB metadata client — isomorphic (runs in Node 18+ and the browser).
  *
  * Scope: JSON metadata only (genres, trending, discover, search, item
- * detail + keywords). Poster *images* are NOT fetched here — they are
- * served and cached by the Rust `tmdbimg` URI scheme so the renderer
- * can point an <img> straight at the local cache. Keeping the two
- * concerns apart means image bytes never round-trip through the control
- * HTTP/IPC channel.
+ * detail + keywords). Poster *images* are NOT fetched here.
  *
- * The user's TMDB v4 read token is supplied per-construction by the
- * caller (read from the OS keychain). It is never persisted here.
+ * The user's TMDB v4 read token is supplied per-construction by the caller
+ * (the app reads it from the OS keychain; the web build reads it from its
+ * passphrase-encrypted library). It is never persisted here.
  *
- * Caching: TMDB item records (detail+keywords) and the genre lists are
- * effectively immutable, so they are cached to disk with a long TTL —
- * calling TMDB is a last resort, mirroring the poster policy. Volatile
- * listings (trending/discover/search) use a short in-memory TTL only. */
-import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, writeFileSync, statSync } from "node:fs";
-import { join } from "node:path";
-import { featureVector, type FeatureVector } from "./lens.js";
+ * Caching is injected. TMDB item records (detail+keywords) and genre lists
+ * are effectively immutable, so they are stored in the long-lived `cache`
+ * (the desktop wires an fs-backed disk cache; the browser may pass none or
+ * an in-memory/Cache-API impl). Volatile listings (trending/discover/search)
+ * use a short in-memory TTL only and never touch the injected cache. */
+import { featureVector, type FeatureVector } from "../lens.js";
+import type { TmdbItem, TmdbListResult, TmdbMedium } from "./types.js";
 
 const BASE = "https://api.themoviedb.org/3";
 
-/** Long-lived metadata is kept on disk for at least this long before we
- * even consider re-fetching it. Matches the poster retention floor. */
-const DISK_TTL_MS = 90 * 24 * 60 * 60 * 1000; // 90 days
-/** Volatile listings: cheap in-memory cache so a burst of UI calls in
- * one session doesn't hammer TMDB, but nothing stale survives a restart. */
+/** Volatile listings: cheap in-memory cache so a burst of UI calls in one
+ * session doesn't hammer TMDB, but nothing stale survives a restart. */
 const LIST_TTL_MS = 30 * 60 * 1000; // 30 minutes
+/** In-memory mirror TTL for long-lived (disk-cached) resources. */
+const META_MEM_TTL_MS = 24 * 60 * 60 * 1000; // 1 day
 
-export type TmdbMedium = "movie" | "tv";
-
-export type TmdbItem = {
-  id: number;
-  medium: TmdbMedium;
-  title: string;
-  year: number | null;
-  voteAverage: number | null;
-  voteCount: number | null;
-  popularity: number | null;
-  genreIds: number[];
-  genres: string[];
-  posterPath: string | null;
-  overview: string;
-  runtime: number | null;
-  keywords: string[];
-  features: FeatureVector;
-};
+/** Persistent cache for long-lived TMDB metadata. Implementations own their
+ * own freshness policy (the desktop fs cache expires by file mtime); the
+ * client treats a returned value as a hit and `undefined` as a miss. */
+export interface TmdbCache {
+  get(key: string): Promise<unknown | undefined>;
+  set(key: string, value: unknown): Promise<void>;
+}
 
 type MemEntry = { at: number; ttl: number; value: unknown };
 
@@ -57,16 +41,19 @@ function yearFrom(dateStr: string | undefined | null): number | null {
 
 export class TmdbConfigError extends Error {}
 
+export type TmdbClientOptions = {
+  token: string;
+  cache?: TmdbCache;
+};
+
 export class TmdbClient {
   private mem = new Map<string, MemEntry>();
-  private readonly metaDir: string;
+  private readonly token: string;
+  private readonly cache: TmdbCache | undefined;
 
-  constructor(
-    private readonly token: string,
-    cacheDir: string
-  ) {
-    this.metaDir = join(cacheDir, "meta");
-    mkdirSync(this.metaDir, { recursive: true });
+  constructor(options: TmdbClientOptions) {
+    this.token = options.token;
+    this.cache = options.cache;
   }
 
   private headers(): Record<string, string> {
@@ -79,14 +66,9 @@ export class TmdbClient {
     return headers;
   }
 
-  private cacheFile(key: string): string {
-    const hash = createHash("sha1").update(key).digest("hex");
-    return join(this.metaDir, `${hash}.json`);
-  }
-
   /** Raw GET against TMDB with layered caching.
-   *  - `disk: true`  → persistent disk cache (DISK_TTL_MS), for stable
-   *    resources (item detail, genre lists).
+   *  - `disk: true`  → consult/write the injected persistent cache, for
+   *    stable resources (item detail, genre lists).
    *  - `disk: false` → in-memory only (LIST_TTL_MS), for volatile lists. */
   private async get<T>(
     path: string,
@@ -110,19 +92,11 @@ export class TmdbClient {
       return memHit.value as T;
     }
 
-    if (opts.disk) {
-      const file = this.cacheFile(key);
-      if (existsSync(file)) {
-        const age = Date.now() - statSync(file).mtimeMs;
-        if (age < DISK_TTL_MS) {
-          try {
-            const value = JSON.parse(readFileSync(file, "utf8")) as T;
-            this.mem.set(key, { at: Date.now(), ttl: DISK_TTL_MS, value });
-            return value;
-          } catch {
-            // fall through and re-fetch on a corrupt cache file
-          }
-        }
+    if (opts.disk && this.cache) {
+      const cached = await this.cache.get(key);
+      if (cached !== undefined) {
+        this.mem.set(key, { at: Date.now(), ttl: META_MEM_TTL_MS, value: cached });
+        return cached as T;
       }
     }
 
@@ -139,14 +113,14 @@ export class TmdbClient {
 
     this.mem.set(key, {
       at: Date.now(),
-      ttl: opts.disk ? DISK_TTL_MS : LIST_TTL_MS,
+      ttl: opts.disk ? META_MEM_TTL_MS : LIST_TTL_MS,
       value
     });
-    if (opts.disk) {
+    if (opts.disk && this.cache) {
       try {
-        writeFileSync(this.cacheFile(key), JSON.stringify(value));
+        await this.cache.set(key, value);
       } catch {
-        // disk cache is best-effort; an unwritable cache must not break reads
+        // persistent cache is best-effort; an unwritable cache must not break reads
       }
     }
     return value;
@@ -219,7 +193,7 @@ export class TmdbClient {
     return this.toList(medium, data, await this.genres(medium));
   }
 
-  /** Full item record with keywords, normalized. Cached long on disk —
+  /** Full item record with keywords, normalized. Cached long —
    *  this is the canonical per-item fetch and feeds feature extraction. */
   async detail(medium: TmdbMedium, id: number): Promise<TmdbItem> {
     const raw = await this.get<RawDetail>(
@@ -286,12 +260,6 @@ export class TmdbClient {
   }
 }
 
-export type TmdbListResult = {
-  page: number;
-  totalPages: number;
-  items: TmdbItem[];
-};
-
 type RawListItem = {
   id: number;
   title?: string;
@@ -321,3 +289,6 @@ type RawDetail = RawListItem & {
     results?: Array<{ id: number; name: string }>;
   };
 };
+
+// Re-export for callers that only need the type alongside the client.
+export type { FeatureVector };

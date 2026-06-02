@@ -4,14 +4,37 @@ This repository is a desktop-only app. Treat visual QA as desktop-only unless th
 
 ## Node backend bundling (read before adding backend modules)
 
-The Tauri shell spawns a Node backend from `apps/dossier-desktop/src/*.ts`, compiled by `tsc` to `apps/dossier-desktop/dist/*.js`. At runtime `dist/backend.js` `import`s its sibling modules (e.g. `./tmdb.js` → `./lens.js`) by relative path, so **every** compiled module must be shipped inside the packaged app, not just `backend.js`.
+The Tauri shell spawns a Node backend from `apps/dossier-desktop/src/*.ts`, compiled by `tsc` to `apps/dossier-desktop/dist/*.js`. `dist/backend.js` is the daemon. Any sibling `dist/*.js` it `import`s by relative path must also ship inside the packaged app, not just `backend.js`.
 
-These modules are copied into the bundle via `bundle.resources` in `apps/dossier-desktop/src-tauri/tauri.conf.json`. That entry is a glob — `"../dist/*.js"` — specifically so new backend modules are picked up automatically. **Do not narrow it back to a hand-listed file** (it was previously `"../dist/backend.js"`, which is exactly what broke the v0.1.14 DMG: `tmdb.js`/`lens.js` were missing at launch).
+These modules are copied into the bundle via `bundle.resources` in `apps/dossier-desktop/src-tauri/tauri.conf.json`. That entry is a glob — `"../dist/*.js"` — specifically so new backend modules are picked up automatically. **Do not narrow it back to a hand-listed file** (it was previously `"../dist/backend.js"`, which is exactly what broke the v0.1.14 DMG when sibling modules were missing at launch).
 
 Rules when touching the Node backend:
 - Adding a new `src/*.ts` backend module needs no config change — the `../dist/*.js` glob already covers it. Just confirm it lands in `dist/` after `pnpm run build`.
 - Test files (`src/**/*.test.ts`) are excluded from the build emit (see `tsconfig.json` `exclude`) so they never reach the production bundle. Keep that exclude in place.
-- If you ever change resource paths, verify a packaged build actually launches — a missing sibling module fails at app start, not at build time.
+- If you ever change resource paths, verify a packaged build actually launches — a missing module fails at app start, not at build time.
+- The backend does **not** import `@dossier/store` or `@dossier/domain` as bare specifiers. It dynamically `import()`s `packages/store/dist/index.js` **by filesystem path** (`loadStoreModule`, keyed off `DOSSIER_PACKAGES_ROOT`). All TMDB / lens / library-export logic flows through that store module — `backend.ts` has no direct domain import.
+
+## Shared isomorphic core: `@dossier/domain`
+
+`packages/domain` holds logic shared by the Node backend **and** the browser (web build): the entertainment lens (`featureVector`), the TMDB types + transforms + cache-injectable `TmdbClient`, the persisted-library model (`PersistedState` etc.), and the passphrase `.dossier` export/import codec (`portable.ts`, WebCrypto). It must stay **isomorphic** — no `node:*` or browser-only API at module top level (WebCrypto via `globalThis.crypto`, `fetch` global). Node-only wiring (the fs TMDB disk cache, keychain) lives in `@dossier/store`, not here.
+
+How it ships at runtime:
+- **Backend / app:** `@dossier/store` imports `@dossier/domain` at runtime. `packages/store/scripts/copy-native-deps.mjs` copies `packages/domain/dist` into `packages/store/dist/node_modules/@dossier/domain` (same mechanism as keytar), so the bare import resolves via Node's node_modules walk from the store dist. The store dist already ships via `bundle.resources` (`packages/store/dist/**/*`), so the nested copy ships with it — **no tauri.conf change needed**. `build:deps` builds domain before store (`--filter "@dossier/store..."`).
+- **Web build:** Vite resolves `@dossier/domain` via the workspace symlink + package `exports` and bundles it into the static output. Build domain before the UI build (the tauri `beforeBuildCommand` runs `build:deps` first).
+- Because the backend resolves domain only through the store module, packaging risk is verified by the same packaged-launch smoke test as before.
+
+## Web (no-backend) build
+
+The same SvelteKit UI ships two ways: inside the Tauri app, and as a no-install static zip served by `npx http-server`. Which bridge populates `window.dossier` is chosen at runtime in `apps/dossier-ui/src/lib/desktop/bridge.ts` → `installBridge()`: Tauri runtime → `installDesktopApi()` (`platform: "app"`); plain browser → `installWebApi()` (`platform: "web"`, `lib/desktop/web/`). Both satisfy the identical `window.dossier` contract in `app.d.ts`; app-only surfaces (window controls, updater) are no-ops on web.
+
+Principle: **only think about the app.** The web build is set-and-forget — it reuses the same UI, lens, recommender, and domain core. It must differ only at the explicit differentiator points, all gated on `window.dossier?.platform`:
+- A passphrase-encrypted library in a user-picked folder (File System Access; Chromium-only) instead of the keychain-encrypted store. `WebUnlockGate.svelte`.
+- TMDB called directly from the browser; posters from TMDB's image CDN; token stored in the encrypted web vault (not exported).
+- `MigrationStepsModal.svelte` + Settings → Library export/import (both platforms) as the only data bridge.
+
+When adding a feature, put shared logic in the UI or `@dossier/domain` so both platforms get it for free; reach for web-specific code only for genuine platform differences (credentials, file access, the migrate prompts).
+
+The release zip (`Dossier-web-{version}.zip`) is produced by `version-bump.py` (`build_web_zip`) from the static `apps/dossier-ui/build` output and attached to the GitHub release alongside the DMG.
 
 ## Mandatory After Every Visual Change
 

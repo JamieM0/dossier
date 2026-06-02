@@ -65,10 +65,13 @@
       });
 
     function handleKey(e: KeyboardEvent): void {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        onClose();
-      }
+      if (e.repeat) return;
+      if (e.key === "Escape") { e.preventDefault(); onClose(); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); run(onLike); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); run(onDislike); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); run(onWatchlist); }
+      else if (e.key === "ArrowDown") { e.preventDefault(); run(onIgnore); }
+      else if (e.key === " " || e.code === "Space") { e.preventDefault(); run(onSkip); }
     }
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);

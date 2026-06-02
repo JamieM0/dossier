@@ -32,6 +32,9 @@ importers:
 
   apps/dossier-ui:
     dependencies:
+      '@dossier/domain':
+        specifier: workspace:*
+        version: link:../../packages/domain
       '@tauri-apps/api':
         specifier: latest
         version: 2.10.1
@@ -67,8 +70,20 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@24.10.13)
 
+  packages/domain:
+    devDependencies:
+      typescript:
+        specifier: ^5.7.3
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@24.10.13)
+
   packages/store:
     dependencies:
+      '@dossier/domain':
+        specifier: workspace:*
+        version: link:../domain
       keytar:
         specifier: ^7.9.0
         version: 7.9.0

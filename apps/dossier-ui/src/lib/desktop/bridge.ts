@@ -1,4 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
+import { installWebApi } from "./web/index.js";
 import type {
   DossierSettings,
   PairwiseChoice,
@@ -35,6 +36,7 @@ export function installDesktopApi(): void {
   }
 
   window.dossier = {
+    platform: "app",
     app: {
       getVersion: (): Promise<string> => invoke("app_get_version")
     },
@@ -93,6 +95,23 @@ export function installDesktopApi(): void {
       detail: (medium: TmdbMedium, id: number): Promise<TmdbItem> =>
         invoke("tmdb_detail", { medium, id }),
       posterUrl
+    },
+    library: {
+      export: (passphrase: string): Promise<string> =>
+        invoke("library_export", { passphrase }),
+      import: (fileContent: string, passphrase: string): Promise<void> =>
+        invoke("library_import", { fileContent, passphrase })
     }
   };
+}
+
+/** Install the right `window.dossier` bridge for the current runtime: the
+ * Tauri desktop bridge inside the app, or the no-backend web bridge in a
+ * plain browser. Called once at layout init. */
+export function installBridge(): void {
+  if (isTauriRuntime()) {
+    installDesktopApi();
+  } else {
+    installWebApi();
+  }
 }

@@ -1,15 +1,54 @@
 <script lang="ts">
   import { tmdbState } from "$lib/state/tmdb.svelte";
+  import { preferences } from "$lib/state/preferences.svelte";
   import IconKeyRegular from "phosphor-icons-svelte/IconKeyRegular.svelte";
   import IconArrowSquareOutRegular from "phosphor-icons-svelte/IconArrowSquareOutRegular.svelte";
+  import PromptDialog from "$lib/components/PromptDialog.svelte";
+  import MigrationStepsModal from "$lib/components/MigrationStepsModal.svelte";
+  import { pickTextFile } from "$lib/desktop/file-transfer";
 
   let token = $state("");
+
+  // Only the installed desktop app offers "migrate from the web app".
+  const isApp = typeof window !== "undefined" && window.dossier?.platform === "app";
+
+  let migrateModalOpen = $state(false);
+  let importPromptOpen = $state(false);
+  let pendingImportContent = $state<string | null>(null);
+  let migrateStatus = $state("");
+  let migrateError = $state("");
+  let migrateBusy = $state(false);
 
   async function submit(e: Event): Promise<void> {
     e.preventDefault();
     if (!token.trim() || tmdbState.busy) return;
     await tmdbState.setToken(token);
     if (tmdbState.configured) token = "";
+  }
+
+  async function startMigrationImport(): Promise<void> {
+    migrateError = "";
+    migrateStatus = "";
+    const picked = await pickTextFile();
+    if (!picked) return;
+    pendingImportContent = picked.content;
+    importPromptOpen = true;
+  }
+
+  async function runMigrationImport(passphrase: string): Promise<void> {
+    importPromptOpen = false;
+    if (pendingImportContent === null) return;
+    migrateBusy = true;
+    try {
+      await window.dossier!.library.import(pendingImportContent, passphrase);
+      await preferences.hydrate();
+      migrateStatus = "Library imported. Add your TMDB token above to start browsing.";
+    } catch (error) {
+      migrateError = error instanceof Error ? error.message : String(error);
+    } finally {
+      pendingImportContent = null;
+      migrateBusy = false;
+    }
   }
 </script>
 
@@ -52,8 +91,37 @@
         {tmdbState.busy ? "Validating…" : "Connect"}
       </button>
     </form>
+
+    {#if isApp}
+      <div class="migrate">
+        <span class="migrate-q">Already use Dossier in your browser?</span>
+        <div class="migrate-actions">
+          <button class="migrate-import" onclick={() => void startMigrationImport()} disabled={migrateBusy}>
+            {migrateBusy ? "Importing…" : "Migrate from web app"}
+          </button>
+          <button class="migrate-how" onclick={() => (migrateModalOpen = true)}>How?</button>
+        </div>
+        {#if migrateError}<p class="error">{migrateError}</p>{/if}
+        {#if migrateStatus}<p class="ok">{migrateStatus}</p>{/if}
+      </div>
+    {/if}
   </div>
 </div>
+
+{#if importPromptOpen}
+  <PromptDialog
+    title="Enter the export passphrase"
+    message="The passphrase you set when exporting your library from the web app."
+    placeholder="Passphrase"
+    confirmLabel="Import"
+    onConfirm={(value) => void runMigrationImport(value)}
+    onCancel={() => { importPromptOpen = false; pendingImportContent = null; }}
+  />
+{/if}
+
+{#if migrateModalOpen}
+  <MigrationStepsModal direction="from-web" onClose={() => (migrateModalOpen = false)} />
+{/if}
 
 <style>
   .gate {
@@ -138,5 +206,34 @@
     cursor: pointer;
   }
   button:disabled { opacity: 0.5; cursor: default; }
-  .error { color: var(--danger, #f85149); font-size: 0.85rem; margin: 0; }
+  .error { color: var(--danger, #f85149); font-size: 0.85rem; margin: var(--space-2) 0 0; }
+  .ok { color: var(--success, #2ea043); font-size: 0.85rem; margin: var(--space-2) 0 0; }
+  .migrate {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-subtle);
+  }
+  .migrate-q { display: block; font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: var(--space-2); }
+  .migrate-actions { display: flex; align-items: center; gap: var(--space-3); }
+  .migrate-import {
+    align-self: auto;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    background: var(--base-tertiary);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .migrate-import:hover { background: var(--base); }
+  .migrate-how {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0;
+  }
+  .migrate-how:hover { text-decoration: underline; }
 </style>

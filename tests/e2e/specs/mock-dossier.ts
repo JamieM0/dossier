@@ -51,6 +51,7 @@ export function installMockDossier(): void {
   const list = (items: unknown[]) => Promise.resolve({ page: 1, totalPages: 1, items });
 
   (window as unknown as { dossier: unknown }).dossier = {
+    platform: "app",
     app: { getVersion: () => Promise.resolve("0.0.0-test") },
     window: { show: () => Promise.resolve(), hide: () => Promise.resolve(), quit: () => Promise.resolve() },
     updater: { installAndRestart: () => Promise.resolve() },
@@ -85,6 +86,10 @@ export function installMockDossier(): void {
       search: () => list(pool.slice(0, 1)),
       detail: (_m: string, id: number) => Promise.resolve(pool.find((p) => p.id === id) ?? pool[0]),
       posterUrl: () => null
+    },
+    library: {
+      export: () => Promise.resolve("{}"),
+      import: () => Promise.resolve()
     }
   };
 }

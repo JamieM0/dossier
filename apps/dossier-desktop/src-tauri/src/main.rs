@@ -677,6 +677,43 @@ async fn preferences_reset(state: State<'_, RuntimeState>) -> Result<Value, Stri
         .await
 }
 
+// --- Library export / import --------------------------------------------
+// Forward to the Node backend, which serializes/encrypts the library with the
+// isomorphic @dossier/domain codec. The portable `.dossier` file is the only
+// bridge to/from the no-backend web build.
+
+#[tauri::command]
+async fn library_export(passphrase: String, state: State<'_, RuntimeState>) -> Result<String, String> {
+    let resp = state
+        .client
+        .request(
+            Method::POST,
+            "/control/library/export",
+            Some(json!({ "passphrase": passphrase })),
+        )
+        .await?;
+    resp.get("file")
+        .and_then(|v| v.as_str())
+        .map(String::from)
+        .ok_or_else(|| "backend did not return an export file".to_string())
+}
+
+#[tauri::command]
+async fn library_import(
+    file_content: String,
+    passphrase: String,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/library/import",
+            Some(json!({ "fileContent": file_content, "passphrase": passphrase })),
+        )
+        .await
+}
+
 // --- TMDB proxy commands -------------------------------------------------
 // These forward to the Node backend's control server, which owns the TMDB
 // token (OS keychain) and the metadata disk cache. Poster *images* do not
@@ -1008,6 +1045,8 @@ fn main() {
             tmdb_discover,
             tmdb_search,
             tmdb_detail,
+            library_export,
+            library_import,
             update_install_and_restart
         ])
         .build(tauri::generate_context!())

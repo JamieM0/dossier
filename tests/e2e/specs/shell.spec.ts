@@ -1,13 +1,15 @@
 import { expect, test } from "@playwright/test";
 import { installMockDossier } from "./mock-dossier";
 
-test.describe("TMDB key gate (no desktop bridge)", () => {
-  test("gates the app until a token is provided", async ({ page }) => {
+test.describe("Web build gate (no Tauri runtime)", () => {
+  test("a plain browser gets the web unlock/setup gate", async ({ page }) => {
+    // With no Tauri runtime and no mock, installBridge() installs the web
+    // bridge → the passphrase setup gate, not the TMDB gate.
     await page.goto("/");
     await expect(
-      page.getByRole("heading", { name: "Connect your TMDB account" })
+      page.getByRole("heading", { name: "Set up your library" })
     ).toBeVisible();
-    await page.screenshot({ path: "test-results/gate.png", fullPage: true });
+    await page.screenshot({ path: "test-results/web-gate.png", fullPage: true });
   });
 });
 

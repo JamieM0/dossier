@@ -4,8 +4,9 @@
   import Sidebar from "$lib/components/Sidebar.svelte";
   import Toaster from "$lib/components/Toaster.svelte";
   import TmdbKeyGate from "$lib/components/TmdbKeyGate.svelte";
+  import WebUnlockGate from "$lib/components/WebUnlockGate.svelte";
   import UpdateAvailableDialog from "$lib/components/UpdateAvailableDialog.svelte";
-  import { installDesktopApi } from "$lib/desktop/bridge";
+  import { installBridge } from "$lib/desktop/bridge";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
   import { tmdbState } from "$lib/state/tmdb.svelte";
   import { migrateLegacyRatings } from "$lib/migrate-legacy";
@@ -20,15 +21,33 @@
   let migrationDone = $state(false);
   let migrating = $state(false);
 
-  installDesktopApi();
+  installBridge();
 
-  const appReady = $derived(tmdbState.configured === true && migrationDone);
+  /** In the web build the library is passphrase-locked: nothing can be
+   * hydrated until the user unlocks it (WebUnlockGate). The desktop app has
+   * no such gate, so it starts "unlocked". */
+  const isWeb = typeof window !== "undefined" && window.dossier?.platform === "web";
+  let webUnlocked = $state(!isWeb);
+
+  const appReady = $derived(webUnlocked && tmdbState.configured === true && migrationDone);
+
+  /** Hydrate settings + TMDB status. Deferred until the web library is
+   * unlocked (or runs immediately on the desktop app). */
+  async function bootHydrate(): Promise<void> {
+    await uiSettings.hydrateFromDesktop();
+    await tmdbState.refresh();
+  }
+
+  function onWebUnlocked(): void {
+    webUnlocked = true;
+    void bootHydrate();
+  }
 
   // When TMDB becomes configured (first launch via the gate, or already
   // configured on boot), run the one-time legacy migration before the
   // screens mount and hydrate preferences.
   $effect(() => {
-    if (tmdbState.configured === true && !migrationDone && !migrating) {
+    if (webUnlocked && tmdbState.configured === true && !migrationDone && !migrating) {
       migrating = true;
       void migrateLegacyRatings()
         .catch(() => null)
@@ -58,8 +77,11 @@
   }
 
   onMount(() => {
-    void uiSettings.hydrateFromDesktop();
-    void tmdbState.refresh();
+    // Desktop: hydrate now. Web: wait for WebUnlockGate → onWebUnlocked().
+    if (webUnlocked) void bootHydrate();
+
+    // The auto-updater event only exists in the Tauri app.
+    if (window.dossier?.platform !== "app") return;
 
     const unlistenUpdate = listen<{ version: string; current_version: string }>("update:available", (event) => {
       if (!uiSettings.autoUpdatesEnabled) return;
@@ -78,7 +100,9 @@
 
 <svelte:window on:keydown={handleGlobalKeydown} />
 
-{#if tmdbState.configured === false}
+{#if isWeb && !webUnlocked}
+  <WebUnlockGate onUnlocked={onWebUnlocked} />
+{:else if tmdbState.configured === false}
   <TmdbKeyGate />
 {:else if !appReady}
   <div class="boot">

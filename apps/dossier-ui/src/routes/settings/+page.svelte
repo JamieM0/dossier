@@ -4,9 +4,74 @@
   import type { ThemeName } from "$lib/design/themes";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
   import { tmdbState } from "$lib/state/tmdb.svelte";
+  import { preferences } from "$lib/state/preferences.svelte";
+  import PromptDialog from "$lib/components/PromptDialog.svelte";
+  import MigrationStepsModal from "$lib/components/MigrationStepsModal.svelte";
+  import { downloadTextFile, pickTextFile, defaultExportFilename } from "$lib/desktop/file-transfer";
 
   let tmdbToken = $state("");
   let tmdbStatus = $state("");
+
+  const isWeb = typeof window !== "undefined" && window.dossier?.platform === "web";
+
+  // --- Library export / import -------------------------------------------
+  let libraryStatus = $state("");
+  let libraryError = $state("");
+  let libraryBusy = $state(false);
+  let exportPromptOpen = $state(false);
+  let importPromptOpen = $state(false);
+  let pendingImportContent = $state<string | null>(null);
+  let migrateModalOpen = $state(false);
+
+  function setLibraryStatus(msg: string): void {
+    libraryStatus = msg;
+    libraryError = "";
+    setTimeout(() => { if (libraryStatus === msg) libraryStatus = ""; }, 6000);
+  }
+
+  async function runExport(passphrase: string): Promise<void> {
+    exportPromptOpen = false;
+    libraryError = "";
+    libraryBusy = true;
+    try {
+      const file = await window.dossier!.library.export(passphrase);
+      downloadTextFile(defaultExportFilename(), file);
+      setLibraryStatus("Library exported. Keep the file and passphrase safe — you'll need both to import.");
+    } catch (error) {
+      libraryError = errorToMessage(error);
+    } finally {
+      libraryBusy = false;
+    }
+  }
+
+  async function startImport(): Promise<void> {
+    libraryError = "";
+    const picked = await pickTextFile();
+    if (!picked) return;
+    pendingImportContent = picked.content;
+    importPromptOpen = true;
+  }
+
+  async function runImport(passphrase: string): Promise<void> {
+    importPromptOpen = false;
+    if (pendingImportContent === null) return;
+    libraryBusy = true;
+    try {
+      await window.dossier!.library.import(pendingImportContent, passphrase);
+      // Rehydrate everything the imported library may have changed.
+      await Promise.all([
+        preferences.hydrate(),
+        tmdbState.refresh(),
+        uiSettings.hydrateFromDesktop()
+      ]);
+      setLibraryStatus("Library imported. Your ratings and watchlist are now in place.");
+    } catch (error) {
+      libraryError = errorToMessage(error);
+    } finally {
+      pendingImportContent = null;
+      libraryBusy = false;
+    }
+  }
 
   onMount(() => {
     void tmdbState.refresh();
@@ -230,9 +295,76 @@
           </button>
         </div>
       </section>
+
+      <section class="settings-section">
+        <h2 class="section-heading">Library</h2>
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Export &amp; import</span>
+              <span class="setting-desc">
+                Move your ratings, watchlist, and refinement history between the web
+                version and the desktop app with an encrypted <code>.dossier</code> file.
+                You set a passphrase on export and re-enter it to import.
+              </span>
+            </div>
+          </div>
+          {#if libraryError}<p class="field-error">{libraryError}</p>{/if}
+          {#if libraryStatus}<p class="field-ok">{libraryStatus}</p>{/if}
+          <div class="button-row">
+            <button class="primary-btn" disabled={libraryBusy} onclick={() => (exportPromptOpen = true)}>
+              {libraryBusy ? "Working…" : "Export library"}
+            </button>
+            <button class="text-btn" disabled={libraryBusy} onclick={() => void startImport()}>
+              Import library
+            </button>
+          </div>
+        </div>
+
+        {#if isWeb}
+          <div class="setting-group">
+            <div class="setting-row">
+              <div class="setting-info">
+                <span class="setting-label">Move to the desktop app</span>
+                <span class="setting-desc">
+                  Prefer OS-secured credentials and no browser? See how to move your
+                  library to the installed app.
+                </span>
+              </div>
+              <button class="text-btn" onclick={() => (migrateModalOpen = true)}>Migrate to app</button>
+            </div>
+          </div>
+        {/if}
+      </section>
     </div>
   </div>
 </section>
+
+{#if exportPromptOpen}
+  <PromptDialog
+    title="Set an export passphrase"
+    message="This passphrase encrypts the exported file. You'll need it to import — there's no recovery if you lose it."
+    placeholder="Passphrase"
+    confirmLabel="Export"
+    onConfirm={(value) => void runExport(value)}
+    onCancel={() => (exportPromptOpen = false)}
+  />
+{/if}
+
+{#if importPromptOpen}
+  <PromptDialog
+    title="Enter the import passphrase"
+    message="The passphrase that was set when this file was exported."
+    placeholder="Passphrase"
+    confirmLabel="Import"
+    onConfirm={(value) => void runImport(value)}
+    onCancel={() => { importPromptOpen = false; pendingImportContent = null; }}
+  />
+{/if}
+
+{#if migrateModalOpen}
+  <MigrationStepsModal direction="to-app" onClose={() => (migrateModalOpen = false)} />
+{/if}
 
 <style>
   .settings-view { min-height: 100vh; background: var(--base); }
@@ -265,7 +397,10 @@
   .token-input:focus { outline: none; border-color: var(--primary-accent); background: var(--base); }
   .primary-btn { padding: var(--space-2) var(--space-4); border-radius: var(--radius-sm); border: 0; background: var(--primary-accent); color: #fff; font-size: 0.875rem; font-weight: 600; cursor: pointer; }
   .primary-btn:disabled { opacity: 0.5; cursor: default; }
+  .button-row { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; }
+  .setting-desc code { font-family: var(--font-mono, monospace); font-size: 0.78rem; background: var(--base-tertiary); padding: 0 4px; border-radius: 3px; }
   .text-btn { background: none; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: var(--space-2) var(--space-3); font-size: 0.85rem; color: var(--text-secondary); cursor: pointer; }
+  .text-btn:disabled { opacity: 0.5; cursor: default; }
   .text-btn.danger:hover { color: var(--danger, #f85149); border-color: color-mix(in srgb, var(--danger, #f85149) 40%, var(--border-subtle)); }
   .field-error { color: var(--danger, #f85149); font-size: 0.8rem; margin: 0 0 var(--space-2); }
   .field-ok { color: var(--success, #2ea043); font-size: 0.8rem; margin: 0 0 var(--space-2); }
