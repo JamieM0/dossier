@@ -58,12 +58,11 @@
           {:else}
             <div class="poster poster-empty" aria-hidden="true"></div>
           {/if}
-          <div class="caption">
-            <p class="title">{film.title}</p>
-            {#if film.year}
+          {#if film.year}
+            <div class="caption">
               <p class="year">{film.year}</p>
-            {/if}
-          </div>
+            </div>
+          {/if}
         </button>
       {/each}
     </div>
@@ -160,19 +159,6 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
-  }
-  .title {
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.3;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
   }
   .year {
     color: var(--text-tertiary);

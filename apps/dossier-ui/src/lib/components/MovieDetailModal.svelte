@@ -43,6 +43,7 @@
 
   const poster = $derived(posterUrl(detail.posterPath, "w500"));
   const rating = $derived(detail.voteAverage ? detail.voteAverage.toFixed(1) : null);
+  const decade = $derived(detail.year ? `${Math.floor(detail.year / 10) * 10}s` : null);
 
   function run(handler: ((i: TmdbItem) => void | Promise<void>) | undefined): void {
     if (!handler) return;
@@ -110,6 +111,7 @@
         <h2 class="title" id="movie-modal-title">{detail.title}</h2>
         <p class="meta">
           {#if detail.year}<span>{detail.year}</span>{/if}
+          {#if decade}<span class="dot">·</span><span>{decade}</span>{/if}
           {#if rating}<span class="dot">·</span><span>★ {rating}</span>{/if}
           {#if detail.runtime}<span class="dot">·</span><span>{detail.runtime} min</span>{/if}
         </p>

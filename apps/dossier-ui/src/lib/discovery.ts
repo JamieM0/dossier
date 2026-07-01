@@ -38,6 +38,47 @@ function dedupeExclude(items: TmdbItem[], excludeKeys: Set<string>): TmdbItem[] 
   return out;
 }
 
+/** Run `fn` over `items` with at most `concurrency` in flight at once,
+ * preserving input order in the result. */
+export async function mapWithConcurrency<T, R>(
+  items: T[],
+  concurrency: number,
+  fn: (item: T) => Promise<R>
+): Promise<R[]> {
+  const results = new Array<R>(items.length);
+  let next = 0;
+  async function worker(): Promise<void> {
+    for (;;) {
+      const i = next++;
+      if (i >= items.length) return;
+      results[i] = await fn(items[i]);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.max(1, Math.min(concurrency, items.length)) }, worker));
+  return results;
+}
+
+/** Upgrade a list-sourced item to the full per-item lens vector, which
+ * uses TMDB's curated keyword tags (list results only carry genres +
+ * overview text — see lens.ts for why that alone barely discriminates
+ * between two same-genre movies). Falls back to the original item on any
+ * fetch failure (offline, TMDB error, deleted title) so rating or scoring
+ * never blocks on this. Cheap to repeat: detail() is disk-cached forever
+ * once a title has been fetched once. */
+export async function enrichItem(item: TmdbItem): Promise<TmdbItem> {
+  try {
+    return await tmdb().detail(item.medium, item.id);
+  } catch {
+    return item;
+  }
+}
+
+/** Batch form of enrichItem for a whole candidate page, with bounded
+ * concurrency so we don't fire 50+ simultaneous requests at TMDB. */
+export async function enrichItems(items: TmdbItem[], concurrency = 8): Promise<TmdbItem[]> {
+  return mapWithConcurrency(items, concurrency, enrichItem);
+}
+
 /** The rating queue: recognisable titles first so calibration starts on
  * films people are likely to have seen. Trending + popular + a slice of
  * acclaimed titles, deduped. */

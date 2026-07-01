@@ -6,10 +6,13 @@
   import TmdbKeyGate from "$lib/components/TmdbKeyGate.svelte";
   import WebUnlockGate from "$lib/components/WebUnlockGate.svelte";
   import UpdateAvailableDialog from "$lib/components/UpdateAvailableDialog.svelte";
+  import EnrichmentProgressModal from "$lib/components/EnrichmentProgressModal.svelte";
   import { installBridge } from "$lib/desktop/bridge";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
   import { tmdbState } from "$lib/state/tmdb.svelte";
   import { migrateLegacyRatings } from "$lib/migrate-legacy";
+  import { upgradeExistingRatings } from "$lib/enrich-ratings";
+  import { preferences } from "$lib/state/preferences.svelte";
   import { goto } from "$app/navigation";
   import IconSidebarSimpleRegular from "phosphor-icons-svelte/IconSidebarSimpleRegular.svelte";
   import { listen } from "@tauri-apps/api/event";
@@ -70,6 +73,33 @@
           migrationDone = true;
           migrating = false;
         });
+    }
+  });
+
+  // Once the screens are up and preferences have hydrated (whichever
+  // route mounts first triggers that), kick off the ratings enrichment
+  // backfill once per launch. Runs every launch (cheap no-op after the
+  // first time, since detail() is disk-cached) — the progress modal
+  // below always shows while it runs, even when there's nothing to
+  // upgrade, so it's never a silent, unverifiable background process.
+  let enrichmentStarted = false;
+  let enrichmentVisible = $state(false);
+  let enrichmentDone = $state(false);
+  let enrichmentProcessed = $state(0);
+  let enrichmentTotal = $state(0);
+  let enrichmentUpgraded = $state(0);
+
+  $effect(() => {
+    if (appReady && preferences.loaded && !enrichmentStarted) {
+      enrichmentStarted = true;
+      enrichmentVisible = true;
+      void upgradeExistingRatings(6, (processed, total) => {
+        enrichmentProcessed = processed;
+        enrichmentTotal = total;
+      }).then((result) => {
+        enrichmentUpgraded = result.upgraded;
+        enrichmentDone = true;
+      });
     }
   });
 
@@ -166,6 +196,16 @@
       await uiSettings.persist();
       updateAvailable = null;
     }}
+  />
+{/if}
+
+{#if enrichmentVisible}
+  <EnrichmentProgressModal
+    processed={enrichmentProcessed}
+    total={enrichmentTotal}
+    done={enrichmentDone}
+    upgraded={enrichmentUpgraded}
+    onClose={() => (enrichmentVisible = false)}
   />
 {/if}
 

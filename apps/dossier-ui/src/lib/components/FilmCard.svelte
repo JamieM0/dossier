@@ -26,12 +26,6 @@
   } = $props();
 
   const poster = $derived(posterUrl(item.posterPath, "w342"));
-  const rating = $derived(item.voteAverage ? item.voteAverage.toFixed(1) : null);
-
-  function decadeLabel(year: number | null): string {
-    if (!year) return "";
-    return `${Math.floor(year / 10) * 10}s`;
-  }
 </script>
 
 <article class="card">
@@ -60,6 +54,16 @@
             <IconThumbsUpFill class="icon-16" />
           </button>
         {/if}
+        {#if onDislike}
+          <button
+            class="overlay-btn dislike"
+            title="Dislike"
+            aria-label="Dislike"
+            onclick={(e) => { e.stopPropagation(); onDislike?.(item); }}
+          >
+            <IconThumbsDownFill class="icon-16" />
+          </button>
+        {/if}
         {#if onWatchlist}
           <button
             class="overlay-btn watchlist"
@@ -80,33 +84,24 @@
             <IconProhibitRegular class="icon-16" />
           </button>
         {/if}
-        {#if onDislike}
-          <button
-            class="overlay-btn dislike"
-            title="Dislike"
-            aria-label="Dislike"
-            onclick={(e) => { e.stopPropagation(); onDislike?.(item); }}
-          >
-            <IconThumbsDownFill class="icon-16" />
-          </button>
-        {/if}
       </div>
     {/if}
   </div>
-  <div class="body">
-    <h3 class="title">{item.title}</h3>
-    <p class="meta">
-      {#if item.year}<span>{item.year}</span>{/if}
-      {#if item.year}<span class="dot">·</span><span class="muted">{decadeLabel(item.year)}</span>{/if}
-      {#if rating}<span class="dot">·</span><span class="rating">★ {rating}</span>{/if}
-    </p>
-    {#if item.genres.length > 0}
-      <p class="genres">{item.genres.slice(0, 3).join(" · ")}</p>
-    {/if}
+  <button
+    type="button"
+    class="body"
+    onclick={() => onSelect?.(item)}
+    aria-label={`See details for ${item.title}`}
+    disabled={!onSelect}
+  >
+    <span class="meta">
+      {#if item.year}<span class="year">{item.year}</span>{/if}
+      {#if item.genres.length > 0}<span class="genres">{item.genres.slice(0, 2).join(", ")}</span>{/if}
+    </span>
     {#if score !== null}
-      <p class="score">match {(score * 100).toFixed(0)}%</p>
+      <span class="score">{(score * 100).toFixed(0)}%</span>
     {/if}
-  </div>
+  </button>
 </article>
 
 <style>
@@ -168,54 +163,67 @@
     align-items: center;
     justify-content: center;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background: rgba(20, 22, 28, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(20, 22, 28, 0.4);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
     color: white;
     cursor: pointer;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
     transition: background var(--duration-standard) var(--ease-out),
                 transform var(--duration-quick) var(--ease-out);
   }
   .overlay-btn:hover {
+    background: rgba(20, 22, 28, 0.65);
     transform: scale(1.05);
   }
-  .overlay-btn.like:hover { background: color-mix(in srgb, var(--success, #2ea043) 60%, rgba(20,22,28,0.78)); }
-  .overlay-btn.watchlist:hover { background: color-mix(in srgb, var(--accent) 60%, rgba(20,22,28,0.78)); }
-  .overlay-btn.ignore:hover { background: color-mix(in srgb, var(--text-secondary) 40%, rgba(20,22,28,0.78)); }
-  .overlay-btn.dislike:hover { background: color-mix(in srgb, var(--danger, #f85149) 60%, rgba(20,22,28,0.78)); }
   .body {
-    padding: var(--space-3);
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
     display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    border: 0;
+    background: none;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: background var(--duration-standard) var(--ease-out);
   }
-  .title {
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.3;
-  }
+  .body:hover:not(:disabled) { background: var(--base-tertiary); }
+  .body:disabled { cursor: default; }
   .meta {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
+    min-width: 0;
     display: flex;
-    gap: var(--space-1);
-    margin: 0;
+    align-items: baseline;
+    gap: var(--space-2);
+    overflow: hidden;
   }
-  .dot { color: var(--text-tertiary); }
-  .muted { color: var(--text-tertiary); }
-  .rating { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .year {
+    flex: none;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
   .genres {
+    min-width: 0;
     color: var(--text-tertiary);
     font-size: 0.75rem;
-    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .score {
-    margin: var(--space-1) 0 0;
-    font-size: 0.75rem;
+    flex: none;
+    padding: 2px var(--space-2);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
     color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 600;
     font-variant-numeric: tabular-nums;
   }
 </style>

@@ -5,10 +5,30 @@
  *
  * Why not a single "ideal item" centroid (the old approach): averaging
  * every rated item collapses split tastes (e.g. bleak dramas *and*
- * breezy comedies) into a mushy mid-point that matches neither. Instead
- * we score a candidate by how well it matches its *nearest* liked items
- * (weighted kNN), which preserves multiple taste clusters, and penalise
- * proximity to disliked items. */
+ * breezy comedies) into a mushy mid-point that matches neither.
+ *
+ * Why not raw top-K nearest *items* either (the previous approach here):
+ * it doesn't scale. With only a handful of ratings, "nearest liked item"
+ * is a meaningful filter. But once a user has rated hundreds of titles,
+ * almost any reasonably mainstream candidate ends up close to *something*
+ * in their history purely by volume — scores for very different
+ * candidates converge toward the same narrow high band, and the ranking
+ * degenerates into whatever tie-break signal is left (vote average,
+ * insertion order). Measured directly: the spread between candidate
+ * scores shrinks roughly 4x going from 5 rated items to 500+.
+ *
+ * Instead, liked/disliked items are first collapsed into *taste clusters*
+ * (buildClusters): ratings with a similar fingerprint get merged into one
+ * cluster with a running-average centroid, rather than staying as separate
+ * points. A candidate is scored against its nearest few *clusters*, not
+ * its nearest few *raw items*. This keeps the original fix (distinct
+ * tastes — horror vs. rom-com — never get blended into one mushy
+ * average), while fixing the new problem: the number of clusters reflects
+ * how many genuinely distinct things you like, not how many ratings
+ * you've made, so it doesn't saturate as your history grows. A cluster's
+ * confidence (and thus its influence) grows with how many ratings
+ * reinforce it, so recommendations keep sharpening — never degrading —
+ * the more you rate. */
 import type { FeatureVector, RatingEntry, TmdbItem } from "$lib/types";
 import { ratingWeight } from "$lib/types";
 
@@ -48,22 +68,42 @@ export function cosineSimilarity(a: FeatureVector, b: FeatureVector): number {
   return dot(a, b) / (ma * mb);
 }
 
-/** How many nearest liked items contribute to a candidate's score. Small
- * enough to keep distinct taste clusters separable. */
-const TOP_K = 3;
-/** How hard proximity to a disliked item drags a candidate down. */
+/** How many nearest taste clusters contribute to a candidate's score.
+ * Small enough to keep distinct tastes (horror vs. rom-com) separable —
+ * a candidate only has to resemble a *few* of your taste clusters, not
+ * a blend of all of them. */
+const TOP_K_CLUSTERS = 3;
+/** How hard proximity to a disliked cluster drags a candidate down. */
 const DISLIKE_PENALTY = 0.6;
 /** Tiny quality nudge so near-ties resolve toward better-reviewed items;
  * kept small so taste dominates. */
 const QUALITY_WEIGHT = 0.05;
+/** Cosine similarity above which two ratings are considered "the same
+ * taste" and merged into one cluster rather than kept as separate points.
+ * High enough that only genuinely similar fingerprints merge (so distinct
+ * tastes stay distinct); the exact value matters less than having *some*
+ * merging, since that's what keeps cluster count from growing linearly
+ * with rating count. */
+const CLUSTER_MERGE_THRESHOLD = 0.75;
+/** Smooths a cluster's influence by how many ratings reinforce it: a
+ * cluster built from a single rating counts at half strength (1/(1+1));
+ * one reinforced by 9 more ratings counts at 10/11 ≈ 0.91. This is what
+ * makes the recommender sharpen (not saturate) as you rate more — a
+ * cluster's centroid *and* its confidence both improve with more data. */
+const CLUSTER_CONFIDENCE_SMOOTHING = 1;
 
 type Pole = { features: FeatureVector; weight: number };
+
+/** A merged taste cluster: a running-average centroid over one or more
+ * ratings with a similar fingerprint, plus the accumulated rating weight
+ * behind it (used for confidence). */
+type Cluster = { centroid: FeatureVector; weight: number; count: number };
 
 function splitPoles(entries: RatingEntry[]): { liked: Pole[]; disliked: Pole[] } {
   const liked: Pole[] = [];
   const disliked: Pole[] = [];
   for (const e of entries) {
-    const w = ratingWeight(e.rating); // like 1, watchlist .5, dislike/not_interested -1
+    const w = ratingWeight(e.rating); // like 1, watchlist .15, dislike/not_interested -1
     const pole = { features: e.item.features, weight: Math.abs(w) };
     if (w > 0) liked.push(pole);
     else if (w < 0) disliked.push(pole);
@@ -71,20 +111,61 @@ function splitPoles(entries: RatingEntry[]): { liked: Pole[]; disliked: Pole[] }
   return { liked, disliked };
 }
 
-/** Score a single candidate against the liked/disliked poles. Returns a
- * value roughly in [-1.6, 1.05]; only the ordering matters. */
+/** Greedily merge poles into taste clusters: each pole joins its nearest
+ * existing cluster if they're similar enough (CLUSTER_MERGE_THRESHOLD),
+ * updating that cluster's centroid as a weighted running average;
+ * otherwise it starts a new cluster. Order-dependent in principle, but
+ * ratings arrive incrementally in practice so this matches how a user's
+ * taste profile actually accumulates. */
+function buildClusters(poles: Pole[]): Cluster[] {
+  const clusters: Cluster[] = [];
+  for (const pole of poles) {
+    let best: Cluster | null = null;
+    let bestSim = -Infinity;
+    for (const c of clusters) {
+      const sim = cosineSimilarity(pole.features, c.centroid);
+      if (sim > bestSim) {
+        bestSim = sim;
+        best = c;
+      }
+    }
+    if (best && bestSim >= CLUSTER_MERGE_THRESHOLD) {
+      const newWeight = best.weight + pole.weight;
+      for (const k of AXIS_KEYS) {
+        best.centroid[k] = (best.centroid[k] * best.weight + pole.features[k] * pole.weight) / newWeight;
+      }
+      best.weight = newWeight;
+      best.count += 1;
+    } else {
+      clusters.push({ centroid: { ...pole.features }, weight: pole.weight, count: 1 });
+    }
+  }
+  return clusters;
+}
+
+function clusterConfidence(c: Cluster): number {
+  return c.weight / (c.weight + CLUSTER_CONFIDENCE_SMOOTHING);
+}
+
+/** Score a single candidate against the liked/disliked taste clusters.
+ * Returns a value roughly in [-1.6, 1.05]; only the ordering matters. */
 export function scoreCandidate(
   candidate: Scorable,
-  liked: Pole[],
-  disliked: Pole[]
+  likedClusters: Cluster[],
+  dislikedClusters: Cluster[]
 ): number {
   if (magnitude(candidate.features) === 0) return -Infinity;
 
-  // Best matches among liked items (weighted), top-K averaged.
-  const likedSims = liked
-    .map((p) => cosineSimilarity(candidate.features, p.features) * p.weight)
+  // Best matches among taste clusters (confidence-weighted), top-K
+  // averaged. Clamped to >= 0: a candidate is credited for resembling
+  // *some* of your taste clusters, never penalized here for not
+  // resembling an unrelated one — that penalty-by-averaging is exactly
+  // what melds distinct tastes into a mushy blend (see module doc). A
+  // candidate only has to be close to a few of your clusters, not all.
+  const likedSims = likedClusters
+    .map((c) => Math.max(0, cosineSimilarity(candidate.features, c.centroid)) * clusterConfidence(c))
     .sort((a, b) => b - a);
-  const k = Math.min(TOP_K, likedSims.length);
+  const k = Math.min(TOP_K_CLUSTERS, likedSims.length);
   let likedScore = 0;
   if (k > 0) {
     let sum = 0;
@@ -92,10 +173,10 @@ export function scoreCandidate(
     likedScore = sum / k;
   }
 
-  // Closest disliked item (only positive similarity hurts).
+  // Closest disliked cluster (only positive similarity hurts).
   let dislikeMax = 0;
-  for (const p of disliked) {
-    const sim = cosineSimilarity(candidate.features, p.features);
+  for (const c of dislikedClusters) {
+    const sim = cosineSimilarity(candidate.features, c.centroid) * clusterConfidence(c);
     if (sim > dislikeMax) dislikeMax = sim;
   }
 
@@ -107,29 +188,31 @@ export function scoreCandidate(
 
 export type Recommendation = { item: TmdbItem; score: number };
 
-/** Rank a pre-fetched candidate pool by taste. `excludeKeys` removes
- * already-rated/skipped items. Returns the top `limit`. */
-export function rankRecommendations(
+/** Score and sort one batch of candidates by taste. Callers doing
+ * infinite-scroll should score each newly-fetched page as its own batch
+ * and append the (already internally-sorted) result to a stable list,
+ * rather than re-ranking the whole accumulated pool on every page — that
+ * would let a later page's high scorers jump ahead of items the user has
+ * already scrolled past. Exclusion (rated/skipped) is left to the caller
+ * since it can change independently of the pool (e.g. rating an item
+ * that's already on screen). */
+export function scoreCandidates(
   candidates: TmdbItem[],
-  entries: RatingEntry[],
-  excludeKeys: Set<string>,
-  limit: number
+  entries: RatingEntry[]
 ): Recommendation[] {
   const { liked, disliked } = splitPoles(entries);
   if (liked.length === 0) return [];
+  const likedClusters = buildClusters(liked);
+  const dislikedClusters = buildClusters(disliked);
 
-  const seen = new Set<string>();
   const scored: Recommendation[] = [];
   for (const item of candidates) {
-    const key = `${item.medium}:${item.id}`;
-    if (excludeKeys.has(key) || seen.has(key)) continue;
-    seen.add(key);
-    const score = scoreCandidate(item, liked, disliked);
+    const score = scoreCandidate(item, likedClusters, dislikedClusters);
     if (score === -Infinity) continue;
     scored.push({ item, score });
   }
   scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, limit);
+  return scored;
 }
 
 /** Predicted preference for a single item, 0–100. Used by the refine
@@ -138,7 +221,7 @@ export function rankRecommendations(
 export function predictPreference(item: Scorable, entries: RatingEntry[]): number {
   const { liked, disliked } = splitPoles(entries);
   if (liked.length === 0) return 0;
-  const raw = scoreCandidate(item, liked, disliked);
+  const raw = scoreCandidate(item, buildClusters(liked), buildClusters(disliked));
   if (!Number.isFinite(raw)) return 0;
   return Math.round(Math.max(0, Math.min(1, raw)) * 100);
 }

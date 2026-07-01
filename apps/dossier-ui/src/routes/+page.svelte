@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount, untrack } from "svelte";
   import { goto } from "$app/navigation";
-  import { buildCandidatePool } from "$lib/discovery";
-  import { rankRecommendations, type Recommendation } from "$lib/recommender";
+  import { buildCandidatePool, enrichItems } from "$lib/discovery";
+  import { scoreCandidates, type Recommendation } from "$lib/recommender";
   import { preferences } from "$lib/state/preferences.svelte";
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { toasts } from "$lib/state/toast.svelte";
@@ -28,8 +28,21 @@
   let hasMorePages = $state(true);
   let loadingPool = $state(false);
   let poolError = $state<string | null>(null);
-  let limit = $state(24);
+  /** Consecutive fetches that added no new items (TMDB pages can overlap
+   * near the tail of a filtered discover query). Stops the near-bottom
+   * effect from hammering the API forever when a page technically has
+   * results but none of them are new. */
+  let staleFetchStreak = 0;
+  /** Scored candidates in stable, append-only order: each newly-fetched
+   * page is scored and sorted as its own batch, then appended. This is
+   * what keeps already-shown cards from reshuffling as more pages load —
+   * see scoreCandidates() in recommender.ts. */
+  let allRecs = $state<Recommendation[]>([]);
+  let visibleCount = $state(24);
   const PAGE = 24;
+  /** True while the sentinel is within the observer's root margin, i.e.
+   * the user is close enough to the bottom that we should keep filling. */
+  let nearBottom = $state(false);
   let sentinel: HTMLDivElement | null = $state(null);
   let modalItem = $state<TmdbItem | null>(null);
   let filterOpen = $state(false);
@@ -51,25 +64,20 @@
     return true;
   }
 
-  const filteredPool = $derived(filters.decadeRange ? pool.filter(passesFilters) : pool);
-
-  // Profile spans ALL rated items (taste transfers across mediums); the
-  // candidate pool is the active medium only.
-  const recommendations = $derived<Recommendation[]>(
-    preferences.loaded
-      ? rankRecommendations(
-          filteredPool,
-          preferences.entries(),
-          preferences.excludedKeys(),
-          limit
-        )
-      : []
-  );
+  // Exclusion and decade filtering are applied for display only, over the
+  // stable scored order — neither should reshuffle previously-shown cards.
+  const displayRecs = $derived.by<Recommendation[]>(() => {
+    const excluded = preferences.excludedKeys();
+    return allRecs.filter(
+      (r) => !excluded.has(itemKey(r.item.medium, r.item.id)) && passesFilters(r.item)
+    );
+  });
+  const recommendations = $derived(displayRecs.slice(0, visibleCount));
 
   const ratingCount = $derived(preferences.ratingCount());
   const hasEnough = $derived(ratingCount >= 5);
   const filterActive = $derived(filters.decadeRange !== null);
-  const hasMore = $derived(hasMorePages || recommendations.length >= limit);
+  const hasMore = $derived(hasMorePages || displayRecs.length > visibleCount);
 
   async function fetchPool(): Promise<void> {
     if (loadingPool || !hasMorePages) return;
@@ -85,10 +93,23 @@
       poolPage += 1;
       if (page.length === 0) {
         hasMorePages = false;
-      } else {
-        const have = new Set(pool.map((i) => itemKey(i.medium, i.id)));
-        pool = [...pool, ...page.filter((i) => !have.has(itemKey(i.medium, i.id)))];
+        return;
       }
+      const have = new Set(pool.map((i) => itemKey(i.medium, i.id)));
+      const newItems = page.filter((i) => !have.has(itemKey(i.medium, i.id)));
+      if (newItems.length === 0) {
+        staleFetchStreak += 1;
+        if (staleFetchStreak >= 2) hasMorePages = false;
+        return;
+      }
+      staleFetchStreak = 0;
+      // Score against the full per-item lens vector (real TMDB keyword
+      // tags), not the coarse genre-only vector list results carry — see
+      // discovery.ts:enrichItem. Disk-cached, so this is only a real
+      // network cost the first time each title is ever seen.
+      const enriched = await enrichItems(newItems);
+      pool = [...pool, ...enriched];
+      allRecs = [...allRecs, ...scoreCandidates(enriched, preferences.entries())];
     } catch (err) {
       poolError = err instanceof Error ? err.message : String(err);
     } finally {
@@ -108,35 +129,43 @@
     const ready = preferences.loaded && hasEnough;
     untrack(() => {
       pool = [];
+      allRecs = [];
       poolPage = 1;
       hasMorePages = true;
-      limit = 24;
+      staleFetchStreak = 0;
+      visibleCount = PAGE;
       if (ready) void fetchPool();
     });
   });
 
-  // Infinite scroll: grow the pool / reveal more as the sentinel nears.
+  // Watch the sentinel with a generous root margin so loading starts
+  // well before the user hits the bottom (fixes "new entries don't
+  // appear on time").
   $effect(() => {
     if (!sentinel) return;
     const target = sentinel;
     const obs = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) {
-          if (!e.isIntersecting) continue;
-          // If we're showing most of the ranked pool, fetch more first.
-          if (limit + PAGE > filteredPool.length && hasMorePages) void fetchPool();
-          if (recommendations.length >= limit && hasMorePages) limit += PAGE;
-          else if (limit < filteredPool.length) limit += PAGE;
-          queueMicrotask(() => {
-            obs.unobserve(target);
-            obs.observe(target);
-          });
-        }
+        for (const e of entries) nearBottom = e.isIntersecting;
       },
-      { rootMargin: "400px" }
+      { rootMargin: "800px" }
     );
     obs.observe(target);
     return () => obs.disconnect();
+  });
+
+  // While near the bottom, keep revealing already-scored cards and/or
+  // fetching more, re-running as those values change. This reruns on its
+  // own (via the displayRecs/visibleCount/hasMorePages dependencies) for
+  // as long as nearBottom stays true, so tall viewports that reveal a
+  // whole page without the sentinel leaving the margin still keep filling.
+  $effect(() => {
+    if (!nearBottom) return;
+    if (displayRecs.length > visibleCount) {
+      visibleCount += PAGE;
+    } else if (hasMorePages && !loadingPool) {
+      void fetchPool();
+    }
   });
 
   async function applyRatingWithUndo(item: TmdbItem, rating: Rating, verb: string): Promise<void> {
@@ -253,7 +282,7 @@
   <RecommendationsFilterModal
     {filters}
     decadeOptions={decadeOptions}
-    onApply={(next) => { filters = next; limit = 24; }}
+    onApply={(next) => { filters = next; visibleCount = PAGE; }}
     onClose={() => (filterOpen = false)}
   />
 {/if}

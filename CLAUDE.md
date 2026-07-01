@@ -10,6 +10,8 @@ The current build is a narrow, deliberately scoped slice of a much bigger idea �
 
 Only use subagents (the Agent tool) for large tasks that genuinely require them — broad, open-ended exploration or independent parallel work. Don't spawn one for small or well-scoped tasks; do those directly.
 
+A single `grep`/`Read` in this repo (finding a constant, a function definition, a config value) is never large enough to justify a subagent — just look it up yourself with Bash/Grep/Read. Default to doing the lookup directly; only reach for Agent when the task is genuinely broad or independent.
+
 ## Feature project (GitHub Projects)
 
 Feature ideas live in the **"Dossier Planning"** GitHub Project — private, project `8`, owner `JamieM0`: https://github.com/users/JamieM0/projects/8

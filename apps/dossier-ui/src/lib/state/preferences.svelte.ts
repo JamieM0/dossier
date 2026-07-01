@@ -14,6 +14,7 @@ import type {
   TmdbMedium
 } from "$lib/types";
 import { itemKey, parseItemKey, ratingKind, ratingWeight, toRatedItem } from "$lib/types";
+import { enrichItem } from "$lib/discovery";
 
 class PreferencesState {
   ratings = $state<Record<string, RatingEntry>>({});
@@ -51,11 +52,19 @@ class PreferencesState {
   }
 
   /** Set / replace a rating from a full TMDB item (snapshot stored).
-   *  Pass null to clear. Throws so the caller can show feedback. */
+   *  Pass null to clear. Throws so the caller can show feedback.
+   *
+   *  Ratings are a taste *reference point* for the recommender, so we
+   *  always snapshot the fully-enriched item (real TMDB keyword tags,
+   *  not just the coarse genre+overview vector list results carry) —
+   *  see discovery.ts:enrichItem. Every rating path (Rate, Recommendations,
+   *  Library) goes through here, so this is the single place that needs
+   *  to know about enrichment. */
   async setRating(item: TmdbItem, rating: Rating | null): Promise<void> {
     if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
     const key = itemKey(item.medium, item.id);
-    const snapshot: RatedItem | undefined = rating === null ? undefined : toRatedItem(item);
+    const snapshot: RatedItem | undefined =
+      rating === null ? undefined : toRatedItem(await enrichItem(item));
     const { ratings } = await window.dossier.preferences.setRating(key, rating, snapshot);
     this.ratings = ratings;
   }

@@ -1,3 +1,22 @@
+import type { Page } from "@playwright/test";
+
+/** The layout runs a one-time ratings-enrichment pass on every boot
+ * (enrich-ratings.ts) and shows an unclosable progress modal while it
+ * does — even when there's nothing to upgrade, per the explicit "always
+ * show, even if nothing changed" requirement. Tests that interact with
+ * the app right after a fresh `goto()` need to close it first. */
+export async function dismissEnrichmentModal(page: Page): Promise<void> {
+  const closeBtn = page
+    .getByRole("dialog", { name: /taste data/i })
+    .getByRole("button", { name: "Close" });
+  try {
+    await closeBtn.waitFor({ state: "visible", timeout: 10_000 });
+    await closeBtn.click();
+  } catch {
+    // Modal never appeared — nothing to dismiss.
+  }
+}
+
 /** Injects a fake `window.dossier` bridge so the SvelteKit app (which
  * normally talks to the Tauri shell) can be exercised in a plain
  * browser for visual review. Stateful enough for ratings to round-trip. */

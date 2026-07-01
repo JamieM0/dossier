@@ -12,7 +12,7 @@ export type DossierSettings = {
 /** A film's rating value, stored as a signed sentinel:
  *    +1   = like            (full positive weight)
  *    -1   = dislike         (full negative weight)
- *    +0.5 = watchlist       (interested, 50% positive weight)
+ *    +0.5 = watchlist       (interested; recommender weight is 15% of a like via ratingWeight())
  *    -0.5 = not_interested  ("Don't show again", full negative weight via ratingWeight())
  *  All four statuses exclude the film from the rating queue and
  *  recommendation list. Use ratingWeight() to get the recommender weight. */
@@ -36,10 +36,12 @@ export function ratingKind(r: Rating): RatingKind {
 
 /** Recommender weight for a rating. not_interested (-0.5 stored) is treated
  * as full negative weight (-1) to match dislike effectiveness. watchlist
- * stays at half strength (+0.5). Backwards-compatible: old -0.5 values
- * automatically get the full weight without data migration. */
+ * (0.5 stored) is scaled down to 15% of a like's weight, since it signals
+ * interest rather than confirmed taste. Backwards-compatible: no data
+ * migration needed, the stored sentinel values are unchanged. */
 export function ratingWeight(r: Rating): number {
   if (r === -0.5) return -1;
+  if (r === 0.5) return 0.15;
   return r;
 }
 

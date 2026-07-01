@@ -9,14 +9,17 @@ export const SCHEMA_VERSION = 1;
  *
  *  +1   = like           (full positive weight)
  *  -1   = dislike        (full negative weight)
- *  +0.5 = watchlist      ("Add to watchlist" — 50% positive weight)
+ *  +0.5 = watchlist      ("Add to watchlist" — mapped to 15% positive weight
+ *                          by ratingWeight(), since it signals interest
+ *                          rather than confirmed taste)
  *  -0.5 = not_interested ("Don't show again" — stored as -0.5 but the
  *                          recommender maps this to -1 via ratingWeight(),
  *                          giving it the same effectiveness as dislike)
  *
  *  The stored value is a stable identity; ratingWeight() in the UI layer
- *  translates -0.5 → -1 for the weighted-sum recommender. This means old
- *  -0.5 records automatically get full negative weight without migration. */
+ *  translates these sentinels to the recommender's actual weights. This
+ *  means existing records automatically get the current weighting without
+ *  data migration. */
 export type Rating = -1 | -0.5 | 0.5 | 1;
 
 export const RATING_LIKE: Rating = 1;
