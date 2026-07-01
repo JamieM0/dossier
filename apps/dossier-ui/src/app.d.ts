@@ -24,6 +24,11 @@ declare global {
       window: { show: () => Promise<void>; hide: () => Promise<void>; quit: () => Promise<void> };
       updater: {
         installAndRestart: () => Promise<void>;
+        /** Web-only active check against GitHub Releases (the desktop app is
+         * notified instead, via the Tauri `update:available` event). Returns
+         * the newer version + the currently running one, or null if already
+         * current / the check failed. */
+        checkForUpdate: () => Promise<{ version: string; currentVersion: string } | null>;
       };
       settings: {
         get: () => Promise<DossierSettings>;

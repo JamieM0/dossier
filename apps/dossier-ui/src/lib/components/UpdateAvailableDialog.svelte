@@ -2,12 +2,16 @@
   let {
     currentVersion,
     nextVersion,
+    variant = "install",
     onUpdateNow,
     onNotNow,
     onSkipVersion
   } = $props<{
     currentVersion: string;
     nextVersion: string;
+    /** "install" (desktop): downloads + verifies + restarts in place.
+     * "download" (web): no self-update, so this just opens the release page. */
+    variant?: "install" | "download";
     onUpdateNow: () => void;
     onNotNow: () => void;
     onSkipVersion: (version: string) => void;
@@ -63,8 +67,13 @@
   >
     <h2 id="update-dialog-title" class="dialog-title">Update available</h2>
     <p id="update-dialog-desc" class="dialog-message">
-      Dossier {nextVersion} is ready to install. You're currently on {currentVersion}.
-      Updating downloads from GitHub Releases and verifies the update signature.
+      {#if variant === "download"}
+        Dossier {nextVersion} is available on GitHub Releases. You're currently running {currentVersion}.
+        Download the new zip and replace your existing folder to update.
+      {:else}
+        Dossier {nextVersion} is ready to install. You're currently on {currentVersion}.
+        Updating downloads from GitHub Releases and verifies the update signature.
+      {/if}
     </p>
 
     <div class="dialog-actions">
@@ -73,7 +82,7 @@
         Skip this version
       </button>
       <button class="btn-primary" bind:this={primaryBtn} onclick={onUpdateNow}>
-        Restart and update
+        {variant === "download" ? "Get the update" : "Restart and update"}
       </button>
     </div>
   </div>

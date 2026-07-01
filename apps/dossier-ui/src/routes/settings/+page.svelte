@@ -138,7 +138,7 @@
       await uiSettings.persist();
       setLifecycleStatus(uiSettings.autoUpdatesEnabled
         ? "Automatic updates enabled. Dossier will check GitHub Releases on launch."
-        : "Automatic updates disabled. Dossier will not check for updates on launch.");
+        : "Automatic updates disabled. Dossier will not check GitHub for new versions.");
     } catch (error) {
       setLifecycleStatus(errorToMessage(error));
     }
@@ -235,7 +235,11 @@
           <div class="setting-row">
             <div class="setting-info">
               <span class="setting-label" id="updates-label">Automatic updates</span>
-              <span class="setting-desc">Check GitHub Releases and self-update on launch</span>
+              <span class="setting-desc">
+                {isWeb
+                  ? "Check GitHub Releases on launch and notify you of new versions to download"
+                  : "Check GitHub Releases and self-update on launch"}
+              </span>
             </div>
             <button
               class="toggle"

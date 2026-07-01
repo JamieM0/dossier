@@ -6,6 +6,10 @@ This repository is a desktop-only app. Treat visual QA as desktop-only unless th
 
 The current build is a narrow, deliberately scoped slice of a much bigger idea — see `VISION.md` for the long-term purpose (a private, user-owned model of a person's taste, starting with entertainment). Don't reintroduce ingestion pipelines, consent/disclosure infrastructure, or LLM-based inference because old design docs described them — that architecture was tried and explicitly abandoned (see `CHANGELOG.md`, "Phase 1: Cleanup for preference-based rework"; the originals are in `archive/design_docs/`). When in doubt about whether a feature belongs in this project, `VISION.md` explains the framing to use.
 
+## Subagents
+
+Only use subagents (the Agent tool) for large tasks that genuinely require them — broad, open-ended exploration or independent parallel work. Don't spawn one for small or well-scoped tasks; do those directly.
+
 ## Feature project (GitHub Projects)
 
 Feature ideas live in the **"Dossier Planning"** GitHub Project — private, project `8`, owner `JamieM0`: https://github.com/users/JamieM0/projects/8

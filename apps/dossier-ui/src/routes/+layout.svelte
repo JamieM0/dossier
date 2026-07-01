@@ -36,6 +36,21 @@
   async function bootHydrate(): Promise<void> {
     await uiSettings.hydrateFromDesktop();
     await tmdbState.refresh();
+
+    // The web build has no push-based updater event, so it checks GitHub
+    // Releases itself once settings are hydrated (so autoUpdatesEnabled /
+    // skippedUpdateVersion are known). Same opt-in/opt-out as the desktop app.
+    if (window.dossier?.platform === "web") {
+      void checkWebUpdate();
+    }
+  }
+
+  async function checkWebUpdate(): Promise<void> {
+    if (!uiSettings.autoUpdatesEnabled) return;
+    const update = await window.dossier?.updater.checkForUpdate();
+    if (!update) return;
+    if (uiSettings.skippedUpdateVersion === update.version) return;
+    updateAvailable = { currentVersion: update.currentVersion, nextVersion: update.version };
   }
 
   function onWebUnlocked(): void {
@@ -135,7 +150,12 @@
   <UpdateAvailableDialog
     currentVersion={updateAvailable.currentVersion}
     nextVersion={updateAvailable.nextVersion}
+    variant={window.dossier?.platform === "web" ? "download" : "install"}
     onUpdateNow={() => {
+      if (window.dossier?.platform === "web") {
+        window.open("https://github.com/JamieM0/dossier/releases/latest", "_blank", "noopener");
+        return;
+      }
       void window.dossier?.updater.installAndRestart();
     }}
     onNotNow={async () => {

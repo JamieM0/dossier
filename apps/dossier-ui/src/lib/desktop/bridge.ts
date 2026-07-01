@@ -46,7 +46,10 @@ export function installDesktopApi(): void {
       quit: (): Promise<void> => invoke("window_quit")
     },
     updater: {
-      installAndRestart: (): Promise<void> => invoke("update_install_and_restart")
+      installAndRestart: (): Promise<void> => invoke("update_install_and_restart"),
+      // The desktop app is notified of updates via the `update:available`
+      // Tauri event on launch — no on-demand check is needed here.
+      checkForUpdate: (): Promise<null> => Promise.resolve(null)
     },
     settings: {
       get: (): Promise<DossierSettings> => invoke("settings_get"),

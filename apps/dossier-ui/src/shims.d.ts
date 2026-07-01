@@ -1,3 +1,7 @@
+/** Injected at build time by vite.config.ts from apps/dossier-desktop's
+ * package.json — the same version `version-bump.py` bumps and tags. */
+declare const __APP_VERSION__: string;
+
 declare module "@typescript-eslint/types" {
   export namespace TSESTree {
     interface BaseNode {
