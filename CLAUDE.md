@@ -2,6 +2,19 @@
 
 This repository is a desktop-only app. Treat visual QA as desktop-only unless the user explicitly asks for mobile.
 
+## Project purpose
+
+The current build is a narrow, deliberately scoped slice of a much bigger idea — see `VISION.md` for the long-term purpose (a private, user-owned model of a person's taste, starting with entertainment). Don't reintroduce ingestion pipelines, consent/disclosure infrastructure, or LLM-based inference because old design docs described them — that architecture was tried and explicitly abandoned (see `CHANGELOG.md`, "Phase 1: Cleanup for preference-based rework"; the originals are in `archive/design_docs/`). When in doubt about whether a feature belongs in this project, `VISION.md` explains the framing to use.
+
+## Feature project (GitHub Projects)
+
+Feature ideas live in the **"Dossier Planning"** GitHub Project — private, project `8`, owner `JamieM0`: https://github.com/users/JamieM0/projects/8
+
+- Check it when discussing potential features, so we're not re-pitching something already captured.
+- Add to it automatically whenever a feature or idea comes up in conversation. **Don't ask permission first** — just add it, then tell Jamie what was added.
+- Add items as **draft issues only**, via `gh project item-create 8 --owner JamieM0 --title "..." --body "..."` (this command always creates a draft issue, which is project-only and never publicly visible — never use `gh issue create` for this).
+- Write entries like a text to a coworker, not a spec: lead with the idea and why it's worth doing — the benefit should be obvious in the first line or two. If we discussed specifics of how it should *behave*, include those. Skip implementation/technical detail. Keep it short.
+
 ## Node backend bundling (read before adding backend modules)
 
 The Tauri shell spawns a Node backend from `apps/dossier-desktop/src/*.ts`, compiled by `tsc` to `apps/dossier-desktop/dist/*.js`. `dist/backend.js` is the daemon. Any sibling `dist/*.js` it `import`s by relative path must also ship inside the packaged app, not just `backend.js`.
@@ -114,7 +127,3 @@ There is no draft to publish manually — the release goes out live immediately.
 - `.github/scripts/generate-latest-json.mjs` — generates the Tauri updater manifest (`latest.json`)
 - `apps/dossier-desktop/src-tauri/tauri.conf.json` — Tauri config (version, pubkey, updater endpoint)
 - `apps/dossier-desktop/src-tauri/src/main.rs` — Rust main with auto-update logic
-
-## Inference pipeline rules
-
-Never add deterministic or rule-based fallback paths to the inference pipeline. If the LLM is not configured or fails to load, fail with a clear, user-visible error (`InferenceConfigError`). Silent degradation that produces low-quality output is worse than no output.

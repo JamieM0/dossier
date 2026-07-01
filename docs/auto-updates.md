@@ -39,24 +39,22 @@ This creates:
 
 Copy the *contents* of the `.pub` file into `plugins.updater.pubkey` in `apps/dossier-desktop/src-tauri/tauri.conf.json`.
 
-## GitHub release pipeline
+## Release pipeline
 
-This repo includes a GitHub Actions workflow that builds installers for macOS / Windows / Linux, signs updater artifacts, and uploads them to a draft GitHub Release (including `latest.json`).
+There is no GitHub Actions release workflow — releases are built, signed,
+and published **entirely locally** via `python version-bump.py` (repo root).
+That script bumps the version, builds + signs the macOS (aarch64) app with
+the local updater key, generates `latest.json`, commits/tags/pushes, and
+publishes the GitHub release with the artifacts attached. See `CLAUDE.md`
+("Version Bumps and Releases") for the full process and prerequisites
+(`gh auth login`, `~/.tauri/dossier-updater.key` + password file).
 
-Required repository secrets:
-
-- `TAURI_SIGNING_PRIVATE_KEY`: the private key content (or set `TAURI_SIGNING_PRIVATE_KEY_PATH` instead)
-- `TAURI_SIGNING_PRIVATE_KEY_PASSWORD`: optional (only if your key is password-protected)
-
-Release flow:
-
-1. Bump the desktop app version in `apps/dossier-desktop/src-tauri/tauri.conf.json` (and any other places you version).
-2. Create and push a git tag (e.g. `v0.1.1`).
-3. The workflow builds and creates/updates a draft GitHub Release for that tag.
-4. Publish the release.
-5. Next time a user opens Dossier, it updates automatically.
+An earlier CI-based version of this pipeline (a GitHub Actions workflow
+building macOS/Windows/Linux installers from a pushed tag) was replaced by
+the local script; see `archive/auto-updates-original.md` if you need the old
+flow for reference.
 
 ## Notes
 
 - The updater requires HTTPS endpoints in production builds.
-- On Windows, installers may force the app to exit during install; Dossier attempts to shut down its background backend before restarting.
+- Desktop builds are currently macOS-only (aarch64); Windows is not built.
