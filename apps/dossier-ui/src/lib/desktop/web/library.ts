@@ -42,7 +42,9 @@ const DEFAULT_SETTINGS: Record<string, unknown> = {
   autoUpdatesEnabled: true,
   skippedUpdateVersion: null,
   sidebarCollapsed: false,
-  showingWelcome: true
+  showingWelcome: true,
+  groupedRecommendations: false,
+  recommendationDials: {}
 };
 
 type WebVault = {

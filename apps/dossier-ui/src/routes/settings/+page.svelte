@@ -132,6 +132,11 @@
     }
   }
 
+  async function toggleGroupedRecommendations(): Promise<void> {
+    uiSettings.groupedRecommendations = !uiSettings.groupedRecommendations;
+    await uiSettings.persist();
+  }
+
   async function toggleAutoUpdates(): Promise<void> {
     uiSettings.autoUpdatesEnabled = !uiSettings.autoUpdatesEnabled;
     try {
@@ -202,6 +207,31 @@
               role="switch"
               aria-checked={uiSettings.dyslexiaMode}
               aria-labelledby="dyslexia-label"
+            >
+              <span class="toggle-thumb"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2 class="section-heading">Recommendations</h2>
+
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label" id="grouped-recs-label">Group by taste</span>
+              <span class="setting-desc">
+                Sort recommendations into "Because you like X" rows instead of one flat list
+              </span>
+            </div>
+            <button
+              class="toggle"
+              class:active={uiSettings.groupedRecommendations}
+              onclick={() => void toggleGroupedRecommendations()}
+              role="switch"
+              aria-checked={uiSettings.groupedRecommendations}
+              aria-labelledby="grouped-recs-label"
             >
               <span class="toggle-thumb"></span>
             </button>

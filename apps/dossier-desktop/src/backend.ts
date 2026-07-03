@@ -54,6 +54,8 @@ type DossierSettings = {
   skippedUpdateVersion: string | null;
   sidebarCollapsed: boolean;
   showingWelcome: boolean;
+  groupedRecommendations: boolean;
+  recommendationDials: Record<string, number>;
   [key: string]: unknown;
 };
 
@@ -64,7 +66,9 @@ const defaultSettings: DossierSettings = {
   autoUpdatesEnabled: true,
   skippedUpdateVersion: null,
   sidebarCollapsed: false,
-  showingWelcome: true
+  showingWelcome: true,
+  groupedRecommendations: false,
+  recommendationDials: {}
 };
 
 type BackendReadyPayload = {

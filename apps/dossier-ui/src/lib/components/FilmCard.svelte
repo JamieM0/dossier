@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { TmdbItem } from "$lib/types";
   import { posterUrl } from "$lib/poster";
+  import MatchRing from "$lib/components/MatchRing.svelte";
   import IconBookmarkSimpleFill from "phosphor-icons-svelte/IconBookmarkSimpleFill.svelte";
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
   import IconThumbsUpFill from "phosphor-icons-svelte/IconThumbsUpFill.svelte";
@@ -42,6 +43,11 @@
         <div class="poster poster-empty" aria-hidden="true"></div>
       {/if}
     </button>
+    {#if score !== null}
+      <div class="match-ring" title={`${Math.round(score * 100)}% match`}>
+        <MatchRing value={score * 100} size={34} />
+      </div>
+    {/if}
     {#if onLike || onWatchlist || onIgnore || onDislike}
       <div class="overlay-actions">
         {#if onLike}
@@ -98,9 +104,6 @@
       {#if item.year}<span class="year">{item.year}</span>{/if}
       {#if item.genres.length > 0}<span class="genres">{item.genres.slice(0, 2).join(", ")}</span>{/if}
     </span>
-    {#if score !== null}
-      <span class="score">{(score * 100).toFixed(0)}%</span>
-    {/if}
   </button>
 </article>
 
@@ -109,15 +112,15 @@
     display: flex;
     flex-direction: column;
     background: var(--base-secondary);
-    border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     overflow: hidden;
-    transition: border-color var(--duration-standard) var(--ease-out),
+    box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.06));
+    transition: box-shadow var(--duration-standard) var(--ease-out),
                 transform var(--duration-standard) var(--ease-out);
   }
   .card:hover {
-    border-color: var(--border-strong);
-    transform: translateY(-1px);
+    box-shadow: var(--shadow-md, 0 4px 16px rgba(0, 0, 0, 0.14));
+    transform: translateY(-2px);
   }
   .poster-wrap {
     position: relative;
@@ -133,12 +136,19 @@
   .poster-btn:disabled { cursor: default; }
   .poster {
     width: 100%;
+    height: 100%;
     aspect-ratio: 2 / 3;
     object-fit: cover;
     display: block;
   }
   .poster-empty {
     background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary));
+  }
+  .match-ring {
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-2);
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
   }
   .overlay-actions {
     position: absolute;
@@ -182,7 +192,6 @@
     padding: var(--space-2) var(--space-3);
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: var(--space-2);
     border: 0;
     background: none;
@@ -215,15 +224,5 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-  .score {
-    flex: none;
-    padding: 2px var(--space-2);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--accent) 14%, transparent);
-    color: var(--accent);
-    font-size: 0.72rem;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
   }
 </style>

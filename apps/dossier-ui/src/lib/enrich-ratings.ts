@@ -19,13 +19,13 @@ function featuresEqual(a: RatingEntry["item"]["features"], b: RatingEntry["item"
 
 export async function upgradeExistingRatings(
   concurrency = 6,
-  onProgress?: (processed: number, total: number) => void
+  onProgress?: (processed: number, total: number, upgraded: number) => void
 ): Promise<{ upgraded: number; total: number }> {
   const entries = preferences.entries();
   const total = entries.length;
   let processed = 0;
   let upgraded = 0;
-  onProgress?.(0, total);
+  onProgress?.(0, total, 0);
   await mapWithConcurrency(entries, concurrency, async (entry) => {
     const enriched = await enrichItem(ratedToTmdbItem(entry.item));
     if (!featuresEqual(entry.item.features, enriched.features)) {
@@ -33,7 +33,7 @@ export async function upgradeExistingRatings(
       upgraded++;
     }
     processed++;
-    onProgress?.(processed, total);
+    onProgress?.(processed, total, upgraded);
   });
   return { upgraded, total };
 }

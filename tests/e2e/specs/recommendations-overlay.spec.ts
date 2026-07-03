@@ -12,7 +12,7 @@ test.describe("Recommendations card hover overlay", () => {
     // in-memory mock backend state intact — a full reload would reset it).
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
-    const likeButton = page.getByRole("button", { name: "Like", exact: true });
+    const likeButton = page.getByRole("button", { name: "I liked it" });
     for (let i = 0; i < 5; i++) {
       await likeButton.click();
       await page.waitForTimeout(400); // exit animation
@@ -39,7 +39,7 @@ test.describe("Recommendations card hover overlay", () => {
   test("card hides decade/rating; modal shows them", async ({ page }) => {
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
-    const likeButton = page.getByRole("button", { name: "Like", exact: true });
+    const likeButton = page.getByRole("button", { name: "I liked it" });
     for (let i = 0; i < 5; i++) {
       await likeButton.click();
       await page.waitForTimeout(400);
@@ -62,7 +62,7 @@ test.describe("Recommendations card hover overlay", () => {
   test("card hides the film title and info panel opens the modal", async ({ page }) => {
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
-    const likeButton = page.getByRole("button", { name: "Like", exact: true });
+    const likeButton = page.getByRole("button", { name: "I liked it" });
     for (let i = 0; i < 5; i++) {
       await likeButton.click();
       await page.waitForTimeout(400);
@@ -81,7 +81,7 @@ test.describe("Recommendations card hover overlay", () => {
   test("Library carousel tiles hide the film title", async ({ page }) => {
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
-    const likeButton = page.getByRole("button", { name: "Like", exact: true });
+    const likeButton = page.getByRole("button", { name: "I liked it" });
     await likeButton.click();
     await page.waitForTimeout(400);
 

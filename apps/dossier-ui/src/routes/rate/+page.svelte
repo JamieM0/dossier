@@ -13,13 +13,13 @@
     type Rating,
     type TmdbItem
   } from "$lib/types";
-  import MovieDetailModal from "$lib/components/MovieDetailModal.svelte";
   import IconThumbsUpFill from "phosphor-icons-svelte/IconThumbsUpFill.svelte";
   import IconThumbsDownFill from "phosphor-icons-svelte/IconThumbsDownFill.svelte";
   import IconEyeSlashRegular from "phosphor-icons-svelte/IconEyeSlashRegular.svelte";
   import IconBookmarkSimpleFill from "phosphor-icons-svelte/IconBookmarkSimpleFill.svelte";
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
   import IconArrowUUpLeftRegular from "phosphor-icons-svelte/IconArrowUUpLeftRegular.svelte";
+  import IconQuestionRegular from "phosphor-icons-svelte/IconQuestionRegular.svelte";
 
   type Action = "like" | "dislike" | "skip" | "watchlist" | "not_interested";
 
@@ -38,11 +38,106 @@
   let lastAction = $state<Action | null>(null);
   let history = $state<HistoryEntry[]>([]);
   let pinned = $state<TmdbItem | null>(null);
-  let modalItem = $state<TmdbItem | null>(null);
   // Lags behind `current` while an exit animation is in progress so the
   // {#key} block keeps the card mounted for the full animation duration.
   let displayedItem = $state<TmdbItem | null>(null);
   let animating = $state(false);
+
+  // The queue only carries list-shaped items (no runtime/keywords — see
+  // TmdbItem's doc comment). Now that the detail modal is gone and this
+  // is the only place that information is shown, fetch the full detail
+  // record for whichever title is displayed (disk-cached, so repeat
+  // visits are free). Falls back to the coarse item while it loads.
+  let detailCache = $state<TmdbItem | null>(null);
+  $effect(() => {
+    const item = displayedItem;
+    detailCache = null;
+    if (!item) return;
+    const key = itemKey(item.medium, item.id);
+    void window.dossier?.tmdb
+      ?.detail(item.medium, item.id)
+      .then((d) => {
+        if (displayedItem && itemKey(displayedItem.medium, displayedItem.id) === key) detailCache = d;
+      })
+      .catch(() => undefined);
+  });
+  const detail = $derived(detailCache ?? displayedItem);
+
+  // Ambient per-button backgrounds (Apple Music/Spotify style): each
+  // action button gets a different blurred crop of the current poster,
+  // revealed on hover. BG_FOCUS picks a distinct focal point per button
+  // so the five backgrounds don't look identical; the same focal points
+  // are used to sample average luminance from the source image so the
+  // label/icon colour can flip between light and dark for contrast.
+  const BG_FOCUS = [
+    { x: 25, y: 15 }, // like
+    { x: 75, y: 30 }, // dislike
+    { x: 50, y: 50 }, // watchlist
+    { x: 25, y: 70 }, // skip
+    { x: 75, y: 88 }  // not interested
+  ] as const;
+  const bgPoster = $derived(detail ? posterUrl(detail.posterPath, "w500") : null);
+  let btnFg = $state<Array<"light" | "dark">>(["light", "light", "light", "light", "light"]);
+  $effect(() => {
+    const url = bgPoster;
+    if (!url) {
+      btnFg = ["light", "light", "light", "light", "light"];
+      return;
+    }
+    let cancelled = false;
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      if (cancelled) return;
+      try {
+        const cw = 60;
+        const ch = 90;
+        const canvas = document.createElement("canvas");
+        canvas.width = cw;
+        canvas.height = ch;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+        ctx.drawImage(img, 0, 0, cw, ch);
+        btnFg = BG_FOCUS.map(({ x, y }) => {
+          const boxW = Math.round(cw * 0.4);
+          const boxH = Math.round(ch * 0.25);
+          const sx = Math.max(0, Math.min(cw - boxW, Math.round((x / 100) * cw - boxW / 2)));
+          const sy = Math.max(0, Math.min(ch - boxH, Math.round((y / 100) * ch - boxH / 2)));
+          const { data } = ctx.getImageData(sx, sy, boxW, boxH);
+          let total = 0;
+          let count = 0;
+          for (let i = 0; i < data.length; i += 4) {
+            total += 0.2126 * data[i] + 0.7152 * data[i + 1] + 0.0722 * data[i + 2];
+            count += 1;
+          }
+          return total / count > 150 ? "dark" : "light";
+        });
+      } catch {
+        btnFg = ["light", "light", "light", "light", "light"];
+      }
+    };
+    img.onerror = () => {
+      if (!cancelled) btnFg = ["light", "light", "light", "light", "light"];
+    };
+    img.src = url;
+    return () => {
+      cancelled = true;
+    };
+  });
+
+  // Real drag-to-rate: the poster follows the pointer 1:1 while dragging
+  // (see class:dragging disabling the transition), then either commits
+  // like/dislike past DRAG_THRESHOLD or springs back to center. On
+  // commit the exit keyframes (swipe-right/swipe-left) pick up seamlessly
+  // from the live drag position via the --drag-x/--drag-rot custom
+  // properties, so there's no jump between "dragged" and "thrown".
+  const DRAG_THRESHOLD = 120;
+  let dragging = $state(false);
+  let dragX = $state(0);
+  let dragXAtCommit = $state(0);
+  let dragRotAtCommit = $state(0);
+  let dragPointerId: number | null = null;
+  let dragStartClientX = 0;
 
   // The visible queue excludes anything already rated/skipped this session.
   const visibleQueue = $derived(
@@ -69,6 +164,16 @@
   });
 
   let actionError = $state<string | null>(null);
+
+  // Mirrors the hover-lit look when the same action is triggered via its
+  // keyboard shortcut, so the button gives feedback without requiring the
+  // mouse. Cleared the moment the next item is shown (see the displayedItem
+  // effect below), never while it's still on screen.
+  let keyLit = $state<Action | null>(null);
+  $effect(() => {
+    displayedItem;
+    keyLit = null;
+  });
 
   async function fetchMore(): Promise<void> {
     if (loadingQueue) return;
@@ -193,16 +298,55 @@
     }
   }
 
+  function onPosterPointerDown(event: PointerEvent): void {
+    if (busy || animating || !current) return;
+    dragging = true;
+    dragPointerId = event.pointerId;
+    dragStartClientX = event.clientX;
+    dragX = 0;
+    (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
+  }
+
+  function onPosterPointerMove(event: PointerEvent): void {
+    if (!dragging || event.pointerId !== dragPointerId) return;
+    dragX = event.clientX - dragStartClientX;
+  }
+
+  function onPosterPointerUp(event: PointerEvent): void {
+    if (!dragging || event.pointerId !== dragPointerId) return;
+    dragging = false;
+    dragPointerId = null;
+
+    if (dragX > DRAG_THRESHOLD) {
+      dragXAtCommit = dragX;
+      dragRotAtCommit = dragX / 24;
+      dragX = 0;
+      void decide("like");
+    } else if (dragX < -DRAG_THRESHOLD) {
+      dragXAtCommit = dragX;
+      dragRotAtCommit = dragX / 24;
+      dragX = 0;
+      void decide("dislike");
+    } else {
+      dragX = 0;
+    }
+  }
+
+  function decideViaShortcut(action: Action): void {
+    if (busy || !current) return;
+    keyLit = action;
+    void decide(action);
+  }
+
   function handleKey(event: KeyboardEvent): void {
     if (event.repeat) return;
-    if (modalItem) return;
-    if (event.key === "ArrowRight") { event.preventDefault(); void decide("like"); }
-    else if (event.key === "ArrowLeft") { event.preventDefault(); void decide("dislike"); }
-    else if (event.key === "ArrowUp") { event.preventDefault(); void decide("watchlist"); }
-    else if (event.key === "ArrowDown") { event.preventDefault(); void decide("not_interested"); }
+    if (event.key === "ArrowRight") { event.preventDefault(); decideViaShortcut("like"); }
+    else if (event.key === "ArrowLeft") { event.preventDefault(); decideViaShortcut("dislike"); }
+    else if (event.key === "ArrowUp") { event.preventDefault(); decideViaShortcut("watchlist"); }
+    else if (event.key === "ArrowDown") { event.preventDefault(); decideViaShortcut("not_interested"); }
     else if (event.key === " " || event.code === "Space") {
       event.preventDefault();
-      void decide("skip");
+      decideViaShortcut("skip");
     } else if (event.key === "Backspace") {
       event.preventDefault();
       void undo();
@@ -215,7 +359,14 @@
 <section class="screen">
   <header class="header">
     <div class="header-row">
-      <div></div>
+      <span class="hint-anchor">
+        <button class="hint-btn" type="button" aria-label="Keyboard shortcuts" tabindex="0">
+          <IconQuestionRegular class="icon-16" />
+        </button>
+        <div class="hint-popover" role="tooltip">
+          <kbd>←</kbd> dislike · <kbd>→</kbd> like · <kbd>↓</kbd> don't show again · <kbd>↑</kbd> watchlist · <kbd>Space</kbd> haven't seen · <kbd>⌫</kbd> undo
+        </div>
+      </span>
       <h1>Rate films</h1>
       <button
         class="undo-top"
@@ -227,9 +378,6 @@
         <IconArrowUUpLeftRegular class="icon-20" />
       </button>
     </div>
-    <p class="hint">
-      <kbd>←</kbd> dislike · <kbd>→</kbd> like · <kbd>↓</kbd> don't show again · <kbd>↑</kbd> watchlist · <kbd>Space</kbd> haven't seen · <kbd>⌫</kbd> undo
-    </p>
     <p class="count">{preferences.ratingCount()} rated</p>
   </header>
 
@@ -256,92 +404,130 @@
       </div>
     {:else}
       {#key itemKey(displayedItem.medium, displayedItem.id)}
-        <div class="card-row">
-          <article
-            class="card"
+        <div class="layout">
+          <div
+            class="poster-wrap"
+            class:dragging
             class:swipe-right={lastAction === "like"}
             class:swipe-left={lastAction === "dislike"}
             class:fade-up={lastAction === "skip"}
             class:fade-watchlist={lastAction === "watchlist"}
             class:fade-not-interested={lastAction === "not_interested"}
+            style={`--drag-x: ${(dragging ? dragX : dragXAtCommit)}px; --drag-rot: ${(dragging ? dragX / 24 : dragRotAtCommit)}deg;`
+              + (dragging ? ` transform: translateX(${dragX}px) rotate(${dragX / 24}deg);` : "")}
+            role="img"
+            aria-label={`Poster for ${detail.title}`}
+            onpointerdown={onPosterPointerDown}
+            onpointermove={onPosterPointerMove}
+            onpointerup={onPosterPointerUp}
+            onpointercancel={onPosterPointerUp}
           >
-            <button
-              type="button"
-              class="poster-btn"
-              onclick={() => (modalItem = displayedItem)}
-              aria-label={`See details for ${displayedItem.title}`}
-            >
-              {#if posterUrl(displayedItem.posterPath, "w500")}
-                <img class="poster" src={posterUrl(displayedItem.posterPath, "w500")} alt="" />
-              {:else}
-                <div class="poster poster-empty"></div>
-              {/if}
-            </button>
+            {#if posterUrl(detail.posterPath, "w500")}
+              <img class="poster" src={posterUrl(detail.posterPath, "w500")} alt="" draggable="false" />
+            {:else}
+              <div class="poster poster-empty"></div>
+            {/if}
+          </div>
 
-            <div class="card-body">
-              <h2 class="title">{displayedItem.title}</h2>
-              <p class="meta">
-                {#if displayedItem.year}<span>{displayedItem.year}</span>{/if}
-                {#if displayedItem.voteAverage}<span class="dot">·</span><span>★ {displayedItem.voteAverage.toFixed(1)}</span>{/if}
-              </p>
-              {#if displayedItem.genres.length > 0}
-                <p class="genres">{displayedItem.genres.join(" · ")}</p>
-              {/if}
+          <div class="info">
+            <h2 class="title">{detail.title}</h2>
+            <p class="meta">
+              {#if detail.year}<span>{detail.year}</span>{/if}
+              {#if detail.voteAverage}<span class="dot">·</span><span>★ {detail.voteAverage.toFixed(1)}</span>{/if}
+              {#if detail.runtime}<span class="dot">·</span><span>{detail.runtime} min</span>{/if}
+            </p>
+            {#if detail.genres.length > 0}
+              <p class="genres">{detail.genres.join(" · ")}</p>
+            {/if}
+            {#if detail.overview}
+              <p class="overview">{detail.overview}</p>
+            {/if}
+            {#if detail.keywords && detail.keywords.length > 0}
+              <div class="chips">
+                {#each detail.keywords.slice(0, 12) as theme}
+                  <span class="chip">{theme}</span>
+                {/each}
+              </div>
+            {/if}
+
+            <div class="actions">
+              <button
+                class="action-btn"
+                class:fg-dark={btnFg[0] === "dark"}
+                class:key-lit={keyLit === "like"}
+                disabled={busy}
+                onclick={() => decide("like")}
+                aria-label="I liked it"
+                title="I liked it (→)"
+                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[0].x}% ${BG_FOCUS[0].y}%;` : ""}
+              >
+                <span class="btn-surface" aria-hidden="true"></span>
+                <IconThumbsUpFill class="icon-20" />
+                <span>I liked it</span>
+              </button>
+              <button
+                class="action-btn"
+                class:fg-dark={btnFg[1] === "dark"}
+                class:key-lit={keyLit === "dislike"}
+                disabled={busy}
+                onclick={() => decide("dislike")}
+                aria-label="I didn't like it"
+                title="I didn't like it (←)"
+                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[1].x}% ${BG_FOCUS[1].y}%;` : ""}
+              >
+                <span class="btn-surface" aria-hidden="true"></span>
+                <IconThumbsDownFill class="icon-20" />
+                <span>I didn't like it</span>
+              </button>
+              <button
+                class="action-btn"
+                class:fg-dark={btnFg[2] === "dark"}
+                class:key-lit={keyLit === "watchlist"}
+                disabled={busy}
+                onclick={() => decide("watchlist")}
+                aria-label="Add to my Watchlist"
+                title="Add to my Watchlist (↑)"
+                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[2].x}% ${BG_FOCUS[2].y}%;` : ""}
+              >
+                <span class="btn-surface" aria-hidden="true"></span>
+                <IconBookmarkSimpleFill class="icon-20" />
+                <span>Add to my Watchlist</span>
+              </button>
+              <button
+                class="action-btn"
+                class:fg-dark={btnFg[3] === "dark"}
+                class:key-lit={keyLit === "skip"}
+                disabled={busy}
+                onclick={() => decide("skip")}
+                aria-label="I haven't seen it"
+                title="I haven't seen it (Space)"
+                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[3].x}% ${BG_FOCUS[3].y}%;` : ""}
+              >
+                <span class="btn-surface" aria-hidden="true"></span>
+                <IconEyeSlashRegular class="icon-20" />
+                <span>I haven't seen it</span>
+              </button>
+              <button
+                class="action-btn"
+                class:fg-dark={btnFg[4] === "dark"}
+                class:key-lit={keyLit === "not_interested"}
+                disabled={busy}
+                onclick={() => decide("not_interested")}
+                aria-label="I don't care about it"
+                title="I don't care about it (↓)"
+                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[4].x}% ${BG_FOCUS[4].y}%;` : ""}
+              >
+                <span class="btn-surface" aria-hidden="true"></span>
+                <IconProhibitRegular class="icon-20" />
+                <span>I don't care about it</span>
+              </button>
             </div>
-          </article>
-
-          <div class="rail">
-            <button
-              class="rail-btn ignore"
-              disabled={busy}
-              onclick={() => decide("not_interested")}
-              aria-label="Don't show again"
-              title="Don't show again (↓)"
-            >
-              <IconProhibitRegular class="icon-24" />
-            </button>
-            <button
-              class="rail-btn watchlist"
-              disabled={busy}
-              onclick={() => decide("watchlist")}
-              aria-label="Add to watchlist"
-              title="Add to watchlist (↑)"
-            >
-              <IconBookmarkSimpleFill class="icon-24" />
-            </button>
           </div>
         </div>
       {/key}
     {/if}
   </div>
-
-  <div class="actions">
-    <button class="btn btn-dislike" disabled={!current || busy} onclick={() => decide("dislike")} aria-label="Dislike">
-      <IconThumbsDownFill class="icon-20" />
-      <span>Dislike</span>
-    </button>
-    <button class="btn btn-skip" disabled={!current || busy} onclick={() => decide("skip")} aria-label="Haven't seen">
-      <IconEyeSlashRegular class="icon-20" />
-      <span>Haven't seen</span>
-    </button>
-    <button class="btn btn-like" disabled={!current || busy} onclick={() => decide("like")} aria-label="Like">
-      <IconThumbsUpFill class="icon-20" />
-      <span>Like</span>
-    </button>
-  </div>
 </section>
-
-{#if modalItem}
-  <MovieDetailModal
-    item={modalItem}
-    onClose={() => (modalItem = null)}
-    onLike={(f) => void decide("like", f)}
-    onWatchlist={(f) => void decide("watchlist", f)}
-    onSkip={(f) => void decide("skip", f)}
-    onIgnore={(f) => void decide("not_interested", f)}
-    onDislike={(f) => void decide("dislike", f)}
-  />
-{/if}
 
 <style>
   .screen {
@@ -356,7 +542,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-1);
+    gap: var(--space-2);
   }
   .header-row {
     display: grid;
@@ -391,13 +577,50 @@
   .undo-top:hover:not(:disabled) { background: var(--base-tertiary); color: var(--text-primary); transform: translateY(-1px); }
   .undo-top:disabled { opacity: 0.4; cursor: not-allowed; }
 
-  .hint {
+  .hint-anchor {
+    position: relative;
+    justify-self: start;
+    display: inline-flex;
+  }
+  .hint-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    border: 1px solid var(--border-subtle);
+    background: var(--base-secondary);
     color: var(--text-tertiary);
-    font-size: 0.8rem;
-    margin: 0;
-    text-align: center;
-    max-width: 720px;
-    line-height: 1.6;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--duration-standard) var(--ease-out), color var(--duration-standard) var(--ease-out);
+  }
+  .hint-btn:hover { background: var(--base-tertiary); color: var(--text-primary); }
+  .hint-popover {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    left: 0;
+    width: max-content;
+    max-width: 320px;
+    background: var(--base-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md, 0 4px 16px rgba(0,0,0,0.14));
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    line-height: 1.7;
+    padding: var(--space-2) var(--space-3);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: opacity var(--duration-standard) var(--ease-out), transform var(--duration-standard) var(--ease-out);
+    z-index: 5;
+  }
+  .hint-anchor:hover .hint-popover,
+  .hint-anchor:focus-within .hint-popover {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
   kbd {
     background: var(--base-tertiary);
@@ -413,140 +636,195 @@
   .stage {
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     min-height: 0;
-    overflow: hidden;
+    overflow-y: auto;
+    padding: var(--space-2) 0;
   }
-  .card {
-    /* Sized so the poster never crowds the title row or the action bar:
-       compute against viewport height after deducting header + action row. */
-    width: min(320px, 80vw);
-    background: var(--base-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    display: flex;
-    flex-direction: column;
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 420px) 1fr;
+    gap: var(--space-6);
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
     animation: enter 240ms var(--ease-out);
-    max-height: 100%;
   }
   @keyframes enter {
     from { opacity: 0; transform: translateY(8px) scale(0.98); }
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
-  .card.swipe-right { animation: swipeRight 300ms var(--ease-in-out) forwards; }
-  .card.swipe-left { animation: swipeLeft 300ms var(--ease-in-out) forwards; }
-  .card.fade-up { animation: fadeUp 300ms var(--ease-in-out) forwards; }
-  .card.fade-watchlist { animation: fadeWatchlist 300ms var(--ease-in-out) forwards; }
-  .card.fade-not-interested { animation: fadeNotInterested 300ms var(--ease-in-out) forwards; }
-  @keyframes swipeRight { to { transform: translateX(110%) rotate(8deg); opacity: 0; } }
-  @keyframes swipeLeft { to { transform: translateX(-110%) rotate(-8deg); opacity: 0; } }
+  @media (max-width: 760px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .poster-wrap {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    cursor: grab;
+    touch-action: pan-y;
+    transition: transform 220ms var(--ease-out);
+  }
+  .poster-wrap:active { cursor: grabbing; }
+  .poster-wrap.dragging { transition: none; }
+  .poster-wrap.swipe-right { animation: swipeRight 300ms var(--ease-in-out) forwards; }
+  .poster-wrap.swipe-left { animation: swipeLeft 300ms var(--ease-in-out) forwards; }
+  .poster-wrap.fade-up { animation: fadeUp 300ms var(--ease-in-out) forwards; }
+  .poster-wrap.fade-watchlist { animation: fadeWatchlist 300ms var(--ease-in-out) forwards; }
+  .poster-wrap.fade-not-interested { animation: fadeNotInterested 300ms var(--ease-in-out) forwards; }
+  /* The "from" reads the live drag position (0 for button-triggered
+     actions) so a committed drag flies off seamlessly instead of
+     snapping back to center first. */
+  @keyframes swipeRight {
+    from { transform: translateX(var(--drag-x, 0px)) rotate(var(--drag-rot, 0deg)); }
+    to { transform: translateX(110%) rotate(8deg); opacity: 0; }
+  }
+  @keyframes swipeLeft {
+    from { transform: translateX(var(--drag-x, 0px)) rotate(var(--drag-rot, 0deg)); }
+    to { transform: translateX(-110%) rotate(-8deg); opacity: 0; }
+  }
   @keyframes fadeUp { to { transform: translateY(-20px); opacity: 0; } }
   @keyframes fadeWatchlist { to { transform: translateY(-30px) scale(1.02); opacity: 0; } }
   @keyframes fadeNotInterested { to { transform: translateY(20px) scale(0.96); opacity: 0; } }
 
-  .card-row {
-    display: flex;
-    align-items: flex-end;
-    gap: var(--space-3);
-    max-height: 100%;
-  }
-  .poster-btn {
-    width: 100%;
-    padding: 0;
-    border: 0;
-    background: var(--base-tertiary);
-    cursor: pointer;
-    display: block;
-  }
   .poster {
     width: 100%;
     aspect-ratio: 2 / 3;
     object-fit: cover;
     background: var(--base-tertiary);
     display: block;
+    pointer-events: none;
   }
   .poster-empty { background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary)); }
 
-  /* Reels-style action rail sitting alongside the poster, bottom-aligned. */
-  .rail {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    padding-bottom: var(--space-3);
-  }
-  .rail-btn {
-    width: 48px;
-    height: 48px;
-    border-radius: 999px;
-    border: 1px solid var(--border-subtle);
-    background: var(--base-secondary);
-    color: var(--text-primary);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.08));
-    transition: background var(--duration-standard) var(--ease-out),
-                border-color var(--duration-standard) var(--ease-out),
-                color var(--duration-standard) var(--ease-out),
-                transform var(--duration-quick) var(--ease-out);
-  }
-  .rail-btn:hover:not(:disabled) { transform: translateY(-1px) scale(1.04); background: var(--base-tertiary); }
-  .rail-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-  .rail-btn.watchlist { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, var(--border-subtle)); }
-  .rail-btn.watchlist:hover { background: color-mix(in srgb, var(--accent) 12%, var(--base-secondary)); }
-  .rail-btn.ignore { color: var(--text-primary); }
-  .rail-btn.ignore:hover { background: color-mix(in srgb, var(--danger, #f85149) 12%, var(--base-secondary)); color: var(--danger, #f85149); }
-
-  .card-body {
-    padding: var(--space-3) var(--space-4) var(--space-4);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-  }
+  .info { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
   .title {
     margin: 0;
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     color: var(--text-primary);
   }
-  .meta { color: var(--text-secondary); margin: 0; font-size: 0.85rem; display: flex; gap: var(--space-1); }
+  .meta { color: var(--text-secondary); margin: var(--space-1) 0 0; font-size: 0.95rem; display: flex; gap: var(--space-2); flex-wrap: wrap; }
   .dot { color: var(--text-tertiary); }
-  .genres { color: var(--text-tertiary); font-size: 0.8rem; margin: 0; }
+  .genres { color: var(--text-tertiary); font-size: 0.85rem; margin: var(--space-1) 0 0; }
+  .overview {
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin: var(--space-3) 0 0;
+    font-size: 0.95rem;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+  .chip {
+    background: var(--base-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+  }
 
+  /* Stacked rectangular actions, macOS-window corner radius. Each
+     button reveals a blurred crop of the poster on hover — same
+     frosted-glass reveal technique as the Recommendations screen's
+     poster overlay buttons (FilmCard's .overlay-btn), just applied to
+     a bigger surface with a poster-derived background instead of a
+     flat tint. Label/icon colour flips light/dark per button based on
+     the sampled brightness of its crop (see btnFg in the script).
+
+     The blurred layer's clip (.btn-surface, overflow:hidden +
+     border-radius) deliberately lives on a separate, never-transformed
+     element from the one animating `transform` on hover: Chromium/
+     WebKit will silently drop border-radius clipping on an element
+     once it starts compositing a `transform` while a blurred/filtered
+     descendant is present, letting the background bleed past the
+     rounded corners after the hover transition settles. */
   .actions {
     display: flex;
-    justify-content: center;
-    gap: var(--space-3);
-    flex-wrap: wrap;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
+    flex-direction: column;
     gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
+    margin-top: var(--space-4);
+  }
+  .action-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
     border-radius: var(--radius-md);
     border: 1px solid var(--border-subtle);
     background: var(--base-secondary);
     color: var(--text-primary);
     font-family: var(--font-body);
     font-size: 0.9rem;
+    text-align: left;
     cursor: pointer;
-    transition: background var(--duration-standard) var(--ease-out),
-                border-color var(--duration-standard) var(--ease-out),
+    box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.08));
+    transition: border-color var(--duration-standard) var(--ease-out),
+                color var(--duration-standard) var(--ease-out),
                 transform var(--duration-quick) var(--ease-out);
   }
-  .btn:hover:not(:disabled) { background: var(--base-tertiary); transform: translateY(-1px); }
-  .btn:active:not(:disabled) { transform: translateY(0); }
-  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
-  .btn-like { color: var(--success, #2ea043); }
-  .btn-dislike { color: var(--danger, #f85149); }
-  .btn-skip { color: var(--text-primary); }
+  .btn-surface {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    border-radius: inherit;
+    pointer-events: none;
+    /* Belt-and-suspenders clip: overflow:hidden + border-radius on a
+       box with a blurred descendant can render un-clipped for the
+       first frame or two (seen right after a hard refresh with the
+       cursor already resting on the button, before Chromium/WebKit
+       promotes this box to its own compositing layer). clip-path is
+       applied independently of layer promotion, so it clips correctly
+       from the very first paint; transform forces the layer to exist
+       immediately rather than being created lazily on hover. */
+    clip-path: inset(0 round var(--radius-md));
+    transform: translateZ(0);
+  }
+  .btn-surface::before {
+    content: "";
+    position: absolute;
+    inset: -25%;
+    background-image: var(--btn-bg-image, none);
+    background-size: cover;
+    background-position: var(--btn-bg-pos, center);
+    filter: blur(22px) saturate(160%);
+    opacity: 0;
+    transition: opacity var(--duration-standard) var(--ease-out);
+  }
+  .action-btn > :global(svg),
+  .action-btn > span:not(.btn-surface) {
+    position: relative;
+    z-index: 1;
+  }
+  .action-btn:hover:not(:disabled),
+  .action-btn:focus-visible:not(:disabled),
+  .action-btn.key-lit {
+    border-color: var(--border-strong);
+    transform: translateY(-1px);
+    color: white;
+  }
+  .action-btn.fg-dark:hover:not(:disabled),
+  .action-btn.fg-dark:focus-visible:not(:disabled),
+  .action-btn.fg-dark.key-lit {
+    color: #14161c;
+  }
+  .action-btn:hover:not(:disabled) .btn-surface::before,
+  .action-btn:focus-visible:not(:disabled) .btn-surface::before,
+  .action-btn.key-lit .btn-surface::before {
+    opacity: 1;
+  }
+  .action-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-  .empty { text-align: center; max-width: 360px; }
+  .empty { text-align: center; max-width: 360px; margin: var(--space-7) auto 0; }
   .empty h2 { font-family: var(--font-display); color: var(--text-primary); }
   .empty p { color: var(--text-secondary); }
   .muted { color: var(--text-tertiary); }

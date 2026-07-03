@@ -6,6 +6,8 @@ export type DossierSettings = {
   skippedUpdateVersion: string | null;
   sidebarCollapsed: boolean;
   showingWelcome: boolean;
+  groupedRecommendations: boolean;
+  recommendationDials: Record<string, number>;
   [key: string]: unknown;
 };
 

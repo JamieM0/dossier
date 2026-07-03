@@ -1,9 +1,9 @@
 <script lang="ts">
-  /** Shown once per app launch while upgradeExistingRatings() (enrich-ratings.ts)
-   * walks the rated library fetching richer per-item taste data. Blocks
-   * interaction and cannot be dismissed until the pass finishes — this is
-   * a one-time background job the user explicitly asked to be able to see
-   * (rather than a silent process they had no way to confirm had run). */
+  /** Shown while upgradeExistingRatings() (enrich-ratings.ts) walks the rated
+   * library fetching richer per-item taste data — only once at least one
+   * rating has actually been upgraded, so a launch with nothing to backfill
+   * stays silent. Blocks interaction and cannot be dismissed until the pass
+   * finishes. */
   let {
     processed,
     total,
@@ -50,12 +50,8 @@
         Dossier is fetching richer per-title data for your ratings so recommendations can
         tell similar movies apart more precisely. This runs once — feel free to leave this
         open, it won't take long.
-      {:else if total === 0}
-        You don't have any rated titles yet, so there was nothing to refresh.
-      {:else if upgraded > 0}
-        Upgraded {upgraded} of {total} rated title{total === 1 ? "" : "s"} with richer data.
       {:else}
-        All {total} rated title{total === 1 ? "" : "s"} already had the richer data — nothing to change.
+        Upgraded {upgraded} of {total} rated title{total === 1 ? "" : "s"} with richer data.
       {/if}
     </p>
 

@@ -9,6 +9,7 @@
   import EnrichmentProgressModal from "$lib/components/EnrichmentProgressModal.svelte";
   import { installBridge } from "$lib/desktop/bridge";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
+  import { recommendationDials } from "$lib/state/recommendation-dials.svelte";
   import { tmdbState } from "$lib/state/tmdb.svelte";
   import { migrateLegacyRatings } from "$lib/migrate-legacy";
   import { upgradeExistingRatings } from "$lib/enrich-ratings";
@@ -38,6 +39,7 @@
    * unlocked (or runs immediately on the desktop app). */
   async function bootHydrate(): Promise<void> {
     await uiSettings.hydrateFromDesktop();
+    await recommendationDials.hydrateFromDesktop();
     await tmdbState.refresh();
 
     // The web build has no push-based updater event, so it checks GitHub
@@ -79,9 +81,10 @@
   // Once the screens are up and preferences have hydrated (whichever
   // route mounts first triggers that), kick off the ratings enrichment
   // backfill once per launch. Runs every launch (cheap no-op after the
-  // first time, since detail() is disk-cached) — the progress modal
-  // below always shows while it runs, even when there's nothing to
-  // upgrade, so it's never a silent, unverifiable background process.
+  // first time, since detail() is disk-cached) — it always runs silently
+  // in the background, and the progress modal only surfaces once we know
+  // at least one rating actually needs (or got) richer data, so a launch
+  // where everything's already up to date stays silent.
   let enrichmentStarted = false;
   let enrichmentVisible = $state(false);
   let enrichmentDone = $state(false);
@@ -92,13 +95,15 @@
   $effect(() => {
     if (appReady && preferences.loaded && !enrichmentStarted) {
       enrichmentStarted = true;
-      enrichmentVisible = true;
-      void upgradeExistingRatings(6, (processed, total) => {
+      void upgradeExistingRatings(6, (processed, total, upgraded) => {
         enrichmentProcessed = processed;
         enrichmentTotal = total;
+        enrichmentUpgraded = upgraded;
+        if (upgraded > 0) enrichmentVisible = true;
       }).then((result) => {
         enrichmentUpgraded = result.upgraded;
         enrichmentDone = true;
+        if (result.upgraded > 0) enrichmentVisible = true;
       });
     }
   });

@@ -29,7 +29,7 @@ test.describe("App screens (mocked TMDB bridge)", () => {
     await page.goto("/rate");
     await expect(page.getByRole("heading", { name: "Rate films" })).toBeVisible();
     // A card title from the mock pool should appear once the queue loads.
-    await expect(page.getByText("Neon Vector")).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByRole("heading", { name: "Neon Vector" })).toBeVisible({ timeout: 15_000 });
     await page.screenshot({ path: "test-results/rate.png", fullPage: true });
   });
 

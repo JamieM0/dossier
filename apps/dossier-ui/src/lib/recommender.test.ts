@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { predictPreference, scoreCandidates } from "./recommender";
+import {
+  buildTasteGroups,
+  DEFAULT_SCORING_PARAMS,
+  groupRecommendationsByTaste,
+  predictPreference,
+  scoreCandidates,
+  type ScoringParams
+} from "./recommender";
 import type { FeatureVector, RatingEntry, TmdbItem } from "./types";
 
 const AXES: (keyof FeatureVector)[] = [
@@ -107,5 +114,97 @@ describe("scoreCandidates / clustering", () => {
 
   it("predictPreference returns 0 with no liked entries", () => {
     expect(predictPreference(item(GRIM), [])).toBe(0);
+  });
+});
+
+describe("ScoringParams dials", () => {
+  const entries: RatingEntry[] = [
+    ratingEntry(vec({ tone: -0.9, pacing: -0.6, emotional_intensity: 0.7 }), 1),
+    ratingEntry(vec({ tone: -0.85, pacing: -0.55, emotional_intensity: 0.65 }), 1),
+    ratingEntry(vec({ tone: 0.9, pacing: 0.6 }), -1)
+  ];
+
+  it("an omitted params argument scores identically to explicit DEFAULT_SCORING_PARAMS", () => {
+    const candidate = item(GRIM);
+    const [a] = scoreCandidates([candidate], entries);
+    const [b] = scoreCandidates([candidate], entries, DEFAULT_SCORING_PARAMS);
+    expect(a.score).toBe(b.score);
+  });
+
+  it("zeroing dislikePenalty stops disliked-cluster proximity from hurting a candidate", () => {
+    // This candidate sits right on the disliked cluster's fingerprint.
+    const candidate = item(vec({ tone: 0.9, pacing: 0.6 }));
+    const off: ScoringParams = { ...DEFAULT_SCORING_PARAMS, dislikePenalty: 0 };
+    const [withPenalty] = scoreCandidates([candidate], entries);
+    const [withoutPenalty] = scoreCandidates([candidate], entries, off);
+    expect(withoutPenalty.score).toBeGreaterThan(withPenalty.score);
+  });
+
+  it("zeroing an axis weight makes that axis stop discriminating between candidates", () => {
+    // Two candidates identical except on pacing — with pacing weighted to
+    // ~0, they should score identically; at full weight they should not.
+    const a = item(vec({ tone: -0.9, pacing: -0.6, emotional_intensity: 0.7 }));
+    const b = item(vec({ tone: -0.9, pacing: 0.6, emotional_intensity: 0.7 }));
+    const zeroed: ScoringParams = { ...DEFAULT_SCORING_PARAMS, axisWeights: { pacing: 0.001 } };
+
+    const defaultScores = scoreCandidates([a, b], entries);
+    const zeroedScores = scoreCandidates([a, b], entries, zeroed);
+
+    const defaultDiff = Math.abs(
+      defaultScores.find((r) => r.item.id === a.id)!.score -
+        defaultScores.find((r) => r.item.id === b.id)!.score
+    );
+    const zeroedDiff = Math.abs(
+      zeroedScores.find((r) => r.item.id === a.id)!.score -
+        zeroedScores.find((r) => r.item.id === b.id)!.score
+    );
+    expect(defaultDiff).toBeGreaterThan(0.01);
+    expect(zeroedDiff).toBeLessThan(0.001);
+  });
+
+  it("popularityBias reorders candidates by popularity independent of taste fit", () => {
+    const obscure = item(GRIM);
+    obscure.popularity = 1;
+    const mainstream = item(GRIM);
+    mainstream.popularity = 2000;
+    const favorMainstream: ScoringParams = { ...DEFAULT_SCORING_PARAMS, popularityBias: 1 };
+
+    const [first] = scoreCandidates([obscure, mainstream], entries, favorMainstream);
+    expect(first.item.id).toBe(mainstream.id);
+  });
+});
+
+describe("groupRecommendationsByTaste", () => {
+  function ratingEntryWithGenres(features: FeatureVector, genres: string[]): RatingEntry {
+    const id = nextId++;
+    return {
+      rating: 1,
+      ts: Date.now(),
+      item: { key: `movie:${id}`, medium: "movie", id, title: `Rated ${id}`, year: 2015, posterPath: null, voteAverage: 7, genres, features }
+    };
+  }
+
+  it("merges distinct clusters that share the same genre-derived label into one row", () => {
+    // Two clearly distinct taste clusters (opposite tone/pacing) that
+    // both happen to be tagged with the same two genres — this is the
+    // scenario that used to produce two rows both titled "Comedy & Drama",
+    // which crashed Svelte's keyed each block (duplicate key) and blanked
+    // the whole Recommendations screen.
+    const entries: RatingEntry[] = [
+      ratingEntryWithGenres(vec({ tone: -0.9, pacing: -0.6 }), ["Comedy", "Drama"]),
+      ratingEntryWithGenres(vec({ tone: -0.95, pacing: -0.65 }), ["Comedy", "Drama"]),
+      ratingEntryWithGenres(vec({ tone: 0.9, pacing: 0.6 }), ["Comedy", "Drama"]),
+      ratingEntryWithGenres(vec({ tone: 0.95, pacing: 0.65 }), ["Comedy", "Drama"])
+    ];
+    const groups = buildTasteGroups(entries);
+    expect(groups.length).toBeGreaterThanOrEqual(2);
+    expect(new Set(groups.map((g) => g.label)).size).toBeLessThan(groups.length);
+
+    const candidates = [item(vec({ tone: -0.85, pacing: -0.55 })), item(vec({ tone: 0.85, pacing: 0.55 }))];
+    const recs = candidates.map((c) => ({ item: c, score: 0 }));
+    const rows = groupRecommendationsByTaste(recs, groups);
+
+    const labels = rows.map((r) => r.label);
+    expect(new Set(labels).size).toBe(labels.length);
   });
 });
