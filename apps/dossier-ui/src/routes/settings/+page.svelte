@@ -3,6 +3,7 @@
   import { THEMES } from "$lib/design/themes";
   import type { ThemeName } from "$lib/design/themes";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
+  import { updateCheck } from "$lib/state/update-check.svelte";
   import { tmdbState } from "$lib/state/tmdb.svelte";
   import { preferences } from "$lib/state/preferences.svelte";
   import PromptDialog from "$lib/components/PromptDialog.svelte";
@@ -137,6 +138,17 @@
     await uiSettings.persist();
   }
 
+  async function setRefineGroupSize(value: number): Promise<void> {
+    const clamped = Math.max(2, Math.min(10, value));
+    if (clamped === uiSettings.refineGroupSize) return;
+    uiSettings.refineGroupSize = clamped;
+    await uiSettings.persist();
+  }
+
+  async function checkForUpdates(): Promise<void> {
+    await updateCheck.check();
+  }
+
   async function toggleAutoUpdates(): Promise<void> {
     uiSettings.autoUpdatesEnabled = !uiSettings.autoUpdatesEnabled;
     try {
@@ -237,6 +249,37 @@
             </button>
           </div>
         </div>
+
+        <div class="setting-group">
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label" id="refine-group-label">Refine group size</span>
+              <span class="setting-desc">
+                Compare this many rated titles at once on the Refine screen — 2 for head-to-head
+                picks, more to drag-rank a small batch in one go
+              </span>
+            </div>
+            <div class="stepper" role="group" aria-labelledby="refine-group-label">
+              <button
+                class="stepper-btn"
+                disabled={uiSettings.refineGroupSize <= 2}
+                onclick={() => void setRefineGroupSize(uiSettings.refineGroupSize - 1)}
+                aria-label="Decrease refine group size"
+              >
+                −
+              </button>
+              <span class="stepper-value">{uiSettings.refineGroupSize}</span>
+              <button
+                class="stepper-btn"
+                disabled={uiSettings.refineGroupSize >= 10}
+                onclick={() => void setRefineGroupSize(uiSettings.refineGroupSize + 1)}
+                aria-label="Increase refine group size"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="settings-section">
@@ -261,28 +304,44 @@
           </div>
         </div>
 
-        <div class="setting-group">
-          <div class="setting-row">
-            <div class="setting-info">
-              <span class="setting-label" id="updates-label">Automatic updates</span>
-              <span class="setting-desc">
-                {isWeb
-                  ? "Check GitHub Releases on launch and notify you of new versions to download"
-                  : "Check GitHub Releases and self-update on launch"}
-              </span>
+        {#if isWeb}
+          <div class="setting-group">
+            <div class="setting-row">
+              <div class="setting-info">
+                <span class="setting-label" id="updates-label">Updates</span>
+                <span class="setting-desc">Check GitHub Releases for a newer version to download</span>
+              </div>
+              <button
+                class="text-btn"
+                disabled={updateCheck.busy}
+                onclick={() => void checkForUpdates()}
+                aria-labelledby="updates-label"
+              >
+                {updateCheck.busy ? "Checking…" : "Check for Updates"}
+              </button>
             </div>
-            <button
-              class="toggle"
-              class:active={uiSettings.autoUpdatesEnabled}
-              onclick={() => void toggleAutoUpdates()}
-              role="switch"
-              aria-checked={uiSettings.autoUpdatesEnabled}
-              aria-labelledby="updates-label"
-            >
-              <span class="toggle-thumb"></span>
-            </button>
+            {#if updateCheck.status}<p class="field-ok">{updateCheck.status}</p>{/if}
           </div>
-        </div>
+        {:else}
+          <div class="setting-group">
+            <div class="setting-row">
+              <div class="setting-info">
+                <span class="setting-label" id="updates-label">Automatic updates</span>
+                <span class="setting-desc">Check GitHub Releases and self-update on launch</span>
+              </div>
+              <button
+                class="toggle"
+                class:active={uiSettings.autoUpdatesEnabled}
+                onclick={() => void toggleAutoUpdates()}
+                role="switch"
+                aria-checked={uiSettings.autoUpdatesEnabled}
+                aria-labelledby="updates-label"
+              >
+                <span class="toggle-thumb"></span>
+              </button>
+            </div>
+          </div>
+        {/if}
       </section>
 
       <section class="settings-section">
@@ -442,4 +501,23 @@
   .toggle.active { background: var(--primary-accent); }
   .toggle-thumb { display: block; width: 20px; height: 20px; border-radius: var(--radius-full); background: #fff; box-shadow: var(--shadow-sm); transition: transform var(--duration-standard) var(--ease-out); }
   .toggle.active .toggle-thumb { transform: translateX(20px); }
+  .stepper { display: inline-flex; align-items: center; gap: var(--space-3); flex-shrink: 0; }
+  .stepper-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+    background: var(--base-tertiary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--duration-standard) var(--ease-out), transform var(--duration-quick) var(--ease-out);
+  }
+  .stepper-btn:hover:not(:disabled) { background: var(--base); transform: translateY(-1px); }
+  .stepper-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .stepper-value { min-width: 1.5ch; text-align: center; font-variant-numeric: tabular-nums; font-size: 0.9rem; color: var(--text-primary); }
 </style>

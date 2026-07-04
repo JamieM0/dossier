@@ -527,3 +527,77 @@ export function buildPairwiseCandidates(
   pickPairs(disliked);
   return out;
 }
+
+/** Ranking-group candidates for refinement: up to `groupSize` items from
+ * a single polarity pool (liked, or disliked) that still has at least
+ * one undecided pair among them. Used by the Refine screen when the
+ * effective group size is above 2 (drag-to-reorder ranking list) —
+ * buildPairwiseCandidates keeps handling the size-2 duel unchanged.
+ *
+ * Greedily grows the group starting from the first still-undecided pair
+ * in the pool, then keeps adding whichever remaining item has the most
+ * undecided pairs against what's already picked. That biases the group
+ * toward items that actually carry new signal, rather than padding it
+ * out with items whose relative order the user has already settled. */
+export function buildRankingGroup(
+  entries: RatingEntry[],
+  pairwise: { winnerKey: string; loserKey: string }[],
+  groupSize: number
+): RatingEntry[] {
+  const seen = new Set(pairwise.map((p) => [p.winnerKey, p.loserKey].sort().join("|")));
+  const liked: RatingEntry[] = [];
+  const disliked: RatingEntry[] = [];
+  for (const e of entries) {
+    const w = ratingWeight(e.rating);
+    if (w > 0) liked.push(e);
+    else if (w < 0) disliked.push(e);
+  }
+
+  const pairKey = (a: RatingEntry, b: RatingEntry): string =>
+    [a.item.key, b.item.key].sort().join("|");
+
+  const buildFrom = (pool: RatingEntry[]): RatingEntry[] => {
+    if (pool.length < 2 || groupSize < 2) return [];
+    const remaining = [...pool];
+    const picked: RatingEntry[] = [];
+
+    // Seed with the first undecided pair found, in pool order.
+    seed: for (let i = 0; i < remaining.length; i++) {
+      for (let j = i + 1; j < remaining.length; j++) {
+        if (!seen.has(pairKey(remaining[i], remaining[j]))) {
+          picked.push(remaining[j], remaining[i]);
+          remaining.splice(j, 1);
+          remaining.splice(i, 1);
+          break seed;
+        }
+      }
+    }
+    if (picked.length === 0) return [];
+
+    // Greedily extend: each round, add whichever remaining item has the
+    // most undecided pairs against the current selection.
+    while (picked.length < groupSize && remaining.length > 0) {
+      let bestIdx = -1;
+      let bestScore = -1;
+      for (let i = 0; i < remaining.length; i++) {
+        let score = 0;
+        for (const p of picked) {
+          if (!seen.has(pairKey(remaining[i], p))) score++;
+        }
+        if (score > bestScore) {
+          bestScore = score;
+          bestIdx = i;
+        }
+      }
+      if (bestIdx === -1) break;
+      picked.push(remaining[bestIdx]);
+      remaining.splice(bestIdx, 1);
+    }
+
+    return picked;
+  };
+
+  const likedGroup = buildFrom(liked);
+  if (likedGroup.length >= 2) return likedGroup;
+  return buildFrom(disliked);
+}

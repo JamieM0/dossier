@@ -5,10 +5,20 @@
 
 export const SCHEMA_VERSION = 1;
 
-/** A single film rating, encoded as a signed sentinel.
+/** A single film rating, encoded as a signed sentinel. The Rate screen's
+ *  main action is a 7-point scale (-3..3); watchlist/not_interested are
+ *  two further sentinels outside that scale, carried over unchanged from
+ *  before it existed.
  *
- *  +1   = like           (full positive weight)
- *  -1   = dislike        (full negative weight)
+ *  -3   = extremely negative
+ *  -2   = fairly negative
+ *  -1   = slightly negative (the original "dislike" sentinel, full
+ *                             negative weight)
+ *   0   = neutral           (no recommender weight either way)
+ *  +1   = slightly positive (the original "like" sentinel, full
+ *                             positive weight)
+ *  +2   = fairly positive
+ *  +3   = extremely positive
  *  +0.5 = watchlist      ("Add to watchlist" — mapped to 15% positive weight
  *                          by ratingWeight(), since it signals interest
  *                          rather than confirmed taste)
@@ -18,17 +28,20 @@ export const SCHEMA_VERSION = 1;
  *
  *  The stored value is a stable identity; ratingWeight() in the UI layer
  *  translates these sentinels to the recommender's actual weights. This
- *  means existing records automatically get the current weighting without
- *  data migration. */
-export type Rating = -1 | -0.5 | 0.5 | 1;
+ *  means existing records (all -1/-0.5/0.5/1 under the old binary scheme)
+ *  automatically get the current weighting without data migration; 0/±2/±3
+ *  are new sentinels introduced alongside the 7-point scale. */
+export type Rating = -3 | -2 | -1 | -0.5 | 0 | 0.5 | 1 | 2 | 3;
 
 export const RATING_LIKE: Rating = 1;
 export const RATING_DISLIKE: Rating = -1;
 export const RATING_WATCHLIST: Rating = 0.5;
 export const RATING_NOT_INTERESTED: Rating = -0.5;
 
+const VALID_RATINGS = new Set<number>([-3, -2, -1, -0.5, 0, 0.5, 1, 2, 3]);
+
 export function isValidRating(value: unknown): value is Rating {
-  return value === 1 || value === -1 || value === 0.5 || value === -0.5;
+  return typeof value === "number" && VALID_RATINGS.has(value);
 }
 
 /** A compact snapshot of a rated item, stored alongside its rating so

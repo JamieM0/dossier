@@ -56,6 +56,7 @@ type DossierSettings = {
   showingWelcome: boolean;
   groupedRecommendations: boolean;
   recommendationDials: Record<string, number>;
+  refineGroupSize: number;
   [key: string]: unknown;
 };
 
@@ -68,7 +69,8 @@ const defaultSettings: DossierSettings = {
   sidebarCollapsed: false,
   showingWelcome: true,
   groupedRecommendations: false,
-  recommendationDials: {}
+  recommendationDials: {},
+  refineGroupSize: 2
 };
 
 type BackendReadyPayload = {
@@ -77,7 +79,12 @@ type BackendReadyPayload = {
   controlToken: string;
 };
 
-type Rating = -1 | -0.5 | 0.5 | 1;
+type Rating = -3 | -2 | -1 | -0.5 | 0 | 0.5 | 1 | 2 | 3;
+/** Mirrors @dossier/domain's Rating union — kept as a literal set here too
+ * since the backend has no direct domain import (see the Rating comment
+ * above). Keep in sync with packages/domain/src/store/model.ts and
+ * apps/dossier-ui/src/lib/types.ts. */
+const VALID_RATINGS = new Set<number>([-3, -2, -1, -0.5, 0, 0.5, 1, 2, 3]);
 type RatedItem = {
   key: string;
   medium: string;
@@ -286,8 +293,12 @@ function createControlRequestHandler() {
           throw new ControlError(400, "BAD_REQUEST", "key (string) required");
         }
         const r = body.rating;
-        if (r !== null && r !== 1 && r !== -1 && r !== 0.5 && r !== -0.5) {
-          throw new ControlError(400, "BAD_REQUEST", "rating must be 1, -1, 0.5, -0.5, or null");
+        if (r !== null && (r === undefined || !VALID_RATINGS.has(r))) {
+          throw new ControlError(
+            400,
+            "BAD_REQUEST",
+            "rating must be one of -3, -2, -1, -0.5, 0, 0.5, 1, 2, 3, or null"
+          );
         }
         sendJson(res, 200, {
           ratings: storeService.setRating(body.key, r as Rating | null, body.item)

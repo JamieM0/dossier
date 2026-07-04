@@ -17,10 +17,21 @@ export async function dismissEnrichmentModal(page: Page): Promise<void> {
   }
 }
 
+/** Optional seed data applied before the app's first hydrate() — lets a
+ * test start from N already-rated titles without driving the animated
+ * Rate screen (clicking through its exit-animation timing is slow and,
+ * under load, flaky: Playwright's actionability "stable" check can flap
+ * against the card's transition). Only used by tests that need rated
+ * items already in place, e.g. to reach the Refine screen directly. */
+export type MockDossierSeed = {
+  /** Marks this many pool movies (from the front of the pool) as liked. */
+  likedMovies?: number;
+};
+
 /** Injects a fake `window.dossier` bridge so the SvelteKit app (which
  * normally talks to the Tauri shell) can be exercised in a plain
  * browser for visual review. Stateful enough for ratings to round-trip. */
-export function installMockDossier(): void {
+export function installMockDossier(seed?: MockDossierSeed): void {
   const AXES = [
     "pacing", "tone", "emotional_intensity", "complexity", "scope",
     "realism", "thematic_weight", "character_focus", "moral_clarity", "structure"
@@ -68,6 +79,19 @@ export function installMockDossier(): void {
   let pairwise: unknown[] = [];
   let skipped: string[] = [];
   const list = (items: unknown[]) => Promise.resolve({ page: 1, totalPages: 1, items });
+
+  if (seed?.likedMovies) {
+    for (let i = 0; i < seed.likedMovies && i < pool.length; i++) {
+      const item = pool[i];
+      const key = `movie:${item.id}`;
+      // RatedItem (what a rating's `item` snapshot must be) requires a
+      // `key` field — the raw pool entries are TmdbItem-shaped and don't
+      // have one, so without this every keyed {#each} on the Refine
+      // screen resolves to key `undefined` for all seeded items, which
+      // Svelte rejects as a duplicate key and aborts the render.
+      ratings[key] = { rating: 1, item: { ...item, key }, ts: Date.now() + i };
+    }
+  }
 
   (window as unknown as { dossier: unknown }).dossier = {
     platform: "app",

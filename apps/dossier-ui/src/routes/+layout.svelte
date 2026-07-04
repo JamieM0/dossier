@@ -9,6 +9,7 @@
   import EnrichmentProgressModal from "$lib/components/EnrichmentProgressModal.svelte";
   import { installBridge } from "$lib/desktop/bridge";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
+  import { updateCheck } from "$lib/state/update-check.svelte";
   import { recommendationDials } from "$lib/state/recommendation-dials.svelte";
   import { tmdbState } from "$lib/state/tmdb.svelte";
   import { migrateLegacyRatings } from "$lib/migrate-legacy";
@@ -19,7 +20,6 @@
   import { listen } from "@tauri-apps/api/event";
 
   let { children } = $props();
-  let updateAvailable = $state<{ currentVersion: string; nextVersion: string } | null>(null);
   /** Becomes true once TMDB is configured AND any legacy migration has
    *  finished — only then do we mount the app screens. */
   let migrationDone = $state(false);
@@ -41,21 +41,6 @@
     await uiSettings.hydrateFromDesktop();
     await recommendationDials.hydrateFromDesktop();
     await tmdbState.refresh();
-
-    // The web build has no push-based updater event, so it checks GitHub
-    // Releases itself once settings are hydrated (so autoUpdatesEnabled /
-    // skippedUpdateVersion are known). Same opt-in/opt-out as the desktop app.
-    if (window.dossier?.platform === "web") {
-      void checkWebUpdate();
-    }
-  }
-
-  async function checkWebUpdate(): Promise<void> {
-    if (!uiSettings.autoUpdatesEnabled) return;
-    const update = await window.dossier?.updater.checkForUpdate();
-    if (!update) return;
-    if (uiSettings.skippedUpdateVersion === update.version) return;
-    updateAvailable = { currentVersion: update.currentVersion, nextVersion: update.version };
   }
 
   function onWebUnlocked(): void {
@@ -139,7 +124,7 @@
       const currentVersion = event.payload?.current_version;
       if (!nextVersion || !currentVersion) return;
       if (uiSettings.skippedUpdateVersion && uiSettings.skippedUpdateVersion === nextVersion) return;
-      updateAvailable = { currentVersion, nextVersion };
+      updateCheck.available = { currentVersion, nextVersion };
     });
 
     return () => {
@@ -181,10 +166,10 @@
 
 <Toaster />
 
-{#if updateAvailable}
+{#if updateCheck.available}
   <UpdateAvailableDialog
-    currentVersion={updateAvailable.currentVersion}
-    nextVersion={updateAvailable.nextVersion}
+    currentVersion={updateCheck.available.currentVersion}
+    nextVersion={updateCheck.available.nextVersion}
     variant={window.dossier?.platform === "web" ? "download" : "install"}
     onUpdateNow={() => {
       if (window.dossier?.platform === "web") {
@@ -194,12 +179,12 @@
       void window.dossier?.updater.installAndRestart();
     }}
     onNotNow={async () => {
-      updateAvailable = null;
+      updateCheck.dismiss();
     }}
     onSkipVersion={async (version) => {
       uiSettings.skippedUpdateVersion = version;
       await uiSettings.persist();
-      updateAvailable = null;
+      updateCheck.dismiss();
     }}
   />
 {/if}

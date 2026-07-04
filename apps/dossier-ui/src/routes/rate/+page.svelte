@@ -13,15 +13,39 @@
     type Rating,
     type TmdbItem
   } from "$lib/types";
-  import IconThumbsUpFill from "phosphor-icons-svelte/IconThumbsUpFill.svelte";
-  import IconThumbsDownFill from "phosphor-icons-svelte/IconThumbsDownFill.svelte";
   import IconEyeSlashRegular from "phosphor-icons-svelte/IconEyeSlashRegular.svelte";
   import IconBookmarkSimpleFill from "phosphor-icons-svelte/IconBookmarkSimpleFill.svelte";
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
   import IconArrowUUpLeftRegular from "phosphor-icons-svelte/IconArrowUUpLeftRegular.svelte";
   import IconQuestionRegular from "phosphor-icons-svelte/IconQuestionRegular.svelte";
 
-  type Action = "like" | "dislike" | "skip" | "watchlist" | "not_interested";
+  /** The 7-point scale replacing the old binary like/dislike buttons. -1
+   *  and +1 are deliberately the same sentinels the old "dislike"/"like"
+   *  buttons always wrote (see ratingFor below and types.ts's Rating doc
+   *  comment) — only 0/±2/±3 are new. */
+  type RankValue = -3 | -2 | -1 | 0 | 1 | 2 | 3;
+  type Action = `rank_${RankValue}` | "skip" | "watchlist" | "not_interested";
+
+  function rankAction(v: RankValue): Action {
+    return `rank_${v}`;
+  }
+  function rankValueOf(action: Action): RankValue | null {
+    if (action === "skip" || action === "watchlist" || action === "not_interested") return null;
+    return Number(action.slice(5)) as RankValue;
+  }
+
+  const RANK_STOPS: Array<{ value: RankValue; symbol: string; caption: string; full: string; shortcut: string }> = [
+    { value: -3, symbol: "−−−", caption: "Extreme", full: "Extremely negative", shortcut: "1" },
+    { value: -2, symbol: "−−", caption: "Fairly", full: "Fairly negative", shortcut: "2" },
+    { value: -1, symbol: "−", caption: "Slightly", full: "Slightly negative", shortcut: "3" },
+    { value: 0, symbol: "•", caption: "Neutral", full: "Neutral", shortcut: "4" },
+    { value: 1, symbol: "+", caption: "Slightly", full: "Slightly positive", shortcut: "5" },
+    { value: 2, symbol: "++", caption: "Fairly", full: "Fairly positive", shortcut: "6" },
+    { value: 3, symbol: "+++", caption: "Extreme", full: "Extremely positive", shortcut: "7" }
+  ];
+  function stopFor(v: RankValue) {
+    return RANK_STOPS.find((s) => s.value === v)!;
+  }
 
   type HistoryEntry = {
     item: TmdbItem;
@@ -66,22 +90,32 @@
   // Ambient per-button backgrounds (Apple Music/Spotify style): each
   // action button gets a different blurred crop of the current poster,
   // revealed on hover. BG_FOCUS picks a distinct focal point per button
-  // so the five backgrounds don't look identical; the same focal points
-  // are used to sample average luminance from the source image so the
+  // so the backgrounds don't look identical; the same focal points are
+  // used to sample average luminance from the source image so the
   // label/icon colour can flip between light and dark for contrast.
+  // Indices 0-6 are the rank scale (-3..3, swept diagonally across the
+  // poster negative-to-positive, echoing the old left=dislike/
+  // right=like drag gesture); 7-9 are watchlist/skip/not_interested,
+  // unchanged from before this scale existed.
   const BG_FOCUS = [
-    { x: 25, y: 15 }, // like
-    { x: 75, y: 30 }, // dislike
-    { x: 50, y: 50 }, // watchlist
-    { x: 25, y: 70 }, // skip
-    { x: 75, y: 88 }  // not interested
+    { x: 6, y: 14 },   // rank -3
+    { x: 20, y: 26 },  // rank -2
+    { x: 34, y: 38 },  // rank -1
+    { x: 50, y: 50 },  // rank 0
+    { x: 66, y: 62 },  // rank +1
+    { x: 80, y: 74 },  // rank +2
+    { x: 94, y: 86 },  // rank +3
+    { x: 55, y: 45 },  // watchlist
+    { x: 25, y: 70 },  // skip
+    { x: 75, y: 88 }   // not interested
   ] as const;
   const bgPoster = $derived(detail ? posterUrl(detail.posterPath, "w500") : null);
-  let btnFg = $state<Array<"light" | "dark">>(["light", "light", "light", "light", "light"]);
+  const btnFgDefault = (): Array<"light" | "dark"> => Array(BG_FOCUS.length).fill("light");
+  let btnFg = $state<Array<"light" | "dark">>(btnFgDefault());
   $effect(() => {
     const url = bgPoster;
     if (!url) {
-      btnFg = ["light", "light", "light", "light", "light"];
+      btnFg = btnFgDefault();
       return;
     }
     let cancelled = false;
@@ -113,11 +147,11 @@
           return total / count > 150 ? "dark" : "light";
         });
       } catch {
-        btnFg = ["light", "light", "light", "light", "light"];
+        btnFg = btnFgDefault();
       }
     };
     img.onerror = () => {
-      if (!cancelled) btnFg = ["light", "light", "light", "light", "light"];
+      if (!cancelled) btnFg = btnFgDefault();
     };
     img.src = url;
     return () => {
@@ -126,18 +160,35 @@
   });
 
   // Real drag-to-rate: the poster follows the pointer 1:1 while dragging
-  // (see class:dragging disabling the transition), then either commits
-  // like/dislike past DRAG_THRESHOLD or springs back to center. On
-  // commit the exit keyframes (swipe-right/swipe-left) pick up seamlessly
-  // from the live drag position via the --drag-x/--drag-rot custom
-  // properties, so there's no jump between "dragged" and "thrown".
-  const DRAG_THRESHOLD = 120;
+  // (see class:dragging disabling the transition). Horizontal distance
+  // snaps into one of three bands per side (dragMagnitude), so a firm
+  // flick commits ±1 ("slightly") while a longer drag reaches ±2/±3
+  // ("fairly"/"extremely") — the further you drag, the stronger the
+  // rating, same spirit as the old single-strength swipe but now with
+  // headroom for how strongly you feel. Releasing inside the first band
+  // (dead zone) springs back without committing, as before. On commit
+  // the exit keyframe (swipeOut) picks up seamlessly from the live drag
+  // position via the --drag-x/--drag-rot custom properties, with
+  // --exit-x/--exit-rot scaled by how extreme the committed rank is.
+  const DRAG_THRESHOLDS = [70, 140, 220] as const;
+  function dragMagnitude(absX: number): 0 | 1 | 2 | 3 {
+    if (absX < DRAG_THRESHOLDS[0]) return 0;
+    if (absX < DRAG_THRESHOLDS[1]) return 1;
+    if (absX < DRAG_THRESHOLDS[2]) return 2;
+    return 3;
+  }
   let dragging = $state(false);
   let dragX = $state(0);
   let dragXAtCommit = $state(0);
   let dragRotAtCommit = $state(0);
   let dragPointerId: number | null = null;
   let dragStartClientX = 0;
+  // Live preview of the rank a release would commit right now — drives
+  // the floating "stamp" label so the drag stays legible with 7 possible
+  // outcomes instead of 2.
+  const dragRank = $derived<RankValue>(
+    dragging ? ((Math.sign(dragX) * dragMagnitude(Math.abs(dragX))) as RankValue) : 0
+  );
 
   // The visible queue excludes anything already rated/skipped this session.
   const visibleQueue = $derived(
@@ -174,6 +225,16 @@
     displayedItem;
     keyLit = null;
   });
+
+  // Exit-throw distance/rotation for the swipeOut animation, scaled by
+  // how extreme the committed rank is (magnitude 1 = a gentle toss,
+  // magnitude 3 = a much harder throw) so the exit itself communicates
+  // intensity, not just the stamp shown mid-drag.
+  const lastRank = $derived(lastAction ? rankValueOf(lastAction) : null);
+  const exitMag = $derived(lastRank !== null ? Math.abs(lastRank) : 0);
+  const exitSign = $derived(lastRank !== null ? Math.sign(lastRank) : 0);
+  const exitX = $derived(exitMag > 0 ? exitSign * (70 + exitMag * 20) : 0);
+  const exitRot = $derived(exitMag > 0 ? exitSign * (4 + exitMag * 3) : 0);
 
   async function fetchMore(): Promise<void> {
     if (loadingQueue) return;
@@ -223,11 +284,18 @@
   });
 
   function ratingFor(action: Action): Rating | null {
-    if (action === "like") return RATING_LIKE;
-    if (action === "dislike") return RATING_DISLIKE;
+    const rv = rankValueOf(action);
+    if (rv !== null) {
+      // -1/+1 are the original "dislike"/"like" sentinels — route through
+      // the named constants so it's obvious at a glance that this rank
+      // tier writes exactly what the old binary buttons always wrote.
+      if (rv === 1) return RATING_LIKE;
+      if (rv === -1) return RATING_DISLIKE;
+      return rv;
+    }
     if (action === "watchlist") return RATING_WATCHLIST;
     if (action === "not_interested") return RATING_NOT_INTERESTED;
-    return null;
+    return null; // skip
   }
 
   async function decide(action: Action, item: TmdbItem | null = current): Promise<void> {
@@ -314,19 +382,18 @@
 
   function onPosterPointerUp(event: PointerEvent): void {
     if (!dragging || event.pointerId !== dragPointerId) return;
+    // Computed from the live dragX before resetting `dragging`, since
+    // dragRank (the $derived preview) goes to 0 the instant dragging
+    // flips false.
+    const rank = (Math.sign(dragX) * dragMagnitude(Math.abs(dragX))) as RankValue;
     dragging = false;
     dragPointerId = null;
 
-    if (dragX > DRAG_THRESHOLD) {
+    if (rank !== 0) {
       dragXAtCommit = dragX;
       dragRotAtCommit = dragX / 24;
       dragX = 0;
-      void decide("like");
-    } else if (dragX < -DRAG_THRESHOLD) {
-      dragXAtCommit = dragX;
-      dragRotAtCommit = dragX / 24;
-      dragX = 0;
-      void decide("dislike");
+      void decide(rankAction(rank));
     } else {
       dragX = 0;
     }
@@ -340,11 +407,14 @@
 
   function handleKey(event: KeyboardEvent): void {
     if (event.repeat) return;
-    if (event.key === "ArrowRight") { event.preventDefault(); decideViaShortcut("like"); }
-    else if (event.key === "ArrowLeft") { event.preventDefault(); decideViaShortcut("dislike"); }
+    if (event.key === "ArrowRight") { event.preventDefault(); decideViaShortcut(rankAction(1)); }
+    else if (event.key === "ArrowLeft") { event.preventDefault(); decideViaShortcut(rankAction(-1)); }
     else if (event.key === "ArrowUp") { event.preventDefault(); decideViaShortcut("watchlist"); }
     else if (event.key === "ArrowDown") { event.preventDefault(); decideViaShortcut("not_interested"); }
-    else if (event.key === " " || event.code === "Space") {
+    else if (event.key >= "1" && event.key <= "7") {
+      event.preventDefault();
+      decideViaShortcut(rankAction(RANK_STOPS[Number(event.key) - 1].value));
+    } else if (event.key === " " || event.code === "Space") {
       event.preventDefault();
       decideViaShortcut("skip");
     } else if (event.key === "Backspace") {
@@ -364,7 +434,7 @@
           <IconQuestionRegular class="icon-16" />
         </button>
         <div class="hint-popover" role="tooltip">
-          <kbd>←</kbd> dislike · <kbd>→</kbd> like · <kbd>↓</kbd> don't show again · <kbd>↑</kbd> watchlist · <kbd>Space</kbd> haven't seen · <kbd>⌫</kbd> undo
+          <kbd>1</kbd>–<kbd>7</kbd> rate (1 extremely negative … 7 extremely positive) · <kbd>←</kbd> slightly negative · <kbd>→</kbd> slightly positive · <kbd>↓</kbd> don't show again · <kbd>↑</kbd> watchlist · <kbd>Space</kbd> haven't seen · <kbd>⌫</kbd> undo
         </div>
       </span>
       <h1>Rate films</h1>
@@ -408,12 +478,12 @@
           <div
             class="poster-wrap"
             class:dragging
-            class:swipe-right={lastAction === "like"}
-            class:swipe-left={lastAction === "dislike"}
+            class:swipe-out={lastRank !== null && lastRank !== 0}
+            class:fade-neutral={lastRank === 0}
             class:fade-up={lastAction === "skip"}
             class:fade-watchlist={lastAction === "watchlist"}
             class:fade-not-interested={lastAction === "not_interested"}
-            style={`--drag-x: ${(dragging ? dragX : dragXAtCommit)}px; --drag-rot: ${(dragging ? dragX / 24 : dragRotAtCommit)}deg;`
+            style={`--drag-x: ${(dragging ? dragX : dragXAtCommit)}px; --drag-rot: ${(dragging ? dragX / 24 : dragRotAtCommit)}deg; --exit-x: ${exitX}%; --exit-rot: ${exitRot}deg;`
               + (dragging ? ` transform: translateX(${dragX}px) rotate(${dragX / 24}deg);` : "")}
             role="img"
             aria-label={`Poster for ${detail.title}`}
@@ -426,6 +496,18 @@
               <img class="poster" src={posterUrl(detail.posterPath, "w500")} alt="" draggable="false" />
             {:else}
               <div class="poster poster-empty"></div>
+            {/if}
+            {#if dragging && dragRank !== 0}
+              <div
+                class="drag-stamp"
+                class:positive={dragRank > 0}
+                class:negative={dragRank < 0}
+                style={`--stamp-mag: ${Math.abs(dragRank)};`}
+                aria-hidden="true"
+              >
+                <span class="stamp-symbol">{stopFor(dragRank).symbol}</span>
+                <span class="stamp-label">{stopFor(dragRank).full}</span>
+              </div>
             {/if}
           </div>
 
@@ -451,43 +533,33 @@
             {/if}
 
             <div class="actions">
+              <div class="rank-scale" role="group" aria-label="Rate this title from extremely negative to extremely positive">
+                {#each RANK_STOPS as stop (stop.value)}
+                  <button
+                    class="action-btn rank-btn"
+                    class:fg-dark={btnFg[stop.value + 3] === "dark"}
+                    class:key-lit={keyLit === rankAction(stop.value)}
+                    disabled={busy}
+                    onclick={() => decide(rankAction(stop.value))}
+                    aria-label={stop.full}
+                    title={`${stop.full} (${stop.shortcut})`}
+                    style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[stop.value + 3].x}% ${BG_FOCUS[stop.value + 3].y}%;` : ""}
+                  >
+                    <span class="btn-surface" aria-hidden="true"></span>
+                    <span class="rank-symbol" aria-hidden="true">{stop.symbol}</span>
+                    <span class="rank-caption">{stop.caption}</span>
+                  </button>
+                {/each}
+              </div>
               <button
                 class="action-btn"
-                class:fg-dark={btnFg[0] === "dark"}
-                class:key-lit={keyLit === "like"}
-                disabled={busy}
-                onclick={() => decide("like")}
-                aria-label="I liked it"
-                title="I liked it (→)"
-                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[0].x}% ${BG_FOCUS[0].y}%;` : ""}
-              >
-                <span class="btn-surface" aria-hidden="true"></span>
-                <IconThumbsUpFill class="icon-20" />
-                <span>I liked it</span>
-              </button>
-              <button
-                class="action-btn"
-                class:fg-dark={btnFg[1] === "dark"}
-                class:key-lit={keyLit === "dislike"}
-                disabled={busy}
-                onclick={() => decide("dislike")}
-                aria-label="I didn't like it"
-                title="I didn't like it (←)"
-                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[1].x}% ${BG_FOCUS[1].y}%;` : ""}
-              >
-                <span class="btn-surface" aria-hidden="true"></span>
-                <IconThumbsDownFill class="icon-20" />
-                <span>I didn't like it</span>
-              </button>
-              <button
-                class="action-btn"
-                class:fg-dark={btnFg[2] === "dark"}
+                class:fg-dark={btnFg[7] === "dark"}
                 class:key-lit={keyLit === "watchlist"}
                 disabled={busy}
                 onclick={() => decide("watchlist")}
                 aria-label="Add to my Watchlist"
                 title="Add to my Watchlist (↑)"
-                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[2].x}% ${BG_FOCUS[2].y}%;` : ""}
+                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[7].x}% ${BG_FOCUS[7].y}%;` : ""}
               >
                 <span class="btn-surface" aria-hidden="true"></span>
                 <IconBookmarkSimpleFill class="icon-20" />
@@ -495,13 +567,13 @@
               </button>
               <button
                 class="action-btn"
-                class:fg-dark={btnFg[3] === "dark"}
+                class:fg-dark={btnFg[8] === "dark"}
                 class:key-lit={keyLit === "skip"}
                 disabled={busy}
                 onclick={() => decide("skip")}
                 aria-label="I haven't seen it"
                 title="I haven't seen it (Space)"
-                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[3].x}% ${BG_FOCUS[3].y}%;` : ""}
+                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[8].x}% ${BG_FOCUS[8].y}%;` : ""}
               >
                 <span class="btn-surface" aria-hidden="true"></span>
                 <IconEyeSlashRegular class="icon-20" />
@@ -509,13 +581,13 @@
               </button>
               <button
                 class="action-btn"
-                class:fg-dark={btnFg[4] === "dark"}
+                class:fg-dark={btnFg[9] === "dark"}
                 class:key-lit={keyLit === "not_interested"}
                 disabled={busy}
                 onclick={() => decide("not_interested")}
                 aria-label="I don't care about it"
                 title="I don't care about it (↓)"
-                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[4].x}% ${BG_FOCUS[4].y}%;` : ""}
+                style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[9].x}% ${BG_FOCUS[9].y}%;` : ""}
               >
                 <span class="btn-surface" aria-hidden="true"></span>
                 <IconProhibitRegular class="icon-20" />
@@ -660,6 +732,7 @@
   }
 
   .poster-wrap {
+    position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
@@ -669,21 +742,20 @@
   }
   .poster-wrap:active { cursor: grabbing; }
   .poster-wrap.dragging { transition: none; }
-  .poster-wrap.swipe-right { animation: swipeRight 300ms var(--ease-in-out) forwards; }
-  .poster-wrap.swipe-left { animation: swipeLeft 300ms var(--ease-in-out) forwards; }
+  .poster-wrap.swipe-out { animation: swipeOut 300ms var(--ease-in-out) forwards; }
   .poster-wrap.fade-up { animation: fadeUp 300ms var(--ease-in-out) forwards; }
+  .poster-wrap.fade-neutral { animation: fadeUp 300ms var(--ease-in-out) forwards; }
   .poster-wrap.fade-watchlist { animation: fadeWatchlist 300ms var(--ease-in-out) forwards; }
   .poster-wrap.fade-not-interested { animation: fadeNotInterested 300ms var(--ease-in-out) forwards; }
   /* The "from" reads the live drag position (0 for button-triggered
      actions) so a committed drag flies off seamlessly instead of
-     snapping back to center first. */
-  @keyframes swipeRight {
+     snapping back to center first. --exit-x/--exit-rot scale with how
+     extreme the committed rank is (set in the script from lastRank),
+     so a "slightly positive" toss is gentle and an "extremely positive"
+     one flies further and spins harder. */
+  @keyframes swipeOut {
     from { transform: translateX(var(--drag-x, 0px)) rotate(var(--drag-rot, 0deg)); }
-    to { transform: translateX(110%) rotate(8deg); opacity: 0; }
-  }
-  @keyframes swipeLeft {
-    from { transform: translateX(var(--drag-x, 0px)) rotate(var(--drag-rot, 0deg)); }
-    to { transform: translateX(-110%) rotate(-8deg); opacity: 0; }
+    to { transform: translateX(var(--exit-x, 110%)) rotate(var(--exit-rot, 8deg)); opacity: 0; }
   }
   @keyframes fadeUp { to { transform: translateY(-20px); opacity: 0; } }
   @keyframes fadeWatchlist { to { transform: translateY(-30px) scale(1.02); opacity: 0; } }
@@ -698,6 +770,38 @@
     pointer-events: none;
   }
   .poster-empty { background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary)); }
+
+  /* Tinder-style live preview of the rank a release would commit right
+     now, so a 7-level drag stays legible mid-gesture instead of just
+     "left vs right". Sits on whichever side matches the drag direction;
+     scale/opacity grow with magnitude (--stamp-mag, 1..3) so reaching a
+     more extreme tier feels like it's registering more strongly. */
+  .drag-stamp {
+    position: absolute;
+    top: var(--space-4);
+    padding: 6px 12px;
+    border: 2px solid;
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--base) 65%, transparent);
+    backdrop-filter: blur(6px);
+    text-align: center;
+    pointer-events: none;
+    font-family: var(--font-display);
+  }
+  .drag-stamp.positive {
+    right: var(--space-4);
+    border-color: var(--accent, var(--primary-accent));
+    color: var(--accent, var(--primary-accent));
+    transform: rotate(calc(6deg + var(--stamp-mag, 1) * 2deg)) scale(calc(0.85 + var(--stamp-mag, 1) * 0.12));
+  }
+  .drag-stamp.negative {
+    left: var(--space-4);
+    border-color: var(--danger, #f85149);
+    color: var(--danger, #f85149);
+    transform: rotate(calc(-6deg - var(--stamp-mag, 1) * 2deg)) scale(calc(0.85 + var(--stamp-mag, 1) * 0.12));
+  }
+  .stamp-symbol { display: block; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.04em; }
+  .stamp-label { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
 
   .info { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
   .title {
@@ -823,6 +927,42 @@
     opacity: 1;
   }
   .action-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* The 7-point rank scale: same frosted action-btn surface as the
+     buttons below it, just reflowed into a row of narrower, centered
+     segments (symbol above a short intensity caption) instead of a
+     wide icon+label row. Kept as full independently-rounded buttons
+     rather than a single joined segmented-control shell, deliberately
+     — see the .btn-surface comment above on why a shared clipped
+     container fights the blur/transform compositing bug; per-button
+     surfaces are the pattern already proven safe on this screen. */
+  .rank-scale {
+    display: flex;
+    gap: var(--space-1);
+  }
+  .action-btn.rank-btn {
+    flex: 1 1 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    padding: var(--space-2) 2px;
+    min-width: 0;
+    text-align: center;
+  }
+  .rank-symbol {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .rank-caption {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    opacity: 0.75;
+    line-height: 1;
+  }
 
   .empty { text-align: center; max-width: 360px; margin: var(--space-7) auto 0; }
   .empty h2 { font-family: var(--font-display); color: var(--text-primary); }

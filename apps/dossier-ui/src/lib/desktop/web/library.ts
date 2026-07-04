@@ -44,7 +44,8 @@ const DEFAULT_SETTINGS: Record<string, unknown> = {
   sidebarCollapsed: false,
   showingWelcome: true,
   groupedRecommendations: false,
-  recommendationDials: {}
+  recommendationDials: {},
+  refineGroupSize: 2
 };
 
 type WebVault = {

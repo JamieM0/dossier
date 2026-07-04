@@ -9,6 +9,7 @@ class UiSettingsStore {
   sidebarCollapsed = $state(false);
   showingWelcome = $state(false);
   groupedRecommendations = $state(false);
+  refineGroupSize = $state(2);
 
   applyTheme(): void {
     applyTheme(this.theme);
@@ -47,6 +48,10 @@ class UiSettingsStore {
         ? false
         : Boolean(desktopSettings.showingWelcome);
     this.groupedRecommendations = Boolean(desktopSettings.groupedRecommendations);
+    this.refineGroupSize =
+      typeof desktopSettings.refineGroupSize === "number" && Number.isFinite(desktopSettings.refineGroupSize)
+        ? desktopSettings.refineGroupSize
+        : 2;
 
     const osStartOnLogin = await window.dossier?.settings.getStartOnLogin();
     if (typeof osStartOnLogin === "boolean") {
@@ -66,7 +71,8 @@ class UiSettingsStore {
       skippedUpdateVersion: this.skippedUpdateVersion,
       sidebarCollapsed: this.sidebarCollapsed,
       showingWelcome: this.showingWelcome,
-      groupedRecommendations: this.groupedRecommendations
+      groupedRecommendations: this.groupedRecommendations,
+      refineGroupSize: this.refineGroupSize
     });
   }
 }
