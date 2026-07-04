@@ -79,13 +79,58 @@ export async function enrichItems(items: TmdbItem[], concurrency = 8): Promise<T
   return mapWithConcurrency(items, concurrency, enrichItem);
 }
 
+/** Neutral position for a Rate screen genre dial — mirrors
+ * RATE_DIAL_DEFAULT in state/rate-dials.svelte.ts. Kept as a local
+ * constant (rather than importing the Svelte store module) so this data
+ * module has no framework/runes dependency. */
+const GENRE_DIAL_NEUTRAL = 50;
+
+/** True only when every dial is sitting at its neutral default — the
+ * "neutral dials never affect anything" rule from rate-dials means this
+ * must be a real no-op, not just a weight of ~1 for every item. */
+function allGenreDialsNeutral(dialValues: Record<string, number>): boolean {
+  return Object.values(dialValues).every((v) => v === GENRE_DIAL_NEUTRAL);
+}
+
+/** An item's relative "chance of being seen" multiplier: the average,
+ * across its genres, of each genre's dial value relative to neutral
+ * (50 → 1x, 100 → 2x, 1 → 0.02x). Genres with no dial recorded count as
+ * neutral (1x). */
+function genreDialMultiplier(item: TmdbItem, dialValues: Record<string, number>): number {
+  if (item.genres.length === 0) return 1;
+  const sum = item.genres.reduce((acc, g) => acc + (dialValues[g] ?? GENRE_DIAL_NEUTRAL) / GENRE_DIAL_NEUTRAL, 0);
+  return sum / item.genres.length;
+}
+
+/** Biases which items surface first according to the Rate screen's
+ * genre dials — a raised dial makes its genre more likely to appear
+ * early, a lowered one less likely, but nothing is ever hard-filtered
+ * out (weights only approach, never reach, zero). Implemented as a
+ * weighted random permutation (Efraimidis-Spirakis A-ES: sort by
+ * `random() ** (1/weight)` descending) so the effect is probabilistic
+ * rather than a deterministic re-sort. No-ops when every dial is
+ * neutral, per rate-dials' "defaults never affect anything" rule. */
+export function applyGenreDials(
+  items: TmdbItem[],
+  dialValues: Record<string, number>,
+  rng: () => number = Math.random
+): TmdbItem[] {
+  if (items.length <= 1 || allGenreDialsNeutral(dialValues)) return items;
+  return items
+    .map((item) => ({ item, key: Math.pow(rng(), 1 / Math.max(0.0001, genreDialMultiplier(item, dialValues))) }))
+    .sort((a, b) => b.key - a.key)
+    .map(({ item }) => item);
+}
+
 /** The rating queue: recognisable titles first so calibration starts on
  * films people are likely to have seen. Trending + popular + a slice of
- * acclaimed titles, deduped. */
+ * acclaimed titles, deduped, then biased by the Rate screen's genre
+ * dials (see applyGenreDials). */
 export async function buildRatingQueue(
   medium: TmdbMedium,
   excludeKeys: Set<string>,
-  page = 1
+  page = 1,
+  genreDialValues: Record<string, number> = {}
 ): Promise<TmdbItem[]> {
   const api = tmdb();
   const [trending, popular, acclaimed] = await Promise.all([
@@ -101,7 +146,7 @@ export async function buildRatingQueue(
   for (let i = 0; i < max; i++) {
     for (const list of lists) if (list[i]) merged.push(list[i]);
   }
-  return dedupeExclude(merged, excludeKeys);
+  return applyGenreDials(dedupeExclude(merged, excludeKeys), genreDialValues);
 }
 
 /** Derive the user's strongest genres from their liked items, weighted

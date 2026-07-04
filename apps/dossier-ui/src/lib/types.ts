@@ -13,6 +13,13 @@ export type DossierSettings = {
    *  active medium). 2 keeps the original pairwise duel; more switches
    *  to a drag-to-reorder ranking list. */
   refineGroupSize: number;
+  /** Per-genre dials (1-100, 50 = neutral) biasing which genres surface
+   *  more/less often in the Rate screen's queue. See
+   *  $lib/state/rate-dials.svelte.ts. */
+  rateGenreDials: Record<string, number>;
+  /** Per-genre "you seem to not care about X" pattern-prompt bookkeeping
+   *  — see GenrePatternState / $lib/state/rate-dials.svelte.ts. */
+  rateGenrePatternState: Record<string, GenrePatternState>;
   [key: string]: unknown;
 };
 
@@ -117,6 +124,17 @@ export type RatingEntry = {
   rating: Rating;
   item: RatedItem;
   ts: number;
+};
+
+/** Per-genre bookkeeping for the Rate screen's "you seem to not care
+ *  about X" pattern prompt (see $lib/state/rate-dials.svelte.ts):
+ *  `baseline` is the not-interested count for that genre as of the last
+ *  prompt (accepted or declined), and `threshold` is how many *more*
+ *  not-interested items of that genre are needed before prompting
+ *  again — starts at 10, doubles (capped at 200) each time declined. */
+export type GenrePatternState = {
+  baseline: number;
+  threshold: number;
 };
 
 export type PreferencesPayload = {

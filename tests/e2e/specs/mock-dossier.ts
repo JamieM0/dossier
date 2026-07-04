@@ -26,6 +26,12 @@ export async function dismissEnrichmentModal(page: Page): Promise<void> {
 export type MockDossierSeed = {
   /** Marks this many pool movies (from the front of the pool) as liked. */
   likedMovies?: number;
+  /** Pre-seeds this many synthetic Horror-genre titles already rated
+   *  "not interested," and skips the pool's first 6 (non-Horror) titles
+   *  so the Rate queue starts right at "Crimson Hour" (the pool's one
+   *  Horror title) — lets a test reach the genre-pattern popup with a
+   *  single live click instead of walking the whole queue. */
+  notInterestedHorrorSeed?: number;
 };
 
 /** Injects a fake `window.dossier` bridge so the SvelteKit app (which
@@ -93,14 +99,57 @@ export function installMockDossier(seed?: MockDossierSeed): void {
     }
   }
 
+  if (seed?.notInterestedHorrorSeed) {
+    for (let i = 0; i < 6; i++) skipped = [...skipped, `movie:${pool[i].id}`];
+    const horrorTemplate = pool[6]; // "Crimson Hour" — the pool's one Horror title.
+    for (let i = 0; i < seed.notInterestedHorrorSeed; i++) {
+      const key = `movie:${900000 + i}`;
+      ratings[key] = {
+        rating: -0.5,
+        item: { ...horrorTemplate, id: 900000 + i, title: `Seeded Horror ${i}`, key },
+        ts: Date.now() - 10_000 + i
+      };
+    }
+  }
+
+  // Backed by localStorage (rather than an in-memory literal) so settings
+  // actually round-trip across a page.reload() within a test, the same way
+  // the real desktop/web bridges persist them — needed to exercise the Rate
+  // screen's genre dials surviving a "session" like recommendationDials
+  // already does.
+  const SETTINGS_KEY = "mock-dossier-settings";
+  const baseSettings: Record<string, unknown> = {
+    theme: "system", dyslexiaMode: false, startOnLogin: false, autoUpdatesEnabled: true,
+    skippedUpdateVersion: null, sidebarCollapsed: false, showingWelcome: false
+  };
+  function loadSettings(): Record<string, unknown> {
+    try {
+      const raw = localStorage.getItem(SETTINGS_KEY);
+      return raw ? JSON.parse(raw) : { ...baseSettings };
+    } catch {
+      return { ...baseSettings };
+    }
+  }
+  function saveSettings(next: Record<string, unknown>): Record<string, unknown> {
+    const merged = { ...loadSettings(), ...next };
+    try {
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(merged));
+    } catch {
+      // ignore
+    }
+    return merged;
+  }
+
   (window as unknown as { dossier: unknown }).dossier = {
     platform: "app",
     app: { getVersion: () => Promise.resolve("0.0.0-test") },
     window: { show: () => Promise.resolve(), hide: () => Promise.resolve(), quit: () => Promise.resolve() },
     updater: { installAndRestart: () => Promise.resolve() },
     settings: {
-      get: () => Promise.resolve({ theme: "system", dyslexiaMode: false, startOnLogin: false, autoUpdatesEnabled: true, skippedUpdateVersion: null, sidebarCollapsed: false, showingWelcome: false }),
-      set: (next: Record<string, unknown>) => Promise.resolve(next),
+      get: () => Promise.resolve(loadSettings()),
+      set: (next: Record<string, unknown>) => {
+        return Promise.resolve(saveSettings(next));
+      },
       getStartOnLogin: () => Promise.resolve(false),
       setStartOnLogin: (e: boolean) => Promise.resolve(e)
     },

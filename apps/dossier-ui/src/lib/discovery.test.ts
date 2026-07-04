@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { enrichItem, enrichItems, mapWithConcurrency } from "./discovery";
+import { applyGenreDials, enrichItem, enrichItems, mapWithConcurrency } from "./discovery";
 import type { TmdbItem } from "./types";
 
 function mkItem(id: number, overrides: Partial<TmdbItem> = {}): TmdbItem {
@@ -91,5 +91,58 @@ describe("enrichItem / enrichItems", () => {
     expect(result[0].keywords).toEqual(["x"]);
     expect(result[1]).toBe(items[1]); // fell back
     expect(result[2].keywords).toEqual(["x"]);
+  });
+});
+
+describe("applyGenreDials", () => {
+  it("is a no-op when every dial is at its neutral default (50)", () => {
+    const items = [mkItem(1, { genres: ["Action"] }), mkItem(2, { genres: ["Comedy"] })];
+    const result = applyGenreDials(items, { Action: 50, Comedy: 50 }, () => 0.3);
+    expect(result).toBe(items);
+  });
+
+  it("is a no-op when no dial values are supplied at all", () => {
+    const items = [mkItem(1, { genres: ["Action"] }), mkItem(2, { genres: ["Comedy"] })];
+    const result = applyGenreDials(items, {}, () => 0.3);
+    expect(result).toBe(items);
+  });
+
+  it("biases a raised genre's items toward the front of the queue", () => {
+    // Feed the same "random" draw to both items so any difference in
+    // ordering comes only from the weight the dial assigns them.
+    const rng = () => 0.5;
+    const action = mkItem(1, { genres: ["Action"] });
+    const comedy = mkItem(2, { genres: ["Comedy"] });
+    const result = applyGenreDials([comedy, action], { Action: 100, Comedy: 50 }, rng);
+    expect(result[0]).toBe(action);
+    expect(result[1]).toBe(comedy);
+  });
+
+  it("biases a lowered genre's items toward the back of the queue", () => {
+    const rng = () => 0.5;
+    const horror = mkItem(1, { genres: ["Horror"] });
+    const comedy = mkItem(2, { genres: ["Comedy"] });
+    const result = applyGenreDials([horror, comedy], { Horror: 1, Comedy: 50 }, rng);
+    expect(result[0]).toBe(comedy);
+    expect(result[1]).toBe(horror);
+  });
+
+  it("averages multiple genres so one raised genre doesn't fully rescue a lowered one", () => {
+    const rng = () => 0.5;
+    // Half Action (raised), half Horror (heavily lowered) should land
+    // between an all-neutral item and an all-lowered item.
+    const mixed = mkItem(1, { genres: ["Action", "Horror"] });
+    const neutral = mkItem(2, { genres: ["Comedy"] });
+    const lowered = mkItem(3, { genres: ["Horror"] });
+    const result = applyGenreDials([mixed, neutral, lowered], { Action: 100, Horror: 1, Comedy: 50 }, rng);
+    expect(result.indexOf(neutral)).toBeLessThan(result.indexOf(lowered));
+    expect(result.indexOf(mixed)).toBeLessThan(result.indexOf(lowered));
+  });
+
+  it("never hard-filters an item out, even at the lowest dial position", () => {
+    const items = Array.from({ length: 5 }, (_, i) => mkItem(i, { genres: ["Horror"] }));
+    const result = applyGenreDials(items, { Horror: 1 }, Math.random);
+    expect(result).toHaveLength(items.length);
+    expect(new Set(result)).toEqual(new Set(items));
   });
 });

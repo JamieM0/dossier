@@ -57,6 +57,8 @@ type DossierSettings = {
   groupedRecommendations: boolean;
   recommendationDials: Record<string, number>;
   refineGroupSize: number;
+  rateGenreDials: Record<string, number>;
+  rateGenrePatternState: Record<string, { baseline: number; threshold: number }>;
   [key: string]: unknown;
 };
 
@@ -70,7 +72,9 @@ const defaultSettings: DossierSettings = {
   showingWelcome: true,
   groupedRecommendations: false,
   recommendationDials: {},
-  refineGroupSize: 2
+  refineGroupSize: 2,
+  rateGenreDials: {},
+  rateGenrePatternState: {}
 };
 
 type BackendReadyPayload = {

@@ -3,6 +3,7 @@
   import { buildRatingQueue } from "$lib/discovery";
   import { preferences } from "$lib/state/preferences.svelte";
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
+  import { rateDials, notInterestedGenreCounts } from "$lib/state/rate-dials.svelte";
   import { posterUrl } from "$lib/poster";
   import {
     itemKey,
@@ -18,6 +19,9 @@
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
   import IconArrowUUpLeftRegular from "phosphor-icons-svelte/IconArrowUUpLeftRegular.svelte";
   import IconQuestionRegular from "phosphor-icons-svelte/IconQuestionRegular.svelte";
+  import IconFadersRegular from "phosphor-icons-svelte/IconFadersRegular.svelte";
+  import RateDialsPanel from "$lib/components/RateDialsPanel.svelte";
+  import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
 
   /** The 7-point scale replacing the old binary like/dislike buttons. -1
    *  and +1 are deliberately the same sentinels the old "dislike"/"like"
@@ -215,6 +219,12 @@
   });
 
   let actionError = $state<string | null>(null);
+  let dialsOpen = $state(false);
+  // Set when a genre's not-interested count just crossed its pattern
+  // threshold (see rateDials.checkForPattern) — shows the "You seem to
+  // not care about X" confirmation popup. Never more than one queued at
+  // once: a fresh crossing while one is already showing is dropped.
+  let patternPrompt = $state<{ genre: string; count: number } | null>(null);
 
   // Mirrors the hover-lit look when the same action is triggered via its
   // keyboard shortcut, so the button gives feedback without requiring the
@@ -244,12 +254,19 @@
       const page = await buildRatingQueue(
         catalogueMode.medium,
         preferences.excludedKeys(),
-        queuePage
+        queuePage,
+        rateDials.values
       );
       queuePage += 1;
       // Dedupe against what we already hold.
       const have = new Set(queue.map((i) => itemKey(i.medium, i.id)));
-      queue = [...queue, ...page.filter((i) => !have.has(itemKey(i.medium, i.id)))];
+      const fresh = page.filter((i) => !have.has(itemKey(i.medium, i.id)));
+      // Only reassign when something new actually arrived: `queue` is
+      // reactive state, so `[...queue]` would still count as "changed"
+      // (new array reference) even with nothing appended, keeps
+      // re-triggering the low-queue top-up effect below, and spins
+      // forever once the candidate pool is exhausted.
+      if (fresh.length > 0) queue = [...queue, ...fresh];
     } catch (err) {
       queueError = err instanceof Error ? err.message : String(err);
     } finally {
@@ -259,6 +276,7 @@
 
   onMount(() => {
     void preferences.hydrate();
+    void Promise.all([rateDials.hydrateFromDesktop(), rateDials.ensureGenres()]);
   });
 
   // Reset and refill the queue whenever the medium changes. Only the
@@ -328,6 +346,14 @@
       history = [...history, entry];
       pinned = null;
 
+      if (action === "not_interested" && !patternPrompt) {
+        const genre = rateDials.checkForPattern(preferences.entries());
+        if (genre) {
+          const count = notInterestedGenreCounts(preferences.entries()).get(genre) ?? 0;
+          patternPrompt = { genre, count };
+        }
+      }
+
       if (isDisplayed) {
         await new Promise<void>(r => setTimeout(r, 320));
       }
@@ -340,6 +366,13 @@
       animating = false;
       busy = false;
     }
+  }
+
+  async function resolvePatternPrompt(accepted: boolean): Promise<void> {
+    if (!patternPrompt) return;
+    const { genre, count } = patternPrompt;
+    patternPrompt = null;
+    await rateDials.resolvePattern(genre, count, accepted);
   }
 
   async function undo(): Promise<void> {
@@ -438,15 +471,26 @@
         </div>
       </span>
       <h1>Rate films</h1>
-      <button
-        class="undo-top"
-        disabled={busy || history.length === 0}
-        onclick={() => void undo()}
-        aria-label="Undo last rating"
-        title="Undo (Backspace)"
-      >
-        <IconArrowUUpLeftRegular class="icon-20" />
-      </button>
+      <div class="header-end">
+        <button
+          class="dials-top"
+          class:active={!rateDials.isDefault}
+          onclick={() => (dialsOpen = true)}
+          aria-label="Tune genre dials"
+          title="Genre dials"
+        >
+          <IconFadersRegular class="icon-20" />
+        </button>
+        <button
+          class="undo-top"
+          disabled={busy || history.length === 0}
+          onclick={() => void undo()}
+          aria-label="Undo last rating"
+          title="Undo (Backspace)"
+        >
+          <IconArrowUUpLeftRegular class="icon-20" />
+        </button>
+      </div>
     </div>
     <p class="count">{preferences.ratingCount()} rated</p>
   </header>
@@ -601,6 +645,21 @@
   </div>
 </section>
 
+{#if dialsOpen}
+  <RateDialsPanel onClose={() => (dialsOpen = false)} />
+{/if}
+
+{#if patternPrompt}
+  <ConfirmDialog
+    title="Adjust your dials?"
+    message={`You've marked ${patternPrompt.count} ${patternPrompt.genre} titles as "don't care about." Turn down the ${patternPrompt.genre} dial?`}
+    confirmLabel="Yes"
+    cancelLabel="No"
+    onConfirm={() => void resolvePatternPrompt(true)}
+    onCancel={() => void resolvePatternPrompt(false)}
+  />
+{/if}
+
 <style>
   .screen {
     height: 100%;
@@ -630,8 +689,13 @@
     margin: 0;
     text-align: center;
   }
-  .undo-top {
+  .header-end {
     justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .undo-top, .dials-top {
     width: 38px;
     height: 38px;
     border-radius: var(--radius-md);
@@ -646,8 +710,9 @@
                 color var(--duration-standard) var(--ease-out),
                 transform var(--duration-quick) var(--ease-out);
   }
-  .undo-top:hover:not(:disabled) { background: var(--base-tertiary); color: var(--text-primary); transform: translateY(-1px); }
+  .undo-top:hover:not(:disabled), .dials-top:hover { background: var(--base-tertiary); color: var(--text-primary); transform: translateY(-1px); }
   .undo-top:disabled { opacity: 0.4; cursor: not-allowed; }
+  .dials-top.active { color: var(--accent); border-color: var(--accent); }
 
   .hint-anchor {
     position: relative;
