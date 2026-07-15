@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, untrack } from "svelte";
   import { page as appPage } from "$app/state";
-  import { buildRatingQueue } from "$lib/discovery";
+  import { buildRatingQueue, enrichItems } from "$lib/discovery";
   import { preferences } from "$lib/state/preferences.svelte";
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { rateDials } from "$lib/state/rate-dials.svelte";
@@ -22,9 +22,10 @@
   import IconArrowUUpLeftRegular from "phosphor-icons-svelte/IconArrowUUpLeftRegular.svelte";
   import IconQuestionRegular from "phosphor-icons-svelte/IconQuestionRegular.svelte";
   import IconFadersRegular from "phosphor-icons-svelte/IconFadersRegular.svelte";
+  import IconWaveformRegular from "phosphor-icons-svelte/IconWaveformRegular.svelte";
   import RateDialsPanel from "$lib/components/RateDialsPanel.svelte";
   import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
-  import { detectSurprise, explainRating, predictionFor, selectRateQuestion, shouldStopActiveLearning, type DecisionReason, type Surprise } from "$lib/calibration";
+  import { detectSurprise, explainRating, predictionFor, rankDissonantCandidates, selectRateQuestion, shouldStopActiveLearning, type DecisionReason, type Surprise } from "$lib/calibration";
 
   /** The 7-point scale replacing the old binary like/dislike buttons. -1
    *  and +1 are deliberately the same sentinels the old "dislike"/"like"
@@ -63,6 +64,7 @@
 
   let queue = $state<TmdbItem[]>([]);
   let queuePage = 1;
+  let queueEpoch = 0;
   let loadingQueue = $state(false);
   let queueError = $state<string | null>(null);
   let busy = $state(false);
@@ -223,6 +225,7 @@
 
   let actionError = $state<string | null>(null);
   let dialsOpen = $state(false);
+  let dissonanceMode = $state(false);
   // Set when a tag's don't-care rate (over all seen titles with that
   // tag) just cleared RATE_THRESHOLD — shows the "Adjust your dials?"
   // confirmation popup. Never more than one queued at once: a fresh
@@ -256,6 +259,8 @@
 
   async function fetchMore(): Promise<void> {
     if (loadingQueue) return;
+    const epoch = queueEpoch;
+    const requestedDissonance = dissonanceMode;
     loadingQueue = true;
     queueError = null;
     try {
@@ -275,6 +280,7 @@
           rateDials.values,
           rateDials.tagValues
         );
+        if (epoch !== queueEpoch) return;
         queuePage += 1;
         // An empty *filtered* page often only means every popular title on
         // that page is already in the library. Keep paging before declaring
@@ -285,8 +291,20 @@
         const have = new Set(queue.map((i) => itemKey(i.medium, i.id)));
         const fresh = page.filter((i) => !have.has(itemKey(i.medium, i.id)));
         if (fresh.length > 0) {
-          const selected = selectRateQuestion(fresh, preferences.entries(), appPage.url.searchParams.get("focus") ?? undefined);
-          const ordered = selected ? [selected.item, ...fresh.filter(i => itemKey(i.medium,i.id) !== itemKey(selected.item.medium,selected.item.id))] : fresh;
+          const entries = preferences.entries();
+          // Dissonance makes an explicit taste claim, so score the full
+          // keyword-enriched fingerprints rather than the coarser list
+          // records. detail() is disk-cached, keeping later visits cheap.
+          const candidates = requestedDissonance ? await enrichItems(fresh) : fresh;
+          if (epoch !== queueEpoch) return;
+          const dissonant = requestedDissonance ? rankDissonantCandidates(candidates, entries) : [];
+          if (requestedDissonance && dissonant.length === 0) continue;
+          const selected = requestedDissonance ? null : selectRateQuestion(fresh, entries, appPage.url.searchParams.get("focus") ?? undefined);
+          const ordered = requestedDissonance
+            ? dissonant.map(({ item }) => item)
+            : selected
+              ? [selected.item, ...fresh.filter(i => itemKey(i.medium,i.id) !== itemKey(selected.item.medium,selected.item.id))]
+              : fresh;
           // Record a genuine reason for every queued item, not just the
           // batch winner. The queue keeps its dial-biased ordering after
           // the selected first question, while each later card can still
@@ -294,9 +312,22 @@
           const nextReasons = { ...selectionReasons };
           const nextValues = { ...selectionValues };
           for (const candidate of ordered) {
-            const decision = itemKey(candidate.medium,candidate.id) === (selected ? itemKey(selected.item.medium,selected.item.id) : "")
-              ? selected
-              : selectRateQuestion([candidate], preferences.entries(), appPage.url.searchParams.get("focus") ?? undefined);
+            const prediction = requestedDissonance
+              ? dissonant.find(({ item }) => itemKey(item.medium, item.id) === itemKey(candidate.medium, candidate.id))?.prediction
+              : undefined;
+            const decision = prediction
+              ? {
+                  item: candidate,
+                  learningValue: 1,
+                  reason: {
+                    kind: "dissonance" as const,
+                    summary: `Dossier gives this a ${prediction.score}% taste match. A positive rating would challenge what it thinks it knows about you.`,
+                    evidence: ["outside your taste profile", "corrective question"]
+                  }
+                }
+              : itemKey(candidate.medium,candidate.id) === (selected ? itemKey(selected.item.medium,selected.item.id) : "")
+                ? selected
+                : selectRateQuestion([candidate], entries, appPage.url.searchParams.get("focus") ?? undefined);
             if (!decision) continue;
             const candidateKey=itemKey(candidate.medium,candidate.id);
             nextReasons[candidateKey]=decision.reason; nextValues[candidateKey]=decision.learningValue;
@@ -327,8 +358,10 @@
   // effect (fetchMore touches loadingQueue/queue), so it runs untracked.
   $effect(() => {
     catalogueMode.mode; // track
+    dissonanceMode; // switching Rate modes invalidates the queue ordering
     appPage.url.searchParams.get("focus"); // focused-learning changes invalidate the cached queue
     untrack(() => {
+      queueEpoch += 1;
       queue = [];
       queuePage = 1;
       pinned = null;
@@ -535,8 +568,18 @@
           <kbd>1</kbd>–<kbd>7</kbd> rate (1 extremely negative … 7 extremely positive) · <kbd>←</kbd> slightly negative · <kbd>→</kbd> slightly positive · <kbd>↓</kbd> don't show again · <kbd>↑</kbd> watchlist · <kbd>Space</kbd> haven't seen · <kbd>⌫</kbd> undo
         </div>
       </span>
-      <h1>Rate films</h1>
+      <h1>{dissonanceMode ? "Dissonance" : "Rate films"}</h1>
       <div class="header-end">
+        <button
+          class="dissonance-top"
+          class:active={dissonanceMode}
+          aria-pressed={dissonanceMode}
+          onclick={() => (dissonanceMode = !dissonanceMode)}
+          aria-label="Toggle dissonance mode"
+          title={dissonanceMode ? "Leave dissonance mode" : "Dissonance mode"}
+        >
+          <IconWaveformRegular class="icon-20" />
+        </button>
         <button
           class="dials-top"
           class:active={!rateDials.isDefault}
@@ -558,7 +601,7 @@
       </div>
     </div>
     <p class="count">{preferences.ratingCount()} rated</p>
-    {#if displayedItem && !keepRating && shouldStopActiveLearning(preferences.entries(), selectionValues[itemKey(displayedItem.medium, displayedItem.id)] ?? 1).stop}
+    {#if displayedItem && !dissonanceMode && !keepRating && shouldStopActiveLearning(preferences.entries(), selectionValues[itemKey(displayedItem.medium, displayedItem.id)] ?? 1).stop}
       <div class="stop-note"><strong>I have a good read on the areas you've covered.</strong><span>{shouldStopActiveLearning(preferences.entries(), selectionValues[itemKey(displayedItem.medium, displayedItem.id)] ?? 1).reason}</span><button onclick={() => keepRating = true}>Keep rating</button></div>
     {/if}
     {#if displayedItem && selectionReasons[itemKey(displayedItem.medium, displayedItem.id)]}
@@ -584,8 +627,13 @@
       <p class="muted">Loading titles…</p>
     {:else if visibleQueue.length === 0 && !displayedItem}
       <div class="empty">
-        <h2>That's everything for now.</h2>
-        <p>You've rated the titles we pulled in. Check your recommendations, or come back later for fresh picks.</p>
+        {#if dissonanceMode}
+          <h2>No dissonance yet.</h2>
+          <p>{preferences.ratingCount() < 5 ? "Rate at least five titles so Dossier has enough taste evidence to disagree with you." : "Dossier couldn't find an unrated title it confidently expects you to dislike. Rate a few more titles, then try again."}</p>
+        {:else}
+          <h2>That's everything for now.</h2>
+          <p>You've rated the titles we pulled in. Check your recommendations, or come back later for fresh picks.</p>
+        {/if}
       </div>
     {:else}
       {#key itemKey(displayedItem.medium, displayedItem.id)}
@@ -781,7 +829,7 @@
     align-items: center;
     gap: var(--space-2);
   }
-  .undo-top, .dials-top {
+  .undo-top, .dials-top, .dissonance-top {
     width: 38px;
     height: 38px;
     border-radius: var(--radius-md);
@@ -796,9 +844,14 @@
                 color var(--duration-standard) var(--ease-out),
                 transform var(--duration-quick) var(--ease-out);
   }
-  .undo-top:hover:not(:disabled), .dials-top:hover { background: var(--base-tertiary); color: var(--text-primary); transform: translateY(-1px); }
+  .undo-top:hover:not(:disabled), .dials-top:hover, .dissonance-top:hover { background: var(--base-tertiary); color: var(--text-primary); transform: translateY(-1px); }
   .undo-top:disabled { opacity: 0.4; cursor: not-allowed; }
   .dials-top.active { color: var(--accent); border-color: var(--accent); }
+  .dissonance-top.active {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, var(--base-secondary));
+  }
 
   .hint-anchor {
     position: relative;

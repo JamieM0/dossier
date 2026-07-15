@@ -3,7 +3,7 @@ import { ratingKind, ratingWeight, type Rating, type RatingEntry, type TmdbItem 
 
 export type EvidenceLevel = "strong" | "some" | "mixed" | "sparse";
 export type DecisionReason = {
-  kind: "cold_start" | "focus" | "conflict" | "boundary" | "coverage" | "confirmation" | "fallback";
+  kind: "cold_start" | "focus" | "conflict" | "boundary" | "coverage" | "confirmation" | "fallback" | "dissonance";
   summary: string;
   evidence: string[];
   focus?: string;
@@ -66,17 +66,33 @@ export function selectRateQuestion(candidates: TmdbItem[], entries: RatingEntry[
 }
 
 export type Prediction = { score: number; evidence: EvidenceLevel; expected: "like"|"dislike"|"uncertain" };
+export const DISSONANCE_MAX_SCORE = 25;
+
 export function predictionFor(item: TmdbItem, entries: RatingEntry[]): Prediction {
   const score = predictPreference(item, entries);
   const meaningful = entries.filter(e => Math.abs(ratingWeight(e.rating)) >= 1).length;
   return { score, evidence: meaningful >= 10 ? "strong" : meaningful >= 5 ? "some" : "sparse", expected: score >= 58 ? "like" : score <= 25 ? "dislike" : "uncertain" };
 }
 
+/** Titles Dossier has enough evidence to actively predict the user will
+ * dislike. This intentionally shares the positive-surprise threshold below:
+ * liking one of these strongly is precisely the correction Dissonance mode
+ * exists to elicit. Least likely first; recognisability breaks score ties. */
+export function rankDissonantCandidates(
+  candidates: TmdbItem[],
+  entries: RatingEntry[]
+): Array<{ item: TmdbItem; prediction: Prediction }> {
+  return candidates
+    .map((item) => ({ item, prediction: predictionFor(item, entries) }))
+    .filter(({ prediction }) => prediction.evidence !== "sparse" && prediction.score <= DISSONANCE_MAX_SCORE)
+    .sort((a, b) => a.prediction.score - b.prediction.score || familiarity(b.item) - familiarity(a.item));
+}
+
 export type Surprise = { direction:"positive"|"negative"; summary:string; options:Array<{kind:"axis"|"genre"|"tag"; key:string; label:string}> };
 export function detectSurprise(item: TmdbItem, rating: Rating, before: Prediction, entries: RatingEntry[]): Surprise | null {
   if (before.evidence === "sparse") return null;
   const w = ratingWeight(rating);
-  const direction = before.score >= 60 && w <= -1 ? "negative" : before.score <= 25 && w >= 1.5 ? "positive" : null;
+  const direction = before.score >= 60 && w <= -1 ? "negative" : before.score <= DISSONANCE_MAX_SCORE && w >= 1.5 ? "positive" : null;
   if (!direction) return null;
   const nearest = [...entries].filter(e => direction === "negative" ? ratingWeight(e.rating)>0 : ratingWeight(e.rating)<0)
     .sort((a,b)=>cosineSimilarity(item.features,b.item.features)-cosineSimilarity(item.features,a.item.features))[0];

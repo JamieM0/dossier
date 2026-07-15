@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { detectSurprise, explainRating, predictionFor, selectRateQuestion, tasteSnapshot } from "./calibration";
+import { detectSurprise, explainRating, predictionFor, rankDissonantCandidates, selectRateQuestion, tasteSnapshot } from "./calibration";
 import type { RatingEntry, TmdbItem } from "./types";
 
 const features = (n:number) => ({pacing:n,tone:n,emotional_intensity:n,complexity:n,scope:n,realism:n,thematic_weight:n,character_focus:n,moral_clarity:n,structure:n});
@@ -27,6 +27,18 @@ describe("calibration decisions", () => {
     const before=predictionFor(item(20,.8),entries);
     expect(detectSurprise(item(20,.8),-2,before,entries)?.direction).toBe("negative");
     expect(detectSurprise(item(20,.8),-1,{...before,score:45},entries)).toBeNull();
+  });
+  it("dissonance ranks only evidenced low predictions and breaks ties by recognisability", () => {
+    const entries=Array.from({length:6},(_,i)=>entry(i,.8,2));
+    const outside=item(20,-.8,"Comedy",900);
+    const furtherOutside=item(21,-1,"Horror",10);
+    const familiar=item(22,.8,"Science Fiction",900);
+    const ranked=rankDissonantCandidates([outside,familiar,furtherOutside],entries);
+    expect(ranked.map(x=>x.item.id)).toEqual([20,21]);
+    expect(ranked.every(x=>x.prediction.score<=25)).toBe(true);
+  });
+  it("dissonance stays empty until the model has enough meaningful evidence", () => {
+    expect(rankDissonantCandidates([item(20,-1)],[entry(1,1,2)])).toEqual([]);
   });
   it("snapshot requires repeated consistent evidence for a strong area", () => {
     expect(tasteSnapshot([entry(1,.2,3)] )[0].status).toBe("learning");

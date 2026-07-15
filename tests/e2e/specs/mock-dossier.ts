@@ -35,6 +35,9 @@ export type MockDossierSeed = {
    *  tag-based (sentiment-rate over `keywords[]`) rather than genre-
    *  based, so the seeded template carries the `swordplay` keyword. */
   notInterestedHorrorSeed?: number;
+  /** Seeds six coherent positive ratings that are deliberately opposite
+   * several pool titles, so Dissonance mode has confident misses to show. */
+  dissonanceProfile?: boolean;
 };
 
 /** Injects a fake `window.dossier` bridge so the SvelteKit app (which
@@ -115,6 +118,24 @@ export function installMockDossier(seed?: MockDossierSeed): void {
           title: `Seeded Horror ${i}`,
           keywords: ["swordplay"],
           key
+        },
+        ts: Date.now() - 10_000 + i
+      };
+    }
+  }
+
+  if (seed?.dissonanceProfile) {
+    for (let i = 0; i < 6; i++) {
+      const id = 800000 + i;
+      const key = `movie:${id}`;
+      ratings[key] = {
+        rating: 2,
+        item: {
+          ...pool[0],
+          id,
+          key,
+          title: `Seeded bright favourite ${i}`,
+          features: feat({ pacing: 1, tone: 1, emotional_intensity: 1, complexity: 1, scope: 1, realism: 1, thematic_weight: 1, character_focus: 1, moral_clarity: 1, structure: 1 })
         },
         ts: Date.now() - 10_000 + i
       };
