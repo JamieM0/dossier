@@ -3,6 +3,7 @@
   import { buildRatingQueue } from "$lib/discovery";
   import { preferences } from "$lib/state/preferences.svelte";
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
+  import { rateDials } from "$lib/state/rate-dials.svelte";
   import { posterUrl } from "$lib/poster";
   import {
     itemKey,
@@ -18,6 +19,9 @@
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
   import IconArrowUUpLeftRegular from "phosphor-icons-svelte/IconArrowUUpLeftRegular.svelte";
   import IconQuestionRegular from "phosphor-icons-svelte/IconQuestionRegular.svelte";
+  import IconFadersRegular from "phosphor-icons-svelte/IconFadersRegular.svelte";
+  import RateDialsPanel from "$lib/components/RateDialsPanel.svelte";
+  import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
 
   /** The 7-point scale replacing the old binary like/dislike buttons. -1
    *  and +1 are deliberately the same sentinels the old "dislike"/"like"
@@ -215,6 +219,12 @@
   });
 
   let actionError = $state<string | null>(null);
+  let dialsOpen = $state(false);
+  // Set when a tag's don't-care rate (over all seen titles with that
+  // tag) just cleared RATE_THRESHOLD — shows the "Adjust your dials?"
+  // confirmation popup. Never more than one queued at once: a fresh
+  // crossing while one is already showing is dropped.
+  let patternPrompt = $state<{ tag: string; dontCare: number; seen: number } | null>(null);
 
   // Mirrors the hover-lit look when the same action is triggered via its
   // keyboard shortcut, so the button gives feedback without requiring the
@@ -241,15 +251,33 @@
     loadingQueue = true;
     queueError = null;
     try {
-      const page = await buildRatingQueue(
-        catalogueMode.medium,
-        preferences.excludedKeys(),
-        queuePage
-      );
-      queuePage += 1;
-      // Dedupe against what we already hold.
-      const have = new Set(queue.map((i) => itemKey(i.medium, i.id)));
-      queue = [...queue, ...page.filter((i) => !have.has(itemKey(i.medium, i.id)))];
+      // Pull pages until we find something fresh OR TMDB runs dry. Without
+      // this loop, a single all-duplicate page (common once the user has
+      // rated through a chunk of what trending/popular/acclaimed surface)
+      // would leave the queue stuck below the low-water mark and the user
+      // staring at the "That's everything" empty state even though more
+      // titles exist on later pages. Capped so a runaway TMDB query can't
+      // spin indefinitely.
+      const MAX_PAGE_ATTEMPTS = 3;
+      for (let attempt = 0; attempt < MAX_PAGE_ATTEMPTS; attempt++) {
+        const page = await buildRatingQueue(
+          catalogueMode.medium,
+          preferences.excludedKeys(),
+          queuePage,
+          rateDials.values,
+          rateDials.tagValues
+        );
+        queuePage += 1;
+        if (page.length === 0) break; // TMDB exhausted for this medium
+        // Dedupe against what we already hold.
+        const have = new Set(queue.map((i) => itemKey(i.medium, i.id)));
+        const fresh = page.filter((i) => !have.has(itemKey(i.medium, i.id)));
+        if (fresh.length > 0) {
+          queue = [...queue, ...fresh];
+          break;
+        }
+        // Page had items but all were already in our queue — try the next.
+      }
     } catch (err) {
       queueError = err instanceof Error ? err.message : String(err);
     } finally {
@@ -259,6 +287,9 @@
 
   onMount(() => {
     void preferences.hydrate();
+    void Promise.all([rateDials.hydrateFromDesktop(), rateDials.ensureGenres()]).then(() => {
+      rateDials.ensureTags(preferences.entries());
+    });
   });
 
   // Reset and refill the queue whenever the medium changes. Only the
@@ -328,6 +359,15 @@
       history = [...history, entry];
       pinned = null;
 
+      if (action === "not_interested" && !patternPrompt) {
+        const entries = preferences.entries();
+        rateDials.ensureTags(entries);
+        const tally = rateDials.checkForPattern(entries);
+        if (tally) {
+          patternPrompt = { tag: tally.tag, dontCare: tally.dontCare, seen: tally.seen };
+        }
+      }
+
       if (isDisplayed) {
         await new Promise<void>(r => setTimeout(r, 320));
       }
@@ -340,6 +380,13 @@
       animating = false;
       busy = false;
     }
+  }
+
+  async function resolvePatternPrompt(accepted: boolean): Promise<void> {
+    if (!patternPrompt) return;
+    const { tag, seen } = patternPrompt;
+    patternPrompt = null;
+    await rateDials.resolvePattern(tag, seen, accepted);
   }
 
   async function undo(): Promise<void> {
@@ -438,15 +485,26 @@
         </div>
       </span>
       <h1>Rate films</h1>
-      <button
-        class="undo-top"
-        disabled={busy || history.length === 0}
-        onclick={() => void undo()}
-        aria-label="Undo last rating"
-        title="Undo (Backspace)"
-      >
-        <IconArrowUUpLeftRegular class="icon-20" />
-      </button>
+      <div class="header-end">
+        <button
+          class="dials-top"
+          class:active={!rateDials.isDefault}
+          onclick={() => (dialsOpen = true)}
+          aria-label="Tune rate dials"
+          title="Rate dials"
+        >
+          <IconFadersRegular class="icon-20" />
+        </button>
+        <button
+          class="undo-top"
+          disabled={busy || history.length === 0}
+          onclick={() => void undo()}
+          aria-label="Undo last rating"
+          title="Undo (Backspace)"
+        >
+          <IconArrowUUpLeftRegular class="icon-20" />
+        </button>
+      </div>
     </div>
     <p class="count">{preferences.ratingCount()} rated</p>
   </header>
@@ -465,9 +523,9 @@
   {/if}
 
   <div class="stage">
-    {#if !preferences.loaded || (visibleQueue.length === 0 && loadingQueue)}
+    {#if !preferences.loaded || (visibleQueue.length === 0 && loadingQueue) || (visibleQueue.length > 0 && !displayedItem)}
       <p class="muted">Loading titles…</p>
-    {:else if !displayedItem}
+    {:else if visibleQueue.length === 0 && !displayedItem}
       <div class="empty">
         <h2>That's everything for now.</h2>
         <p>You've rated the titles we pulled in. Check your recommendations, or come back later for fresh picks.</p>
@@ -601,6 +659,21 @@
   </div>
 </section>
 
+{#if dialsOpen}
+  <RateDialsPanel onClose={() => (dialsOpen = false)} />
+{/if}
+
+{#if patternPrompt}
+  <ConfirmDialog
+    title="Adjust your dials?"
+    message={`You've marked ${patternPrompt.dontCare} of ${patternPrompt.seen} "${patternPrompt.tag}" titles as "don't care about." Turn down the ${patternPrompt.tag} dial?`}
+    confirmLabel="Yes"
+    cancelLabel="No"
+    onConfirm={() => void resolvePatternPrompt(true)}
+    onCancel={() => void resolvePatternPrompt(false)}
+  />
+{/if}
+
 <style>
   .screen {
     height: 100%;
@@ -630,8 +703,13 @@
     margin: 0;
     text-align: center;
   }
-  .undo-top {
+  .header-end {
     justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .undo-top, .dials-top {
     width: 38px;
     height: 38px;
     border-radius: var(--radius-md);
@@ -646,8 +724,9 @@
                 color var(--duration-standard) var(--ease-out),
                 transform var(--duration-quick) var(--ease-out);
   }
-  .undo-top:hover:not(:disabled) { background: var(--base-tertiary); color: var(--text-primary); transform: translateY(-1px); }
+  .undo-top:hover:not(:disabled), .dials-top:hover { background: var(--base-tertiary); color: var(--text-primary); transform: translateY(-1px); }
   .undo-top:disabled { opacity: 0.4; cursor: not-allowed; }
+  .dials-top.active { color: var(--accent); border-color: var(--accent); }
 
   .hint-anchor {
     position: relative;

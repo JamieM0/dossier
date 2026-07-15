@@ -13,6 +13,18 @@ export type DossierSettings = {
    *  active medium). 2 keeps the original pairwise duel; more switches
    *  to a drag-to-reorder ranking list. */
   refineGroupSize: number;
+  /** Per-genre dials (1-100, 50 = neutral) biasing which genres surface
+   *  more/less often in the Rate screen's queue. See
+   *  $lib/state/rate-dials.svelte.ts. */
+  rateGenreDials: Record<string, number>;
+  /** Per-tag dials (1-100, 50 = neutral) for TMDB keyword tags the user
+   *  has encountered on rated items (swordplay / donghua etc.). Same
+   *  slider semantics as rateGenreDials; the tag set is open-ended and
+   *  grows with the library. See $lib/state/rate-dials.svelte.ts. */
+  rateTagDials: Record<string, number>;
+  /** Per-tag "you seem to not care about X" pattern-prompt bookkeeping
+   *  — see TagPatternState / $lib/state/rate-dials.svelte.ts. */
+  rateTagPatternState: Record<string, TagPatternState>;
   [key: string]: unknown;
 };
 
@@ -110,6 +122,11 @@ export type RatedItem = {
   posterPath: string | null;
   voteAverage: number | null;
   genres: string[];
+  /** TMDB keyword tags (swordplay / donghua / based on web novel etc.).
+   *  Empty on snapshots written before this field existed; backfilled
+   *  by the enrich-ratings launch pass. The Rate screen's tag dials and
+   *  the "adjust your dials?" prompt both read this. */
+  keywords: string[];
   features: FeatureVector;
 };
 
@@ -117,6 +134,19 @@ export type RatingEntry = {
   rating: Rating;
   item: RatedItem;
   ts: number;
+};
+
+/** Per-tag bookkeeping for the Rate screen's "you seem to not care
+ *  about X" pattern prompt (see $lib/state/rate-dials.svelte.ts):
+ *  `baseline` is the seen-count for that tag as of the last prompt
+ *  (accepted or declined), and `threshold` is how many *more* seen
+ *  items with that tag are needed before prompting again — starts at
+ *  10, doubles (capped at 200) each time declined. The don't-care
+ *  *rate* gate (RATE_THRESHOLD) is enforced separately at detection
+ *  time; this only governs re-prompt cadence after a prompt fires. */
+export type TagPatternState = {
+  baseline: number;
+  threshold: number;
 };
 
 export type PreferencesPayload = {
@@ -155,7 +185,7 @@ export function ratedToTmdbItem(r: RatedItem): TmdbItem {
     posterPath: r.posterPath,
     overview: "",
     runtime: null,
-    keywords: [],
+    keywords: r.keywords,
     features: r.features
   };
 }
@@ -171,6 +201,7 @@ export function toRatedItem(item: TmdbItem): RatedItem {
     posterPath: item.posterPath,
     voteAverage: item.voteAverage,
     genres: item.genres,
+    keywords: item.keywords,
     features: item.features
   };
 }

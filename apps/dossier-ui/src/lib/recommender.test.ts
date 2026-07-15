@@ -45,7 +45,7 @@ function ratingEntry(features: FeatureVector, rating: RatingEntry["rating"]): Ra
     ts: Date.now(),
     item: {
       key: `movie:${id}`, medium: "movie", id, title: `Rated ${id}`, year: 2015,
-      posterPath: null, voteAverage: 7, genres: [], features
+      posterPath: null, voteAverage: 7, genres: [], keywords: [], features
     }
   };
 }
@@ -180,7 +180,7 @@ describe("groupRecommendationsByTaste", () => {
     return {
       rating: 1,
       ts: Date.now(),
-      item: { key: `movie:${id}`, medium: "movie", id, title: `Rated ${id}`, year: 2015, posterPath: null, voteAverage: 7, genres, features }
+      item: { key: `movie:${id}`, medium: "movie", id, title: `Rated ${id}`, year: 2015, posterPath: null, voteAverage: 7, genres, keywords: [], features }
     };
   }
 
