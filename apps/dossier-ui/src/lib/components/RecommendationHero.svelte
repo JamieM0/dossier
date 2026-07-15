@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { TmdbItem } from "$lib/types";
   import { posterUrl } from "$lib/poster";
-  import MatchRing from "$lib/components/MatchRing.svelte";
   import IconBookmarkSimpleFill from "phosphor-icons-svelte/IconBookmarkSimpleFill.svelte";
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
   import IconThumbsUpFill from "phosphor-icons-svelte/IconThumbsUpFill.svelte";
@@ -84,9 +83,6 @@
     </div>
   </div>
 
-  <div class="ring-wrap">
-    <MatchRing value={score * 100} size={64} />
-  </div>
 </article>
 
 <style>
@@ -177,10 +173,7 @@
   .action-btn.watchlist:hover { background: color-mix(in srgb, var(--accent) 20%, var(--base-tertiary)); color: var(--accent); }
   .action-btn.ignore:hover { background: color-mix(in srgb, var(--text-secondary) 20%, var(--base-tertiary)); }
 
-  .ring-wrap { flex: none; padding-right: var(--space-2); }
-
   @media (max-width: 720px) {
     .hero { grid-template-columns: 100px 1fr; }
-    .ring-wrap { display: none; }
   }
 </style>

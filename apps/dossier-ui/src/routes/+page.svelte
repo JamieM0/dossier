@@ -32,6 +32,7 @@
     type Rating,
     type TmdbItem
   } from "$lib/types";
+  import { detectSurprise, predictionFor, tasteSnapshot } from "$lib/calibration";
 
   /** Accumulated candidate pool from TMDB, grown by infinite scroll. */
   let pool = $state<TmdbItem[]>([]);
@@ -121,6 +122,16 @@
   const hasEnough = $derived(ratingCount >= 5);
   const filterActive = $derived(filters.decadeRange !== null);
   const hasMore = $derived(hasMorePages || displayRecs.length > visibleCount);
+  const snapshot = $derived(tasteSnapshot(preferences.entries(catalogueMode.medium)));
+
+  function reasonFor(item: TmdbItem): string {
+    const groups = tasteGroups.length ? tasteGroups : buildTasteGroups(preferences.entries(catalogueMode.medium));
+    const idx = nearestGroupIndex(item, groups);
+    const label = idx >= 0 ? groups[idx].label : item.genres.slice(0,2).join(" & ");
+    const movedAxis = Object.entries(recommendationDials.params.axisWeights).find(([,v]) => v !== 1);
+    if (movedAxis) return `Resembles your ${label} pattern, with extra weight on ${movedAxis[0].replaceAll("_", " ")} from your dial.`;
+    return `Resembles the ${label} pattern built from your positive ratings.`;
+  }
 
   async function fetchPool(): Promise<void> {
     if (loadingPool || !hasMorePages) return;
@@ -253,8 +264,11 @@
   async function applyRatingWithUndo(item: TmdbItem, rating: Rating, verb: string): Promise<void> {
     const key = itemKey(item.medium, item.id);
     const priorRating = preferences.ratingForKey(key) ?? null;
+    const beforeEntries = preferences.entries();
+    const before = predictionFor(item, beforeEntries);
     try {
       await preferences.setRating(item, rating);
+      const unexpected = detectSurprise(item, rating, before, beforeEntries);
       toasts.show(`${verb} "${item.title}".`, {
         action: {
           label: "Undo",
@@ -263,6 +277,7 @@
           }
         }
       });
+      if (unexpected) toasts.show(unexpected.summary, { durationMs: 6000 });
     } catch (err) {
       toasts.show(
         `Couldn't update "${item.title}": ${err instanceof Error ? err.message : String(err)}`,
@@ -338,6 +353,15 @@
   {:else if recommendations.length === 0}
     <p class="muted">No recommendations yet — rate a few more titles.</p>
   {:else}
+    {#if snapshot.length > 0}
+      <section class="taste-snapshot" aria-labelledby="taste-snapshot-title">
+        <div><span class="eyebrow">Taste snapshot</span><h2 id="taste-snapshot-title">What Dossier currently believes</h2></div>
+        <div class="snapshot-columns">
+          <div><strong>Strong read on</strong>{#each snapshot.filter(a => a.status === "strong").slice(0,3) as area}<p>{area.name} <small>{area.why}</small></p>{/each}</div>
+          <div><strong>Still learning</strong>{#each snapshot.filter(a => a.status === "learning").slice(0,4) as area}<p>{area.name} <small>{area.why}</small> <button onclick={() => goto(`/rate?focus=${encodeURIComponent(area.name)}`)}>Help me learn {area.name.toLowerCase()}</button></p>{/each}</div>
+        </div>
+      </section>
+    {/if}
     {#if hero}
       <RecommendationHero
         item={hero.item}
@@ -361,6 +385,7 @@
                 <FilmCard
                   item={rec.item}
                   score={rec.score}
+                  reason={reasonFor(rec.item)}
                   onSelect={(f) => (modalItem = f)}
                   onLike={handleLike}
                   onWatchlist={handleWatchlist}
@@ -379,6 +404,7 @@
           <FilmCard
             item={rec.item}
             score={rec.score}
+            reason={reasonFor(rec.item)}
             onSelect={(f) => (modalItem = f)}
             onLike={handleLike}
             onWatchlist={handleWatchlist}
@@ -514,4 +540,12 @@
     gap: var(--space-1);
   }
   .error strong { color: var(--danger, #f85149); }
+  .taste-snapshot { border:1px solid var(--border-subtle); background:var(--base-secondary); border-radius:var(--radius-lg); padding:var(--space-4); display:grid; grid-template-columns:minmax(180px,.7fr) 2fr; gap:var(--space-5); }
+  .taste-snapshot h2 { margin:3px 0 0; font-family:var(--font-display); font-size:1.05rem; }
+  .taste-snapshot .eyebrow { color:var(--accent); font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; }
+  .snapshot-columns { display:grid; grid-template-columns:1fr 1.4fr; gap:var(--space-4); }
+  .snapshot-columns strong { font-size:.78rem; color:var(--text-secondary); }
+  .snapshot-columns p { margin:var(--space-2) 0 0; font-size:.84rem; }
+  .snapshot-columns small { display:block; color:var(--text-tertiary); }
+  .snapshot-columns button { border:0; background:transparent; color:var(--accent); padding:2px 0; cursor:pointer; font-size:.75rem; }
 </style>

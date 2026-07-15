@@ -16,9 +16,11 @@
   import Carousel from "$lib/components/Carousel.svelte";
   import MovieDetailModal, { type ModalActionKind } from "$lib/components/MovieDetailModal.svelte";
   import IconXBold from "phosphor-icons-svelte/IconXBold.svelte";
+  import LibraryReRate from "$lib/components/LibraryReRate.svelte";
 
   let modalItem = $state<TmdbItem | null>(null);
   let modalExclude = $state<ModalActionKind[]>([]);
+  let rerate = $state<{ title:string; items:TmdbItem[] } | null>(null);
 
   let search = $state("");
 
@@ -147,6 +149,7 @@
         films={section.films}
         emptyHint={section.empty}
         onSelect={(f) => openModal(f, section.exclude)}
+        onFullscreen={() => (rerate = { title:section.title, items:[...section.films] })}
       />
     {/each}
   {/if}
@@ -163,6 +166,7 @@
     excludeActions={modalExclude}
   />
 {/if}
+{#if rerate}<LibraryReRate title={rerate.title} items={rerate.items} onClose={() => rerate=null} />{/if}
 
 <style>
   .screen { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-6); }

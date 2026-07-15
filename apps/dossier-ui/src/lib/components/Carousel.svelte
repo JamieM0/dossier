@@ -3,17 +3,20 @@
   import { posterUrl } from "$lib/poster";
   import IconCaretLeftBold from "phosphor-icons-svelte/IconCaretLeftBold.svelte";
   import IconCaretRightBold from "phosphor-icons-svelte/IconCaretRightBold.svelte";
+  import IconArrowsOutRegular from "phosphor-icons-svelte/IconArrowsOutRegular.svelte";
 
   let {
     title,
     films,
     emptyHint = "",
-    onSelect
+    onSelect,
+    onFullscreen
   }: {
     title: string;
     films: TmdbItem[];
     emptyHint?: string;
     onSelect?: (film: TmdbItem) => void;
+    onFullscreen?: () => void;
   } = $props();
 
   let track: HTMLDivElement | null = $state(null);
@@ -31,6 +34,11 @@
     <span class="row-count">{films.length}</span>
     {#if films.length > 0}
       <div class="nav">
+        {#if onFullscreen}
+          <button class="nav-btn" aria-label={`Re-rate ${title} in fullscreen`} title="Re-rate fullscreen" onclick={onFullscreen}>
+            <IconArrowsOutRegular class="icon-16" />
+          </button>
+        {/if}
         <button class="nav-btn" aria-label="Scroll left" onclick={() => scrollBy(-600)}>
           <IconCaretLeftBold class="icon-16" />
         </button>

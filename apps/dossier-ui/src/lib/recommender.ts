@@ -30,7 +30,7 @@
  * reinforce it, so recommendations keep sharpening — never degrading —
  * the more you rate. */
 import type { FeatureVector, RatingEntry, TmdbItem } from "$lib/types";
-import { ratingWeight } from "$lib/types";
+import { ratingKind, ratingWeight } from "$lib/types";
 
 /** The minimum an item needs to be scored: a lens vector and a quality
  * signal. Both TmdbItem and the stored RatedItem snapshot satisfy it.
@@ -508,9 +508,9 @@ export function buildPairwiseCandidates(
   const liked: RatingEntry[] = [];
   const disliked: RatingEntry[] = [];
   for (const e of entries) {
-    const w = ratingWeight(e.rating);
-    if (w > 0) liked.push(e);
-    else if (w < 0) disliked.push(e);
+    const kind = ratingKind(e.rating);
+    if (kind === "like") liked.push(e);
+    else if (kind === "dislike") disliked.push(e);
   }
 
   const out: Array<[RatingEntry, RatingEntry]> = [];
@@ -525,7 +525,14 @@ export function buildPairwiseCandidates(
   };
   pickPairs(liked);
   pickPairs(disliked);
-  return out;
+  // Most useful first: predictions close together are genuinely uncertain;
+  // feature distance breaks ties toward comparisons that distinguish axes.
+  return out.sort((a, b) => {
+    const da = Math.abs(predictPreference(a[0].item, entries) - predictPreference(a[1].item, entries));
+    const db = Math.abs(predictPreference(b[0].item, entries) - predictPreference(b[1].item, entries));
+    if (da !== db) return da - db;
+    return cosineSimilarity(a[0].item.features, a[1].item.features) - cosineSimilarity(b[0].item.features, b[1].item.features);
+  });
 }
 
 /** Ranking-group candidates for refinement: up to `groupSize` items from
@@ -548,9 +555,9 @@ export function buildRankingGroup(
   const liked: RatingEntry[] = [];
   const disliked: RatingEntry[] = [];
   for (const e of entries) {
-    const w = ratingWeight(e.rating);
-    if (w > 0) liked.push(e);
-    else if (w < 0) disliked.push(e);
+    const kind = ratingKind(e.rating);
+    if (kind === "like") liked.push(e);
+    else if (kind === "dislike") disliked.push(e);
   }
 
   const pairKey = (a: RatingEntry, b: RatingEntry): string =>
@@ -594,7 +601,8 @@ export function buildRankingGroup(
       remaining.splice(bestIdx, 1);
     }
 
-    return picked;
+    // Horizontal Refine reads left-to-right from least to most preferred.
+    return picked.sort((a,b) => predictPreference(a.item, entries) - predictPreference(b.item, entries));
   };
 
   const likedGroup = buildFrom(liked);

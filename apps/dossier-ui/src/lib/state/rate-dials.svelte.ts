@@ -30,7 +30,7 @@
  * Defaults are identical for every user (every dial at 50) and persist
  * across sessions via the desktop settings bag, same mechanism as
  * recommendationDials. */
-import { RATING_NOT_INTERESTED, type RatingEntry, type TagPatternState } from "$lib/types";
+import { RATING_NOT_INTERESTED, ratingKind, ratingWeight, type RatingEntry, type TagPatternState } from "$lib/types";
 
 export const RATE_DIAL_MIN = 1;
 export const RATE_DIAL_MAX = 100;
@@ -40,7 +40,12 @@ export const RATE_DIAL_DEFAULT = 50;
  *  the increment that must accrue after a prompt before re-asking. Same
  *  starting value as the legacy count-based prompt so existing user
  *  expectations about prompt frequency carry over. */
-const PATTERN_BASE_THRESHOLD = 10;
+const PATTERN_BASE_THRESHOLD = 15;
+/** Prevent a succession of unrelated tags from each prompting after one
+ * don't-care action. This is intentionally much wider than the per-tag
+ * gate: pattern prompts should be occasional course corrections. */
+const GLOBAL_PATTERN_THRESHOLD = 30;
+const GLOBAL_PATTERN_KEY = "__all_tags__";
 /** Cap on the doubling of a declined tag's re-prompt threshold so a
  *  single "No" doesn't permanently silence a tag the user later changes
  *  their mind about. */
@@ -225,12 +230,27 @@ class RateDialsStore {
    *  original "liked comedies + don't-cares → still prompted for
    *  comedy" bug. */
   checkForPattern(entries: RatingEntry[]): TagTally | null {
+    const global = this.patternState[GLOBAL_PATTERN_KEY] ?? { baseline: 0, threshold: GLOBAL_PATTERN_THRESHOLD };
+    if (entries.length - global.baseline < global.threshold) return null;
     const tallies = tagTallies(entries);
     let best: { tally: TagTally; over: number } | null = null;
     for (const tally of tallies.values()) {
       if (tally.seen <= 0) continue;
-      const rate = tally.dontCare / tally.seen;
-      if (rate < RATE_THRESHOLD) continue;
+      // Indifference is the primary signal, but responses that positively
+      // contradict it are weighted by their actual recommender strength.
+      // Watchlist and neutral deliberately offer smaller counter-evidence;
+      // dislikes are neither indifference nor counter-evidence and therefore
+      // remain semantically separate. Re-prompt history is gated below.
+      const relevant = entries.filter(e => e.item.keywords?.includes(tally.tag));
+      let counter = 0;
+      for (const e of relevant) {
+        const kind = ratingKind(e.rating);
+        if (kind === "like") counter += Math.max(0, ratingWeight(e.rating));
+        else if (kind === "watchlist") counter += 0.5;
+        else if (kind === "neutral") counter += 0.25;
+      }
+      const balancedRate = tally.dontCare / Math.max(1, tally.dontCare + counter);
+      if (balancedRate < RATE_THRESHOLD) continue;
       const state = this.patternState[tally.tag] ?? defaultPatternState();
       const newSincePrompt = tally.seen - state.baseline;
       if (newSincePrompt < state.threshold) continue;
@@ -248,7 +268,7 @@ class RateDialsStore {
    *  resets the pattern window back to its base sensitivity. Declining
    *  leaves the dial untouched and doubles (capped) how many more seen
    *  items of that tag are needed before asking again. */
-  async resolvePattern(tag: string, seenAtPrompt: number, accepted: boolean): Promise<void> {
+  async resolvePattern(tag: string, seenAtPrompt: number, accepted: boolean, totalSeenAtPrompt = seenAtPrompt): Promise<void> {
     const state = this.patternState[tag] ?? defaultPatternState();
     if (accepted) {
       const current = this.tagValueFor(tag);
@@ -263,6 +283,10 @@ class RateDialsStore {
         [tag]: { baseline: seenAtPrompt, threshold: Math.min(PATTERN_MAX_THRESHOLD, state.threshold * 2) }
       };
     }
+    this.patternState = {
+      ...this.patternState,
+      [GLOBAL_PATTERN_KEY]: { baseline: totalSeenAtPrompt, threshold: GLOBAL_PATTERN_THRESHOLD }
+    };
     await this.persist();
   }
 }

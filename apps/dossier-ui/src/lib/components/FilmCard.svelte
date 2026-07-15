@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { TmdbItem } from "$lib/types";
   import { posterUrl } from "$lib/poster";
-  import MatchRing from "$lib/components/MatchRing.svelte";
   import IconBookmarkSimpleFill from "phosphor-icons-svelte/IconBookmarkSimpleFill.svelte";
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
   import IconThumbsUpFill from "phosphor-icons-svelte/IconThumbsUpFill.svelte";
@@ -10,6 +9,7 @@
   let {
     item,
     score = null,
+    reason = null,
     onSelect,
     onLike,
     onWatchlist,
@@ -18,6 +18,7 @@
   }: {
     item: TmdbItem;
     score?: number | null;
+    reason?: string | null;
     /** Called when the user clicks the poster — opens the detail modal. */
     onSelect?: (item: TmdbItem) => void;
     onLike?: (item: TmdbItem) => void;
@@ -43,11 +44,6 @@
         <div class="poster poster-empty" aria-hidden="true"></div>
       {/if}
     </button>
-    {#if score !== null}
-      <div class="match-ring" title={`${Math.round(score * 100)}% match`}>
-        <MatchRing value={score * 100} size={34} />
-      </div>
-    {/if}
     {#if onLike || onWatchlist || onIgnore || onDislike}
       <div class="overlay-actions">
         {#if onLike}
@@ -104,6 +100,7 @@
       {#if item.year}<span class="year">{item.year}</span>{/if}
       {#if item.genres.length > 0}<span class="genres">{item.genres.slice(0, 2).join(", ")}</span>{/if}
     </span>
+    {#if reason}<span class="reason">{reason}</span>{/if}
   </button>
 </article>
 
@@ -144,12 +141,7 @@
   .poster-empty {
     background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary));
   }
-  .match-ring {
-    position: absolute;
-    top: var(--space-2);
-    left: var(--space-2);
-    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
-  }
+  .reason { display:block; color:var(--text-tertiary); font-size:.75rem; line-height:1.35; margin-top:4px; }
   .overlay-actions {
     position: absolute;
     top: var(--space-2);

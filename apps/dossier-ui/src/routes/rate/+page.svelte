@@ -1,9 +1,11 @@
 <script lang="ts">
   import { onMount, untrack } from "svelte";
+  import { page as appPage } from "$app/state";
   import { buildRatingQueue } from "$lib/discovery";
   import { preferences } from "$lib/state/preferences.svelte";
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { rateDials } from "$lib/state/rate-dials.svelte";
+  import { recommendationDials, type DialKey } from "$lib/state/recommendation-dials.svelte";
   import { posterUrl } from "$lib/poster";
   import {
     itemKey,
@@ -22,6 +24,7 @@
   import IconFadersRegular from "phosphor-icons-svelte/IconFadersRegular.svelte";
   import RateDialsPanel from "$lib/components/RateDialsPanel.svelte";
   import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
+  import { detectSurprise, explainRating, predictionFor, selectRateQuestion, shouldStopActiveLearning, type DecisionReason, type Surprise } from "$lib/calibration";
 
   /** The 7-point scale replacing the old binary like/dislike buttons. -1
    *  and +1 are deliberately the same sentinels the old "dislike"/"like"
@@ -224,7 +227,12 @@
   // tag) just cleared RATE_THRESHOLD — shows the "Adjust your dials?"
   // confirmation popup. Never more than one queued at once: a fresh
   // crossing while one is already showing is dropped.
-  let patternPrompt = $state<{ tag: string; dontCare: number; seen: number } | null>(null);
+  let patternPrompt = $state<{ tag: string; dontCare: number; seen: number; totalSeen: number } | null>(null);
+  let selectionReasons = $state<Record<string, DecisionReason>>({});
+  let selectionValues = $state<Record<string, number>>({});
+  let keepRating = $state(false);
+  let lastLearning = $state<{ title: string; text: string } | null>(null);
+  let surprise = $state<{ item: TmdbItem; value: Surprise } | null>(null);
 
   // Mirrors the hover-lit look when the same action is triggered via its
   // keyboard shortcut, so the button gives feedback without requiring the
@@ -258,7 +266,7 @@
       // staring at the "That's everything" empty state even though more
       // titles exist on later pages. Capped so a runaway TMDB query can't
       // spin indefinitely.
-      const MAX_PAGE_ATTEMPTS = 3;
+      const MAX_PAGE_ATTEMPTS = 12;
       for (let attempt = 0; attempt < MAX_PAGE_ATTEMPTS; attempt++) {
         const page = await buildRatingQueue(
           catalogueMode.medium,
@@ -268,12 +276,33 @@
           rateDials.tagValues
         );
         queuePage += 1;
-        if (page.length === 0) break; // TMDB exhausted for this medium
+        // An empty *filtered* page often only means every popular title on
+        // that page is already in the library. Keep paging before declaring
+        // the source exhausted; returning to Rate after a long session used
+        // to hit this and incorrectly show "That's everything".
+        if (page.length === 0) continue;
         // Dedupe against what we already hold.
         const have = new Set(queue.map((i) => itemKey(i.medium, i.id)));
         const fresh = page.filter((i) => !have.has(itemKey(i.medium, i.id)));
         if (fresh.length > 0) {
-          queue = [...queue, ...fresh];
+          const selected = selectRateQuestion(fresh, preferences.entries(), appPage.url.searchParams.get("focus") ?? undefined);
+          const ordered = selected ? [selected.item, ...fresh.filter(i => itemKey(i.medium,i.id) !== itemKey(selected.item.medium,selected.item.id))] : fresh;
+          // Record a genuine reason for every queued item, not just the
+          // batch winner. The queue keeps its dial-biased ordering after
+          // the selected first question, while each later card can still
+          // explain the evidence that made it useful.
+          const nextReasons = { ...selectionReasons };
+          const nextValues = { ...selectionValues };
+          for (const candidate of ordered) {
+            const decision = itemKey(candidate.medium,candidate.id) === (selected ? itemKey(selected.item.medium,selected.item.id) : "")
+              ? selected
+              : selectRateQuestion([candidate], preferences.entries(), appPage.url.searchParams.get("focus") ?? undefined);
+            if (!decision) continue;
+            const candidateKey=itemKey(candidate.medium,candidate.id);
+            nextReasons[candidateKey]=decision.reason; nextValues[candidateKey]=decision.learningValue;
+          }
+          selectionReasons=nextReasons; selectionValues=nextValues;
+          queue = [...queue, ...ordered];
           break;
         }
         // Page had items but all were already in our queue — try the next.
@@ -287,6 +316,7 @@
 
   onMount(() => {
     void preferences.hydrate();
+    void recommendationDials.hydrateFromDesktop();
     void Promise.all([rateDials.hydrateFromDesktop(), rateDials.ensureGenres()]).then(() => {
       rateDials.ensureTags(preferences.entries());
     });
@@ -297,6 +327,7 @@
   // effect (fetchMore touches loadingQueue/queue), so it runs untracked.
   $effect(() => {
     catalogueMode.mode; // track
+    appPage.url.searchParams.get("focus"); // focused-learning changes invalidate the cached queue
     untrack(() => {
       queue = [];
       queuePage = 1;
@@ -329,7 +360,7 @@
     return null; // skip
   }
 
-  async function decide(action: Action, item: TmdbItem | null = current): Promise<void> {
+  async function decide(action: Action, item: TmdbItem | null = detail ?? current): Promise<void> {
     if (!item || busy) return;
     busy = true;
     actionError = null;
@@ -347,6 +378,7 @@
       priorRating: preferences.ratingForKey(key) ?? null,
       priorSkipped: preferences.skipped.includes(key)
     };
+    const before = predictionFor(item, preferences.entries());
 
     try {
       if (action === "skip") {
@@ -354,8 +386,13 @@
         if (!entry.priorSkipped) await preferences.skip(item.medium, item.id);
       } else {
         if (entry.priorSkipped) await preferences.unskip(key);
-        await preferences.setRating(item, ratingFor(action));
+        const rating = ratingFor(action)!;
+        await preferences.setRating(item, rating);
+        lastLearning = { title: item.title, text: explainRating(item, rating, before) };
+        const found = detectSurprise(item, rating, before, preferences.entries().filter(e => e.item.key !== key));
+        if (found) surprise = { item, value: found };
       }
+      if (action === "skip") lastLearning = { title: item.title, text: `“I haven't seen it” only removes this title from the queue. Dossier takes no taste evidence from it.` };
       history = [...history, entry];
       pinned = null;
 
@@ -364,7 +401,7 @@
         rateDials.ensureTags(entries);
         const tally = rateDials.checkForPattern(entries);
         if (tally) {
-          patternPrompt = { tag: tally.tag, dontCare: tally.dontCare, seen: tally.seen };
+          patternPrompt = { tag: tally.tag, dontCare: tally.dontCare, seen: tally.seen, totalSeen: entries.length };
         }
       }
 
@@ -382,11 +419,25 @@
     }
   }
 
+  async function resolveSurprise(option: Surprise["options"][number] | null): Promise<void> {
+    if (!surprise) return;
+    const direction = surprise.value.direction === "positive" ? 15 : -15;
+    if (option?.kind === "tag") rateDials.setTag(option.key, rateDials.tagValueFor(option.key) + direction);
+    if (option?.kind === "genre") rateDials.set(option.key, rateDials.valueFor(option.key) + direction);
+    if (option?.kind === "axis") {
+      const axisDial: Partial<Record<string, DialKey>> = { pacing:"pace", tone:"mood", emotional_intensity:"emotionalIntensity", complexity:"complexity", realism:"realism", character_focus:"characterFocus", moral_clarity:"moralAmbiguity", structure:"experimentalStructure" };
+      const dial = axisDial[option.key];
+      if (dial) { recommendationDials.set(dial, Math.min(100, recommendationDials.values[dial] + 15)); await recommendationDials.persist(); }
+    } else if (option) await rateDials.persist();
+    lastLearning = { title: surprise.item.title, text: option ? `Dossier will treat this as corrective evidence about ${option.key}, and bias future Rate questions accordingly.` : `No proposed explanation was added. The rating itself still corrects the model.` };
+    surprise = null;
+  }
+
   async function resolvePatternPrompt(accepted: boolean): Promise<void> {
     if (!patternPrompt) return;
-    const { tag, seen } = patternPrompt;
+    const { tag, seen, totalSeen } = patternPrompt;
     patternPrompt = null;
-    await rateDials.resolvePattern(tag, seen, accepted);
+    await rateDials.resolvePattern(tag, seen, accepted, totalSeen);
   }
 
   async function undo(): Promise<void> {
@@ -507,6 +558,12 @@
       </div>
     </div>
     <p class="count">{preferences.ratingCount()} rated</p>
+    {#if displayedItem && !keepRating && shouldStopActiveLearning(preferences.entries(), selectionValues[itemKey(displayedItem.medium, displayedItem.id)] ?? 1).stop}
+      <div class="stop-note"><strong>I have a good read on the areas you've covered.</strong><span>{shouldStopActiveLearning(preferences.entries(), selectionValues[itemKey(displayedItem.medium, displayedItem.id)] ?? 1).reason}</span><button onclick={() => keepRating = true}>Keep rating</button></div>
+    {/if}
+    {#if displayedItem && selectionReasons[itemKey(displayedItem.medium, displayedItem.id)]}
+      <p class="selection-reason">{selectionReasons[itemKey(displayedItem.medium, displayedItem.id)].summary}</p>
+    {/if}
   </header>
 
   {#if preferences.error}
@@ -569,7 +626,7 @@
             {/if}
           </div>
 
-          <div class="info">
+          <div class="info" class:exiting={animating}>
             <h2 class="title">{detail.title}</h2>
             <p class="meta">
               {#if detail.year}<span>{detail.year}</span>{/if}
@@ -657,6 +714,12 @@
       {/key}
     {/if}
   </div>
+  {#if lastLearning}
+    <aside class="previous-learning" aria-live="polite">
+      <span class="back-arrow" aria-hidden="true">↶</span>
+      <div><span class="previous-label">Previous response · {lastLearning.title}</span><p><strong>What that taught Dossier:</strong> {lastLearning.text}</p></div>
+    </aside>
+  {/if}
 </section>
 
 {#if dialsOpen}
@@ -672,6 +735,15 @@
     onConfirm={() => void resolvePatternPrompt(true)}
     onCancel={() => void resolvePatternPrompt(false)}
   />
+{/if}
+
+{#if surprise}
+  <div class="surprise-followup" role="dialog" aria-label="Unexpected response follow-up">
+    <strong>{surprise.value.summary}</strong>
+    <p>Did one of these make the difference?</p>
+    <div>{#each surprise.value.options as option}<button onclick={() => void resolveSurprise(option)}>{option.label}</button>{/each}</div>
+    <button onclick={() => void resolveSurprise(null)}>None of these / skip</button>
+  </div>
 {/if}
 
 <style>
@@ -883,6 +955,7 @@
   .stamp-label { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
 
   .info { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
+  .info.exiting { opacity: 0; transform: translateY(8px); transition: opacity 160ms var(--ease-out), transform 200ms var(--ease-out); }
   .title {
     margin: 0;
     font-family: var(--font-display);
@@ -1061,4 +1134,12 @@
     margin: 0 auto;
   }
   .error strong { color: var(--danger, #f85149); }
+  .selection-reason { max-width:680px; margin:var(--space-1) auto 0; color:var(--text-secondary); font-size:.8rem; text-align:center; line-height:1.4; }
+  .previous-learning { flex:none; display:flex; align-items:center; gap:var(--space-3); margin:0 calc(var(--space-6) * -1) calc(var(--space-6) * -1); padding:var(--space-3) var(--space-6); border-top:1px solid var(--border-subtle); background:color-mix(in srgb,var(--base-secondary) 88%,transparent); color:var(--text-secondary); }
+  .back-arrow { font-size:1.5rem; color:var(--accent); } .previous-label { color:var(--text-tertiary); font-size:.68rem; text-transform:uppercase; letter-spacing:.07em; }
+  .previous-learning p { margin:2px 0 0; font-size:.8rem; line-height:1.4; } .previous-learning strong { color:var(--text-primary); }
+  .stop-note { max-width:680px; margin:var(--space-2) auto; display:flex; align-items:center; gap:var(--space-3); padding:var(--space-3); border:1px solid var(--border-subtle); border-radius:var(--radius-md); color:var(--text-secondary); font-size:.8rem; }
+  .stop-note strong { color:var(--text-primary); } .stop-note button, .surprise-followup button { border:1px solid var(--border-default); background:var(--base-tertiary); color:var(--text-primary); border-radius:var(--radius-sm); padding:var(--space-2); cursor:pointer; }
+  .surprise-followup { position:fixed; z-index:30; right:var(--space-5); bottom:var(--space-5); max-width:420px; background:var(--base-secondary); border:1px solid var(--accent); box-shadow:var(--shadow-lg); border-radius:var(--radius-lg); padding:var(--space-4); color:var(--text-secondary); }
+  .surprise-followup strong { color:var(--text-primary); } .surprise-followup div { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-bottom:var(--space-2); }
 </style>

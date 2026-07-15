@@ -26,6 +26,7 @@ export async function dismissEnrichmentModal(page: Page): Promise<void> {
 export type MockDossierSeed = {
   /** Marks this many pool movies (from the front of the pool) as liked. */
   likedMovies?: number;
+  refineGroupSize?: number;
   /** Pre-seeds this many synthetic "swordplay"-tagged titles already
    *  rated "not interested", and skips the pool's first 6 titles so the
    *  Rate queue starts right at "Crimson Hour" (a swordplay-tagged pool
@@ -128,7 +129,8 @@ export function installMockDossier(seed?: MockDossierSeed): void {
   const SETTINGS_KEY = "mock-dossier-settings";
   const baseSettings: Record<string, unknown> = {
     theme: "system", dyslexiaMode: false, startOnLogin: false, autoUpdatesEnabled: true,
-    skippedUpdateVersion: null, sidebarCollapsed: false, showingWelcome: false
+    skippedUpdateVersion: null, sidebarCollapsed: false, showingWelcome: false,
+    refineGroupSize: seed?.refineGroupSize ?? 2
   };
   function loadSettings(): Record<string, unknown> {
     try {

@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
   buildTasteGroups,
+  buildPairwiseCandidates,
+  buildRankingGroup,
   DEFAULT_SCORING_PARAMS,
   groupRecommendationsByTaste,
   predictPreference,
@@ -206,5 +208,20 @@ describe("groupRecommendationsByTaste", () => {
 
     const labels = rows.map((r) => r.label);
     expect(new Set(labels).size).toBe(labels.length);
+  });
+});
+
+describe("Refine category boundaries", () => {
+  it("only compares exact Liked or exact Disliked entries", () => {
+    const entries=[ratingEntry(GRIM,1),ratingEntry(LIGHT,2),ratingEntry(GRIM,-1),ratingEntry(LIGHT,-2),ratingEntry(GRIM,.5),ratingEntry(LIGHT,-.5),ratingEntry(GRIM,0)];
+    const pairs=buildPairwiseCandidates(entries,[],20);
+    expect(pairs.length).toBe(2);
+    expect(pairs.every(([a,b]) => (a.rating>0 && b.rating>0 && a.rating!==.5 && b.rating!==.5) || (a.rating<0 && b.rating<0 && a.rating!==-.5 && b.rating!==-.5))).toBe(true);
+    const group=buildRankingGroup(entries,[],4);
+    expect(group.every(e=>e.rating>0 && e.rating!==.5) || group.every(e=>e.rating<0 && e.rating!==-.5)).toBe(true);
+  });
+  it("builds a full group from exact likes",()=>{
+    const entries=Array.from({length:6},(_,i)=>ratingEntry(vec({tone:i/10,pacing:i/10}),1));
+    expect(buildRankingGroup(entries,[],5)).toHaveLength(5);
   });
 });

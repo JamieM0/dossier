@@ -48,33 +48,28 @@ test.describe("Refine screen — configurable group size", () => {
     await expect(page.getByText("2 answered")).toBeVisible();
   });
 
-  test("group size > 2 shows a drag-to-reorder ranking list with poster, title, year, genre and match badge", async ({ page }) => {
-    await page.addInitScript(installMockDossier, { likedMovies: 6 });
-    await page.goto("/settings");
+  test("group size > 2 shows a horizontal poster-led ranking track", async ({ page }) => {
+    await page.addInitScript(installMockDossier, { likedMovies: 6, refineGroupSize: 5 });
+    await page.goto("/refine");
     await dismissEnrichmentModal(page);
-    await setGroupSize(page, 5);
-
-    await page.getByRole("link", { name: "Refine" }).click();
     await expect(page.getByRole("heading", { name: "Rank your favorites" })).toBeVisible();
-    await expect(page.locator(".rank-row")).toHaveCount(5);
+    await expect(page.locator(".rank-row")).toHaveCount(5,{timeout:15_000});
     await expect(page.locator(".duel")).toHaveCount(0);
 
     const firstRow = page.locator(".rank-row").first();
     await expect(firstRow.locator(".rank-poster, .rank-poster-empty")).toBeVisible();
     await expect(firstRow.locator(".rank-caption h3")).not.toBeEmpty();
-    await expect(firstRow.locator(".match-badge.small")).toContainText("match");
+    await expect(firstRow.locator(".match-badge.small")).toContainText("evidence");
 
     await page.screenshot({ path: "test-results/refine-ranking-full.png", fullPage: true });
     await page.locator(".ranking").screenshot({ path: "test-results/refine-ranking-focused.png" });
   });
 
-  test("dragging a row is strictly vertical: horizontal drag never reorders or shifts the card sideways", async ({ page }) => {
-    await page.addInitScript(installMockDossier, { likedMovies: 6 });
-    await page.goto("/settings");
+  test("dragging horizontally reorders the poster track", async ({ page }) => {
+    await page.addInitScript(installMockDossier, { likedMovies: 6, refineGroupSize: 5 });
+    await page.goto("/refine");
     await dismissEnrichmentModal(page);
-    await setGroupSize(page, 5);
-    await page.getByRole("link", { name: "Refine" }).click();
-    await expect(page.locator(".rank-row")).toHaveCount(5);
+    await expect(page.locator(".rank-row")).toHaveCount(5,{timeout:15_000});
 
     const titlesBefore = await page.locator(".rank-caption h3").allInnerTexts();
     const row = page.locator(".rank-row").first();
@@ -87,27 +82,20 @@ test.describe("Refine screen — configurable group size", () => {
     const startY = gripBox.y + gripBox.height / 2;
     await page.mouse.move(startX, startY);
     await page.mouse.down();
-    // Large horizontal-only movement — must not move the card sideways
-    // or trigger any reorder.
-    await page.mouse.move(startX + 250, startY, { steps: 10 });
+    await page.mouse.move(startX + box.width + 20, startY, { steps: 10 });
     await page.mouse.up();
     await page.waitForTimeout(150);
 
-    const boxAfterHorizontal = await row.boundingBox();
-    if (!boxAfterHorizontal) throw new Error("row not found after drag");
-    expect(Math.abs(boxAfterHorizontal.x - box.x)).toBeLessThan(2);
-
     const titlesAfterHorizontal = await page.locator(".rank-caption h3").allInnerTexts();
-    expect(titlesAfterHorizontal).toEqual(titlesBefore);
+    expect(titlesAfterHorizontal[0]).toBe(titlesBefore[1]);
+    expect(titlesAfterHorizontal[1]).toBe(titlesBefore[0]);
   });
 
-  test("dragging a row down past a neighbor's midpoint swaps their order", async ({ page }) => {
-    await page.addInitScript(installMockDossier, { likedMovies: 6 });
-    await page.goto("/settings");
+  test("vertical movement alone does not reorder the horizontal track", async ({ page }) => {
+    await page.addInitScript(installMockDossier, { likedMovies: 6, refineGroupSize: 5 });
+    await page.goto("/refine");
     await dismissEnrichmentModal(page);
-    await setGroupSize(page, 5);
-    await page.getByRole("link", { name: "Refine" }).click();
-    await expect(page.locator(".rank-row")).toHaveCount(5);
+    await expect(page.locator(".rank-row")).toHaveCount(5,{timeout:15_000});
 
     const titlesBefore = await page.locator(".rank-caption h3").allInnerTexts();
     const firstRow = page.locator(".rank-row").nth(0);
@@ -120,34 +108,29 @@ test.describe("Refine screen — configurable group size", () => {
     const startY = gripBox.y + gripBox.height / 2;
     await page.mouse.move(startX, startY);
     await page.mouse.down();
-    // Drag straight down past the next row's midpoint (more than one row
-    // height) to force a swap with the second row.
     await page.mouse.move(startX, startY + rowBox.height + 6, { steps: 12 });
     await page.mouse.up();
     await page.waitForTimeout(150);
 
     const titlesAfter = await page.locator(".rank-caption h3").allInnerTexts();
-    expect(titlesAfter[0]).toBe(titlesBefore[1]);
-    expect(titlesAfter[1]).toBe(titlesBefore[0]);
+    expect(titlesAfter).toEqual(titlesBefore);
   });
 
-  test("move-up/move-down buttons reorder rows without dragging, and Save order commits pairwise choices", async ({ page }) => {
-    await page.addInitScript(installMockDossier, { likedMovies: 6 });
-    await page.goto("/settings");
+  test("left/right buttons reorder cards without dragging, and saving commits pairwise choices", async ({ page }) => {
+    await page.addInitScript(installMockDossier, { likedMovies: 6, refineGroupSize: 4 });
+    await page.goto("/refine");
     await dismissEnrichmentModal(page);
-    await setGroupSize(page, 4);
-    await page.getByRole("link", { name: "Refine" }).click();
-    await expect(page.locator(".rank-row")).toHaveCount(4);
+    await expect(page.locator(".rank-row")).toHaveCount(4,{timeout:15_000});
 
     const titlesBefore = await page.locator(".rank-caption h3").allInnerTexts();
-    // Move the second row up one slot.
-    await page.locator(".rank-row").nth(1).getByLabel(/Move .* up/).click();
+    // Move the second card left one slot.
+    await page.locator(".rank-row").nth(1).getByLabel(/Move .* left/).click();
     const titlesAfterMove = await page.locator(".rank-caption h3").allInnerTexts();
     expect(titlesAfterMove[0]).toBe(titlesBefore[1]);
     expect(titlesAfterMove[1]).toBe(titlesBefore[0]);
 
     await expect(page.getByText("0 answered so far")).toBeVisible();
-    await page.getByRole("button", { name: "Save order" }).click();
+    await page.getByRole("button", { name: "Save corrected order" }).click();
     await expect(page.getByText("Saving…")).toHaveCount(0, { timeout: 5000 });
     // C(4,2) = 6 pairs get recorded from a fresh group.
     await expect(page.getByText("6 answered so far")).toBeVisible({ timeout: 5000 });

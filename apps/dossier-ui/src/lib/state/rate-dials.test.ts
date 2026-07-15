@@ -152,19 +152,17 @@ describe("rate-dials store", () => {
   });
 
   describe("pattern detection", () => {
-    it("does not trigger below the seen-count threshold of 10", () => {
-      // 9 dont-cares out of 9 seen — rate 1.0, but seen 9 < threshold 10.
-      const entries = dontCareEntries(9, "swordplay");
+    it("does not trigger on a small sample", () => {
+      const entries = dontCareEntries(14, "swordplay");
       expect(rateDials.checkForPattern(entries)).toBeNull();
     });
 
-    it("triggers once a tag's seen-count reaches 10 AND don't-care rate >= 0.75", () => {
-      // 10 dont-cares / 10 seen = 1.0 rate, seen >= 10 → triggers.
-      const entries = dontCareEntries(10, "swordplay");
+    it("triggers after substantial consistent indifference", () => {
+      const entries = dontCareEntries(30, "swordplay");
       const result = rateDials.checkForPattern(entries);
       expect(result?.tag).toBe("swordplay");
-      expect(result?.seen).toBe(10);
-      expect(result?.dontCare).toBe(10);
+      expect(result?.seen).toBe(30);
+      expect(result?.dontCare).toBe(30);
     });
 
     it("does NOT trigger when the user has liked a healthy share — the sentiment fix", () => {
@@ -173,29 +171,41 @@ describe("rate-dials store", () => {
       // gate correctly suppresses the prompt because the user clearly
       // still enjoys the cluster. This is the original bug.
       const entries: RatingEntry[] = [
-        ...dontCareEntries(10, "swordplay"),
-        ...Array.from({ length: 8 }, (_, i) => entry(100 + i, RATING_LIKE, ["swordplay"]))
+        ...dontCareEntries(30, "swordplay"),
+        ...Array.from({ length: 24 }, (_, i) => entry(100 + i, RATING_LIKE, ["swordplay"]))
       ];
       expect(rateDials.checkForPattern(entries)).toBeNull();
+    });
+
+    it("strong positives suppress more readily than slight positives", () => {
+      const base = dontCareEntries(30, "swordplay");
+      const slight = [...base, entry(100, 1, ["swordplay"]), entry(101, 1, ["swordplay"])];
+      const strong = [...base, ...Array.from({length:6},(_,i)=>entry(100+i,3,["swordplay"]))];
+      expect(rateDials.checkForPattern(slight)?.tag).toBe("swordplay");
+      expect(rateDials.checkForPattern(strong)).toBeNull();
+    });
+
+    it("dislikes stay distinct while neutral and watchlist deliberately counter indifference weakly", () => {
+      const dislikes = [...dontCareEntries(30, "swordplay"), ...Array.from({length:8},(_,i)=>entry(200+i,-3,["swordplay"]))];
+      const interested = [...dontCareEntries(30, "swordplay"), ...Array.from({length:16},(_,i)=>entry(300+i,.5,["swordplay"])), ...Array.from({length:16},(_,i)=>entry(400+i,0,["swordplay"]))];
+      expect(rateDials.checkForPattern(dislikes)?.tag).toBe("swordplay");
+      expect(rateDials.checkForPattern(interested)).toBeNull();
     });
 
     it("triggers at exactly the 0.75 boundary (3 dont-cares of 4 seen after threshold seen)", () => {
       // Need seen >= 10 to clear the seen-threshold gate, so build a
       // 10-seen, 7.5-dontCare-equivalent: 8 dont-cares of 10 seen = 0.8.
-      const entries: RatingEntry[] = [
-        ...dontCareEntries(8, "swordplay"),
-        ...Array.from({ length: 2 }, (_, i) => entry(200 + i, RATING_LIKE, ["swordplay"]))
-      ];
+      const entries: RatingEntry[] = [...dontCareEntries(24, "swordplay"), ...Array.from({ length: 6 }, (_, i) => entry(200 + i, RATING_LIKE, ["swordplay"]))];
       const result = rateDials.checkForPattern(entries);
       expect(result?.tag).toBe("swordplay");
-      expect(result?.dontCare).toBe(8);
-      expect(result?.seen).toBe(10);
+      expect(result?.dontCare).toBe(24);
+      expect(result?.seen).toBe(30);
     });
 
     it("picks the tag with the most don't-cares when several qualify", () => {
       const entries: RatingEntry[] = [
-        ...dontCareEntries(10, "swordplay"),
-        ...dontCareEntries(15, "dragon")
+        ...dontCareEntries(30, "swordplay"),
+        ...dontCareEntries(35, "dragon")
       ];
       expect(rateDials.checkForPattern(entries)?.tag).toBe("dragon");
     });
@@ -203,30 +213,27 @@ describe("rate-dials store", () => {
     it("accepting the prompt cuts the tag dial by a quarter and resets the seen-threshold", async () => {
       setBridge();
       rateDials.setTag("swordplay", 80);
-      await rateDials.resolvePattern("swordplay", 10, true);
+      await rateDials.resolvePattern("swordplay", 30, true, 30);
       expect(rateDials.tagValueFor("swordplay")).toBe(60); // 80 - 80/4
       // After accept, baseline seen=10. 9 more dont-cares since (19
       // total) isn't enough yet (needs 10 more past baseline).
-      const more9 = dontCareEntries(9, "swordplay").map((e, i) => ({ ...e, item: { ...e.item, id: 500 + i, key: `movie:${500 + i}` } }));
-      const total19 = [...dontCareEntries(10, "swordplay"), ...more9];
-      expect(rateDials.checkForPattern(total19)).toBeNull();
+      const more29 = dontCareEntries(29, "swordplay").map((e, i) => ({ ...e, item: { ...e.item, id: 500 + i, key: `movie:${500 + i}` } }));
+      expect(rateDials.checkForPattern([...dontCareEntries(30, "swordplay"), ...more29])).toBeNull();
     });
 
     it("declining doubles the seen-threshold (capped at 200) and leaves the dial untouched", async () => {
       setBridge();
       rateDials.setTag("swordplay", 80);
-      await rateDials.resolvePattern("swordplay", 10, false);
+      await rateDials.resolvePattern("swordplay", 30, false, 30);
       expect(rateDials.tagValueFor("swordplay")).toBe(80); // unchanged
 
       // 15 more seen (25 total) shouldn't trigger — needs 20 past baseline 10.
-      const more15 = Array.from({ length: 15 }, (_, i) => entry(300 + i, RATING_NOT_INTERESTED, ["swordplay"]));
-      const total25 = [...dontCareEntries(10, "swordplay"), ...more15];
-      expect(rateDials.checkForPattern(total25)).toBeNull();
+      const more29 = Array.from({ length: 29 }, (_, i) => entry(300 + i, RATING_NOT_INTERESTED, ["swordplay"]));
+      expect(rateDials.checkForPattern([...dontCareEntries(30, "swordplay"), ...more29])).toBeNull();
 
       // 20 more past baseline (30 total) crosses the doubled threshold.
-      const more20 = Array.from({ length: 20 }, (_, i) => entry(400 + i, RATING_NOT_INTERESTED, ["swordplay"]));
-      const total30 = [...dontCareEntries(10, "swordplay"), ...more20];
-      expect(rateDials.checkForPattern(total30)?.tag).toBe("swordplay");
+      const more30 = Array.from({ length: 30 }, (_, i) => entry(400 + i, RATING_NOT_INTERESTED, ["swordplay"]));
+      expect(rateDials.checkForPattern([...dontCareEntries(30, "swordplay"), ...more30])?.tag).toBe("swordplay");
     });
 
     it("caps the doubling threshold at 200", async () => {

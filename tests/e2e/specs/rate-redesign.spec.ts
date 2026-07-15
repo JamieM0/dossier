@@ -6,6 +6,7 @@ test.describe("Rate screen redesign", () => {
     await page.addInitScript(installMockDossier);
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
+    await expect(page.locator(".info .title")).toBeVisible({ timeout: 15_000 });
   });
 
   test("full details are on the main screen, with the 7-point rank scale plus watchlist/skip/not-interested", async ({ page }) => {

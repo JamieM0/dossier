@@ -5,10 +5,9 @@
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
   import { posterUrl } from "$lib/poster";
-  import type { RatedItem, RatingEntry } from "$lib/types";
-  import IconDotsSixVerticalBold from "phosphor-icons-svelte/IconDotsSixVerticalBold.svelte";
-  import IconCaretUpBold from "phosphor-icons-svelte/IconCaretUpBold.svelte";
-  import IconCaretDownBold from "phosphor-icons-svelte/IconCaretDownBold.svelte";
+  import { ratingKind, type RatedItem, type RatingEntry } from "$lib/types";
+  import IconCaretLeftBold from "phosphor-icons-svelte/IconCaretLeftBold.svelte";
+  import IconCaretRightBold from "phosphor-icons-svelte/IconCaretRightBold.svelte";
 
   let busy = $state(false);
 
@@ -18,6 +17,8 @@
   // pairwise duel; above 2 it's a drag-to-reorder ranking list.
   const entries = $derived(preferences.entries(catalogueMode.medium));
   const ratedCount = $derived(entries.length);
+  const likedCount = $derived(entries.filter(e=>ratingKind(e.rating)==="like").length);
+  const dislikedCount = $derived(entries.filter(e=>ratingKind(e.rating)==="dislike").length);
   const effectiveGroupSize = $derived(
     ratedCount < 2 ? 2 : Math.max(2, Math.min(uiSettings.refineGroupSize, ratedCount))
   );
@@ -28,6 +29,7 @@
   }
 
   let actionError = $state<string | null>(null);
+  let learningResult = $state<string | null>(null);
 
   onMount(() => {
     void preferences.hydrate();
@@ -51,6 +53,10 @@
     actionError = null;
     try {
       await preferences.addPairwise(winner.item.key, loser.item.key);
+      const expected = predict(winner.item) >= predict(loser.item);
+      learningResult = expected
+        ? `This confirmed Dossier's current ordering of ${winner.item.title} above ${loser.item.title}.`
+        : `Choosing ${winner.item.title} corrected Dossier's assumption that ${loser.item.title} was the stronger fit.`;
     } catch (err) {
       actionError = err instanceof Error ? err.message : String(err);
     } finally {
@@ -78,19 +84,10 @@
   // commits the previous round's pairs). Not reset on every re-render,
   // so mid-drag reordering survives unrelated reactivity.
   let order = $state<RatingEntry[]>([]);
-  let loadedGroupKey = "";
-  $effect(() => {
-    const pool = rankingPool;
-    const key = pool.map((e) => e.item.key).join(",");
-    if (key !== loadedGroupKey) {
-      loadedGroupKey = key;
-      order = [...pool];
-    }
-  });
-
   let savingOrder = $state(false);
 
   function moveRow(index: number, delta: -1 | 1): void {
+    if (order.length === 0) order = [...rankingPool];
     const target = index + delta;
     if (target < 0 || target >= order.length) return;
     const tmp = order[index];
@@ -111,6 +108,7 @@
 
   function onGripPointerDown(event: PointerEvent, index: number): void {
     if (savingOrder) return;
+    if (order.length === 0) order = [...rankingPool];
     const grip = event.currentTarget as HTMLElement;
     const row = grip.closest(".rank-row") as HTMLElement | null;
     const list = grip.closest(".ranking-list") as HTMLElement | null;
@@ -118,19 +116,19 @@
     // height *plus* the list's flex gap between rows), not just the row's
     // own height — using height alone under-measures the real on-screen
     // distance to the next row's midpoint.
-    const gapPx = list ? parseFloat(getComputedStyle(list).rowGap || "0") || 0 : 0;
-    dragRowHeight = (row?.getBoundingClientRect().height ?? 0) + gapPx;
+    const gapPx = list ? parseFloat(getComputedStyle(list).columnGap || "0") || 0 : 0;
+    dragRowHeight = (row?.getBoundingClientRect().width ?? 0) + gapPx;
     if (dragRowHeight <= 0) return;
     dragIndex = index;
     dragPointerId = event.pointerId;
-    dragStartClientY = event.clientY;
+    dragStartClientY = event.clientX;
     dragY = 0;
     grip.setPointerCapture(event.pointerId);
   }
 
   function onGripPointerMove(event: PointerEvent): void {
     if (dragIndex === null || event.pointerId !== dragPointerId) return;
-    dragY = event.clientY - dragStartClientY;
+    dragY = event.clientX - dragStartClientY;
 
     // dragStartClientY shifts by a full row-pitch on every swap so the
     // *next* event's fresh (event.clientY - dragStartClientY) reflects
@@ -170,6 +168,7 @@
   // and rankingPool naturally excludes this fully-decided set, so the
   // effect above loads the next group.
   async function saveOrder(): Promise<void> {
+    if (order.length === 0) order = [...rankingPool];
     if (order.length < 2 || savingOrder) return;
     savingOrder = true;
     actionError = null;
@@ -177,8 +176,9 @@
     const toAdd: Array<[string, string]> = [];
     for (let i = 0; i < order.length; i++) {
       for (let j = i + 1; j < order.length; j++) {
-        const winnerKey = order[i].item.key;
-        const loserKey = order[j].item.key;
+        // The track reads worst → best, so the item further right wins.
+        const winnerKey = order[j].item.key;
+        const loserKey = order[i].item.key;
         const key = [winnerKey, loserKey].sort().join("|");
         if (seen.has(key)) continue;
         seen.add(key);
@@ -189,6 +189,10 @@
       for (const [winnerKey, loserKey] of toAdd) {
         await preferences.addPairwise(winnerKey, loserKey);
       }
+      const predicted = rankingPool.map(e=>e.item.key).join("|");
+      const actual = order.map(e=>e.item.key).join("|");
+      learningResult = predicted === actual ? "This confirmed Dossier's current ordering." : `Your reorder corrected ${toAdd.length} unresolved relationship${toAdd.length === 1 ? "" : "s"}. The new order now overrides the prior guess.`;
+      order = [];
     } catch (err) {
       actionError = err instanceof Error ? err.message : String(err);
     } finally {
@@ -203,7 +207,7 @@
   <header class="header">
     {#if effectiveGroupSize > 2}
       <h1>Rank your favorites</h1>
-      <p class="hint">Drag <IconDotsSixVerticalBold class="icon-14 inline-icon" /> or use the arrows to reorder, best at the top · ranking a group sharpens your weights faster</p>
+      <p class="hint">Arrange from least preferred to most preferred · drag or use the arrows</p>
     {:else}
       <h1>Which do you prefer?</h1>
       <p class="hint">
@@ -211,6 +215,7 @@
       </p>
     {/if}
   </header>
+  {#if learningResult}<p class="learning-note" aria-live="polite"><strong>What Dossier learned:</strong> {learningResult}</p>{/if}
 
   {#if preferences.error}
     <div class="error" role="alert">
@@ -236,10 +241,11 @@
         <p>You've answered every pair from your current ratings. Rate more titles to unlock more comparisons.</p>
       </div>
     {:else}
+      <div class="question-reason"><strong>Why ask now:</strong> Dossier predicts these similarly, so your choice resolves a real uncertainty.</div>
       <div class="duel">
         {#each [0, 1] as side (current[side].item.key)}
           {@const entry = current[side]}
-          {@const matchPct = predict(entry.item)}
+          {@const guess = predict(entry.item)}
           <button class="pick" disabled={busy} onclick={() => choose(side as 0 | 1)}>
             <div class="poster-wrap">
               {#if posterUrl(entry.item.posterPath, "w500")}
@@ -247,9 +253,7 @@
               {:else}
                 <div class="poster poster-empty"></div>
               {/if}
-              <span class="match-badge" title="Predicted preference based on your ratings so far">
-                <strong>{matchPct}%</strong> match
-              </span>
+              <span class="match-badge">Current guess · {guess >= 58 ? "some positive evidence" : guess <= 25 ? "some negative evidence" : "mixed evidence"}</span>
             </div>
             <div class="caption">
               <h3>{entry.item.title}</h3>
@@ -260,20 +264,21 @@
       </div>
       <p class="counter center">{preferences.pairwise.length + 1} answered · {pairs.length} more queued</p>
     {/if}
-  {:else if order.length < 2}
+  {:else if rankingPool.length < 2}
     <div class="empty center">
       <h2>No new comparisons.</h2>
-      <p>You've answered every combination from your current ratings. Rate more titles to unlock more rounds.</p>
+      <p>No unresolved group remains within one category ({likedCount} liked · {dislikedCount} disliked). Rate more titles to unlock more rounds.</p>
     </div>
   {:else}
     <div class="ranking">
+      <div class="question-reason"><strong>Dossier's current guess.</strong> Least preferred on the left, most preferred on the right. Reorder only what feels wrong.</div>
       <ol class="ranking-list">
-        {#each order as entry, i (entry.item.key)}
-          {@const matchPct = predict(entry.item)}
+        {#each (order.length > 0 ? order : rankingPool) as entry, i (entry.item.key)}
+          {@const guess = predict(entry.item)}
           <li
             class="rank-row"
             class:dragging={dragIndex === i}
-            style={dragIndex === i ? `transform: translateY(${dragY}px);` : ""}
+            style={dragIndex === i ? `transform: translateX(${dragY}px) rotate(${dragY / 80}deg);` : ""}
           >
             <span class="rank-num">{i + 1}</span>
             <div class="rank-poster-wrap">
@@ -287,25 +292,23 @@
               <h3>{entry.item.title}</h3>
               <p class="meta">{entry.item.year ?? ""}{entry.item.genres[0] ? ` · ${entry.item.genres[0]}` : ""}</p>
             </div>
-            <span class="match-badge small" title="Predicted preference based on your ratings so far">
-              <strong>{matchPct}%</strong> match
-            </span>
+            <span class="match-badge small">{guess >= 58 ? "positive evidence" : guess <= 25 ? "negative evidence" : "mixed evidence"}</span>
             <div class="rank-controls">
               <button
                 class="rank-move-btn"
                 disabled={i === 0 || savingOrder}
-                aria-label={`Move ${entry.item.title} up`}
+                aria-label={`Move ${entry.item.title} left`}
                 onclick={() => moveRow(i, -1)}
               >
-                <IconCaretUpBold class="icon-14" />
+                <IconCaretLeftBold class="icon-14" />
               </button>
               <button
                 class="rank-move-btn"
-                disabled={i === order.length - 1 || savingOrder}
-                aria-label={`Move ${entry.item.title} down`}
+                disabled={i === (order.length > 0 ? order.length : rankingPool.length) - 1 || savingOrder}
+                aria-label={`Move ${entry.item.title} right`}
                 onclick={() => moveRow(i, 1)}
               >
-                <IconCaretDownBold class="icon-14" />
+                <IconCaretRightBold class="icon-14" />
               </button>
             </div>
             <span
@@ -318,7 +321,7 @@
               onpointerup={onGripPointerUp}
               onpointercancel={onGripPointerUp}
             >
-              <IconDotsSixVerticalBold class="icon-18" />
+              <span aria-hidden="true">⠿</span>
             </span>
           </li>
         {/each}
@@ -326,7 +329,7 @@
       <div class="ranking-actions">
         <p class="counter">{preferences.pairwise.length} answered so far</p>
         <button class="save-btn" disabled={savingOrder} onclick={() => void saveOrder()}>
-          {savingOrder ? "Saving…" : "Save order"}
+          {savingOrder ? "Saving…" : (order.length > 0 ? order : rankingPool).map(e=>e.item.key).join("|") === rankingPool.map(e=>e.item.key).join("|") ? "Looks right" : "Save corrected order"}
         </button>
       </div>
     </div>
@@ -379,7 +382,6 @@
     gap: 4px;
     white-space: nowrap;
   }
-  .match-badge strong { color: var(--accent); font-weight: 700; font-size: 0.9rem; }
   .caption { padding: var(--space-3); text-align: left; }
   .caption h3 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; color: var(--text-primary); }
   .meta { color: var(--text-secondary); font-size: 0.85rem; margin: var(--space-1) 0 0; }
@@ -407,24 +409,26 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    max-width: 640px;
+    max-width: 1180px;
     width: 100%;
     margin: 0 auto;
     flex: 1;
     min-height: 0;
-    overflow-y: auto;
+    overflow: hidden;
     padding: var(--space-1) 0;
   }
-  .ranking-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .ranking-list { list-style: none; margin: 0; padding:var(--space-2) var(--space-1) var(--space-4); display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:var(--space-3); overflow-x:auto; align-items:end; }
   .rank-row {
     position: relative;
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    align-items:center;
+    gap:var(--space-2);
     background: var(--base-secondary);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
-    padding: var(--space-2) var(--space-3);
+    padding:0 0 var(--space-2);
+    overflow:hidden;
     transition: border-color var(--duration-standard) var(--ease-out), box-shadow var(--duration-standard) var(--ease-out);
   }
   .rank-row.dragging {
@@ -435,16 +439,16 @@
   }
   .rank-num {
     flex-shrink: 0;
-    width: 1.6rem;
+    width:1.6rem;
     text-align: center;
     font-variant-numeric: tabular-nums;
     font-size: 0.85rem;
     color: var(--text-tertiary);
   }
-  .rank-poster-wrap { flex-shrink: 0; width: 42px; border-radius: var(--radius-sm); overflow: hidden; }
+  .rank-poster-wrap { grid-column:1 / -1; width:100%; border-radius:var(--radius-md) var(--radius-md) 0 0; overflow:hidden; }
   .rank-poster { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; background: var(--base-tertiary); pointer-events: none; }
   .rank-poster-empty { background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary)); }
-  .rank-caption { flex: 1; min-width: 0; text-align: left; }
+  .rank-caption { min-width:0; text-align:left; }
   .rank-caption h3 {
     font-family: var(--font-display);
     font-size: 0.92rem;
@@ -455,18 +459,11 @@
     text-overflow: ellipsis;
   }
   .rank-caption .meta { color: var(--text-secondary); font-size: 0.76rem; margin: 2px 0 0; }
-  .match-badge.small {
-    position: static;
-    transform: none;
-    flex-shrink: 0;
-    padding: 4px 10px;
-    font-size: 0.72rem;
-    box-shadow: none;
-  }
-  .rank-controls { display: flex; flex-direction: column; gap: 2px; flex-shrink: 0; }
+  .match-badge.small { position:absolute; top:var(--space-2); left:50%; transform:translateX(-50%); padding:4px 9px; font-size:.66rem; box-shadow:0 2px 8px rgba(0,0,0,.2); }
+  .rank-controls { grid-column:1 / -1; display:flex; justify-content:center; gap:var(--space-2); }
   .rank-move-btn {
-    width: 22px;
-    height: 17px;
+    width:32px;
+    height:26px;
     padding: 0;
     display: inline-flex;
     align-items: center;
@@ -481,13 +478,17 @@
   .rank-move-btn:hover:not(:disabled) { background: var(--base); color: var(--text-primary); }
   .rank-move-btn:disabled { opacity: 0.3; cursor: not-allowed; }
   .grip {
-    flex-shrink: 0;
+    position:absolute;
+    right:var(--space-2);
+    top:var(--space-2);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 100%;
-    color: var(--text-tertiary);
+    width:30px;
+    height:30px;
+    color:#111;
+    background:rgba(255,255,255,.88);
+    border-radius:999px;
     cursor: grab;
     touch-action: none;
   }
@@ -514,4 +515,6 @@
   }
   .save-btn:hover:not(:disabled) { background: var(--primary-accent-hover, var(--primary-accent)); transform: translateY(-1px); }
   .save-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+  .question-reason, .learning-note { align-self:center; max-width:720px; padding:var(--space-2) var(--space-3); border-left:2px solid var(--accent); color:var(--text-secondary); font-size:.82rem; line-height:1.4; }
+  @media (max-width:760px) { .ranking-list { grid-template-columns:repeat(2,minmax(135px,1fr)); overflow-y:auto; } }
 </style>

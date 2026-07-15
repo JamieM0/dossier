@@ -63,8 +63,14 @@ class PreferencesState {
   async setRating(item: TmdbItem, rating: Rating | null): Promise<void> {
     if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
     const key = itemKey(item.medium, item.id);
+    // Rate already loads the full detail record for the visible title.
+    // Reusing it avoids a second bridge/TMDB round-trip on every click,
+    // which otherwise leaves the outgoing text hanging after the poster
+    // animation and causes a large main-thread/network spike before the
+    // next card can appear.
+    const alreadyDetailed = item.runtime != null || item.keywords.length > 0;
     const snapshot: RatedItem | undefined =
-      rating === null ? undefined : toRatedItem(await enrichItem(item));
+      rating === null ? undefined : toRatedItem(alreadyDetailed ? item : await enrichItem(item));
     const { ratings } = await window.dossier.preferences.setRating(key, rating, snapshot);
     this.ratings = ratings;
   }
