@@ -97,13 +97,19 @@ describe("enrichItem / enrichItems", () => {
 describe("applyGenreDials", () => {
   it("is a no-op when every dial is at its neutral default (50)", () => {
     const items = [mkItem(1, { genres: ["Action"] }), mkItem(2, { genres: ["Comedy"] })];
-    const result = applyGenreDials(items, { Action: 50, Comedy: 50 }, () => 0.3);
+    const result = applyGenreDials(items, { Action: 50, Comedy: 50 }, {}, () => 0.3);
     expect(result).toBe(items);
   });
 
   it("is a no-op when no dial values are supplied at all", () => {
     const items = [mkItem(1, { genres: ["Action"] }), mkItem(2, { genres: ["Comedy"] })];
-    const result = applyGenreDials(items, {}, () => 0.3);
+    const result = applyGenreDials(items, {}, {}, () => 0.3);
+    expect(result).toBe(items);
+  });
+
+  it("is a no-op when only genre dials are neutral but tag dials are also all neutral", () => {
+    const items = [mkItem(1, { genres: ["Action"], keywords: ["swordplay"] })];
+    const result = applyGenreDials(items, {}, { swordplay: 50 }, () => 0.3);
     expect(result).toBe(items);
   });
 
@@ -113,7 +119,7 @@ describe("applyGenreDials", () => {
     const rng = () => 0.5;
     const action = mkItem(1, { genres: ["Action"] });
     const comedy = mkItem(2, { genres: ["Comedy"] });
-    const result = applyGenreDials([comedy, action], { Action: 100, Comedy: 50 }, rng);
+    const result = applyGenreDials([comedy, action], { Action: 100, Comedy: 50 }, {}, rng);
     expect(result[0]).toBe(action);
     expect(result[1]).toBe(comedy);
   });
@@ -122,7 +128,7 @@ describe("applyGenreDials", () => {
     const rng = () => 0.5;
     const horror = mkItem(1, { genres: ["Horror"] });
     const comedy = mkItem(2, { genres: ["Comedy"] });
-    const result = applyGenreDials([horror, comedy], { Horror: 1, Comedy: 50 }, rng);
+    const result = applyGenreDials([horror, comedy], { Horror: 1, Comedy: 50 }, {}, rng);
     expect(result[0]).toBe(comedy);
     expect(result[1]).toBe(horror);
   });
@@ -134,15 +140,77 @@ describe("applyGenreDials", () => {
     const mixed = mkItem(1, { genres: ["Action", "Horror"] });
     const neutral = mkItem(2, { genres: ["Comedy"] });
     const lowered = mkItem(3, { genres: ["Horror"] });
-    const result = applyGenreDials([mixed, neutral, lowered], { Action: 100, Horror: 1, Comedy: 50 }, rng);
+    const result = applyGenreDials([mixed, neutral, lowered], { Action: 100, Horror: 1, Comedy: 50 }, {}, rng);
     expect(result.indexOf(neutral)).toBeLessThan(result.indexOf(lowered));
     expect(result.indexOf(mixed)).toBeLessThan(result.indexOf(lowered));
   });
 
   it("never hard-filters an item out, even at the lowest dial position", () => {
     const items = Array.from({ length: 5 }, (_, i) => mkItem(i, { genres: ["Horror"] }));
-    const result = applyGenreDials(items, { Horror: 1 }, Math.random);
+    const result = applyGenreDials(items, { Horror: 1 }, {}, Math.random);
     expect(result).toHaveLength(items.length);
     expect(new Set(result)).toEqual(new Set(items));
+  });
+
+  it("a raised TAG dial boosts items carrying that tag, even with 0 genre dials set", () => {
+    // The user's whole point: a rare tag like swordplay should still
+    // surface its items when dialled up, regardless of genre dials.
+    const rng = () => 0.5;
+    const swordplay = mkItem(1, { genres: ["Action"], keywords: ["swordplay", "donghua"] });
+    const neutral = mkItem(2, { genres: ["Comedy"], keywords: ["romance"] });
+    const result = applyGenreDials([neutral, swordplay], {}, { swordplay: 100 }, rng);
+    expect(result[0]).toBe(swordplay);
+    expect(result[1]).toBe(neutral);
+  });
+
+  it("a lowered TAG dial sinks items carrying that tag", () => {
+    const rng = () => 0.5;
+    const swordplay = mkItem(1, { genres: ["Action"], keywords: ["swordplay"] });
+    const neutral = mkItem(2, { genres: ["Comedy"], keywords: ["romance"] });
+    const result = applyGenreDials([swordplay, neutral], {}, { swordplay: 1 }, rng);
+    expect(result[0]).toBe(neutral);
+    expect(result[1]).toBe(swordplay);
+  });
+
+  it("a tag dial has FULL effect on an item with many undialled keywords (no dilution)", () => {
+    // The reason tagDialMultiplier averages ONLY non-neutral dials, not
+    // all keywords: a 15-keyword item with one dialled tag (swordplay:100)
+    // should still get a full 2x boost, not 1.07x.
+    const rng = () => 0.5;
+    const manyKeywords = mkItem(1, {
+      genres: ["Drama"],
+      keywords: ["swordplay", "k1", "k2", "k3", "k4", "k5", "k6", "k7", "k8", "k9", "k10", "k11", "k12", "k13", "k14"]
+    });
+    const neutral = mkItem(2, { genres: ["Comedy"] });
+    const result = applyGenreDials([neutral, manyKeywords], {}, { swordplay: 100 }, rng);
+    expect(result[0]).toBe(manyKeywords);
+  });
+
+  it("genre and tag multipliers combine multiplicatively", () => {
+    // Action:100 (2x genre) + swordplay:100 (2x tag) = 4x combined;
+    // Action:100 (2x) + no tag dial = 2x. The first should beat the second.
+    const rng = () => 0.5;
+    const both = mkItem(1, { genres: ["Action"], keywords: ["swordplay"] });
+    const genreOnly = mkItem(2, { genres: ["Action"] });
+    const result = applyGenreDials([genreOnly, both], { Action: 100 }, { swordplay: 100 }, rng);
+    expect(result[0]).toBe(both);
+    expect(result[1]).toBe(genreOnly);
+  });
+
+  it("a raised tag cannot fully rescue a heavily-lowered tag on the same item (avg within tags)", () => {
+    // swordplay:100 + romance:1 → avg of non-neutral = (2 + 0.02)/2 ≈ 1.01,
+    // effectively neutral. Matches the "averages multiple genres" semantics.
+    const rng = () => 0.5;
+    const mixed = mkItem(1, { genres: ["Drama"], keywords: ["swordplay", "romance"] });
+    const lowered = mkItem(2, { genres: ["Drama"], keywords: ["romance"] });
+    const neutral = mkItem(3, { genres: ["Drama"] });
+    const result = applyGenreDials(
+      [mixed, neutral, lowered],
+      {},
+      { swordplay: 100, romance: 1 },
+      rng
+    );
+    expect(result.indexOf(mixed)).toBeLessThan(result.indexOf(lowered));
+    expect(result.indexOf(neutral)).toBeLessThan(result.indexOf(lowered));
   });
 });

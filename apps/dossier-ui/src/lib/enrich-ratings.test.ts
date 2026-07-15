@@ -12,13 +12,13 @@ function features(over: Partial<FeatureVector> = {}): FeatureVector {
   return v as FeatureVector;
 }
 
-function entry(id: number, feats: FeatureVector): RatingEntry {
+function entry(id: number, feats: FeatureVector, keywords: string[] = []): RatingEntry {
   return {
     rating: 1,
     ts: Date.now(),
     item: {
       key: `movie:${id}`, medium: "movie", id, title: `Title ${id}`, year: 2015,
-      posterPath: null, voteAverage: 7, genres: ["Drama"], features: feats
+      posterPath: null, voteAverage: 7, genres: ["Drama"], keywords, features: feats
     }
   };
 }
@@ -33,8 +33,9 @@ describe("upgradeExistingRatings", () => {
   });
 
   it("re-saves only entries whose fresh detail() vector differs from what's stored", async () => {
-    const alreadyGood = entry(1, features({ tone: -0.9 }));
-    const stale = entry(2, features({ tone: 0 })); // coarse/list-only vector on record
+    // Item 1 is fully up-to-date (vector AND keywords already match a fresh fetch).
+    const alreadyGood = entry(1, features({ tone: -0.9 }), ["revenge"]);
+    const stale = entry(2, features({ tone: 0 })); // coarse/list-only vector + no keywords on record
 
     preferences.ratings = {
       [alreadyGood.item.key]: alreadyGood,
@@ -63,6 +64,31 @@ describe("upgradeExistingRatings", () => {
     // Only the stale entry's key should have been re-saved through the bridge.
     const savedKeys = setRating.mock.calls.map((c) => c[0]);
     expect(savedKeys).toEqual([stale.item.key]);
+  });
+
+  it("re-saves entries whose stored keywords differ, even when the feature vector already matches", async () => {
+    // The new backfill case: a snapshot from before RatedItem.keywords
+    // existed. Its vector is fine but its keyword list is empty.
+    const noKeywords = entry(1, features({ tone: -0.9 })); // keywords: [] (default)
+
+    preferences.ratings = { [noKeywords.item.key]: noKeywords };
+
+    const detail = vi.fn(async () => ({
+      id: 1, medium: "movie", title: "Title 1", year: 2015, voteAverage: 7, voteCount: 10,
+      popularity: 1, genreIds: [], genres: ["Drama"], posterPath: null, overview: "",
+      runtime: 100, keywords: ["swordplay", "donghua"], features: features({ tone: -0.9 })
+    }));
+    const setRating = vi.fn(async (key: string, rating: RatingEntry["rating"], item?: RatingEntry["item"]) => {
+      if (item) preferences.ratings = { ...preferences.ratings, [key]: { rating, item, ts: Date.now() } };
+      return { ratings: preferences.ratings };
+    });
+    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { setRating } } };
+
+    const result = await upgradeExistingRatings(4);
+    expect(result.upgraded).toBe(1);
+    expect(setRating).toHaveBeenCalledTimes(1);
+    expect(setRating.mock.calls[0][0]).toBe(noKeywords.item.key);
+    expect(setRating.mock.calls[0][2]?.keywords).toEqual(["swordplay", "donghua"]);
   });
 
   it("is a no-op when every stored vector already matches a fresh fetch", async () => {

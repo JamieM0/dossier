@@ -3,7 +3,7 @@
   import { buildRatingQueue } from "$lib/discovery";
   import { preferences } from "$lib/state/preferences.svelte";
   import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
-  import { rateDials, notInterestedGenreCounts } from "$lib/state/rate-dials.svelte";
+  import { rateDials } from "$lib/state/rate-dials.svelte";
   import { posterUrl } from "$lib/poster";
   import {
     itemKey,
@@ -220,11 +220,11 @@
 
   let actionError = $state<string | null>(null);
   let dialsOpen = $state(false);
-  // Set when a genre's not-interested count just crossed its pattern
-  // threshold (see rateDials.checkForPattern) — shows the "You seem to
-  // not care about X" confirmation popup. Never more than one queued at
-  // once: a fresh crossing while one is already showing is dropped.
-  let patternPrompt = $state<{ genre: string; count: number } | null>(null);
+  // Set when a tag's don't-care rate (over all seen titles with that
+  // tag) just cleared RATE_THRESHOLD — shows the "Adjust your dials?"
+  // confirmation popup. Never more than one queued at once: a fresh
+  // crossing while one is already showing is dropped.
+  let patternPrompt = $state<{ tag: string; dontCare: number; seen: number } | null>(null);
 
   // Mirrors the hover-lit look when the same action is triggered via its
   // keyboard shortcut, so the button gives feedback without requiring the
@@ -251,22 +251,33 @@
     loadingQueue = true;
     queueError = null;
     try {
-      const page = await buildRatingQueue(
-        catalogueMode.medium,
-        preferences.excludedKeys(),
-        queuePage,
-        rateDials.values
-      );
-      queuePage += 1;
-      // Dedupe against what we already hold.
-      const have = new Set(queue.map((i) => itemKey(i.medium, i.id)));
-      const fresh = page.filter((i) => !have.has(itemKey(i.medium, i.id)));
-      // Only reassign when something new actually arrived: `queue` is
-      // reactive state, so `[...queue]` would still count as "changed"
-      // (new array reference) even with nothing appended, keeps
-      // re-triggering the low-queue top-up effect below, and spins
-      // forever once the candidate pool is exhausted.
-      if (fresh.length > 0) queue = [...queue, ...fresh];
+      // Pull pages until we find something fresh OR TMDB runs dry. Without
+      // this loop, a single all-duplicate page (common once the user has
+      // rated through a chunk of what trending/popular/acclaimed surface)
+      // would leave the queue stuck below the low-water mark and the user
+      // staring at the "That's everything" empty state even though more
+      // titles exist on later pages. Capped so a runaway TMDB query can't
+      // spin indefinitely.
+      const MAX_PAGE_ATTEMPTS = 3;
+      for (let attempt = 0; attempt < MAX_PAGE_ATTEMPTS; attempt++) {
+        const page = await buildRatingQueue(
+          catalogueMode.medium,
+          preferences.excludedKeys(),
+          queuePage,
+          rateDials.values,
+          rateDials.tagValues
+        );
+        queuePage += 1;
+        if (page.length === 0) break; // TMDB exhausted for this medium
+        // Dedupe against what we already hold.
+        const have = new Set(queue.map((i) => itemKey(i.medium, i.id)));
+        const fresh = page.filter((i) => !have.has(itemKey(i.medium, i.id)));
+        if (fresh.length > 0) {
+          queue = [...queue, ...fresh];
+          break;
+        }
+        // Page had items but all were already in our queue — try the next.
+      }
     } catch (err) {
       queueError = err instanceof Error ? err.message : String(err);
     } finally {
@@ -276,7 +287,9 @@
 
   onMount(() => {
     void preferences.hydrate();
-    void Promise.all([rateDials.hydrateFromDesktop(), rateDials.ensureGenres()]);
+    void Promise.all([rateDials.hydrateFromDesktop(), rateDials.ensureGenres()]).then(() => {
+      rateDials.ensureTags(preferences.entries());
+    });
   });
 
   // Reset and refill the queue whenever the medium changes. Only the
@@ -347,10 +360,11 @@
       pinned = null;
 
       if (action === "not_interested" && !patternPrompt) {
-        const genre = rateDials.checkForPattern(preferences.entries());
-        if (genre) {
-          const count = notInterestedGenreCounts(preferences.entries()).get(genre) ?? 0;
-          patternPrompt = { genre, count };
+        const entries = preferences.entries();
+        rateDials.ensureTags(entries);
+        const tally = rateDials.checkForPattern(entries);
+        if (tally) {
+          patternPrompt = { tag: tally.tag, dontCare: tally.dontCare, seen: tally.seen };
         }
       }
 
@@ -370,9 +384,9 @@
 
   async function resolvePatternPrompt(accepted: boolean): Promise<void> {
     if (!patternPrompt) return;
-    const { genre, count } = patternPrompt;
+    const { tag, seen } = patternPrompt;
     patternPrompt = null;
-    await rateDials.resolvePattern(genre, count, accepted);
+    await rateDials.resolvePattern(tag, seen, accepted);
   }
 
   async function undo(): Promise<void> {
@@ -476,8 +490,8 @@
           class="dials-top"
           class:active={!rateDials.isDefault}
           onclick={() => (dialsOpen = true)}
-          aria-label="Tune genre dials"
-          title="Genre dials"
+          aria-label="Tune rate dials"
+          title="Rate dials"
         >
           <IconFadersRegular class="icon-20" />
         </button>
@@ -509,9 +523,9 @@
   {/if}
 
   <div class="stage">
-    {#if !preferences.loaded || (visibleQueue.length === 0 && loadingQueue)}
+    {#if !preferences.loaded || (visibleQueue.length === 0 && loadingQueue) || (visibleQueue.length > 0 && !displayedItem)}
       <p class="muted">Loading titles…</p>
-    {:else if !displayedItem}
+    {:else if visibleQueue.length === 0 && !displayedItem}
       <div class="empty">
         <h2>That's everything for now.</h2>
         <p>You've rated the titles we pulled in. Check your recommendations, or come back later for fresh picks.</p>
@@ -652,7 +666,7 @@
 {#if patternPrompt}
   <ConfirmDialog
     title="Adjust your dials?"
-    message={`You've marked ${patternPrompt.count} ${patternPrompt.genre} titles as "don't care about." Turn down the ${patternPrompt.genre} dial?`}
+    message={`You've marked ${patternPrompt.dontCare} of ${patternPrompt.seen} "${patternPrompt.tag}" titles as "don't care about." Turn down the ${patternPrompt.tag} dial?`}
     confirmLabel="Yes"
     cancelLabel="No"
     onConfirm={() => void resolvePatternPrompt(true)}

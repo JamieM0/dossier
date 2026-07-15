@@ -2,9 +2,23 @@
   import { onMount } from "svelte";
   import IconXBold from "phosphor-icons-svelte/IconXBold.svelte";
   import IconArrowCounterClockwiseRegular from "phosphor-icons-svelte/IconArrowCounterClockwiseRegular.svelte";
+  import IconMagnifyingGlassRegular from "phosphor-icons-svelte/IconMagnifyingGlassRegular.svelte";
   import { rateDials } from "$lib/state/rate-dials.svelte";
 
   let { onClose }: { onClose: () => void } = $props();
+
+  // Search filters the tag list. Empty query shows every tag (the set
+  // is open-ended but bounded by what the user has actually rated, so
+  // there's no artificial cap to render). Substring, case-insensitive.
+  let query = $state("");
+
+  // Filter once per keystroke; cheap because the tag set is at most a
+  // few hundred entries for a heavy rater.
+  const visibleTags = $derived.by(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return rateDials.tags;
+    return rateDials.tags.filter((t) => t.toLowerCase().includes(q));
+  });
 
   onMount(() => {
     function handleKey(e: KeyboardEvent): void {
@@ -32,8 +46,8 @@
   >
     <header class="head">
       <div>
-        <h2 id="rate-dials-panel-title">Genre Dials</h2>
-        <p class="sub">Turn a genre up to see more of it while rating, or down to see less. Left neutral, a genre is unaffected.</p>
+        <h2 id="rate-dials-panel-title">Rate Dials</h2>
+        <p class="sub">Turn a genre or tag up to see more of it while rating, or down to see less. Left neutral, it's unaffected.</p>
       </div>
       <button class="close" aria-label="Close" onclick={onClose}>
         <IconXBold class="icon-16" />
@@ -41,27 +55,76 @@
     </header>
 
     <div class="body">
-      <div class="rows two-col">
-        {#each rateDials.genres as genre (genre)}
-          <div class="row">
-            <div class="row-head">
-              <span class="label">{genre}</span>
-              <span class="value">{rateDials.valueFor(genre)}</span>
+      <section class="group">
+        <h3 class="group-title">Genres</h3>
+        <div class="rows two-col">
+          {#each rateDials.genres as genre (genre)}
+            <div class="row">
+              <div class="row-head">
+                <span class="label">{genre}</span>
+                <span class="value">{rateDials.valueFor(genre)}</span>
+              </div>
+              <input
+                class="slider"
+                type="range"
+                min="1"
+                max="100"
+                step="1"
+                value={rateDials.valueFor(genre)}
+                oninput={(e) => rateDials.set(genre, Number(e.currentTarget.value))}
+                onchange={() => rateDials.persist()}
+                aria-label={`${genre} genre dial`}
+              />
             </div>
-            <input
-              class="slider"
-              type="range"
-              min="1"
-              max="100"
-              step="1"
-              value={rateDials.valueFor(genre)}
-              oninput={(e) => rateDials.set(genre, Number(e.currentTarget.value))}
-              onchange={() => rateDials.persist()}
-              aria-label={genre}
-            />
+          {/each}
+        </div>
+      </section>
+
+      {#if rateDials.tags.length > 0}
+        <section class="group">
+          <div class="group-head">
+            <h3 class="group-title">Tags</h3>
+            <span class="group-meta">{rateDials.tags.length} from your library</span>
           </div>
-        {/each}
-      </div>
+
+          <label class="search">
+            <IconMagnifyingGlassRegular class="icon-16 search-icon" />
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search tags"
+              value={query}
+              oninput={(e) => (query = e.currentTarget.value)}
+            />
+          </label>
+
+          {#if visibleTags.length === 0}
+            <p class="empty">No tags match "{query}".</p>
+          {:else}
+            <div class="rows two-col">
+              {#each visibleTags as tag (tag)}
+                <div class="row">
+                  <div class="row-head">
+                    <span class="label">{tag}</span>
+                    <span class="value">{rateDials.tagValueFor(tag)}</span>
+                  </div>
+                  <input
+                    class="slider"
+                    type="range"
+                    min="1"
+                    max="100"
+                    step="1"
+                    value={rateDials.tagValueFor(tag)}
+                    oninput={(e) => rateDials.setTag(tag, Number(e.currentTarget.value))}
+                    onchange={() => rateDials.persist()}
+                    aria-label={`${tag} tag dial`}
+                  />
+                </div>
+              {/each}
+            </div>
+          {/if}
+        </section>
+      {/if}
     </div>
 
     <footer class="foot">
@@ -143,6 +206,62 @@
     padding: var(--space-4) var(--space-5);
     overflow-y: auto;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .group-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+  .group-title {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  .group-meta {
+    font-size: 0.7rem;
+    color: var(--text-tertiary, var(--text-secondary));
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0 var(--space-2);
+    background: var(--base-tertiary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary); /* icon inherits via currentColor */
+  }
+  .search:focus-within {
+    border-color: var(--accent);
+  }
+  .search-input {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    padding: var(--space-2) 0;
+    font-family: inherit;
+  }
+  .search-input::placeholder { color: var(--text-secondary); }
+  .empty {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    padding: var(--space-3) 0;
+    text-align: center;
   }
   .rows { display: flex; flex-direction: column; gap: var(--space-3); }
   .rows.two-col {
@@ -158,7 +277,14 @@
     justify-content: space-between;
     gap: var(--space-2);
   }
-  .label { font-size: 0.82rem; color: var(--text-primary); }
+  .label {
+    font-size: 0.82rem;
+    color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: calc(100% - 3ch);
+  }
   .value {
     font-variant-numeric: tabular-nums;
     font-size: 0.75rem;

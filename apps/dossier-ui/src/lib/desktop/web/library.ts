@@ -47,7 +47,8 @@ const DEFAULT_SETTINGS: Record<string, unknown> = {
   recommendationDials: {},
   refineGroupSize: 2,
   rateGenreDials: {},
-  rateGenrePatternState: {}
+  rateTagDials: {},
+  rateTagPatternState: {}
 };
 
 type WebVault = {

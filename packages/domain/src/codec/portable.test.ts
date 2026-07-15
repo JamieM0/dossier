@@ -23,6 +23,7 @@ function sampleState(): PersistedState {
       posterPath: "/poster.jpg",
       voteAverage: 8.4,
       genres: ["Action", "Science Fiction"],
+      keywords: ["dream", "heist"],
       features: { pacing: 0.7, tone: -0.3 }
     }
   };
@@ -63,5 +64,26 @@ describe("portable library codec", () => {
     const b = await exportLibrary(sampleState(), "pw");
     expect(a.ciphertext).not.toBe(b.ciphertext);
     expect(a.kdf.salt).not.toBe(b.kdf.salt);
+  });
+
+  it("backfills `keywords: []` onto RatedItems from a pre-keywords export", async () => {
+    // Hand-construct a state whose rated item lacks the `keywords` field
+    // entirely, simulating an export from before the field existed. Use
+    // encrypt→decrypt so importLibrary's withDefaults runs.
+    const legacy = createDefaultState();
+    legacy.ratings["movie:1"] = {
+      rating: 1,
+      ts: 1,
+      // Intentionally no `keywords` property.
+      item: {
+        key: "movie:1", medium: "movie", id: 1, title: "Old",
+        year: 2000, posterPath: null, voteAverage: 7,
+        genres: ["Drama"], features: {}
+      }
+    } as PersistedState["ratings"][string];
+
+    const envelope = await exportLibrary(legacy, "pw");
+    const restored = await importLibrary(envelope, "pw");
+    expect(restored.ratings["movie:1"]?.item.keywords).toEqual([]);
   });
 });

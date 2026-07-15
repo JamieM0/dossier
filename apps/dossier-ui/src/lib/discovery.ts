@@ -79,58 +79,104 @@ export async function enrichItems(items: TmdbItem[], concurrency = 8): Promise<T
   return mapWithConcurrency(items, concurrency, enrichItem);
 }
 
-/** Neutral position for a Rate screen genre dial — mirrors
+/** Neutral position for a Rate screen dial — mirrors
  * RATE_DIAL_DEFAULT in state/rate-dials.svelte.ts. Kept as a local
  * constant (rather than importing the Svelte store module) so this data
  * module has no framework/runes dependency. */
-const GENRE_DIAL_NEUTRAL = 50;
+const DIAL_NEUTRAL = 50;
 
-/** True only when every dial is sitting at its neutral default — the
- * "neutral dials never affect anything" rule from rate-dials means this
- * must be a real no-op, not just a weight of ~1 for every item. */
-function allGenreDialsNeutral(dialValues: Record<string, number>): boolean {
-  return Object.values(dialValues).every((v) => v === GENRE_DIAL_NEUTRAL);
+/** True only when every dial — genres AND tags — is sitting at its
+ * neutral default. The "neutral dials never affect anything" rule from
+ * rate-dials means this must be a real no-op, not just a weight of ~1
+ * for every item. */
+function allDialsNeutral(
+  genreDialValues: Record<string, number>,
+  tagDialValues: Record<string, number>
+): boolean {
+  return (
+    Object.values(genreDialValues).every((v) => v === DIAL_NEUTRAL) &&
+    Object.values(tagDialValues).every((v) => v === DIAL_NEUTRAL)
+  );
 }
 
-/** An item's relative "chance of being seen" multiplier: the average,
- * across its genres, of each genre's dial value relative to neutral
- * (50 → 1x, 100 → 2x, 1 → 0.02x). Genres with no dial recorded count as
- * neutral (1x). */
-function genreDialMultiplier(item: TmdbItem, dialValues: Record<string, number>): number {
+/** An item's genre-dial multiplier: the average, across its genres, of
+ *  each genre's dial value relative to neutral (50 → 1x, 100 → 2x,
+ *  1 → 0.02x). Genres with no dial recorded count as neutral (1x).
+ *
+ *  Unchanged from when this was the only kind of dial: items rarely
+ *  carry more than three genres, so averaging across all of them (incl.
+ *  ones the user hasn't dial-adjusted, treated as neutral) is the right
+ *  blend — one raised + one lowered neutralises, matching the
+ *  "averages multiple genres" test. */
+function genreDialMultiplier(item: TmdbItem, genreDialValues: Record<string, number>): number {
   if (item.genres.length === 0) return 1;
-  const sum = item.genres.reduce((acc, g) => acc + (dialValues[g] ?? GENRE_DIAL_NEUTRAL) / GENRE_DIAL_NEUTRAL, 0);
+  const sum = item.genres.reduce((acc, g) => acc + (genreDialValues[g] ?? DIAL_NEUTRAL) / DIAL_NEUTRAL, 0);
   return sum / item.genres.length;
 }
 
+/** An item's tag-dial multiplier: the average, across ONLY the
+ *  non-neutral tag dials on this item's keywords, of dial/neutral.
+ *  Returns 1 when the user hasn't dial-adjusted any of this item's
+ *  tags (or the item has no keywords).
+ *
+ *  Why non-neutral only (unlike genres, which average across all of
+ *  them): items can carry 5-20 TMDB keywords, and the user will only
+ *  ever have dial-adjusted a handful across their whole library. The
+ *  undialed majority would dilute the dialled minority into
+ *  statistical noise. Restricting to actually-dialled tags means
+ *  raising a single tag dial — `swordplay:100` on a 15-keyword item —
+ *  still produces a full 2x boost for any item tagged swordplay. */
+function tagDialMultiplier(item: TmdbItem, tagDialValues: Record<string, number>): number {
+  if (!item.keywords || item.keywords.length === 0) return 1;
+  let sum = 0;
+  let count = 0;
+  for (const k of item.keywords) {
+    const v = tagDialValues[k];
+    if (v === undefined || v === DIAL_NEUTRAL) continue;
+    sum += v / DIAL_NEUTRAL;
+    count++;
+  }
+  if (count === 0) return 1;
+  return sum / count;
+}
+
 /** Biases which items surface first according to the Rate screen's
- * genre dials — a raised dial makes its genre more likely to appear
- * early, a lowered one less likely, but nothing is ever hard-filtered
- * out (weights only approach, never reach, zero). Implemented as a
- * weighted random permutation (Efraimidis-Spirakis A-ES: sort by
- * `random() ** (1/weight)` descending) so the effect is probabilistic
- * rather than a deterministic re-sort. No-ops when every dial is
- * neutral, per rate-dials' "defaults never affect anything" rule. */
+ *  dials — a raised dial makes its genre/tag more likely to appear
+ *  early, a lowered one less likely, but nothing is ever hard-filtered
+ *  out (weights only approach, never reach, zero). Genre and tag
+ *  multipliers combine multiplicatively so neither axis can drown the
+ *  other out: a tag dial has full effect when genre dials are neutral
+ *  (the common case) and vice versa. Implemented as a weighted random
+ *  permutation (Efraimidis-Spirakis A-ES: sort by
+ *  `random() ** (1/weight)` descending) so the effect is probabilistic
+ *  rather than a deterministic re-sort. No-ops when every dial is
+ *  neutral, per rate-dials' "defaults never affect anything" rule. */
 export function applyGenreDials(
   items: TmdbItem[],
-  dialValues: Record<string, number>,
+  genreDialValues: Record<string, number>,
+  tagDialValues: Record<string, number> = {},
   rng: () => number = Math.random
 ): TmdbItem[] {
-  if (items.length <= 1 || allGenreDialsNeutral(dialValues)) return items;
+  if (items.length <= 1 || allDialsNeutral(genreDialValues, tagDialValues)) return items;
   return items
-    .map((item) => ({ item, key: Math.pow(rng(), 1 / Math.max(0.0001, genreDialMultiplier(item, dialValues))) }))
+    .map((item) => {
+      const mult = genreDialMultiplier(item, genreDialValues) * tagDialMultiplier(item, tagDialValues);
+      return { item, key: Math.pow(rng(), 1 / Math.max(0.0001, mult)) };
+    })
     .sort((a, b) => b.key - a.key)
     .map(({ item }) => item);
 }
 
 /** The rating queue: recognisable titles first so calibration starts on
  * films people are likely to have seen. Trending + popular + a slice of
- * acclaimed titles, deduped, then biased by the Rate screen's genre
- * dials (see applyGenreDials). */
+ * acclaimed titles, deduped, then biased by the Rate screen's dials
+ * (see applyGenreDials). */
 export async function buildRatingQueue(
   medium: TmdbMedium,
   excludeKeys: Set<string>,
   page = 1,
-  genreDialValues: Record<string, number> = {}
+  genreDialValues: Record<string, number> = {},
+  tagDialValues: Record<string, number> = {}
 ): Promise<TmdbItem[]> {
   const api = tmdb();
   const [trending, popular, acclaimed] = await Promise.all([
@@ -146,7 +192,7 @@ export async function buildRatingQueue(
   for (let i = 0; i < max; i++) {
     for (const list of lists) if (list[i]) merged.push(list[i]);
   }
-  return applyGenreDials(dedupeExclude(merged, excludeKeys), genreDialValues);
+  return applyGenreDials(dedupeExclude(merged, excludeKeys), genreDialValues, tagDialValues);
 }
 
 /** Derive the user's strongest genres from their liked items, weighted

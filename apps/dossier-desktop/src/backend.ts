@@ -58,7 +58,8 @@ type DossierSettings = {
   recommendationDials: Record<string, number>;
   refineGroupSize: number;
   rateGenreDials: Record<string, number>;
-  rateGenrePatternState: Record<string, { baseline: number; threshold: number }>;
+  rateTagDials: Record<string, number>;
+  rateTagPatternState: Record<string, { baseline: number; threshold: number }>;
   [key: string]: unknown;
 };
 
@@ -74,7 +75,8 @@ const defaultSettings: DossierSettings = {
   recommendationDials: {},
   refineGroupSize: 2,
   rateGenreDials: {},
-  rateGenrePatternState: {}
+  rateTagDials: {},
+  rateTagPatternState: {}
 };
 
 type BackendReadyPayload = {
@@ -98,6 +100,7 @@ type RatedItem = {
   posterPath: string | null;
   voteAverage: number | null;
   genres: string[];
+  keywords: string[];
   features: Record<string, number>;
 };
 type RatingEntry = { rating: Rating; item: RatedItem; ts: number };

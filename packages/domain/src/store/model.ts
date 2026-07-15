@@ -58,6 +58,11 @@ export type RatedItem = {
   posterPath: string | null;
   voteAverage: number | null;
   genres: string[];
+  /** TMDB keyword tags at rating time (e.g. "swordplay", "donghua").
+   *  Empty for snapshots written before this field existed —
+   *  enrich-ratings backfills them on first launch. Used by the Rate
+   *  screen's tag dials + "adjust your dials?" pattern prompt. */
+  keywords: string[];
   /** Entertainment lens vector at rating time. */
   features: Record<string, number>;
 };
@@ -104,12 +109,25 @@ export function createDefaultState(): PersistedState {
 
 /** Merge missing top-level fields onto loaded state so older on-disk
  * files (written before ratings/pairwise/skipped existed) get filled in
- * with empty defaults instead of crashing on read. */
+ * with empty defaults instead of crashing on read. Also fills
+ * per-RatedItem `keywords` (added later than the snapshot format) so
+ * downstream readers can assume the field is always present. */
 export function withDefaults(state: PersistedState): PersistedState {
+  const ratings: RatingsMap = {};
+  for (const [k, entry] of Object.entries(state.ratings ?? {})) {
+    if (!entry?.item) {
+      ratings[k] = entry;
+      continue;
+    }
+    ratings[k] = {
+      ...entry,
+      item: { ...entry.item, keywords: entry.item.keywords ?? [] }
+    };
+  }
   return {
     schemaVersion: state.schemaVersion ?? SCHEMA_VERSION,
     settings: state.settings ?? {},
-    ratings: state.ratings ?? {},
+    ratings,
     pairwise: state.pairwise ?? [],
     skipped: state.skipped ?? []
   };
