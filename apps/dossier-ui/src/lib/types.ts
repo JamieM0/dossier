@@ -25,7 +25,41 @@ export type DossierSettings = {
   /** Per-tag "you seem to not care about X" pattern-prompt bookkeeping
    *  — see TagPatternState / $lib/state/rate-dials.svelte.ts. */
   rateTagPatternState: Record<string, TagPatternState>;
+  remoteAccess?: RemoteAccessSettings;
   [key: string]: unknown;
+};
+
+export type RemoteTransport = "tailscale" | "direct" | "lan";
+
+export type RemoteDevice = {
+  id: string;
+  name: string;
+  browser: string;
+  approvedAt: number;
+  lastSeenAt: number;
+};
+
+export type RemoteAccessSettings = {
+  enabled: boolean;
+  transport: RemoteTransport | null;
+  /** Public/LAN origin produced by the transport helper. Never contains a credential. */
+  origin: string | null;
+  devices: RemoteDevice[];
+};
+
+export type RemoteAccessStatus = {
+  phase: "idle" | "starting" | "authorizing" | "enabling_funnel" | "verifying" | "ready" | "error";
+  transport: RemoteTransport | null;
+  origin: string | null;
+  pairingUrl: string | null;
+  authUrl: string | null;
+  approvalUrl: string | null;
+  error: string | null;
+  message: string | null;
+  localPort: number | null;
+  certificateUrl: string | null;
+  pendingDevices: Array<{ id: string; name: string; browser: string; requestedAt: number }>;
+  devices: RemoteDevice[];
 };
 
 /** A film's rating value, stored as a signed sentinel. The Rate screen's

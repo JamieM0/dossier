@@ -1,5 +1,6 @@
 import { invoke } from "@tauri-apps/api/core";
 import { installWebApi } from "./web/index.js";
+import { installRemoteApi } from "./remote/index.js";
 import type {
   DossierSettings,
   PairwiseChoice,
@@ -11,6 +12,7 @@ import type {
   TmdbItem,
   TmdbMedium
 } from "$lib/types";
+import type { RemoteAccessStatus, RemoteTransport } from "$lib/types";
 
 function isTauriRuntime(): boolean {
   return typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
@@ -56,6 +58,17 @@ export function installDesktopApi(): void {
       set: (next: Partial<DossierSettings>): Promise<DossierSettings> => invoke("settings_set", { next }),
       getStartOnLogin: (): Promise<boolean> => invoke("settings_get_start_on_login"),
       setStartOnLogin: (enabled: boolean): Promise<boolean> => invoke("settings_set_start_on_login", { enabled })
+    },
+    remoteAccess: {
+      status: (): Promise<RemoteAccessStatus> => invoke("remote_access_status"),
+      start: (transport: RemoteTransport, options: Record<string, unknown> = {}): Promise<RemoteAccessStatus> =>
+        invoke("remote_access_start", { transport, options }),
+      verify: (): Promise<RemoteAccessStatus> => invoke("remote_access_verify"),
+      approve: (id: string): Promise<RemoteAccessStatus> => invoke("remote_access_approve", { id }),
+      revoke: (id: string): Promise<RemoteAccessStatus> => invoke("remote_access_revoke", { id }),
+      newPairingCode: (): Promise<RemoteAccessStatus> => invoke("remote_access_new_pairing_code"),
+      stop: (): Promise<RemoteAccessStatus> => invoke("remote_access_stop"),
+      openAuthorizationUrl: (url: string): Promise<void> => invoke("open_remote_access_url", { url })
     },
     preferences: {
       get: (): Promise<PreferencesPayload> => invoke("preferences_get"),
@@ -114,6 +127,8 @@ export function installDesktopApi(): void {
 export function installBridge(): void {
   if (isTauriRuntime()) {
     installDesktopApi();
+  } else if (typeof window !== "undefined" && window.__DOSSIER_REMOTE__ === true) {
+    installRemoteApi();
   } else {
     installWebApi();
   }

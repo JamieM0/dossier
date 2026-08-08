@@ -83,4 +83,8 @@
     border-radius: var(--radius-sm);
   }
   .close:hover { background: var(--base-tertiary); color: var(--text-primary); }
+  @media(max-width:760px){
+    .toaster{left:12px;right:12px;bottom:calc(78px + env(safe-area-inset-bottom))}
+    .toast{width:100%;min-width:0;max-width:none;overflow-wrap:anywhere}
+  }
 </style>

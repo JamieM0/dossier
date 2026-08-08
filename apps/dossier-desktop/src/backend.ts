@@ -40,6 +40,7 @@ console.log = log;
 console.error = logError;
 
 import { pathToFileURL } from "node:url";
+import { RemoteAccessManager } from "./remote-access.js";
 
 /** TMDB media kinds. Kept as a local union so the backend has no direct
  * import of @dossier/domain — all domain logic flows through the
@@ -175,6 +176,7 @@ let settingsCache: DossierSettings = { ...defaultSettings };
 /** Cached TMDB client, rebuilt only when the stored token changes. The
  * client owns the long-lived metadata disk cache under the data dir. */
 let tmdbClient: { token: string; client: TmdbClientPort } | null = null;
+let remoteAccess: RemoteAccessManager | null = null;
 
 async function getTmdbClient(): Promise<TmdbClientPort> {
   if (!storeService || !storeModule) throw new ControlError(500, "INTERNAL", "store unavailable");
@@ -276,6 +278,57 @@ function createControlRequestHandler() {
           throw new ControlError(400, "BAD_REQUEST", "next settings payload is required");
         }
         sendJson(res, 200, persistSettings(body.next));
+        return;
+      }
+
+      // --- Host-only remote access lifecycle ---------------------------
+      if (method === "GET" && path === "/control/remote-access/status") {
+        if (!remoteAccess) throw new ControlError(500, "INTERNAL", "remote-access manager unavailable");
+        sendJson(res, 200, remoteAccess.status());
+        return;
+      }
+
+      if (method === "POST" && path === "/control/remote-access/start") {
+        if (!remoteAccess) throw new ControlError(500, "INTERNAL", "remote-access manager unavailable");
+        const payload = await readJsonBody(req) as { transport?: string; options?: Record<string, unknown> };
+        if (payload.transport !== "tailscale" && payload.transport !== "direct" && payload.transport !== "lan") {
+          throw new ControlError(400, "BAD_REQUEST", "transport must be tailscale, direct, or lan");
+        }
+        sendJson(res, 200, await remoteAccess.start(payload.transport, payload.options ?? {}));
+        return;
+      }
+
+      if (method === "POST" && path === "/control/remote-access/verify") {
+        if (!remoteAccess) throw new ControlError(500, "INTERNAL", "remote-access manager unavailable");
+        sendJson(res, 200, await remoteAccess.verifyDirect());
+        return;
+      }
+
+      if (method === "POST" && path === "/control/remote-access/approve") {
+        if (!remoteAccess) throw new ControlError(500, "INTERNAL", "remote-access manager unavailable");
+        const payload = await readJsonBody(req) as { id?: string };
+        if (typeof payload.id !== "string") throw new ControlError(400, "BAD_REQUEST", "device id is required");
+        sendJson(res, 200, remoteAccess.approve(payload.id));
+        return;
+      }
+
+      if (method === "POST" && path === "/control/remote-access/revoke") {
+        if (!remoteAccess) throw new ControlError(500, "INTERNAL", "remote-access manager unavailable");
+        const payload = await readJsonBody(req) as { id?: string };
+        if (typeof payload.id !== "string") throw new ControlError(400, "BAD_REQUEST", "device id is required");
+        sendJson(res, 200, remoteAccess.revoke(payload.id));
+        return;
+      }
+
+      if (method === "POST" && path === "/control/remote-access/new-pairing-code") {
+        if (!remoteAccess) throw new ControlError(500, "INTERNAL", "remote-access manager unavailable");
+        sendJson(res, 200, remoteAccess.newPairingCode());
+        return;
+      }
+
+      if (method === "POST" && path === "/control/remote-access/stop") {
+        if (!remoteAccess) throw new ControlError(500, "INTERNAL", "remote-access manager unavailable");
+        sendJson(res, 200, await remoteAccess.stop(true));
         return;
       }
 
@@ -495,7 +548,9 @@ function createControlRequestHandler() {
 
       if (method === "POST" && path === "/control/shutdown") {
         sendJson(res, 200, { ok: true });
-        process.nextTick(() => process.exit(0));
+        process.nextTick(() => {
+          void remoteAccess?.stop(false).finally(() => process.exit(0));
+        });
         return;
       }
 
@@ -539,6 +594,7 @@ async function loadStoreModule(): Promise<StoreModulePort> {
 }
 
 async function bootstrap(): Promise<void> {
+  const desktopParentPid = process.ppid;
   const inputDataDir = process.argv[2];
   if (!inputDataDir) {
     throw new Error("Backend bootstrap requires a data directory argument");
@@ -557,7 +613,21 @@ async function bootstrap(): Promise<void> {
   };
   storeService.updateSettings(settingsCache);
 
-  const controlServer = createServer(createControlRequestHandler());
+  const controlHandler = createControlRequestHandler();
+  const uiDir = process.env.DOSSIER_UI_DIST ?? join(process.cwd(), "..", "dossier-ui", "build");
+  const helperPath = process.env.DOSSIER_REMOTE_HELPER ?? join(process.cwd(), "..", "dossier-remote", "dossier-remote");
+  remoteAccess = new RemoteAccessManager(
+    dataDir,
+    uiDir,
+    helperPath,
+    controlHandler,
+    process.env.DOSSIER_CONTROL_TOKEN_OVERRIDE ?? controlToken,
+    () => settingsCache,
+    (next) => persistSettings(next as Partial<DossierSettings>)
+  );
+  await remoteAccess.restore();
+
+  const controlServer = createServer(controlHandler);
 
   await new Promise<void>((resolve, reject) => {
     controlServer.once("error", reject);
@@ -571,11 +641,26 @@ async function bootstrap(): Promise<void> {
 
   writeReady({ type: "ready", controlPort: address.port, controlToken });
 
+  let shutdownStarted = false;
+  let parentWatch: ReturnType<typeof setInterval> | null = null;
   const shutdown = (): void => {
-    controlServer.close(() => process.exit(0));
+    if (shutdownStarted) return;
+    shutdownStarted = true;
+    if (parentWatch) clearInterval(parentWatch);
+    void remoteAccess?.stop(false).finally(() => controlServer.close(() => process.exit(0)));
   };
   process.on("SIGINT", shutdown);
   process.on("SIGTERM", shutdown);
+  if (desktopParentPid > 1) {
+    parentWatch = setInterval(() => {
+      try {
+        process.kill(desktopParentPid, 0);
+      } catch {
+        shutdown();
+      }
+    }, 2_000);
+    parentWatch.unref();
+  }
 }
 
 if (process.env.DOSSIER_BACKEND_SKIP_BOOTSTRAP !== "1") {

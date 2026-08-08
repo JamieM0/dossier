@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   let {
     title,
     message,
@@ -19,9 +20,13 @@
     onCancel: () => void;
   }>();
 
-  let value = $state(initialValue);
+  let value = $state("");
   let inputRef = $state<HTMLInputElement | null>(null);
   let modalRef = $state<HTMLElement | null>(null);
+
+  onMount(() => {
+    value = initialValue;
+  });
 
   $effect(() => {
     inputRef?.focus();

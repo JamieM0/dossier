@@ -9,17 +9,20 @@ import type {
   TmdbListResult,
   TmdbMedium
 } from "$lib/types";
+import type { RemoteAccessStatus, RemoteTransport } from "$lib/types";
 
 declare module "phosphor-icons-svelte";
 
 declare global {
   interface Window {
+    /** Injected by the host's dedicated remote gateway before the app bundle. */
+    __DOSSIER_REMOTE__?: true;
     dossier?: {
       /** Which runtime is backing this bridge. "app" = the installed Tauri
        * desktop app (keychain-encrypted store, Node backend); "web" = the
        * no-install browser build (passphrase-encrypted File System Access
        * vault). UI differentiators gate on this. */
-      platform: "app" | "web";
+      platform: "app" | "web" | "remote";
       app: { getVersion: () => Promise<string> };
       window: { show: () => Promise<void>; hide: () => Promise<void>; quit: () => Promise<void> };
       updater: {
@@ -35,6 +38,16 @@ declare global {
         set: (next: Partial<DossierSettings>) => Promise<DossierSettings>;
         getStartOnLogin: () => Promise<boolean>;
         setStartOnLogin: (enabled: boolean) => Promise<boolean>;
+      };
+      remoteAccess?: {
+        status: () => Promise<RemoteAccessStatus>;
+        start: (transport: RemoteTransport, options?: Record<string, unknown>) => Promise<RemoteAccessStatus>;
+        verify: () => Promise<RemoteAccessStatus>;
+        approve: (id: string) => Promise<RemoteAccessStatus>;
+        revoke: (id: string) => Promise<RemoteAccessStatus>;
+        newPairingCode: () => Promise<RemoteAccessStatus>;
+        stop: () => Promise<RemoteAccessStatus>;
+        openAuthorizationUrl: (url: string) => Promise<void>;
       };
       preferences: {
         get: () => Promise<PreferencesPayload>;

@@ -517,8 +517,8 @@
   .onboard h2 { font-family: var(--font-display); color: var(--text-primary); margin: 0; }
   .onboard p { color: var(--text-secondary); margin: 0; }
   .cta {
-    background: var(--accent);
-    color: var(--accent-contrast, white);
+    background: var(--primary-accent);
+    color: var(--primary-accent-text);
     border: none;
     padding: var(--space-3) var(--space-5);
     border-radius: var(--radius-md);
@@ -548,4 +548,14 @@
   .snapshot-columns p { margin:var(--space-2) 0 0; font-size:.84rem; }
   .snapshot-columns small { display:block; color:var(--text-tertiary); }
   .snapshot-columns button { border:0; background:transparent; color:var(--accent); padding:2px 0; cursor:pointer; font-size:.75rem; }
+  @media(max-width:720px){
+    .screen{padding:16px 14px 24px;gap:16px}
+    .header{align-items:flex-start;gap:12px}.header h1{font-size:1.45rem}.sub{font-size:.82rem}
+    .header-actions{flex-shrink:0}.filter-btn{padding:9px 11px}.filter-btn span{display:none}
+    .taste-snapshot{grid-template-columns:1fr;gap:14px;padding:14px}
+    .snapshot-columns{grid-template-columns:1fr;gap:12px}
+    .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .row-track{margin-inline:-14px;padding-inline:14px;scroll-padding-inline:14px}
+    .row-tile{flex-basis:min(44vw,172px);width:min(44vw,172px)}
+  }
 </style>

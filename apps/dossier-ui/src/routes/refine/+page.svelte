@@ -204,17 +204,19 @@
 <svelte:window on:keydown={handleKey} />
 
 <section class="screen">
-  <header class="header">
-    {#if effectiveGroupSize > 2}
-      <h1>Rank your favorites</h1>
-      <p class="hint">Arrange from least preferred to most preferred · drag or use the arrows</p>
-    {:else}
-      <h1>Which do you prefer?</h1>
-      <p class="hint">
-        <kbd>←</kbd> left · <kbd>→</kbd> right · pairwise refinement sharpens your weights
-      </p>
-    {/if}
-  </header>
+  {#if !preferences.loaded || ratedCount >= 2}
+    <header class="header">
+      {#if effectiveGroupSize > 2}
+        <h1>Rank your favorites</h1>
+        <p class="hint">Arrange from least preferred to most preferred · drag or use the arrows</p>
+      {:else}
+        <h1>Which do you prefer?</h1>
+        <p class="hint">
+          <kbd>←</kbd> left · <kbd>→</kbd> right · pairwise refinement sharpens your weights
+        </p>
+      {/if}
+    </header>
+  {/if}
   {#if learningResult}<p class="learning-note" aria-live="polite"><strong>What Dossier learned:</strong> {learningResult}</p>{/if}
 
   {#if preferences.error}
@@ -516,5 +518,11 @@
   .save-btn:hover:not(:disabled) { background: var(--primary-accent-hover, var(--primary-accent)); transform: translateY(-1px); }
   .save-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
   .question-reason, .learning-note { align-self:center; max-width:720px; padding:var(--space-2) var(--space-3); border-left:2px solid var(--accent); color:var(--text-secondary); font-size:.82rem; line-height:1.4; }
-  @media (max-width:760px) { .ranking-list { grid-template-columns:repeat(2,minmax(135px,1fr)); overflow-y:auto; } }
+  @media (max-width:760px) {
+    .screen{height:auto;min-height:100%;padding:16px 14px 24px;gap:14px}
+    .header h1{font-size:1.3rem}.hint{font-size:.76rem}.empty{padding-top:clamp(40px,15dvh,120px)}
+    .duel{gap:10px;align-items:start}.caption{padding:10px}.caption h3{font-size:.9rem}.meta{font-size:.72rem}.match-badge{padding:4px 9px;font-size:.68rem}
+    .ranking-list{grid-template-columns:repeat(2,minmax(0,1fr));overflow-y:auto;overflow-x:hidden;padding-inline:0;gap:10px}
+    .ranking-actions{align-items:stretch;flex-direction:column}.save-btn{width:100%;min-height:44px}
+  }
 </style>

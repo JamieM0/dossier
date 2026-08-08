@@ -8,12 +8,30 @@
   import { preferences } from "$lib/state/preferences.svelte";
   import PromptDialog from "$lib/components/PromptDialog.svelte";
   import MigrationStepsModal from "$lib/components/MigrationStepsModal.svelte";
+  import MobileAccessModal from "$lib/components/MobileAccessModal.svelte";
   import { downloadTextFile, pickTextFile, defaultExportFilename } from "$lib/desktop/file-transfer";
+  import type { RemoteAccessSettings, RemoteAccessStatus, RemoteTransport } from "$lib/types";
+  import IconDevicesRegular from "phosphor-icons-svelte/IconDevicesRegular.svelte";
 
   let tmdbToken = $state("");
   let tmdbStatus = $state("");
 
   const isWeb = typeof window !== "undefined" && window.dossier?.platform === "web";
+  const isHost = typeof window !== "undefined" && window.dossier?.platform === "app";
+  const isRemote = typeof window !== "undefined" && window.dossier?.platform === "remote";
+  let mobileAccessOpen = $state(false);
+  let remoteAccess = $state<RemoteAccessSettings>({ enabled: false, transport: null, origin: null, devices: [] });
+
+  const transportLabels: Record<RemoteTransport, string> = {
+    tailscale: "Tailscale Funnel",
+    direct: "Direct HTTPS",
+    lan: "Local Network (LAN)"
+  };
+  const transportDescriptions: Record<RemoteTransport, string> = {
+    tailscale: "Available away from home through your Tailscale account, with no router configuration.",
+    direct: "Connects to this computer through your own HTTPS domain and network configuration.",
+    lan: "Available only to approved devices on the same local network."
+  };
 
   // --- Library export / import -------------------------------------------
   let libraryStatus = $state("");
@@ -76,7 +94,35 @@
 
   onMount(() => {
     void tmdbState.refresh();
+    if (isHost) {
+      void (async () => {
+        const settings = await window.dossier?.settings.get();
+        if (settings?.remoteAccess) remoteAccess = settings.remoteAccess;
+        const live = await window.dossier?.remoteAccess?.status();
+        if (live) configuredRemoteAccess(live);
+      })();
+    }
   });
+
+  function configuredRemoteAccess(status: RemoteAccessStatus): void {
+    const ready = status.phase === "ready";
+    remoteAccess = {
+      enabled: ready,
+      transport: ready ? status.transport : null,
+      origin: ready ? status.origin : null,
+      devices: status.devices
+    };
+  }
+
+  async function disableRemoteAccess(): Promise<void> {
+    try {
+      await window.dossier?.remoteAccess?.stop();
+      remoteAccess = { enabled: false, transport: null, origin: null, devices: [] };
+      setLifecycleStatus("Mobile access disabled and all device approvals revoked.");
+    } catch (error) {
+      setLifecycleStatus(errorToMessage(error));
+    }
+  }
 
   async function saveTmdbToken(): Promise<void> {
     if (!tmdbToken.trim()) return;
@@ -165,6 +211,13 @@
 <section class="settings-view">
   <div class="settings-content">
     <h1 class="page-heading">Settings</h1>
+
+    {#if isRemote}
+      <div class="remote-boundary" role="note">
+        <strong>Personal settings only</strong>
+        <span>Connection, credentials, transfers, updates, device approvals and power controls are managed on your Dossier PC.</span>
+      </div>
+    {/if}
 
     {#if lifecycleStatus}
       <p class="lifecycle-status" aria-live="polite">{lifecycleStatus}</p>
@@ -282,6 +335,25 @@
         </div>
       </section>
 
+      {#if isHost}
+        <section class="settings-section mobile-access-section">
+          <h2 class="section-heading">Mobile access</h2>
+          <div class="mobile-access-card">
+            <span class="mobile-access-icon"><IconDevicesRegular class="icon-32" /></span>
+            <div class="mobile-access-copy">
+              <strong>{remoteAccess.transport ? transportLabels[remoteAccess.transport] : "Take Dossier with you"}</strong>
+              <span>{remoteAccess.transport ? transportDescriptions[remoteAccess.transport] : "Open the same private library on an approved phone. No Dossier-hosted account or cloud library."}</span>
+              <small>TLS ends on this computer. Relays can observe connection metadata, but cannot decrypt your Dossier data.</small>
+            </div>
+            <div class="mobile-access-actions">
+              <button class="primary-btn" onclick={() => (mobileAccessOpen = true)}>{remoteAccess.transport ? "Change route" : "Set up"}</button>
+              {#if remoteAccess.transport}<button class="text-btn danger" onclick={() => void disableRemoteAccess()}>Turn off</button>{/if}
+            </div>
+          </div>
+        </section>
+      {/if}
+
+      {#if isHost || isWeb}
       <section class="settings-section">
         <h2 class="section-heading">System</h2>
 
@@ -343,7 +415,9 @@
           </div>
         {/if}
       </section>
+      {/if}
 
+      {#if isHost || isWeb}
       <section class="settings-section">
         <h2 class="section-heading">TMDB</h2>
         <div class="setting-group">
@@ -388,7 +462,9 @@
           </button>
         </div>
       </section>
+      {/if}
 
+      {#if !isRemote}
       <section class="settings-section">
         <h2 class="section-heading">Library</h2>
         <div class="setting-group">
@@ -429,6 +505,7 @@
           </div>
         {/if}
       </section>
+      {/if}
     </div>
   </div>
 </section>
@@ -459,15 +536,29 @@
   <MigrationStepsModal direction="to-app" onClose={() => (migrateModalOpen = false)} />
 {/if}
 
+{#if mobileAccessOpen}
+  <MobileAccessModal onConfigured={configuredRemoteAccess} onClose={() => (mobileAccessOpen = false)} />
+{/if}
+
 <style>
   .settings-view { min-height: 100vh; background: var(--base); }
   .settings-content { max-width: var(--content-max-width); margin: 0 auto; padding: var(--space-10) var(--space-8) var(--space-16); }
   .page-heading { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; color: var(--text-primary); margin-bottom: var(--space-8); }
   .lifecycle-status { font-family: var(--font-body); font-size: 0.9rem; line-height: 1.5; padding: var(--space-3) var(--space-4); border-radius: var(--radius-sm); background: var(--info-subtle); color: var(--info); margin-bottom: var(--space-6); }
+  .remote-boundary { display:flex; flex-direction:column; gap:3px; padding:var(--space-4); margin-bottom:var(--space-5); border:1px solid var(--border-subtle); border-radius:var(--radius-md); background:var(--base-secondary); }
+  .remote-boundary strong { font-family:var(--font-display); font-size:.9rem; }
+  .remote-boundary span { color:var(--text-tertiary); font-size:.76rem; line-height:1.45; }
   .settings-sections { display: flex; flex-direction: column; }
   .settings-section { padding: var(--space-8) 0; border-bottom: 1px solid var(--border-subtle); }
   .settings-section:last-child { border-bottom: none; }
   .section-heading { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--text-primary); margin-bottom: var(--space-6); }
+  .mobile-access-card { display:grid; grid-template-columns:56px 1fr auto; gap:var(--space-4); align-items:center; padding:var(--space-5); border:1px solid color-mix(in srgb,var(--primary-accent) 28%,var(--border-subtle)); border-radius:var(--radius-lg); background:linear-gradient(135deg,color-mix(in srgb,var(--primary-accent) 7%,var(--base-secondary)),var(--base-secondary)); }
+  .mobile-access-icon { width:56px; height:56px; display:grid; place-items:center; border-radius:14px; color:var(--primary-accent); background:var(--base); box-shadow:var(--shadow-sm); }
+  .mobile-access-copy { display:flex; flex-direction:column; gap:4px; }
+  .mobile-access-copy strong { font-family:var(--font-display); }
+  .mobile-access-copy span { color:var(--text-secondary); font-size:.82rem; line-height:1.4; }
+  .mobile-access-copy small { color:var(--text-tertiary); font-size:.69rem; line-height:1.4; margin-top:4px; }
+  .mobile-access-actions { display:flex; flex-direction:column; align-items:stretch; gap:7px; }
   .setting-group { margin-bottom: var(--space-5); }
   .setting-label { display: block; font-family: var(--font-body); font-size: 0.9375rem; font-weight: 500; line-height: 1.5; color: var(--text-primary); margin-bottom: var(--space-3); }
   .setting-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
@@ -520,4 +611,5 @@
   .stepper-btn:hover:not(:disabled) { background: var(--base); transform: translateY(-1px); }
   .stepper-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
   .stepper-value { min-width: 1.5ch; text-align: center; font-variant-numeric: tabular-nums; font-size: 0.9rem; color: var(--text-primary); }
+  @media(max-width:640px){ .settings-content{padding:var(--space-6) var(--space-4) 110px}.mobile-access-card{grid-template-columns:48px 1fr}.mobile-access-icon{width:48px;height:48px}.mobile-access-actions{grid-column:1/-1;flex-direction:row}.setting-row{align-items:flex-start}.theme-grid{grid-template-columns:repeat(4,1fr)} }
 </style>

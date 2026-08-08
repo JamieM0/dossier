@@ -38,16 +38,17 @@
 
   // Start from the (possibly coarse) list item, enrich with the full
   // detail fetch (keywords, runtime, full overview) when it arrives.
-  let detail = $state<TmdbItem>(item);
+  let detail = $state<TmdbItem | null>(null);
+  const current = $derived(detail ?? item);
   let loadError = $state<string | null>(null);
 
-  const poster = $derived(posterUrl(detail.posterPath, "w500"));
-  const rating = $derived(detail.voteAverage ? detail.voteAverage.toFixed(1) : null);
-  const decade = $derived(detail.year ? `${Math.floor(detail.year / 10) * 10}s` : null);
+  const poster = $derived(posterUrl(current.posterPath, "w500"));
+  const rating = $derived(current.voteAverage ? current.voteAverage.toFixed(1) : null);
+  const decade = $derived(current.year ? `${Math.floor(current.year / 10) * 10}s` : null);
 
   function run(handler: ((i: TmdbItem) => void | Promise<void>) | undefined): void {
     if (!handler) return;
-    void handler(detail);
+    void handler(current);
     onClose();
   }
 
@@ -108,27 +109,27 @@
       </div>
 
       <div class="info">
-        <h2 class="title" id="movie-modal-title">{detail.title}</h2>
+        <h2 class="title" id="movie-modal-title">{current.title}</h2>
         <p class="meta">
-          {#if detail.year}<span>{detail.year}</span>{/if}
+          {#if current.year}<span>{current.year}</span>{/if}
           {#if decade}<span class="dot">·</span><span>{decade}</span>{/if}
           {#if rating}<span class="dot">·</span><span>★ {rating}</span>{/if}
-          {#if detail.runtime}<span class="dot">·</span><span>{detail.runtime} min</span>{/if}
+          {#if current.runtime}<span class="dot">·</span><span>{current.runtime} min</span>{/if}
         </p>
 
-        {#if detail.genres.length > 0}
-          <p class="genres">{detail.genres.join(" · ")}</p>
+        {#if current.genres.length > 0}
+          <p class="genres">{current.genres.join(" · ")}</p>
         {/if}
 
         {#if loadError}
           <p class="error">Couldn't load full details: {loadError}</p>
         {/if}
-        {#if detail.overview}
-          <p class="story">{detail.overview}</p>
+        {#if current.overview}
+          <p class="story">{current.overview}</p>
         {/if}
-        {#if detail.keywords && detail.keywords.length > 0}
+        {#if current.keywords && current.keywords.length > 0}
           <div class="chips">
-            {#each detail.keywords.slice(0, 12) as theme}
+            {#each current.keywords.slice(0, 12) as theme}
               <span class="chip">{theme}</span>
             {/each}
           </div>

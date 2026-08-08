@@ -170,6 +170,12 @@ export function installMockDossier(seed?: MockDossierSeed): void {
     }
     return merged;
   }
+  const idleRemote = () => ({
+    phase: "idle", transport: null, origin: null, pairingUrl: null, authUrl: null,
+    approvalUrl: null, error: null, message: null, localPort: null, certificateUrl: null,
+    pendingDevices: [], devices: []
+  });
+  let remoteStatus: Record<string, unknown> = idleRemote();
 
   (window as unknown as { dossier: unknown }).dossier = {
     platform: "app",
@@ -183,6 +189,26 @@ export function installMockDossier(seed?: MockDossierSeed): void {
       },
       getStartOnLogin: () => Promise.resolve(false),
       setStartOnLogin: (e: boolean) => Promise.resolve(e)
+    },
+    remoteAccess: {
+      status: () => Promise.resolve(remoteStatus),
+      start: (transport: "tailscale" | "direct" | "lan") => {
+        remoteStatus = transport === "tailscale"
+          ? { ...idleRemote(), phase: "authorizing", transport, authUrl: "https://login.tailscale.com/a/mock-dossier", message: "Authorize Dossier in the browser" }
+          : transport === "direct"
+            ? { ...idleRemote(), phase: "verifying", transport, origin: "https://dossier.example.com", localPort: 48732, message: "Verify Direct HTTPS" }
+            : { ...idleRemote(), phase: "ready", transport, origin: "https://192.168.1.20:48731", pairingUrl: "https://192.168.1.20:48731/pair?code=mock", certificateUrl: "http://192.168.1.20:48730/dossier-lan-ca.crt", message: "Scan the pairing code" };
+        return Promise.resolve(remoteStatus);
+      },
+      verify: () => Promise.resolve(remoteStatus),
+      approve: () => Promise.resolve(remoteStatus),
+      revoke: () => Promise.resolve(remoteStatus),
+      newPairingCode: () => Promise.resolve(remoteStatus),
+      stop: () => { remoteStatus = idleRemote(); return Promise.resolve(remoteStatus); },
+      openAuthorizationUrl: (url: string) => {
+        (window as unknown as { __openedRemoteAccessUrl: string }).__openedRemoteAccessUrl = url;
+        return Promise.resolve();
+      }
     },
     preferences: {
       get: () => Promise.resolve({ ratings, pairwise, skipped }),

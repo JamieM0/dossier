@@ -188,10 +188,13 @@
   }
   let dragging = $state(false);
   let dragX = $state(0);
+  let dragY = $state(0);
   let dragXAtCommit = $state(0);
   let dragRotAtCommit = $state(0);
   let dragPointerId: number | null = null;
   let dragStartClientX = 0;
+  let dragStartClientY = 0;
+  let lastHapticRank: RankValue = 0;
   // Live preview of the rank a release would commit right now — drives
   // the floating "stamp" label so the drag stays legible with 7 possible
   // outcomes instead of 2.
@@ -502,13 +505,22 @@
     dragging = true;
     dragPointerId = event.pointerId;
     dragStartClientX = event.clientX;
+    dragStartClientY = event.clientY;
     dragX = 0;
+    dragY = 0;
+    lastHapticRank = 0;
     (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
   }
 
   function onPosterPointerMove(event: PointerEvent): void {
     if (!dragging || event.pointerId !== dragPointerId) return;
     dragX = event.clientX - dragStartClientX;
+    dragY = event.clientY - dragStartClientY;
+    const nextRank = (Math.sign(dragX) * dragMagnitude(Math.abs(dragX))) as RankValue;
+    if (nextRank !== 0 && nextRank !== lastHapticRank) {
+      navigator.vibrate?.(Math.abs(nextRank) === 3 ? 24 : Math.abs(nextRank) === 2 ? 16 : 9);
+      lastHapticRank = nextRank;
+    }
   }
 
   function onPosterPointerUp(event: PointerEvent): void {
@@ -516,17 +528,25 @@
     // Computed from the live dragX before resetting `dragging`, since
     // dragRank (the $derived preview) goes to 0 the instant dragging
     // flips false.
+    const swipedUp = dragY < -70 && Math.abs(dragY) > Math.abs(dragX);
     const rank = (Math.sign(dragX) * dragMagnitude(Math.abs(dragX))) as RankValue;
     dragging = false;
     dragPointerId = null;
 
-    if (rank !== 0) {
+    if (swipedUp) {
+      dragX = 0;
+      dragY = 0;
+      navigator.vibrate?.(12);
+      void decide("skip");
+    } else if (rank !== 0) {
       dragXAtCommit = dragX;
       dragRotAtCommit = dragX / 24;
       dragX = 0;
+      dragY = 0;
       void decide(rankAction(rank));
     } else {
       dragX = 0;
+      dragY = 0;
     }
   }
 
@@ -647,7 +667,7 @@
             class:fade-watchlist={lastAction === "watchlist"}
             class:fade-not-interested={lastAction === "not_interested"}
             style={`--drag-x: ${(dragging ? dragX : dragXAtCommit)}px; --drag-rot: ${(dragging ? dragX / 24 : dragRotAtCommit)}deg; --exit-x: ${exitX}%; --exit-rot: ${exitRot}deg;`
-              + (dragging ? ` transform: translateX(${dragX}px) rotate(${dragX / 24}deg);` : "")}
+              + (dragging ? ` transform: translate(${dragX}px, ${Math.min(0, dragY) * .35}px) rotate(${dragX / 24}deg);` : "")}
             role="img"
             aria-label={`Poster for ${detail.title}`}
             onpointerdown={onPosterPointerDown}
@@ -715,7 +735,7 @@
                 {/each}
               </div>
               <button
-                class="action-btn"
+                class="action-btn watchlist-action"
                 class:fg-dark={btnFg[7] === "dark"}
                 class:key-lit={keyLit === "watchlist"}
                 disabled={busy}
@@ -729,7 +749,7 @@
                 <span>Add to my Watchlist</span>
               </button>
               <button
-                class="action-btn"
+                class="action-btn skip-action"
                 class:fg-dark={btnFg[8] === "dark"}
                 class:key-lit={keyLit === "skip"}
                 disabled={busy}
@@ -743,7 +763,7 @@
                 <span>I haven't seen it</span>
               </button>
               <button
-                class="action-btn"
+                class="action-btn not-interested-action"
                 class:fg-dark={btnFg[9] === "dark"}
                 class:key-lit={keyLit === "not_interested"}
                 disabled={busy}
@@ -1167,6 +1187,33 @@
     letter-spacing: 0.03em;
     opacity: 0.75;
     line-height: 1;
+  }
+
+  @media (max-width: 760px) {
+    .screen { height:auto; min-height:100%; padding:12px 14px 18px; gap:10px; background:linear-gradient(180deg,var(--base-secondary),var(--base) 34%); }
+    .header { gap:2px; }
+    .header h1 { font-size:1.15rem; }
+    .hint-anchor { visibility:hidden; }
+    .count { font-size:.7rem; }
+    .stage { overflow:visible; padding:4px 0 0; }
+    .layout { display:flex; flex-direction:column; gap:12px; max-width:430px; }
+    .poster-wrap { width:min(76vw,330px); max-height:48dvh; margin:0 auto; border-radius:20px; touch-action:none; box-shadow:0 18px 50px color-mix(in srgb,var(--text-primary) 22%,transparent); }
+    .poster { max-height:48dvh; }
+    .info { display:grid; grid-template-columns:1fr auto; gap:2px 8px; }
+    .title { font-size:1.3rem; }
+    .meta { justify-self:end; font-size:.78rem; }
+    .genres { grid-column:1/-1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .overview { grid-column:1/-1; font-size:.82rem; line-height:1.45; display:-webkit-box; line-clamp:2; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; margin-top:5px; }
+    .chips { display:none; }
+    .actions { grid-column:1/-1; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:12px; }
+    .rank-scale { display:none; }
+    .action-btn { min-width:0; height:58px; padding:8px 5px; flex-direction:column; justify-content:center; gap:3px; border-radius:18px; text-align:center; font-size:.62rem; line-height:1.05; background:color-mix(in srgb,var(--base-secondary) 92%,transparent); }
+    .action-btn :global(svg) { font-size:22px; }
+    .not-interested-action { order:1; color:var(--error); }
+    .watchlist-action { order:2; color:var(--primary-accent); }
+    .skip-action { order:3; color:var(--text-secondary); }
+    .previous-learning, .selection-reason, .stop-note { display:none; }
+    .drag-stamp { top:18px; }
   }
 
   .empty { text-align: center; max-width: 360px; margin: var(--space-7) auto 0; }

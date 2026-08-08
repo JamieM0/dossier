@@ -20,11 +20,12 @@
     onClose: () => void;
   } = $props();
 
-  const defaultMin = decadeOptions[0] ?? 1900;
-  const defaultMax = decadeOptions[decadeOptions.length - 1] ?? 2020;
+  let minDecade = $state<number>(1900);
+  let maxDecade = $state<number>(2020);
 
-  let minDecade = $state<number>(filters.decadeRange?.[0] ?? defaultMin);
-  let maxDecade = $state<number>(filters.decadeRange?.[1] ?? defaultMax);
+  function bounds(): [number, number] {
+    return [decadeOptions[0] ?? 1900, decadeOptions[decadeOptions.length - 1] ?? 2020];
+  }
 
   // Keep min <= max as the user fiddles with the selects.
   $effect(() => {
@@ -32,17 +33,22 @@
   });
 
   function apply(): void {
+    const [defaultMin, defaultMax] = bounds();
     const isDefault = minDecade === defaultMin && maxDecade === defaultMax;
     onApply({ decadeRange: isDefault ? null : [minDecade, maxDecade] });
     onClose();
   }
 
   function reset(): void {
+    const [defaultMin, defaultMax] = bounds();
     minDecade = defaultMin;
     maxDecade = defaultMax;
   }
 
   onMount(() => {
+    const [defaultMin, defaultMax] = bounds();
+    minDecade = filters.decadeRange?.[0] ?? defaultMin;
+    maxDecade = filters.decadeRange?.[1] ?? defaultMax;
     function handleKey(e: KeyboardEvent): void {
       if (e.key === "Escape") { e.preventDefault(); onClose(); }
     }

@@ -222,4 +222,32 @@
   .nav-label {
     flex: 1;
   }
+
+  @media (max-width: 760px) {
+    .sidebar {
+      position: fixed;
+      z-index: 80;
+      inset: auto 0 0;
+      width: 100%;
+      min-width: 100%;
+      height: calc(66px + env(safe-area-inset-bottom));
+      border: 0;
+      border-top: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+      background: color-mix(in srgb, var(--base-secondary) 88%, transparent);
+      backdrop-filter: blur(18px) saturate(1.25);
+      -webkit-backdrop-filter: blur(18px) saturate(1.25);
+      box-shadow: 0 -8px 28px color-mix(in srgb, var(--text-primary) 8%, transparent);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    .sidebar.collapsed { width: 100%; min-width: 100%; }
+    .sidebar-inner { width: 100%; height: 66px; }
+    .sidebar-header, .sidebar-divider, .mode-switch { display: none; }
+    .sidebar-nav { display: grid; grid-template-columns: repeat(5, 1fr); padding: 5px 6px 4px; overflow: visible; }
+    .nav-item { min-width: 0; height: 56px; padding: 0; justify-content: center; border: 0; border-radius: 13px; position: relative; color: var(--text-tertiary); }
+    .nav-item :global(svg) { font-size: 23px; }
+    .nav-item:hover { background: transparent; }
+    .nav-item.active { background: color-mix(in srgb, var(--primary-accent) 10%, transparent); color: var(--primary-accent); border: 0; }
+    .nav-item.active::after { content: ""; position: absolute; bottom: 4px; width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+    .nav-label { display: none; }
+  }
 </style>

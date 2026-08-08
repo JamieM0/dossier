@@ -4,8 +4,8 @@
   "version": "0.1.21",
   "identifier": "com.dossier.desktop",
   "build": {
-    "beforeDevCommand": "pnpm --filter @dossier/dossier-ui dev",
-    "beforeBuildCommand": "pnpm --filter @dossier/dossier-desktop run build:deps && pnpm --filter @dossier/dossier-desktop run build && pnpm --filter @dossier/dossier-ui run build",
+    "beforeDevCommand": "pnpm --filter @dossier/dossier-desktop run build:remote && pnpm --filter @dossier/dossier-ui dev",
+    "beforeBuildCommand": "pnpm --filter @dossier/dossier-desktop run build:deps && pnpm --filter @dossier/dossier-desktop run build:remote && pnpm --filter @dossier/dossier-desktop run build && pnpm --filter @dossier/dossier-ui run build",
     "devUrl": "http://127.0.0.1:5173",
     "frontendDist": "../../dossier-ui/build"
   },
@@ -38,6 +38,8 @@
     ],
     "resources": [
       "../dist/*.js",
+      "../../dossier-remote/dossier-remote",
+      "../../dossier-ui/build/**/*",
       "../../../packages/store/dist/**/*",
       "../../../packages/store/package.json"
     ]

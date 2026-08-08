@@ -249,6 +249,69 @@ fn resolve_packaged_packages_root(app: &AppHandle) -> PathBuf {
     PathBuf::from("packages")
 }
 
+fn resolve_remote_helper_path(app: &AppHandle) -> Result<PathBuf, String> {
+    if let Ok(explicit) = std::env::var("DOSSIER_REMOTE_HELPER") {
+        let candidate = PathBuf::from(explicit);
+        if candidate.is_file() {
+            return Ok(candidate);
+        }
+        return Err(format!(
+            "DOSSIER_REMOTE_HELPER does not point to a file: {}",
+            candidate.display()
+        ));
+    }
+    if cfg!(debug_assertions) {
+        let candidate =
+            PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../dossier-remote/dossier-remote");
+        if candidate.is_file() {
+            return Ok(candidate);
+        }
+    }
+    for candidate in [
+        "dossier-remote",
+        "bin/dossier-remote",
+        "_up_/_up_/dossier-remote/dossier-remote",
+    ] {
+        if let Ok(path) = app.path().resolve(candidate, BaseDirectory::Resource) {
+            if path.is_file() {
+                return Ok(path);
+            }
+        }
+    }
+    Err("failed to locate the bundled remote-access helper".to_string())
+}
+
+fn resolve_remote_ui_dir(app: &AppHandle) -> Result<PathBuf, String> {
+    if let Ok(explicit) = std::env::var("DOSSIER_UI_DIST") {
+        let candidate = PathBuf::from(explicit);
+        if candidate.join("index.html").is_file() {
+            return Ok(candidate);
+        }
+        return Err(format!(
+            "DOSSIER_UI_DIST does not contain index.html: {}",
+            candidate.display()
+        ));
+    }
+    if cfg!(debug_assertions) {
+        let candidate = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../dossier-ui/build");
+        if candidate.join("index.html").is_file() {
+            return Ok(candidate);
+        }
+    }
+    for candidate in [
+        "mobile-ui",
+        "dossier-ui/build",
+        "_up_/_up_/dossier-ui/build",
+    ] {
+        if let Ok(path) = app.path().resolve(candidate, BaseDirectory::Resource) {
+            if path.join("index.html").is_file() {
+                return Ok(path);
+            }
+        }
+    }
+    Err("failed to locate the bundled mobile UI".to_string())
+}
+
 fn resolve_node_binary() -> Result<String, String> {
     if let Ok(explicit) = std::env::var("DOSSIER_NODE_BIN") {
         return Ok(explicit);
@@ -265,7 +328,11 @@ fn resolve_node_binary() -> Result<String, String> {
         return Ok("node".to_string());
     }
 
-    let common_node_paths = ["/opt/homebrew/bin/node", "/usr/local/bin/node", "/usr/bin/node"];
+    let common_node_paths = [
+        "/opt/homebrew/bin/node",
+        "/usr/local/bin/node",
+        "/usr/bin/node",
+    ];
     for candidate in common_node_paths {
         if PathBuf::from(candidate).is_file() {
             return Ok(candidate.to_string());
@@ -295,6 +362,8 @@ fn spawn_backend(app: &AppHandle) -> Result<BackendControlClient, String> {
         } else {
             resolve_packaged_packages_root(app)
         };
+    let remote_helper = resolve_remote_helper_path(app)?;
+    let remote_ui_dir = resolve_remote_ui_dir(app)?;
 
     command
         .env(
@@ -302,6 +371,8 @@ fn spawn_backend(app: &AppHandle) -> Result<BackendControlClient, String> {
             app.package_info().version.to_string(),
         )
         .env("DOSSIER_PACKAGES_ROOT", inferred_packages_root.as_os_str())
+        .env("DOSSIER_REMOTE_HELPER", remote_helper.as_os_str())
+        .env("DOSSIER_UI_DIST", remote_ui_dir.as_os_str())
         .stdin(Stdio::null())
         .stdout(Stdio::piped());
 
@@ -473,8 +544,13 @@ async fn update_install_and_restart(app: AppHandle) -> Result<(), String> {
         return Err("auto-update is disabled by environment".to_string());
     }
 
-    let updater = app.updater().map_err(|error| format!("Updater not available: {error}"))?;
-    let update = updater.check().await.map_err(|error| format!("Update check failed: {error}"))?;
+    let updater = app
+        .updater()
+        .map_err(|error| format!("Updater not available: {error}"))?;
+    let update = updater
+        .check()
+        .await
+        .map_err(|error| format!("Update check failed: {error}"))?;
     let Some(update) = update else {
         return Ok(());
     };
@@ -605,6 +681,117 @@ async fn settings_set(next: Value, state: State<'_, RuntimeState>) -> Result<Val
 }
 
 #[tauri::command]
+async fn remote_access_status(state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(Method::GET, "/control/remote-access/status", None)
+        .await
+}
+
+#[tauri::command]
+async fn remote_access_start(
+    transport: String,
+    options: Value,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/remote-access/start",
+            Some(json!({ "transport": transport, "options": options })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn remote_access_verify(state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/remote-access/verify",
+            Some(json!({})),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn remote_access_approve(
+    id: String,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/remote-access/approve",
+            Some(json!({ "id": id })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn remote_access_revoke(id: String, state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/remote-access/revoke",
+            Some(json!({ "id": id })),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn remote_access_new_pairing_code(state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::POST,
+            "/control/remote-access/new-pairing-code",
+            Some(json!({})),
+        )
+        .await
+}
+
+#[tauri::command]
+async fn remote_access_stop(state: State<'_, RuntimeState>) -> Result<Value, String> {
+    state
+        .client
+        .request(Method::POST, "/control/remote-access/stop", Some(json!({})))
+        .await
+}
+
+#[tauri::command]
+fn open_remote_access_url(url: String) -> Result<(), String> {
+    let parsed = reqwest::Url::parse(&url).map_err(|error| format!("invalid URL: {error}"))?;
+    if parsed.scheme() != "https"
+        || !matches!(
+            parsed.host_str(),
+            Some("login.tailscale.com") | Some("tailscale.com") | Some("console.tailscale.com")
+        )
+    {
+        return Err("only Tailscale HTTPS authorization links may be opened".to_string());
+    }
+    #[cfg(target_os = "macos")]
+    let mut command = Command::new("open");
+    #[cfg(target_os = "windows")]
+    let mut command = {
+        let mut cmd = Command::new("cmd");
+        cmd.args(["/C", "start", ""]);
+        cmd
+    };
+    #[cfg(target_os = "linux")]
+    let mut command = Command::new("xdg-open");
+    command
+        .arg(url)
+        .spawn()
+        .map_err(|error| format!("failed to open browser: {error}"))?;
+    Ok(())
+}
+
+#[tauri::command]
 async fn preferences_get(state: State<'_, RuntimeState>) -> Result<Value, String> {
     state
         .client
@@ -683,7 +870,10 @@ async fn preferences_reset(state: State<'_, RuntimeState>) -> Result<Value, Stri
 // bridge to/from the no-backend web build.
 
 #[tauri::command]
-async fn library_export(passphrase: String, state: State<'_, RuntimeState>) -> Result<String, String> {
+async fn library_export(
+    passphrase: String,
+    state: State<'_, RuntimeState>,
+) -> Result<String, String> {
     let resp = state
         .client
         .request(
@@ -857,9 +1047,7 @@ async fn tmdb_detail(
 /// image bytes and a content type.
 async fn serve_poster(app: &AppHandle, uri_path: &str) -> Result<(Vec<u8>, String), String> {
     const POSTER_TTL: Duration = Duration::from_secs(90 * 24 * 60 * 60); // 90 days
-    const ALLOWED_SIZES: &[&str] = &[
-        "w92", "w154", "w185", "w342", "w500", "w780", "original",
-    ];
+    const ALLOWED_SIZES: &[&str] = &["w92", "w154", "w185", "w342", "w500", "w780", "original"];
 
     // uri_path looks like "/w780/abc123.jpg" → size="w780", file="abc123.jpg"
     let trimmed = uri_path.trim_start_matches('/');
@@ -1029,6 +1217,14 @@ fn main() {
             window_quit,
             settings_get,
             settings_set,
+            remote_access_status,
+            remote_access_start,
+            remote_access_verify,
+            remote_access_approve,
+            remote_access_revoke,
+            remote_access_new_pairing_code,
+            remote_access_stop,
+            open_remote_access_url,
             settings_get_start_on_login,
             settings_set_start_on_login,
             preferences_get,

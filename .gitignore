@@ -6,6 +6,7 @@ node_modules/
 .vite/
 dist/
 build/
+apps/dossier-remote/dossier-remote
 
 # generated updater manifest (built locally by version-bump.py)
 /latest.json

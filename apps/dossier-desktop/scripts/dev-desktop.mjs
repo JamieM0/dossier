@@ -239,6 +239,8 @@ async function main() {
   await run("pnpm run preflight:rust");
   await run("pnpm run preflight:port");
   await run("pnpm run build:deps");
+  await run("pnpm run build:remote");
+  await run("pnpm --filter @dossier/dossier-ui build");
   await run("pnpm run build");
 
   const tauriEnv = resolveTauriEnv();
