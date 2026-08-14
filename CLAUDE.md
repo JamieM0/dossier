@@ -29,6 +29,7 @@ These modules are copied into the bundle via `bundle.resources` in `apps/dossier
 
 Rules when touching the Node backend:
 - Adding a new `src/*.ts` backend module needs no config change — the `../dist/*.js` glob already covers it. Just confirm it lands in `dist/` after `pnpm run build`.
+- Adding a non-workspace package to `apps/dossier-desktop` runtime `dependencies` needs no hand-written resource entry. The desktop build runs `scripts/copy-runtime-deps.mjs`, which copies every external production dependency and its transitive closure into `dist/node_modules`; `bundle.resources` ships that whole tree. Keep both mechanisms intact and declare runtime imports under `dependencies`, never only `devDependencies`.
 - Test files (`src/**/*.test.ts`) are excluded from the build emit (see `tsconfig.json` `exclude`) so they never reach the production bundle. Keep that exclude in place.
 - If you ever change resource paths, verify a packaged build actually launches — a missing module fails at app start, not at build time.
 - The backend does **not** import `@dossier/store` or `@dossier/domain` as bare specifiers. It dynamically `import()`s `packages/store/dist/index.js` **by filesystem path** (`loadStoreModule`, keyed off `DOSSIER_PACKAGES_ROOT`). All TMDB / lens / library-export logic flows through that store module — `backend.ts` has no direct domain import.
