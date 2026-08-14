@@ -152,8 +152,117 @@ test.describe("Rate screen redesign", () => {
     await page.waitForTimeout(700);
   });
 
+  test("mobile swipe velocity conservatively promotes a nearby stage", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const poster = page.locator(".poster-wrap");
+    let box = await poster.boundingBox();
+    if (!box) throw new Error("poster not found");
+    let startX = box.x + box.width / 2;
+    let startY = box.y + box.height / 2;
+
+    // 78px is below the 88px "fairly" threshold. A deliberate drag
+    // therefore remains slight.
+    await page.mouse.move(startX, startY);
+    await page.mouse.down();
+    for (const offset of [20, 40, 60, 78]) {
+      await page.mouse.move(startX + offset, startY);
+      await page.waitForTimeout(120);
+    }
+    await expect(page.locator(".swipe-feedback .feedback-copy strong")).toHaveText("Slightly");
+    await page.mouse.up();
+    await page.waitForTimeout(700);
+
+    // The same distance reached as a flick gets a modest one-stage lift.
+    box = await poster.boundingBox();
+    if (!box) throw new Error("next poster not found");
+    startX = box.x + box.width / 2;
+    startY = box.y + box.height / 2;
+    await page.mouse.move(startX, startY);
+    await page.mouse.down();
+    await page.mouse.move(startX + 1, startY);
+    await page.waitForTimeout(12);
+    await page.mouse.move(startX + 78, startY);
+    expect(await page.locator(".swipe-feedback .feedback-copy strong").textContent()).toBe("Fairly");
+    await page.mouse.up();
+    await page.waitForTimeout(700);
+    await expect(page.getByText("2 rated")).toBeVisible();
+  });
+
+  test("mobile gesture stages stay on-screen while the poster travels freely and iOS haptics fire on release", async ({ page }, testInfo) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.evaluate(() => {
+      Object.defineProperty(navigator, "userAgent", {
+        configurable: true,
+        value: "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1"
+      });
+      (window as unknown as { __ratingHapticChanges: number }).__ratingHapticChanges = 0;
+      document.addEventListener("change", (event) => {
+        const target = event.target;
+        if (target instanceof HTMLInputElement && target.matches('input[switch]')) {
+          (window as unknown as { __ratingHapticChanges: number }).__ratingHapticChanges += 1;
+        }
+      }, true);
+    });
+
+    const poster = page.locator(".poster-wrap");
+    const box = await poster.boundingBox();
+    if (!box) throw new Error("poster not found");
+    const startX = box.x + box.width / 2;
+    const startY = box.y + box.height / 2;
+
+    await page.mouse.move(startX, startY);
+    await page.mouse.down();
+    await page.mouse.move(startX + 58, startY, { steps: 4 });
+    await expect(page.locator(".swipe-feedback .feedback-copy strong")).toHaveText("Slightly");
+    await expect(page.locator(".feedback-depth i.active")).toHaveCount(1);
+
+    await page.mouse.move(startX + 102, startY, { steps: 4 });
+    await expect(page.locator(".swipe-feedback .feedback-copy strong")).toHaveText("Fairly");
+    await expect(page.locator(".feedback-depth i.active")).toHaveCount(2);
+
+    await page.mouse.move(startX + 146, startY, { steps: 4 });
+    await expect(page.locator(".swipe-feedback .feedback-copy strong")).toHaveText("Extremely");
+    await expect(page.locator(".feedback-depth i.active")).toHaveCount(3);
+    await expect(page.locator(".swipe-atmosphere")).toHaveCSS("position", "fixed");
+
+    const hapticsDuringMove = await page.evaluate(() => (window as unknown as { __ratingHapticChanges: number }).__ratingHapticChanges);
+    expect(hapticsDuringMove).toBe(0);
+
+    const audit = await page.evaluate(() => {
+      const viewport = { width: window.innerWidth, height: window.innerHeight };
+      const feedback = document.querySelector(".swipe-feedback")?.getBoundingClientRect();
+      const posterRect = document.querySelector(".poster-wrap")?.getBoundingClientRect();
+      const visiblePosterWidth = posterRect
+        ? Math.max(0, Math.min(viewport.width, posterRect.right) - Math.max(0, posterRect.left))
+        : 0;
+      return {
+        viewport,
+        scrollY: window.scrollY,
+        feedbackFullyVisible: Boolean(feedback && feedback.left >= 0 && feedback.right <= viewport.width && feedback.top >= 0 && feedback.bottom <= viewport.height),
+        posterVisibleWidthRatio: posterRect ? Number((visiblePosterWidth / posterRect.width).toFixed(3)) : 0,
+        activeDepths: document.querySelectorAll(".feedback-depth i.active").length,
+        stage: document.querySelector(".feedback-copy strong")?.textContent
+      };
+    });
+    expect(audit.feedbackFullyVisible).toBe(true);
+    expect(audit.posterVisibleWidthRatio).toBeGreaterThan(0.5);
+    expect(audit.posterVisibleWidthRatio).toBeLessThan(0.82);
+    expect(audit.scrollY).toBe(0);
+    await testInfo.attach("mobile-swipe-audit", {
+      body: JSON.stringify(audit, null, 2),
+      contentType: "application/json"
+    });
+    await page.screenshot({ path: "test-results/rate-mobile-extreme-swipe.png" });
+
+    await page.mouse.up();
+    await expect.poll(() => page.evaluate(() => (window as unknown as { __ratingHapticChanges: number }).__ratingHapticChanges)).toBe(3);
+    await page.waitForTimeout(700);
+    await expect(page.getByText("1 rated")).toBeVisible();
+  });
+
   test("visual review: full screen and focused rank-scale screenshots", async ({ page }) => {
-    await expect(page.getByRole("heading", { name: "Rate films" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Rate what you know" })).toBeVisible();
     await expect(page.locator(".rank-scale")).toBeVisible();
     await page.screenshot({ path: "test-results/rate-redesign-full.png", fullPage: true });
     await page.locator(".actions").screenshot({ path: "test-results/rate-redesign-actions.png" });

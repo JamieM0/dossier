@@ -2,6 +2,7 @@
   import "../app.css";
   import { onMount } from "svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
+  import CommandPalette from "$lib/components/CommandPalette.svelte";
   import Toaster from "$lib/components/Toaster.svelte";
   import TmdbKeyGate from "$lib/components/TmdbKeyGate.svelte";
   import WebUnlockGate from "$lib/components/WebUnlockGate.svelte";
@@ -29,6 +30,8 @@
   let migrating = $state(false);
   let showPwaInstallPrompt = $state(false);
   let remoteConnectionError = $state<string | null>(null);
+  let commandOpen = $state(false);
+  let goSequence = false;
 
   installBridge();
 
@@ -133,6 +136,13 @@
   }
 
   function handleGlobalKeydown(event: KeyboardEvent): void {
+    const target = event.target as HTMLElement | null;
+    const typing = target?.matches("input, textarea, select, [contenteditable='true']") ?? false;
+    if (isMod(event) && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      commandOpen = !commandOpen;
+      return;
+    }
     if (isMod(event) && event.key === "/") {
       event.preventDefault();
       uiSettings.toggleSidebar();
@@ -142,10 +152,31 @@
     if (isMod(event) && event.key === ",") {
       event.preventDefault();
       void goto("/settings");
+      return;
+    }
+
+    if (!typing && event.key === "?") {
+      event.preventDefault();
+      commandOpen = true;
+      return;
+    }
+
+    if (!typing && event.key.toLowerCase() === "g") {
+      goSequence = true;
+      window.setTimeout(() => (goSequence = false), 900);
+      return;
+    }
+    if (!typing && goSequence) {
+      const routes: Record<string, string> = { d: "/", t: "/teach", y: "/dossier", l: "/library" };
+      const route = routes[event.key.toLowerCase()];
+      goSequence = false;
+      if (route) { event.preventDefault(); void goto(route); }
     }
   }
 
   onMount(() => {
+    const openCommand = () => (commandOpen = true);
+    window.addEventListener("dossier:command", openCommand);
     // Desktop: hydrate now. Web: wait for WebUnlockGate → onWebUnlocked().
     if (webUnlocked) void bootHydrate();
 
@@ -160,7 +191,9 @@
     if (window.__DOSSIER_REMOTE__ && installRequested && !isInstalled) showPwaInstallPrompt = true;
 
     // The auto-updater event only exists in the Tauri app.
-    if (window.dossier?.platform !== "app") return;
+    if (window.dossier?.platform !== "app") return () => {
+      window.removeEventListener("dossier:command", openCommand);
+    };
 
     const unlistenUpdate = listen<{ version: string; current_version: string }>("update:available", (event) => {
       if (!uiSettings.autoUpdatesEnabled) return;
@@ -173,6 +206,7 @@
 
     return () => {
       void unlistenUpdate.then((fn) => fn());
+      window.removeEventListener("dossier:command", openCommand);
     };
   });
 </script>
@@ -192,11 +226,13 @@
   </div>
 {:else}
   <div class="app-shell">
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
     <Sidebar />
 
     {#if uiSettings.sidebarCollapsed}
       <button
-        class="sidebar-reopen"
+        class="sidebar-reopen glass-control"
         onclick={() => uiSettings.toggleSidebar()}
         aria-label="Open sidebar"
       >
@@ -208,6 +244,10 @@
       {@render children?.()}
     </main>
   </div>
+{/if}
+
+{#if commandOpen}
+  <CommandPalette onClose={() => (commandOpen = false)} />
 {/if}
 
 <Toaster />
@@ -261,7 +301,12 @@
     max-width: 100vw;
     height: 100vh;
     overflow: hidden;
+    position: relative;
   }
+
+  .ambient { display:none; }
+  .ambient-one { width:440px; height:440px; right:-180px; top:-220px; background:radial-gradient(circle,color-mix(in srgb,var(--secondary-accent) 9%,transparent),transparent 68%); }
+  .ambient-two { width:380px; height:380px; left:12%; bottom:-270px; background:radial-gradient(circle,color-mix(in srgb,var(--primary-accent) 8%,transparent),transparent 70%); }
 
   .boot {
     height: 100vh;
@@ -288,7 +333,7 @@
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    background: var(--base);
+    background: transparent;
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -306,7 +351,7 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-sm);
-    background: var(--base-secondary);
+    background: var(--glass-fill-strong);
     color: var(--text-secondary);
     border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-sm);
@@ -321,7 +366,11 @@
 
   @media (max-width: 760px) {
     .app-shell { height: 100dvh; }
-    .content-area { padding-bottom: calc(66px + env(safe-area-inset-bottom)); }
+    .content-area {
+      padding-bottom: calc(58px + env(safe-area-inset-bottom));
+      scroll-padding-bottom: calc(72px + env(safe-area-inset-bottom));
+      overscroll-behavior-y: contain;
+    }
     .sidebar-reopen { display: none; }
   }
 </style>

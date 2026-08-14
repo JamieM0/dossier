@@ -15,8 +15,13 @@ test.describe("Rate dissonance mode", () => {
     await button.click();
 
     await expect(button).toHaveAttribute("aria-pressed", "true");
-    await expect(page.getByRole("heading", { name: "Dissonance" })).toBeVisible();
-    await expect(page.locator(".selection-reason")).toContainText(/\d+% taste match/);
+    await expect(page.getByRole("heading", { name: "Challenge its assumptions" })).toBeVisible();
+    const assumption = page.getByRole("complementary", { name: "What Dossier is assuming" });
+    await expect(assumption).toBeVisible();
+    await expect(assumption).toContainText("What Dossier is assuming");
+    await expect(assumption).toContainText(/because/);
+    await expect(assumption).toContainText(/positive ratings lean toward/);
+    await expect(assumption).toContainText(/\d+% taste match/);
 
     await page.getByRole("button", { name: "Extremely positive" }).click();
     const followup = page.getByRole("dialog", { name: "Unexpected response follow-up" });

@@ -91,6 +91,7 @@ test.describe("Mobile access", () => {
     const nav = page.locator(".sidebar-nav");
     await expect(nav).toBeVisible();
     await expect(nav.locator(".nav-item")).toHaveCount(5);
+    await expect(nav.locator(".nav-item").last()).toHaveText("Settings");
     await expect(page.locator(".rank-scale")).toBeHidden();
     await expect(page.locator(".actions > .action-btn:visible")).toHaveCount(3);
     await expect(page.locator(".not-interested-action")).toBeVisible();

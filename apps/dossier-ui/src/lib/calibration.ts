@@ -17,11 +17,25 @@ const AXIS_LABELS: Record<AxisKey, [string, string]> = {
   thematic_weight: ["lighter themes", "thematic weight"], character_focus: ["plot focus", "character focus"],
   moral_clarity: ["moral ambiguity", "clear moral stakes"], structure: ["conventional structure", "unusual structure"]
 };
+const AXIS_NEUTRAL_LABELS: Record<AxisKey, string> = {
+  pacing: "moderate pacing", tone: "balanced tone",
+  emotional_intensity: "moderate emotional intensity", complexity: "moderate complexity",
+  scope: "mid-scale scope", realism: "a blend of realism and fantasy",
+  thematic_weight: "moderate thematic weight", character_focus: "a balance of plot and character",
+  moral_clarity: "mixed moral clarity", structure: "moderately conventional structure"
+};
 
 function topAxisDifference(a: TmdbItem["features"], b: TmdbItem["features"]): AxisKey {
   return AXIS_KEYS.reduce((best, k) => Math.abs(a[k] - b[k]) > Math.abs(a[best] - b[best]) ? k : best);
 }
-function axisPhrase(axis: AxisKey, value: number): string { return AXIS_LABELS[axis][value >= 0 ? 1 : 0]; }
+function axisPhrase(axis: AxisKey, value: number): string {
+  if (Math.abs(value) < 0.15) return AXIS_NEUTRAL_LABELS[axis];
+  return AXIS_LABELS[axis][value > 0 ? 1 : 0];
+}
+function naturalList(parts: string[]): string {
+  if (parts.length <= 1) return parts[0] ?? "overall feature pattern";
+  return `${parts.slice(0, -1).join(", ")} and ${parts.at(-1)}`;
+}
 function familiarity(item: TmdbItem): number {
   return Math.min(1, Math.log10((item.popularity ?? 0) + 1) / 3) + Math.min(0.25, (item.voteAverage ?? 0) / 40);
 }
@@ -86,6 +100,84 @@ export function rankDissonantCandidates(
     .map((item) => ({ item, prediction: predictionFor(item, entries) }))
     .filter(({ prediction }) => prediction.evidence !== "sparse" && prediction.score <= DISSONANCE_MAX_SCORE)
     .sort((a, b) => a.prediction.score - b.prediction.score || familiarity(b.item) - familiarity(a.item));
+}
+
+/** Turns a low match score into the falsifiable claim Dissonance mode is
+ * actually testing. The scorer works from feature fingerprints, so this
+ * explanation deliberately cites the strongest feature evidence and the
+ * user's own rating history instead of merely restating "likely dislike". */
+export function dissonanceAssumptionFor(
+  item: TmdbItem,
+  entries: RatingEntry[],
+  prediction: Prediction
+): { summary: string; evidence: string[] } {
+  const positive = entries.filter((entry) => ratingWeight(entry.rating) > 0);
+  const negative = entries.filter((entry) => ratingWeight(entry.rating) < 0);
+  const bySimilarity = (a: RatingEntry, b: RatingEntry) =>
+    cosineSimilarity(item.features, b.item.features) - cosineSimilarity(item.features, a.item.features);
+  const nearestNegative = [...negative].sort(bySimilarity)[0];
+  const negativeSimilarity = nearestNegative
+    ? cosineSimilarity(item.features, nearestNegative.item.features)
+    : 0;
+
+  if (nearestNegative && negativeSimilarity >= 0.35) {
+    const sharedTraits = AXIS_KEYS
+      .filter((axis) => item.features[axis] * nearestNegative.item.features[axis] > 0.04)
+      .sort(
+        (a, b) =>
+          Math.abs(item.features[b] * nearestNegative.item.features[b]) -
+          Math.abs(item.features[a] * nearestNegative.item.features[a])
+      )
+      .slice(0, 2)
+      .map((axis) => axisPhrase(axis, item.features[axis]));
+    const traits = naturalList(
+      sharedTraits.length
+        ? sharedTraits
+        : [...AXIS_KEYS]
+            .sort((a, b) => Math.abs(item.features[b]) - Math.abs(item.features[a]))
+            .slice(0, 2)
+            .map((axis) => axisPhrase(axis, item.features[axis]))
+    );
+    return {
+      summary: `Dossier assumes this title's ${traits} will work against your taste because that combination resembles ${nearestNegative.item.title}, which you rated negatively. That evidence puts it at a ${prediction.score}% taste match.`,
+      evidence: [nearestNegative.item.key, ...sharedTraits]
+    };
+  }
+
+  const nearestPositive = [...positive].sort(bySimilarity)[0];
+  if (nearestPositive) {
+    const contrasts = AXIS_KEYS
+      .map((axis) => ({
+        axis,
+        gap: Math.abs(item.features[axis] - nearestPositive.item.features[axis]),
+        itemPhrase: axisPhrase(axis, item.features[axis]),
+        preferredPhrase: axisPhrase(axis, nearestPositive.item.features[axis])
+      }))
+      .filter(({ gap, itemPhrase, preferredPhrase }) => gap >= 0.2 && itemPhrase !== preferredPhrase)
+      .sort((a, b) => b.gap - a.gap)
+      .slice(0, 2);
+    const itemTraits = naturalList(contrasts.map(({ itemPhrase }) => itemPhrase));
+    const preferredTraits = naturalList(contrasts.map(({ preferredPhrase }) => preferredPhrase));
+    const dominantTraits = [...AXIS_KEYS]
+      .sort((a, b) => Math.abs(item.features[b]) - Math.abs(item.features[a]))
+      .slice(0, 2)
+      .map((axis) => axisPhrase(axis, item.features[axis]));
+    return {
+      summary: contrasts.length
+        ? `Dossier assumes this title's ${itemTraits} will not suit you because your positive ratings lean toward ${preferredTraits}, especially ${nearestPositive.item.title}. That contrast puts it at a ${prediction.score}% taste match.`
+        : `Dossier assumes this title's ${naturalList(dominantTraits)} will not suit you because no positive taste pattern reinforces that combination; ${nearestPositive.item.title} is the closest positive example, but only weakly resembles it. That puts it at a ${prediction.score}% taste match.`,
+      evidence: [nearestPositive.item.key, ...contrasts.map(({ axis }) => axis)]
+    };
+  }
+
+  const dominantTraits = [...AXIS_KEYS]
+    .sort((a, b) => Math.abs(item.features[b]) - Math.abs(item.features[a]))
+    .slice(0, 2)
+    .map((axis) => axisPhrase(axis, item.features[axis]));
+  return {
+    summary: `Dossier assumes this title's ${naturalList(dominantTraits)} sit outside the taste patterns it has learned from you. That limited evidence puts it at a ${prediction.score}% taste match.`,
+    evidence: dominantTraits
+  };
 }
 
 export type Surprise = { direction:"positive"|"negative"; summary:string; options:Array<{kind:"axis"|"genre"|"tag"; key:string; label:string}> };

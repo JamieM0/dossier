@@ -20,16 +20,16 @@ test.describe("App screens (mocked TMDB bridge)", () => {
 
   test("recommendations onboarding shows for a fresh profile", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: "Recommendations" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Discover" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Tell Dossier what you like." })).toBeVisible();
     await page.screenshot({ path: "test-results/recommendations.png", fullPage: true });
   });
 
   test("rate screen presents a title card", async ({ page }) => {
     await page.goto("/rate");
-    await expect(page.getByRole("heading", { name: "Rate films" })).toBeVisible();
-    // A card title from the mock pool should appear once the queue loads.
-    await expect(page.getByRole("heading", { name: "Neon Vector" })).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByRole("heading", { name: "Rate what you know" })).toBeVisible();
+    // A card title from the blended mock pool should appear once the queue loads.
+    await expect(page.locator(".info .title")).toBeVisible({ timeout: 15_000 });
     await page.screenshot({ path: "test-results/rate.png", fullPage: true });
   });
 
@@ -44,7 +44,7 @@ test.describe("App screens (mocked TMDB bridge)", () => {
 
   test("library renders its sections", async ({ page }) => {
     await page.goto("/library");
-    await expect(page.getByRole("heading", { name: "Library" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Your Library" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Watchlist" })).toBeVisible();
     await page.screenshot({ path: "test-results/library.png", fullPage: true });
   });

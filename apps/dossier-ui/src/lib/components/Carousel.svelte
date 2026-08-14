@@ -4,6 +4,7 @@
   import IconCaretLeftBold from "phosphor-icons-svelte/IconCaretLeftBold.svelte";
   import IconCaretRightBold from "phosphor-icons-svelte/IconCaretRightBold.svelte";
   import IconArrowsOutRegular from "phosphor-icons-svelte/IconArrowsOutRegular.svelte";
+  import { motionHoverLift, motionPress } from "$lib/design/motion";
 
   let {
     title,
@@ -56,6 +57,8 @@
       {#each films as film (`${film.medium}:${film.id}`)}
         <button
           class="tile"
+          use:motionHoverLift={{ y: -4, scale: 1.01 }}
+          use:motionPress
           title={film.title}
           type="button"
           onclick={() => onSelect?.(film)}
@@ -66,11 +69,10 @@
           {:else}
             <div class="poster poster-empty" aria-hidden="true"></div>
           {/if}
-          {#if film.year}
-            <div class="caption">
-              <p class="year">{film.year}</p>
-            </div>
-          {/if}
+          <div class="caption">
+            <strong>{film.title}</strong>
+            {#if film.year}<p class="year">{film.year}</p>{/if}
+          </div>
         </button>
       {/each}
     </div>
@@ -136,9 +138,9 @@
   .tile {
     display: flex;
     flex-direction: column;
-    background: var(--base-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
+    background:transparent;
+    border:0;
+    border-radius:14px;
     overflow: hidden;
     scroll-snap-align: start;
     padding: 0;
@@ -151,7 +153,6 @@
   }
   .tile:disabled { cursor: default; }
   .tile:hover:not(:disabled) {
-    border-color: var(--border-strong);
     transform: translateY(-1px);
   }
   .poster {
@@ -163,11 +164,12 @@
   }
   .poster-empty { background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary)); }
   .caption {
-    padding: var(--space-2) var(--space-3);
+    padding:8px 2px 0;
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
+  .caption strong{font-size:.78rem;line-height:1.25;color:var(--text-primary);display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.5em}
   .year {
     color: var(--text-tertiary);
     font-size: 0.75rem;

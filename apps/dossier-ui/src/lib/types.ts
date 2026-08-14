@@ -13,6 +13,9 @@ export type DossierSettings = {
    *  active medium). 2 keeps the original pairwise duel; more switches
    *  to a drag-to-reorder ranking list. */
   refineGroupSize: number;
+  /** Mobile Teach input. Gestures are the deliberately fixed default;
+   * users can opt into the complete visible seven-point scale. */
+  mobileRatingInput: "gestures" | "scale";
   /** Per-genre dials (1-100, 50 = neutral) biasing which genres surface
    *  more/less often in the Rate screen's queue. See
    *  $lib/state/rate-dials.svelte.ts. */

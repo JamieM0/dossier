@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { preferences } from "$lib/state/preferences.svelte";
-  import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { toasts } from "$lib/state/toast.svelte";
   import {
     ratedToTmdbItem,
@@ -17,12 +16,14 @@
   import MovieDetailModal, { type ModalActionKind } from "$lib/components/MovieDetailModal.svelte";
   import IconXBold from "phosphor-icons-svelte/IconXBold.svelte";
   import LibraryReRate from "$lib/components/LibraryReRate.svelte";
+  import { motionReveal, motionStaggerChildren } from "$lib/design/motion";
 
   let modalItem = $state<TmdbItem | null>(null);
   let modalExclude = $state<ModalActionKind[]>([]);
   let rerate = $state<{ title:string; items:TmdbItem[] } | null>(null);
 
   let search = $state("");
+  let mediumView = $state<"movie" | "tv">("movie");
 
   const searchTerms = $derived(
     search.trim().toLowerCase().split(/\s+/).filter(Boolean)
@@ -31,7 +32,7 @@
 
   function itemsOf(kind: RatingKind): TmdbItem[] {
     return preferences
-      .entriesByKind(kind, catalogueMode.medium)
+      .entriesByKind(kind)
       .sort((a, b) => b.ts - a.ts)
       .map((e) => ratedToTmdbItem(e.item));
   }
@@ -55,10 +56,16 @@
       empty: "Titles you've hidden with \"Don't show again\" appear here." }
   ]);
 
+  const mediumSections = $derived(
+    sections.map((section) => ({
+      ...section,
+      films: section.films.filter((film) => film.medium === mediumView)
+    }))
+  );
   const filteredSections = $derived(
     !isSearching
-      ? sections
-      : sections
+      ? mediumSections
+      : mediumSections
           .map((s) => ({ ...s, films: s.films.filter((f) => matchesSearch(f, searchTerms)) }))
           .filter((s) => s.films.length > 0)
   );
@@ -99,13 +106,18 @@
 </script>
 
 <section class="screen">
-  <header class="header">
+  <header class="header" use:motionReveal>
     <div class="header-left">
-      <h1>Library</h1>
-      <p class="sub">Everything you've told Dossier about, grouped.</p>
+      <span class="screen-kicker">Evidence ledger</span>
+      <h1 class="editorial-title">Your Library</h1>
+      <p class="sub">Everything you have told Dossier, kept as source material—not rewritten into a hidden profile.</p>
     </div>
 
     <div class="header-right">
+      <div class="medium-tabs" role="tablist" aria-label="Library type">
+        <button role="tab" aria-selected={mediumView === "movie"} class:active={mediumView === "movie"} onclick={() => (mediumView = "movie")}>Films</button>
+        <button role="tab" aria-selected={mediumView === "tv"} class:active={mediumView === "tv"} onclick={() => (mediumView = "tv")}>Series</button>
+      </div>
       <div class="search" role="search">
         <input
           class="search-input"
@@ -143,6 +155,7 @@
   {:else if isSearching && filteredSections.length === 0}
     <p class="muted">No matches for "{search.trim()}".</p>
   {:else}
+    <div class="library-sections" use:motionStaggerChildren>
     {#each filteredSections as section (section.id)}
       <Carousel
         title={section.title}
@@ -152,6 +165,7 @@
         onFullscreen={() => (rerate = { title:section.title, items:[...section.films] })}
       />
     {/each}
+    </div>
   {/if}
 </section>
 
@@ -169,7 +183,7 @@
 {#if rerate}<LibraryReRate title={rerate.title} items={rerate.items} onClose={() => rerate=null} />{/if}
 
 <style>
-  .screen { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-6); }
+  .screen { padding:clamp(24px,3.5vw,56px); display: flex; flex-direction: column; gap: clamp(28px,4vw,52px);max-width:1500px;margin:auto; }
 
   .header {
     display: grid;
@@ -178,13 +192,20 @@
     align-items: start;
   }
 
-  .header-left h1 { font-family: var(--font-display); font-size: 1.75rem; color: var(--text-primary); margin: 0; }
+  .header-left h1 { margin:7px 0 0; }
   .sub { color: var(--text-secondary); margin: var(--space-1) 0 0; font-size: 0.9rem; }
 
   .header-right {
     display: flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:10px;
     justify-content: flex-end;
   }
+
+  .medium-tabs{display:inline-flex;padding:3px;border:1px solid var(--border-subtle);border-radius:12px;background:color-mix(in srgb,var(--base-secondary) 66%,transparent)}
+  .medium-tabs button{min-height:32px;padding:0 13px;border:0;border-radius:9px;background:transparent;color:var(--text-tertiary);font:inherit;font-size:.78rem;cursor:pointer}
+  .medium-tabs button.active{background:var(--text-primary);color:var(--base);box-shadow:var(--shadow-sm)}
 
   .search {
     position: relative;
@@ -200,7 +221,8 @@
     font-size: 0.9rem;
     line-height: 1.3;
     color: var(--text-primary);
-    background: var(--base-tertiary);
+    background: var(--glass-fill);
+    backdrop-filter:blur(var(--glass-blur));
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
     transition: border-color var(--duration-standard) var(--ease-out),
@@ -238,6 +260,7 @@
     background: var(--base-secondary);
     color: var(--text-secondary);
   }
+  .library-sections{display:flex;flex-direction:column;gap:46px}
 
   @media (max-width: 720px) {
     .header {
@@ -245,6 +268,7 @@
     }
     .header-right {
       justify-content: flex-start;
+      align-items:stretch;
     }
   }
 

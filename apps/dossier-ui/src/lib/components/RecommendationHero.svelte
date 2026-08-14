@@ -5,6 +5,7 @@
   import IconProhibitRegular from "phosphor-icons-svelte/IconProhibitRegular.svelte";
   import IconThumbsUpFill from "phosphor-icons-svelte/IconThumbsUpFill.svelte";
   import IconThumbsDownFill from "phosphor-icons-svelte/IconThumbsDownFill.svelte";
+  import { motionReveal } from "$lib/design/motion";
 
   let {
     item,
@@ -31,7 +32,7 @@
   const poster = $derived(posterUrl(item.posterPath, "w500"));
 </script>
 
-<article class="hero">
+<article class="hero" style={poster ? `--hero-art:url("${poster}")` : ""} use:motionReveal>
   <button
     type="button"
     class="poster-btn"
@@ -48,7 +49,7 @@
 
   <div class="info">
     <span class="eyebrow">
-      Top pick for you{#if reason}<span class="eyebrow-reason"> · because you like {reason}</span>{/if}
+      Recommended{#if reason}<span class="eyebrow-reason"> · {reason}</span>{/if}
     </span>
     <h2 class="title">{item.title}</h2>
     <p class="meta">
@@ -87,43 +88,47 @@
 
 <style>
   .hero {
-    display: grid;
-    grid-template-columns: minmax(140px, 200px) 1fr auto;
-    gap: var(--space-5);
-    align-items: center;
-    background: var(--base-secondary);
-    border-radius: var(--radius-lg);
-    padding: var(--space-4);
-    box-shadow: var(--shadow-md, 0 4px 16px rgba(0, 0, 0, 0.1));
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+    min-height:clamp(300px,32vw,440px);
+    border-radius:20px;
+    background:#17191d;
+    box-shadow:0 18px 54px color-mix(in srgb,var(--text-primary) 14%,transparent);
   }
+  .hero::before{content:"";position:absolute;inset:-40px;z-index:-2;background-image:var(--hero-art);background-size:cover;background-position:center 30%;filter:blur(34px) saturate(1.18);opacity:.78;transform:scale(1.1)}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,9,12,.86),rgba(8,9,12,.42) 52%,rgba(8,9,12,.08)),linear-gradient(0deg,rgba(8,9,12,.65),transparent 55%);pointer-events:none}
   .poster-btn {
+    position:absolute;
+    inset:0 auto 0 0;
+    width:min(31%,280px);
     padding: 0;
     border: 0;
-    background: var(--base-tertiary);
+    background: transparent;
     cursor: pointer;
     display: block;
-    border-radius: var(--radius-md);
-    overflow: hidden;
   }
   .poster-btn:disabled { cursor: default; }
   .poster {
     width: 100%;
-    aspect-ratio: 2 / 3;
+    height:100%;
     object-fit: cover;
     display: block;
+    -webkit-mask-image:linear-gradient(90deg,#000 72%,transparent);
+    mask-image:linear-gradient(90deg,#000 72%,transparent);
   }
   .poster-empty { background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary)); }
 
-  .info { min-width: 0; display: flex; flex-direction: column; gap: var(--space-1); }
+  .info { position:absolute; z-index:2; left:clamp(180px,25%,320px); bottom:clamp(24px,4vw,54px); max-width:min(570px,58%); min-width:0; display:flex; flex-direction:column; gap:6px; color:white; }
   .eyebrow {
-    color: var(--accent);
+    color: color-mix(in srgb,var(--accent) 72%,white);
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
   }
   .eyebrow-reason {
-    color: var(--text-tertiary);
+    color: rgba(255,255,255,.65);
     font-weight: 600;
     text-transform: none;
     letter-spacing: normal;
@@ -131,13 +136,13 @@
   .title {
     font-family: var(--font-display);
     font-size: 1.4rem;
-    color: var(--text-primary);
+    color: white;
     margin: 0;
   }
-  .meta { color: var(--text-secondary); font-size: 0.85rem; margin: 0; display: flex; gap: var(--space-1); }
-  .dot { color: var(--text-tertiary); }
+  .meta { color: rgba(255,255,255,.72); font-size: 0.85rem; margin: 0; display: flex; gap: var(--space-1); }
+  .dot { color: rgba(255,255,255,.4); }
   .overview {
-    color: var(--text-secondary);
+    color: rgba(255,255,255,.76);
     font-size: 0.85rem;
     line-height: 1.5;
     margin: var(--space-1) 0 0;
@@ -160,9 +165,11 @@
     align-items: center;
     justify-content: center;
     border-radius: 999px;
-    border: 1px solid var(--border-subtle);
-    background: var(--base-tertiary);
-    color: var(--text-primary);
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(20,22,26,.34);
+    color: white;
+    backdrop-filter:blur(16px) saturate(1.35);
+    -webkit-backdrop-filter:blur(16px) saturate(1.35);
     cursor: pointer;
     transition: background var(--duration-standard) var(--ease-out),
                 transform var(--duration-quick) var(--ease-out);
@@ -174,6 +181,16 @@
   .action-btn.ignore:hover { background: color-mix(in srgb, var(--text-secondary) 20%, var(--base-tertiary)); }
 
   @media (max-width: 720px) {
-    .hero { grid-template-columns: 100px 1fr; }
+    .hero { min-height:min(58dvh,510px); border-radius:18px; }
+    .hero::after{background:linear-gradient(0deg,rgba(8,9,12,.94),rgba(8,9,12,.18) 67%,rgba(8,9,12,.06))}
+    .poster-btn{inset:0;width:100%}
+    .poster{-webkit-mask-image:none;mask-image:none;object-position:center 22%}
+    .info{left:16px;right:16px;bottom:15px;max-width:none}
+    .title{font-size:1.28rem}
+    .eyebrow{font-size:.63rem}
+    .eyebrow-reason{display:none}
+    .overview{display:none}
+    .actions{margin-top:8px}
+    .action-btn{width:40px;height:40px;background:rgba(16,17,20,.48)}
   }
 </style>

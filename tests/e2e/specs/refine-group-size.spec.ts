@@ -30,7 +30,7 @@ test.describe("Refine screen — configurable group size", () => {
     await page.goto("/refine");
     await dismissEnrichmentModal(page);
 
-    await expect(page.getByRole("heading", { name: "Which do you prefer?" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Which feels more like you?" })).toBeVisible();
     await expect(page.locator(".duel")).toBeVisible();
     await expect(page.locator(".pick")).toHaveCount(2);
     await expect(page.locator(".ranking")).toHaveCount(0);
@@ -52,14 +52,15 @@ test.describe("Refine screen — configurable group size", () => {
     await page.addInitScript(installMockDossier, { likedMovies: 6, refineGroupSize: 5 });
     await page.goto("/refine");
     await dismissEnrichmentModal(page);
-    await expect(page.getByRole("heading", { name: "Rank your favorites" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Put close feelings in order" })).toBeVisible();
     await expect(page.locator(".rank-row")).toHaveCount(5,{timeout:15_000});
     await expect(page.locator(".duel")).toHaveCount(0);
 
     const firstRow = page.locator(".rank-row").first();
     await expect(firstRow.locator(".rank-poster, .rank-poster-empty")).toBeVisible();
     await expect(firstRow.locator(".rank-caption h3")).not.toBeEmpty();
-    await expect(firstRow.locator(".match-badge.small")).toContainText("evidence");
+    await expect(firstRow.locator(".rank-num")).toHaveText("1");
+    await expect(firstRow.locator(".match-badge")).toHaveCount(0);
 
     await page.screenshot({ path: "test-results/refine-ranking-full.png", fullPage: true });
     await page.locator(".ranking").screenshot({ path: "test-results/refine-ranking-focused.png" });
@@ -123,8 +124,8 @@ test.describe("Refine screen — configurable group size", () => {
     await expect(page.locator(".rank-row")).toHaveCount(4,{timeout:15_000});
 
     const titlesBefore = await page.locator(".rank-caption h3").allInnerTexts();
-    // Move the second card left one slot.
-    await page.locator(".rank-row").nth(1).getByLabel(/Move .* left/).click();
+    // Move the second card earlier one slot.
+    await page.locator(".rank-row").nth(1).getByLabel(/Move .* earlier/).click();
     const titlesAfterMove = await page.locator(".rank-caption h3").allInnerTexts();
     expect(titlesAfterMove[0]).toBe(titlesBefore[1]);
     expect(titlesAfterMove[1]).toBe(titlesBefore[0]);

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { detectSurprise, explainRating, predictionFor, rankDissonantCandidates, selectRateQuestion, tasteSnapshot } from "./calibration";
+import { detectSurprise, dissonanceAssumptionFor, explainRating, predictionFor, rankDissonantCandidates, selectRateQuestion, tasteSnapshot } from "./calibration";
 import type { RatingEntry, TmdbItem } from "./types";
 
 const features = (n:number) => ({pacing:n,tone:n,emotional_intensity:n,complexity:n,scope:n,realism:n,thematic_weight:n,character_focus:n,moral_clarity:n,structure:n});
@@ -39,6 +39,21 @@ describe("calibration decisions", () => {
   });
   it("dissonance stays empty until the model has enough meaningful evidence", () => {
     expect(rankDissonantCandidates([item(20,-1)],[entry(1,1,2)])).toEqual([]);
+  });
+  it("states the concrete assumption behind a low-match challenge", () => {
+    const entries=Array.from({length:6},(_,i)=>entry(i,1,2));
+    const candidate=item(20,-1,"Drama");
+    const assumption=dissonanceAssumptionFor(candidate,entries,{score:0,evidence:"some",expected:"dislike"});
+    expect(assumption.summary).toContain("slower pacing");
+    expect(assumption.summary).toContain("faster pacing");
+    expect(assumption.summary).toContain("Title 0");
+    expect(assumption.summary).toContain("0% taste match");
+  });
+  it("grounds a challenge in a similar negative rating when one exists", () => {
+    const entries=[...Array.from({length:5},(_,i)=>entry(i,1,2)),entry(90,-.9,-2)];
+    const assumption=dissonanceAssumptionFor(item(20,-1),entries,{score:5,evidence:"some",expected:"dislike"});
+    expect(assumption.summary).toContain("resembles Title 90");
+    expect(assumption.summary).toContain("rated negatively");
   });
   it("snapshot requires repeated consistent evidence for a strong area", () => {
     expect(tasteSnapshot([entry(1,.2,3)] )[0].status).toBe("learning");

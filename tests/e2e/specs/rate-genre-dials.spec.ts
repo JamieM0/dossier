@@ -113,19 +113,19 @@ test.describe("Rate screen rate dials panel, with keyword tags seeded", () => {
   });
 });
 
-// 9 not-interested swordplay-tagged ratings are pre-seeded (see
+// 29 not-interested swordplay-tagged ratings are pre-seeded (see
 // mock-dossier.ts), and the queue starts right at "Crimson Hour" (the
 // pool's one swordplay-tagged title) — so a single live click supplies
-// the 10th and should trigger the popup, without needing to walk the
+// the 30th and should trigger the popup, without needing to walk the
 // whole queue by hand.
-test.describe("Rate screen tag-pattern popup, with 9 not-interested swordplay ratings already seeded", () => {
+test.describe("Rate screen tag-pattern popup, with 29 not-interested swordplay ratings already seeded", () => {
   test.beforeEach(async ({ page }) => {
-    await page.addInitScript(installMockDossier, { notInterestedHorrorSeed: 9 });
+    await page.addInitScript(installMockDossier, { notInterestedHorrorSeed: 29 });
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
   });
 
-  test("the 10th same-tag rating triggers the pattern popup, and accepting turns the tag dial down", async ({ page }) => {
+  test("the 30th same-tag rating triggers the pattern popup, and accepting turns the tag dial down", async ({ page }) => {
     await expect(page.getByRole("heading", { name: "Crimson Hour" })).toBeVisible();
 
     const popup = page.getByRole("alertdialog", { name: "Adjust your dials?" });

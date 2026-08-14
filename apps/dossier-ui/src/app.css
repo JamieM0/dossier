@@ -44,6 +44,7 @@
   --duration-moderate: 200ms;
   --duration-slow: 300ms;
   --duration-spring: 350ms;
+  --duration-quick: 120ms;
 
   /* ----- Easing ----- */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -62,8 +63,18 @@
   --icon-xl: 32px;
 
   /* ----- Layout ----- */
-  --sidebar-width: 260px;
+  --sidebar-width: 244px;
   --content-max-width: 680px;
+
+  /* ----- Material language ----- */
+  --accent: var(--secondary-accent);
+  --danger: var(--error);
+  --border-default: var(--border);
+  --border-strong: color-mix(in srgb, var(--text-primary) 24%, var(--border));
+  --glass-fill: color-mix(in srgb, var(--base-secondary) 74%, transparent);
+  --glass-fill-strong: color-mix(in srgb, var(--base-secondary) 88%, transparent);
+  --glass-border: color-mix(in srgb, var(--border) 62%, transparent);
+  --glass-highlight: color-mix(in srgb, white 44%, transparent);
 
   /* ----- Default theme tokens (Parchment, set by JS on load) ----- */
   --base: #FAF7F2;
@@ -111,7 +122,7 @@ body {
   width: 100%;
   max-width: 100%;
   height: 100%;
-  background: var(--base);
+  background:var(--base);
   color: var(--text-primary);
   font-family: var(--font-body);
   font-size: 16px;
@@ -128,7 +139,13 @@ html {
 body {
   overflow-x: clip;
   overscroll-behavior-x: none;
+  position: relative;
 }
+
+body::before {
+  display:none;
+}
+
 
 body > div {
   width: 100%;
@@ -237,6 +254,71 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.glass-panel,
+.glass-control {
+  position: relative;
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 var(--glass-highlight), var(--shadow-sm);
+  backdrop-filter: blur(20px) saturate(1.32);
+  -webkit-backdrop-filter: blur(20px) saturate(1.32);
+}
+
+.glass-control::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(120px circle at var(--glass-x, 50%) var(--glass-y, 50%), color-mix(in srgb, white 28%, transparent), transparent 68%);
+  transition: opacity 180ms var(--ease-out);
+}
+
+.glass-control:hover::after,
+.glass-control:focus-visible::after { opacity: 1; }
+
+.screen-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--secondary-accent);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.editorial-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.2vw, 3.35rem);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+}
+
+.editorial-lede {
+  max-width: 680px;
+  color: var(--text-secondary);
+  font-size: clamp(.96rem, 1.4vw, 1.12rem);
+  line-height: 1.65;
+}
+
+.primary-action,
+.secondary-action {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 14px;
+  padding: 0 16px;
+  font-weight: 600;
+  font-size: .86rem;
+}
+
+.primary-action { background: var(--primary-accent); color: var(--primary-accent-text); box-shadow: inset 0 1px 0 color-mix(in srgb, white 26%, transparent), var(--shadow-sm); }
+.secondary-action { background: var(--glass-fill); border: 1px solid var(--glass-border); color: var(--text-primary); }
 
 ul,
 ol {

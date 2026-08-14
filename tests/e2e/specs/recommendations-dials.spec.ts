@@ -9,19 +9,19 @@ test.describe("Recommendations Dials panel", () => {
   async function seedRatingsAndOpenRecommendations(page: import("@playwright/test").Page): Promise<void> {
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
-    const likeButton = page.getByRole("button", { name: "I liked it" });
+    const likeButton = page.getByRole("button", { name: "Slightly positive" });
     for (let i = 0; i < 5; i++) {
       await likeButton.click();
       await page.waitForTimeout(400);
     }
-    await page.getByRole("link", { name: "Recommendations" }).click();
-    await expect(page.getByRole("heading", { name: "Recommendations" })).toBeVisible();
+    await page.getByRole("link", { name: "Discover" }).click();
+    await expect(page.getByRole("heading", { name: "Discover" })).toBeVisible();
     // Candidate pool fetch + scoring is async — wait for a real card
     // (not the "rate 5 titles" onboarding state) before interacting.
     await expect(page.locator(".card").first()).toBeVisible();
   }
 
-  test("Dials button opens the panel with every dial group, and hides when grouped", async ({ page }) => {
+  test("Dials button opens the panel with every dial group", async ({ page }) => {
     await seedRatingsAndOpenRecommendations(page);
 
     const dialsButton = page.getByRole("button", { name: "Tune recommendation dials" });
@@ -89,17 +89,10 @@ test.describe("Recommendations Dials panel", () => {
     await expect(panel.locator(".row", { hasText: "Mainstream" }).locator(".value")).toHaveText("50");
   });
 
-  test("Dials button is hidden when Group by taste is on", async ({ page }) => {
+  test("Dials remain available in the curated feed", async ({ page }) => {
     await seedRatingsAndOpenRecommendations(page);
     await expect(page.getByRole("button", { name: "Tune recommendation dials" })).toBeVisible();
 
-    // Client-side nav (not a reload) so the mock backend's in-memory
-    // ratings survive — mirrors the pattern in recommendations-overlay.spec.ts.
-    await page.getByRole("link", { name: "Settings" }).click();
-    await page.getByRole("switch", { name: "Group by taste" }).click();
-
-    await page.getByRole("link", { name: "Recommendations" }).click();
-    await expect(page.getByRole("heading", { name: "Recommendations" })).toBeVisible();
-    await expect(page.getByRole("button", { name: "Tune recommendation dials" })).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Tune recommendation dials" })).toBeVisible();
   });
 });

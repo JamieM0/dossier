@@ -179,15 +179,15 @@
     }
   }
 
-  async function toggleGroupedRecommendations(): Promise<void> {
-    uiSettings.groupedRecommendations = !uiSettings.groupedRecommendations;
-    await uiSettings.persist();
-  }
-
   async function setRefineGroupSize(value: number): Promise<void> {
     const clamped = Math.max(2, Math.min(10, value));
     if (clamped === uiSettings.refineGroupSize) return;
     uiSettings.refineGroupSize = clamped;
+    await uiSettings.persist();
+  }
+
+  async function setMobileRatingInput(value: "gestures" | "scale"): Promise<void> {
+    uiSettings.mobileRatingInput = value;
     await uiSettings.persist();
   }
 
@@ -277,31 +277,23 @@
             </button>
           </div>
         </div>
+
+        <div class="setting-group mobile-rating-setting">
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label" id="mobile-rating-label">Mobile rating controls</span>
+              <span class="setting-desc">Swipe by default, or keep all seven response strengths visible.</span>
+            </div>
+            <div class="segmented" role="radiogroup" aria-labelledby="mobile-rating-label">
+              <button class:active={uiSettings.mobileRatingInput === "gestures"} role="radio" aria-checked={uiSettings.mobileRatingInput === "gestures"} onclick={() => void setMobileRatingInput("gestures")}>Gestures</button>
+              <button class:active={uiSettings.mobileRatingInput === "scale"} role="radio" aria-checked={uiSettings.mobileRatingInput === "scale"} onclick={() => void setMobileRatingInput("scale")}>7-point scale</button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="settings-section">
         <h2 class="section-heading">Recommendations</h2>
-
-        <div class="setting-group">
-          <div class="setting-row">
-            <div class="setting-info">
-              <span class="setting-label" id="grouped-recs-label">Group by taste</span>
-              <span class="setting-desc">
-                Sort recommendations into "Because you like X" rows instead of one flat list
-              </span>
-            </div>
-            <button
-              class="toggle"
-              class:active={uiSettings.groupedRecommendations}
-              onclick={() => void toggleGroupedRecommendations()}
-              role="switch"
-              aria-checked={uiSettings.groupedRecommendations}
-              aria-labelledby="grouped-recs-label"
-            >
-              <span class="toggle-thumb"></span>
-            </button>
-          </div>
-        </div>
 
         <div class="setting-group">
           <div class="setting-row">
@@ -560,9 +552,13 @@
   .mobile-access-copy small { color:var(--text-tertiary); font-size:.69rem; line-height:1.4; margin-top:4px; }
   .mobile-access-actions { display:flex; flex-direction:column; align-items:stretch; gap:7px; }
   .setting-group { margin-bottom: var(--space-5); }
+  .mobile-rating-setting { display: none; }
   .setting-label { display: block; font-family: var(--font-body); font-size: 0.9375rem; font-weight: 500; line-height: 1.5; color: var(--text-primary); margin-bottom: var(--space-3); }
   .setting-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
   .setting-row .setting-label { margin-bottom: 0; }
+  .segmented { display:flex; padding:3px; gap:2px; border:1px solid var(--border-subtle); border-radius:999px; background:var(--base-tertiary); flex:none; }
+  .segmented button { border:0; border-radius:999px; background:transparent; color:var(--text-secondary); padding:7px 11px; font:inherit; font-size:.75rem; cursor:pointer; }
+  .segmented button.active { background:var(--base); color:var(--text-primary); box-shadow:var(--shadow-sm); }
   .setting-info { display: flex; flex-direction: column; }
   .setting-desc { font-family: var(--font-body); font-size: 0.8125rem; line-height: 1.4; color: var(--text-tertiary); margin-top: var(--space-1); }
   .theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: var(--space-2); }
@@ -611,5 +607,5 @@
   .stepper-btn:hover:not(:disabled) { background: var(--base); transform: translateY(-1px); }
   .stepper-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
   .stepper-value { min-width: 1.5ch; text-align: center; font-variant-numeric: tabular-nums; font-size: 0.9rem; color: var(--text-primary); }
-  @media(max-width:640px){ .settings-content{padding:var(--space-6) var(--space-4) 110px}.mobile-access-card{grid-template-columns:48px 1fr}.mobile-access-icon{width:48px;height:48px}.mobile-access-actions{grid-column:1/-1;flex-direction:row}.setting-row{align-items:flex-start}.theme-grid{grid-template-columns:repeat(4,1fr)} }
+  @media(max-width:640px){ .settings-content{padding:var(--space-6) var(--space-4) 110px}.mobile-access-card{grid-template-columns:48px 1fr}.mobile-access-icon{width:48px;height:48px}.mobile-access-actions{grid-column:1/-1;flex-direction:row}.setting-row{align-items:flex-start;flex-direction:column}.segmented{width:100%}.segmented button{flex:1}.theme-grid{grid-template-columns:repeat(4,1fr)}.mobile-rating-setting{display:block} }
 </style>

@@ -103,6 +103,39 @@ describe("LAN remote access", () => {
 
       const safe = await request(`${ready.origin}/api/preferences`, "GET", undefined, cookie);
       expect(safe.status).toBe(200);
+
+      const savedSettings = await request(`${ready.origin}/api/settings`, "PUT", {
+        theme: "Parchment",
+        mobileRatingInput: "scale",
+        recommendationDials: { discovery: 70 },
+        rateGenreDials: { Drama: 65 },
+        rateTagDials: { swordplay: 35 },
+        rateTagPatternState: { swordplay: { baseline: 50, threshold: 30 } },
+        startOnLogin: true
+      }, cookie);
+      expect(savedSettings.status).toBe(200);
+      expect(JSON.parse(savedSettings.body)).toMatchObject({
+        theme: "Parchment",
+        mobileRatingInput: "scale",
+        recommendationDials: { discovery: 70 },
+        rateGenreDials: { Drama: 65 },
+        rateTagDials: { swordplay: 35 },
+        rateTagPatternState: { swordplay: { baseline: 50, threshold: 30 } }
+      });
+      expect(JSON.parse(savedSettings.body).startOnLogin).toBeUndefined();
+
+      const restoredSettings = await request(`${ready.origin}/api/settings`, "GET", undefined, cookie);
+      expect(restoredSettings.status).toBe(200);
+      expect(JSON.parse(restoredSettings.body)).toMatchObject({ mobileRatingInput: "scale", recommendationDials: { discovery: 70 } });
+
+      // Ratings include every action that writes a preference: the rating
+      // scale, watchlist, and "don't care". Paired devices may write these
+      // through the gateway, while host-only APIs remain protected below.
+      const rating = await request(`${ready.origin}/api/preferences/rating`, "PUT", {
+        key: "movie:1", rating: 0.5, item: { key: "movie:1" }
+      }, cookie);
+      expect(rating.status).toBe(200);
+
       const forbidden = await request(`${ready.origin}/api/tmdb/token/clear`, "POST", {}, cookie);
       expect(forbidden.status).toBe(403);
       expect(JSON.parse(forbidden.body).error.code).toBe("HOST_ONLY");

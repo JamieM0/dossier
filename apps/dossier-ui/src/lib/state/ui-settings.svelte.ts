@@ -10,6 +10,7 @@ class UiSettingsStore {
   showingWelcome = $state(false);
   groupedRecommendations = $state(false);
   refineGroupSize = $state(2);
+  mobileRatingInput = $state<"gestures" | "scale">("gestures");
 
   applyTheme(): void {
     applyTheme(this.theme);
@@ -52,6 +53,7 @@ class UiSettingsStore {
       typeof desktopSettings.refineGroupSize === "number" && Number.isFinite(desktopSettings.refineGroupSize)
         ? desktopSettings.refineGroupSize
         : 2;
+    this.mobileRatingInput = desktopSettings.mobileRatingInput === "scale" ? "scale" : "gestures";
 
     const osStartOnLogin = await window.dossier?.settings.getStartOnLogin();
     if (typeof osStartOnLogin === "boolean") {
@@ -72,7 +74,8 @@ class UiSettingsStore {
       sidebarCollapsed: this.sidebarCollapsed,
       showingWelcome: this.showingWelcome,
       groupedRecommendations: this.groupedRecommendations,
-      refineGroupSize: this.refineGroupSize
+      refineGroupSize: this.refineGroupSize,
+      mobileRatingInput: this.mobileRatingInput
     });
   }
 }

@@ -25,8 +25,21 @@ async function api<T>(path: string, init?: RequestInit): Promise<T> {
   return response.json() as Promise<T>;
 }
 
-function body(value: unknown): RequestInit {
-  return { method: "POST", body: JSON.stringify(value) };
+function body(value: unknown, method = "POST"): RequestInit {
+  return { method, body: JSON.stringify(value) };
+}
+
+/** These preferences affect the paired device's Dossier experience but do
+ * not expose host credentials, device management, or OS-level controls. */
+const REMOTE_SETTING_KEYS = [
+  "theme", "dyslexiaMode", "groupedRecommendations", "refineGroupSize",
+  "mobileRatingInput", "recommendationDials", "rateGenreDials", "rateTagDials", "rateTagPatternState"
+] as const satisfies readonly (keyof DossierSettings)[];
+
+function remoteSettings(next: Partial<DossierSettings>): Record<string, unknown> {
+  return Object.fromEntries(
+    REMOTE_SETTING_KEYS.filter((key) => key in next).map((key) => [key, next[key]])
+  );
 }
 
 function hostOnly(): Promise<never> {
@@ -47,17 +60,14 @@ export function installRemoteApi(): void {
     updater: { installAndRestart: hostOnly, checkForUpdate: () => Promise.resolve(null) },
     settings: {
       get: () => api<DossierSettings>("/settings"),
-      set: (next) => {
-        const { theme, dyslexiaMode, groupedRecommendations, refineGroupSize } = next;
-        return api<DossierSettings>("/settings", body({ theme, dyslexiaMode, groupedRecommendations, refineGroupSize }));
-      },
+      set: (next) => api<DossierSettings>("/settings", body(remoteSettings(next), "PUT")),
       getStartOnLogin: () => Promise.resolve(false),
       setStartOnLogin: hostOnly
     },
     preferences: {
       get: () => api<PreferencesPayload>("/preferences"),
       setRating: (key: string, rating: Rating | null, item?: RatedItem) =>
-        api<{ ratings: Record<string, RatingEntry> }>("/preferences/rating", body({ key, rating, item })),
+        api<{ ratings: Record<string, RatingEntry> }>("/preferences/rating", body({ key, rating, item }, "PUT")),
       addPairwise: (winnerKey: string, loserKey: string) =>
         api<{ pairwise: PairwiseChoice[] }>("/preferences/pairwise", body({ winnerKey, loserKey })),
       skip: (key: string) => api<{ skipped: string[] }>("/preferences/skip", body({ key })),

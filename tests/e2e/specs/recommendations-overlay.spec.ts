@@ -12,14 +12,14 @@ test.describe("Recommendations card hover overlay", () => {
     // in-memory mock backend state intact — a full reload would reset it).
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
-    const likeButton = page.getByRole("button", { name: "I liked it" });
+    const likeButton = page.getByRole("button", { name: "Slightly positive" });
     for (let i = 0; i < 5; i++) {
       await likeButton.click();
       await page.waitForTimeout(400); // exit animation
     }
 
-    await page.getByRole("link", { name: "Recommendations" }).click();
-    await expect(page.getByRole("heading", { name: "Recommendations" })).toBeVisible();
+    await page.getByRole("link", { name: "Discover" }).click();
+    await expect(page.getByRole("heading", { name: "Discover" })).toBeVisible();
 
     const card = page.locator(".card").first();
     await card.hover();
@@ -36,63 +36,62 @@ test.describe("Recommendations card hover overlay", () => {
     await card.screenshot({ path: "test-results/recommendations-overlay-card.png" });
   });
 
-  test("card hides decade/rating; modal shows them", async ({ page }) => {
+  test("card stays minimal while the modal shows rating detail", async ({ page }) => {
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
-    const likeButton = page.getByRole("button", { name: "I liked it" });
+    const likeButton = page.getByRole("button", { name: "Slightly positive" });
     for (let i = 0; i < 5; i++) {
       await likeButton.click();
       await page.waitForTimeout(400);
     }
-    await page.getByRole("link", { name: "Recommendations" }).click();
-    await expect(page.getByRole("heading", { name: "Recommendations" })).toBeVisible();
+    await page.getByRole("link", { name: "Discover" }).click();
+    await expect(page.getByRole("heading", { name: "Discover" })).toBeVisible();
 
-    const cardMeta = page.locator(".card").first().locator(".meta");
-    await expect(cardMeta).not.toContainText("★");
-    await expect(cardMeta).not.toContainText("0s");
+    const card = page.locator(".card").first();
+    await expect(card).not.toContainText("★");
+    await expect(card).not.toContainText(/Film|Series/);
 
     await page.locator(".poster-btn").first().click();
     const modalMeta = page.locator(".layout .meta");
     await expect(modalMeta).toBeVisible();
     await expect(modalMeta).toContainText("★");
-    await expect(modalMeta).toContainText("0s");
+    await expect(modalMeta).not.toContainText("0s");
+    await page.waitForTimeout(500);
     await page.screenshot({ path: "test-results/movie-detail-modal.png" });
   });
 
-  test("card hides the film title and info panel opens the modal", async ({ page }) => {
+  test("card keeps the title visible and info panel opens the modal", async ({ page }) => {
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
-    const likeButton = page.getByRole("button", { name: "I liked it" });
+    const likeButton = page.getByRole("button", { name: "Slightly positive" });
     for (let i = 0; i < 5; i++) {
       await likeButton.click();
       await page.waitForTimeout(400);
     }
-    await page.getByRole("link", { name: "Recommendations" }).click();
-    await expect(page.getByRole("heading", { name: "Recommendations" })).toBeVisible();
+    await page.getByRole("link", { name: "Discover" }).click();
+    await expect(page.getByRole("heading", { name: "Discover" })).toBeVisible();
 
     const card = page.locator(".card").first();
-    await expect(card.locator("h3")).toHaveCount(0);
+    await expect(card.locator(".identity strong")).toBeVisible();
 
-    // Clicking the info panel (not just the poster) opens the detail modal.
-    await card.locator(".body").click();
+    await card.locator(".poster-btn").click();
     await expect(page.locator(".layout .meta")).toBeVisible();
   });
 
-  test("Library carousel tiles hide the film title", async ({ page }) => {
+  test("Library carousel tiles keep the film title and provenance visible", async ({ page }) => {
     await page.goto("/rate");
     await dismissEnrichmentModal(page);
-    const likeButton = page.getByRole("button", { name: "I liked it" });
+    const likeButton = page.getByRole("button", { name: "Slightly positive" });
     await likeButton.click();
     await page.waitForTimeout(400);
 
     await page.getByRole("link", { name: "Library" }).click();
-    await expect(page.getByRole("heading", { name: "Library" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Your Library" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Liked", exact: true })).toBeVisible();
 
     const tile = page.locator(".tile").first();
-    await expect(tile.locator("p", { hasText: /^\d{4}$/ })).toBeVisible();
-    // No separate title element — the poster + year are the only content.
-    const paragraphCount = await tile.locator("p").count();
-    expect(paragraphCount).toBe(1);
+    await expect(tile.locator("strong")).toBeVisible();
+    await expect(tile.locator(".year")).toContainText(/\d{4}/);
+    await expect(tile).not.toContainText(/Film|Series/);
   });
 });

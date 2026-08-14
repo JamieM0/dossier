@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
   import { buildPairwiseCandidates, buildRankingGroup, predictPreference } from "$lib/recommender";
   import { preferences } from "$lib/state/preferences.svelte";
-  import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { uiSettings } from "$lib/state/ui-settings.svelte";
   import { posterUrl } from "$lib/poster";
   import { ratingKind, type RatedItem, type RatingEntry } from "$lib/types";
@@ -11,11 +10,11 @@
 
   let busy = $state(false);
 
-  // Rated items in the active medium, and the effective group size for
+  // Rated items across the person's intrinsically blended library, and the effective group size for
   // this screen: the user's setting, clamped to [2, rated count] so it
   // never asks for more items than exist. At 2 this is the original
   // pairwise duel; above 2 it's a drag-to-reorder ranking list.
-  const entries = $derived(preferences.entries(catalogueMode.medium));
+  const entries = $derived(preferences.entries());
   const ratedCount = $derived(entries.length);
   const likedCount = $derived(entries.filter(e=>ratingKind(e.rating)==="like").length);
   const dislikedCount = $derived(entries.filter(e=>ratingKind(e.rating)==="dislike").length);
@@ -105,6 +104,7 @@
   let dragPointerId: number | null = null;
   let dragStartClientY = 0;
   let dragRowHeight = 0;
+  let dragVertical = $state(false);
 
   function onGripPointerDown(event: PointerEvent, index: number): void {
     if (savingOrder) return;
@@ -116,19 +116,26 @@
     // height *plus* the list's flex gap between rows), not just the row's
     // own height — using height alone under-measures the real on-screen
     // distance to the next row's midpoint.
-    const gapPx = list ? parseFloat(getComputedStyle(list).columnGap || "0") || 0 : 0;
-    dragRowHeight = (row?.getBoundingClientRect().width ?? 0) + gapPx;
+    dragVertical = window.matchMedia("(max-width:760px)").matches;
+    const listStyle = list ? getComputedStyle(list) : null;
+    const gapPx = listStyle
+      ? parseFloat(dragVertical ? listStyle.rowGap : listStyle.columnGap) || 0
+      : 0;
+    const rect = row?.getBoundingClientRect();
+    dragRowHeight = (dragVertical ? rect?.height : rect?.width) ?? 0;
+    dragRowHeight += gapPx;
     if (dragRowHeight <= 0) return;
     dragIndex = index;
     dragPointerId = event.pointerId;
-    dragStartClientY = event.clientX;
+    dragStartClientY = dragVertical ? event.clientY : event.clientX;
     dragY = 0;
     grip.setPointerCapture(event.pointerId);
   }
 
   function onGripPointerMove(event: PointerEvent): void {
     if (dragIndex === null || event.pointerId !== dragPointerId) return;
-    dragY = event.clientX - dragStartClientY;
+    const pointerPosition = dragVertical ? event.clientY : event.clientX;
+    dragY = pointerPosition - dragStartClientY;
 
     // dragStartClientY shifts by a full row-pitch on every swap so the
     // *next* event's fresh (event.clientY - dragStartClientY) reflects
@@ -206,11 +213,12 @@
 <section class="screen">
   {#if !preferences.loaded || ratedCount >= 2}
     <header class="header">
+      <span class="screen-kicker">Teach Dossier · refinement</span>
       {#if effectiveGroupSize > 2}
-        <h1>Rank your favorites</h1>
+        <h1>Put close feelings in order</h1>
         <p class="hint">Arrange from least preferred to most preferred · drag or use the arrows</p>
       {:else}
-        <h1>Which do you prefer?</h1>
+        <h1>Which feels more like you?</h1>
         <p class="hint">
           <kbd>←</kbd> left · <kbd>→</kbd> right · pairwise refinement sharpens your weights
         </p>
@@ -243,7 +251,6 @@
         <p>You've answered every pair from your current ratings. Rate more titles to unlock more comparisons.</p>
       </div>
     {:else}
-      <div class="question-reason"><strong>Why ask now:</strong> Dossier predicts these similarly, so your choice resolves a real uncertainty.</div>
       <div class="duel">
         {#each [0, 1] as side (current[side].item.key)}
           {@const entry = current[side]}
@@ -255,11 +262,11 @@
               {:else}
                 <div class="poster poster-empty"></div>
               {/if}
-              <span class="match-badge">Current guess · {guess >= 58 ? "some positive evidence" : guess <= 25 ? "some negative evidence" : "mixed evidence"}</span>
             </div>
             <div class="caption">
               <h3>{entry.item.title}</h3>
               <p class="meta">{entry.item.year ?? ""}{entry.item.genres[0] ? ` · ${entry.item.genres[0]}` : ""}</p>
+              <span class="evidence">Dossier currently reads this as {guess >= 58 ? "positive" : guess <= 25 ? "negative" : "mixed"} evidence</span>
             </div>
           </button>
         {/each}
@@ -273,14 +280,12 @@
     </div>
   {:else}
     <div class="ranking">
-      <div class="question-reason"><strong>Dossier's current guess.</strong> Least preferred on the left, most preferred on the right. Reorder only what feels wrong.</div>
       <ol class="ranking-list">
         {#each (order.length > 0 ? order : rankingPool) as entry, i (entry.item.key)}
-          {@const guess = predict(entry.item)}
           <li
             class="rank-row"
             class:dragging={dragIndex === i}
-            style={dragIndex === i ? `transform: translateX(${dragY}px) rotate(${dragY / 80}deg);` : ""}
+            style={dragIndex === i ? (dragVertical ? `transform:translateY(${dragY}px);` : `transform:translateX(${dragY}px) rotate(${dragY / 80}deg);`) : ""}
           >
             <span class="rank-num">{i + 1}</span>
             <div class="rank-poster-wrap">
@@ -294,12 +299,11 @@
               <h3>{entry.item.title}</h3>
               <p class="meta">{entry.item.year ?? ""}{entry.item.genres[0] ? ` · ${entry.item.genres[0]}` : ""}</p>
             </div>
-            <span class="match-badge small">{guess >= 58 ? "positive evidence" : guess <= 25 ? "negative evidence" : "mixed evidence"}</span>
             <div class="rank-controls">
               <button
                 class="rank-move-btn"
                 disabled={i === 0 || savingOrder}
-                aria-label={`Move ${entry.item.title} left`}
+                aria-label={`Move ${entry.item.title} earlier`}
                 onclick={() => moveRow(i, -1)}
               >
                 <IconCaretLeftBold class="icon-14" />
@@ -307,7 +311,7 @@
               <button
                 class="rank-move-btn"
                 disabled={i === (order.length > 0 ? order.length : rankingPool.length) - 1 || savingOrder}
-                aria-label={`Move ${entry.item.title} right`}
+                aria-label={`Move ${entry.item.title} later`}
                 onclick={() => moveRow(i, 1)}
               >
                 <IconCaretRightBold class="icon-14" />
@@ -339,10 +343,10 @@
 </section>
 
 <style>
-  .screen { height: 100%; display: flex; flex-direction: column; padding: var(--space-6); gap: var(--space-5); min-height: 0; }
-  .header { display: flex; flex-direction: column; align-items: center; gap: var(--space-1); }
-  .header h1 { font-family: var(--font-display); font-size: 1.5rem; color: var(--text-primary); margin: 0; }
-  .hint { color: var(--text-tertiary); font-size: 0.85rem; margin: 0; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: center; }
+  .screen { min-height:100%; display:flex; flex-direction:column; padding:clamp(24px,3.5vw,54px); gap:clamp(20px,3vw,36px); }
+  .header { width:100%; max-width:1180px; margin:0 auto; display:flex; flex-direction:column; align-items:flex-start; gap:4px; }
+  .header h1 { font-family:var(--font-display); font-size:clamp(1.5rem,2.4vw,2rem); color:var(--text-primary); margin:0; }
+  .hint { color:var(--text-tertiary); font-size:.8rem; margin:0; display:flex; align-items:center; gap:4px; flex-wrap:wrap; }
   :global(.inline-icon) { vertical-align: -2px; color: var(--text-secondary); }
   kbd { background: var(--base-tertiary); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 0 6px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-secondary); }
   .center { text-align: center; }
@@ -364,29 +368,10 @@
   .poster-wrap { position: relative; }
   .poster { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; background: var(--base-tertiary); }
   .poster-empty { background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary)); }
-  .match-badge {
-    position: absolute;
-    top: var(--space-3);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffffff;
-    color: #111111;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    border-radius: 999px;
-    padding: 6px 14px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    font-variant-numeric: tabular-nums;
-    letter-spacing: 0.01em;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-    display: inline-flex;
-    align-items: baseline;
-    gap: 4px;
-    white-space: nowrap;
-  }
   .caption { padding: var(--space-3); text-align: left; }
   .caption h3 { font-family: var(--font-display); font-size: 1.05rem; margin: 0; color: var(--text-primary); }
   .meta { color: var(--text-secondary); font-size: 0.85rem; margin: var(--space-1) 0 0; }
+  .evidence{display:block;margin-top:7px;color:var(--text-tertiary);font-size:.68rem;line-height:1.35}
   .counter { color: var(--text-tertiary); font-size: 0.8rem; }
   .muted { color: var(--text-tertiary); }
   .empty h2 { font-family: var(--font-display); color: var(--text-primary); }
@@ -414,22 +399,17 @@
     max-width: 1180px;
     width: 100%;
     margin: 0 auto;
-    flex: 1;
-    min-height: 0;
-    overflow: hidden;
+    min-height:0;
     padding: var(--space-1) 0;
   }
-  .ranking-list { list-style: none; margin: 0; padding:var(--space-2) var(--space-1) var(--space-4); display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:var(--space-3); overflow-x:auto; align-items:end; }
+  .ranking-list { list-style:none; margin:0; padding:var(--space-2) var(--space-1) var(--space-4); display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; overflow-x:auto; align-items:end; }
   .rank-row {
     position: relative;
-    display:grid;
-    grid-template-columns:auto 1fr auto;
-    align-items:center;
-    gap:var(--space-2);
-    background: var(--base-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    padding:0 0 var(--space-2);
+    display:block;
+    background:var(--base-tertiary);
+    border:1px solid color-mix(in srgb,var(--border) 54%,transparent);
+    border-radius:16px;
+    padding:0;
     overflow:hidden;
     transition: border-color var(--duration-standard) var(--ease-out), box-shadow var(--duration-standard) var(--ease-out);
   }
@@ -440,29 +420,38 @@
     transition: none;
   }
   .rank-num {
-    flex-shrink: 0;
-    width:1.6rem;
+    position:absolute;
+    z-index:2;
+    top:9px;
+    left:9px;
+    width:30px;
+    height:30px;
+    display:grid;
+    place-items:center;
     text-align: center;
     font-variant-numeric: tabular-nums;
     font-size: 0.85rem;
-    color: var(--text-tertiary);
+    color:white;
+    background:rgba(15,16,19,.48);
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:999px;
+    backdrop-filter:blur(14px);
   }
-  .rank-poster-wrap { grid-column:1 / -1; width:100%; border-radius:var(--radius-md) var(--radius-md) 0 0; overflow:hidden; }
+  .rank-poster-wrap { width:100%; overflow:hidden; }
   .rank-poster { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; display: block; background: var(--base-tertiary); pointer-events: none; }
   .rank-poster-empty { background: linear-gradient(135deg, var(--base-tertiary), var(--base-secondary)); }
-  .rank-caption { min-width:0; text-align:left; }
+  .rank-caption { position:absolute;z-index:1;inset:auto 0 0;min-width:0;text-align:left;padding:42px 70px 12px 12px;color:white;background:linear-gradient(180deg,transparent,rgba(8,9,12,.86) 58%,rgba(8,9,12,.94));pointer-events:none; }
   .rank-caption h3 {
     font-family: var(--font-display);
     font-size: 0.92rem;
     margin: 0;
-    color: var(--text-primary);
+    color:white;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .rank-caption .meta { color: var(--text-secondary); font-size: 0.76rem; margin: 2px 0 0; }
-  .match-badge.small { position:absolute; top:var(--space-2); left:50%; transform:translateX(-50%); padding:4px 9px; font-size:.66rem; box-shadow:0 2px 8px rgba(0,0,0,.2); }
-  .rank-controls { grid-column:1 / -1; display:flex; justify-content:center; gap:var(--space-2); }
+  .rank-caption .meta { color:rgba(255,255,255,.65); font-size:.72rem; margin:2px 0 0; }
+  .rank-controls { position:absolute;z-index:2;right:9px;bottom:9px;display:flex;gap:5px; }
   .rank-move-btn {
     width:32px;
     height:26px;
@@ -471,9 +460,10 @@
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    border: 1px solid var(--border-subtle);
-    background: var(--base-tertiary);
-    color: var(--text-secondary);
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(15,16,19,.48);
+    color:white;
+    backdrop-filter:blur(12px);
     cursor: pointer;
     transition: background var(--duration-standard) var(--ease-out), color var(--duration-standard) var(--ease-out);
   }
@@ -481,15 +471,17 @@
   .rank-move-btn:disabled { opacity: 0.3; cursor: not-allowed; }
   .grip {
     position:absolute;
-    right:var(--space-2);
-    top:var(--space-2);
+    right:9px;
+    top:9px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width:30px;
     height:30px;
-    color:#111;
-    background:rgba(255,255,255,.88);
+    color:white;
+    background:rgba(15,16,19,.48);
+    border:1px solid rgba(255,255,255,.22);
+    backdrop-filter:blur(12px);
     border-radius:999px;
     cursor: grab;
     touch-action: none;
@@ -517,12 +509,24 @@
   }
   .save-btn:hover:not(:disabled) { background: var(--primary-accent-hover, var(--primary-accent)); transform: translateY(-1px); }
   .save-btn:disabled { opacity: 0.6; cursor: default; transform: none; }
-  .question-reason, .learning-note { align-self:center; max-width:720px; padding:var(--space-2) var(--space-3); border-left:2px solid var(--accent); color:var(--text-secondary); font-size:.82rem; line-height:1.4; }
+  .learning-note { align-self:center; max-width:720px; padding:var(--space-2) var(--space-3); border-left:2px solid var(--accent); color:var(--text-secondary); font-size:.82rem; line-height:1.4; }
   @media (max-width:760px) {
-    .screen{height:auto;min-height:100%;padding:16px 14px 24px;gap:14px}
-    .header h1{font-size:1.3rem}.hint{font-size:.76rem}.empty{padding-top:clamp(40px,15dvh,120px)}
-    .duel{gap:10px;align-items:start}.caption{padding:10px}.caption h3{font-size:.9rem}.meta{font-size:.72rem}.match-badge{padding:4px 9px;font-size:.68rem}
-    .ranking-list{grid-template-columns:repeat(2,minmax(0,1fr));overflow-y:auto;overflow-x:hidden;padding-inline:0;gap:10px}
-    .ranking-actions{align-items:stretch;flex-direction:column}.save-btn{width:100%;min-height:44px}
+    .screen{padding:18px 14px calc(148px + env(safe-area-inset-bottom));gap:16px}
+    .header h1{font-size:1.45rem}.hint{font-size:.72rem}.empty{padding-top:clamp(40px,15dvh,120px)}
+    .duel{gap:10px;align-items:start}.caption{padding:10px}.caption h3{font-size:.9rem}.meta{font-size:.72rem}
+    .ranking{gap:12px}
+    .ranking-list{display:flex;flex-direction:column;overflow:visible;padding:0;gap:9px}
+    .rank-row{height:112px;display:grid;grid-template-columns:74px minmax(0,1fr) auto;align-items:center;border-radius:14px;background:color-mix(in srgb,var(--base-secondary) 82%,transparent);overflow:hidden}
+    .rank-poster-wrap{width:74px;height:112px}
+    .rank-poster{width:100%;height:100%;aspect-ratio:auto}
+    .rank-num{top:7px;left:7px;width:26px;height:26px;font-size:.72rem}
+    .rank-caption{position:static;padding:12px;background:none;color:var(--text-primary)}
+    .rank-caption h3{color:var(--text-primary);white-space:normal;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical}
+    .rank-caption .meta{color:var(--text-tertiary)}
+    .rank-controls{position:static;display:flex;flex-direction:column;padding-right:10px}
+    .rank-move-btn{width:38px;height:38px;background:var(--base-tertiary);color:var(--text-secondary);border-color:var(--border-subtle);backdrop-filter:none}
+    .rank-move-btn:first-child :global(svg),.rank-move-btn:last-child :global(svg){transform:rotate(90deg)}
+    .grip{display:none}
+    .ranking-actions{position:sticky;z-index:12;bottom:calc(64px + env(safe-area-inset-bottom));align-items:stretch;flex-direction:column;padding:9px 0 0;background:linear-gradient(180deg,transparent,var(--base) 30%)}.save-btn{width:100%;min-height:48px}
   }
 </style>

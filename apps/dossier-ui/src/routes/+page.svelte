@@ -10,8 +10,6 @@
     type Recommendation
   } from "$lib/recommender";
   import { preferences } from "$lib/state/preferences.svelte";
-  import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
-  import { uiSettings } from "$lib/state/ui-settings.svelte";
   import { recommendationDials } from "$lib/state/recommendation-dials.svelte";
   import { toasts } from "$lib/state/toast.svelte";
   import FilmCard from "$lib/components/FilmCard.svelte";
@@ -33,6 +31,7 @@
     type TmdbItem
   } from "$lib/types";
   import { detectSurprise, predictionFor, tasteSnapshot } from "$lib/calibration";
+  import { motionReveal, motionStaggerChildren } from "$lib/design/motion";
 
   /** Accumulated candidate pool from TMDB, grown by infinite scroll. */
   let pool = $state<TmdbItem[]>([]);
@@ -65,6 +64,7 @@
   let filterOpen = $state(false);
   let filters = $state<RecommendationFilters>({ decadeRange: null });
   let dialsOpen = $state(false);
+  let mediumView = $state<"movie" | "tv">("movie");
 
   const decadeOptions = $derived.by<number[]>(() => {
     const set = new Set<number>();
@@ -92,7 +92,8 @@
   });
   // Bounded slice — only the flat-grid fallback (single taste cluster)
   // needs page-at-a-time vertical pagination.
-  const recommendations = $derived(displayRecs.slice(0, visibleCount));
+  const mediumRecs = $derived(displayRecs.filter((rec) => rec.item.medium === mediumView));
+  const recommendations = $derived(mediumRecs.slice(0, visibleCount));
 
   // Opt-in (Settings → Recommendations → "Group by taste"; off by default,
   // matching the original flat-list behavior). When on, the single best
@@ -102,15 +103,17 @@
   // on the FULL loaded pool (not the visibleCount slice) — each row
   // scrolls (and loads more) horizontally on its own, so there's no
   // shared vertical page budget to divide between rows.
-  const hero = $derived(uiSettings.groupedRecommendations ? displayRecs[0] ?? null : null);
-  const rest = $derived(hero ? displayRecs.slice(1) : displayRecs);
+  const hero = $derived(mediumRecs[0] ?? null);
+  const rest = $derived(hero ? mediumRecs.slice(1) : mediumRecs);
   const tasteGroups = $derived(
-    uiSettings.groupedRecommendations && preferences.loaded
+    preferences.loaded
       ? buildTasteGroups(preferences.entries())
       : []
   );
+  const snapshot = $derived(tasteSnapshot(preferences.entries()));
+  const establishedPatterns = $derived(snapshot.filter((area) => area.status === "strong"));
   const heroReason = $derived.by(() => {
-    if (!hero || tasteGroups.length === 0) return null;
+    if (!hero || tasteGroups.length === 0 || establishedPatterns.length === 0) return null;
     const idx = nearestGroupIndex(hero.item, tasteGroups);
     return idx >= 0 ? tasteGroups[idx].label : null;
   });
@@ -122,10 +125,29 @@
   const hasEnough = $derived(ratingCount >= 5);
   const filterActive = $derived(filters.decadeRange !== null);
   const hasMore = $derived(hasMorePages || displayRecs.length > visibleCount);
-  const snapshot = $derived(tasteSnapshot(preferences.entries(catalogueMode.medium)));
+
+  function interleave<T>(left: T[], right: T[]): T[] {
+    const out: T[] = [];
+    const length = Math.max(left.length, right.length);
+    for (let index = 0; index < length; index += 1) {
+      if (left[index]) out.push(left[index]);
+      if (right[index]) out.push(right[index]);
+    }
+    return out;
+  }
+
+  function interleaveMedia(left: TmdbItem[], right: TmdbItem[]): TmdbItem[] {
+    const seen = new Set<string>();
+    return interleave(left, right).filter((item) => {
+      const key = itemKey(item.medium, item.id);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
 
   function reasonFor(item: TmdbItem): string {
-    const groups = tasteGroups.length ? tasteGroups : buildTasteGroups(preferences.entries(catalogueMode.medium));
+    const groups = tasteGroups.length ? tasteGroups : buildTasteGroups(preferences.entries());
     const idx = nearestGroupIndex(item, groups);
     const label = idx >= 0 ? groups[idx].label : item.genres.slice(0,2).join(" & ");
     const movedAxis = Object.entries(recommendationDials.params.axisWeights).find(([,v]) => v !== 1);
@@ -142,12 +164,11 @@
       // first one — see staleFetchStreak's comment above for why a run
       // of empty pages doesn't mean the pool is actually exhausted.
       for (;;) {
-        const page = await buildCandidatePool(
-          catalogueMode.medium,
-          preferences.entries(),
-          preferences.excludedKeys(),
-          poolPage
-        );
+        const [films, television] = await Promise.all([
+          buildCandidatePool("movie", preferences.entries(), preferences.excludedKeys(), poolPage),
+          buildCandidatePool("tv", preferences.entries(), preferences.excludedKeys(), poolPage)
+        ]);
+        const page = interleaveMedia(films, television);
         poolPage += 1;
         const have = new Set(pool.map((i) => itemKey(i.medium, i.id)));
         const newItems = page.filter((i) => !have.has(itemKey(i.medium, i.id)));
@@ -180,11 +201,10 @@
     void preferences.hydrate();
   });
 
-  // Rebuild the pool when the medium changes or once enough ratings
-  // exist. Track only mode + readiness; the reset/fetch run untracked so
+  // Build one intrinsically blended pool once enough ratings exist. Track
+  // only readiness; the reset/fetch run untracked so
   // fetchPool's internal reads (loadingPool/hasMorePages) don't loop.
   $effect(() => {
-    catalogueMode.mode; // track
     const ready = preferences.loaded && hasEnough;
     untrack(() => {
       pool = [];
@@ -293,9 +313,9 @@
 </script>
 
 <section class="screen">
-  <header class="header">
+  <header class="header" use:motionReveal>
     <div>
-      <h1>Recommendations</h1>
+      <h1 class="editorial-title">Discover</h1>
       <p class="sub">
         {#if ratingCount === 0}
           Rate some titles to get started.
@@ -305,8 +325,11 @@
       </p>
     </div>
     <div class="header-actions">
-      {#if !uiSettings.groupedRecommendations}
-        <button
+      <div class="medium-tabs" role="tablist" aria-label="Recommendation type">
+        <button role="tab" aria-selected={mediumView === "movie"} class:active={mediumView === "movie"} onclick={() => (mediumView = "movie")}>Films</button>
+        <button role="tab" aria-selected={mediumView === "tv"} class:active={mediumView === "tv"} onclick={() => (mediumView = "tv")}>Series</button>
+      </div>
+      <button
           class="filter-btn"
           class:active={!recommendationDials.isDefault}
           onclick={() => (dialsOpen = true)}
@@ -315,8 +338,7 @@
         >
           <IconFadersRegular class="icon-16" />
           <span>Dials{recommendationDials.isDefault ? "" : " · on"}</span>
-        </button>
-      {/if}
+      </button>
       <button
         class="filter-btn"
         class:active={filterActive}
@@ -353,14 +375,11 @@
   {:else if recommendations.length === 0}
     <p class="muted">No recommendations yet — rate a few more titles.</p>
   {:else}
-    {#if snapshot.length > 0}
-      <section class="taste-snapshot" aria-labelledby="taste-snapshot-title">
-        <div><span class="eyebrow">Taste snapshot</span><h2 id="taste-snapshot-title">What Dossier currently believes</h2></div>
-        <div class="snapshot-columns">
-          <div><strong>Strong read on</strong>{#each snapshot.filter(a => a.status === "strong").slice(0,3) as area}<p>{area.name} <small>{area.why}</small></p>{/each}</div>
-          <div><strong>Still learning</strong>{#each snapshot.filter(a => a.status === "learning").slice(0,4) as area}<p>{area.name} <small>{area.why}</small> <button onclick={() => goto(`/rate?focus=${encodeURIComponent(area.name)}`)}>Help me learn {area.name.toLowerCase()}</button></p>{/each}</div>
-        </div>
-      </section>
+    {#if establishedPatterns.length > 0}
+      <button class="profile-link" onclick={() => goto('/dossier')} use:motionReveal>
+        <span>{establishedPatterns.length} established pattern{establishedPatterns.length === 1 ? "" : "s"}</span>
+        <span>View evidence <b aria-hidden="true">→</b></span>
+      </button>
     {/if}
     {#if hero}
       <RecommendationHero
@@ -378,7 +397,7 @@
     {#if groupedRows}
       {#each groupedRows as row (row.label)}
         <section class="row">
-          <h2 class="row-title">Because you like {row.label}</h2>
+          <div class="row-heading"><h2 class="row-title">{row.label}</h2></div>
           <div class="row-track">
             {#each row.items as rec (itemKey(rec.item.medium, rec.item.id))}
               <div class="row-tile">
@@ -399,8 +418,8 @@
         </section>
       {/each}
     {:else}
-      <div class="grid">
-        {#each (uiSettings.groupedRecommendations ? rest : recommendations) as rec (itemKey(rec.item.medium, rec.item.id))}
+      <div class="grid" use:motionStaggerChildren>
+        {#each rest.slice(0, visibleCount) as rec (itemKey(rec.item.medium, rec.item.id))}
           <FilmCard
             item={rec.item}
             score={rec.score}
@@ -451,7 +470,7 @@
 {/if}
 
 <style>
-  .screen { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-5); }
+  .screen { padding:clamp(24px,3.5vw,56px); display: flex; flex-direction: column; gap: clamp(22px,3vw,40px); max-width:1480px;margin:auto; }
   .header { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-4); }
   .header-actions { display: flex; align-items: center; gap: var(--space-2); }
   .filter-btn {
@@ -475,7 +494,10 @@
     color: var(--accent);
     background: color-mix(in srgb, var(--accent) 8%, var(--base-secondary));
   }
-  .header h1 { font-family: var(--font-display); font-size: 1.75rem; color: var(--text-primary); margin: 0; }
+  .medium-tabs{display:inline-flex;padding:3px;border:1px solid var(--border-subtle);border-radius:12px;background:color-mix(in srgb,var(--base-secondary) 66%,transparent)}
+  .medium-tabs button{min-height:32px;padding:0 13px;border:0;border-radius:9px;background:transparent;color:var(--text-tertiary);font:inherit;font-size:.78rem;cursor:pointer}
+  .medium-tabs button.active{background:var(--text-primary);color:var(--base);box-shadow:var(--shadow-sm)}
+  .header h1 { margin:0;max-width:14ch; }
   .sub { color: var(--text-secondary); margin: var(--space-1) 0 0; font-size: 0.9rem; }
   .grid {
     display: grid;
@@ -490,6 +512,7 @@
     margin: 0;
     text-transform: capitalize;
   }
+  .row-heading{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
   .row-track {
     display: flex;
     align-items: flex-start;
@@ -540,20 +563,11 @@
     gap: var(--space-1);
   }
   .error strong { color: var(--danger, #f85149); }
-  .taste-snapshot { border:1px solid var(--border-subtle); background:var(--base-secondary); border-radius:var(--radius-lg); padding:var(--space-4); display:grid; grid-template-columns:minmax(180px,.7fr) 2fr; gap:var(--space-5); }
-  .taste-snapshot h2 { margin:3px 0 0; font-family:var(--font-display); font-size:1.05rem; }
-  .taste-snapshot .eyebrow { color:var(--accent); font-size:.7rem; text-transform:uppercase; letter-spacing:.08em; }
-  .snapshot-columns { display:grid; grid-template-columns:1fr 1.4fr; gap:var(--space-4); }
-  .snapshot-columns strong { font-size:.78rem; color:var(--text-secondary); }
-  .snapshot-columns p { margin:var(--space-2) 0 0; font-size:.84rem; }
-  .snapshot-columns small { display:block; color:var(--text-tertiary); }
-  .snapshot-columns button { border:0; background:transparent; color:var(--accent); padding:2px 0; cursor:pointer; font-size:.75rem; }
+  .profile-link{align-self:flex-start;display:inline-flex;gap:14px;align-items:center;padding:0;border:0;background:transparent;color:var(--text-secondary);font:inherit;font-size:.76rem;cursor:pointer}.profile-link span:first-child{color:var(--text-primary);font-weight:650}.profile-link b{margin-left:5px}
   @media(max-width:720px){
-    .screen{padding:16px 14px 24px;gap:16px}
-    .header{align-items:flex-start;gap:12px}.header h1{font-size:1.45rem}.sub{font-size:.82rem}
-    .header-actions{flex-shrink:0}.filter-btn{padding:9px 11px}.filter-btn span{display:none}
-    .taste-snapshot{grid-template-columns:1fr;gap:14px;padding:14px}
-    .snapshot-columns{grid-template-columns:1fr;gap:12px}
+    .screen{padding:18px 14px 24px;gap:18px}
+    .header{display:grid;grid-template-columns:1fr auto;align-items:start;gap:12px}.header h1{font-size:1.65rem}.sub{font-size:.78rem}
+    .header-actions{grid-column:1 / -1;width:100%;flex-shrink:0}.medium-tabs{margin-right:auto}.filter-btn{padding:9px 11px}.filter-btn span{display:none}
     .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
     .row-track{margin-inline:-14px;padding-inline:14px;scroll-padding-inline:14px}
     .row-tile{flex-basis:min(44vw,172px);width:min(44vw,172px)}

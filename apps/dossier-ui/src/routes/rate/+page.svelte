@@ -1,10 +1,11 @@
 <script lang="ts">
-  import { onMount, untrack } from "svelte";
+  import { onDestroy, onMount, untrack } from "svelte";
+  import { createHaptics } from "bzzz";
   import { page as appPage } from "$app/state";
   import { buildRatingQueue, enrichItems } from "$lib/discovery";
   import { preferences } from "$lib/state/preferences.svelte";
-  import { catalogueMode } from "$lib/state/catalogue-mode.svelte";
   import { rateDials } from "$lib/state/rate-dials.svelte";
+  import { uiSettings } from "$lib/state/ui-settings.svelte";
   import { recommendationDials, type DialKey } from "$lib/state/recommendation-dials.svelte";
   import { posterUrl } from "$lib/poster";
   import {
@@ -25,7 +26,8 @@
   import IconWaveformRegular from "phosphor-icons-svelte/IconWaveformRegular.svelte";
   import RateDialsPanel from "$lib/components/RateDialsPanel.svelte";
   import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
-  import { detectSurprise, explainRating, predictionFor, rankDissonantCandidates, selectRateQuestion, shouldStopActiveLearning, type DecisionReason, type Surprise } from "$lib/calibration";
+  import { detectSurprise, dissonanceAssumptionFor, explainRating, predictionFor, rankDissonantCandidates, selectRateQuestion, shouldStopActiveLearning, type DecisionReason, type Surprise } from "$lib/calibration";
+  import { motionPress, motionReveal, glassPointer } from "$lib/design/motion";
 
   /** The 7-point scale replacing the old binary like/dislike buttons. -1
    *  and +1 are deliberately the same sentinels the old "dislike"/"like"
@@ -33,6 +35,26 @@
    *  comment) — only 0/±2/±3 are new. */
   type RankValue = -3 | -2 | -1 | 0 | 1 | 2 | 3;
   type Action = `rank_${RankValue}` | "skip" | "watchlist" | "not_interested";
+
+  const ratingHaptics = createHaptics({
+    output: "haptics",
+    patterns: {
+      slightly: [{ type: "pulse", duration: 8, intensity: 0.4 }],
+      fairly: [
+        { type: "pulse", duration: 8, intensity: 0.55 },
+        { type: "gap", duration: 38 },
+        { type: "pulse", duration: 10, intensity: 0.7 }
+      ],
+      extremely: [
+        { type: "pulse", duration: 8, intensity: 0.55 },
+        { type: "gap", duration: 30 },
+        { type: "pulse", duration: 10, intensity: 0.75 },
+        { type: "gap", duration: 30 },
+        { type: "pulse", duration: 13, intensity: 1 }
+      ]
+    }
+  });
+  onDestroy(() => ratingHaptics.dispose());
 
   function rankAction(v: RankValue): Action {
     return `rank_${v}`;
@@ -43,16 +65,36 @@
   }
 
   const RANK_STOPS: Array<{ value: RankValue; symbol: string; caption: string; full: string; shortcut: string }> = [
-    { value: -3, symbol: "−−−", caption: "Extreme", full: "Extremely negative", shortcut: "1" },
+    { value: -3, symbol: "−−−", caption: "Extremely", full: "Extremely negative", shortcut: "1" },
     { value: -2, symbol: "−−", caption: "Fairly", full: "Fairly negative", shortcut: "2" },
     { value: -1, symbol: "−", caption: "Slightly", full: "Slightly negative", shortcut: "3" },
     { value: 0, symbol: "•", caption: "Neutral", full: "Neutral", shortcut: "4" },
     { value: 1, symbol: "+", caption: "Slightly", full: "Slightly positive", shortcut: "5" },
     { value: 2, symbol: "++", caption: "Fairly", full: "Fairly positive", shortcut: "6" },
-    { value: 3, symbol: "+++", caption: "Extreme", full: "Extremely positive", shortcut: "7" }
+    { value: 3, symbol: "+++", caption: "Extremely", full: "Extremely positive", shortcut: "7" }
   ];
   function stopFor(v: RankValue) {
     return RANK_STOPS.find((s) => s.value === v)!;
+  }
+
+  function interleave<T>(left: T[], right: T[]): T[] {
+    const out: T[] = [];
+    const length = Math.max(left.length, right.length);
+    for (let index = 0; index < length; index += 1) {
+      if (left[index]) out.push(left[index]);
+      if (right[index]) out.push(right[index]);
+    }
+    return out;
+  }
+
+  function interleaveMedia(left: TmdbItem[], right: TmdbItem[]): TmdbItem[] {
+    const seen = new Set<string>();
+    return interleave(left, right).filter((item) => {
+      const key = itemKey(item.medium, item.id);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   }
 
   type HistoryEntry = {
@@ -168,23 +210,45 @@
     };
   });
 
-  // Real drag-to-rate: the poster follows the pointer 1:1 while dragging
-  // (see class:dragging disabling the transition). Horizontal distance
-  // snaps into one of three bands per side (dragMagnitude), so a firm
-  // flick commits ±1 ("slightly") while a longer drag reaches ±2/±3
-  // ("fairly"/"extremely") — the further you drag, the stronger the
-  // rating, same spirit as the old single-strength swipe but now with
-  // headroom for how strongly you feel. Releasing inside the first band
-  // (dead zone) springs back without committing, as before. On commit
+  // Real drag-to-rate: horizontal distance snaps into one of three bands
+  // per side (dragMagnitude), so a firm flick commits ±1 ("slightly")
+  // while a longer drag reaches ±2/±3 ("fairly"/"extremely"). Phones use
+  // reachable, tighter bands, while a fast outward flick can conservatively
+  // add at most one nearby tier. The poster still tracks the finger 1:1;
+  // the fixed viewport feedback remains visible after the poster leaves.
+  // Releasing inside the first band (dead zone) springs back without
+  // committing, as before. On commit
   // the exit keyframe (swipeOut) picks up seamlessly from the live drag
   // position via the --drag-x/--drag-rot custom properties, with
   // --exit-x/--exit-rot scaled by how extreme the committed rank is.
-  const DRAG_THRESHOLDS = [70, 140, 220] as const;
-  function dragMagnitude(absX: number): 0 | 1 | 2 | 3 {
-    if (absX < DRAG_THRESHOLDS[0]) return 0;
-    if (absX < DRAG_THRESHOLDS[1]) return 1;
-    if (absX < DRAG_THRESHOLDS[2]) return 2;
+  const DESKTOP_DRAG_THRESHOLDS = [70, 140, 220] as const;
+  const MOBILE_DRAG_THRESHOLDS = [44, 88, 132] as const;
+  function dragThresholds(): readonly [number, number, number] {
+    return typeof window !== "undefined"
+      && window.matchMedia("(max-width: 760px)").matches
+      && uiSettings.mobileRatingInput === "gestures"
+      ? MOBILE_DRAG_THRESHOLDS
+      : DESKTOP_DRAG_THRESHOLDS;
+  }
+  function distanceMagnitude(absX: number, thresholds = dragThresholds()): 0 | 1 | 2 | 3 {
+    if (absX < thresholds[0]) return 0;
+    if (absX < thresholds[1]) return 1;
+    if (absX < thresholds[2]) return 2;
     return 3;
+  }
+  function velocityBonus(absX: number, outwardVelocity: number): number {
+    const thresholds = dragThresholds();
+    if (absX < thresholds[0] * 0.7) return 0;
+    const maxBonus = (thresholds[1] - thresholds[0]) * 0.45;
+    return Math.min(maxBonus, Math.max(0, outwardVelocity - 0.65) * 18);
+  }
+  function dragMagnitude(rawX: number, velocityX = 0): 0 | 1 | 2 | 3 {
+    const absX = Math.abs(rawX);
+    const thresholds = dragThresholds();
+    const base = distanceMagnitude(absX, thresholds);
+    const outwardVelocity = Math.max(0, Math.sign(rawX) * velocityX);
+    const boosted = distanceMagnitude(absX + velocityBonus(absX, outwardVelocity), thresholds);
+    return Math.min(boosted, Math.min(3, base + 1)) as 0 | 1 | 2 | 3;
   }
   let dragging = $state(false);
   let dragX = $state(0);
@@ -195,12 +259,50 @@
   let dragStartClientX = 0;
   let dragStartClientY = 0;
   let lastHapticRank: RankValue = 0;
+  let dragVelocityX = $state(0);
+  let dragSamples: Array<{ x: number; time: number }> = [];
+  let velocityDecayTimer: ReturnType<typeof setTimeout> | null = null;
+  onDestroy(() => {
+    if (velocityDecayTimer) clearTimeout(velocityDecayTimer);
+  });
+
+  function recordDragSample(clientX: number, time: number): void {
+    dragSamples = [...dragSamples, { x: clientX, time }].filter((sample) => time - sample.time <= 90);
+    const first = dragSamples[0];
+    const last = dragSamples[dragSamples.length - 1];
+    const elapsed = last.time - first.time;
+    dragVelocityX = elapsed > 0 ? (last.x - first.x) / elapsed : 0;
+    if (velocityDecayTimer) clearTimeout(velocityDecayTimer);
+    velocityDecayTimer = setTimeout(() => {
+      dragVelocityX = 0;
+    }, 110);
+  }
+
+  function releaseVelocity(clientX: number, time: number): number {
+    const recent = [...dragSamples.filter((sample) => time - sample.time <= 100), { x: clientX, time }];
+    if (recent.length < 2) return 0;
+    const elapsed = recent[recent.length - 1].time - recent[0].time;
+    return elapsed > 0 ? (recent[recent.length - 1].x - recent[0].x) / elapsed : 0;
+  }
   // Live preview of the rank a release would commit right now — drives
   // the floating "stamp" label so the drag stays legible with 7 possible
   // outcomes instead of 2.
   const dragRank = $derived<RankValue>(
-    dragging ? ((Math.sign(dragX) * dragMagnitude(Math.abs(dragX))) as RankValue) : 0
+    dragging ? ((Math.sign(dragX) * dragMagnitude(dragX, dragVelocityX)) as RankValue) : 0
   );
+  const dragProgress = $derived(
+    dragging
+      ? Math.min(1, (Math.abs(dragX) + velocityBonus(Math.abs(dragX), Math.max(0, Math.sign(dragX) * dragVelocityX))) / dragThresholds()[2])
+      : 0
+  );
+
+  /** Android uses the Vibration API; bzzz falls back to WebKit's hidden
+   * switch haptic on iOS 18+, keeping the pattern platform-free. */
+  function pulseStageHaptic(rank: RankValue): void {
+    const strength = Math.abs(rank);
+    if (strength === 0) return;
+    ratingHaptics.play((["slightly", "fairly", "extremely"] as const)[strength - 1]);
+  }
 
   // The visible queue excludes anything already rated/skipped this session.
   const visibleQueue = $derived(
@@ -228,7 +330,7 @@
 
   let actionError = $state<string | null>(null);
   let dialsOpen = $state(false);
-  let dissonanceMode = $state(false);
+  let dissonanceMode = $state(appPage.url.searchParams.get("mode") === "challenge");
   // Set when a tag's don't-care rate (over all seen titles with that
   // tag) just cleared RATE_THRESHOLD — shows the "Adjust your dials?"
   // confirmation popup. Never more than one queued at once: a fresh
@@ -276,13 +378,11 @@
       // spin indefinitely.
       const MAX_PAGE_ATTEMPTS = 12;
       for (let attempt = 0; attempt < MAX_PAGE_ATTEMPTS; attempt++) {
-        const page = await buildRatingQueue(
-          catalogueMode.medium,
-          preferences.excludedKeys(),
-          queuePage,
-          rateDials.values,
-          rateDials.tagValues
-        );
+        const [films, television] = await Promise.all([
+          buildRatingQueue("movie", preferences.excludedKeys(), queuePage, rateDials.values, rateDials.tagValues),
+          buildRatingQueue("tv", preferences.excludedKeys(), queuePage, rateDials.values, rateDials.tagValues)
+        ]);
+        const page = interleaveMedia(films, television);
         if (epoch !== queueEpoch) return;
         queuePage += 1;
         // An empty *filtered* page often only means every popular title on
@@ -324,8 +424,7 @@
                   learningValue: 1,
                   reason: {
                     kind: "dissonance" as const,
-                    summary: `Dossier gives this a ${prediction.score}% taste match. A positive rating would challenge what it thinks it knows about you.`,
-                    evidence: ["outside your taste profile", "corrective question"]
+                    ...dissonanceAssumptionFor(candidate, entries, prediction)
                   }
                 }
               : itemKey(candidate.medium,candidate.id) === (selected ? itemKey(selected.item.medium,selected.item.id) : "")
@@ -356,11 +455,8 @@
     });
   });
 
-  // Reset and refill the queue whenever the medium changes. Only the
-  // mode is a dependency — the reset/fetch must not re-trigger this
-  // effect (fetchMore touches loadingQueue/queue), so it runs untracked.
+  // Reset and refill the blended queue whenever the teaching mode changes.
   $effect(() => {
-    catalogueMode.mode; // track
     dissonanceMode; // switching Rate modes invalidates the queue ordering
     appPage.url.searchParams.get("focus"); // focused-learning changes invalidate the cached queue
     untrack(() => {
@@ -508,6 +604,9 @@
     dragStartClientY = event.clientY;
     dragX = 0;
     dragY = 0;
+    dragVelocityX = 0;
+    dragSamples = [{ x: event.clientX, time: event.timeStamp }];
+    if (velocityDecayTimer) clearTimeout(velocityDecayTimer);
     lastHapticRank = 0;
     (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
   }
@@ -516,9 +615,19 @@
     if (!dragging || event.pointerId !== dragPointerId) return;
     dragX = event.clientX - dragStartClientX;
     dragY = event.clientY - dragStartClientY;
-    const nextRank = (Math.sign(dragX) * dragMagnitude(Math.abs(dragX))) as RankValue;
-    if (nextRank !== 0 && nextRank !== lastHapticRank) {
-      navigator.vibrate?.(Math.abs(nextRank) === 3 ? 24 : Math.abs(nextRank) === 2 ? 16 : 9);
+    recordDragSample(event.clientX, event.timeStamp);
+    const nextRank = (Math.sign(dragX) * dragMagnitude(dragX, dragVelocityX)) as RankValue;
+    if (nextRank === 0) {
+      // Re-entering "slightly" after returning to the dead zone should
+      // feel like crossing that threshold again.
+      lastHapticRank = 0;
+      return;
+    }
+    if (nextRank !== lastHapticRank) {
+      // A touch pointermove is not a user-activation event in WebKit, so
+      // the hidden-switch haptic must wait for pointerup on iOS. Android's
+      // Vibration API can still acknowledge each threshold live.
+      if (!ratingHaptics.getCapabilities().ios) pulseStageHaptic(nextRank);
       lastHapticRank = nextRank;
     }
   }
@@ -528,8 +637,21 @@
     // Computed from the live dragX before resetting `dragging`, since
     // dragRank (the $derived preview) goes to 0 the instant dragging
     // flips false.
-    const swipedUp = dragY < -70 && Math.abs(dragY) > Math.abs(dragX);
-    const rank = (Math.sign(dragX) * dragMagnitude(Math.abs(dragX))) as RankValue;
+    const finalDragX = event.clientX - dragStartClientX;
+    const finalDragY = event.clientY - dragStartClientY;
+    const finalVelocityX = releaseVelocity(event.clientX, event.timeStamp);
+    const swipedUp = finalDragY < -70 && Math.abs(finalDragY) > Math.abs(finalDragX);
+    const rank = (Math.sign(finalDragX) * dragMagnitude(finalDragX, finalVelocityX)) as RankValue;
+
+    // iOS only grants touch user activation on pointerup/touchend. Calling
+    // Bzzz synchronously here mirrors its working tap demo; the selected
+    // pattern communicates depth as one, two, or three Taptic taps.
+    if (!swipedUp && rank !== 0 && ratingHaptics.getCapabilities().ios) pulseStageHaptic(rank);
+
+    if (velocityDecayTimer) clearTimeout(velocityDecayTimer);
+    velocityDecayTimer = null;
+    dragVelocityX = 0;
+    dragSamples = [];
     dragging = false;
     dragPointerId = null;
 
@@ -539,8 +661,8 @@
       navigator.vibrate?.(12);
       void decide("skip");
     } else if (rank !== 0) {
-      dragXAtCommit = dragX;
-      dragRotAtCommit = dragX / 24;
+      dragXAtCommit = finalDragX;
+      dragRotAtCommit = finalDragX / 24;
       dragX = 0;
       dragY = 0;
       void decide(rankAction(rank));
@@ -577,7 +699,36 @@
 
 <svelte:window on:keydown={handleKey} />
 
-<section class="screen">
+<section
+  class="screen"
+  class:mobile-scale={uiSettings.mobileRatingInput === "scale"}
+  class:swiping={dragging && dragRank !== 0}
+  class:swipe-positive={dragRank > 0}
+  class:swipe-negative={dragRank < 0}
+  style={`--swipe-progress: ${dragProgress}; --swipe-strength: ${Math.abs(dragRank)};`}
+>
+  <div
+    class="swipe-atmosphere"
+    class:intensity-one={Math.abs(dragRank) >= 1}
+    class:intensity-two={Math.abs(dragRank) >= 2}
+    class:intensity-three={Math.abs(dragRank) >= 3}
+    aria-hidden="true"
+  >
+    <span class="pressure-wave wave-one"></span>
+    <span class="pressure-wave wave-two"></span>
+    <span class="pressure-wave wave-three"></span>
+  </div>
+  {#if dragging && dragRank !== 0}
+    <div class="swipe-feedback" class:positive={dragRank > 0} class:negative={dragRank < 0} role="status" aria-live="polite">
+      <span class="feedback-symbol" aria-hidden="true">{stopFor(dragRank).symbol}</span>
+      <span class="feedback-copy"><small>{dragRank > 0 ? "Positive" : "Negative"}</small><strong>{stopFor(dragRank).caption}</strong></span>
+      <span class="feedback-depth" aria-hidden="true">
+        {#each [1, 2, 3] as depth}
+          <i class:active={Math.abs(dragRank) >= depth}></i>
+        {/each}
+      </span>
+    </div>
+  {/if}
   <header class="header">
     <div class="header-row">
       <span class="hint-anchor">
@@ -588,7 +739,7 @@
           <kbd>1</kbd>–<kbd>7</kbd> rate (1 extremely negative … 7 extremely positive) · <kbd>←</kbd> slightly negative · <kbd>→</kbd> slightly positive · <kbd>↓</kbd> don't show again · <kbd>↑</kbd> watchlist · <kbd>Space</kbd> haven't seen · <kbd>⌫</kbd> undo
         </div>
       </span>
-      <h1>{dissonanceMode ? "Dissonance" : "Rate films"}</h1>
+      <div class="teach-heading"><span class="screen-kicker">Teach Dossier</span><h1>{dissonanceMode ? "Challenge its assumptions" : "Rate what you know"}</h1></div>
       <div class="header-end">
         <button
           class="dissonance-top"
@@ -625,7 +776,14 @@
       <div class="stop-note"><strong>I have a good read on the areas you've covered.</strong><span>{shouldStopActiveLearning(preferences.entries(), selectionValues[itemKey(displayedItem.medium, displayedItem.id)] ?? 1).reason}</span><button onclick={() => keepRating = true}>Keep rating</button></div>
     {/if}
     {#if displayedItem && selectionReasons[itemKey(displayedItem.medium, displayedItem.id)]}
-      <p class="selection-reason">{selectionReasons[itemKey(displayedItem.medium, displayedItem.id)].summary}</p>
+      {#if dissonanceMode}
+        <aside class="assumption-card" aria-label="What Dossier is assuming">
+          <span>What Dossier is assuming</span>
+          <p>{selectionReasons[itemKey(displayedItem.medium, displayedItem.id)].summary}</p>
+        </aside>
+      {:else}
+        <p class="selection-reason">{selectionReasons[itemKey(displayedItem.medium, displayedItem.id)].summary}</p>
+      {/if}
     {/if}
   </header>
 
@@ -674,6 +832,7 @@
             onpointermove={onPosterPointerMove}
             onpointerup={onPosterPointerUp}
             onpointercancel={onPosterPointerUp}
+            use:motionReveal
           >
             {#if posterUrl(detail.posterPath, "w500")}
               <img class="poster" src={posterUrl(detail.posterPath, "w500")} alt="" draggable="false" />
@@ -727,6 +886,8 @@
                     aria-label={stop.full}
                     title={`${stop.full} (${stop.shortcut})`}
                     style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[stop.value + 3].x}% ${BG_FOCUS[stop.value + 3].y}%;` : ""}
+                    use:motionPress
+                    use:glassPointer
                   >
                     <span class="btn-surface" aria-hidden="true"></span>
                     <span class="rank-symbol" aria-hidden="true">{stop.symbol}</span>
@@ -743,6 +904,8 @@
                 aria-label="Add to my Watchlist"
                 title="Add to my Watchlist (↑)"
                 style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[7].x}% ${BG_FOCUS[7].y}%;` : ""}
+                use:motionPress
+                use:glassPointer
               >
                 <span class="btn-surface" aria-hidden="true"></span>
                 <IconBookmarkSimpleFill class="icon-20" />
@@ -757,6 +920,8 @@
                 aria-label="I haven't seen it"
                 title="I haven't seen it (Space)"
                 style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[8].x}% ${BG_FOCUS[8].y}%;` : ""}
+                use:motionPress
+                use:glassPointer
               >
                 <span class="btn-surface" aria-hidden="true"></span>
                 <IconEyeSlashRegular class="icon-20" />
@@ -771,6 +936,8 @@
                 aria-label="I don't care about it"
                 title="I don't care about it (↓)"
                 style={bgPoster ? `--btn-bg-image: url("${bgPoster}"); --btn-bg-pos: ${BG_FOCUS[9].x}% ${BG_FOCUS[9].y}%;` : ""}
+                use:motionPress
+                use:glassPointer
               >
                 <span class="btn-surface" aria-hidden="true"></span>
                 <IconProhibitRegular class="icon-20" />
@@ -782,6 +949,7 @@
       {/key}
     {/if}
   </div>
+  <p class="gesture-guide" aria-hidden="true"><span>← dislike</span><span>drag farther for strength</span><span>like →</span></p>
   {#if lastLearning}
     <aside class="previous-learning" aria-live="polite">
       <span class="back-arrow" aria-hidden="true">↶</span>
@@ -822,7 +990,10 @@
     padding: var(--space-6);
     gap: var(--space-4);
     min-height: 0;
+    position: relative;
+    isolation: isolate;
   }
+  .gesture-guide, .swipe-atmosphere, .swipe-feedback { display:none; }
   .header {
     display: flex;
     flex-direction: column;
@@ -836,6 +1007,8 @@
     width: 100%;
     gap: var(--space-3);
   }
+  .teach-heading { text-align:center; }
+  .teach-heading .screen-kicker { margin-bottom:3px; }
   .header h1 {
     font-family: var(--font-display);
     font-size: 1.5rem;
@@ -1190,30 +1363,110 @@
   }
 
   @media (max-width: 760px) {
-    .screen { height:auto; min-height:100%; padding:12px 14px 18px; gap:10px; background:linear-gradient(180deg,var(--base-secondary),var(--base) 34%); }
+    .screen { height:auto; min-height:100%; padding:10px 14px 18px; gap:8px; background:var(--base); overflow-x:clip; }
+    .screen > :not(.swipe-atmosphere) { position:relative; z-index:1; }
+    .screen:not(.mobile-scale) .swipe-atmosphere {
+      display:block;
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      color:transparent;
+      opacity:0;
+      background:
+        radial-gradient(circle at var(--swipe-origin, 50% 46%), color-mix(in srgb,currentColor 34%,transparent) 0%, color-mix(in srgb,currentColor 14%,transparent) 30%, transparent 67%);
+      transition:opacity 100ms linear,color 140ms var(--ease-out);
+    }
+    .screen.swiping:not(.mobile-scale) .swipe-atmosphere { opacity:calc(.24 + var(--swipe-progress) * .7); }
+    .screen.swipe-positive .swipe-atmosphere { color:var(--success); --swipe-origin:112% 43%; }
+    .screen.swipe-negative .swipe-atmosphere { color:var(--error); --swipe-origin:-12% 43%; }
+    .pressure-wave {
+      position:absolute;
+      top:43%;
+      border:1px solid color-mix(in srgb,currentColor 48%,transparent);
+      border-radius:50%;
+      opacity:0;
+      transform:translateY(-50%) scale(.88);
+      transition:opacity 150ms var(--ease-out),transform 260ms var(--ease-spring);
+    }
+    .screen.swipe-positive .pressure-wave { right:var(--wave-offset); }
+    .screen.swipe-negative .pressure-wave { left:var(--wave-offset); }
+    .wave-one { width:44vh; height:44vh; --wave-offset:-29vh; }
+    .wave-two { width:74vh; height:74vh; --wave-offset:-51vh; }
+    .wave-three { width:104vh; height:104vh; --wave-offset:-74vh; }
+    .intensity-one .wave-one,
+    .intensity-two .wave-two,
+    .intensity-three .wave-three { opacity:.74; transform:translateY(-50%) scale(1); }
+    .screen:not(.mobile-scale) .swipe-feedback {
+      display:flex;
+      position:fixed;
+      z-index:5;
+      top:max(84px,calc(env(safe-area-inset-top) + 72px));
+      left:50%;
+      min-width:174px;
+      align-items:center;
+      gap:10px;
+      padding:8px 11px 8px 12px;
+      border:1px solid color-mix(in srgb,currentColor 46%,var(--border-subtle));
+      border-radius:999px;
+      color:var(--text-primary);
+      background:color-mix(in srgb,var(--base) 78%,currentColor 22%);
+      box-shadow:inset 0 1px 0 color-mix(in srgb,white 48%,transparent),0 8px 24px color-mix(in srgb,currentColor 22%,transparent);
+      backdrop-filter:blur(18px) saturate(1.15);
+      -webkit-backdrop-filter:blur(18px) saturate(1.15);
+      transform:translateX(-50%);
+      animation:feedbackIn 150ms var(--ease-spring);
+      pointer-events:none;
+    }
+    .screen:not(.mobile-scale) .swipe-feedback.positive { color:var(--success); }
+    .screen:not(.mobile-scale) .swipe-feedback.negative { color:var(--error); }
+    .feedback-symbol {
+      min-width:27px;
+      font:700 1rem/1 var(--font-display);
+      letter-spacing:-.08em;
+      text-align:center;
+    }
+    .feedback-copy { display:flex; flex:1; flex-direction:column; color:var(--text-primary); line-height:1; }
+    .feedback-copy small { color:var(--text-tertiary); font-size:.52rem; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
+    .feedback-copy strong { margin-top:3px; font:700 .82rem/1 var(--font-display); }
+    .feedback-depth { display:flex; align-items:flex-end; gap:3px; height:14px; }
+    .feedback-depth i { display:block; width:4px; height:5px; border-radius:3px; background:color-mix(in srgb,currentColor 20%,transparent); transition:height 140ms var(--ease-spring),background 140ms var(--ease-out); }
+    .feedback-depth i:nth-child(2) { height:9px; }
+    .feedback-depth i:nth-child(3) { height:13px; }
+    .feedback-depth i.active { background:currentColor; }
+    @keyframes feedbackIn { from { opacity:0; transform:translateX(-50%) scale(.88); } }
     .header { gap:2px; }
     .header h1 { font-size:1.15rem; }
     .hint-anchor { visibility:hidden; }
     .count { font-size:.7rem; }
-    .stage { overflow:visible; padding:4px 0 0; }
+    .stage { flex:none; overflow:visible; padding:4px 0 0; }
     .layout { display:flex; flex-direction:column; gap:12px; max-width:430px; }
-    .poster-wrap { width:min(76vw,330px); max-height:48dvh; margin:0 auto; border-radius:20px; touch-action:none; box-shadow:0 18px 50px color-mix(in srgb,var(--text-primary) 22%,transparent); }
-    .poster { max-height:48dvh; }
+    .poster-wrap { width:min(70vw,306px); max-height:43dvh; margin:0 auto; border-radius:18px; touch-action:none; box-shadow:0 16px 42px color-mix(in srgb,var(--text-primary) 19%,transparent); }
+    .poster { max-height:43dvh; }
     .info { display:grid; grid-template-columns:1fr auto; gap:2px 8px; }
     .title { font-size:1.3rem; }
     .meta { justify-self:end; font-size:.78rem; }
     .genres { grid-column:1/-1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
     .overview { grid-column:1/-1; font-size:.82rem; line-height:1.45; display:-webkit-box; line-clamp:2; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; margin-top:5px; }
     .chips { display:none; }
-    .actions { grid-column:1/-1; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:12px; }
+    .actions { grid-column:1/-1; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:8px; }
     .rank-scale { display:none; }
-    .action-btn { min-width:0; height:58px; padding:8px 5px; flex-direction:column; justify-content:center; gap:3px; border-radius:18px; text-align:center; font-size:.62rem; line-height:1.05; background:color-mix(in srgb,var(--base-secondary) 92%,transparent); }
+    .screen.mobile-scale .rank-scale { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); }
+    .screen.mobile-scale .rank-caption { display:none; }
+    .gesture-guide{display:flex;justify-content:space-between;gap:8px;margin:-4px 4px 0;font-size:.62rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em}
+    .screen.mobile-scale .gesture-guide{display:none}
+    .action-btn { min-width:0; height:54px; padding:7px 4px; flex-direction:column; justify-content:center; gap:3px; border-radius:14px; text-align:center; font-size:.61rem; line-height:1.05; background:color-mix(in srgb,var(--base-secondary) 92%,transparent); }
     .action-btn :global(svg) { font-size:22px; }
     .not-interested-action { order:1; color:var(--error); }
     .watchlist-action { order:2; color:var(--primary-accent); }
     .skip-action { order:3; color:var(--text-secondary); }
     .previous-learning, .selection-reason, .stop-note { display:none; }
-    .drag-stamp { top:18px; }
+    .drag-stamp { display:none; }
+  }
+
+  @media (max-width:760px) and (prefers-reduced-motion:reduce) {
+    .pressure-wave, .swipe-atmosphere, .feedback-depth i { transition:none; }
+    .screen:not(.mobile-scale) .swipe-feedback { animation:none; }
   }
 
   .empty { text-align: center; max-width: 360px; margin: var(--space-7) auto 0; }
@@ -1235,6 +1488,18 @@
   }
   .error strong { color: var(--danger, #f85149); }
   .selection-reason { max-width:680px; margin:var(--space-1) auto 0; color:var(--text-secondary); font-size:.8rem; text-align:center; line-height:1.4; }
+  .assumption-card {
+    width:min(720px,100%);
+    margin:var(--space-1) auto 0;
+    padding:10px 14px;
+    border:1px solid color-mix(in srgb,var(--accent) 30%,var(--border-subtle));
+    border-left:3px solid var(--accent);
+    border-radius:var(--radius-md);
+    background:color-mix(in srgb,var(--accent) 6%,var(--base-secondary));
+    text-align:left;
+  }
+  .assumption-card span { display:block; margin-bottom:3px; color:var(--accent); font-size:.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+  .assumption-card p { margin:0; color:var(--text-secondary); font-size:.8rem; line-height:1.45; }
   .previous-learning { flex:none; display:flex; align-items:center; gap:var(--space-3); margin:0 calc(var(--space-6) * -1) calc(var(--space-6) * -1); padding:var(--space-3) var(--space-6); border-top:1px solid var(--border-subtle); background:color-mix(in srgb,var(--base-secondary) 88%,transparent); color:var(--text-secondary); }
   .back-arrow { font-size:1.5rem; color:var(--accent); } .previous-label { color:var(--text-tertiary); font-size:.68rem; text-transform:uppercase; letter-spacing:.07em; }
   .previous-learning p { margin:2px 0 0; font-size:.8rem; line-height:1.4; } .previous-learning strong { color:var(--text-primary); }
@@ -1242,4 +1507,15 @@
   .stop-note strong { color:var(--text-primary); } .stop-note button, .surprise-followup button { border:1px solid var(--border-default); background:var(--base-tertiary); color:var(--text-primary); border-radius:var(--radius-sm); padding:var(--space-2); cursor:pointer; }
   .surprise-followup { position:fixed; z-index:30; right:var(--space-5); bottom:var(--space-5); max-width:420px; background:var(--base-secondary); border:1px solid var(--accent); box-shadow:var(--shadow-lg); border-radius:var(--radius-lg); padding:var(--space-4); color:var(--text-secondary); }
   .surprise-followup strong { color:var(--text-primary); } .surprise-followup div { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-bottom:var(--space-2); }
+  @media (max-width:760px) {
+    .previous-learning, .selection-reason, .stop-note { display:none !important; }
+    .assumption-card { margin-top:4px; padding:8px 10px; }
+    .assumption-card span { font-size:.58rem; }
+    .assumption-card p { font-size:.7rem; line-height:1.35; }
+  }
+  @media (max-width:760px) and (max-height:720px) {
+    .poster-wrap,.poster{max-height:37dvh}
+    .overview{display:none}
+    .genres{font-size:.72rem}
+  }
 </style>

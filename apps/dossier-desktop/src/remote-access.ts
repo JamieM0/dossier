@@ -56,6 +56,18 @@ type Settings = Record<string, unknown> & {
   };
 };
 
+/** Preference data a paired device may read and update. Host credentials,
+ * device management, and operating-system settings intentionally stay out
+ * of this list. Keep this aligned with the remote UI bridge. */
+const REMOTE_SETTING_KEYS = [
+  "theme", "dyslexiaMode", "groupedRecommendations", "refineGroupSize",
+  "mobileRatingInput", "recommendationDials", "rateGenreDials", "rateTagDials", "rateTagPatternState"
+] as const;
+
+function remoteSettings(value: Record<string, unknown>): Record<string, unknown> {
+  return Object.fromEntries(REMOTE_SETTING_KEYS.filter((key) => key in value).map((key) => [key, value[key]]));
+}
+
 const MIME: Record<string, string> = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
@@ -573,14 +585,10 @@ export class RemoteAccessManager {
       ].some(([method, pattern]) => req.method === method && (pattern as RegExp).test(mapped));
       if (!allowed) return json(res, 403, { error: { code: "HOST_ONLY", message: "This action can only be completed on the Dossier host PC." } });
       if (mapped === "/control/settings" && req.method === "GET") {
-        const settings = this.getSettings();
-        const safe = Object.fromEntries(["theme", "dyslexiaMode", "groupedRecommendations", "refineGroupSize"].filter((key) => key in settings).map((key) => [key, settings[key]]));
-        return json(res, 200, safe);
+        return json(res, 200, remoteSettings(this.getSettings()));
       }
       if (mapped === "/control/settings" && req.method === "PUT") {
-        const value = await body(req);
-        const safe = Object.fromEntries(["theme", "dyslexiaMode", "groupedRecommendations", "refineGroupSize"].filter((key) => key in value).map((key) => [key, value[key]]));
-        return json(res, 200, this.saveSettings(safe));
+        return json(res, 200, remoteSettings(this.saveSettings(remoteSettings(await body(req)))));
       }
       req.headers["x-dossier-control-token"] = this.controlToken;
       req.url = mapped + requestUrl.search;
