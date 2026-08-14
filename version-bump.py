@@ -7,7 +7,7 @@ local signed build succeeds first, so a broken build can never ship.
 
 Flow:
   1. Pre-flight checks (branch, gh auth, signing key files, tooling).
-  2. Bump the version across the 3 required files.
+  2. Bump the version across the required files.
   3. Build + sign locally (tauri build, macOS aarch64).
   4. Collect artifacts into dist/ and generate latest.json.
   5. Commit, tag, push.
@@ -36,6 +36,7 @@ FILES = {
 VERSION_FILES = [
     "apps/dossier-desktop/src-tauri/tauri.conf.json",
     "apps/dossier-desktop/src-tauri/Cargo.toml",
+    "apps/dossier-desktop/src-tauri/Cargo.lock",
     "apps/dossier-desktop/package.json",
 ]
 

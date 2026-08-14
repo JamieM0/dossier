@@ -85,6 +85,16 @@ GitHub Actions release pipeline. Releases ship from the main `dossier` repo
 (the old `dossier-builds` repo is no longer used now that the project is open
 source). Builds are **macOS-only (aarch64)**; Windows is not built.
 
+### GitHub authentication from agent shells
+
+`gh` stores the GitHub token in macOS Keychain. A restricted agent shell cannot
+read that keychain item or reach GitHub, and `gh auth status` misleadingly
+reports this as "The token in default is invalid." Before asking Jamie to log in
+again, rerun `gh auth status` with host/keychain/network access. If that succeeds,
+authentication is healthy; run the release command with the same access. Never
+work around this by copying the token into an environment variable or using
+`--insecure-storage`.
+
 ### Using the version-bump Script
 
 Claude should **always use `version-bump` without parameters**:
@@ -96,9 +106,10 @@ python version-bump.py
 This one script does the whole release. In order, it:
 1. Runs pre-flight checks (on `main`; `gh`, `pnpm`, `node` present; `gh` is
    authenticated; the local updater signing key + password files exist).
-2. Bumps the patch version (X.Y.Z → X.Y.Z+1) across all three version files:
+2. Bumps the patch version (X.Y.Z → X.Y.Z+1) across all version files:
    - `apps/dossier-desktop/src-tauri/tauri.conf.json`
    - `apps/dossier-desktop/src-tauri/Cargo.toml`
+   - `apps/dossier-desktop/src-tauri/Cargo.lock`
    - `apps/dossier-desktop/package.json`
 3. **Builds + signs locally** (`tauri build --target aarch64-apple-darwin`),
    reading the signing key from `~/.tauri/dossier-updater.key` and its password
