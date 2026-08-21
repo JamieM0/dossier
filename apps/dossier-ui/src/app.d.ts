@@ -5,6 +5,7 @@ import type {
   RatedItem,
   Rating,
   RatingEntry,
+  TmdbCollectionResult,
   TmdbItem,
   TmdbListResult,
   TmdbMedium
@@ -72,6 +73,7 @@ declare global {
           params?: { sortBy?: string; withGenres?: string; minVotes?: number; page?: number }
         ) => Promise<TmdbListResult>;
         search: (medium: TmdbMedium, query: string, year?: number) => Promise<TmdbListResult>;
+        collection: (id: number, options?: { cacheOnly?: boolean }) => Promise<TmdbCollectionResult | null>;
         detail: (medium: TmdbMedium, id: number) => Promise<TmdbItem>;
         posterUrl: (posterPath: string | null, size?: string) => string | null;
       };

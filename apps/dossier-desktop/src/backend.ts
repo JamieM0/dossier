@@ -143,6 +143,7 @@ type TmdbClientPort = {
     }
   ) => Promise<unknown>;
   search: (medium: TmdbMedium, query: string, year?: number) => Promise<unknown>;
+  collection: (id: number, options?: { cacheOnly?: boolean }) => Promise<unknown>;
   detail: (medium: TmdbMedium, id: number) => Promise<unknown>;
 };
 
@@ -507,6 +508,14 @@ function createControlRequestHandler() {
         const id = Number(query.get("id"));
         if (!Number.isFinite(id)) throw new ControlError(400, "BAD_REQUEST", "id required");
         sendJson(res, 200, await client.detail(parseMedium(query.get("medium")), id));
+        return;
+      }
+
+      if (method === "GET" && path === "/control/tmdb/collection") {
+        const client = await getTmdbClient();
+        const id = Number(query.get("id"));
+        if (!Number.isFinite(id)) throw new ControlError(400, "BAD_REQUEST", "id required");
+        sendJson(res, 200, await client.collection(id, { cacheOnly: query.get("cacheOnly") === "true" }));
         return;
       }
 

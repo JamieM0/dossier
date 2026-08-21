@@ -4,7 +4,9 @@
  * let recommender.ts rank them with the user's taste profile. We never
  * use TMDB's own /recommendations or /similar endpoints: the ranking
  * brain stays entirely ours so it remains medium-agnostic. */
-import type { RatingEntry, TmdbItem, TmdbMedium } from "$lib/types";
+import { ratingWeight, type RatingEntry, type TmdbItem, type TmdbMedium } from "$lib/types";
+
+export const MAX_UNCACHED_COLLECTION_REQUESTS = 2;
 
 const genreMaps: Partial<Record<TmdbMedium, Map<string, number>>> = {};
 
@@ -26,7 +28,7 @@ async function genreNameToId(medium: TmdbMedium): Promise<Map<string, number>> {
   return map;
 }
 
-function dedupeExclude(items: TmdbItem[], excludeKeys: Set<string>): TmdbItem[] {
+export function dedupeExclude(items: TmdbItem[], excludeKeys: Set<string>): TmdbItem[] {
   const seen = new Set<string>();
   const out: TmdbItem[] = [];
   for (const it of items) {
@@ -36,6 +38,56 @@ function dedupeExclude(items: TmdbItem[], excludeKeys: Set<string>): TmdbItem[] 
     out.push(it);
   }
   return out;
+}
+
+type RepresentedCollection = {
+  id: number;
+  count: number;
+  weight: number;
+};
+
+/** Discover unrated movie-franchise members without expanding member detail.
+ * Every represented collection is checked against long-lived cache first;
+ * only the strongest few cache misses are allowed to reach TMDB. */
+export async function buildCollectionCandidates(
+  entries: RatingEntry[],
+  excludeKeys: Set<string>,
+  maxUncached = MAX_UNCACHED_COLLECTION_REQUESTS
+): Promise<TmdbItem[]> {
+  const api = tmdb();
+  if (!api.collection) return [];
+  const represented = new Map<number, RepresentedCollection>();
+  for (const entry of entries) {
+    if (entry.item.medium !== "movie" || !entry.item.collection) continue;
+    const id = entry.item.collection.id;
+    const current = represented.get(id) ?? { id, count: 0, weight: 0 };
+    current.count += 1;
+    current.weight += Math.abs(ratingWeight(entry.rating));
+    represented.set(id, current);
+  }
+  const ranked = [...represented.values()].sort(
+    (a, b) => b.count - a.count || b.weight - a.weight || a.id - b.id
+  );
+  if (!ranked.length) return [];
+
+  const cached = await Promise.all(ranked.map(async ({ id }) => {
+    try {
+      return await api.collection(id, { cacheOnly: true });
+    } catch {
+      return null;
+    }
+  }));
+  const results = cached.filter((result): result is NonNullable<typeof result> => result !== null);
+  const misses = ranked.filter((_, index) => cached[index] === null).slice(0, Math.max(0, maxUncached));
+  const fetched = await Promise.all(misses.map(async ({ id }) => {
+    try {
+      return await api.collection(id);
+    } catch {
+      return null;
+    }
+  }));
+  results.push(...fetched.filter((result): result is NonNullable<typeof result> => result !== null));
+  return dedupeExclude(results.flatMap((result) => result.items), excludeKeys);
 }
 
 /** Run `fn` over `items` with at most `concurrency` in flight at once,
@@ -176,13 +228,17 @@ export async function buildRatingQueue(
   excludeKeys: Set<string>,
   page = 1,
   genreDialValues: Record<string, number> = {},
-  tagDialValues: Record<string, number> = {}
+  tagDialValues: Record<string, number> = {},
+  entries: RatingEntry[] = []
 ): Promise<TmdbItem[]> {
   const api = tmdb();
-  const [trending, popular, acclaimed] = await Promise.all([
+  const [trending, popular, acclaimed, collectionItems] = await Promise.all([
     api.trending(medium, page),
     api.discover(medium, { sortBy: "popularity.desc", minVotes: 500, page }),
-    api.discover(medium, { sortBy: "vote_average.desc", minVotes: 2000, page })
+    api.discover(medium, { sortBy: "vote_average.desc", minVotes: 2000, page }),
+    medium === "movie" && page === 1
+      ? buildCollectionCandidates(entries, excludeKeys)
+      : Promise.resolve([])
   ]);
   // Interleave so the queue is mostly popular with a steady trickle of
   // acclaimed-but-less-mainstream titles.
@@ -192,6 +248,7 @@ export async function buildRatingQueue(
   for (let i = 0; i < max; i++) {
     for (const list of lists) if (list[i]) merged.push(list[i]);
   }
+  merged.push(...collectionItems);
   return applyGenreDials(dedupeExclude(merged, excludeKeys), genreDialValues, tagDialValues);
 }
 

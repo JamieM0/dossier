@@ -13,6 +13,7 @@ import type {
   RatedItem,
   Rating,
   RatingEntry,
+  TmdbCollectionResult,
   TmdbListResult,
   TmdbItem,
   TmdbMedium
@@ -104,6 +105,8 @@ export function installWebApi(): void {
         webLibrary.tmdbClient().discover(medium, params) as Promise<TmdbListResult>,
       search: (medium: TmdbMedium, query: string, year?: number): Promise<TmdbListResult> =>
         webLibrary.tmdbClient().search(medium, query, year) as Promise<TmdbListResult>,
+      collection: (id: number, options: { cacheOnly?: boolean } = {}): Promise<TmdbCollectionResult | null> =>
+        webLibrary.tmdbClient().collection(id, options) as Promise<TmdbCollectionResult | null>,
       detail: (medium: TmdbMedium, id: number): Promise<TmdbItem> =>
         webLibrary.tmdbClient().detail(medium, id) as Promise<TmdbItem>,
       posterUrl

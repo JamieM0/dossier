@@ -13,7 +13,7 @@
  * an in-memory/Cache-API impl). Volatile listings (trending/discover/search)
  * use a short in-memory TTL only and never touch the injected cache. */
 import { featureVector, type FeatureVector } from "../lens.js";
-import type { TmdbItem, TmdbListResult, TmdbMedium } from "./types.js";
+import type { TmdbCollectionResult, TmdbItem, TmdbListResult, TmdbMedium } from "./types.js";
 
 const BASE = "https://api.themoviedb.org/3";
 
@@ -46,6 +46,11 @@ export type TmdbClientOptions = {
   cache?: TmdbCache;
 };
 
+export type TmdbCollectionLookupOptions = {
+  /** Consult the in-memory/persistent cache without issuing a TMDB request. */
+  cacheOnly?: boolean;
+};
+
 export class TmdbClient {
   private mem = new Map<string, MemEntry>();
   private readonly token: string;
@@ -66,6 +71,34 @@ export class TmdbClient {
     return headers;
   }
 
+  private requestKey(
+    path: string,
+    params: Record<string, string | number | undefined>
+  ): { query: string; key: string } {
+    const apiParams = { ...params };
+    if (this.token.length <= 40) apiParams.api_key = this.token;
+    const query = Object.entries(apiParams)
+      .filter(([, value]) => value !== undefined && value !== "")
+      .map(([name, value]) => `${name}=${encodeURIComponent(String(value))}`)
+      .sort()
+      .join("&");
+    return { query, key: `${path}?${query}` };
+  }
+
+  private async cached<T>(
+    path: string,
+    params: Record<string, string | number | undefined>
+  ): Promise<T | undefined> {
+    const { key } = this.requestKey(path, params);
+    const memHit = this.mem.get(key);
+    if (memHit && Date.now() - memHit.at < memHit.ttl) return memHit.value as T;
+    if (!this.cache) return undefined;
+    const value = await this.cache.get(key);
+    if (value === undefined) return undefined;
+    this.mem.set(key, { at: Date.now(), ttl: META_MEM_TTL_MS, value });
+    return value as T;
+  }
+
   /** Raw GET against TMDB with layered caching.
    *  - `disk: true`  → consult/write the injected persistent cache, for
    *    stable resources (item detail, genre lists).
@@ -75,17 +108,7 @@ export class TmdbClient {
     params: Record<string, string | number | undefined>,
     opts: { disk: boolean }
   ): Promise<T> {
-    const apiParams = { ...params };
-    if (this.token.length <= 40) {
-      apiParams.api_key = this.token;
-    }
-
-    const query = Object.entries(apiParams)
-      .filter(([, v]) => v !== undefined && v !== "")
-      .map(([k, v]) => `${k}=${encodeURIComponent(String(v))}`)
-      .sort()
-      .join("&");
-    const key = `${path}?${query}`;
+    const { query, key } = this.requestKey(path, params);
 
     const memHit = this.mem.get(key);
     if (memHit && Date.now() - memHit.at < memHit.ttl) {
@@ -245,6 +268,34 @@ export class TmdbClient {
     } satisfies TmdbItem;
   }
 
+  /** Movie collection metadata and list-shaped members. The raw collection
+   * response is cached long-term. This never requests per-member detail. */
+  async collection(
+    id: number,
+    options: TmdbCollectionLookupOptions = {}
+  ): Promise<TmdbCollectionResult | null> {
+    const path = `/collection/${id}`;
+    const raw = options.cacheOnly
+      ? await this.cached<RawCollection>(path, {})
+      : await this.get<RawCollection>(path, {}, { disk: true });
+    if (!raw) return null;
+    const collection = {
+      id: raw.id,
+      name: raw.name ?? "",
+      posterPath: raw.poster_path ?? null,
+      backdropPath: raw.backdrop_path ?? null
+    };
+    const list = this.toList(
+      "movie",
+      { page: 1, total_pages: 1, results: raw.parts ?? [] },
+      await this.genres("movie")
+    );
+    return {
+      collection,
+      items: list.items.map((item) => ({ ...item, collection }))
+    };
+  }
+
   private toList(
     medium: TmdbMedium,
     data: RawList,
@@ -319,6 +370,14 @@ type RawDetail = RawListItem & {
   credits?: {
     crew?: Array<{ id: number; job?: string }>;
   };
+};
+
+type RawCollection = {
+  id: number;
+  name?: string;
+  poster_path?: string | null;
+  backdrop_path?: string | null;
+  parts?: RawListItem[];
 };
 
 // Re-export for callers that only need the type alongside the client.

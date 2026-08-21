@@ -36,6 +36,33 @@ const DETAIL = {
   },
   keywords: { keywords: [{ id: 1, name: "dream" }, { id: 2, name: "heist" }] }
 };
+const COLLECTION = {
+  id: 2344,
+  name: "The Inception Collection",
+  poster_path: "/collection.jpg",
+  backdrop_path: "/collection-backdrop.jpg",
+  parts: [
+    {
+      id: 27205,
+      title: "Inception",
+      release_date: "2010-07-16",
+      vote_average: 8.4,
+      vote_count: 30000,
+      popularity: 50,
+      genre_ids: [28, 878],
+      poster_path: "/p.jpg",
+      overview: "A thief who steals corporate secrets."
+    },
+    {
+      id: 99999,
+      title: "Inception Again",
+      release_date: "2030-07-16",
+      genre_ids: [878],
+      poster_path: "/p2.jpg",
+      overview: "Another dream."
+    }
+  ]
+};
 
 afterEach(() => vi.restoreAllMocks());
 
@@ -111,6 +138,35 @@ describe("TmdbClient", () => {
     const detailCalls = fetchMock.mock.calls.filter(([u]) => String(u).includes("/movie/27205"));
     expect(detailCalls.length).toBe(0);
     expect(callsAfterFirst).toBeGreaterThan(0);
+  });
+
+  it("returns cached list-shaped collection members without fetching member detail", async () => {
+    const store = new Map<string, unknown>();
+    const cache: TmdbCache = {
+      get: (key) => Promise.resolve(store.get(key)),
+      set: (key, value) => {
+        store.set(key, value);
+        return Promise.resolve();
+      }
+    };
+    const fetchMock = vi.fn((url: string) => Promise.resolve(jsonResponse(
+      url.includes("/genre/") ? GENRES : COLLECTION
+    )));
+    vi.stubGlobal("fetch", fetchMock);
+    const client = new TmdbClient({ token: "x".repeat(50), cache });
+
+    expect(await client.collection(2344, { cacheOnly: true })).toBeNull();
+    const fetched = await client.collection(2344);
+    expect(fetched?.items.map((item) => item.id)).toEqual([27205, 99999]);
+    expect(fetched?.items.every((item) => item.collection?.id === 2344)).toBe(true);
+    expect(fetchMock.mock.calls.filter(([url]) => String(url).includes("/collection/2344"))).toHaveLength(1);
+    expect(fetchMock.mock.calls.some(([url]) => String(url).includes("/movie/27205"))).toBe(false);
+
+    const nextClient = new TmdbClient({ token: "x".repeat(50), cache });
+    fetchMock.mockClear();
+    const cached = await nextClient.collection(2344, { cacheOnly: true });
+    expect(cached?.items).toHaveLength(2);
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it("throws TmdbConfigError on a 401", async () => {

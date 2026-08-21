@@ -5,6 +5,7 @@ import type {
   RatedItem,
   Rating,
   RatingEntry,
+  TmdbCollectionResult,
   TmdbItem,
   TmdbListResult,
   TmdbMedium
@@ -87,6 +88,8 @@ export function installRemoteApi(): void {
       },
       search: (medium: TmdbMedium, query: string, year?: number) =>
         api<TmdbListResult>(`/tmdb/search?medium=${medium}&query=${encodeURIComponent(query)}${year ? `&year=${year}` : ""}`),
+      collection: (id: number, options: { cacheOnly?: boolean } = {}) =>
+        api<TmdbCollectionResult | null>(`/tmdb/collection?id=${id}&cacheOnly=${options.cacheOnly ? "true" : "false"}`),
       detail: (medium: TmdbMedium, id: number) => api<TmdbItem>(`/tmdb/detail?medium=${medium}&id=${id}`),
       posterUrl
     },

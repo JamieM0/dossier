@@ -8,6 +8,7 @@ import type {
   RatedItem,
   Rating,
   RatingEntry,
+  TmdbCollectionResult,
   TmdbListResult,
   TmdbItem,
   TmdbMedium
@@ -108,6 +109,8 @@ export function installDesktopApi(): void {
         }),
       search: (medium: TmdbMedium, query: string, year?: number): Promise<TmdbListResult> =>
         invoke("tmdb_search", { medium, query, year: year ?? null }),
+      collection: (id: number, options: { cacheOnly?: boolean } = {}): Promise<TmdbCollectionResult | null> =>
+        invoke("tmdb_collection", { id, cacheOnly: options.cacheOnly ?? false }),
       detail: (medium: TmdbMedium, id: number): Promise<TmdbItem> =>
         invoke("tmdb_detail", { medium, id }),
       posterUrl

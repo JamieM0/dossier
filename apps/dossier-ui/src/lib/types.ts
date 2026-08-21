@@ -310,3 +310,8 @@ export type TmdbListResult = {
   totalPages: number;
   items: TmdbItem[];
 };
+
+export type TmdbCollectionResult = {
+  collection: TmdbCollection;
+  items: TmdbItem[];
+};

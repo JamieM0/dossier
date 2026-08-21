@@ -1,15 +1,35 @@
 import { AXIS_KEYS, predictPreference, type AxisKey } from "$lib/recommender";
 import { ratingKind, ratingWeight, type Rating, type RatingEntry, type TmdbItem } from "$lib/types";
-import { cosineSimilarity } from "@dossier/domain";
+import { buildTasteSpace, cosineSimilarity, type TasteCluster, type TasteClusterRelationship } from "@dossier/domain";
 
 export type EvidenceLevel = "strong" | "some" | "mixed" | "sparse";
-export type DecisionReason = {
-  kind: "cold_start" | "focus" | "conflict" | "boundary" | "coverage" | "confirmation" | "fallback" | "dissonance";
-  summary: string;
-  evidence: string[];
+export type ProbeKind =
+  | "cold_start"
+  | "sparse_region"
+  | "boundary"
+  | "conflict_resolution"
+  | "collection_completion"
+  | "confirmation"
+  | "fallback"
+  | "dissonance";
+export type ProbeEvidence = {
+  clusterIds: string[];
+  itemKeys: string[];
+  weakRegionIds: string[];
+  collection: {
+    id: number;
+    name: string;
+    ratedItemKeys: string[];
+  } | null;
   focus?: string;
 };
-export type SelectedQuestion<T> = { item: T; reason: DecisionReason; learningValue: number };
+export type ProbeResult<T> = {
+  item: T;
+  probeKind: ProbeKind;
+  learningValue: number;
+  reason: string;
+  evidence: ProbeEvidence;
+};
 
 const AXIS_LABELS: Record<AxisKey, [string, string]> = {
   pacing: ["slower pacing", "faster pacing"], tone: ["darker tone", "lighter tone"],
@@ -41,43 +61,166 @@ function familiarity(item: TmdbItem): number {
   return Math.min(1, Math.log10((item.popularity ?? 0) + 1) / 3) + Math.min(0.25, (item.voteAverage ?? 0) / 40);
 }
 
-/** Deterministic active selection. Familiarity remains part of every score;
- * after the baseline, disagreement with nearby liked/disliked evidence and
- * sparse keyword/tag coverage add learning value. Broad genres are only a
- * discovery constraint; the actual question value comes from the more
- * discriminating TMDB keyword evidence whenever it exists. */
-export function selectRateQuestion(candidates: TmdbItem[], entries: RatingEntry[], focus?: string): SelectedQuestion<TmdbItem> | null {
-  if (!candidates.length) return null;
+function tmdbKey(item: TmdbItem): string {
+  return `${item.medium}:${item.id}`;
+}
+
+function strongest(
+  relationships: TasteClusterRelationship[],
+  polarity: "liked" | "disliked"
+): TasteClusterRelationship | null {
+  return relationships
+    .filter((relationship) =>
+      relationship.polarity === polarity &&
+      (polarity === "liked" ? relationship.affinity > 0 : relationship.affinity < 0)
+    )
+    .sort((a, b) => Math.abs(b.affinity) - Math.abs(a.affinity) || a.clusterId.localeCompare(b.clusterId))[0] ?? null;
+}
+
+function clusterTitle(cluster: TasteCluster | undefined): string {
+  return cluster?.supportingRatings[0]?.item.title ?? "an earlier rating";
+}
+
+function emptyEvidence(focus?: string): ProbeEvidence {
+  return { clusterIds: [], itemKeys: [], weakRegionIds: [], collection: null, ...(focus ? { focus } : {}) };
+}
+
+/** Rank a whole Rate candidate pool in one deterministic TasteSpace pass.
+ * Weak-region membership and signed liked/disliked affinities are the sole
+ * source of sparse/boundary decisions; no parallel genre-count taste model
+ * is maintained here. Familiarity only breaks ties within a probe class. */
+export function rankRateProbes(
+  candidates: TmdbItem[],
+  entries: RatingEntry[],
+  focus?: string
+): Array<ProbeResult<TmdbItem>> {
+  if (!candidates.length) return [];
   if (entries.length < 5) {
-    const item = [...candidates].sort((a,b) => familiarity(b)-familiarity(a))[0];
-    return { item, learningValue: 0, reason: { kind:"cold_start", summary:`Starting with a widely known ${item.genres[0]?.toLowerCase() ?? "title"} to establish a baseline.`, evidence:["recognisability", "sparse rating history"] } };
+    return [...candidates]
+      .sort((a, b) => familiarity(b) - familiarity(a) || tmdbKey(a).localeCompare(tmdbKey(b)))
+      .map((item) => ({
+        item,
+        probeKind: "cold_start" as const,
+        learningValue: 0,
+        reason: `Starting with a widely known ${item.genres[0]?.toLowerCase() ?? "title"} to establish a baseline.`,
+        evidence: emptyEvidence(focus)
+      }));
   }
-  const signalCounts = new Map<string, number>();
-  for (const e of entries) for (const signal of (e.item.keywords.length ? e.item.keywords : e.item.genres)) signalCounts.set(signal, (signalCounts.get(signal) ?? 0) + 1);
-  const liked = entries.filter(e => ratingWeight(e.rating) > 0);
-  const disliked = entries.filter(e => ratingWeight(e.rating) < 0);
-  let best: SelectedQuestion<TmdbItem> | null = null;
-  for (const item of candidates) {
-    const likeSim = Math.max(0, ...liked.map(e => cosineSimilarity(item.features, e.item.features)));
-    const dislikeSim = Math.max(0, ...disliked.map(e => cosineSimilarity(item.features, e.item.features)));
-    const conflict = likeSim > .45 && dislikeSim > .45 ? Math.min(likeSim, dislikeSim) : 0;
-    const signals = item.keywords.length ? item.keywords : item.genres;
-    const coverage = signals.length ? 1 / (1 + Math.min(...signals.map(g => signalCounts.get(g) ?? 0))) : 0;
-    const focused = focus && (item.genres.includes(focus) || item.keywords.includes(focus)) ? .9 : 0;
-    const learningValue = conflict * 1.2 + coverage * .55 + focused + familiarity(item) * .45;
-    let reason: DecisionReason;
-    if (focused) reason = { kind:"focus", focus, summary:`You chose ${focus.toLowerCase()}. This familiar title tests a different pattern within that area.`, evidence:[focus, "feature variation", "recognisability"] };
-    else if (conflict) {
-      const nearLike = liked.sort((a,b)=>cosineSimilarity(item.features,b.item.features)-cosineSimilarity(item.features,a.item.features))[0];
-      const nearDislike = disliked.sort((a,b)=>cosineSimilarity(item.features,b.item.features)-cosineSimilarity(item.features,a.item.features))[0];
-      reason = { kind:"conflict", summary:`This resembles both ${nearLike.item.title}, which drew you in, and ${nearDislike.item.title}, which did not. Your response helps narrow down the difference.`, evidence:[nearLike.item.key, nearDislike.item.key] };
-    } else {
-      const area = [...signals].sort((a,b)=>(signalCounts.get(a)??0)-(signalCounts.get(b)??0))[0];
-      reason = { kind:"coverage", focus:area, summary:`Dossier has little evidence around ${area?.toLowerCase() ?? "this pattern"}. This recognisable title tests that detail without treating its broad genre as one taste.`, evidence:[area ?? "sparse coverage", "recognisability"] };
+
+  const space = buildTasteSpace(entries, { items: candidates });
+  const clusters = new Map(space.clusters.map((cluster) => [cluster.id, cluster]));
+  const ratedByKey = new Map(entries.map((entry) => [entry.item.key, entry]));
+  const regionsByItem = new Map<string, typeof space.weakRegions>();
+  for (const region of space.weakRegions) {
+    for (const key of region.targetItemKeys) {
+      regionsByItem.set(key, [...(regionsByItem.get(key) ?? []), region]);
     }
-    if (!best || learningValue > best.learningValue) best = { item, learningValue, reason };
   }
-  return best;
+
+  const probes = space.unratedItems.map<ProbeResult<TmdbItem>>((target) => {
+    const item = target.item;
+    const key = target.key;
+    const liked = strongest(target.relationships, "liked");
+    const disliked = strongest(target.relationships, "disliked");
+    const likedCluster = liked ? clusters.get(liked.clusterId) : undefined;
+    const dislikedCluster = disliked ? clusters.get(disliked.clusterId) : undefined;
+    const regions = regionsByItem.get(key) ?? [];
+    const uncertain = regions.find((region) => region.kind === "uncertain");
+    const sparse = regions.find((region) => region.kind === "sparse");
+    const focused = Boolean(focus && (item.genres.includes(focus) || item.keywords.includes(focus)));
+    const focusBoost = focused ? 1 : 0;
+    const collectionEntries = item.collection
+      ? entries.filter((entry) => entry.item.collection?.id === item.collection?.id)
+      : [];
+    const baseEvidence: ProbeEvidence = {
+      clusterIds: [liked?.clusterId, disliked?.clusterId].filter((id): id is string => Boolean(id)),
+      itemKeys: [likedCluster?.supportingRatings[0]?.itemKey, dislikedCluster?.supportingRatings[0]?.itemKey]
+        .filter((itemKey): itemKey is string => Boolean(itemKey)),
+      weakRegionIds: regions.map((region) => region.id),
+      collection: item.collection && collectionEntries.length
+        ? {
+            id: item.collection.id,
+            name: item.collection.name,
+            ratedItemKeys: collectionEntries.map((entry) => entry.item.key).sort()
+          }
+        : null,
+      ...(focused && focus ? { focus } : {})
+    };
+    const prefix = focused && focus ? `You chose ${focus.toLowerCase()}. ` : "";
+
+    if (uncertain && liked && disliked) {
+      const clusterConflict = Boolean(
+        likedCluster?.opposingEvidence.length ||
+        dislikedCluster?.opposingEvidence.length ||
+        likedCluster?.nearbyClusters.some((nearby) => nearby.clusterId === disliked.clusterId && nearby.similarity >= 0.75)
+      );
+      const probeKind = clusterConflict ? "conflict_resolution" : "boundary";
+      const boundaryStrength = Math.min(liked.affinity, -disliked.affinity);
+      return {
+        item,
+        probeKind,
+        learningValue: 1.5 + boundaryStrength * 0.8 + (1 - uncertain.confidence) * 0.4 + focusBoost * 0.9 + familiarity(item) * 0.1,
+        reason: clusterConflict
+          ? `${prefix}This resembles both ${clusterTitle(likedCluster)}, which drew you in, and ${clusterTitle(dislikedCluster)}, which did not. Your response resolves that conflicting evidence.`
+          : `${prefix}This sits between what you liked about ${clusterTitle(likedCluster)} and what you disliked about ${clusterTitle(dislikedCluster)}. Your response sharpens that boundary.`,
+        evidence: baseEvidence
+      };
+    }
+
+    if (baseEvidence.collection) {
+      const ratedTitles = baseEvidence.collection.ratedItemKeys
+        .map((itemKey) => ratedByKey.get(itemKey)?.item.title)
+        .filter((title): title is string => Boolean(title));
+      return {
+        item,
+        probeKind: "collection_completion",
+        learningValue: 1.6 + Math.min(0.3, collectionEntries.length * 0.1) + focusBoost * 0.9 + familiarity(item) * 0.1,
+        reason: `${prefix}${baseEvidence.collection.name} is already represented by ${naturalList(ratedTitles.slice(0, 2))}. Rating another member tests whether that preference holds across the set.`,
+        evidence: baseEvidence
+      };
+    }
+
+    if (sparse) {
+      const area = sparse.commonTags[0]?.name ?? sparse.commonGenres[0]?.name;
+      return {
+        item,
+        probeKind: "sparse_region",
+        learningValue: 1 + (1 - sparse.confidence) * 0.4 + focusBoost * 0.9 + familiarity(item) * 0.1,
+        reason: `${prefix}Dossier has little evidence around ${area?.toLowerCase() ?? "this part of taste space"}. This fills that weak region without assuming the whole genre works the same way.`,
+        evidence: baseEvidence
+      };
+    }
+
+    if (liked || disliked) {
+      const relationship = liked && (!disliked || Math.abs(liked.affinity) >= Math.abs(disliked.affinity)) ? liked : disliked!;
+      const cluster = clusters.get(relationship.clusterId);
+      return {
+        item,
+        probeKind: "confirmation",
+        learningValue: 0.55 + (1 - Math.min(1, Math.abs(relationship.affinity))) * 0.2 + focusBoost * 0.9 + familiarity(item) * 0.1,
+        reason: `${prefix}This is close to the pattern around ${clusterTitle(cluster)}. Your response checks whether that signal is reliable.`,
+        evidence: { ...baseEvidence, clusterIds: [relationship.clusterId], itemKeys: cluster?.supportingRatings.slice(0, 2).map((rating) => rating.itemKey) ?? [] }
+      };
+    }
+
+    return {
+      item,
+      probeKind: "fallback",
+      learningValue: focusBoost * 0.9 + familiarity(item) * 0.1,
+      reason: `${prefix}No stronger unresolved probe is available, so this recognisable title provides a neutral fallback check.`,
+      evidence: baseEvidence
+    };
+  });
+
+  return probes.sort((a, b) =>
+    b.learningValue - a.learningValue ||
+    familiarity(b.item) - familiarity(a.item) ||
+    tmdbKey(a.item).localeCompare(tmdbKey(b.item))
+  );
+}
+
+export function selectRateQuestion(candidates: TmdbItem[], entries: RatingEntry[], focus?: string): ProbeResult<TmdbItem> | null {
+  return rankRateProbes(candidates, entries, focus)[0] ?? null;
 }
 
 export type Prediction = { score: number; evidence: EvidenceLevel; expected: "like"|"dislike"|"uncertain" };

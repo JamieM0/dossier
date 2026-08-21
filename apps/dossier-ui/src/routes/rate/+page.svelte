@@ -26,7 +26,7 @@
   import IconWaveformRegular from "phosphor-icons-svelte/IconWaveformRegular.svelte";
   import RateDialsPanel from "$lib/components/RateDialsPanel.svelte";
   import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
-  import { detectSurprise, dissonanceAssumptionFor, explainRating, predictionFor, rankDissonantCandidates, selectRateQuestion, shouldStopActiveLearning, type DecisionReason, type Surprise } from "$lib/calibration";
+  import { detectSurprise, dissonanceAssumptionFor, explainRating, predictionFor, rankDissonantCandidates, rankRateProbes, shouldStopActiveLearning, type ProbeResult, type Surprise } from "$lib/calibration";
   import { motionPress, motionReveal, glassPointer } from "$lib/design/motion";
 
   /** The 7-point scale replacing the old binary like/dislike buttons. -1
@@ -336,7 +336,7 @@
   // confirmation popup. Never more than one queued at once: a fresh
   // crossing while one is already showing is dropped.
   let patternPrompt = $state<{ tag: string; dontCare: number; seen: number; totalSeen: number } | null>(null);
-  let selectionReasons = $state<Record<string, DecisionReason>>({});
+  let selectionReasons = $state<Record<string, ProbeResult<TmdbItem>>>({});
   let selectionValues = $state<Record<string, number>>({});
   let keepRating = $state(false);
   let lastLearning = $state<{ title: string; text: string } | null>(null);
@@ -378,9 +378,10 @@
       // spin indefinitely.
       const MAX_PAGE_ATTEMPTS = 12;
       for (let attempt = 0; attempt < MAX_PAGE_ATTEMPTS; attempt++) {
+        const entries = preferences.entries();
         const [films, television] = await Promise.all([
-          buildRatingQueue("movie", preferences.excludedKeys(), queuePage, rateDials.values, rateDials.tagValues),
-          buildRatingQueue("tv", preferences.excludedKeys(), queuePage, rateDials.values, rateDials.tagValues)
+          buildRatingQueue("movie", preferences.excludedKeys(), queuePage, rateDials.values, rateDials.tagValues, entries),
+          buildRatingQueue("tv", preferences.excludedKeys(), queuePage, rateDials.values, rateDials.tagValues, entries)
         ]);
         const page = interleaveMedia(films, television);
         if (epoch !== queueEpoch) return;
@@ -394,7 +395,6 @@
         const have = new Set(queue.map((i) => itemKey(i.medium, i.id)));
         const fresh = page.filter((i) => !have.has(itemKey(i.medium, i.id)));
         if (fresh.length > 0) {
-          const entries = preferences.entries();
           // Dissonance makes an explicit taste claim, so score the full
           // keyword-enriched fingerprints rather than the coarser list
           // records. detail() is disk-cached, keeping later visits cheap.
@@ -402,37 +402,40 @@
           if (epoch !== queueEpoch) return;
           const dissonant = requestedDissonance ? rankDissonantCandidates(candidates, entries) : [];
           if (requestedDissonance && dissonant.length === 0) continue;
-          const selected = requestedDissonance ? null : selectRateQuestion(fresh, entries, appPage.url.searchParams.get("focus") ?? undefined);
+          const probes = requestedDissonance ? [] : rankRateProbes(fresh, entries, appPage.url.searchParams.get("focus") ?? undefined);
+          const selected = probes[0] ?? null;
           const ordered = requestedDissonance
             ? dissonant.map(({ item }) => item)
             : selected
               ? [selected.item, ...fresh.filter(i => itemKey(i.medium,i.id) !== itemKey(selected.item.medium,selected.item.id))]
               : fresh;
-          // Record a genuine reason for every queued item, not just the
-          // batch winner. The queue keeps its dial-biased ordering after
-          // the selected first question, while each later card can still
-          // explain the evidence that made it useful.
+          // Record the structured TasteSpace probe for every queued item.
+          // The selected probe leads while the remainder retain the current
+          // dial-biased order.
           const nextReasons = { ...selectionReasons };
           const nextValues = { ...selectionValues };
           for (const candidate of ordered) {
             const prediction = requestedDissonance
               ? dissonant.find(({ item }) => itemKey(item.medium, item.id) === itemKey(candidate.medium, candidate.id))?.prediction
               : undefined;
-            const decision = prediction
+            const assumption = prediction ? dissonanceAssumptionFor(candidate, entries, prediction) : null;
+            const decision = prediction && assumption
               ? {
                   item: candidate,
                   learningValue: 1,
-                  reason: {
-                    kind: "dissonance" as const,
-                    ...dissonanceAssumptionFor(candidate, entries, prediction)
+                  probeKind: "dissonance" as const,
+                  reason: assumption.summary,
+                  evidence: {
+                    clusterIds: [],
+                    itemKeys: assumption.evidence.filter((value) => value.includes(":")),
+                    weakRegionIds: [],
+                    collection: null
                   }
                 }
-              : itemKey(candidate.medium,candidate.id) === (selected ? itemKey(selected.item.medium,selected.item.id) : "")
-                ? selected
-                : selectRateQuestion([candidate], entries, appPage.url.searchParams.get("focus") ?? undefined);
+              : probes.find((probe) => itemKey(probe.item.medium, probe.item.id) === itemKey(candidate.medium, candidate.id));
             if (!decision) continue;
             const candidateKey=itemKey(candidate.medium,candidate.id);
-            nextReasons[candidateKey]=decision.reason; nextValues[candidateKey]=decision.learningValue;
+            nextReasons[candidateKey]=decision; nextValues[candidateKey]=decision.learningValue;
           }
           selectionReasons=nextReasons; selectionValues=nextValues;
           queue = [...queue, ...ordered];
@@ -779,10 +782,10 @@
       {#if dissonanceMode}
         <aside class="assumption-card" aria-label="What Dossier is assuming">
           <span>What Dossier is assuming</span>
-          <p>{selectionReasons[itemKey(displayedItem.medium, displayedItem.id)].summary}</p>
+          <p>{selectionReasons[itemKey(displayedItem.medium, displayedItem.id)].reason}</p>
         </aside>
       {:else}
-        <p class="selection-reason">{selectionReasons[itemKey(displayedItem.medium, displayedItem.id)].summary}</p>
+        <p class="selection-reason">{selectionReasons[itemKey(displayedItem.medium, displayedItem.id)].reason}</p>
       {/if}
     {/if}
   </header>

@@ -3,18 +3,76 @@ import { detectSurprise, dissonanceAssumptionFor, explainRating, predictionFor, 
 import type { RatingEntry, TmdbItem } from "./types";
 
 const features = (n:number) => ({pacing:n,tone:n,emotional_intensity:n,complexity:n,scope:n,realism:n,thematic_weight:n,character_focus:n,moral_clarity:n,structure:n});
+const vector = (over: Partial<TmdbItem["features"]>): TmdbItem["features"] => ({ ...features(0), ...over });
 const item = (id:number, n:number, genre="Science Fiction", popularity=10):TmdbItem => ({id,medium:"movie",title:`Title ${id}`,year:2020,posterPath:null,voteAverage:7,voteCount:1000,popularity,runtime:120,genreIds:[],genres:[genre],keywords:["space travel"],collection:null,directorIds:[],creatorIds:[],overview:"",features:features(n)});
 const entry = (id:number,n:number,rating:RatingEntry["rating"]):RatingEntry => ({item:{...item(id,n),key:`movie:${id}`},rating,ts:id});
+const entryWith = (id:number, value: TmdbItem["features"], rating:RatingEntry["rating"], collection: TmdbItem["collection"] = null):RatingEntry => ({item:{...item(id,0),features:value,collection,key:`movie:${id}`},rating,ts:id});
 
 describe("calibration decisions", () => {
   it("cold start selects the most recognisable candidate and records why", () => {
     const picked=selectRateQuestion([item(1,.2,"Drama",5),item(2,.3,"Drama",900)],[]);
-    expect(picked?.item.id).toBe(2); expect(picked?.reason.kind).toBe("cold_start");
+    expect(picked?.item.id).toBe(2); expect(picked?.probeKind).toBe("cold_start");
   });
   it("later selection prioritises a candidate that resolves liked/disliked conflict", () => {
     const entries=[entry(1,.8,3),entry(2,.75,2),entry(3,.7,1),entry(4,.65,-3),entry(5,.6,-2)];
     const picked=selectRateQuestion([item(10,.7),item(11,-.8,"Comedy",900)],entries);
-    expect(picked?.item.id).toBe(10); expect(picked?.reason.kind).toBe("conflict");
+    expect(picked?.item.id).toBe(10);
+    expect(picked?.probeKind).toBe("conflict_resolution");
+    expect(picked?.evidence.clusterIds).toHaveLength(2);
+    expect(picked?.evidence.itemKeys).toEqual(expect.arrayContaining(["movie:1", "movie:4"]));
+  });
+  it("uses TasteSpace weak regions for sparse probes", () => {
+    const entries = [
+      entryWith(1, vector({ pacing: 1 }), 2),
+      entryWith(2, vector({ pacing: .9 }), 1),
+      entryWith(3, vector({ tone: 1 }), -2),
+      entryWith(4, vector({ tone: .9 }), -1),
+      entryWith(5, vector({ pacing: .8 }), 1)
+    ];
+    const picked = selectRateQuestion([
+      { ...item(10, 0, "Mystery"), features: vector({ complexity: 1 }) },
+      { ...item(11, 0), features: vector({ pacing: 1 }) }
+    ], entries);
+    expect(picked?.item.id).toBe(10);
+    expect(picked?.probeKind).toBe("sparse_region");
+    expect(picked?.evidence.weakRegionIds[0]).toContain("sparse-");
+  });
+  it("identifies a liked/disliked boundary without relabelling it as cluster conflict", () => {
+    const entries = [
+      entryWith(1, vector({ pacing: 1 }), 2),
+      entryWith(2, vector({ pacing: .9 }), 1),
+      entryWith(3, vector({ pacing: .8 }), 1),
+      entryWith(4, vector({ tone: 1 }), -2),
+      entryWith(5, vector({ tone: .9 }), -1)
+    ];
+    const picked = selectRateQuestion([
+      { ...item(12, 0), features: vector({ pacing: 1, tone: 1 }) }
+    ], entries);
+    expect(picked?.probeKind).toBe("boundary");
+    expect(picked?.reason).toContain("sharpens that boundary");
+  });
+  it("surfaces an unrated member of a represented collection as set completion", () => {
+    const collection = { id: 99, name: "The Example Collection", posterPath: null, backdropPath: null };
+    const entries = [
+      entryWith(1, vector({ pacing: 1 }), 2, collection),
+      entryWith(2, vector({ pacing: .9 }), 1),
+      entryWith(3, vector({ pacing: .8 }), 1),
+      entryWith(4, vector({ tone: 1 }), -2),
+      entryWith(5, vector({ tone: .9 }), -1)
+    ];
+    const candidate = { ...item(20, 0), collection, features: vector({ pacing: 1 }) };
+    const picked = selectRateQuestion([candidate], entries);
+    expect(picked?.probeKind).toBe("collection_completion");
+    expect(picked?.evidence.collection).toMatchObject({ id: 99, ratedItemKeys: ["movie:1"] });
+    expect(picked?.reason).toContain("The Example Collection");
+  });
+  it("selects deterministically regardless of candidate input order", () => {
+    const entries=[entry(1,.8,3),entry(2,.75,2),entry(3,.7,1),entry(4,.65,-3),entry(5,.6,-2)];
+    const candidates=[item(31,-.8,"Comedy",10),item(30,-.8,"Comedy",10)];
+    const first=selectRateQuestion(candidates,entries);
+    const reversed=selectRateQuestion([...candidates].reverse(),entries);
+    expect(first?.item.id).toBe(30);
+    expect(reversed).toEqual(first);
   });
   it("rating semantics and strength remain distinct", () => {
     const p={score:40,evidence:"some" as const,expected:"uncertain" as const};

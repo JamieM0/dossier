@@ -37,3 +37,12 @@ export type TmdbListResult = {
   totalPages: number;
   items: TmdbItem[];
 };
+
+/** A TMDB movie collection plus its list-shaped members. Member detail is
+ * deliberately not expanded; the Rate screen fetches detail only if one is
+ * surfaced. `null` from a cache-only lookup means the collection is not in
+ * the long-lived metadata cache. */
+export type TmdbCollectionResult = {
+  collection: TmdbCollection;
+  items: TmdbItem[];
+};

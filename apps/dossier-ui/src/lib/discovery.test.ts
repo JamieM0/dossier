@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { applyGenreDials, enrichItem, enrichItems, mapWithConcurrency } from "./discovery";
-import type { TmdbItem } from "./types";
+import { applyGenreDials, buildCollectionCandidates, buildRatingQueue, enrichItem, enrichItems, mapWithConcurrency, MAX_UNCACHED_COLLECTION_REQUESTS } from "./discovery";
+import type { RatingEntry, TmdbCollection, TmdbItem } from "./types";
 
 function mkItem(id: number, overrides: Partial<TmdbItem> = {}): TmdbItem {
   return {
@@ -91,6 +91,66 @@ describe("enrichItem / enrichItems", () => {
     expect(result[0].keywords).toEqual(["x"]);
     expect(result[1]).toBe(items[1]); // fell back
     expect(result[2].keywords).toEqual(["x"]);
+  });
+});
+
+describe("collection candidates", () => {
+  afterEach(() => {
+    delete (globalThis as unknown as { window?: unknown }).window;
+  });
+
+  const collection = (id: number): TmdbCollection => ({ id, name: `Collection ${id}`, posterPath: null, backdropPath: null });
+  const rated = (id: number, collectionId: number, rating: RatingEntry["rating"] = 1): RatingEntry => ({
+    item: { ...mkItem(id, { collection: collection(collectionId) }), key: `movie:${id}` },
+    rating,
+    ts: id
+  });
+
+  it("uses every cached collection first and caps targeted cache misses", async () => {
+    const collectionLookup = vi.fn(async (id: number, options?: { cacheOnly?: boolean }) => {
+      if (options?.cacheOnly) {
+        return id === 30 ? { collection: collection(id), items: [mkItem(300, { collection: collection(id) })] } : null;
+      }
+      return { collection: collection(id), items: [mkItem(id * 10, { collection: collection(id) })] };
+    });
+    const detail = vi.fn();
+    setBridge({ collection: collectionLookup, detail });
+    const entries = [rated(1, 10), rated(2, 20), rated(3, 30), rated(4, 40)];
+
+    const result = await buildCollectionCandidates(entries, new Set());
+
+    const cacheOnlyCalls = collectionLookup.mock.calls.filter(([, options]) => options?.cacheOnly);
+    const networkEligibleCalls = collectionLookup.mock.calls.filter(([, options]) => !options?.cacheOnly);
+    expect(cacheOnlyCalls.map(([id]) => id)).toEqual([10, 20, 30, 40]);
+    expect(networkEligibleCalls).toHaveLength(MAX_UNCACHED_COLLECTION_REQUESTS);
+    expect(result.map((candidate) => candidate.id)).toEqual(expect.arrayContaining([300, 100, 200]));
+    expect(detail).not.toHaveBeenCalled();
+  });
+
+  it("merges collection members into the broad queue, excluding ratings and duplicates", async () => {
+    const represented = collection(77);
+    const broadDuplicate = mkItem(10);
+    const targeted = mkItem(20, { collection: represented });
+    const alreadyRated = mkItem(1, { collection: represented });
+    const list = { page: 1, totalPages: 1, items: [broadDuplicate] };
+    const collectionLookup = vi.fn().mockResolvedValue({
+      collection: represented,
+      items: [broadDuplicate, targeted, alreadyRated]
+    });
+    const detail = vi.fn();
+    setBridge({
+      trending: vi.fn().mockResolvedValue(list),
+      discover: vi.fn().mockResolvedValue(list),
+      collection: collectionLookup,
+      detail
+    });
+
+    const result = await buildRatingQueue("movie", new Set(["movie:1"]), 1, {}, {}, [rated(1, 77)]);
+
+    expect(result.map((candidate) => candidate.id)).toEqual([10, 20]);
+    expect(detail).not.toHaveBeenCalled();
+    expect(collectionLookup).toHaveBeenCalledTimes(1);
+    expect(collectionLookup).toHaveBeenCalledWith(77, { cacheOnly: true });
   });
 });
 

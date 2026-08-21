@@ -72,6 +72,9 @@ export function installMockDossier(seed?: MockDossierSeed): void {
     overview: `${title} is a sample title used for visual review.`,
     runtime: 100 + n,
     keywords,
+    collection: null,
+    directorIds: [],
+    creatorIds: [],
     features: feat(over)
   });
   const pool = [
@@ -233,6 +236,7 @@ export function installMockDossier(seed?: MockDossierSeed): void {
       trending: () => list(pool),
       discover: () => list(pool),
       search: () => list(pool.slice(0, 1)),
+      collection: () => Promise.resolve(null),
       detail: (_m: string, id: number) => Promise.resolve(pool.find((p) => p.id === id) ?? pool[0]),
       posterUrl: () => null
     },

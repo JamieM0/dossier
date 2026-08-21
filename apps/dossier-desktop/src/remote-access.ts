@@ -581,7 +581,7 @@ export class RemoteAccessManager {
       const allowed = [
         ["GET", /^\/control\/app\/version$/], ["GET", /^\/control\/settings$/], ["PUT", /^\/control\/settings$/],
         ["GET", /^\/control\/preferences$/], ["PUT", /^\/control\/preferences\/rating$/],
-        ["POST", /^\/control\/preferences\/(pairwise|skip|unskip)$/], ["GET", /^\/control\/tmdb\/(status|genres|trending|discover|search|detail)$/]
+        ["POST", /^\/control\/preferences\/(pairwise|skip|unskip)$/], ["GET", /^\/control\/tmdb\/(status|genres|trending|discover|search|detail|collection)$/]
       ].some(([method, pattern]) => req.method === method && (pattern as RegExp).test(mapped));
       if (!allowed) return json(res, 403, { error: { code: "HOST_ONLY", message: "This action can only be completed on the Dossier host PC." } });
       if (mapped === "/control/settings" && req.method === "GET") {

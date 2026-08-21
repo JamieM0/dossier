@@ -1042,6 +1042,26 @@ async fn tmdb_detail(
         .await
 }
 
+#[tauri::command]
+async fn tmdb_collection(
+    id: i64,
+    cache_only: Option<bool>,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::GET,
+            &format!(
+                "/control/tmdb/collection?id={}&cacheOnly={}",
+                id,
+                cache_only.unwrap_or(false)
+            ),
+            None,
+        )
+        .await
+}
+
 /// Resolve, cache, and read a poster image. Hits TMDB only on a cache
 /// miss or when the cached copy is older than `POSTER_TTL`. Returns the
 /// image bytes and a content type.
@@ -1240,6 +1260,7 @@ fn main() {
             tmdb_trending,
             tmdb_discover,
             tmdb_search,
+            tmdb_collection,
             tmdb_detail,
             library_export,
             library_import,

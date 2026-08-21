@@ -39,6 +39,36 @@ test.describe("Rate screen redesign", () => {
     await expect(page.getByRole("dialog")).toHaveCount(0);
   });
 
+  test("every surfaced Rate question explains why it was selected", async ({ page }, testInfo) => {
+    const reason = page.locator(".selection-reason");
+    await expect(reason).toBeVisible();
+    await expect(reason).toContainText("establish a baseline");
+
+    const audit = await page.evaluate(() => {
+      const element = document.querySelector(".selection-reason");
+      const rect = element?.getBoundingClientRect();
+      return {
+        text: element?.textContent?.trim() ?? null,
+        fullyVisible: Boolean(rect && rect.top >= 0 && rect.bottom <= window.innerHeight),
+        withinViewportWidth: Boolean(rect && rect.left >= 0 && rect.right <= window.innerWidth),
+        overlapsTitle: Boolean(rect && (() => {
+          const title = document.querySelector(".info .title")?.getBoundingClientRect();
+          return title && rect.bottom > title.top && rect.top < title.bottom;
+        })())
+      };
+    });
+    expect(audit.fullyVisible).toBe(true);
+    expect(audit.withinViewportWidth).toBe(true);
+    expect(audit.overlapsTitle).toBe(false);
+
+    await testInfo.attach("rate-probe-reason-audit", {
+      body: JSON.stringify(audit, null, 2),
+      contentType: "application/json"
+    });
+    await page.screenshot({ path: testInfo.outputPath("rate-probe-reason-full.png"), fullPage: true });
+    await reason.screenshot({ path: testInfo.outputPath("rate-probe-reason-focused.png") });
+  });
+
   test("keyboard hint documents the 1-7 rank shortcuts plus arrows/space/backspace", async ({ page }) => {
     const popover = page.locator(".hint-popover");
     await expect(popover).toHaveCount(1);
