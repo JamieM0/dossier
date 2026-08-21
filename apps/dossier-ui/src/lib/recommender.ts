@@ -31,6 +31,14 @@
  * the more you rate. */
 import type { FeatureVector, RatingEntry, TmdbItem } from "$lib/types";
 import { ratingKind, ratingWeight } from "$lib/types";
+import {
+  AXIS_KEYS,
+  buildTasteSpace,
+  cosineSimilarity,
+  DEFAULT_TASTE_CLUSTER_MERGE_THRESHOLD,
+  type AxisKey,
+  type TasteCluster
+} from "@dossier/domain";
 
 /** The minimum an item needs to be scored: a lens vector and a quality
  * signal. Both TmdbItem and the stored RatedItem snapshot satisfy it.
@@ -45,38 +53,13 @@ type Scorable = {
   runtime?: number | null;
 };
 
-export const AXIS_KEYS = [
-  "pacing",
-  "tone",
-  "emotional_intensity",
-  "complexity",
-  "scope",
-  "realism",
-  "thematic_weight",
-  "character_focus",
-  "moral_clarity",
-  "structure"
-] as const satisfies readonly (keyof FeatureVector)[];
-
-export type AxisKey = (typeof AXIS_KEYS)[number];
+export { AXIS_KEYS, cosineSimilarity };
+export type { AxisKey };
 
 function magnitude(v: FeatureVector): number {
   let s = 0;
   for (const k of AXIS_KEYS) s += v[k] * v[k];
   return Math.sqrt(s);
-}
-
-function dot(a: FeatureVector, b: FeatureVector): number {
-  let s = 0;
-  for (const k of AXIS_KEYS) s += a[k] * b[k];
-  return s;
-}
-
-export function cosineSimilarity(a: FeatureVector, b: FeatureVector): number {
-  const ma = magnitude(a);
-  const mb = magnitude(b);
-  if (ma === 0 || mb === 0) return 0;
-  return dot(a, b) / (ma * mb);
 }
 
 /** Same as cosineSimilarity, but each axis's contribution is scaled by an
@@ -121,13 +104,7 @@ const QUALITY_WEIGHT = 0.05;
  * tastes stay distinct); the exact value matters less than having *some*
  * merging, since that's what keeps cluster count from growing linearly
  * with rating count. */
-const CLUSTER_MERGE_THRESHOLD = 0.75;
-/** Smooths a cluster's influence by how many ratings reinforce it: a
- * cluster built from a single rating counts at half strength (1/(1+1));
- * one reinforced by 9 more ratings counts at 10/11 ≈ 0.91. This is what
- * makes the recommender sharpen (not saturate) as you rate more — a
- * cluster's centroid *and* its confidence both improve with more data. */
-const CLUSTER_CONFIDENCE_SMOOTHING = 1;
+const CLUSTER_MERGE_THRESHOLD = DEFAULT_TASTE_CLUSTER_MERGE_THRESHOLD;
 
 /** Tunable inputs to the scorer, surfaced to users as the Recommendations
  * "Dials" panel (RecommendationsDialsPanel.svelte). Every field defaults
@@ -201,85 +178,14 @@ function runtimeTerm(candidate: Scorable, bias: number): number {
   return bias * (normalized - 0.5) * 2 * POST_ADJUST_WEIGHT;
 }
 
-/** How far a maxed-out Rating Recency dial lets old ratings fade — the
- * half-life shrinks from "no real decay" toward two weeks as the dial
- * increases. strength <= 0 always returns exactly 1 (no floating-point
- * drift), which is what keeps the dial's default bit-identical to today's
- * unweighted behavior. */
-function ratingRecencyWeight(ts: number, strength: number): number {
-  if (strength <= 0) return 1;
-  const ageDays = (Date.now() - ts) / 86_400_000;
-  const halfLifeDays = 3650 - strength * 3636; // strength 1 -> ~14 days
-  return Math.pow(0.5, ageDays / halfLifeDays);
-}
-
-type Pole = { features: FeatureVector; weight: number };
-
-/** A merged taste cluster: a running-average centroid over one or more
- * ratings with a similar fingerprint, plus the accumulated rating weight
- * behind it (used for confidence). */
-type Cluster = { centroid: FeatureVector; weight: number; count: number };
-
-function splitPoles(
-  entries: RatingEntry[],
-  recencyStrength = 0
-): { liked: Pole[]; disliked: Pole[] } {
-  const liked: Pole[] = [];
-  const disliked: Pole[] = [];
-  for (const e of entries) {
-    const w = ratingWeight(e.rating) * ratingRecencyWeight(e.ts, recencyStrength); // like 1, watchlist .15, dislike/not_interested -1
-    const pole = { features: e.item.features, weight: Math.abs(w) };
-    if (w > 0) liked.push(pole);
-    else if (w < 0) disliked.push(pole);
-  }
-  return { liked, disliked };
-}
-
-/** Greedily merge poles into taste clusters: each pole joins its nearest
- * existing cluster if they're similar enough (mergeThreshold, defaults to
- * CLUSTER_MERGE_THRESHOLD — the Taste Granularity dial), updating that
- * cluster's centroid as a weighted running average; otherwise it starts a
- * new cluster. Order-dependent in principle, but ratings arrive
- * incrementally in practice so this matches how a user's taste profile
- * actually accumulates. */
-function buildClusters(poles: Pole[], mergeThreshold: number = CLUSTER_MERGE_THRESHOLD): Cluster[] {
-  const clusters: Cluster[] = [];
-  for (const pole of poles) {
-    let best: Cluster | null = null;
-    let bestSim = -Infinity;
-    for (const c of clusters) {
-      const sim = cosineSimilarity(pole.features, c.centroid);
-      if (sim > bestSim) {
-        bestSim = sim;
-        best = c;
-      }
-    }
-    if (best && bestSim >= mergeThreshold) {
-      const newWeight = best.weight + pole.weight;
-      for (const k of AXIS_KEYS) {
-        best.centroid[k] = (best.centroid[k] * best.weight + pole.features[k] * pole.weight) / newWeight;
-      }
-      best.weight = newWeight;
-      best.count += 1;
-    } else {
-      clusters.push({ centroid: { ...pole.features }, weight: pole.weight, count: 1 });
-    }
-  }
-  return clusters;
-}
-
-function clusterConfidence(c: Cluster): number {
-  return c.weight / (c.weight + CLUSTER_CONFIDENCE_SMOOTHING);
-}
-
 /** Score a single candidate against the liked/disliked taste clusters.
  * Returns a value roughly in [-1.6, 1.05] at default params (Discovery
  * dial post-adjustments can widen that range further); only the ordering
  * matters. */
 export function scoreCandidate(
   candidate: Scorable,
-  likedClusters: Cluster[],
-  dislikedClusters: Cluster[],
+  likedClusters: Array<Pick<TasteCluster, "centroid" | "confidence">>,
+  dislikedClusters: Array<Pick<TasteCluster, "centroid" | "confidence">>,
   params: ScoringParams = DEFAULT_SCORING_PARAMS
 ): number {
   if (magnitude(candidate.features) === 0) return -Infinity;
@@ -295,7 +201,7 @@ export function scoreCandidate(
     .map(
       (c) =>
         Math.max(0, weightedCosineSimilarity(candidate.features, c.centroid, params.axisWeights)) *
-        clusterConfidence(c)
+        c.confidence
     )
     .sort((a, b) => b - a);
   const k = Math.min(Math.max(1, Math.round(params.topKClusters)), likedSims.length);
@@ -309,7 +215,7 @@ export function scoreCandidate(
   // Closest disliked cluster (only positive similarity hurts).
   let dislikeMax = 0;
   for (const c of dislikedClusters) {
-    const sim = weightedCosineSimilarity(candidate.features, c.centroid, params.axisWeights) * clusterConfidence(c);
+    const sim = weightedCosineSimilarity(candidate.features, c.centroid, params.axisWeights) * c.confidence;
     if (sim > dislikeMax) dislikeMax = sim;
   }
 
@@ -348,10 +254,14 @@ export function scoreCandidates(
   entries: RatingEntry[],
   params: ScoringParams = DEFAULT_SCORING_PARAMS
 ): Recommendation[] {
-  const { liked, disliked } = splitPoles(entries, params.ratingRecencyStrength);
-  if (liked.length === 0) return [];
-  const likedClusters = buildClusters(liked, params.clusterMergeThreshold);
-  const dislikedClusters = buildClusters(disliked, params.clusterMergeThreshold);
+  const tasteSpace = buildTasteSpace(entries, {
+    clusterMergeThreshold: params.clusterMergeThreshold,
+    ratingRecencyStrength: params.ratingRecencyStrength,
+    referenceTime: Date.now()
+  });
+  const likedClusters = tasteSpace.clusters.filter((cluster) => cluster.polarity === "liked");
+  if (likedClusters.length === 0) return [];
+  const dislikedClusters = tasteSpace.clusters.filter((cluster) => cluster.polarity === "disliked");
 
   const scored: Recommendation[] = [];
   for (const item of candidates) {
@@ -374,12 +284,18 @@ export function predictPreference(
   entries: RatingEntry[],
   params: ScoringParams = DEFAULT_SCORING_PARAMS
 ): number {
-  const { liked, disliked } = splitPoles(entries, params.ratingRecencyStrength);
+  const tasteSpace = buildTasteSpace(entries, {
+    clusterMergeThreshold: params.clusterMergeThreshold,
+    ratingRecencyStrength: params.ratingRecencyStrength,
+    referenceTime: Date.now()
+  });
+  const liked = tasteSpace.clusters.filter((cluster) => cluster.polarity === "liked");
   if (liked.length === 0) return 0;
+  const disliked = tasteSpace.clusters.filter((cluster) => cluster.polarity === "disliked");
   const raw = scoreCandidate(
     item,
-    buildClusters(liked, params.clusterMergeThreshold),
-    buildClusters(disliked, params.clusterMergeThreshold),
+    liked,
+    disliked,
     params
   );
   if (!Number.isFinite(raw)) return 0;
@@ -397,51 +313,12 @@ export type TasteGroup = { label: string; centroid: FeatureVector; weight: numbe
  * weight so the strongest taste comes first. Liked ratings only — there's
  * no "because you disliked X" row. */
 export function buildTasteGroups(entries: RatingEntry[]): TasteGroup[] {
-  type LabeledCluster = Cluster & { genreWeight: Map<string, number> };
-  const clusters: LabeledCluster[] = [];
-  for (const e of entries) {
-    const w = ratingWeight(e.rating);
-    if (w <= 0) continue;
-    const features = e.item.features;
-    let best: LabeledCluster | null = null;
-    let bestSim = -Infinity;
-    for (const c of clusters) {
-      const sim = cosineSimilarity(features, c.centroid);
-      if (sim > bestSim) {
-        bestSim = sim;
-        best = c;
-      }
-    }
-    const target =
-      best && bestSim >= CLUSTER_MERGE_THRESHOLD
-        ? best
-        : (() => {
-            const fresh: LabeledCluster = {
-              centroid: { ...features },
-              weight: 0,
-              count: 0,
-              genreWeight: new Map()
-            };
-            clusters.push(fresh);
-            return fresh;
-          })();
-    const newWeight = target.weight + w;
-    for (const k of AXIS_KEYS) {
-      target.centroid[k] = (target.centroid[k] * target.weight + features[k] * w) / newWeight;
-    }
-    target.weight = newWeight;
-    target.count += 1;
-    for (const g of e.item.genres) {
-      target.genreWeight.set(g, (target.genreWeight.get(g) ?? 0) + w);
-    }
-  }
-
-  return clusters
+  return buildTasteSpace(entries).clusters
+    .filter((cluster) => cluster.polarity === "liked")
     .map((c) => {
-      const topGenres = [...c.genreWeight.entries()]
-        .sort((a, b) => b[1] - a[1])
+      const topGenres = c.commonGenres
         .slice(0, 2)
-        .map(([name]) => name);
+        .map(({ name }) => name);
       return {
         label: topGenres.length > 0 ? topGenres.join(" & ") : "Your taste",
         centroid: c.centroid,

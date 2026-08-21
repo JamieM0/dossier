@@ -3,7 +3,7 @@ import { detectSurprise, dissonanceAssumptionFor, explainRating, predictionFor, 
 import type { RatingEntry, TmdbItem } from "./types";
 
 const features = (n:number) => ({pacing:n,tone:n,emotional_intensity:n,complexity:n,scope:n,realism:n,thematic_weight:n,character_focus:n,moral_clarity:n,structure:n});
-const item = (id:number, n:number, genre="Science Fiction", popularity=10):TmdbItem => ({id,medium:"movie",title:`Title ${id}`,year:2020,posterPath:null,voteAverage:7,voteCount:1000,popularity,runtime:120,genreIds:[],genres:[genre],keywords:["space travel"],overview:"",features:features(n)});
+const item = (id:number, n:number, genre="Science Fiction", popularity=10):TmdbItem => ({id,medium:"movie",title:`Title ${id}`,year:2020,posterPath:null,voteAverage:7,voteCount:1000,popularity,runtime:120,genreIds:[],genres:[genre],keywords:["space travel"],collection:null,directorIds:[],creatorIds:[],overview:"",features:features(n)});
 const entry = (id:number,n:number,rating:RatingEntry["rating"]):RatingEntry => ({item:{...item(id,n),key:`movie:${id}`},rating,ts:id});
 
 describe("calibration decisions", () => {

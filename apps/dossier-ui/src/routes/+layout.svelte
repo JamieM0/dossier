@@ -32,6 +32,10 @@
   let remoteConnectionError = $state<string | null>(null);
   let commandOpen = $state(false);
   let goSequence = false;
+  let remoteHealthCheckInFlight = false;
+
+  const REMOTE_HEALTH_CHECK_INTERVAL_MS = 7_500;
+  const REMOTE_HEALTH_CHECK_TIMEOUT_MS = 5_000;
 
   installBridge();
 
@@ -46,18 +50,22 @@
 
   /** Hydrate settings + TMDB status. Deferred until the web library is
    * unlocked (or runs immediately on the desktop app). */
+  async function checkRemoteHealth(): Promise<void> {
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), REMOTE_HEALTH_CHECK_TIMEOUT_MS);
+    try {
+      const response = await fetch("/health", { cache: "no-store", credentials: "same-origin", signal: controller.signal });
+      const payload = response.ok ? await response.json().catch(() => null) as { ok?: boolean } | null : null;
+      if (!payload?.ok) throw new Error(`Host endpoint returned ${response.status}`);
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
+
   async function bootHydrate(): Promise<void> {
     try {
       if (isRemote) {
-        const controller = new AbortController();
-        const timeout = window.setTimeout(() => controller.abort(), 5_000);
-        try {
-          const response = await fetch("/health", { cache: "no-store", credentials: "same-origin", signal: controller.signal });
-          const payload = response.ok ? await response.json().catch(() => null) as { ok?: boolean } | null : null;
-          if (!payload?.ok) throw new Error(`Host endpoint returned ${response.status}`);
-        } finally {
-          window.clearTimeout(timeout);
-        }
+        await checkRemoteHealth();
       }
       await uiSettings.hydrateFromDesktop();
       await recommendationDials.hydrateFromDesktop();
@@ -66,6 +74,18 @@
     } catch (error) {
       if (!isRemote) throw error;
       remoteConnectionError = error instanceof Error ? error.message : String(error);
+    }
+  }
+
+  async function monitorRemoteConnection(): Promise<void> {
+    if (!isRemote || remoteConnectionError || remoteHealthCheckInFlight) return;
+    remoteHealthCheckInFlight = true;
+    try {
+      await checkRemoteHealth();
+    } catch (error) {
+      remoteConnectionError = error instanceof Error ? error.message : String(error);
+    } finally {
+      remoteHealthCheckInFlight = false;
     }
   }
 
@@ -177,6 +197,9 @@
   onMount(() => {
     const openCommand = () => (commandOpen = true);
     window.addEventListener("dossier:command", openCommand);
+    const remoteHealthTimer = isRemote
+      ? window.setInterval(() => void monitorRemoteConnection(), REMOTE_HEALTH_CHECK_INTERVAL_MS)
+      : undefined;
     // Desktop: hydrate now. Web: wait for WebUnlockGate → onWebUnlocked().
     if (webUnlocked) void bootHydrate();
 
@@ -192,6 +215,7 @@
 
     // The auto-updater event only exists in the Tauri app.
     if (window.dossier?.platform !== "app") return () => {
+      if (remoteHealthTimer !== undefined) window.clearInterval(remoteHealthTimer);
       window.removeEventListener("dossier:command", openCommand);
     };
 
@@ -205,6 +229,7 @@
     });
 
     return () => {
+      if (remoteHealthTimer !== undefined) window.clearInterval(remoteHealthTimer);
       void unlistenUpdate.then((fn) => fn());
       window.removeEventListener("dossier:command", openCommand);
     };

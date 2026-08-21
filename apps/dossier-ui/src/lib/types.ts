@@ -1,3 +1,24 @@
+import {
+  RATING_DISLIKE,
+  RATING_LIKE,
+  RATING_NOT_INTERESTED,
+  RATING_WATCHLIST,
+  ratingKind,
+  ratingWeight,
+  type Rating,
+  type RatingKind
+} from "@dossier/domain";
+
+export {
+  RATING_DISLIKE,
+  RATING_LIKE,
+  RATING_NOT_INTERESTED,
+  RATING_WATCHLIST,
+  ratingKind,
+  ratingWeight
+};
+export type { Rating, RatingKind };
+
 export type DossierSettings = {
   theme: string;
   dyslexiaMode: boolean;
@@ -93,13 +114,6 @@ export type RemoteAccessStatus = {
  *  nine statuses exclude the film from the rating queue and
  *  recommendation list. Use ratingWeight() to get the recommender weight
  *  for a stored rating. */
-export type Rating = -3 | -2 | -1 | -0.5 | 0 | 0.5 | 1 | 2 | 3;
-
-export const RATING_LIKE: Rating = 1;
-export const RATING_DISLIKE: Rating = -1;
-export const RATING_WATCHLIST: Rating = 0.5;
-export const RATING_NOT_INTERESTED: Rating = -0.5;
-
 /** Human-readable category for a stored rating value. Useful for
  *  switching on view buckets (Library carousels, action labels).
  *
@@ -113,15 +127,6 @@ export const RATING_NOT_INTERESTED: Rating = -0.5;
  *  recorded, still excluded from the rating queue, and still contributes
  *  its zero weight to the recommender — it's just not filed under Liked
  *  or Disliked). */
-export type RatingKind = "like" | "dislike" | "watchlist" | "not_interested" | "neutral";
-
-export function ratingKind(r: Rating): RatingKind {
-  if (r === 0.5) return "watchlist";
-  if (r === -0.5) return "not_interested";
-  if (r === 0) return "neutral";
-  return r > 0 ? "like" : "dislike";
-}
-
 /** Recommender weight for a rating. not_interested (-0.5 stored) is treated
  * as full negative weight (-1) to match dislike effectiveness. watchlist
  * (0.5 stored) is scaled down to 15% of a like's weight, since it signals
@@ -132,16 +137,6 @@ export function ratingKind(r: Rating): RatingKind {
  * 0.5 of magnitude, so extremely positive/negative (±3) pulls twice as
  * hard as a plain like/dislike. Backwards-compatible: no data migration
  * needed, the four original sentinel values keep their original weight. */
-export function ratingWeight(r: Rating): number {
-  if (r === -0.5) return -1;
-  if (r === 0.5) return 0.15;
-  if (r === -3) return -2;
-  if (r === -2) return -1.5;
-  if (r === 2) return 1.5;
-  if (r === 3) return 2;
-  return r; // -1, 0, 1 all map to their own value (no scaling needed)
-}
-
 export type PairwiseChoice = {
   winnerKey: string;
   loserKey: string;
@@ -164,6 +159,9 @@ export type RatedItem = {
    *  by the enrich-ratings launch pass. The Rate screen's tag dials and
    *  the "adjust your dials?" prompt both read this. */
   keywords: string[];
+  collection?: TmdbCollection | null;
+  directorIds?: number[];
+  creatorIds?: number[];
   features: FeatureVector;
 };
 
@@ -223,6 +221,9 @@ export function ratedToTmdbItem(r: RatedItem): TmdbItem {
     overview: "",
     runtime: null,
     keywords: r.keywords,
+    collection: r.collection ?? null,
+    directorIds: r.directorIds ?? [],
+    creatorIds: r.creatorIds ?? [],
     features: r.features
   };
 }
@@ -239,6 +240,9 @@ export function toRatedItem(item: TmdbItem): RatedItem {
     voteAverage: item.voteAverage,
     genres: item.genres,
     keywords: item.keywords,
+    collection: item.collection,
+    directorIds: item.directorIds,
+    creatorIds: item.creatorIds,
     features: item.features
   };
 }
@@ -269,6 +273,13 @@ export type FeatureVector = {
  * required to disambiguate a stored rating. */
 export type TmdbMedium = "movie" | "tv";
 
+export type TmdbCollection = {
+  id: number;
+  name: string;
+  posterPath: string | null;
+  backdropPath: string | null;
+};
+
 /** A normalized TMDB record as returned by the backend. List results
  * carry no keywords/runtime (those only come from the detail fetch). */
 export type TmdbItem = {
@@ -285,6 +296,9 @@ export type TmdbItem = {
   overview: string;
   runtime: number | null;
   keywords: string[];
+  collection: TmdbCollection | null;
+  directorIds: number[];
+  creatorIds: number[];
   /** Entertainment lens vector. List items get a coarse vector (from
    * genres + overview only); detail fetches get the full vector
    * (genres + keywords + overview). */

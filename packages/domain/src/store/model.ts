@@ -1,3 +1,6 @@
+import type { FeatureVector } from "../lens.js";
+import type { TmdbCollection, TmdbMedium } from "../tmdb/types.js";
+
 /** The persisted library data model — shared by the desktop app's
  * keychain-encrypted store and the web build's passphrase-encrypted store,
  * and the payload of the portable `.dossier` export/import file. Pure data:
@@ -26,7 +29,7 @@ export const SCHEMA_VERSION = 1;
  *                          recommender maps this to -1 via ratingWeight(),
  *                          giving it the same effectiveness as dislike)
  *
- *  The stored value is a stable identity; ratingWeight() in the UI layer
+ *  The stored value is a stable identity; ratingWeight() in the domain layer
  *  translates these sentinels to the recommender's actual weights. This
  *  means existing records (all -1/-0.5/0.5/1 under the old binary scheme)
  *  automatically get the current weighting without data migration; 0/±2/±3
@@ -44,6 +47,27 @@ export function isValidRating(value: unknown): value is Rating {
   return typeof value === "number" && VALID_RATINGS.has(value);
 }
 
+export type RatingKind = "like" | "dislike" | "watchlist" | "not_interested" | "neutral";
+
+export function ratingKind(rating: Rating): RatingKind {
+  if (rating === RATING_WATCHLIST) return "watchlist";
+  if (rating === RATING_NOT_INTERESTED) return "not_interested";
+  if (rating === 0) return "neutral";
+  return rating > 0 ? "like" : "dislike";
+}
+
+/** Translate persisted rating sentinels into their recommender weights.
+ * Kept in domain so every consumer builds taste evidence identically. */
+export function ratingWeight(rating: Rating): number {
+  if (rating === RATING_NOT_INTERESTED) return -1;
+  if (rating === RATING_WATCHLIST) return 0.15;
+  if (rating === -3) return -2;
+  if (rating === -2) return -1.5;
+  if (rating === 2) return 1.5;
+  if (rating === 3) return 2;
+  return rating;
+}
+
 /** A compact snapshot of a rated item, stored alongside its rating so
  * the taste profile and Library work fully offline — no TMDB re-fetch
  * needed to recompute the user's profile or render rated items. */
@@ -51,7 +75,7 @@ export type RatedItem = {
   /** "movie:27205" | "tv:1396" — medium-qualified to avoid TMDB's
    * movie/tv id-space collision. */
   key: string;
-  medium: string;
+  medium: TmdbMedium;
   id: number;
   title: string;
   year: number | null;
@@ -63,8 +87,13 @@ export type RatedItem = {
    *  enrich-ratings backfills them on first launch. Used by the Rate
    *  screen's tag dials + "adjust your dials?" pattern prompt. */
   keywords: string[];
+  /** Structural TMDB relationships captured by the canonical detail
+   * fetch. Missing in older libraries and filled by withDefaults(). */
+  collection?: TmdbCollection | null;
+  directorIds?: number[];
+  creatorIds?: number[];
   /** Entertainment lens vector at rating time. */
-  features: Record<string, number>;
+  features: FeatureVector;
 };
 
 export type RatingEntry = {
@@ -121,7 +150,13 @@ export function withDefaults(state: PersistedState): PersistedState {
     }
     ratings[k] = {
       ...entry,
-      item: { ...entry.item, keywords: entry.item.keywords ?? [] }
+      item: {
+        ...entry.item,
+        keywords: entry.item.keywords ?? [],
+        collection: entry.item.collection ?? null,
+        directorIds: entry.item.directorIds ?? [],
+        creatorIds: entry.item.creatorIds ?? []
+      }
     };
   }
   return {

@@ -91,6 +91,31 @@ describe("upgradeExistingRatings", () => {
     expect(setRating.mock.calls[0][2]?.keywords).toEqual(["swordplay", "donghua"]);
   });
 
+  it("backfills collection and creator structure without requiring a separate fetch", async () => {
+    const legacy = entry(1, features({ tone: -0.9 }), ["revenge"]);
+    preferences.ratings = { [legacy.item.key]: legacy };
+
+    const detail = vi.fn(async () => ({
+      id: 1, medium: "movie", title: "Title 1", year: 2015, voteAverage: 7, voteCount: 10,
+      popularity: 1, genreIds: [], genres: ["Drama"], posterPath: null, overview: "",
+      runtime: 100, keywords: ["revenge"], collection: {
+        id: 50, name: "A Franchise", posterPath: null, backdropPath: null
+      }, directorIds: [42], creatorIds: [], features: features({ tone: -0.9 })
+    }));
+    const setRating = vi.fn(async (_key: string, _rating: RatingEntry["rating"], item?: RatingEntry["item"]) => ({
+      ratings: item ? { [item.key]: { item, rating: 1, ts: 1 } } : {}
+    }));
+    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { setRating } } };
+
+    const result = await upgradeExistingRatings(4);
+    expect(result.upgraded).toBe(1);
+    expect(detail).toHaveBeenCalledTimes(1);
+    expect(setRating.mock.calls[0][2]).toMatchObject({
+      collection: { id: 50 },
+      directorIds: [42]
+    });
+  });
+
   it("is a no-op when every stored vector already matches a fresh fetch", async () => {
     const a = entry(1, features({ tone: -0.9 }));
     preferences.ratings = { [a.item.key]: a };

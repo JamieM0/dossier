@@ -6,7 +6,7 @@ function mkItem(id: number, overrides: Partial<TmdbItem> = {}): TmdbItem {
   return {
     id, medium: "movie", title: `Item ${id}`, year: 2015, voteAverage: 7, voteCount: 100,
     popularity: 10, genreIds: [], genres: ["Drama"], posterPath: null, overview: "",
-    runtime: 100, keywords: [], features: {
+    runtime: 100, keywords: [], collection: null, directorIds: [], creatorIds: [], features: {
       pacing: 0, tone: 0, emotional_intensity: 0, complexity: 0, scope: 0,
       realism: 0, thematic_weight: 0, character_focus: 0, moral_clarity: 0, structure: 0
     },

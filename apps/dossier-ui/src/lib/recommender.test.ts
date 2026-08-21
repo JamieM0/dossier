@@ -28,7 +28,7 @@ function item(features: FeatureVector, voteAverage = 7): TmdbItem {
   return {
     id, medium: "movie", title: `Item ${id}`, year: 2015, voteAverage, voteCount: 1000,
     popularity: 500, genreIds: [], genres: [], posterPath: null, overview: "",
-    runtime: 100, keywords: [], features
+    runtime: 100, keywords: [], collection: null, directorIds: [], creatorIds: [], features
   };
 }
 

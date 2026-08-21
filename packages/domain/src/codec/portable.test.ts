@@ -24,6 +24,9 @@ function sampleState(): PersistedState {
       voteAverage: 8.4,
       genres: ["Action", "Science Fiction"],
       keywords: ["dream", "heist"],
+      collection: null,
+      directorIds: [],
+      creatorIds: [],
       features: { pacing: 0.7, tone: -0.3 }
     }
   };
@@ -66,7 +69,7 @@ describe("portable library codec", () => {
     expect(a.kdf.salt).not.toBe(b.kdf.salt);
   });
 
-  it("backfills `keywords: []` onto RatedItems from a pre-keywords export", async () => {
+  it("backfills keyword and structural defaults onto legacy RatedItems", async () => {
     // Hand-construct a state whose rated item lacks the `keywords` field
     // entirely, simulating an export from before the field existed. Use
     // encrypt→decrypt so importLibrary's withDefaults runs.
@@ -84,6 +87,11 @@ describe("portable library codec", () => {
 
     const envelope = await exportLibrary(legacy, "pw");
     const restored = await importLibrary(envelope, "pw");
-    expect(restored.ratings["movie:1"]?.item.keywords).toEqual([]);
+    expect(restored.ratings["movie:1"]?.item).toMatchObject({
+      keywords: [],
+      collection: null,
+      directorIds: [],
+      creatorIds: []
+    });
   });
 });

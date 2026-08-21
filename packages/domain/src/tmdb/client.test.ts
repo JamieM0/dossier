@@ -21,6 +21,19 @@ const DETAIL = {
   poster_path: "/p.jpg",
   overview: "A thief who steals corporate secrets.",
   runtime: 148,
+  belongs_to_collection: {
+    id: 2344,
+    name: "The Inception Collection",
+    poster_path: "/collection.jpg",
+    backdrop_path: "/collection-backdrop.jpg"
+  },
+  credits: {
+    crew: [
+      { id: 525, job: "Director" },
+      { id: 999, job: "Producer" },
+      { id: 525, job: "Director" }
+    ]
+  },
   keywords: { keywords: [{ id: 1, name: "dream" }, { id: 2, name: "heist" }] }
 };
 
@@ -41,7 +54,35 @@ describe("TmdbClient", () => {
     expect(item.year).toBe(2010);
     expect(item.genres).toEqual(["Action", "Science Fiction"]);
     expect(item.keywords).toEqual(["dream", "heist"]);
+    expect(item.collection).toEqual({
+      id: 2344,
+      name: "The Inception Collection",
+      posterPath: "/collection.jpg",
+      backdropPath: "/collection-backdrop.jpg"
+    });
+    expect(item.directorIds).toEqual([525]);
+    expect(item.creatorIds).toEqual([]);
     expect(typeof item.features.pacing).toBe("number");
+    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(String(vi.mocked(fetch).mock.calls[0][0])).toContain("append_to_response=keywords%2Ccredits");
+  });
+
+  it("parses TV creator IDs from the same cached detail response", async () => {
+    vi.stubGlobal("fetch", vi.fn(() => Promise.resolve(jsonResponse({
+      id: 1396,
+      name: "Breaking Bad",
+      first_air_date: "2008-01-20",
+      genres: [{ id: 18, name: "Drama" }],
+      created_by: [{ id: 66633 }, { id: 66633 }, { id: 123 }],
+      credits: { crew: [] },
+      keywords: { results: [] }
+    }))));
+    const client = new TmdbClient({ token: "x".repeat(50) });
+    const item = await client.detail("tv", 1396);
+
+    expect(item.creatorIds).toEqual([123, 66633]);
+    expect(item.collection).toBeNull();
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
 
   it("reads disk-cached metadata from the injected cache and skips the network", async () => {

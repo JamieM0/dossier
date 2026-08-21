@@ -1,5 +1,6 @@
-import { AXIS_KEYS, cosineSimilarity, predictPreference, type AxisKey } from "$lib/recommender";
+import { AXIS_KEYS, predictPreference, type AxisKey } from "$lib/recommender";
 import { ratingKind, ratingWeight, type Rating, type RatingEntry, type TmdbItem } from "$lib/types";
+import { cosineSimilarity } from "@dossier/domain";
 
 export type EvidenceLevel = "strong" | "some" | "mixed" | "sparse";
 export type DecisionReason = {

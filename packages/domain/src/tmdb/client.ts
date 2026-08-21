@@ -198,7 +198,7 @@ export class TmdbClient {
   async detail(medium: TmdbMedium, id: number): Promise<TmdbItem> {
     const raw = await this.get<RawDetail>(
       `/${medium}/${id}`,
-      { append_to_response: "keywords" },
+      { append_to_response: "keywords,credits" },
       { disk: true }
     );
     const kwList =
@@ -206,6 +206,21 @@ export class TmdbClient {
     const genres = (raw.genres ?? []).map((g) => g.name);
     const keywords = (kwList ?? []).map((k) => k.name);
     const overview = raw.overview ?? "";
+    const collection = raw.belongs_to_collection
+      ? {
+          id: raw.belongs_to_collection.id,
+          name: raw.belongs_to_collection.name,
+          posterPath: raw.belongs_to_collection.poster_path ?? null,
+          backdropPath: raw.belongs_to_collection.backdrop_path ?? null
+        }
+      : null;
+    const directorIds = [...new Set(
+      (raw.credits?.crew ?? [])
+        .filter((person) => person.job === "Director")
+        .map((person) => person.id)
+    )].sort((a, b) => a - b);
+    const creatorIds = [...new Set((raw.created_by ?? []).map((person) => person.id))]
+      .sort((a, b) => a - b);
     return {
       id: raw.id,
       medium,
@@ -222,6 +237,9 @@ export class TmdbClient {
         raw.runtime ??
         (Array.isArray(raw.episode_run_time) ? raw.episode_run_time[0] ?? null : null),
       keywords,
+      collection,
+      directorIds,
+      creatorIds,
       // Full vector — keywords available here.
       features: featureVector({ genres, keywords, overview })
     } satisfies TmdbItem;
@@ -251,6 +269,9 @@ export class TmdbClient {
           overview,
           runtime: null,
           keywords: [],
+          collection: null,
+          directorIds: [],
+          creatorIds: [],
           // Coarse vector — no keywords on list items, leans on genre
           // priors + overview. Refined when the detail is fetched.
           features: featureVector({ genres, keywords: [], overview })
@@ -287,6 +308,16 @@ type RawDetail = RawListItem & {
   keywords?: {
     keywords?: Array<{ id: number; name: string }>;
     results?: Array<{ id: number; name: string }>;
+  };
+  belongs_to_collection?: {
+    id: number;
+    name: string;
+    poster_path?: string | null;
+    backdrop_path?: string | null;
+  } | null;
+  created_by?: Array<{ id: number }>;
+  credits?: {
+    crew?: Array<{ id: number; job?: string }>;
   };
 };
 
