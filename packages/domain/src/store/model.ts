@@ -6,7 +6,7 @@ import type { TmdbCollection, TmdbMedium } from "../tmdb/types.js";
  * and the payload of the portable `.dossier` export/import file. Pure data:
  * no Node or browser APIs here. */
 
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 
 /** A single film rating, encoded as a signed sentinel. The Rate screen's
  *  main action is a 7-point scale (-3..3); watchlist/not_interested are
@@ -114,6 +114,57 @@ export type PairwiseChoice = {
   ts: number;
 };
 
+export type TasteClaimConditionKind =
+  | "genre"
+  | "tag"
+  | "feature_axis"
+  | "collection"
+  | "director"
+  | "creator";
+
+/** One inspectable predicate in a preference claim. Claims deliberately
+ * stop at two predicates so they remain understandable and testable. */
+export type TasteClaimCondition = {
+  kind: TasteClaimConditionKind;
+  /** Stable value used for matching (names for genres/tags, numeric ids for
+   * structural relationships, and an axis key for feature-axis claims). */
+  value: string | number;
+  label: string;
+  /** Only feature-axis conditions use a side. */
+  side?: "low" | "high";
+};
+
+export type TasteClaimEvidence = {
+  supportingItemKeys: string[];
+  counterexampleItemKeys: string[];
+  tasteSpaceClusterIds: string[];
+  supportingWeight: number;
+  counterexampleWeight: number;
+  matchedItemCount: number;
+};
+
+export type TasteClaimProvenance =
+  | "inferred"
+  | "user_confirmed"
+  | "explicitly_rejected"
+  | "corrected";
+
+export type TasteClaim = {
+  /** Deterministic identity derived from effect + canonical conditions. */
+  id: string;
+  conditions: [TasteClaimCondition] | [TasteClaimCondition, TasteClaimCondition];
+  effect: "positive" | "negative";
+  confidence: number;
+  evidence: TasteClaimEvidence;
+  provenance: TasteClaimProvenance;
+  /** False for rejection/correction tombstones. Kept explicitly instead of
+   * inferred from provenance so portable exports remain self-describing. */
+  active: boolean;
+  /** Unix-ms timestamp only for direct user feedback. Inferred claims omit
+   * it, keeping rating-derived output deterministic. */
+  feedbackAt?: number;
+};
+
 export type PersistedState = {
   schemaVersion: number;
   settings: Record<string, unknown>;
@@ -124,6 +175,9 @@ export type PersistedState = {
   /** Item keys the user has explicitly skipped ("haven't seen"). Kept so
    * the rating queue doesn't re-show them next session. */
   skipped: string[];
+  /** Deterministically inferred claims plus authoritative user feedback.
+   * Rejected/corrected claims remain here as inactive tombstones. */
+  tasteClaims: TasteClaim[];
 };
 
 export function createDefaultState(): PersistedState {
@@ -132,7 +186,8 @@ export function createDefaultState(): PersistedState {
     settings: {},
     ratings: {},
     pairwise: [],
-    skipped: []
+    skipped: [],
+    tasteClaims: []
   };
 }
 
@@ -164,6 +219,7 @@ export function withDefaults(state: PersistedState): PersistedState {
     settings: state.settings ?? {},
     ratings,
     pairwise: state.pairwise ?? [],
-    skipped: state.skipped ?? []
+    skipped: state.skipped ?? [],
+    tasteClaims: Array.isArray(state.tasteClaims) ? state.tasteClaims : []
   };
 }

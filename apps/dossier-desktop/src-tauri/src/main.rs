@@ -817,6 +817,22 @@ async fn preferences_set_rating(
 }
 
 #[tauri::command]
+async fn preferences_set_claim_feedback(
+    claim: Value,
+    provenance: String,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state
+        .client
+        .request(
+            Method::PUT,
+            "/control/preferences/claim-feedback",
+            Some(json!({ "claim": claim, "provenance": provenance })),
+        )
+        .await
+}
+
+#[tauri::command]
 async fn preferences_add_pairwise(
     winner_key: String,
     loser_key: String,
@@ -1249,6 +1265,7 @@ fn main() {
             settings_set_start_on_login,
             preferences_get,
             preferences_set_rating,
+            preferences_set_claim_feedback,
             preferences_add_pairwise,
             preferences_skip,
             preferences_unskip,

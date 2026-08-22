@@ -398,17 +398,20 @@
           // Dissonance makes an explicit taste claim, so score the full
           // keyword-enriched fingerprints rather than the coarser list
           // records. detail() is disk-cached, keeping later visits cheap.
-          const candidates = requestedDissonance ? await enrichItems(fresh) : fresh;
+          const needsClaimDetail = preferences.activeClaims().some((claim) =>
+            claim.conditions.some((condition) => !["genre", "feature_axis"].includes(condition.kind))
+          );
+          const candidates = requestedDissonance || needsClaimDetail ? await enrichItems(fresh) : fresh;
           if (epoch !== queueEpoch) return;
-          const dissonant = requestedDissonance ? rankDissonantCandidates(candidates, entries) : [];
+          const dissonant = requestedDissonance ? rankDissonantCandidates(candidates, entries, preferences.activeClaims()) : [];
           if (requestedDissonance && dissonant.length === 0) continue;
-          const probes = requestedDissonance ? [] : rankRateProbes(fresh, entries, appPage.url.searchParams.get("focus") ?? undefined);
+          const probes = requestedDissonance ? [] : rankRateProbes(candidates, entries, appPage.url.searchParams.get("focus") ?? undefined, preferences.activeClaims());
           const selected = probes[0] ?? null;
           const ordered = requestedDissonance
             ? dissonant.map(({ item }) => item)
             : selected
-              ? [selected.item, ...fresh.filter(i => itemKey(i.medium,i.id) !== itemKey(selected.item.medium,selected.item.id))]
-              : fresh;
+              ? [selected.item, ...candidates.filter(i => itemKey(i.medium,i.id) !== itemKey(selected.item.medium,selected.item.id))]
+              : candidates;
           // Record the structured TasteSpace probe for every queued item.
           // The selected probe leads while the remainder retain the current
           // dial-biased order.
@@ -429,6 +432,7 @@
                     clusterIds: [],
                     itemKeys: assumption.evidence.filter((value) => value.includes(":")),
                     weakRegionIds: [],
+                    claimIds: [],
                     collection: null
                   }
                 }
@@ -513,7 +517,7 @@
       priorRating: preferences.ratingForKey(key) ?? null,
       priorSkipped: preferences.skipped.includes(key)
     };
-    const before = predictionFor(item, preferences.entries());
+    const before = predictionFor(item, preferences.entries(), preferences.activeClaims());
 
     try {
       if (action === "skip") {
@@ -524,7 +528,7 @@
         const rating = ratingFor(action)!;
         await preferences.setRating(item, rating);
         lastLearning = { title: item.title, text: explainRating(item, rating, before) };
-        const found = detectSurprise(item, rating, before, preferences.entries().filter(e => e.item.key !== key));
+        const found = detectSurprise(item, rating, before, preferences.entries().filter(e => e.item.key !== key), preferences.tasteClaims);
         if (found) surprise = { item, value: found };
       }
       if (action === "skip") lastLearning = { title: item.title, text: `“I haven't seen it” only removes this title from the queue. Dossier takes no taste evidence from it.` };
@@ -564,7 +568,14 @@
       const dial = axisDial[option.key];
       if (dial) { recommendationDials.set(dial, Math.min(100, recommendationDials.values[dial] + 15)); await recommendationDials.persist(); }
     } else if (option) await rateDials.persist();
-    lastLearning = { title: surprise.item.title, text: option ? `Dossier will treat this as corrective evidence about ${option.key}, and bias future Rate questions accordingly.` : `No proposed explanation was added. The rating itself still corrects the model.` };
+    if (option) {
+      await preferences.setClaimFeedback(option.claim, "user_confirmed");
+    } else {
+      for (const proposed of surprise.value.options) {
+        await preferences.setClaimFeedback(proposed.claim, "explicitly_rejected");
+      }
+    }
+    lastLearning = { title: surprise.item.title, text: option ? `Dossier saved your explanation about ${option.key} as confirmed, inspectable evidence.` : `Those explanations were explicitly rejected and will not be silently proposed again. The rating still corrects TasteSpace.` };
     surprise = null;
   }
 
@@ -981,7 +992,7 @@
     <strong>{surprise.value.summary}</strong>
     <p>Did one of these make the difference?</p>
     <div>{#each surprise.value.options as option}<button onclick={() => void resolveSurprise(option)}>{option.label}</button>{/each}</div>
-    <button onclick={() => void resolveSurprise(null)}>None of these / skip</button>
+    <button onclick={() => void resolveSurprise(null)}>Reject these explanations</button>
   </div>
 {/if}
 

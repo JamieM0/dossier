@@ -8,7 +8,9 @@ import type {
   TmdbCollectionResult,
   TmdbItem,
   TmdbListResult,
-  TmdbMedium
+  TmdbMedium,
+  TasteClaim,
+  TasteClaimProvenance
 } from "$lib/types";
 
 /** Remote clients talk only to the dedicated paired-device gateway. The
@@ -68,7 +70,9 @@ export function installRemoteApi(): void {
     preferences: {
       get: () => api<PreferencesPayload>("/preferences"),
       setRating: (key: string, rating: Rating | null, item?: RatedItem) =>
-        api<{ ratings: Record<string, RatingEntry> }>("/preferences/rating", body({ key, rating, item }, "PUT")),
+        api<{ ratings: Record<string, RatingEntry>; tasteClaims: TasteClaim[] }>("/preferences/rating", body({ key, rating, item }, "PUT")),
+      setClaimFeedback: (claim: TasteClaim, provenance: Exclude<TasteClaimProvenance, "inferred">) =>
+        api<{ tasteClaims: TasteClaim[] }>("/preferences/claim-feedback", body({ claim, provenance }, "PUT")),
       addPairwise: (winnerKey: string, loserKey: string) =>
         api<{ pairwise: PairwiseChoice[] }>("/preferences/pairwise", body({ winnerKey, loserKey })),
       skip: (key: string) => api<{ skipped: string[] }>("/preferences/skip", body({ key })),

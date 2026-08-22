@@ -93,6 +93,7 @@ export function installMockDossier(seed?: MockDossierSeed): void {
   let ratings: Record<string, unknown> = {};
   let pairwise: unknown[] = [];
   let skipped: string[] = [];
+  let tasteClaims: Array<Record<string, unknown>> = [];
   const list = (items: unknown[]) => Promise.resolve({ page: 1, totalPages: 1, items });
 
   if (seed?.likedMovies) {
@@ -105,6 +106,14 @@ export function installMockDossier(seed?: MockDossierSeed): void {
       // screen resolves to key `undefined` for all seeded items, which
       // Svelte rejects as a duplicate key and aborts the render.
       ratings[key] = { rating: 1, item: { ...item, key }, ts: Date.now() + i };
+    }
+    const dramaKeys = pool.slice(0, seed.likedMovies).filter((item) => item.genres.includes("Drama")).map((item) => `movie:${item.id}`);
+    if (dramaKeys.length >= 3) {
+      tasteClaims = [{
+        id: "claim:positive:mock-drama", conditions: [{ kind: "genre", value: "Drama", label: "Drama" }],
+        effect: "positive", confidence: .68, provenance: "inferred", active: true,
+        evidence: { supportingItemKeys: dramaKeys, counterexampleItemKeys: [], tasteSpaceClusterIds: [dramaKeys[0]], supportingWeight: dramaKeys.length, counterexampleWeight: 0, matchedItemCount: dramaKeys.length }
+      }];
     }
   }
 
@@ -214,11 +223,16 @@ export function installMockDossier(seed?: MockDossierSeed): void {
       }
     },
     preferences: {
-      get: () => Promise.resolve({ ratings, pairwise, skipped }),
+      get: () => Promise.resolve({ ratings, pairwise, skipped, tasteClaims }),
       setRating: (key: string, rating: number | null, item: unknown) => {
         if (rating === null) delete ratings[key];
         else ratings[key] = { rating, item, ts: Date.now() };
-        return Promise.resolve({ ratings });
+        return Promise.resolve({ ratings, tasteClaims });
+      },
+      setClaimFeedback: (claim: Record<string, unknown>, provenance: string) => {
+        const next = { ...claim, provenance, active: provenance === "user_confirmed", feedbackAt: Date.now() };
+        tasteClaims = [...tasteClaims.filter((candidate) => candidate.id !== next.id), next];
+        return Promise.resolve({ tasteClaims });
       },
       addPairwise: (winnerKey: string, loserKey: string) => {
         pairwise = [...pairwise, { winnerKey, loserKey, ts: Date.now() }];
@@ -226,7 +240,7 @@ export function installMockDossier(seed?: MockDossierSeed): void {
       },
       skip: (key: string) => { if (!skipped.includes(key)) skipped = [...skipped, key]; return Promise.resolve({ skipped }); },
       unskip: (key: string) => { skipped = skipped.filter((k) => k !== key); return Promise.resolve({ skipped }); },
-      reset: () => { ratings = {}; pairwise = []; skipped = []; return Promise.resolve({ ok: true }); }
+      reset: () => { ratings = {}; pairwise = []; skipped = []; tasteClaims = []; return Promise.resolve({ ok: true }); }
     },
     tmdb: {
       status: () => Promise.resolve({ configured: true }),

@@ -16,7 +16,9 @@ import type {
   TmdbCollectionResult,
   TmdbListResult,
   TmdbItem,
-  TmdbMedium
+  TmdbMedium,
+  TasteClaim,
+  TasteClaimProvenance
 } from "$lib/types";
 import { webLibrary } from "./library.js";
 
@@ -59,16 +61,19 @@ export function installWebApi(): void {
         Promise.resolve({
           ratings: webLibrary.getRatings() as Record<string, RatingEntry>,
           pairwise: webLibrary.getPairwise(),
-          skipped: webLibrary.getSkipped()
+          skipped: webLibrary.getSkipped(),
+          tasteClaims: webLibrary.getTasteClaims()
         }),
       setRating: (
         key: string,
         rating: Rating | null,
         item?: RatedItem
-      ): Promise<{ ratings: Record<string, RatingEntry> }> =>
+      ): Promise<{ ratings: Record<string, RatingEntry>; tasteClaims: TasteClaim[] }> =>
         webLibrary
           .setRating(key, rating, item as never)
-          .then((ratings) => ({ ratings: ratings as Record<string, RatingEntry> })),
+          .then((ratings) => ({ ratings: ratings as Record<string, RatingEntry>, tasteClaims: webLibrary.getTasteClaims() })),
+      setClaimFeedback: (claim: TasteClaim, provenance: Exclude<TasteClaimProvenance, "inferred">) =>
+        webLibrary.setTasteClaimFeedback(claim, provenance).then((tasteClaims) => ({ tasteClaims })),
       addPairwise: (winnerKey: string, loserKey: string): Promise<{ pairwise: PairwiseChoice[] }> =>
         webLibrary
           .addPairwise({ winnerKey, loserKey, ts: Date.now() })

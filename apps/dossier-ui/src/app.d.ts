@@ -8,7 +8,9 @@ import type {
   TmdbCollectionResult,
   TmdbItem,
   TmdbListResult,
-  TmdbMedium
+  TmdbMedium,
+  TasteClaim,
+  TasteClaimProvenance
 } from "$lib/types";
 import type { RemoteAccessStatus, RemoteTransport } from "$lib/types";
 
@@ -56,7 +58,11 @@ declare global {
           key: string,
           rating: Rating | null,
           item?: RatedItem
-        ) => Promise<{ ratings: Record<string, RatingEntry> }>;
+        ) => Promise<{ ratings: Record<string, RatingEntry>; tasteClaims: TasteClaim[] }>;
+        setClaimFeedback: (
+          claim: TasteClaim,
+          provenance: Exclude<TasteClaimProvenance, "inferred">
+        ) => Promise<{ tasteClaims: TasteClaim[] }>;
         addPairwise: (winnerKey: string, loserKey: string) => Promise<{ pairwise: PairwiseChoice[] }>;
         skip: (key: string) => Promise<{ skipped: string[] }>;
         unskip: (key: string) => Promise<{ skipped: string[] }>;

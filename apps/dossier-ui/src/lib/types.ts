@@ -6,7 +6,10 @@ import {
   ratingKind,
   ratingWeight,
   type Rating,
-  type RatingKind
+  type RatingKind,
+  type TasteClaim,
+  type TasteClaimCondition,
+  type TasteClaimProvenance
 } from "@dossier/domain";
 
 export {
@@ -17,7 +20,7 @@ export {
   ratingKind,
   ratingWeight
 };
-export type { Rating, RatingKind };
+export type { Rating, RatingKind, TasteClaim, TasteClaimCondition, TasteClaimProvenance };
 
 export type DossierSettings = {
   theme: string;
@@ -188,6 +191,7 @@ export type PreferencesPayload = {
   ratings: Record<string, RatingEntry>;
   pairwise: PairwiseChoice[];
   skipped: string[];
+  tasteClaims: TasteClaim[];
 };
 
 /** Medium-qualified key for a TMDB item, e.g. "movie:27205". The single

@@ -26,9 +26,13 @@ test.describe("redesigned information architecture", () => {
     await expect(page).toHaveURL(/\/dossier$/);
 
     await expect(page.getByRole("heading", { name: /What Dossier currently believes/ })).toBeVisible();
-    await expect(page.getByText("Evidence inspector")).toHaveCount(0);
-    await page.getByRole("button", { name: /drawn to|usually avoids|responds selectively/ }).first().click();
+    await expect(page.getByLabel("Local two-dimensional taste projection")).toBeVisible();
+    await page.screenshot({ path: "test-results/redesign-dossier-model-desktop.png", fullPage: true });
+    await page.getByRole("button", { name: /Drawn to|Usually avoids/ }).first().click();
     await expect(page.getByRole("dialog", { name: /Evidence for/ })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Drawn to|Usually avoids/ })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Supporting evidence" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Reject this interpretation" })).toBeVisible();
     await page.waitForTimeout(500);
     await page.screenshot({ path: "test-results/redesign-dossier-inspector-desktop.png", fullPage: true });
 

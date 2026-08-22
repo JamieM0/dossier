@@ -13,13 +13,18 @@ import {
   encryptWithPassphrase,
   exportLibrary as exportLibraryEnvelope,
   importLibrary as importLibraryState,
+  reconcileTasteClaims,
   serializeEnvelope,
+  withDefaults,
+  withTasteClaimFeedback,
   type PairwiseChoice,
   type PersistedState,
   type Rating,
   type RatedItem,
   type RatingsMap,
-  type TmdbMedium
+  type TmdbMedium,
+  type TasteClaim,
+  type TasteClaimProvenance
 } from "@dossier/domain";
 import {
   ensurePermission,
@@ -119,6 +124,11 @@ class WebLibrary {
     // Throws PortableImportError on a wrong passphrase.
     this.vault = await decryptWithPassphrase<WebVault>(raw, passphrase);
     if (!this.vault.state) this.vault = { state: createDefaultState(), tmdbToken: null };
+    this.vault.state = withDefaults(this.vault.state);
+    this.vault.state.tasteClaims = reconcileTasteClaims(
+      Object.values(this.vault.state.ratings),
+      this.vault.state.tasteClaims
+    );
     this.passphrase = passphrase;
   }
 
@@ -150,6 +160,10 @@ class WebLibrary {
     return { ...this.requireVault().state.ratings };
   }
 
+  getTasteClaims(): TasteClaim[] {
+    return [...this.requireVault().state.tasteClaims];
+  }
+
   async setRating(key: string, rating: Rating | null, item?: RatedItem): Promise<RatingsMap> {
     const vault = this.requireVault();
     const ratings = { ...vault.state.ratings };
@@ -163,8 +177,19 @@ class WebLibrary {
       throw new Error(`setRating(${key}): item snapshot required for a new rating`);
     }
     vault.state.ratings = ratings;
+    vault.state.tasteClaims = reconcileTasteClaims(Object.values(ratings), vault.state.tasteClaims);
     await this.save();
     return this.getRatings();
+  }
+
+  async setTasteClaimFeedback(
+    claim: TasteClaim,
+    provenance: Exclude<TasteClaimProvenance, "inferred">
+  ): Promise<TasteClaim[]> {
+    const vault = this.requireVault();
+    vault.state.tasteClaims = withTasteClaimFeedback(vault.state.tasteClaims, claim, provenance, Date.now());
+    await this.save();
+    return this.getTasteClaims();
   }
 
   getPairwise(): PairwiseChoice[] {
@@ -205,6 +230,7 @@ class WebLibrary {
     vault.state.ratings = {};
     vault.state.pairwise = [];
     vault.state.skipped = [];
+    vault.state.tasteClaims = [];
     await this.save();
   }
 

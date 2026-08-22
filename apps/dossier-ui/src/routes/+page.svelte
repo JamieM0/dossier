@@ -187,7 +187,7 @@
         // network cost the first time each title is ever seen.
         const enriched = await enrichItems(newItems);
         pool = [...pool, ...enriched];
-        allRecs = [...allRecs, ...scoreCandidates(enriched, preferences.entries(), recommendationDials.params)];
+        allRecs = [...allRecs, ...scoreCandidates(enriched, preferences.entries(), recommendationDials.params, preferences.activeClaims())];
         return;
       }
     } catch (err) {
@@ -228,7 +228,7 @@
     recommendationDials.params;
     untrack(() => {
       if (pool.length === 0) return;
-      allRecs = scoreCandidates(pool, preferences.entries(), recommendationDials.params);
+      allRecs = scoreCandidates(pool, preferences.entries(), recommendationDials.params, preferences.activeClaims());
     });
   });
 
@@ -285,10 +285,10 @@
     const key = itemKey(item.medium, item.id);
     const priorRating = preferences.ratingForKey(key) ?? null;
     const beforeEntries = preferences.entries();
-    const before = predictionFor(item, beforeEntries);
+    const before = predictionFor(item, beforeEntries, preferences.activeClaims());
     try {
       await preferences.setRating(item, rating);
-      const unexpected = detectSurprise(item, rating, before, beforeEntries);
+      const unexpected = detectSurprise(item, rating, before, beforeEntries, preferences.tasteClaims);
       toasts.show(`${verb} "${item.title}".`, {
         action: {
           label: "Undo",

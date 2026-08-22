@@ -11,7 +11,9 @@ import type {
   TmdbCollectionResult,
   TmdbListResult,
   TmdbItem,
-  TmdbMedium
+  TmdbMedium,
+  TasteClaim,
+  TasteClaimProvenance
 } from "$lib/types";
 import type { RemoteAccessStatus, RemoteTransport } from "$lib/types";
 
@@ -77,8 +79,13 @@ export function installDesktopApi(): void {
         key: string,
         rating: Rating | null,
         item?: RatedItem
-      ): Promise<{ ratings: Record<string, RatingEntry> }> =>
+      ): Promise<{ ratings: Record<string, RatingEntry>; tasteClaims: TasteClaim[] }> =>
         invoke("preferences_set_rating", { key, rating, item: item ?? null }),
+      setClaimFeedback: (
+        claim: TasteClaim,
+        provenance: Exclude<TasteClaimProvenance, "inferred">
+      ): Promise<{ tasteClaims: TasteClaim[] }> =>
+        invoke("preferences_set_claim_feedback", { claim, provenance }),
       addPairwise: (winnerKey: string, loserKey: string): Promise<{ pairwise: PairwiseChoice[] }> =>
         invoke("preferences_add_pairwise", { winnerKey, loserKey }),
       skip: (key: string): Promise<{ skipped: string[] }> =>

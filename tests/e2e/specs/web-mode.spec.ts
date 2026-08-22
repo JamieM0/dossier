@@ -18,8 +18,9 @@ function installUnconfiguredAppBridge(): void {
       setStartOnLogin: (e: boolean) => Promise.resolve(e)
     },
     preferences: {
-      get: () => Promise.resolve({ ratings: {}, pairwise: [], skipped: [] }),
-      setRating: () => Promise.resolve({ ratings: {} }),
+      get: () => Promise.resolve({ ratings: {}, pairwise: [], skipped: [], tasteClaims: [] }),
+      setRating: () => Promise.resolve({ ratings: {}, tasteClaims: [] }),
+      setClaimFeedback: () => Promise.resolve({ tasteClaims: [] }),
       addPairwise: () => Promise.resolve({ pairwise: [] }),
       skip: () => Promise.resolve({ skipped: [] }),
       unskip: () => Promise.resolve({ skipped: [] }),

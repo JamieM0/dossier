@@ -24,7 +24,7 @@
 
   /** Predicted preference 0–100 for a rated item, from the live profile. */
   function predict(item: RatedItem): number {
-    return predictPreference(item, preferences.entries());
+    return predictPreference(item, preferences.entries(), undefined, preferences.activeClaims());
   }
 
   let actionError = $state<string | null>(null);

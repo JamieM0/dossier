@@ -5,12 +5,16 @@ import {
   exportLibrary,
   importLibrary,
   serializeEnvelope,
+  reconcileTasteClaims,
+  withTasteClaimFeedback,
   withDefaults,
   type PairwiseChoice,
   type PersistedState,
   type Rating,
   type RatedItem,
-  type RatingsMap
+  type RatingsMap,
+  type TasteClaim,
+  type TasteClaimProvenance
 } from "@dossier/domain";
 import { EncryptedStore } from "./encrypted-store.js";
 import { KeyManager, TMDB_TOKEN_ACCOUNT } from "./key-manager.js";
@@ -24,7 +28,8 @@ export class DossierStoreService {
     readonly keyManager: KeyManager,
     initialState: PersistedState
   ) {
-    this.state = withDefaults(initialState);
+    const state = withDefaults(initialState);
+    this.state = { ...state, tasteClaims: reconcileTasteClaims(Object.values(state.ratings), state.tasteClaims) };
   }
 
   static async init(dataDir: string): Promise<DossierStoreService> {
@@ -59,6 +64,18 @@ export class DossierStoreService {
     return { ...this.state.ratings };
   }
 
+  getTasteClaims(): TasteClaim[] {
+    return this.state.tasteClaims.map((claim) => ({
+      ...claim,
+      conditions: claim.conditions.map((condition) => ({ ...condition })) as TasteClaim["conditions"],
+      evidence: { ...claim.evidence,
+        supportingItemKeys: [...claim.evidence.supportingItemKeys],
+        counterexampleItemKeys: [...claim.evidence.counterexampleItemKeys],
+        tasteSpaceClusterIds: [...claim.evidence.tasteSpaceClusterIds]
+      }
+    }));
+  }
+
   /** Set or clear a rating. `item` is required when setting (the snapshot
    * stored with the rating); pass rating=null to clear. */
   setRating(key: string, rating: Rating | null, item?: RatedItem): RatingsMap {
@@ -73,9 +90,25 @@ export class DossierStoreService {
     } else {
       throw new Error(`setRating(${key}): item snapshot required for a new rating`);
     }
-    this.state = { ...this.state, ratings };
+    this.state = {
+      ...this.state,
+      ratings,
+      tasteClaims: reconcileTasteClaims(Object.values(ratings), this.state.tasteClaims)
+    };
     this.encryptedStore.save(this.state);
     return this.getRatings();
+  }
+
+  setTasteClaimFeedback(
+    claim: TasteClaim,
+    provenance: Exclude<TasteClaimProvenance, "inferred">
+  ): TasteClaim[] {
+    this.state = {
+      ...this.state,
+      tasteClaims: withTasteClaimFeedback(this.state.tasteClaims, claim, provenance, Date.now())
+    };
+    this.encryptedStore.save(this.state);
+    return this.getTasteClaims();
   }
 
   getPairwise(): PairwiseChoice[] {
@@ -136,10 +169,10 @@ export class DossierStoreService {
     await this.keyManager.deleteSecret(TMDB_TOKEN_ACCOUNT);
   }
 
-  /** Wipe all preference data (ratings, pairwise, skipped). Settings
+  /** Wipe all preference data (ratings, claims, pairwise, skipped). Settings
    * are preserved so theme/sidebar state survives a reset. */
   resetPreferences(): void {
-    this.state = { ...this.state, ratings: {}, pairwise: [], skipped: [] };
+    this.state = { ...this.state, ratings: {}, pairwise: [], skipped: [], tasteClaims: [] };
     this.encryptedStore.save(this.state);
   }
 
@@ -153,7 +186,8 @@ export class DossierStoreService {
    * Throws (PortableImportError) on a wrong passphrase or malformed file. */
   async importLibrary(fileContent: string, passphrase: string): Promise<void> {
     const imported = await importLibrary(fileContent, passphrase);
-    this.state = withDefaults(imported);
+    const state = withDefaults(imported);
+    this.state = { ...state, tasteClaims: reconcileTasteClaims(Object.values(state.ratings), state.tasteClaims) };
     this.encryptedStore.save(this.state);
   }
 }

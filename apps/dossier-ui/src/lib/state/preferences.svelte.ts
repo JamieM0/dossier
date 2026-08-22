@@ -1,5 +1,5 @@
-/** Preferences store — ratings, pairwise refinement choices, and skip
- * list, all keyed by medium-qualified item key ("movie:27205"). Each
+/** Preferences store — ratings, claims, pairwise refinement choices, and
+ * skip list, all keyed by medium-qualified item key ("movie:27205"). Each
  * rating carries a compact snapshot of the item (title, poster, lens
  * vector) so the taste profile and Library work offline without any
  * TMDB re-fetch. Hydrates from the backend; mutations call through and
@@ -11,7 +11,9 @@ import type {
   RatingEntry,
   RatingKind,
   TmdbItem,
-  TmdbMedium
+  TmdbMedium,
+  TasteClaim,
+  TasteClaimProvenance
 } from "$lib/types";
 import { itemKey, parseItemKey, ratingKind, ratingWeight, toRatedItem } from "$lib/types";
 import { enrichItem } from "$lib/discovery";
@@ -20,6 +22,7 @@ class PreferencesState {
   ratings = $state<Record<string, RatingEntry>>({});
   pairwise = $state<PairwiseChoice[]>([]);
   skipped = $state<string[]>([]);
+  tasteClaims = $state<TasteClaim[]>([]);
   loaded = $state(false);
   error = $state<string | null>(null);
 
@@ -36,6 +39,7 @@ class PreferencesState {
       this.ratings = payload.ratings ?? {};
       this.pairwise = payload.pairwise ?? [];
       this.skipped = payload.skipped ?? [];
+      this.tasteClaims = payload.tasteClaims ?? [];
     } catch (err) {
       this.error = `Backend call failed: ${err instanceof Error ? err.message : String(err)}. Restart the desktop app so the new preferences endpoints are loaded.`;
     } finally {
@@ -71,16 +75,31 @@ class PreferencesState {
     const alreadyDetailed = item.runtime != null || item.keywords.length > 0;
     const snapshot: RatedItem | undefined =
       rating === null ? undefined : toRatedItem(alreadyDetailed ? item : await enrichItem(item));
-    const { ratings } = await window.dossier.preferences.setRating(key, rating, snapshot);
+    const { ratings, tasteClaims } = await window.dossier.preferences.setRating(key, rating, snapshot);
     this.ratings = ratings;
+    this.tasteClaims = tasteClaims;
   }
 
   /** Clear a rating by key (used by the Library where we may only hold
    *  the key, not a fresh TMDB item). */
   async clearRating(key: string): Promise<void> {
     if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
-    const { ratings } = await window.dossier.preferences.setRating(key, null);
+    const { ratings, tasteClaims } = await window.dossier.preferences.setRating(key, null);
     this.ratings = ratings;
+    this.tasteClaims = tasteClaims;
+  }
+
+  async setClaimFeedback(
+    claim: TasteClaim,
+    provenance: Exclude<TasteClaimProvenance, "inferred">
+  ): Promise<void> {
+    if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
+    const { tasteClaims } = await window.dossier.preferences.setClaimFeedback(claim, provenance);
+    this.tasteClaims = tasteClaims;
+  }
+
+  activeClaims(): TasteClaim[] {
+    return this.tasteClaims.filter((claim) => claim.active);
   }
 
   async addPairwise(winnerKey: string, loserKey: string): Promise<void> {
@@ -107,6 +126,7 @@ class PreferencesState {
     this.ratings = {};
     this.pairwise = [];
     this.skipped = [];
+    this.tasteClaims = [];
   }
 
   /** Item keys the user has interacted with (rated or skipped) — the

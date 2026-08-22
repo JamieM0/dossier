@@ -107,12 +107,27 @@ type RatedItem = {
 type RatingEntry = { rating: Rating; item: RatedItem; ts: number };
 type RatingsMap = Record<string, RatingEntry>;
 type PairwiseChoice = { winnerKey: string; loserKey: string; ts: number };
+type TasteClaim = {
+  id: string;
+  conditions: Array<Record<string, unknown>>;
+  effect: "positive" | "negative";
+  confidence: number;
+  evidence: Record<string, unknown>;
+  provenance: "inferred" | "user_confirmed" | "explicitly_rejected" | "corrected";
+  active: boolean;
+  feedbackAt?: number;
+};
 
 type StoreServicePort = {
   getSettings: () => Record<string, unknown>;
   updateSettings: (next: Record<string, unknown>) => Record<string, unknown>;
   getRatings: () => RatingsMap;
+  getTasteClaims: () => TasteClaim[];
   setRating: (key: string, rating: Rating | null, item?: RatedItem) => RatingsMap;
+  setTasteClaimFeedback: (
+    claim: TasteClaim,
+    provenance: "user_confirmed" | "explicitly_rejected" | "corrected"
+  ) => TasteClaim[];
   getPairwise: () => PairwiseChoice[];
   addPairwise: (choice: PairwiseChoice) => PairwiseChoice[];
   getSkipped: () => string[];
@@ -338,7 +353,23 @@ function createControlRequestHandler() {
         sendJson(res, 200, {
           ratings: storeService.getRatings(),
           pairwise: storeService.getPairwise(),
-          skipped: storeService.getSkipped()
+          skipped: storeService.getSkipped(),
+          tasteClaims: storeService.getTasteClaims()
+        });
+        return;
+      }
+
+      if (method === "PUT" && path === "/control/preferences/claim-feedback") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        const body = (await readJsonBody(req)) as {
+          claim?: TasteClaim;
+          provenance?: "user_confirmed" | "explicitly_rejected" | "corrected";
+        };
+        if (!body?.claim || !["user_confirmed", "explicitly_rejected", "corrected"].includes(body.provenance ?? "")) {
+          throw new ControlError(400, "BAD_REQUEST", "claim and a user feedback provenance are required");
+        }
+        sendJson(res, 200, {
+          tasteClaims: storeService.setTasteClaimFeedback(body.claim, body.provenance!)
         });
         return;
       }
@@ -362,7 +393,8 @@ function createControlRequestHandler() {
           );
         }
         sendJson(res, 200, {
-          ratings: storeService.setRating(body.key, r as Rating | null, body.item)
+          ratings: storeService.setRating(body.key, r as Rating | null, body.item),
+          tasteClaims: storeService.getTasteClaims()
         });
         return;
       }

@@ -10,6 +10,7 @@ import {
   type ScoringParams
 } from "./recommender";
 import type { FeatureVector, RatingEntry, TmdbItem } from "./types";
+import { MAX_CLAIM_SCORE_ADJUSTMENT, tasteClaimId, type TasteClaim } from "@dossier/domain";
 
 const AXES: (keyof FeatureVector)[] = [
   "pacing", "tone", "emotional_intensity", "complexity", "scope",
@@ -116,6 +117,22 @@ describe("scoreCandidates / clustering", () => {
 
   it("predictPreference returns 0 with no liked entries", () => {
     expect(predictPreference(item(GRIM), [])).toBe(0);
+  });
+
+  it("applies active claims as bounded secondary evidence", () => {
+    const entries = [ratingEntry(GRIM, 2), ratingEntry(GRIM, 2), ratingEntry(GRIM, 2)];
+    const candidate = { ...item(GRIM), genres: ["Drama"] };
+    const condition = { kind: "genre" as const, value: "Drama", label: "Drama" };
+    const claim: TasteClaim = {
+      id: tasteClaimId("positive", [condition]), conditions: [condition], effect: "positive",
+      confidence: 1, provenance: "user_confirmed", active: true,
+      evidence: { supportingItemKeys: entries.map((entry) => entry.item.key), counterexampleItemKeys: [], tasteSpaceClusterIds: [], supportingWeight: 4.5, counterexampleWeight: 0, matchedItemCount: 3 }
+    };
+    const base = scoreCandidates([candidate], entries)[0]!.score;
+    const claimed = scoreCandidates([candidate], entries, DEFAULT_SCORING_PARAMS, [claim])[0]!.score;
+    expect(claimed).toBeGreaterThan(base);
+    expect(claimed - base).toBeLessThanOrEqual(MAX_CLAIM_SCORE_ADJUSTMENT);
+    expect(scoreCandidates([candidate], entries, DEFAULT_SCORING_PARAMS, [{ ...claim, active: false }])[0]!.score).toBe(base);
   });
 });
 

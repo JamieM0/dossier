@@ -1,6 +1,6 @@
 import { AXIS_KEYS, predictPreference, type AxisKey } from "$lib/recommender";
-import { ratingKind, ratingWeight, type Rating, type RatingEntry, type TmdbItem } from "$lib/types";
-import { buildTasteSpace, cosineSimilarity, type TasteCluster, type TasteClusterRelationship } from "@dossier/domain";
+import { ratingKind, ratingWeight, type Rating, type RatingEntry, type TasteClaim, type TasteClaimCondition, type TmdbItem } from "$lib/types";
+import { buildTasteSpace, cosineSimilarity, matchesTasteClaim, tasteClaimId, type TasteCluster, type TasteClusterRelationship } from "@dossier/domain";
 
 export type EvidenceLevel = "strong" | "some" | "mixed" | "sparse";
 export type ProbeKind =
@@ -10,12 +10,15 @@ export type ProbeKind =
   | "conflict_resolution"
   | "collection_completion"
   | "confirmation"
+  | "claim_confirmation"
+  | "claim_falsification"
   | "fallback"
   | "dissonance";
 export type ProbeEvidence = {
   clusterIds: string[];
   itemKeys: string[];
   weakRegionIds: string[];
+  claimIds: string[];
   collection: {
     id: number;
     name: string;
@@ -82,7 +85,7 @@ function clusterTitle(cluster: TasteCluster | undefined): string {
 }
 
 function emptyEvidence(focus?: string): ProbeEvidence {
-  return { clusterIds: [], itemKeys: [], weakRegionIds: [], collection: null, ...(focus ? { focus } : {}) };
+  return { clusterIds: [], itemKeys: [], weakRegionIds: [], claimIds: [], collection: null, ...(focus ? { focus } : {}) };
 }
 
 /** Rank a whole Rate candidate pool in one deterministic TasteSpace pass.
@@ -92,10 +95,11 @@ function emptyEvidence(focus?: string): ProbeEvidence {
 export function rankRateProbes(
   candidates: TmdbItem[],
   entries: RatingEntry[],
-  focus?: string
+  focus?: string,
+  claims: readonly TasteClaim[] = []
 ): Array<ProbeResult<TmdbItem>> {
   if (!candidates.length) return [];
-  if (entries.length < 5) {
+  if (entries.length < 5 && !claims.some((claim) => claim.active)) {
     return [...candidates]
       .sort((a, b) => familiarity(b) - familiarity(a) || tmdbKey(a).localeCompare(tmdbKey(b)))
       .map((item) => ({
@@ -137,6 +141,7 @@ export function rankRateProbes(
       itemKeys: [likedCluster?.supportingRatings[0]?.itemKey, dislikedCluster?.supportingRatings[0]?.itemKey]
         .filter((itemKey): itemKey is string => Boolean(itemKey)),
       weakRegionIds: regions.map((region) => region.id),
+      claimIds: [],
       collection: item.collection && collectionEntries.length
         ? {
             id: item.collection.id,
@@ -147,6 +152,31 @@ export function rankRateProbes(
       ...(focused && focus ? { focus } : {})
     };
     const prefix = focused && focus ? `You chose ${focus.toLowerCase()}. ` : "";
+
+    const matchedClaim = claims
+      .filter((claim) => claim.active && matchesTasteClaim(item, claim))
+      .sort((a, b) => b.confidence - a.confidence || a.id.localeCompare(b.id))[0];
+    if (matchedClaim) {
+      const falsification = matchedClaim.effect === "positive"
+        ? Math.max(0, -(disliked?.affinity ?? 0))
+        : Math.max(0, liked?.affinity ?? 0);
+      if (falsification >= 0.2) {
+        return {
+          item,
+          probeKind: "claim_falsification",
+          learningValue: 2 + matchedClaim.confidence * 0.65 + falsification * 0.5 + focusBoost * 0.9,
+          reason: `${prefix}This matches the claim about ${matchedClaim.conditions.map((condition) => condition.label.toLowerCase()).join(" and ")}, but also resembles contrasting evidence. Your response could falsify or narrow that claim.`,
+          evidence: { ...baseEvidence, claimIds: [matchedClaim.id] }
+        };
+      }
+      return {
+        item,
+        probeKind: "claim_confirmation",
+        learningValue: 0.7 + matchedClaim.confidence * 0.35 + focusBoost * 0.9 + familiarity(item) * 0.1,
+        reason: `${prefix}This directly tests the claim about ${matchedClaim.conditions.map((condition) => condition.label.toLowerCase()).join(" and ")}. A contrary response will be kept as a counterexample.`,
+        evidence: { ...baseEvidence, claimIds: [matchedClaim.id] }
+      };
+    }
 
     if (uncertain && liked && disliked) {
       const clusterConflict = Boolean(
@@ -219,15 +249,15 @@ export function rankRateProbes(
   );
 }
 
-export function selectRateQuestion(candidates: TmdbItem[], entries: RatingEntry[], focus?: string): ProbeResult<TmdbItem> | null {
-  return rankRateProbes(candidates, entries, focus)[0] ?? null;
+export function selectRateQuestion(candidates: TmdbItem[], entries: RatingEntry[], focus?: string, claims: readonly TasteClaim[] = []): ProbeResult<TmdbItem> | null {
+  return rankRateProbes(candidates, entries, focus, claims)[0] ?? null;
 }
 
 export type Prediction = { score: number; evidence: EvidenceLevel; expected: "like"|"dislike"|"uncertain" };
 export const DISSONANCE_MAX_SCORE = 25;
 
-export function predictionFor(item: TmdbItem, entries: RatingEntry[]): Prediction {
-  const score = predictPreference(item, entries);
+export function predictionFor(item: TmdbItem, entries: RatingEntry[], claims: readonly TasteClaim[] = []): Prediction {
+  const score = predictPreference(item, entries, undefined, claims);
   const meaningful = entries.filter(e => Math.abs(ratingWeight(e.rating)) >= 1).length;
   return { score, evidence: meaningful >= 10 ? "strong" : meaningful >= 5 ? "some" : "sparse", expected: score >= 58 ? "like" : score <= 25 ? "dislike" : "uncertain" };
 }
@@ -238,10 +268,11 @@ export function predictionFor(item: TmdbItem, entries: RatingEntry[]): Predictio
  * exists to elicit. Least likely first; recognisability breaks score ties. */
 export function rankDissonantCandidates(
   candidates: TmdbItem[],
-  entries: RatingEntry[]
+  entries: RatingEntry[],
+  claims: readonly TasteClaim[] = []
 ): Array<{ item: TmdbItem; prediction: Prediction }> {
   return candidates
-    .map((item) => ({ item, prediction: predictionFor(item, entries) }))
+    .map((item) => ({ item, prediction: predictionFor(item, entries, claims) }))
     .filter(({ prediction }) => prediction.evidence !== "sparse" && prediction.score <= DISSONANCE_MAX_SCORE)
     .sort((a, b) => a.prediction.score - b.prediction.score || familiarity(b.item) - familiarity(a.item));
 }
@@ -324,8 +355,8 @@ export function dissonanceAssumptionFor(
   };
 }
 
-export type Surprise = { direction:"positive"|"negative"; summary:string; options:Array<{kind:"axis"|"genre"|"tag"; key:string; label:string}> };
-export function detectSurprise(item: TmdbItem, rating: Rating, before: Prediction, entries: RatingEntry[]): Surprise | null {
+export type Surprise = { direction:"positive"|"negative"; summary:string; options:Array<{kind:"axis"|"genre"|"tag"; key:string; label:string; claim:TasteClaim}> };
+export function detectSurprise(item: TmdbItem, rating: Rating, before: Prediction, entries: RatingEntry[], claims: readonly TasteClaim[] = []): Surprise | null {
   if (before.evidence === "sparse") return null;
   const w = ratingWeight(rating);
   const direction = before.score >= 60 && w <= -1 ? "negative" : before.score <= DISSONANCE_MAX_SCORE && w >= 1.5 ? "positive" : null;
@@ -333,15 +364,33 @@ export function detectSurprise(item: TmdbItem, rating: Rating, before: Predictio
   const nearest = [...entries].filter(e => direction === "negative" ? ratingWeight(e.rating)>0 : ratingWeight(e.rating)<0)
     .sort((a,b)=>cosineSimilarity(item.features,b.item.features)-cosineSimilarity(item.features,a.item.features))[0];
   const axis = nearest ? topAxisDifference(item.features, nearest.item.features) : AXIS_KEYS[0];
-  const raw = [
-    { kind:"axis" as const, key:axis, label:`The ${axisPhrase(axis, item.features[axis])} mattered` },
-    ...item.keywords.slice(0,2).map(key=>({kind:"tag" as const,key,label:`The ${key} element mattered`})),
-    ...item.genres.slice(0,1).map(key=>({kind:"genre" as const,key,label:`The ${key.toLowerCase()} side mattered`}))
+  const effect = direction;
+  const conditions: Array<{kind:"axis"|"genre"|"tag"; key:string; label:string; condition:TasteClaimCondition}> = [
+    { kind:"axis", key:axis, label:`The ${axisPhrase(axis, item.features[axis])} mattered`, condition:{kind:"feature_axis",value:axis,side:item.features[axis] < 0 ? "low" : "high",label:axisPhrase(axis,item.features[axis])} },
+    ...item.keywords.slice(0,2).map(key=>({kind:"tag" as const,key,label:`The ${key} element mattered`,condition:{kind:"tag" as const,value:key,label:key}})),
+    ...item.genres.slice(0,1).map(key=>({kind:"genre" as const,key,label:`The ${key.toLowerCase()} side mattered`,condition:{kind:"genre" as const,value:key,label:key}}))
   ];
+  const raw = conditions.map(({ condition, ...option }) => {
+    const matching = entries.filter((entry) => matchesTasteClaim(entry.item, { conditions: [condition] }));
+    const supportingItemKeys = [itemKeyFor(item), ...matching.filter((entry) => (ratingWeight(entry.rating) > 0) === (effect === "positive")).map((entry) => entry.item.key)].sort();
+    const counterexampleItemKeys = matching.filter((entry) => (ratingWeight(entry.rating) < 0) === (effect === "positive")).map((entry) => entry.item.key).sort();
+    const supportingWeight = Math.abs(ratingWeight(rating)) + matching.filter((entry) => supportingItemKeys.includes(entry.item.key)).reduce((sum, entry) => sum + Math.abs(ratingWeight(entry.rating)), 0);
+    const counterexampleWeight = matching.filter((entry) => counterexampleItemKeys.includes(entry.item.key)).reduce((sum, entry) => sum + Math.abs(ratingWeight(entry.rating)), 0);
+    const claim: TasteClaim = {
+      id: tasteClaimId(effect, [condition]), conditions:[condition], effect,
+      confidence: Math.min(.9, supportingWeight / (supportingWeight + counterexampleWeight + 2)),
+      evidence:{supportingItemKeys,counterexampleItemKeys,tasteSpaceClusterIds:[],supportingWeight,counterexampleWeight,matchedItemCount:1+matching.length},
+      provenance:"inferred",active:false
+    };
+    return {...option,claim};
+  }).filter((option) => !claims.some((claim) => claim.id === option.claim.id && !claim.active));
+  if (!raw.length) return null;
   return { direction, options:raw.slice(0,3), summary: direction === "negative"
     ? `Unexpected based on your ratings so far: Dossier expected this to fit${nearest ? ` near ${nearest.item.title}` : ""}. Something else may matter here.`
     : `This sits outside the patterns Dossier currently associates with your favourites. It may reveal an underrepresented part of your taste.` };
 }
+
+function itemKeyFor(item: TmdbItem): string { return `${item.medium}:${item.id}`; }
 
 export function explainRating(item: TmdbItem, rating: Rating, before: Prediction): string {
   const kind = ratingKind(rating); const strength = Math.abs(ratingWeight(rating));

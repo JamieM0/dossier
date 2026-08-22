@@ -8,3 +8,4 @@ export * from "./tmdb/client.js";
 export * from "./store/model.js";
 export * from "./codec/portable.js";
 export * from "./taste-space.js";
+export * from "./taste-claims.js";

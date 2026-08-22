@@ -7,6 +7,7 @@ import {
   PORTABLE_FORMAT
 } from "./portable.js";
 import { createDefaultState, type PersistedState } from "../store/model.js";
+import { tasteClaimId } from "../taste-claims.js";
 
 function sampleState(): PersistedState {
   const state = createDefaultState();
@@ -32,6 +33,12 @@ function sampleState(): PersistedState {
   };
   state.pairwise.push({ winnerKey: "movie:27205", loserKey: "tv:1396", ts: 1_700_000_001_000 });
   state.skipped.push("movie:603");
+  const condition = { kind: "genre" as const, value: "Science Fiction", label: "Science Fiction" };
+  state.tasteClaims.push({
+    id: tasteClaimId("positive", [condition]), conditions: [condition], effect: "positive",
+    confidence: .75, provenance: "user_confirmed", active: true, feedbackAt: 12,
+    evidence: { supportingItemKeys: ["movie:27205"], counterexampleItemKeys: [], tasteSpaceClusterIds: ["liked:movie:27205"], supportingWeight: 1, counterexampleWeight: 0, matchedItemCount: 1 }
+  });
   return state;
 }
 
@@ -93,5 +100,12 @@ describe("portable library codec", () => {
       directorIds: [],
       creatorIds: []
     });
+  });
+
+  it("backfills an empty claim collection for pre-claim exports", async () => {
+    const legacy = createDefaultState() as PersistedState & { tasteClaims?: never };
+    delete (legacy as Partial<PersistedState>).tasteClaims;
+    const restored = await importLibrary(await exportLibrary(legacy as PersistedState, "pw"), "pw");
+    expect(restored.tasteClaims).toEqual([]);
   });
 });

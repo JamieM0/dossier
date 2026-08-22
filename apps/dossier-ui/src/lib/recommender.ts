@@ -29,14 +29,16 @@
  * confidence (and thus its influence) grows with how many ratings
  * reinforce it, so recommendations keep sharpening — never degrading —
  * the more you rate. */
-import type { FeatureVector, RatingEntry, TmdbItem } from "$lib/types";
+import type { FeatureVector, RatedItem, RatingEntry, TmdbItem } from "$lib/types";
 import { ratingKind, ratingWeight } from "$lib/types";
 import {
   AXIS_KEYS,
   buildTasteSpace,
   cosineSimilarity,
   DEFAULT_TASTE_CLUSTER_MERGE_THRESHOLD,
+  tasteClaimScoreAdjustment,
   type AxisKey,
+  type TasteClaim,
   type TasteCluster
 } from "@dossier/domain";
 
@@ -52,6 +54,9 @@ type Scorable = {
   year?: number | null;
   runtime?: number | null;
 };
+
+type ClaimScorable = Scorable & Pick<RatedItem, "genres" | "keywords" | "features"> &
+  Partial<Pick<RatedItem, "collection" | "directorIds" | "creatorIds">>;
 
 export { AXIS_KEYS, cosineSimilarity };
 export type { AxisKey };
@@ -252,7 +257,8 @@ const SERENDIPITY_WEIGHT = 2;
 export function scoreCandidates(
   candidates: TmdbItem[],
   entries: RatingEntry[],
-  params: ScoringParams = DEFAULT_SCORING_PARAMS
+  params: ScoringParams = DEFAULT_SCORING_PARAMS,
+  claims: readonly TasteClaim[] = []
 ): Recommendation[] {
   const tasteSpace = buildTasteSpace(entries, {
     clusterMergeThreshold: params.clusterMergeThreshold,
@@ -267,6 +273,7 @@ export function scoreCandidates(
   for (const item of candidates) {
     let score = scoreCandidate(item, likedClusters, dislikedClusters, params);
     if (score === -Infinity) continue;
+    score += tasteClaimScoreAdjustment(item, claims);
     if (params.serendipity > 0) {
       score += (Math.random() - 0.5) * 2 * params.serendipity * SERENDIPITY_WEIGHT;
     }
@@ -280,9 +287,10 @@ export function scoreCandidates(
  * badges. Clamps negative similarity to 0 (no meaningful "anti-match"
  * to surface). */
 export function predictPreference(
-  item: Scorable,
+  item: ClaimScorable,
   entries: RatingEntry[],
-  params: ScoringParams = DEFAULT_SCORING_PARAMS
+  params: ScoringParams = DEFAULT_SCORING_PARAMS,
+  claims: readonly TasteClaim[] = []
 ): number {
   const tasteSpace = buildTasteSpace(entries, {
     clusterMergeThreshold: params.clusterMergeThreshold,
@@ -297,7 +305,7 @@ export function predictPreference(
     liked,
     disliked,
     params
-  );
+  ) + tasteClaimScoreAdjustment(item, claims);
   if (!Number.isFinite(raw)) return 0;
   return Math.round(Math.max(0, Math.min(1, raw)) * 100);
 }

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { detectSurprise, dissonanceAssumptionFor, explainRating, predictionFor, rankDissonantCandidates, selectRateQuestion, tasteSnapshot } from "./calibration";
-import type { RatingEntry, TmdbItem } from "./types";
+import { tasteClaimId } from "@dossier/domain";
+import type { RatingEntry, TasteClaim, TmdbItem } from "./types";
 
 const features = (n:number) => ({pacing:n,tone:n,emotional_intensity:n,complexity:n,scope:n,realism:n,thematic_weight:n,character_focus:n,moral_clarity:n,structure:n});
 const vector = (over: Partial<TmdbItem["features"]>): TmdbItem["features"] => ({ ...features(0), ...over });
@@ -83,8 +84,24 @@ describe("calibration decisions", () => {
   it("only meaningful, evidenced errors trigger surprise", () => {
     const entries=Array.from({length:6},(_,i)=>entry(i,.8,2));
     const before=predictionFor(item(20,.8),entries);
-    expect(detectSurprise(item(20,.8),-2,before,entries)?.direction).toBe("negative");
+    const surprise = detectSurprise(item(20,.8),-2,before,entries);
+    expect(surprise?.direction).toBe("negative");
+    expect(surprise?.options[0].claim).toMatchObject({effect:"negative",active:false,provenance:"inferred"});
+    expect(surprise?.options[0].claim.evidence.supportingItemKeys).toContain("movie:20");
+    const rejected = surprise!.options.map((option) => ({...option.claim,provenance:"explicitly_rejected" as const,active:false}));
+    expect(detectSurprise(item(20,.8),-2,before,entries,rejected)).toBeNull();
     expect(detectSurprise(item(20,.8),-1,{...before,score:45},entries)).toBeNull();
+  });
+  it("prioritises a candidate that could falsify an active claim", () => {
+    const entries=[entryWith(1,vector({pacing:1}),2),entryWith(2,vector({pacing:.9}),2),entryWith(3,vector({pacing:.8}),2),entryWith(4,vector({tone:1}),-2),entryWith(5,vector({tone:.9}),-2)];
+    const condition={kind:"genre" as const,value:"Science Fiction",label:"Science Fiction"};
+    const claim:TasteClaim={id:tasteClaimId("positive",[condition]),conditions:[condition],effect:"positive",confidence:.8,provenance:"user_confirmed",active:true,evidence:{supportingItemKeys:["movie:1","movie:2","movie:3"],counterexampleItemKeys:[],tasteSpaceClusterIds:[],supportingWeight:6,counterexampleWeight:0,matchedItemCount:3}};
+    const falsifier={...item(40,0,"Science Fiction"),features:vector({tone:1})};
+    const ordinary={...item(41,0,"Drama",900),features:vector({pacing:1})};
+    const picked=selectRateQuestion([ordinary,falsifier],entries,undefined,[claim]);
+    expect(picked?.item.id).toBe(40);
+    expect(picked?.probeKind).toBe("claim_falsification");
+    expect(picked?.evidence.claimIds).toEqual([claim.id]);
   });
   it("dissonance ranks only evidenced low predictions and breaks ties by recognisability", () => {
     const entries=Array.from({length:6},(_,i)=>entry(i,.8,2));
