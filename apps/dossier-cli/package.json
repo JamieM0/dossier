@@ -1,0 +1,23 @@
+{
+  "name": "@dossier/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": { "dossier": "bin/dossier.js" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:bundle": "pnpm -C ../.. -r --filter \"@dossier/store...\" build && pnpm run build && node scripts/bundle.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@dossier/domain": "workspace:*",
+    "@dossier/store": "workspace:*",
+    "keytar": "^7.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}

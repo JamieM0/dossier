@@ -25,7 +25,7 @@ Feature ideas live in the **"Dossier Planning"** GitHub Project — private, pro
 
 The Tauri shell spawns a Node backend from `apps/dossier-desktop/src/*.ts`, compiled by `tsc` to `apps/dossier-desktop/dist/*.js`. `dist/backend.js` is the daemon. Any sibling `dist/*.js` it `import`s by relative path must also ship inside the packaged app, not just `backend.js`.
 
-These modules are copied into the bundle via `bundle.resources` in `apps/dossier-desktop/src-tauri/tauri.conf.json`. That entry is a glob — `"../dist/*.js"` — specifically so new backend modules are picked up automatically. **Do not narrow it back to a hand-listed file** (it was previously `"../dist/backend.js"`, which is exactly what broke the v0.1.14 DMG when sibling modules were missing at launch).
+The `bundle.resources` entry in `apps/dossier-desktop/src-tauri/tauri.conf.json` copies these modules. Keep its `"../dist/*.js"` glob. The earlier `"../dist/backend.js"` entry omitted sibling modules and broke the v0.1.14 DMG.
 
 Rules when touching the Node backend:
 - Adding a new `src/*.ts` backend module needs no config change — the `../dist/*.js` glob already covers it. Just confirm it lands in `dist/` after `pnpm run build`.
@@ -54,7 +54,7 @@ Principle: **only think about the app.** The web build is set-and-forget — it 
 
 When adding a feature, put shared logic in the UI or `@dossier/domain` so both platforms get it for free; reach for web-specific code only for genuine platform differences (credentials, file access, the migrate prompts).
 
-The release zip (`Dossier-web-{version}.zip`) is produced by `version-bump.py` (`build_web_zip`) from the static `apps/dossier-ui/build` output and attached to the GitHub release alongside the DMG.
+The release script builds the web zip and the macOS CLI zip after it generates `latest.json`. The CLI zip contains its Node runtime dependencies. See [the CLI reference](docs/agent-cli.md) for use instructions.
 
 ## Mandatory After Every Visual Change
 
@@ -115,8 +115,8 @@ This one script does the whole release. In order, it:
    reading the signing key from `~/.tauri/dossier-updater.key` and its password
    from `~/.tauri/dossier-updater.password.txt`. **If the build fails, the
    script aborts before any commit/tag/push — a broken build can never ship.**
-4. Collects the DMG + updater archive (`.app.tar.gz` + `.sig`) into `dist/`
-   and generates `latest.json`.
+4. Collects the DMG + updater archive (`.app.tar.gz` + `.sig`) into `dist/`,
+   generates `latest.json`, and builds the web and CLI release zips.
 5. Commits the version bump, tags `vX.Y.Z`, and pushes `main` + tag.
 6. Creates a **published** GitHub release on `JamieM0/dossier` with the
    artifacts + `latest.json`.

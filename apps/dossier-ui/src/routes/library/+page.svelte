@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import { preferences } from "$lib/state/preferences.svelte";
   import { toasts } from "$lib/state/toast.svelte";
+  import { processing } from "$lib/state/processing.svelte";
   import {
     ratedToTmdbItem,
     RATING_DISLIKE,
@@ -14,13 +15,20 @@
   } from "$lib/types";
   import Carousel from "$lib/components/Carousel.svelte";
   import MovieDetailModal, { type ModalActionKind } from "$lib/components/MovieDetailModal.svelte";
+  import ReRateQueueChoice from "$lib/components/ReRateQueueChoice.svelte";
   import IconXBold from "phosphor-icons-svelte/IconXBold.svelte";
-  import LibraryReRate from "$lib/components/LibraryReRate.svelte";
   import { motionReveal, motionStaggerChildren } from "$lib/design/motion";
 
   let modalItem = $state<TmdbItem | null>(null);
   let modalExclude = $state<ModalActionKind[]>([]);
-  let rerate = $state<{ title:string; items:TmdbItem[] } | null>(null);
+  type QueueSource = { id:string; title:string; items:TmdbItem[]; exclude:ModalActionKind };
+  type QueueProgress = Record<string,string[]>;
+  const RERATE_PROGRESS_KEY = "dossier:library-rerate-progress:v1";
+
+  let rerate = $state<{ queueId:string; items:TmdbItem[]; exclude:ModalActionKind; index:number } | null>(null);
+  let queueChoice = $state<QueueSource | null>(null);
+  let queueProgress = $state<QueueProgress>({});
+  const rerateItem = $derived(rerate?.items[rerate.index] ?? null);
 
   let search = $state("");
   let mediumView = $state<"movie" | "tv">("movie");
@@ -72,6 +80,11 @@
 
   onMount(() => {
     void preferences.hydrate();
+    try {
+      queueProgress = JSON.parse(localStorage.getItem(RERATE_PROGRESS_KEY) ?? "{}") as QueueProgress;
+    } catch {
+      queueProgress = {};
+    }
   });
 
   function openModal(film: TmdbItem, exclude: ModalActionKind): void {
@@ -79,15 +92,71 @@
     modalExclude = [exclude];
   }
 
+  function itemKey(item: TmdbItem): string {
+    return `${item.medium}:${item.id}`;
+  }
+
+  function saveQueueProgress(): void {
+    try {
+      localStorage.setItem(RERATE_PROGRESS_KEY, JSON.stringify(queueProgress));
+    } catch {
+      // The in-memory session still works when browser storage is unavailable.
+    }
+  }
+
+  function openRerateQueue(source: QueueSource): void {
+    if (Object.prototype.hasOwnProperty.call(queueProgress, source.id)) {
+      queueChoice = source;
+      return;
+    }
+    queueProgress = { ...queueProgress, [source.id]: [] };
+    saveQueueProgress();
+    beginRerateQueue(source, false);
+  }
+
+  function beginRerateQueue(source: QueueSource, continuePrevious: boolean): void {
+    const handled = new Set(continuePrevious ? queueProgress[source.id] ?? [] : []);
+    if (!continuePrevious) {
+      queueProgress = { ...queueProgress, [source.id]: [] };
+      saveQueueProgress();
+    }
+    const items = source.items.filter((item) => !handled.has(itemKey(item)));
+    queueChoice = null;
+    if (items.length === 0) {
+      toasts.show(`Everything currently in ${source.title} has already been handled.`);
+      return;
+    }
+    rerate = { queueId: source.id, items, exclude: source.exclude, index: 0 };
+  }
+
+  function advanceRerateQueue(item: TmdbItem, completion: Promise<void>): void {
+    if (!rerate) return;
+    const queueId = rerate.queueId;
+    const key = itemKey(item);
+    void completion
+      .then(() => {
+        const handled = new Set(queueProgress[queueId] ?? []);
+        handled.add(key);
+        queueProgress = { ...queueProgress, [queueId]: [...handled] };
+        saveQueueProgress();
+      })
+      .catch(() => {});
+    if (rerate.index + 1 >= rerate.items.length) {
+      rerate = null;
+      return;
+    }
+    rerate = { ...rerate, index: rerate.index + 1 };
+  }
+
   async function applyRating(film: TmdbItem, rating: Rating, verb: string): Promise<void> {
     const priorRating = preferences.ratingFor(film.medium, film.id) ?? null;
     try {
-      await preferences.setRating(film, rating);
+      await processing.track(preferences.setRating(film, rating));
       toasts.show(`${verb} "${film.title}".`, {
         action: {
           label: "Undo",
           run: async () => {
-            await preferences.setRating(film, priorRating);
+            await processing.track(preferences.setRating(film, priorRating));
           }
         }
       });
@@ -96,13 +165,43 @@
         `Couldn't update "${film.title}": ${err instanceof Error ? err.message : String(err)}`,
         { durationMs: 6000 }
       );
+      throw err;
     }
   }
 
-  function handleLike(film: TmdbItem): void { void applyRating(film, RATING_LIKE, "Liked"); }
-  function handleDislike(film: TmdbItem): void { void applyRating(film, RATING_DISLIKE, "Disliked"); }
-  function handleWatchlist(film: TmdbItem): void { void applyRating(film, RATING_WATCHLIST, "Added to watchlist"); }
-  function handleIgnore(film: TmdbItem): void { void applyRating(film, RATING_NOT_INTERESTED, "Won't show"); }
+  function handleLike(film: TmdbItem): Promise<void> { return applyRating(film, RATING_LIKE, "Liked"); }
+  function handleDislike(film: TmdbItem): Promise<void> { return applyRating(film, RATING_DISLIKE, "Disliked"); }
+  function handleWatchlist(film: TmdbItem): Promise<void> { return applyRating(film, RATING_WATCHLIST, "Added to watchlist"); }
+  function handleIgnore(film: TmdbItem): Promise<void> { return applyRating(film, RATING_NOT_INTERESTED, "Won't show"); }
+
+  async function handleSkip(film: TmdbItem): Promise<void> {
+    const key = `${film.medium}:${film.id}`;
+    const priorRating = preferences.ratingFor(film.medium, film.id);
+    const wasSkipped = preferences.skipped.includes(key);
+    try {
+      await processing.track((async () => {
+        if (priorRating !== undefined) await preferences.clearRating(key);
+        if (!wasSkipped) await preferences.skip(film.medium, film.id);
+      })());
+      toasts.show(`Marked "${film.title}" as not seen.`, {
+        action: {
+          label: "Undo",
+          run: async () => {
+            await processing.track((async () => {
+              if (!wasSkipped) await preferences.unskip(key);
+              if (priorRating !== undefined) await preferences.setRating(film, priorRating);
+            })());
+          }
+        }
+      });
+    } catch (err) {
+      toasts.show(
+        `Couldn't update "${film.title}": ${err instanceof Error ? err.message : String(err)}`,
+        { durationMs: 6000 }
+      );
+      throw err;
+    }
+  }
 </script>
 
 <section class="screen">
@@ -162,7 +261,7 @@
         films={section.films}
         emptyHint={section.empty}
         onSelect={(f) => openModal(f, section.exclude)}
-        onFullscreen={() => (rerate = { title:section.title, items:[...section.films] })}
+        onQueue={() => openRerateQueue({ id:`${mediumView}:${section.id}`, title:section.title, items:[...section.films], exclude:section.exclude })}
       />
     {/each}
     </div>
@@ -175,12 +274,38 @@
     onClose={() => (modalItem = null)}
     onLike={handleLike}
     onWatchlist={handleWatchlist}
+    onSkip={handleSkip}
     onIgnore={handleIgnore}
     onDislike={handleDislike}
     excludeActions={modalExclude}
   />
 {/if}
-{#if rerate}<LibraryReRate title={rerate.title} items={rerate.items} onClose={() => rerate=null} />{/if}
+{#if rerate && rerateItem}
+  {#key `${rerateItem.medium}:${rerateItem.id}`}
+    <MovieDetailModal
+      item={rerateItem}
+      onClose={() => (rerate = null)}
+      onAction={advanceRerateQueue}
+      onLike={handleLike}
+      onWatchlist={handleWatchlist}
+      onSkip={handleSkip}
+      onIgnore={handleIgnore}
+      onDislike={handleDislike}
+      onLeaveAsIs={() => {}}
+      excludeActions={[rerate.exclude]}
+    />
+  {/key}
+{/if}
+{#if queueChoice}
+  <ReRateQueueChoice
+    title={queueChoice.title}
+    completed={queueChoice.items.filter((item) => (queueProgress[queueChoice!.id] ?? []).includes(itemKey(item))).length}
+    total={queueChoice.items.length}
+    onContinue={() => beginRerateQueue(queueChoice!, true)}
+    onRestart={() => beginRerateQueue(queueChoice!, false)}
+    onClose={() => (queueChoice = null)}
+  />
+{/if}
 
 <style>
   .screen { padding:clamp(24px,3.5vw,56px); display: flex; flex-direction: column; gap: clamp(28px,4vw,52px);max-width:1500px;margin:auto; }

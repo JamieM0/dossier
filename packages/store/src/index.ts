@@ -6,8 +6,13 @@ import {
   importLibrary,
   serializeEnvelope,
   reconcileTasteClaims,
-  withTasteClaimFeedback,
   withDefaults,
+  setLibraryRating,
+  setLibraryClaimFeedback,
+  addLibraryPairwise,
+  setLibrarySkipped,
+  resetLibraryPreferences,
+  updateLibrarySettings,
   type PairwiseChoice,
   type PersistedState,
   type Rating,
@@ -52,10 +57,7 @@ export class DossierStoreService {
   }
 
   updateSettings(next: Record<string, unknown>): Record<string, unknown> {
-    this.state = {
-      ...this.state,
-      settings: { ...this.state.settings, ...next }
-    };
+    this.state = updateLibrarySettings(this.state, next);
     this.encryptedStore.save(this.state);
     return this.getSettings();
   }
@@ -79,22 +81,7 @@ export class DossierStoreService {
   /** Set or clear a rating. `item` is required when setting (the snapshot
    * stored with the rating); pass rating=null to clear. */
   setRating(key: string, rating: Rating | null, item?: RatedItem): RatingsMap {
-    const ratings = { ...this.state.ratings };
-    if (rating === null) {
-      delete ratings[key];
-    } else if (item) {
-      ratings[key] = { rating, item, ts: Date.now() };
-    } else if (ratings[key]) {
-      // Update the rating value while keeping the existing snapshot.
-      ratings[key] = { ...ratings[key], rating, ts: Date.now() };
-    } else {
-      throw new Error(`setRating(${key}): item snapshot required for a new rating`);
-    }
-    this.state = {
-      ...this.state,
-      ratings,
-      tasteClaims: reconcileTasteClaims(Object.values(ratings), this.state.tasteClaims)
-    };
+    this.state = setLibraryRating(this.state, key, rating, item);
     this.encryptedStore.save(this.state);
     return this.getRatings();
   }
@@ -103,10 +90,7 @@ export class DossierStoreService {
     claim: TasteClaim,
     provenance: Exclude<TasteClaimProvenance, "inferred">
   ): TasteClaim[] {
-    this.state = {
-      ...this.state,
-      tasteClaims: withTasteClaimFeedback(this.state.tasteClaims, claim, provenance, Date.now())
-    };
+    this.state = setLibraryClaimFeedback(this.state, claim, provenance);
     this.encryptedStore.save(this.state);
     return this.getTasteClaims();
   }
@@ -116,7 +100,7 @@ export class DossierStoreService {
   }
 
   addPairwise(choice: PairwiseChoice): PairwiseChoice[] {
-    this.state = { ...this.state, pairwise: [...this.state.pairwise, choice] };
+    this.state = addLibraryPairwise(this.state, choice);
     this.encryptedStore.save(this.state);
     return this.getPairwise();
   }
@@ -126,22 +110,13 @@ export class DossierStoreService {
   }
 
   addSkipped(key: string): string[] {
-    if (this.state.skipped.includes(key)) {
-      return this.getSkipped();
-    }
-    this.state = { ...this.state, skipped: [...this.state.skipped, key] };
+    this.state = setLibrarySkipped(this.state, key, true);
     this.encryptedStore.save(this.state);
     return this.getSkipped();
   }
 
   removeSkipped(key: string): string[] {
-    if (!this.state.skipped.includes(key)) {
-      return this.getSkipped();
-    }
-    this.state = {
-      ...this.state,
-      skipped: this.state.skipped.filter((k) => k !== key)
-    };
+    this.state = setLibrarySkipped(this.state, key, false);
     this.encryptedStore.save(this.state);
     return this.getSkipped();
   }
@@ -172,7 +147,7 @@ export class DossierStoreService {
   /** Wipe all preference data (ratings, claims, pairwise, skipped). Settings
    * are preserved so theme/sidebar state survives a reset. */
   resetPreferences(): void {
-    this.state = { ...this.state, ratings: {}, pairwise: [], skipped: [], tasteClaims: [] };
+    this.state = resetLibraryPreferences(this.state);
     this.encryptedStore.save(this.state);
   }
 

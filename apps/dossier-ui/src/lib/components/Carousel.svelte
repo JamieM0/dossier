@@ -3,7 +3,7 @@
   import { posterUrl } from "$lib/poster";
   import IconCaretLeftBold from "phosphor-icons-svelte/IconCaretLeftBold.svelte";
   import IconCaretRightBold from "phosphor-icons-svelte/IconCaretRightBold.svelte";
-  import IconArrowsOutRegular from "phosphor-icons-svelte/IconArrowsOutRegular.svelte";
+  import IconQueueRegular from "phosphor-icons-svelte/IconQueueRegular.svelte";
   import { motionHoverLift, motionPress } from "$lib/design/motion";
 
   let {
@@ -11,13 +11,13 @@
     films,
     emptyHint = "",
     onSelect,
-    onFullscreen
+    onQueue
   }: {
     title: string;
     films: TmdbItem[];
     emptyHint?: string;
     onSelect?: (film: TmdbItem) => void;
-    onFullscreen?: () => void;
+    onQueue?: () => void;
   } = $props();
 
   let track: HTMLDivElement | null = $state(null);
@@ -35,9 +35,9 @@
     <span class="row-count">{films.length}</span>
     {#if films.length > 0}
       <div class="nav">
-        {#if onFullscreen}
-          <button class="nav-btn" aria-label={`Re-rate ${title} in fullscreen`} title="Re-rate fullscreen" onclick={onFullscreen}>
-            <IconArrowsOutRegular class="icon-16" />
+        {#if onQueue}
+          <button class="nav-btn" aria-label={`Re-rate ${title} in queue`} title="Re-rate in queue" onclick={onQueue}>
+            <IconQueueRegular class="icon-16" />
           </button>
         {/if}
         <button class="nav-btn" aria-label="Scroll left" onclick={() => scrollBy(-600)}>

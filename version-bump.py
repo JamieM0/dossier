@@ -25,6 +25,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 DESKTOP = ROOT / "apps/dossier-desktop"
+CLI = ROOT / "apps/dossier-cli"
 TARGET_TRIPLE = "aarch64-apple-darwin"
 RELEASE_REPO = "JamieM0/dossier"
 
@@ -38,6 +39,7 @@ VERSION_FILES = [
     "apps/dossier-desktop/src-tauri/Cargo.toml",
     "apps/dossier-desktop/src-tauri/Cargo.lock",
     "apps/dossier-desktop/package.json",
+    "apps/dossier-cli/package.json",
 ]
 
 # Local minisign signing material (see ~/.tauri).
@@ -151,8 +153,9 @@ def update_cargo_toml(path, new_version):
 def write_version(new_version):
     update_json(FILES["tauri.conf.json"], new_version)
     update_json(FILES["package.json"], new_version)
+    update_json(CLI / "package.json", new_version)
     update_cargo_toml(FILES["Cargo.toml"], new_version)
-    print(f"Updated: tauri.conf.json, Cargo.toml, package.json")
+    print(f"Updated: tauri.conf.json, Cargo.toml, desktop and CLI package.json")
 
 
 # --------------------------------------------------------------------------- #
@@ -272,6 +275,18 @@ def build_web_zip(new_version):
     return archive
 
 
+def build_cli_zip(new_version):
+    """Package the Node CLI and its runtime dependencies for macOS."""
+    run(["pnpm", "--filter", "@dossier/cli", "run", "build:bundle"])
+    staging = CLI / "bundle"
+    if not (staging / "bin/dossier.js").is_file():
+        die(f"CLI bundle not found at {staging}")
+    zip_base = DIST / f"Dossier-cli-macos-{new_version}"
+    archive = shutil.make_archive(str(zip_base), "zip", root_dir=staging)
+    print(f"Built CLI bundle: {Path(archive).name}")
+    return archive
+
+
 def generate_latest_json(tag):
     env = os.environ.copy()
     env.update({
@@ -336,6 +351,7 @@ def main():
     generate_latest_json(tag)
     # Built after latest.json so the updater manifest never sees the web zip.
     build_web_zip(new_version)
+    build_cli_zip(new_version)
 
     # 3. Only now do we touch git / publish.
     print("\n── Build succeeded — committing and publishing ─────────────────")

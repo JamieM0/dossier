@@ -1,0 +1,9 @@
+# Dossier documentation
+
+> Dossier is a local-first movie and TV taste application with a separate local CLI profile store.
+
+## Docs
+
+- [CLI reference](agent-cli.md): Build the CLI, manage profiles, and run data actions.
+- [CLI decision record](agent-cli-decision.html): Architecture, privacy boundary, and delivery stages.
+- [Terminology](terminology.md): Approved words for CLI documentation.

@@ -67,6 +67,19 @@ describe("calibration decisions", () => {
     expect(picked?.evidence.collection).toMatchObject({ id: 99, ratedItemKeys: ["movie:1"] });
     expect(picked?.reason).toContain("The Example Collection");
   });
+  it("never uses collection completion after the user says they haven't seen a title", () => {
+    const collection = { id: 99, name: "The Example Collection", posterPath: null, backdropPath: null };
+    const entries = [
+      entryWith(1, vector({ pacing: 1 }), 2, collection),
+      entryWith(2, vector({ pacing: .9 }), 1),
+      entryWith(3, vector({ pacing: .8 }), 1),
+      entryWith(4, vector({ tone: 1 }), -2),
+      entryWith(5, vector({ tone: .9 }), -1)
+    ];
+    const candidate = { ...item(20, 0), collection, features: vector({ pacing: 1 }) };
+    const picked = selectRateQuestion([candidate], entries, undefined, [], ["movie:999"]);
+    expect(picked?.probeKind).not.toBe("collection_completion");
+  });
   it("selects deterministically regardless of candidate input order", () => {
     const entries=[entry(1,.8,3),entry(2,.75,2),entry(3,.7,1),entry(4,.65,-3),entry(5,.6,-2)];
     const candidates=[item(31,-.8,"Comedy",10),item(30,-.8,"Comedy",10)];

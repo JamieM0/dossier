@@ -6,6 +6,8 @@ external data ingestion, no LLM, nothing leaves your device unless you
 export it. It ships two ways: a Tauri desktop app, and a no-install build
 that runs entirely in the browser.
 
+The [CLI reference](docs/agent-cli.md) explains how to build and use the separate local CLI profile store.
+
 This is a deliberately narrow build of a much bigger idea — see
 [`VISION.md`](VISION.md) for the long-term purpose this project exists to
 serve, and `CHANGELOG.md` for why an earlier, broader attempt at it was

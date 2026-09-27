@@ -1,6 +1,8 @@
 <script lang="ts">
   import { toasts } from "$lib/state/toast.svelte";
+  import { processing } from "$lib/state/processing.svelte";
   import IconXBold from "phosphor-icons-svelte/IconXBold.svelte";
+  import IconSpinnerGapRegular from "phosphor-icons-svelte/IconSpinnerGapRegular.svelte";
 
   async function runAction(id: number, run: () => void | Promise<void>): Promise<void> {
     try {
@@ -25,6 +27,12 @@
       </button>
     </div>
   {/each}
+  {#if processing.pending > 0}
+    <div class="processing" role="status" aria-live="polite" aria-label="Processing changes">
+      <IconSpinnerGapRegular class="spinner icon-16" />
+      <span>Processing</span>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -35,7 +43,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
-    z-index: 50;
+    z-index: 700;
     pointer-events: none;
   }
   .toast {
@@ -54,6 +62,9 @@
     max-width: 460px;
     animation: toast-in 200ms var(--ease-out);
   }
+  .processing{pointer-events:none;align-self:flex-end;display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border:1px solid var(--border-strong);border-radius:999px;background:var(--base-secondary);color:var(--text-secondary);box-shadow:var(--shadow-lg);font-size:.72rem;font-weight:600;letter-spacing:.02em;animation:toast-in 160ms var(--ease-out)}
+  .processing :global(.spinner){color:var(--accent);animation:processing-spin .8s linear infinite}
+  @keyframes processing-spin{to{transform:rotate(360deg)}}
   @keyframes toast-in {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
@@ -87,4 +98,5 @@
     .toaster{left:12px;right:12px;bottom:calc(78px + env(safe-area-inset-bottom))}
     .toast{width:100%;min-width:0;max-width:none;overflow-wrap:anywhere}
   }
+  @media(prefers-reduced-motion:reduce){.processing :global(.spinner){animation-duration:1.8s}}
 </style>

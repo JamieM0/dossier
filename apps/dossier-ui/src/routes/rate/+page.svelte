@@ -24,6 +24,8 @@
   import IconQuestionRegular from "phosphor-icons-svelte/IconQuestionRegular.svelte";
   import IconFadersRegular from "phosphor-icons-svelte/IconFadersRegular.svelte";
   import IconWaveformRegular from "phosphor-icons-svelte/IconWaveformRegular.svelte";
+  import IconThumbsUpFill from "phosphor-icons-svelte/IconThumbsUpFill.svelte";
+  import IconThumbsDownFill from "phosphor-icons-svelte/IconThumbsDownFill.svelte";
   import RateDialsPanel from "$lib/components/RateDialsPanel.svelte";
   import ConfirmDialog from "$lib/components/ConfirmDialog.svelte";
   import { detectSurprise, dissonanceAssumptionFor, explainRating, predictionFor, rankDissonantCandidates, rankRateProbes, shouldStopActiveLearning, type ProbeResult, type Surprise } from "$lib/calibration";
@@ -64,14 +66,14 @@
     return Number(action.slice(5)) as RankValue;
   }
 
-  const RANK_STOPS: Array<{ value: RankValue; symbol: string; caption: string; full: string; shortcut: string }> = [
-    { value: -3, symbol: "−−−", caption: "Extremely", full: "Extremely negative", shortcut: "1" },
-    { value: -2, symbol: "−−", caption: "Fairly", full: "Fairly negative", shortcut: "2" },
-    { value: -1, symbol: "−", caption: "Slightly", full: "Slightly negative", shortcut: "3" },
-    { value: 0, symbol: "•", caption: "Neutral", full: "Neutral", shortcut: "4" },
-    { value: 1, symbol: "+", caption: "Slightly", full: "Slightly positive", shortcut: "5" },
-    { value: 2, symbol: "++", caption: "Fairly", full: "Fairly positive", shortcut: "6" },
-    { value: 3, symbol: "+++", caption: "Extremely", full: "Extremely positive", shortcut: "7" }
+  const RANK_STOPS: Array<{ value: RankValue; caption: string; full: string; shortcut: string }> = [
+    { value: -3, caption: "Extremely", full: "Extremely negative", shortcut: "1" },
+    { value: -2, caption: "Fairly", full: "Fairly negative", shortcut: "2" },
+    { value: -1, caption: "Slightly", full: "Slightly negative", shortcut: "3" },
+    { value: 0, caption: "Neutral", full: "Neutral", shortcut: "4" },
+    { value: 1, caption: "Slightly", full: "Slightly positive", shortcut: "5" },
+    { value: 2, caption: "Fairly", full: "Fairly positive", shortcut: "6" },
+    { value: 3, caption: "Extremely", full: "Extremely positive", shortcut: "7" }
   ];
   function stopFor(v: RankValue) {
     return RANK_STOPS.find((s) => s.value === v)!;
@@ -405,7 +407,7 @@
           if (epoch !== queueEpoch) return;
           const dissonant = requestedDissonance ? rankDissonantCandidates(candidates, entries, preferences.activeClaims()) : [];
           if (requestedDissonance && dissonant.length === 0) continue;
-          const probes = requestedDissonance ? [] : rankRateProbes(candidates, entries, appPage.url.searchParams.get("focus") ?? undefined, preferences.activeClaims());
+          const probes = requestedDissonance ? [] : rankRateProbes(candidates, entries, appPage.url.searchParams.get("focus") ?? undefined, preferences.activeClaims(), preferences.skipped);
           const selected = probes[0] ?? null;
           const ordered = requestedDissonance
             ? dissonant.map(({ item }) => item)
@@ -734,7 +736,11 @@
   </div>
   {#if dragging && dragRank !== 0}
     <div class="swipe-feedback" class:positive={dragRank > 0} class:negative={dragRank < 0} role="status" aria-live="polite">
-      <span class="feedback-symbol" aria-hidden="true">{stopFor(dragRank).symbol}</span>
+      <span class="rating-thumbs feedback-symbol" aria-hidden="true">
+        {#each Array(Math.abs(dragRank)) as _}
+          {#if dragRank > 0}<IconThumbsUpFill />{:else}<IconThumbsDownFill />{/if}
+        {/each}
+      </span>
       <span class="feedback-copy"><small>{dragRank > 0 ? "Positive" : "Negative"}</small><strong>{stopFor(dragRank).caption}</strong></span>
       <span class="feedback-depth" aria-hidden="true">
         {#each [1, 2, 3] as depth}
@@ -861,7 +867,11 @@
                 style={`--stamp-mag: ${Math.abs(dragRank)};`}
                 aria-hidden="true"
               >
-                <span class="stamp-symbol">{stopFor(dragRank).symbol}</span>
+                <span class="rating-thumbs stamp-symbol">
+                  {#each Array(Math.abs(dragRank)) as _}
+                    {#if dragRank > 0}<IconThumbsUpFill />{:else}<IconThumbsDownFill />{/if}
+                  {/each}
+                </span>
                 <span class="stamp-label">{stopFor(dragRank).full}</span>
               </div>
             {/if}
@@ -904,7 +914,15 @@
                     use:glassPointer
                   >
                     <span class="btn-surface" aria-hidden="true"></span>
-                    <span class="rank-symbol" aria-hidden="true">{stop.symbol}</span>
+                    <span class="rating-thumbs rank-symbol" aria-hidden="true">
+                      {#if stop.value === 0}
+                        <span class="neutral-dot">•</span>
+                      {:else}
+                        {#each Array(Math.abs(stop.value)) as _}
+                          {#if stop.value > 0}<IconThumbsUpFill />{:else}<IconThumbsDownFill />{/if}
+                        {/each}
+                      {/if}
+                    </span>
                     <span class="rank-caption">{stop.caption}</span>
                   </button>
                 {/each}
@@ -1211,7 +1229,8 @@
     color: var(--danger, #f85149);
     transform: rotate(calc(-6deg - var(--stamp-mag, 1) * 2deg)) scale(calc(0.85 + var(--stamp-mag, 1) * 0.12));
   }
-  .stamp-symbol { display: block; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.04em; }
+  .stamp-symbol { display: flex; justify-content: center; }
+  .stamp-symbol :global(svg) { width: 1.1rem; height: 1.1rem; }
   .stamp-label { display: block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
 
   .info { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; }
@@ -1362,12 +1381,11 @@
     text-align: center;
   }
   .rank-symbol {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    line-height: 1;
+    min-height: 1rem;
   }
+  .rating-thumbs { display: inline-flex; align-items: center; justify-content: center; gap: 1px; line-height: 1; }
+  .rating-thumbs :global(svg) { width: 0.76rem; height: 0.76rem; flex: 0 0 auto; }
+  .neutral-dot { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
   .rank-caption {
     font-size: 0.6rem;
     text-transform: uppercase;
@@ -1436,10 +1454,10 @@
     .screen:not(.mobile-scale) .swipe-feedback.negative { color:var(--error); }
     .feedback-symbol {
       min-width:27px;
-      font:700 1rem/1 var(--font-display);
       letter-spacing:-.08em;
       text-align:center;
     }
+    .feedback-symbol :global(svg) { width: .9rem; height: .9rem; }
     .feedback-copy { display:flex; flex:1; flex-direction:column; color:var(--text-primary); line-height:1; }
     .feedback-copy small { color:var(--text-tertiary); font-size:.52rem; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
     .feedback-copy strong { margin-top:3px; font:700 .82rem/1 var(--font-display); }
@@ -1467,6 +1485,8 @@
     .rank-scale { display:none; }
     .screen.mobile-scale .rank-scale { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); }
     .screen.mobile-scale .rank-caption { display:none; }
+    .screen.mobile-scale .rating-thumbs { gap: 0; }
+    .screen.mobile-scale .rating-thumbs :global(svg) { width: 0.62rem; height: 0.62rem; }
     .gesture-guide{display:flex;justify-content:space-between;gap:8px;margin:-4px 4px 0;font-size:.62rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em}
     .screen.mobile-scale .gesture-guide{display:none}
     .action-btn { min-width:0; height:54px; padding:7px 4px; flex-direction:column; justify-content:center; gap:3px; border-radius:14px; text-align:center; font-size:.61rem; line-height:1.05; background:color-mix(in srgb,var(--base-secondary) 92%,transparent); }

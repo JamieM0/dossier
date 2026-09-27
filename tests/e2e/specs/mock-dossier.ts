@@ -38,6 +38,8 @@ export type MockDossierSeed = {
   /** Seeds six coherent positive ratings that are deliberately opposite
    * several pool titles, so Dissonance mode has confident misses to show. */
   dissonanceProfile?: boolean;
+  /** Keeps preference writes pending long enough to exercise saving UI. */
+  preferenceDelayMs?: number;
 };
 
 /** Injects a fake `window.dossier` bridge so the SvelteKit app (which
@@ -225,9 +227,14 @@ export function installMockDossier(seed?: MockDossierSeed): void {
     preferences: {
       get: () => Promise.resolve({ ratings, pairwise, skipped, tasteClaims }),
       setRating: (key: string, rating: number | null, item: unknown) => {
-        if (rating === null) delete ratings[key];
-        else ratings[key] = { rating, item, ts: Date.now() };
-        return Promise.resolve({ ratings, tasteClaims });
+        const persist = () => {
+          if (rating === null) delete ratings[key];
+          else ratings[key] = { rating, item, ts: Date.now() };
+          return { ratings, tasteClaims };
+        };
+        return seed?.preferenceDelayMs
+          ? new Promise((resolve) => setTimeout(() => resolve(persist()), seed.preferenceDelayMs))
+          : Promise.resolve(persist());
       },
       setClaimFeedback: (claim: Record<string, unknown>, provenance: string) => {
         const next = { ...claim, provenance, active: provenance === "user_confirmed", feedbackAt: Date.now() };

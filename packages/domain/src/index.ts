@@ -9,3 +9,8 @@ export * from "./store/model.js";
 export * from "./codec/portable.js";
 export * from "./taste-space.js";
 export * from "./taste-claims.js";
+export * from "./recommender.js";
+export * from "./calibration.js";
+export * from "./application.js";
+export * from "./discovery.js";
+export * from "./capabilities.js";

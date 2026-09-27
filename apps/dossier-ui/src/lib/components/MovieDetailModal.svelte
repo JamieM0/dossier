@@ -25,6 +25,8 @@
     onSkip,
     onIgnore,
     onDislike,
+    onLeaveAsIs,
+    onAction,
     excludeActions = []
   }: {
     item: TmdbItem;
@@ -34,12 +36,15 @@
     onSkip?: (item: TmdbItem) => void | Promise<void>;
     onIgnore?: (item: TmdbItem) => void | Promise<void>;
     onDislike?: (item: TmdbItem) => void | Promise<void>;
+    onLeaveAsIs?: (item: TmdbItem) => void | Promise<void>;
+    onAction?: (item: TmdbItem, completion: Promise<void>) => void;
     excludeActions?: ModalActionKind[];
   } = $props();
 
   // Start from the (possibly coarse) list item, enrich with the full
   // detail fetch (keywords, runtime, full overview) when it arrives.
   let detail = $state<TmdbItem | null>(null);
+  let modalRef = $state<HTMLElement | null>(null);
   const current = $derived(detail ?? item);
   let loadError = $state<string | null>(null);
 
@@ -48,8 +53,15 @@
 
   function run(handler: ((i: TmdbItem) => void | Promise<void>) | undefined): void {
     if (!handler) return;
-    void handler(current);
-    onClose();
+    let completion: Promise<void>;
+    try {
+      completion = Promise.resolve(handler(current));
+    } catch (err) {
+      completion = Promise.reject(err);
+    }
+    if (onAction) onAction(current, completion);
+    else onClose();
+    void completion.catch(() => {});
   }
 
   const showLike = $derived(!!onLike && !excludeActions.includes("like"));
@@ -58,7 +70,19 @@
   const showIgnore = $derived(!!onIgnore && !excludeActions.includes("not_interested"));
   const showDislike = $derived(!!onDislike && !excludeActions.includes("dislike"));
 
+  function handleKey(e: KeyboardEvent): void {
+    if (e.repeat) return;
+    if (e.key === "Escape") { e.preventDefault(); onClose(); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); run(onLike); }
+    else if (e.key === "ArrowLeft") { e.preventDefault(); run(onDislike); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); run(onWatchlist); }
+    else if (e.key === "ArrowDown") { e.preventDefault(); run(onIgnore); }
+    else if (e.key === " " || e.code === "Space") { e.preventDefault(); run(onSkip); }
+    else if (e.key === "Enter" && !(e.target instanceof HTMLButtonElement)) { e.preventDefault(); run(onLeaveAsIs); }
+  }
+
   onMount(() => {
+    modalRef?.focus();
     void window.dossier?.tmdb
       ?.detail(item.medium, item.id)
       .then((d) => { detail = d; })
@@ -66,17 +90,6 @@
         loadError = err instanceof Error ? err.message : String(err);
       });
 
-    function handleKey(e: KeyboardEvent): void {
-      if (e.repeat) return;
-      if (e.key === "Escape") { e.preventDefault(); onClose(); }
-      else if (e.key === "ArrowRight") { e.preventDefault(); run(onLike); }
-      else if (e.key === "ArrowLeft") { e.preventDefault(); run(onDislike); }
-      else if (e.key === "ArrowUp") { e.preventDefault(); run(onWatchlist); }
-      else if (e.key === "ArrowDown") { e.preventDefault(); run(onIgnore); }
-      else if (e.key === " " || e.code === "Space") { e.preventDefault(); run(onSkip); }
-    }
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
   });
 </script>
 
@@ -84,17 +97,17 @@
   class="backdrop"
   role="presentation"
   onclick={onClose}
-  onkeydown={(e) => { if (e.key === "Escape") onClose(); }}
 >
   <div
     class="modal"
+    bind:this={modalRef}
     style={poster ? `--modal-art:url("${poster}")` : ""}
     role="dialog"
     tabindex="-1"
     aria-modal="true"
     aria-labelledby="movie-modal-title"
     onclick={(e) => e.stopPropagation()}
-    onkeydown={(e) => e.stopPropagation()}
+    onkeydown={handleKey}
   >
     <div class="art-field" aria-hidden="true"></div>
     <button class="close" aria-label="Close" onclick={onClose}>
@@ -165,6 +178,12 @@
               <IconThumbsDownFill class="icon-16" />
               <span>Dislike</span>
               <kbd>←</kbd>
+            </button>
+          {/if}
+          {#if onLeaveAsIs}
+            <button class="action leave" use:motionPress onclick={() => run(onLeaveAsIs)} aria-label="Leave as is">
+              <span>Leave as is</span>
+              <kbd>Enter</kbd>
             </button>
           {/if}
         </div>
