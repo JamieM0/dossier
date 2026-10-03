@@ -7,6 +7,11 @@ import type { TmdbItem } from "./tmdb/types.js";
 export const DEFAULT_TASTE_CLUSTER_MERGE_THRESHOLD = 0.75;
 export const TASTE_CLUSTER_CONFIDENCE_SMOOTHING = 1;
 
+export type TasteClusterStrategy =
+  | "greedy"
+  | "canonical_greedy"
+  | "canonical_complete_link";
+
 export type TastePolarity = "liked" | "disliked";
 
 export type TasteSignal = {
@@ -114,6 +119,9 @@ export type BuildTasteSpaceOptions = {
   /** Required for time-relative reproducibility when ratingRecencyStrength > 0. */
   referenceTime?: number;
   nearbyClusterLimit?: number;
+  /** Experiment hook. The product default remains the insertion-order
+   * greedy strategy until a frozen comparison supports a replacement. */
+  clusterStrategy?: TasteClusterStrategy;
 };
 
 type WeightedRating = {
@@ -205,6 +213,86 @@ function buildPolarityClusters(
     }
   }
   return clusters;
+}
+
+function canonicalRatings(ratings: readonly WeightedRating[]): WeightedRating[] {
+  return [...ratings].sort((a, b) =>
+    b.weight - a.weight || compareText(a.entry.item.key, b.entry.item.key)
+  );
+}
+
+/** Deterministic greedy arm for the stable-geometry experiment. Strong
+ * ratings become anchors first, and stable item keys resolve every tie. */
+function buildCanonicalGreedyClusters(
+  ratings: readonly WeightedRating[],
+  polarity: TastePolarity,
+  mergeThreshold: number
+): MutableCluster[] {
+  return buildPolarityClusters(canonicalRatings(ratings), polarity, mergeThreshold);
+}
+
+function completeLinkSimilarity(rating: WeightedRating, cluster: MutableCluster): number {
+  let minimum = Infinity;
+  for (const member of cluster.ratings) {
+    minimum = Math.min(minimum, cosineSimilarity(rating.entry.item.features, member.entry.item.features));
+  }
+  return minimum;
+}
+
+/** Deterministic complete-link partition for the stable-geometry
+ * experiment. A rating joins a cluster only when it meets the threshold
+ * against every member, which prevents similarity chains from collapsing
+ * distinct tastes into one group. */
+function buildCanonicalCompleteLinkClusters(
+  ratings: readonly WeightedRating[],
+  polarity: TastePolarity,
+  mergeThreshold: number
+): MutableCluster[] {
+  const clusters: MutableCluster[] = [];
+  for (const rating of canonicalRatings(ratings)) {
+    let best: MutableCluster | null = null;
+    let bestSimilarity = -Infinity;
+    for (const cluster of clusters) {
+      const similarity = completeLinkSimilarity(rating, cluster);
+      if (similarity > bestSimilarity) {
+        best = cluster;
+        bestSimilarity = similarity;
+      }
+    }
+    if (best && bestSimilarity >= mergeThreshold) {
+      const nextWeight = best.weight + rating.weight;
+      for (const axis of AXIS_KEYS) {
+        best.centroid[axis] =
+          (best.centroid[axis] * best.weight + rating.entry.item.features[axis] * rating.weight) /
+          nextWeight;
+      }
+      best.weight = nextWeight;
+      best.ratings.push(rating);
+    } else {
+      clusters.push({
+        polarity,
+        centroid: { ...rating.entry.item.features },
+        weight: rating.weight,
+        ratings: [rating]
+      });
+    }
+  }
+  return clusters;
+}
+
+function clustersFor(
+  ratings: WeightedRating[],
+  polarity: TastePolarity,
+  mergeThreshold: number,
+  strategy: TasteClusterStrategy
+): MutableCluster[] {
+  if (strategy === "canonical_greedy") {
+    return buildCanonicalGreedyClusters(ratings, polarity, mergeThreshold);
+  }
+  if (strategy === "canonical_complete_link") {
+    return buildCanonicalCompleteLinkClusters(ratings, polarity, mergeThreshold);
+  }
+  return buildPolarityClusters(ratings, polarity, mergeThreshold);
 }
 
 function textSignals(
@@ -396,6 +484,7 @@ export function buildTasteSpace(
   options: BuildTasteSpaceOptions = {}
 ): TasteSpace {
   const mergeThreshold = options.clusterMergeThreshold ?? DEFAULT_TASTE_CLUSTER_MERGE_THRESHOLD;
+  const clusterStrategy = options.clusterStrategy ?? "greedy";
   const recencyStrength = options.ratingRecencyStrength ?? 0;
   const referenceTime = options.referenceTime ?? Math.max(0, ...entries.map((entry) => entry.ts));
   const positive: WeightedRating[] = [];
@@ -408,8 +497,8 @@ export function buildTasteSpace(
   }
 
   const mutable = [
-    ...buildPolarityClusters(positive, "liked", mergeThreshold),
-    ...buildPolarityClusters(negative, "disliked", mergeThreshold)
+    ...clustersFor(positive, "liked", mergeThreshold, clusterStrategy),
+    ...clustersFor(negative, "disliked", mergeThreshold, clusterStrategy)
   ];
   const clusters: TasteCluster[] = mutable.map((cluster) => ({
     // The first supporting rating is the cluster's stable anchor. Adding

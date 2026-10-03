@@ -24,6 +24,7 @@
     "lab:study": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/study-suite.mjs",
     "lab:tmdb": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/tmdb-regression.mjs",
     "lab:confirm": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/confirmation-suite.mjs",
-    "lab:override": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/override-suite.mjs"
+    "lab:override": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/override-suite.mjs",
+    "lab:geometry": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/geometry-suite.mjs"
   }
 }

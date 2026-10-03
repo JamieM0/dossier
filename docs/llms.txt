@@ -14,3 +14,4 @@
 - [Terminology](terminology.md): Approved words for CLI documentation.
 
 - [Override experiment](override-experiment.md): Test protection for unusual tastes using supplied ratings, with fixed baselines and failure regressions.
+- [Stable geometry experiment](stable-geometry-experiment.md): Test whether identical rating evidence should produce identical taste structure and recommendation scores.

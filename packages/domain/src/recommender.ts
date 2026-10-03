@@ -32,7 +32,7 @@
 import { AXIS_KEYS, type AxisKey, type FeatureVector } from "./lens.js";
 import { ratingKind, ratingWeight, type RatedItem, type RatingEntry } from "./store/model.js";
 import type { TmdbItem } from "./tmdb/types.js";
-import { buildTasteSpace, cosineSimilarity, DEFAULT_TASTE_CLUSTER_MERGE_THRESHOLD, type TasteCluster } from "./taste-space.js";
+import { buildTasteSpace, cosineSimilarity, DEFAULT_TASTE_CLUSTER_MERGE_THRESHOLD, type TasteCluster, type TasteClusterStrategy } from "./taste-space.js";
 import { tasteClaimScoreAdjustment } from "./taste-claims.js";
 import type { TasteClaim } from "./store/model.js";
 
@@ -230,6 +230,11 @@ export function scoreCandidate(
 
 export type Recommendation = { item: TmdbItem; score: number };
 
+export type RecommendationExperimentOptions = {
+  /** Experiment-only cluster strategy. Omit this option in product code. */
+  clusterStrategy?: TasteClusterStrategy;
+};
+
 /** How far the Exploration/Serendipity dial can jitter a score — large
  * enough at full strength to override taste-based ordering almost
  * entirely, since that dial is explicitly about breaking out of a rut
@@ -250,12 +255,14 @@ export function scoreCandidates(
   candidates: TmdbItem[],
   entries: RatingEntry[],
   params: ScoringParams = DEFAULT_SCORING_PARAMS,
-  claims: readonly TasteClaim[] = []
+  claims: readonly TasteClaim[] = [],
+  experiment: RecommendationExperimentOptions = {}
 ): Recommendation[] {
   const tasteSpace = buildTasteSpace(entries, {
     clusterMergeThreshold: params.clusterMergeThreshold,
     ratingRecencyStrength: params.ratingRecencyStrength,
-    referenceTime: Date.now()
+    referenceTime: Date.now(),
+    ...(experiment.clusterStrategy == null ? {} : { clusterStrategy: experiment.clusterStrategy })
   });
   const likedClusters = tasteSpace.clusters.filter((cluster) => cluster.polarity === "liked");
   if (likedClusters.length === 0) return [];

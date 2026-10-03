@@ -1,0 +1,32 @@
+{
+  "version": "stable-geometry-v1",
+  "hypothesis": "Insertion-order-dependent taste clusters cause unstable profiles and some backwards learning.",
+  "fixtures": {
+    "original": "8d9c1e10bcd3c7841cefe68e25d90355e02a2cf3bb8cf6b6a5c777c7298c3bdc",
+    "confirmation": "7ef2d024fc4c51c34ff87a2ec0741819eaf6477196d4c9a16a1a92463ba22e04",
+    "override": "786ad5296cb74a0095722521e8592a72f8b2b86dc83c92dbeb4d407cda57f7ec"
+  },
+  "diagnosisHash": "785fc057d8acea75cac1b1fc99b5d53c425637cb16297ef2ce55c174f6e3eb6a",
+  "strategies": [
+    "greedy",
+    "canonical_greedy",
+    "canonical_complete_link"
+  ],
+  "permutations": 24,
+  "checkpoints": [5, 10, 20, 40],
+  "primaryCheckpoint": 40,
+  "selection": "Choose the deterministic strategy with the largest paired AUC gain only if every gate passes.",
+  "gates": {
+    "exactOrderInvariance": "All 24 final profile and score signatures match for every viewer.",
+    "positiveMeanGain": "The viewer-bootstrap lower bound for the 40-rating AUC gain is greater than zero.",
+    "worstDecileNotWorse": "The candidate 40-rating AUC p10 is at least the current p10.",
+    "knownFailuresImprove": "Every frozen failure improves by at least three AUC points at 40 ratings.",
+    "knownFailureDeclines": "Every frozen failure loses at most three AUC points from 10 to 40 ratings.",
+    "singleStepSafety": "No frozen failure loses more than five AUC points after one added rating."
+  },
+  "limits": [
+    "All three MovieLens cohorts are prior evaluation cohorts, not untouched confirmation data.",
+    "The experiment measures ranking over fixed held-out films, not candidate retrieval.",
+    "The candidate receives ratings and descriptive TMDB metadata only."
+  ]
+}

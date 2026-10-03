@@ -12,7 +12,7 @@
     "lab": "node dist/lab/run.js",
     "build:bundle": "pnpm -C ../.. -r --filter \"@dossier/store...\" build && pnpm run build && node scripts/bundle.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run --passWithNoTests && node --test scripts/hard-metrics.check.mjs scripts/real-metrics.check.mjs scripts/study-metrics.check.mjs scripts/confirmation.check.mjs scripts/override.check.mjs"
+    "test": "vitest run --passWithNoTests && node --test scripts/hard-metrics.check.mjs scripts/real-metrics.check.mjs scripts/study-metrics.check.mjs scripts/confirmation.check.mjs scripts/override.check.mjs scripts/geometry.check.mjs"
   },
   "dependencies": {
     "@dossier/domain": "workspace:*",

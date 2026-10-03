@@ -123,4 +123,40 @@ describe("buildTasteSpace", () => {
     expect(space.weakRegions.some((region) => region.kind === "sparse" && region.targetItemKeys.includes("movie:10"))).toBe(true);
     expect(space.weakRegions.some((region) => region.kind === "uncertain" && region.targetItemKeys.includes("movie:11"))).toBe(true);
   });
+
+  it.each(["canonical_greedy", "canonical_complete_link"] as const)(
+    "%s produces identical clusters for every evidence order",
+    (clusterStrategy) => {
+      const ratings = [
+        entry(4, vector({ tone: 0.75, pacing: 0.5 }), 2),
+        entry(1, LIGHT, 1),
+        entry(3, LIGHT_NEAR, -1),
+        entry(2, REALIST, 3),
+        entry(5, vector({ realism: 0.8, scope: 0.6 }), -2)
+      ];
+      const expected = buildTasteSpace(ratings, { clusterStrategy });
+      const reversed = buildTasteSpace([...ratings].reverse(), { clusterStrategy });
+      const rotated = buildTasteSpace([...ratings.slice(2), ...ratings.slice(0, 2)], { clusterStrategy });
+
+      expect(reversed.clusters).toEqual(expected.clusters);
+      expect(rotated.clusters).toEqual(expected.clusters);
+    }
+  );
+
+  it("canonical complete-link keeps a similarity chain in separate clusters", () => {
+    const first = vector({ pacing: 1 });
+    const bridge = vector({ pacing: 0.8, tone: 0.6 });
+    const last = vector({ pacing: 0.28, tone: 0.96 });
+    const space = buildTasteSpace(
+      [entry(1, first, 1), entry(2, bridge, 1), entry(3, last, 1)],
+      { clusterStrategy: "canonical_complete_link" }
+    );
+
+    expect(space.clusters).toHaveLength(2);
+    expect(
+      space.clusters.map((cluster) =>
+        cluster.supportingRatings.map((rating) => rating.itemKey).sort()
+      )
+    ).toEqual([["movie:1", "movie:2"], ["movie:3"]]);
+  });
 });

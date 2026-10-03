@@ -2,12 +2,12 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { registry } from "@dossier/domain";
 import {
-  addLibraryPairwise, correctLibraryPairwise, buildPairwiseCandidates, buildRankingGroup, buildTasteSpace, createDiscovery, cosineSimilarity, matchesTasteClaim,
+  addLibraryPairwise, correctLibraryPairwise, buildPairwiseCandidates, buildRankingGroup, buildTasteSpace, createDiscovery, cosineSimilarity, matchesTasteClaim, reconcileTasteClaims,
   DEFAULT_SCORING_PARAMS, exportLibrary, importLibrary,
   isValidRating, rankDissonantCandidates, rankRateProbes, resetLibraryPreferences,
   scoreCandidates, setLibraryClaimFeedback, setLibraryRating, setLibrarySkipped,
   tasteSnapshot, tasteClaimId, updateLibrarySettings, withDefaults, type PersistedState, type TmdbItem,
-  type TmdbMedium, type TasteClaim, type TasteClaimCondition, type ScoringParams
+  type TmdbMedium, type TasteClaim, type TasteClaimCondition, type ScoringParams, type TasteClusterStrategy
 } from "@dossier/domain";
 import { createTmdbClient } from "@dossier/store";
 import { CliStorage, newProfile, publicProfile, type Profile, type Vault } from "./storage.js";
@@ -192,6 +192,8 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
       else if (mode === "challenge") items = rankDissonantCandidates(filtered, entries(profile), state.tasteClaims).map(({ item, prediction }) => ({ ...compact(item), score: prediction.score / 100 }));
       else items = filtered.map((item) => compact(item));
     } else {
+      const clusterStrategy = args.geometry ?? "greedy";
+      if (!["greedy", "canonical_greedy", "canonical_complete_link"].includes(String(clusterStrategy))) throw new ActionError("INVALID_ARGUMENT", "geometry must be greedy, canonical_greedy, or canonical_complete_link");
       const configuredDials = args.dials ?? state.settings.recommendationDials;
       const dials = typeof configuredDials === "object" && configuredDials !== null ? configuredDials as Partial<ScoringParams> : {};
       if (Object.entries(dials).some(([dial, setting]) => !(dial in DEFAULT_SCORING_PARAMS) || (dial !== "axisWeights" && (typeof setting !== "number" || !Number.isFinite(setting))))) throw new ActionError("INVALID_ARGUMENT", "Invalid recommendation dials");
@@ -206,7 +208,11 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
         (filters.yearTo === undefined || (item.year !== null && item.year <= filters.yearTo)) &&
         (filters.minVoteAverage === undefined || (item.voteAverage !== null && item.voteAverage >= filters.minVoteAverage))
       );
-      items = scoreCandidates(narrowed, entries(profile), params, state.tasteClaims).map(({ item, score }) => compact(item, score));
+      const strategy = clusterStrategy as TasteClusterStrategy;
+      const selectedClaims = strategy === "greedy"
+        ? state.tasteClaims
+        : reconcileTasteClaims(entries(profile), state.tasteClaims, buildTasteSpace(entries(profile), { clusterStrategy: strategy }));
+      items = scoreCandidates(narrowed, entries(profile), params, selectedClaims, { clusterStrategy: strategy }).map(({ item, score }) => compact(item, score));
     }
     const limit = number(args, "limit", 10, 1, 20);
     const batch = catalogue ? items : items.slice(0, 20);
