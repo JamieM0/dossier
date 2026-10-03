@@ -1,0 +1,34 @@
+{
+  "experiment": "observed-rating-override-v1",
+  "primaryCheckpoint": 40,
+  "checkpoints": [
+    1,
+    3,
+    5,
+    10,
+    20,
+    40
+  ],
+  "seeds": [
+    11,
+    29,
+    47,
+    83
+  ],
+  "candidateHash": "c872a3e3b5536f9939cdb5f1f78d02fc4700fec231a8bbef183f53747396acec",
+  "guardHash": "e64b98a8dd5f45ecc5e6e03e29bc8fbd5e7203a8128f747a946cd9add9e9540f",
+  "freshFixtureHash": "786ad5296cb74a0095722521e8592a72f8b2b86dc83c92dbeb4d407cda57f7ec",
+  "referenceModelFingerprint": "ad335fbe3e79c6412492d8b0eca53b1f8c2fa7df480db40576d070f6909a24d3",
+  "rule": "Default to unchanged 75/25 candidate. Override with unchanged current Dossier only with at least 20 observed ratings, six likes, six dislikes, and observed public-review AUC <= 0.60. Repeated stratified three-fold validation uses seeds 101,211,307. Current Dossier must beat candidate and public reviews by five points in every repeat, and both title-bootstrap 95% lower bounds must exceed zero. No hidden answers or viewer IDs enter the rule.",
+  "primaryCohort": "30 previously unused MovieLens viewers; 40 fixed hidden films each. All eligible viewers, not chosen by model outcomes.",
+  "regressionCohorts": "All 31 original and 47 confirmation viewers. Eight unusual-taste cases remain explicit. Viewers 82 and 484 are protected exceptions against current Dossier.",
+  "knownFailures": "Exact CLI replay of five frozen worst learning declines, with guard checked after every rating. Current endpoints must still match the frozen diagnosis.",
+  "demonstrationChecks": {
+    "freshMeanGain": "Guard minus candidate mean AUC >= 0, 95% interval lower >= 0, and no mean first-ten loss.",
+    "detectUsefulOverrides": "At least two fresh viewers receive an override; selected fresh sessions improve by more than three points on average over candidate.",
+    "individualSafety": "No fresh or unusual-taste viewer loses more than three ranking points or one liked film per ten against the candidate.",
+    "protectKnownExceptions": "Viewers 82 and 484 lose no more than three points or one liked film per ten against current Dossier, at both 20 and 40 ratings, averaged over four orders.",
+    "fiveFailureProtection": "Each guarded 40-rating score improves over current Dossier by at least three points. Each guarded 10-to-40 decline is at most three points, and each guarded single-step decline from rating 11 onward is at most five points."
+  },
+  "limits": "Advisory experiment decisions, not automatic release gates. Selecting current Dossier cannot fix its internal mechanism. Default fallback may itself learn backwards. Thresholds are frozen before scoring; no threshold search or tuning in this experiment."
+}

@@ -7,6 +7,12 @@ export it. It ships two ways: a Tauri desktop app, and a no-install build
 that runs entirely in the browser.
 
 The [CLI reference](docs/agent-cli.md) explains how to build and use the separate local CLI profile store.
+The [simulation lab guide](docs/simulation-lab.md) explains how to measure learning on synthetic people.
+The [hard benchmark guide](docs/hard-benchmark.md) explains how to compare model revisions against fixed held-out ratings.
+The [real film benchmark guide](docs/real-benchmark.md) explains how to compare versions using real films and recorded MovieLens ratings.
+The [learning study guide](docs/learning-study.md) explains how to compare metadata, model parts, and ranking changes.
+The [confirmation experiment guide](docs/confirmation-experiment.md) explains the new-viewer decision report and frozen TMDB regression.
+The [override experiment guide](docs/override-experiment.md) tests whether supplied ratings justify a more personal ranking.
 
 This is a deliberately narrow build of a much bigger idea — see
 [`VISION.md`](VISION.md) for the long-term purpose this project exists to

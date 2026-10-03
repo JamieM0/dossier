@@ -1,0 +1,6 @@
+interface:
+  display_name: "Dossier evaluation"
+  short_description: "Run taste tests and write a concise decision report"
+  default_prompt: "Use $dossier-evaluation to run the complete Dossier evaluation programme and produce a short standalone HTML summary comparing this run with the two latest result sets and the average of earlier comparable runs."
+policy:
+  allow_implicit_invocation: false

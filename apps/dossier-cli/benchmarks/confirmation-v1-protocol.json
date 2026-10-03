@@ -1,0 +1,28 @@
+{
+  "experiment": "reviews-plus-tags-confirmation-v1",
+  "primaryCheckpoint": 20,
+  "checkpoints": [
+    1,
+    3,
+    5,
+    10,
+    20,
+    40
+  ],
+  "seeds": [
+    11,
+    29,
+    47,
+    83
+  ],
+  "candidate": "Fixed existing 75% public reviews, 25% genre and keyword match. Nearest liked tags minus 0.6 times nearest disliked tags. No tuning.",
+  "candidateHash": "c872a3e3b5536f9939cdb5f1f78d02fc4700fec231a8bbef183f53747396acec",
+  "fixtureHash": "7ef2d024fc4c51c34ff87a2ec0741819eaf6477196d4c9a16a1a92463ba22e04",
+  "primary": "Average held-out ranking AUC, average four evidence orders within each viewer before bootstrap uncertainty.",
+  "highRisk": "Public-review AUC <= 0.60 on training films only. Defined before scoring held-out answers.",
+  "loss": "Individual material loss: more than 3 ranking points OR at least one fewer like among ten recommendations, averaged across orders.",
+  "decision": "Consider promotion only if primary gain >= 0.5 points, the 95% paired interval excludes zero, top-ten likes do not fall, and the high-risk group shows no material mean loss. Fewer than eight high-risk viewers leaves their safety unresolved.",
+  "caution": "Rules guide a decision; they are not brittle CI gates. Secondary checkpoints are descriptive. New cohort becomes used after this experiment.",
+  "discardedImplementationHash": "ed1b4857641096e8a6e8edf5c6d7857f01337dda4386d9b0bf37fab03008bbc8",
+  "implementationCorrection": "Before inspecting new-viewer outcomes, fixed arithmetic order to reproduce the original candidate scores exactly. Discarded the unreviewed preliminary run; no candidate parameter changed."
+}

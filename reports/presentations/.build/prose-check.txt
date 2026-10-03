@@ -1,0 +1,6 @@
+/Users/jamie/Developer/dossier/reports/presentations/.build/slide-prose.md:139: [warning] banned word (insults the reader when the step fails)
+/Users/jamie/Developer/dossier/reports/presentations/.build/slide-prose.md:149: [warning] banned word (insults the reader when the step fails)
+/Users/jamie/Developer/dossier/reports/presentations/.build/slide-prose.md:649: [warning] passive voice; name the actor
+/Users/jamie/Developer/dossier/reports/presentations/.build/slide-prose.md:921: [warning] banned word (insults the reader when the step fails)
+
+0 error(s), 4 warning(s) in 1 file(s) [style layer: built-in]

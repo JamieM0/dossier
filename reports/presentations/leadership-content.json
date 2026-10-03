@@ -1,0 +1,62 @@
+[
+  {
+    "slide": 1,
+    "title": "",
+    "notes": "This is a decision summary of the full experiment programme. Reviews plus tags produced a small average benefit on new viewers. The rule intended to protect people with unusual taste did not work. Product defaults remain unchanged. The cover is a generated conceptual image of cinema, not a photograph of the experiment.",
+    "src": "reports/dossier-learning-study-tmdb.json; reports/reviews-plus-tags-confirmation-v1.json; reports/observed-rating-override-decision-v1.json"
+  },
+  {
+    "slide": 2,
+    "title": "We tested learning against answers kept hidden",
+    "notes": "We gave disposable Dossier profiles some known ratings through the command tool. We kept other personal ratings hidden and used them only to score the completed recommendations. The later tests used historical MovieLens ratings from real people. The groups of 31, 47 and 30 viewers contain different people. Four rating orders create repeated sessions for each person. They do not create four independent people. We tested films those people previously rated, rather than every film in the catalogue.",
+    "src": "docs/real-benchmark.md; reports/dossier-learning-study-tmdb.json; reports/reviews-plus-tags-confirmation-v1.json; reports/observed-rating-override-decision-v1.json"
+  },
+  {
+    "slide": 3,
+    "title": "Real viewers changed the conclusion",
+    "notes": "The easy invented person reached a 98% ordering score after one rating and liked all ten suggestions after ten ratings. Those hidden answers used many of the same film properties as Dossier. Simple similarity matching also scored almost perfectly. Harder invented tastes reduced the scores: Dossier reached 76.1% after 20 ratings, against 75.4% for simple matching. In the first real-film study, Dossier scored 61.1% and public reviews scored 82.3%. Public reviews found 6.52 liked films per ten against 4.63 for Dossier. These are different tests, so the figures do not show a measured decline in the product over time.",
+    "src": "reports/presentations/evidence-summary.json; reports/dossier-real-v1-baseline.json; reports/dossier-hard-v1-baseline.html"
+  },
+  {
+    "slide": 4,
+    "title": "More ratings helped slowly and sometimes hurt",
+    "notes": "We kept the same 31 people and hidden answers while updating the public film information using TMDB. The average Dossier ordering score rose from 53.0% with one rating to 60.2% with 40. Public reviews stayed at 80.7%. However, 35 of 124 sessions lost more than three points between ten and 40 ratings. Deliberately damaged input also reduced the average score: shuffled ratings lost 11 points and reversing half lost 6.9. Removing important ratings lost 4.7, adding contradictions lost 3.4, and reducing 20 ratings to five lost 3.1. Some individuals still improved with worse evidence. A 50% ordering score means chance ordering of liked and disliked film pairs.",
+    "src": "reports/dossier-learning-study-tmdb.json"
+  },
+  {
+    "slide": 5,
+    "title": "Correcting claims did not guarantee better films",
+    "notes": "We deliberately supplied misleading early ratings, then added ratings that contradicted the resulting claims. Dossier corrected 26 of 28 wrong claims in the real-film test. Two corrections went too far. Three other people never formed a wrong claim. Separately, we compared the films Dossier chose to ask about with random reasonably popular films. Both methods started with the same five ratings. After 40 total ratings, Dossier questions produced a 58.1% ordering score against 61.9% for random questions. The test supplied a known answer to every question. It did not test whether someone recognised the film or wanted to answer.",
+    "src": "reports/dossier-learning-study-tmdb.json"
+  },
+  {
+    "slide": 6,
+    "title": "Public reviews drove the strongest alternatives",
+    "notes": "Public reviews means a published average audience rating. The proposed alternative gives this rating 75% of its score. The remaining 25% comes from matching genres and keywords to the person’s ratings. We kept that method unchanged in later studies. On the original 31 people, it scored 81.3% against 80.7% for public reviews alone. We tried eleven model variations on these same people, so choosing the best one could exaggerate its benefit. Removing claims or film groups did not close the average gap. We needed a separate test on people not used to choose the method.",
+    "src": "reports/dossier-learning-study-tmdb.json"
+  },
+  {
+    "slide": 7,
+    "title": "The small average benefit repeated",
+    "notes": "We tested the unchanged method on 47 previously unused MovieLens viewers. Each had 60 hidden film ratings and four rating orders. The method found 6.78 liked films per ten, public reviews found 6.53, and current Dossier found 5.13. The difference from public reviews is about one extra liked film per 40 suggestions. The ordering score gain was about one point. The uncertainty range was roughly 0.3 to 1.6 points. This supports a small average benefit in the tested group. It does not establish a benefit for every person or for all future Dossier users.",
+    "src": "reports/reviews-plus-tags-confirmation-v1.json"
+  },
+  {
+    "slide": 8,
+    "title": "Some people need a very different ranking",
+    "notes": "Viewer numbers are anonymous identifiers. They let us follow the same people between reports. Viewer 82 scored 83.0% with current Dossier but 55.6% with reviews plus tags. Viewer 484 scored 69.0% against 52.3%. Public reviews alone scored 48.4% and 50.2% respectively. These exceptions matter because personal recommendations are central to Dossier. Across eight people whose supplied ratings differed from public reviews, the average benefit remained uncertain. Ordering and the first ten suggestions can disagree: viewer 484 received more liked films in the first ten from the candidate despite worse overall ordering.",
+    "src": "reports/reviews-plus-tags-confirmation-v1.json; reports/observed-rating-override-decision-v1.json"
+  },
+  {
+    "slide": 9,
+    "title": "We found how the worst learning failures happen",
+    "notes": "We replayed the five largest known learning losses through the CLI. They involve four people and five rating orders. Broad similarities can spread a new like or dislike to inappropriate films. For one person, liking The Fellowship of the Ring pushed disliked Fantastic Four ahead of liked Adaptation. For another, disliking The Two Towers pushed liked Total Recall below disliked It Takes Two. Reordering the same final 40 ratings while keeping claims fixed also changed results. One viewer ranged from 44.7% to 57.6%. The fixed alternative avoided all five large original losses, but one case still lost 3.3 points as ratings increased. We diagnosed the current model without changing it.",
+    "src": "reports/backwards-learning-diagnosis-v1.json; reports/observed-rating-override-decision-v1.json"
+  },
+  {
+    "slide": 10,
+    "title": "The protection rule is not ready",
+    "notes": "We fixed the protection rule before inspecting hidden outcomes. It tested ratings the person already supplied, temporarily hiding some to see whether current Dossier predicted them better. Switching required at least 20 supplied ratings, six likes and six dislikes, with a repeated advantage over both comparison methods. In 120 sessions from 30 new viewers, it never switched after 40 ratings. It missed 19 sessions across nine people where current Dossier was more than three points better. Requiring six dislikes blocked important known exceptions. Keeping answers hidden also left some training pools short of dislikes, which limits this test. Across all 108 viewers, one previously tested session switched successfully. That does not demonstrate protection on new people. Next work must preserve the eight unusual-taste cases and address all five known failures. Keep the 75/25 method and product defaults unchanged until that protection works.",
+    "src": "reports/observed-rating-override-decision-v1.json; reports/reviews-plus-tags-confirmation-v1.json; apps/dossier-cli/benchmarks/override-v1-protocol.json"
+  }
+]

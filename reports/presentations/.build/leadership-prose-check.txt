@@ -1,0 +1,3 @@
+/Users/jamie/Developer/dossier/reports/presentations/.build/leadership-prose.md:75: [warning] banned word (insults the reader when the step fails)
+
+0 error(s), 1 warning(s) in 1 file(s) [style layer: built-in]

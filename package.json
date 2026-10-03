@@ -14,9 +14,16 @@
     "dev:ui": "pnpm --filter @dossier/dossier-ui dev",
     "dev:desktop": "pnpm --filter @dossier/dossier-desktop dev:desktop",
     "cli": "node apps/dossier-cli/bin/dossier.js",
+    "lab": "pnpm --filter @dossier/cli build:bundle && pnpm --filter @dossier/cli lab",
+    "lab:hard": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/hard-run.mjs",
+    "lab:real": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/real-run.mjs",
     "build": "pnpm -r build",
     "dist": "pnpm --filter @dossier/dossier-ui build && pnpm --filter @dossier/dossier-desktop dist",
     "typecheck": "pnpm -r typecheck",
-    "test": "pnpm -r test"
+    "test": "pnpm -r test",
+    "lab:study": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/study-suite.mjs",
+    "lab:tmdb": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/tmdb-regression.mjs",
+    "lab:confirm": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/confirmation-suite.mjs",
+    "lab:override": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/override-suite.mjs"
   }
 }

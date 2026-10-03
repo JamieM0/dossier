@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "bin": { "dossier": "bin/dossier.js" },
+  "bin": {
+    "dossier": "bin/dossier.js",
+    "dossier-lab": "bin/dossier-lab.js"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "lab": "node dist/lab/run.js",
     "build:bundle": "pnpm -C ../.. -r --filter \"@dossier/store...\" build && pnpm run build && node scripts/bundle.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run --passWithNoTests"
+    "test": "vitest run --passWithNoTests && node --test scripts/hard-metrics.check.mjs scripts/real-metrics.check.mjs scripts/study-metrics.check.mjs scripts/confirmation.check.mjs scripts/override.check.mjs"
   },
   "dependencies": {
     "@dossier/domain": "workspace:*",

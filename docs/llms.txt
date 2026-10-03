@@ -5,5 +5,12 @@
 ## Docs
 
 - [CLI reference](agent-cli.md): Build the CLI, manage profiles, and run data actions.
+- [Simulation lab](simulation-lab.md): Run repeatable synthetic-person experiments through CLI actions.
+- [Hard benchmark](hard-benchmark.md): Compare Dossier revisions on fixed hidden ratings and simple baselines.
+- [Real film benchmark](real-benchmark.md): Compare Dossier versions using real films and recorded MovieLens ratings.
+- [Learning study](learning-study.md): Compare film metadata and model parts using identical hidden ratings.
+- [Confirmation experiment](confirmation-experiment.md): Decide whether reviews plus tags improves new-viewer recommendations and inspect backwards-learning mechanisms.
 - [CLI decision record](agent-cli-decision.html): Architecture, privacy boundary, and delivery stages.
 - [Terminology](terminology.md): Approved words for CLI documentation.
+
+- [Override experiment](override-experiment.md): Test protection for unusual tastes using supplied ratings, with fixed baselines and failure regressions.

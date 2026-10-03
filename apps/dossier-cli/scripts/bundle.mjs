@@ -13,10 +13,12 @@ const copyPackage = (source, target) => {
 rmSync(output, { recursive: true, force: true });
 mkdirSync(join(output, "bin"), { recursive: true });
 cpSync(join(app, "bin", "dossier.js"), join(output, "bin", "dossier.js"));
+cpSync(join(app, "bin", "dossier-lab.js"), join(output, "bin", "dossier-lab.js"));
 copyPackage(app, output);
 copyPackage(join(root, "packages", "domain"), join(output, "node_modules", "@dossier", "domain"));
 copyPackage(join(root, "packages", "store"), join(output, "node_modules", "@dossier", "store"));
 cpSync(join(root, "packages", "store", "dist", "node_modules", "keytar"), join(output, "node_modules", "keytar"), { recursive: true });
-writeFileSync(join(output, "README.txt"), "Dossier CLI\n\nRequires Node.js 20 or later on macOS. Run ./bin/dossier.js help.\nThe local service starts when you run a command.\n");
+writeFileSync(join(output, "README.txt"), "Dossier CLI\n\nRequires Node.js 20 or later on macOS. Run ./bin/dossier.js help.\nRun ./bin/dossier-lab.js --output lab-report.json for an offline simulation.\nThe local service starts when you run a dossier command.\n");
 const manifest = JSON.parse(readFileSync(join(output, "package.json"), "utf8"));
 if (!manifest.bin?.dossier) throw new Error("CLI bundle is missing its command entry");
+if (!manifest.bin?.["dossier-lab"]) throw new Error("CLI bundle is missing its lab entry");

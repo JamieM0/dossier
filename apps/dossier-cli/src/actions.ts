@@ -18,6 +18,12 @@ export class ActionError extends Error {
 export type Args = Record<string, unknown>;
 export { registry, uiOnly } from "@dossier/domain";
 
+/** Local, offline catalogue for deterministic CLI action simulations. */
+export type ActionCatalogue = {
+  detail(medium: TmdbMedium, id: number): Promise<TmdbItem>;
+  candidates(medium: TmdbMedium, kind: "rate" | "suggest"): Promise<TmdbItem[]>;
+};
+
 const string = (args: Args, key: string): string => {
   const value = args[key];
   if (typeof value !== "string" || !value.trim()) throw new ActionError("INVALID_ARGUMENT", `${key} is required`);
@@ -82,7 +88,8 @@ async function tmdb(storage: CliStorage) {
   if (!token) throw new ActionError("TMDB_NOT_CONFIGURED", "Run dossier tmdb set using stdin");
   return createTmdbClient(token, join(storage.root, "tmdb-cache"));
 }
-async function candidates(storage: CliStorage, profile: Profile, which: TmdbMedium, candidatePage: number, kind: "rate" | "suggest") {
+async function candidates(storage: CliStorage, profile: Profile, which: TmdbMedium, candidatePage: number, kind: "rate" | "suggest", catalogue?: ActionCatalogue) {
+  if (catalogue) return catalogue.candidates(which, kind);
   const api = await tmdb(storage);
   const discovery = createDiscovery(api);
   const exclude = new Set([...Object.keys(profile.state.ratings), ...profile.state.skipped]);
@@ -97,7 +104,7 @@ function findClaim(profile: Profile, id: string): TasteClaim {
   return claim;
 }
 
-export async function execute(storage: CliStorage, name: string, args: Args): Promise<unknown> {
+export async function execute(storage: CliStorage, name: string, args: Args, catalogue?: ActionCatalogue): Promise<unknown> {
   if (!registry.some((entry) => entry.name === name)) throw new ActionError("UNKNOWN_ACTION", "Run dossier help --json");
   const vault = storage.load();
   if (name === "system.status") return { running: true, profiles: vault.profiles.length, activeId: vault.activeId };
@@ -168,7 +175,7 @@ export async function execute(storage: CliStorage, name: string, args: Args): Pr
   if (name === "rate.set") {
     const key = string(args, "key"); const parsed = itemKey(key); const value = Number(args.value);
     if (!isValidRating(value)) throw new ActionError("INVALID_ARGUMENT", "Use -3..3, -0.5, or 0.5");
-    const item = state.ratings[key]?.item ?? snapshot(await (await tmdb(storage)).detail(parsed.medium, parsed.id));
+    const item = state.ratings[key]?.item ?? snapshot(await (catalogue ? catalogue.detail(parsed.medium, parsed.id) : (await tmdb(storage)).detail(parsed.medium, parsed.id)));
     return { item: { id: key, title: item.title, rating: value }, revision: mutate(storage, vault, profile, args, setLibraryRating(state, key, value, item)) };
   }
   if (name === "rate.clear") { const key = string(args, "key"); itemKey(key); return { key, revision: mutate(storage, vault, profile, args, setLibraryRating(state, key, null)) }; }
@@ -176,7 +183,7 @@ export async function execute(storage: CliStorage, name: string, args: Args): Pr
   if (name === "rate.queue" || name === "suggest.list") {
     const which = medium(args); const offset = args.cursor ? Number(Buffer.from(string(args, "cursor"), "base64url").toString()) : 0;
     if (!Number.isSafeInteger(offset) || offset < 0) throw new ActionError("INVALID_CURSOR", "Start again without --cursor");
-    const source = await candidates(storage, profile, which, Math.floor(offset / 20) + 1, name === "rate.queue" ? "rate" : "suggest");
+    const source = await candidates(storage, profile, which, Math.floor(offset / 20) + 1, name === "rate.queue" ? "rate" : "suggest", catalogue);
     const filtered = source.filter((item) => !state.ratings[`${item.medium}:${item.id}`] && !state.skipped.includes(`${item.medium}:${item.id}`));
     let items: Array<{ id: string; title: string; year: number | null; score?: number; reason?: string }>;
     if (name === "rate.queue") {
@@ -202,14 +209,14 @@ export async function execute(storage: CliStorage, name: string, args: Args): Pr
       items = scoreCandidates(narrowed, entries(profile), params, state.tasteClaims).map(({ item, score }) => compact(item, score));
     }
     const limit = number(args, "limit", 10, 1, 20);
-    const batch = items.slice(0, 20);
+    const batch = catalogue ? items : items.slice(0, 20);
     const end = offset % 20 + limit;
-    const hasNext = end < batch.length || source.length >= 20;
-    const nextOffset = end < 20 ? offset + limit : (Math.floor(offset / 20) + 1) * 20;
-    return { items: batch.slice(offset % 20, end), next: hasNext ? Buffer.from(String(nextOffset)).toString("base64url") : null };
+    const hasNext = catalogue ? offset + limit < batch.length : end < batch.length || source.length >= 20;
+    const nextOffset = catalogue ? offset + limit : end < 20 ? offset + limit : (Math.floor(offset / 20) + 1) * 20;
+    return { items: batch.slice(catalogue ? offset : offset % 20, catalogue ? offset + limit : end), next: hasNext ? Buffer.from(String(nextOffset)).toString("base64url") : null };
   }
   if (name === "suggest.explain") {
-    const parsed = itemKey(string(args, "key")); const item = await (await tmdb(storage)).detail(parsed.medium, parsed.id);
+    const parsed = itemKey(string(args, "key")); const item = await (catalogue ? catalogue.detail(parsed.medium, parsed.id) : (await tmdb(storage)).detail(parsed.medium, parsed.id));
     const scored = scoreCandidates([item], entries(profile), DEFAULT_SCORING_PARAMS, state.tasteClaims)[0];
     const related = state.tasteClaims.filter((claim) => claim.active && matchesTasteClaim(item, claim)).map((claim) => claim.id);
     const clusters = buildTasteSpace(entries(profile)).clusters.filter((cluster) => cluster.polarity === "liked").map((cluster) => ({ id: cluster.id, similarity: cosineSimilarity(item.features, cluster.centroid) })).sort((a, b) => b.similarity - a.similarity).slice(0, 3);
