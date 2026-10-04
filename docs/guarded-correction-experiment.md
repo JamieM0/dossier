@@ -37,6 +37,8 @@ Changing either invalidates approval. Withdrawal retains the proposal for inspec
 Pending and withdrawn preferences must leave scores unchanged. Removal and restoration must preserve exact scores.
 General effects apply only to matching descriptions. Title exceptions apply to one title; comparisons apply to their endpoints.
 
+All experimental arms disable public-quality, popularity, and serendipity contributions, matching experiment six.
+
 ## Equal question budgets
 
 Each policy has at most eight turns. A broad question or a follow-up consumes one turn.
@@ -119,3 +121,9 @@ The experiment evaluates known film candidates, rather than retrieval, televisio
 Simulated preview approval does not establish real usability. Jamie can review that separately.
 Exact title and comparison controls use rated titles in diagnostic pools.
 Hidden-film ranking gains therefore measure broad preferences, rather than transfer from those narrow controls.
+
+## Recorded outcome
+
+No candidate passes every requirement. Evidence-based deferral is the strongest tested direction, but it still permits harmful broad updates.
+Follow-up approval preserves correction control while reopening large losses. Ordinary recommendation defaults remain unchanged.
+Read the [executive decision](../reports/guarded-correction-analysis-v1.md) and [measured results](../reports/guarded-correction-v1.md) for outcomes and next steps.

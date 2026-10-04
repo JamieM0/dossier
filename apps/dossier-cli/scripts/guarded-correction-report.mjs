@@ -7,10 +7,11 @@ const lines=['# Guarded correction results','',`Decision: **${r.decision.status}
  `${r.viewers} fresh synthetic people supplied ${r.sessions} sessions. Reserved confirmation includes ${r.cohorts.sealed.viewers} people.`,
  'Jamie is the only real product user. The synthetic lab supplies model decision evidence.','',
  '## Reserved outcomes','','Ranking accuracy measures whether liked hidden films outrank disliked films. Chance scores 50 percent.',
- 'Gains and intervals use people after averaging their two sessions. All gains and losses use ranking percentage points.','',
- '| Policy | Accuracy | Gain, 95 percent interval | Worst answer loss | Broad questions | Follow-ups | Active preferences | Pending | Withdrawn |',
+ 'Gains and intervals use people after averaging their two sessions. All gains and losses use ranking percentage points.',
+ 'The worst loss follows one answer.','',
+ '| Policy | Accuracy | Gain, 95 percent interval | Worst loss | Broad questions | Follow-ups | Applied preferences | Pending | Withdrawn |',
  '| --- | --- | --- | --- | --- | --- | --- | --- | --- |'];
-for(const [arm,a]of Object.entries(r.cohorts.sealed.arms))lines.push(`| ${arm} | ${pct(a.auc.mean)}% | ${gain(a.gain)} | ${pct(a.worstPromptLoss)} | ${a.broadQuestions.toFixed(2)} | ${a.reviewQuestions.toFixed(2)} | ${a.accepted.toFixed(2)} | ${a.pending.toFixed(2)} | ${a.withdrawn.toFixed(2)} |`);
+for(const [arm,a]of Object.entries(r.cohorts.sealed.arms))lines.push(`| ${arm} | ${pct(a.auc.mean)}% | ${gain(a.gain)} | ${pct(a.worstPromptLoss)} | ${a.broadQuestions.toFixed(2)} | ${a.reviewQuestions.toFixed(2)} | ${(arm==='current'?0:a.accepted).toFixed(2)} | ${a.pending.toFixed(2)} | ${a.withdrawn.toFixed(2)} |`);
 lines.push('','Question and preference counts are means per session. Follow-ups consume the same eight-turn budget as broad questions.','',
  '## Control outcomes','','| Policy | General correction | Title reversal | Pair reversal | Outside scope stable | Pending scores stable |','| --- | --- | --- | --- | --- | --- |');
 for(const [arm,a]of Object.entries(r.cohorts.sealed.arms))lines.push(`| ${arm} | ${a.corrections.general.passed}/${a.corrections.general.tested} | ${a.corrections.exception.passed}/${a.corrections.exception.tested} | ${a.corrections.comparison.passed}/${a.corrections.comparison.tested} | ${a.contracts.locality} | ${a.pendingStable} |`);
@@ -29,6 +30,7 @@ lines.push('','## Evidence and limits','','A new cohort and catalogue prevent re
  'Ordinary recommendations remain unchanged. Each branch checks removal, restoration, pending scores, and encrypted portability.',
  'Title and pair feedback applies to rated diagnostic films. Unseen-film ranking gains come from broad preferences.',
  'The experiment tests known film candidates. Retrieval, human comprehension, and television remain outside its scope.','',
+ '[Executive decision](guarded-correction-analysis-v1.md) explains the project implications and next hypothesis.',
  '[Protocol guide](../docs/guarded-correction-experiment.md) explains the frozen procedure.',
  '[Lossless traces](guarded-correction-v1.json.gz) preserve evidence, previews, answers, profiles, rankings, and control trials.','');
 writeFileSync(output,lines.join('\n'));console.log(JSON.stringify({output}));

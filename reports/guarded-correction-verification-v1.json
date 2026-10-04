@@ -1,0 +1,69 @@
+{
+  "version": "guarded-correction-verification-v1",
+  "protocolCommit": "79e069d",
+  "protocolHash": "08554f29f2de83617d178a477d46437d00670bd0da9320eab86bd4cd83d8ac4d",
+  "referenceHash": "7397219881eafc4cbd920f22c2b58bb814a091acdf8aee00f9f517806a963b37",
+  "modelFingerprint": "64eca36720638c9a634d2d137537482d1040a91da5971d2f5a946b7d7b962356",
+  "evaluatorFingerprint": "4e847bf51f0a20f00feb6e44e73283db3c8ea256256c3c52147b200535d47497",
+  "reproducibility": {
+    "completeRuns": 2,
+    "identicalExceptDuration": true,
+    "viewers": 160,
+    "sessions": 320,
+    "firstDurationSeconds": 207.13,
+    "repeatDurationSeconds": 198.77,
+    "deterministicReportSha256": "8b9568009b6cb81a4d6f369fac2cd0f9569e9c9a33b8badfcff951eed4c6fda6",
+    "firstCommand": "pnpm lab:guarded-correction",
+    "repeatCommand": "node apps/dossier-cli/scripts/guarded-correction-suite.mjs --output /tmp/guarded-correction-repeat.json"
+  },
+  "validation": {
+    "typecheck": {
+      "passed": true,
+      "errors": 0,
+      "warnings": 0
+    },
+    "unitTests": {
+      "domain": 56,
+      "cli": 16,
+      "ui": 77,
+      "desktop": 2
+    },
+    "previousExperimentAudits": {
+      "passed": 5
+    },
+    "ratingReplayAudit": {
+      "passed": 1
+    },
+    "guardedReportAudits": {
+      "passed": 5,
+      "failed": 0
+    },
+    "historicalRegression": {
+      "passed": true,
+      "report": "guarded-correction-regression-v1.json"
+    },
+    "documentation": {
+      "errors": 0,
+      "warnings": 0,
+      "files": [
+        "docs/guarded-correction-experiment.md",
+        "docs/llms.txt",
+        "reports/guarded-correction-v1.md",
+        "reports/guarded-correction-analysis-v1.md"
+      ]
+    }
+  },
+  "decision": {
+    "status": "do_not_promote",
+    "eligible": [],
+    "reason": "No candidate meets every frozen requirement. Keep ordinary recommendation defaults."
+  },
+  "checkedAt": "2026-10-04T01:57:49.941Z",
+  "archivedEvidenceUnchanged": true,
+  "losslessTraceArchiveVerified": true,
+  "ordinaryDefaultsUnchanged": true,
+  "executionNotes": [
+    "Candidate policies, fixture, thresholds, question budget, and evaluator remained unchanged between the two complete runs.",
+    "Only report presentation, documentation, and test registration changed after outcome inspection."
+  ]
+}
