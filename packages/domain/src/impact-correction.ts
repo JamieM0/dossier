@@ -35,8 +35,8 @@ export function scoreImpactCorrections(candidates:TmdbItem[],entries:RatingEntry
     return {delta:signs.size===1?chosen[0]!.effect*strength:0,applied:signs.size===1?chosen.map(f=>f.id):[],conflicts:signs.size>1?chosen.map(f=>f.id):[]};
   });
   const exceptions = active.state.feedback.filter(f=>f.kind==='exception');
-  const exact = new Map((exceptions.length?scoreCorrections(candidates,entries,claims,{version:1,feedback:exceptions},'scoped'):baseline).map(r=>[key(r.item),r.score]));
-  const index = new Map(baseline.map((r,i)=>[key(r.item),i]));
+  const exact = new Map<string,number>((exceptions.length?scoreCorrections(candidates,entries,claims,{version:1,feedback:exceptions},'scoped'):baseline).map(r=>[key(r.item),r.score] as const));
+  const index = new Map<string,number>(baseline.map((r,i)=>[key(r.item),i] as const));
   const pairs = active.state.feedback.filter(f=>f.kind==='comparison').filter(f=>index.has(f.winner)&&index.has(f.loser));
   const graph = new Map<string,string[]>();
   for(const f of pairs)graph.set(f.winner,[...(graph.get(f.winner)??[]),f.loser]);
