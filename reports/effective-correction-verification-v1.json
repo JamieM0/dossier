@@ -1,0 +1,64 @@
+{
+  "version": "effective-correction-verification-v1",
+  "checkedAt": "2026-10-04T01:27:12.479Z",
+  "preparationCommit": "669fc82",
+  "protocolCommit": "afae388",
+  "protocolHash": "fc89acedbb8d16d83932917c6933844f38ee4fc20cab6e18eada23053b48a5f6",
+  "modelFingerprint": "379540cd0f22c0bbffe0f59d249bf4a38977d0b765adf610277f78b84e02268e",
+  "evaluatorFingerprint": "5668d3957f29ed6055fd2eacfc38a56c4dfc4298597967cc4be1c555f6668cbc",
+  "reproducibility": {
+    "completeRuns": 2,
+    "identicalExceptDuration": true,
+    "viewers": 120,
+    "sessions": 240,
+    "firstDurationSeconds": 99.03,
+    "repeatDurationSeconds": 99.6,
+    "deterministicReportSha256": "1810af8d9fc0e069065a3168e0733e96427d46606b02ee8cd7bc31e5ac2a33b1",
+    "command": "pnpm lab:effective-correction -- --output /tmp/effective-correction-repeat.json"
+  },
+  "regression": {
+    "passed": true,
+    "report": "effective-correction-regression-v1.json"
+  },
+  "archivedEvidenceUnchanged": true,
+  "productDefaultsUnchanged": true,
+  "validation": {
+    "typecheck": {
+      "passed": true,
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser": {
+      "passed": 58,
+      "failed": 0
+    },
+    "unitTests": {
+      "domain": 52,
+      "ui": 77,
+      "cli": 15,
+      "desktop": 2
+    },
+    "historicalReportAudits": {
+      "passed": 42
+    },
+    "effectiveReportAudits": {
+      "passed": 5,
+      "failed": 0
+    },
+    "documentation": {
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  "executionNotes": [
+    "An initial replay stopped on missing native control scores after rerating the last like. Empty results now fail the appropriate control and coverage checks.",
+    "Candidates, fixture, thresholds, and protocol did not change after the interruption.",
+    "Audit recomputation normalizes negative zero to match JSON serialization. This does not change recorded scores or rankings."
+  ],
+  "decision": {
+    "status": "do_not_promote",
+    "eligible": [],
+    "reason": "No candidate passed every frozen gain, control, and protection requirement."
+  },
+  "losslessTraceArchiveVerified": true
+}

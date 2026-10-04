@@ -4,7 +4,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { gunzipSync } from 'node:zlib';
 import { CORRECTION_ARMS, CORRECTION_CONFIG, broadLensQueue, emptyLens45, answerBroadLens,
- emptyCorrections, setCorrection, lensRuleId, scoreCorrections, featureVector } from '@dossier/domain';
+ emptyCorrections, setCorrection, lensRuleId, matchesLensRule, scoreCorrections, featureVector } from '@dossier/domain';
 import { assess, key, shuffled, random, round } from './hard-metrics.mjs';
 import { replayLibrary } from './library-replay.mjs';
 import { summarize, decide } from './effective-correction-metrics.mjs';
@@ -15,7 +15,7 @@ const protocolPath='apps/dossier-cli/benchmarks/effective-correction-v1-protocol
 const protocol=read(protocolPath),fixture=read(protocol.fixture.path),report=read('reports/effective-correction-v1.json');
 const byKey=new Map(fixture.items.map(r=>[key(r),r]));
 const rows=(state,corrections,person,arm)=>scoreCorrections(person.holdoutKeys.map(k=>byKey.get(k)),Object.values(state.ratings),state.tasteClaims,corrections,arm)
- .map(r=>({id:key(r.item),score:Math.round(r.score*1000)/1000,correctionEvidence:r.correctionEvidence}));
+ .map(r=>({id:key(r.item),score:Math.round(r.score*1000)/1000 || 0,correctionEvidence:r.correctionEvidence}));
 const metrics=ranked=>Object.fromEntries(ranked.map(r=>[r.id,r.score]));
 test('effective correction freezes its generator, cohorts, protocol, and public representation',()=>{
  assert.equal(report.protocolHash,sha(readFileSync(protocolPath)));assert.deepEqual(report.protocol,protocol);
@@ -67,7 +67,7 @@ test('all checkpoint and final rankings recompute independently of hidden prefer
   for(const s of v.sessions){const state=replayLibrary(s.events,byKey);let corrections=emptyCorrections();
    const verify=(actual)=>{
     for(const arm of protocol.arms){
-     const ranked=rows(state,corrections,person,arm),expected=assess(metrics(ranked),person.holdoutKeys.map(k=>byKey.get(k)),person.ratings);
+     const ranked=rows(state,corrections,person,arm),expected=assess(metrics(ranked),person.holdoutKeys.map(k=>byKey.get(k)),person.ratings,ranked.length>0);
      assert.deepEqual(actual[arm],expected);
     }
    };
@@ -75,7 +75,7 @@ test('all checkpoint and final rankings recompute independently of hidden prefer
    for(const [i,a]of s.answers.entries()){
     if(a.answer==='confirm')corrections=setCorrection(corrections,{id:`general:${lensRuleId(a.question.choices[0].conditions)}`,kind:'general',conditions:a.question.choices[0].conditions,effect:a.effect});
     verify(s.steps[i].metrics);
-    for(const arm of protocol.arms)assert.equal(s.steps[i].delta[arm],round(s.steps[i].metrics[arm].auc-previous[arm].auc));
+    for(const arm of protocol.arms)assert.equal(s.steps[i].delta[arm],round(s.steps[i].metrics[arm].auc-previous[arm].auc) || 0);
     previous=s.steps[i].metrics;
     if(protocol.checkpoints.includes(i+1))assert.deepEqual(s.checkpoints[i+1],previous);
    }
@@ -84,6 +84,38 @@ test('all checkpoint and final rankings recompute independently of hidden prefer
     assert.deepEqual(s.final[arm].map(r=>({id:r.id,score:r.score,correctionEvidence:r.correctionEvidence})),ranked);
    }
    assert(s.portability&&s.defaultStable&&s.overwriteMatched);
+  }
+ }
+});
+test('diagnostic correction effects and scope checks recompute from original evidence',()=>{
+ for(const v of report.viewerResults){const person=fixture.viewers.find(p=>p.id===v.viewer);
+  for(const session of v.sessions){const state=replayLibrary(session.events,byKey),training=Object.keys(state.ratings);
+   const candidates=[...person.holdoutKeys,...training].map(k=>byKey.get(k));
+   for(const arm of protocol.arms){
+    const score=feedback=>scoreCorrections(candidates,Object.values(state.ratings),state.tasteClaims,{version:1,feedback},arm)
+     .map(r=>({id:key(r.item),score:Math.round(r.score*1000)/1000 || 0}));
+    const reference=score([]),source=reference.filter(r=>training.includes(r.id)),a=source[0]??{id:training[0]},b=source[source.length-1]??{id:training[training.length-1]};
+    const actual=session.contracts[arm],chosen=session.profile.settings.experimentalCorrections?.feedback.find(f=>f.kind==='general');
+    if(chosen){const before=score([chosen]),after=score([{...chosen,effect:-chosen.effect}]);
+     const matched=before.filter(r=>matchesLensRule(byKey.get(r.id),chosen.conditions));
+     const unrelated=before.filter(r=>!matchesLensRule(byKey.get(r.id),chosen.conditions));
+     assert.equal(actual.general.passed,matched.length>0&&matched.every(r=>((after.find(x=>x.id===r.id)?.score ?? NaN)-r.score)*chosen.effect<0));
+     assert.equal(actual.general.affected,matched.length);
+     assert.equal(actual.general.unrelatedStable,unrelated.every(r=>after.find(x=>x.id===r.id)?.score===r.score));
+    }else assert.equal(actual.general,undefined);
+    const positive=score([{id:'diagnostic-exception',kind:'exception',key:a.id,effect:1}]);
+    const negative=score([{id:'diagnostic-exception',kind:'exception',key:a.id,effect:-1}]);
+    assert.equal(actual.exception.passed,(positive.find(r=>r.id===a.id)?.score ?? NaN)>0&&(negative.find(r=>r.id===a.id)?.score ?? NaN)<0);
+    assert.equal(actual.exception.unrelatedStable,reference.filter(r=>r.id!==a.id).every(r=>positive.find(x=>x.id===r.id)?.score===r.score&&negative.find(x=>x.id===r.id)?.score===r.score));
+    const before=score([{id:'diagnostic-pair',kind:'comparison',winner:a.id,loser:b.id}]);
+    const after=score([{id:'diagnostic-pair',kind:'comparison',winner:b.id,loser:a.id}]);
+    const margin=rows=>{const x=rows.find(r=>r.id===a.id),y=rows.find(r=>r.id===b.id);return x&&y?x.score-y.score:null;};
+    assert.equal(actual.comparison.beforeMargin,margin(before));assert.equal(actual.comparison.afterMargin,margin(after));
+    assert.equal(actual.comparison.passed,margin(before)!==null&&margin(after)!==null&&margin(before)>0&&margin(after)<0);
+    assert.equal(actual.comparison.pairReversed,actual.comparison.passed);
+    assert.equal(actual.comparison.unrelatedStable,reference.filter(r=>r.id!==a.id&&r.id!==b.id).every(r=>after.find(x=>x.id===r.id)?.score===r.score));
+    assert(actual.removal&&actual.restoration);
+   }
   }
  }
 });

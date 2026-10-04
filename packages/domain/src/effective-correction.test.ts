@@ -43,3 +43,9 @@ test('invalid correction state cannot enter a scorer',()=>{
  expect(()=>readCorrections({version:1,feedback:[{id:'x',kind:'exception',key:'movie:0',effect:1}]})).toThrow();
  expect(()=>setCorrection(emptyCorrections(),{id:'x',kind:'general',conditions:[{kind:'axis',value:'fake',side:'high'}],effect:1})).toThrow();
 });
+test('native rerating can remove the last like and leave recommendations unavailable',()=>{
+ const sparse=entries.map((e,i)=>({...e,rating:(i===0?3:-3) as 3|-3}));
+ const feedback=setCorrection(emptyCorrections(),{id:'last-like',kind:'exception',key:'movie:1',effect:-1});
+ expect(scoreCorrections(items,sparse,[],emptyCorrections(),'current').length).toBeGreaterThan(0);
+ expect(scoreCorrections(items,sparse,[],feedback,'native')).toEqual([]);
+});

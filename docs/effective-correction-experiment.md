@@ -93,6 +93,17 @@ Title feedback uses `key` and `effect`. Comparison feedback uses `winner` and `l
 Title feedback requires rated evidence. Reusing a target replaces its earlier feedback.
 Resetting the profile clears experimental corrections.
 
+To state a general preference in a CLI profile, run:
+
+```sh
+pnpm cli correction set --id heist --kind general --effect positive \
+  --conditions '[{"kind":"tag","value":"heist"}]'
+pnpm cli correction suggest --arm scoped
+```
+
+The first command stores feedback. The second returns experimental scores with applied feedback and any conflicts.
+Existing `suggest list` output remains unchanged.
+
 ## Evidence limits
 
 These are synthetic movies, not a population estimate or a book product test.
@@ -100,3 +111,9 @@ The evaluator tests known candidate films, rather than film retrieval.
 Simulated explanations cover limited error patterns. They do not establish human response time or comprehension.
 The control trials deliberately reverse feedback. They measure obedience, rather than whether the correction expresses true taste.
 Correction scores report no confidence probability.
+
+## Recorded outcome
+
+No candidate passes every frozen requirement. Dossier retains its existing recommendation defaults.
+Read the [executive decision](../reports/effective-correction-analysis-v1.md) for outcomes and the recommended next experiment.
+Read the [measured results](../reports/effective-correction-v1.md) for policy comparisons and failed requirements.

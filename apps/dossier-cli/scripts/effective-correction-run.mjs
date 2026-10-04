@@ -43,7 +43,7 @@ const scoreMap=rows=>Object.fromEntries(rows.map(r=>[r.id,r.score]));
 const equal=(a,b)=>JSON.stringify(scoreMap(a))===JSON.stringify(scoreMap(b));
 const equalScores=(a,b)=>a.length===b.length&&a.every(r=>b.find(s=>s.id===r.id)?.score===r.score);
 const feedbackArgs=f=>({...f,...('effect'in f?{effect:f.effect>0?'positive':'negative'}:{})});
-const capture=async(cli,v)=>Object.fromEntries(await Promise.all(protocol.arms.map(async arm=>[arm,assess(scoreMap(await rank(cli,arm)),v.holdoutKeys.map(k=>byKey.get(k)),v.ratings)])));
+const capture=async(cli,v)=>Object.fromEntries(await Promise.all(protocol.arms.map(async arm=>{const rows=await rank(cli,arm);return [arm,assess(scoreMap(rows),v.holdoutKeys.map(k=>byKey.get(k)),v.ratings,rows.length>0)];})));
 async function contracts(cli,v,saved,final) {
  const result={},training=Object.values(saved.ratings).map(e=>e.item.key);
  cli.pool([...v.holdoutKeys,...training]);
@@ -53,29 +53,29 @@ async function contracts(cli,v,saved,final) {
   // Isolate each control meaning from other explicit feedback.
   cli.state().settings.experimentalCorrections={version:1,feedback:[]};
   const reference=await rank(cli,arm,true),source=reference.filter(r=>training.includes(r.id));
-  const a=source[0],b=source[source.length-1];assert(a&&b&&a.id!==b.id);
+  const a=source[0]??{id:training[0]},b=source[source.length-1]??{id:training[training.length-1]};assert(a.id!==b.id);
   const chosen=saved.settings.experimentalCorrections?.feedback.find(f=>f.kind==='general');
   if(chosen) {
    await write(cli,'correction.set',feedbackArgs(chosen));const before=await rank(cli,arm,true);
    await write(cli,'correction.set',feedbackArgs({...chosen,effect:-chosen.effect}));const after=await rank(cli,arm,true);
    const matched=before.filter(r=>matchesLensRule(byKey.get(r.id),chosen.conditions)),unrelated=before.filter(r=>!matchesLensRule(byKey.get(r.id),chosen.conditions));
-   cases.general={passed:matched.length>0&&matched.every(r=>(after.find(x=>x.id===r.id).score-r.score)*chosen.effect<0),
-    unrelatedStable:unrelated.every(r=>after.find(x=>x.id===r.id).score===r.score),affected:matched.length};
+   cases.general={passed:matched.length>0&&matched.every(r=>((after.find(x=>x.id===r.id)?.score ?? NaN)-r.score)*chosen.effect<0),
+    unrelatedStable:unrelated.every(r=>after.find(x=>x.id===r.id)?.score===r.score),affected:matched.length};
    await write(cli,'correction.remove',{id:chosen.id});
   }
   const exception={id:'diagnostic-exception',kind:'exception',key:a.id,effect:1};
   await write(cli,'correction.set',feedbackArgs(exception));const positive=await rank(cli,arm,true);
   await write(cli,'correction.set',feedbackArgs({...exception,effect:-1}));const negative=await rank(cli,arm,true);
-  cases.exception={passed:positive.find(r=>r.id===a.id).score>0&&negative.find(r=>r.id===a.id).score<0,
-   unrelatedStable:reference.filter(r=>r.id!==a.id).every(r=>positive.find(x=>x.id===r.id).score===r.score&&negative.find(x=>x.id===r.id).score===r.score)};
+  cases.exception={passed:(positive.find(r=>r.id===a.id)?.score ?? NaN)>0&&(negative.find(r=>r.id===a.id)?.score ?? NaN)<0,
+   unrelatedStable:reference.filter(r=>r.id!==a.id).every(r=>positive.find(x=>x.id===r.id)?.score===r.score&&negative.find(x=>x.id===r.id)?.score===r.score)};
   await write(cli,'correction.remove',{id:exception.id});
   const pair={id:'diagnostic-pair',kind:'comparison',winner:a.id,loser:b.id};
   await write(cli,'correction.set',pair);const before=await rank(cli,arm,true);
   await write(cli,'correction.set',{...pair,winner:b.id,loser:a.id});const after=await rank(cli,arm,true);
-  const margin=rows=>rows.find(r=>r.id===a.id).score-rows.find(r=>r.id===b.id).score;
-  cases.comparison={passed:margin(before)>0&&margin(after)<0,pairReversed:margin(before)>0&&margin(after)<0,
+  const margin=rows=>{const x=rows.find(r=>r.id===a.id),y=rows.find(r=>r.id===b.id);return x&&y?x.score-y.score:null;};
+  cases.comparison={passed:margin(before)!==null&&margin(after)!==null&&margin(before)>0&&margin(after)<0,pairReversed:margin(before)!==null&&margin(after)!==null&&margin(before)>0&&margin(after)<0,
    beforeMargin:margin(before),afterMargin:margin(after),
-   unrelatedStable:reference.filter(r=>r.id!==a.id&&r.id!==b.id).every(r=>after.find(x=>x.id===r.id).score===r.score)};
+   unrelatedStable:reference.filter(r=>r.id!==a.id&&r.id!==b.id).every(r=>after.find(x=>x.id===r.id)?.score===r.score)};
   await write(cli,'correction.remove',{id:pair.id});
   cases.removal=equalScores(await rank(cli,arm,true),reference);
   cli.state().settings.experimentalCorrections=structuredClone(saved.settings.experimentalCorrections);

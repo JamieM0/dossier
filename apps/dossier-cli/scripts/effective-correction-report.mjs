@@ -9,7 +9,8 @@ const lines=['# Effective correction results','',`Decision: **${report.decision.
  '','Jamie is the only real product user. These results guide model decisions through the synthetic lab.','',
  '## Confirmation results','',
  'Ranking accuracy measures whether liked hidden films rank ahead of disliked films. Chance scores 50 percent.',
- 'Gain intervals resample people after averaging their two sessions. Repeated sessions do not count as independent people.','',
+ 'Gain intervals resample people after averaging their two sessions. Repeated sessions do not count as independent people.',
+ 'Large viewer losses count people losing more than three ranking points. Worst prompt loss reports the largest loss after one answer.','',
  '| Arm | Ranking accuracy | Gain, 95 percent interval in points | Large viewer losses | Worst prompt loss |',
  '| --- | --- | --- | --- | --- |'];
 for(const [arm,a]of Object.entries(report.cohorts.sealed.arms))lines.push(`| ${arm} | ${pct(a.auc.mean)}% | ${interval(a.gain)} | ${a.individualLosses} | ${pct(a.worstPromptLoss)} |`);
@@ -36,6 +37,7 @@ lines.push('','## Recommended decision','','Keep product defaults unchanged whil
  'The native title control rerates a title. Its changes can affect recommendations outside that title.',
  'The scoped policy uses fixed priorities. These priorities do not constitute measured confidence.',
  '',`Protocol hash: \`${report.protocolHash}\`.`, '',
+ '[Executive decision](effective-correction-analysis-v1.md) explains the project implications and recommended next experiment.',
  '[Experiment guide](../docs/effective-correction-experiment.md) explains the frozen procedure.',
  '[Lossless traces](effective-correction-v1.json.gz) preserve questions, supplied answers, profiles, rankings, and control trials.','');
 writeFileSync(output,lines.join('\n'));
