@@ -1,0 +1,52 @@
+import { expect, test } from 'vitest';
+import { mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { AXIS_KEYS, type FeatureVector, type TmdbItem, registry } from '@dossier/domain';
+import { execute } from '../actions.js';
+import type { CliStorage, Vault } from '../storage.js';
+
+test('CLI personal features support correction, removal, export, and revision guards while defaults stay exact',async()=>{
+ const features=Object.fromEntries(AXIS_KEYS.map(a=>[a,.5])) as FeatureVector;
+ const items:TmdbItem[]=Array.from({length:28},(_,i)=>({id:i+1,medium:'movie',title:`Item ${i+1}`,year:2020,posterPath:null,overview:'',genreIds:[],genres:['Drama'],keywords:i%2?[]:['practical-effects'],voteAverage:i%2?10:0,voteCount:0,popularity:i*100,runtime:null,collection:null,directorIds:[],creatorIds:[],features}));
+ let vault:Vault={activeId:null,profiles:[]};
+ const storage={root:'/lens-test',load:()=>vault,save:(next:Vault)=>{vault=next;},audit:()=>{}} as unknown as CliStorage;
+ const catalogue={detail:async(_medium:unknown,id:number)=>items[id-1]!,candidates:async()=>items};
+ const call=(name:string,args:Record<string,unknown>={})=>execute(storage,name,args,catalogue) as Promise<any>;
+ const write=async(name:string,args:Record<string,unknown>)=>call(name,{...args,expectedRevision:(await call('profile.show')).revision});
+ await call('profile.create',{name:'Lens'});
+ for(let id=1;id<=4;id++)await write('rate.set',{key:`movie:${id}`,value:id%2?1:-1});
+ const before=await call('suggest.list',{limit:20});
+ const q=(await call('lens.queue',{limit:1})).items[0];
+ const f=q.choices.find((f:any)=>f.conditions.length===1&&f.conditions[0].kind==='tag');
+ await expect(call('lens.answer',{id:q.id,choice:f.id,expectedRevision:0})).rejects.toMatchObject({code:'STALE_REVISION'});
+ await expect(write('lens.answer',{id:q.id,choice:'invented'})).rejects.toMatchObject({code:'INVALID_ARGUMENT'});
+ await write('lens.answer',{id:q.id,choice:f.id});
+ expect(await call('suggest.list',{limit:20})).toEqual(before);
+ const personal=await call('suggest.list',{limit:20,personalLens:'personal'});
+ expect(personal.items[0].id).toBe('movie:5');
+ expect(personal.items[0].lensEvidence.matched[0].id).toBe(f.id);
+ const second=await call('suggest.list',{limit:20,personalLens:'personal',cursor:personal.next});
+ expect(new Set([...personal.items,...second.items].map(r=>r.id)).size).toBe(24);
+ const explanation=await call('suggest.explain',{key:'movie:5',personalLens:'personal'});
+ expect(explanation.score).toBeCloseTo(personal.items[0].score,3);
+ await write('lens.correct',{id:f.id,effect:'negative'});
+ const corrected=await call('suggest.list',{limit:20,personalLens:'personal'});
+ expect(corrected.items[0].id).toBe('movie:6');
+ const lens=(await call('lens.inspect')).lens;
+ const temp=mkdtempSync(join(tmpdir(),'personal-lens-test-'));
+ try {
+  const path=join(temp,'export.dossier');await call('library.export',{path,passphrase:'test-passphrase'});
+  await call('profile.import',{name:'Imported',path,passphrase:'test-passphrase'});
+  expect((await call('lens.inspect')).lens).toEqual(lens);
+  expect(await call('suggest.list',{limit:20,personalLens:'personal'})).toEqual(corrected);
+ }finally{rmSync(temp,{recursive:true,force:true});}
+ await write('lens.remove',{id:f.id});
+ expect((await call('lens.inspect')).lens.features).toEqual([]);
+ const nextQ=(await call('lens.queue',{limit:1})).items[0];
+ await write('lens.answer',{id:nextQ.id,choice:'none'});
+ expect((await call('suggest.list',{personalLens:'personal'})).items.every(r=>r.lensEvidence.confidence<=.35)).toBe(true);
+ await write('profile.reset',{yes:true});expect((await call('lens.inspect')).lens.answered).toEqual([]);
+ await expect(call('suggest.list',{personalLens:'typo'})).rejects.toMatchObject({code:'INVALID_ARGUMENT'});
+ expect(registry.find(a=>a.name==='suggest.list')!.schema.required).not.toContain('personalLens');
+});

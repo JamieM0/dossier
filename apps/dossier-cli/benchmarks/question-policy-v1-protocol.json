@@ -1,0 +1,87 @@
+{
+  "version": "question-policy-v1",
+  "hypothesis": "Rating questions should reduce whole-profile ranking uncertainty per interruption while protecting established taste.",
+  "fixtures": {
+    "original": {
+      "path": "apps/dossier-cli/src/lab/real-tmdb-v1.json",
+      "sha256": "8d9c1e10bcd3c7841cefe68e25d90355e02a2cf3bb8cf6b6a5c777c7298c3bdc"
+    },
+    "confirmation": {
+      "path": "apps/dossier-cli/src/lab/new-viewers-v1.json",
+      "sha256": "7ef2d024fc4c51c34ff87a2ec0741819eaf6477196d4c9a16a1a92463ba22e04"
+    },
+    "override": {
+      "path": "apps/dossier-cli/src/lab/override-viewers-v1.json",
+      "sha256": "786ad5296cb74a0095722521e8592a72f8b2b86dc83c92dbeb4d407cda57f7ec"
+    },
+    "hard": {
+      "path": "apps/dossier-cli/src/lab/hard-v1.json",
+      "sha256": "8707494b1b553f8762c316a9df48c37eefabe8b5ef1ea64a50c25e1f56d7c835"
+    },
+    "refine_regression": {
+      "path": "apps/dossier-cli/src/lab/hard-v2-refine.json",
+      "sha256": "3d9e4b12a83cdad719228a2eb7170e86c5b86a4891445199d5ce8fd9d79aaf66"
+    },
+    "synthetic": {
+      "path": "apps/dossier-cli/src/lab/hard-v3-questions.json",
+      "sha256": "b22f69f56794037171cdf0eec6655471ae81785fc51dd6bb56ef12a1a8fb69cd"
+    }
+  },
+  "generatorHash": "d52a7672fb29ddab5873e259e177634a2b65df416c3cfa73be66d2ebf985f0e4",
+  "arms": [
+    "active",
+    "balanced_random",
+    "disagreement",
+    "counterfactual",
+    "counterfactual_no_stop"
+  ],
+  "seeds": [
+    11,
+    29
+  ],
+  "budgets": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "maxPrompts": 120,
+  "aucThreshold": 0.65,
+  "policy": {
+    "ensemble": 6,
+    "representativeItems": 24,
+    "shortlist": 6,
+    "responsePrior": 0.5,
+    "recognitionPrior": 0.65,
+    "recognitionPriorWeight": 4,
+    "stabilityPenalty": 0.15,
+    "stopValue": 0.0005,
+    "stopAfterRatings": 10
+  },
+  "recognition": "One deterministic Bernoulli draw per viewer, item, and session, shared across arms. The policy estimates recognition from observed ratings and skips only. Recorded training titles are all recognized; hard-v1 uses 0.65. No hidden rating can filter a question pool.",
+  "questionPool": "Only the training split. All policies see the same descriptive pool. Held-out items and outcomes stay outside selection.",
+  "simulation": "Bootstrap six rating histories with replacement. Predict seven rating responses from smoothed lens neighbours. Reweight ensemble profiles for each hypothetical response; estimate pair-order disagreement over 24 farthest-first training items. Penalize flips of unanimous established pair orders after appending each hypothetical rating. Hold claims fixed during simulations; actual CLI updates reconcile claims.",
+  "bootstrap": "Average both sessions within each viewer, then bootstrap viewers 5000 times. Report recorded, new synthetic development, new synthetic sealed, and prior synthetic cohorts separately.",
+  "gates": {
+    "positiveLowerBound": 0,
+    "worstDecileMinimumDelta": 0,
+    "stopMinimumPromptSaving": 0.2,
+    "stopAucNoninferiorityMargin": 0.005,
+    "maxSingleAnswerLoss": 0.05,
+    "minimumMatchedViewerFraction": 0.9
+  },
+  "selection": "Disagreement or counterfactual must beat balanced random with positive lower AUC bounds at 20 and 40 answers AND prompts, including all-viewer terminal carry and matched-budget comparisons covering at least 90% of viewers. Evaluate counterfactual question quality with its no-stop arm; stopping separately needs 20% fewer prompts and terminal AUC noninferiority. Preserve worst-decile AUC and limit single-answer loss. Pass separately on recorded and new sealed synthetic viewers. No default change.",
+  "privacy": "Allowlist descriptive fields at the CLI catalogue boundary. Null public scores and popularity, omit utilities, contexts, recognition, latent preferences, and other-user data. Score with qualityWeight=0 and popularityBias=0.",
+  "geometry": "Current greedy geometry; experiments 1 and 2 rejected their candidates.",
+  "limits": [
+    "Recorded cohorts and hard-v2 were evaluated before; they are regressions.",
+    "New sealed viewers confirm synthetic behavior only; no independent human cohort.",
+    "Recorded data cannot measure recognition realistically because only already-rated titles have known answers.",
+    "Bootstrap uncertainty and predicted question value are proxies, not calibrated preference probabilities.",
+    "Counterfactual simulation conditions a finite ensemble rather than refitting every posterior profile; it holds claims fixed.",
+    "Context fields do not affect answers; this protocol uses solo preferences.",
+    "Ranking over fixed held-out items does not test catalogue retrieval."
+  ],
+  "modelFingerprint": "9dd026a50f574428a4f947a91f32368646a065e9baffa0758d0d69e96c0c3f8e",
+  "evaluatorFingerprint": "a8535a392707e4a940b2742971c79fb7362965e40a12a6cb70902d8484f6ffc4"
+}

@@ -1,0 +1,9 @@
+{
+  "surface": "Desktop taste model and evidence inspector",
+  "viewport": {"width": 1440, "height": 1000},
+  "automatedChecks": ["No confidence percentages", "Feedback origin visible", "Supporting and contrary evidence visible", "No horizontal overflow", "No clipped cards or inspector"],
+  "reviewedArtifacts": ["desktop.png", "cards.png", "inspector.png"],
+  "initialFindings": [{"severity": "minor", "issue": "Singular counterexample used plural wording", "resolved": true}],
+  "remainingFindings": [],
+  "recheck": "Evidence test and existing visual review pass after wording correction."
+}

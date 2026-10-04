@@ -1,0 +1,41 @@
+import { expect, test } from 'vitest';
+import { mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { AXIS_KEYS, LENS45_MODES, type FeatureVector, type TmdbItem } from '@dossier/domain';
+import { execute } from '../actions.js';
+import type { CliStorage, Vault } from '../storage.js';
+test('experiment 4.5 controls share evidence, preserve defaults, and survive encrypted export',async()=>{
+ const items:TmdbItem[]=Array.from({length:30},(_,i)=>({id:i+1,medium:'movie',title:`Item ${i}`,year:2020,posterPath:null,overview:'',genreIds:[],genres:['Drama'],keywords:i%2?[]:['regional-setting'],voteAverage:i%2?10:0,voteCount:0,popularity:i*200,runtime:null,collection:null,directorIds:[],creatorIds:[],features:Object.fromEntries(AXIS_KEYS.map(a=>[a,i%2?-.6:.7])) as FeatureVector}));
+ let vault:Vault={activeId:null,profiles:[]};
+ const storage={root:'/lens45-test',load:()=>vault,save:(next:Vault)=>{vault=next;},audit:()=>{}} as unknown as CliStorage;
+ const catalogue={detail:async(_m:unknown,id:number)=>items[id-1]!,candidates:async()=>items};
+ const call=(name:string,args:Record<string,unknown>={})=>execute(storage,name,args,catalogue) as Promise<any>;
+ const write=async(name:string,args:Record<string,unknown>)=>call(name,{...args,expectedRevision:(await call('profile.show')).revision});
+ await call('profile.create',{name:'Experiment45'});
+ for(let id=1;id<=8;id++)await write('rate.set',{key:`movie:${id}`,value:id%2?1:-1});
+ const baseline=await call('suggest.list',{limit:20}),claims=structuredClone(vault.profiles[0]!.state.tasteClaims);
+ const q=(await call('lens45.queue',{limit:100})).items.find((q:any)=>q.choices[0].conditions.length===1&&q.choices[0].conditions[0].kind==='tag');
+ await expect(call('lens45.answer',{id:q.id,answer:'confirm',expectedRevision:0})).rejects.toMatchObject({code:'STALE_REVISION'});
+ await expect(write('lens45.answer',{id:q.id,answer:'invented'})).rejects.toMatchObject({code:'INVALID_ARGUMENT'});
+ await write('lens45.answer',{id:q.id,answer:'confirm'});
+ expect((await call('lens45.queue')).items).toEqual([]);
+ const modes=Object.fromEntries(await Promise.all(LENS45_MODES.map(async mode=>[mode,await call('suggest.list',{limit:20,experiment45:mode})])));
+ expect(modes.broad_shared.items.map(r=>[r.id,r.score])).toEqual(modes.broad_claims_equal_strength.items.map(r=>[r.id,r.score]));
+ expect(await call('suggest.list',{limit:20})).toEqual(baseline);
+ expect(vault.profiles[0]!.state.tasteClaims).toEqual(claims);
+ const original=(await call('lens45.inspect')).lens,feature=original.features[0];
+ await write('lens45.correct',{id:feature.id,effect:'negative'});
+ expect((await call('lens45.inspect')).lens.features[0].effect).toBe(-1);
+ const corrected=await call('suggest.list',{experiment45:'broad_personal',limit:20});
+ const temp=mkdtempSync(join(tmpdir(),'lens45-'));
+ try {
+  const path=join(temp,'export.dossier');await call('library.export',{path,passphrase:'test-passphrase'});
+  await call('profile.import',{path,passphrase:'test-passphrase',name:'Imported45'});
+  expect(await call('suggest.list',{experiment45:'broad_personal',limit:20})).toEqual(corrected);
+ }finally{rmSync(temp,{recursive:true,force:true});}
+ await write('lens45.remove',{id:feature.id});expect((await call('lens45.inspect')).lens.features).toEqual([]);
+ await write('profile.reset',{yes:true});expect((await call('lens45.inspect')).lens.answered).toEqual([]);
+ await expect(call('suggest.list',{experiment45:'typo'})).rejects.toMatchObject({code:'INVALID_ARGUMENT'});
+ await expect(call('suggest.list',{experiment45:'broad_personal',personalLens:'personal'})).rejects.toMatchObject({code:'INVALID_ARGUMENT'});
+});

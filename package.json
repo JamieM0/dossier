@@ -25,6 +25,16 @@
     "lab:tmdb": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/tmdb-regression.mjs",
     "lab:confirm": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/confirmation-suite.mjs",
     "lab:override": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/override-suite.mjs",
-    "lab:geometry": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/geometry-suite.mjs"
+    "lab:geometry": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/geometry-suite.mjs",
+    "lab:refine-signal": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/refine-suite.mjs",
+    "lab:refine-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/refine-regressions.mjs",
+    "lab:question-policy": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/question-policy-suite.mjs",
+    "lab:question-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/question-policy-regressions.mjs",
+    "lab:personal-lens": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/personal-lens-suite.mjs",
+    "lab:personal-lens-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/personal-lens-regressions.mjs",
+    "lab:personal-lens-45": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/personal-lens-45-suite.mjs",
+    "lab:personal-lens-45-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/personal-lens-45-regressions.mjs",
+    "lab:contexts": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/contexts-suite.mjs",
+    "lab:contexts-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/contexts-regressions.mjs"
   }
 }

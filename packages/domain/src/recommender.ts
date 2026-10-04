@@ -35,6 +35,8 @@ import type { TmdbItem } from "./tmdb/types.js";
 import { buildTasteSpace, cosineSimilarity, DEFAULT_TASTE_CLUSTER_MERGE_THRESHOLD, type TasteCluster, type TasteClusterStrategy } from "./taste-space.js";
 import { tasteClaimScoreAdjustment } from "./taste-claims.js";
 import type { TasteClaim } from "./store/model.js";
+import type { PairwiseChoice } from "./store/model.js";
+import { learnRefineMetric, type RefineMetricMode } from "./refine-metric.js";
 
 /** The minimum an item needs to be scored: a lens vector and a quality
  * signal. Both TmdbItem and the stored RatedItem snapshot satisfy it.
@@ -233,6 +235,9 @@ export type Recommendation = { item: TmdbItem; score: number };
 export type RecommendationExperimentOptions = {
   /** Experiment-only cluster strategy. Omit this option in product code. */
   clusterStrategy?: TasteClusterStrategy;
+  refineMetric?: RefineMetricMode;
+  pairwise?: readonly PairwiseChoice[];
+  referenceTime?: number;
 };
 
 /** How far the Exploration/Serendipity dial can jitter a score — large
@@ -261,12 +266,22 @@ export function scoreCandidates(
   const tasteSpace = buildTasteSpace(entries, {
     clusterMergeThreshold: params.clusterMergeThreshold,
     ratingRecencyStrength: params.ratingRecencyStrength,
-    referenceTime: Date.now(),
+    referenceTime: experiment.referenceTime ?? Date.now(),
     ...(experiment.clusterStrategy == null ? {} : { clusterStrategy: experiment.clusterStrategy })
   });
-  const likedClusters = tasteSpace.clusters.filter((cluster) => cluster.polarity === "liked");
+  let likedClusters = tasteSpace.clusters.filter((cluster) => cluster.polarity === "liked");
   if (likedClusters.length === 0) return [];
-  const dislikedClusters = tasteSpace.clusters.filter((cluster) => cluster.polarity === "disliked");
+  let dislikedClusters = tasteSpace.clusters.filter((cluster) => cluster.polarity === "disliked");
+  if (experiment.refineMetric) {
+    const metric = learnRefineMetric(entries, experiment.pairwise ?? [], tasteSpace.clusters,
+      experiment.refineMetric, params.topKClusters, params.dislikePenalty);
+    params = { ...params, axisWeights: Object.fromEntries(AXIS_KEYS.map(axis =>
+      [axis, (params.axisWeights[axis] ?? 1) * metric.axisWeights[axis]])) };
+    const reweight = (cluster: TasteCluster): TasteCluster => ({ ...cluster,
+      confidence: cluster.confidence * (metric.clusterWeights[cluster.id] ?? 1) });
+    likedClusters = likedClusters.map(reweight);
+    dislikedClusters = dislikedClusters.map(reweight);
+  }
 
   const scored: Recommendation[] = [];
   for (const item of candidates) {

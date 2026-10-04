@@ -33,5 +33,9 @@ export function parse(argv: string[]): { action: string; args: Args; flags: Set<
     else if (keys[i]) args[keys[i]!] = values[i];
     else throw new Error(`Unexpected argument ${values[i]}`);
   }
+  if (action === "context.rate") {
+    if (args.value !== undefined) args.value = Number(args.value);
+    if (args.observedAt !== undefined) args.observedAt = Number(args.observedAt);
+  }
   return { action, args, flags };
 }

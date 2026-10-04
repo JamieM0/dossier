@@ -1,8 +1,8 @@
 export type ActionSpec = { name: string; args: string[]; schema: { type: "object"; properties: Record<string, { type: string }>; required: string[] }; safety: "read" | "write" | "destructive"; output: string; description: string };
 const argumentTypes: Record<string, string> = {
-  expectedRevision: "integer", limit: "integer", size: "integer", value: "number|string|object", yes: "boolean", dryRun: "boolean", keys: "string[]", filters: "object", dials: "object", conditions: "object[]"
+  observedAt: "integer", expectedRevision: "integer", limit: "integer", size: "integer", value: "number|string|object", yes: "boolean", dryRun: "boolean", questionSeed: "integer", questionStop: "boolean", keys: "string[]", filters: "object", dials: "object", conditions: "object[]"
 };
-const optionalArguments = new Set(["limit", "cursor", "mode", "medium", "focus", "size", "filter", "dials", "filters", "dryRun", "fields", "effect", "conditions", "yes"]);
+const optionalArguments = new Set(["limit", "cursor", "mode", "medium", "focus", "size", "filter", "dials", "filters", "dryRun", "fields", "effect", "conditions", "yes", "geometry", "refineMetric", "questionPolicy", "questionSeed", "questionStop", "personalLens", "experiment45", "arm", "context", "observedAt"]);
 export const registry: ActionSpec[] = [
   ["profile.create", ["name"], "write", "profile", "Create a CLI profile"],
   ["profile.list", [], "read", "items,activeId", "List CLI profiles"],
@@ -16,7 +16,7 @@ export const registry: ActionSpec[] = [
   ["profile.export", ["profile", "path", "passphrase"], "read", "file", "Export a CLI profile"],
   ["profile.import", ["path", "passphrase", "name", "dryRun"], "write", "profile", "Import into a new CLI profile"],
   ["profile.reset", ["expectedRevision", "yes", "dryRun"], "destructive", "revision", "Reset active profile preferences"],
-  ["rate.queue", ["mode", "medium", "limit", "cursor", "focus"], "read", "items,next", "Get a rating queue"],
+  ["rate.queue", ["mode", "medium", "limit", "cursor", "focus", "questionPolicy", "questionSeed", "questionStop"], "read", "items,next", "Get a rating queue"],
   ["rate.set", ["key", "value", "expectedRevision"], "write", "item,revision", "Rate or watchlist an item"],
   ["rate.clear", ["key", "expectedRevision"], "write", "key,revision", "Clear a rating"],
   ["rate.skip", ["key", "expectedRevision"], "write", "key,revision", "Skip an item"],
@@ -24,8 +24,25 @@ export const registry: ActionSpec[] = [
   ["refine.choose", ["winner", "loser", "expectedRevision"], "write", "revision", "Record a pairwise choice"],
   ["refine.correct", ["winner", "loser", "expectedRevision"], "write", "revision", "Correct a pairwise choice"],
   ["refine.rank", ["keys", "expectedRevision"], "write", "revision", "Record a ranking"],
-  ["suggest.list", ["medium", "limit", "cursor", "filters", "dials"], "read", "items,next", "Get recommendations"],
-  ["suggest.explain", ["key"], "read", "score,evidence", "Explain a recommendation"],
+  ["suggest.list", ["medium", "limit", "cursor", "filters", "dials", "geometry", "refineMetric", "personalLens", "experiment45"], "read", "items,next", "Get recommendations"],
+  ["suggest.explain", ["key", "personalLens"], "read", "score,evidence", "Explain a recommendation"],
+  ["context.create", ["context", "name", "expectedRevision"], "write", "contexts,revision", "Create an experimental context"],
+  ["context.rename", ["context", "name", "expectedRevision"], "write", "contexts,revision", "Rename an experimental context"],
+  ["context.remove", ["context", "expectedRevision"], "write", "contexts,revision", "Remove an experimental context"],
+  ["context.rate", ["context", "key", "value", "observedAt", "expectedRevision"], "write", "revision", "Rate in an experimental context"],
+  ["context.clear", ["context", "key", "expectedRevision"], "write", "revision", "Clear an experimental context rating"],
+  ["context.inspect", [], "read", "contexts,claims", "Inspect scoped ratings and claims"],
+  ["context.suggest", ["context", "arm", "medium", "limit", "cursor"], "read", "items,next,available", "Get experimental context recommendations"],
+  ["lens45.queue", ["limit", "cursor"], "read", "items,next", "Get experiment 4.5 pattern questions"],
+  ["lens45.inspect", [], "read", "lens", "Inspect experiment 4.5 feedback"],
+  ["lens45.answer", ["id", "answer", "expectedRevision"], "write", "lens,revision", "Confirm, reject, or mark an unknown factor"],
+  ["lens45.correct", ["id", "effect", "expectedRevision"], "write", "lens,revision", "Correct experiment 4.5 feedback"],
+  ["lens45.remove", ["id", "expectedRevision"], "write", "lens,revision", "Remove experiment 4.5 feedback"],
+  ["lens.queue", ["limit", "cursor"], "read", "items,next", "Get experimental personal distinctions"],
+  ["lens.inspect", [], "read", "lens", "Inspect the experimental personal lens"],
+  ["lens.answer", ["id", "choice", "expectedRevision"], "write", "lens,revision", "Confirm a distinction or record none"],
+  ["lens.correct", ["id", "effect", "expectedRevision"], "write", "lens,revision", "Correct an experimental personal distinction"],
+  ["lens.remove", ["id", "expectedRevision"], "write", "lens,revision", "Remove an experimental personal distinction"],
   ["taste.areas", [], "read", "areas", "Inspect taste areas"],
   ["taste.claims", ["limit", "cursor"], "read", "items,next", "List taste claims"],
   ["taste.claim.inspect", ["id"], "read", "claim", "Inspect claim evidence"],
@@ -57,7 +74,7 @@ export const registry: ActionSpec[] = [
   const argumentsList = args as string[];
   return {
     name: name as string, args: argumentsList,
-    schema: { type: "object" as const, properties: Object.fromEntries(argumentsList.map((argument) => [argument, { type: argumentTypes[argument] ?? "string" }])), required: argumentsList.filter((argument) => !optionalArguments.has(argument) && !(argument === "profile" && name === "profile.inspect") && !(argument === "key" && name === "settings.get") && !(argument === "query" && name === "library.list")) },
+    schema: { type: "object" as const, properties: Object.fromEntries(argumentsList.map((argument) => [argument, { type: argumentTypes[argument] ?? "string" }])), required: argumentsList.filter((argument) => (!optionalArguments.has(argument) || argument === "context" && ["context.create", "context.rename", "context.remove", "context.rate", "context.clear"].includes(String(name))) && !(argument === "profile" && name === "profile.inspect") && !(argument === "key" && name === "settings.get") && !(argument === "query" && name === "library.list")) },
     safety: safety as ActionSpec["safety"], output: output as string, description: description as string
   };
 });

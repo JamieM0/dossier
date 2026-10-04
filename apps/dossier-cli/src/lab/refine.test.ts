@@ -1,0 +1,30 @@
+import { expect, test } from 'vitest';
+import { AXIS_KEYS, type FeatureVector, type TmdbItem, registry } from '@dossier/domain';
+import { execute } from '../actions.js';
+import type { CliStorage, Vault } from '../storage.js';
+
+test('Refine experimental scoring uses CLI choices, corrections, and pagination without changing defaults',async()=>{
+ const features=(x:number,y:number)=>Object.fromEntries(AXIS_KEYS.map(axis=>[axis,axis==='pacing'?x:axis==='tone'?y:0])) as FeatureVector;
+ const items:TmdbItem[]=Array.from({length:30},(_,i)=>({id:i+1,medium:'movie',title:`Test ${i}`,year:null,posterPath:null,overview:'',genreIds:[],genres:[],keywords:[],voteAverage:null,voteCount:0,popularity:0,runtime:null,collection:null,directorIds:[],creatorIds:[],features:features(1-i/30,.1+i/30)}));
+ let vault:Vault={activeId:null,profiles:[]};
+ const storage={root:'/refine-cli-test',load:()=>vault,save:(next:Vault)=>{vault=next;},audit:()=>{}} as unknown as CliStorage;
+ const catalogue={detail:async(_medium:unknown,id:number)=>items[id-1]!,candidates:async()=>items};
+ const call=(name:string,args:Record<string,unknown>={})=>execute(storage,name,args,catalogue) as Promise<any>;
+ let revision=(await call('profile.create',{name:'Refine test'})).revision;
+ for(let i=1;i<=4;i++)revision=(await call('rate.set',{key:`movie:${i}`,value:3,expectedRevision:revision})).revision;
+ const args={dials:{qualityWeight:0},limit:20};
+ const before=await call('suggest.list',args);
+ for(const [winner,loser] of [[1,4],[2,3],[1,3]])revision=(await call('refine.choose',{winner:`movie:${winner}`,loser:`movie:${loser}`,expectedRevision:revision})).revision;
+ expect(await call('suggest.list',args)).toEqual(before);
+ const candidate=await call('suggest.list',{...args,refineMetric:'axis_metric'});
+ expect(candidate.items).not.toEqual(before.items);
+ const next=await call('suggest.list',{...args,refineMetric:'axis_metric',cursor:candidate.next});
+ expect([...candidate.items,...next.items]).toHaveLength(26);
+ expect(new Set([...candidate.items,...next.items].map(row=>row.id)).size).toBe(26);
+ revision=(await call('refine.correct',{winner:'movie:4',loser:'movie:1',expectedRevision:revision})).revision;
+ expect(vault.profiles[0]!.state.pairwise).toHaveLength(3);
+ expect((await call('suggest.list',{...args,refineMetric:'axis_metric'})).items).not.toEqual(candidate.items);
+ expect(await call('suggest.list',args)).toEqual(before);
+ await expect(call('suggest.list',{refineMetric:'typo'})).rejects.toMatchObject({code:'INVALID_ARGUMENT'});
+ expect(registry.find(action=>action.name==='suggest.list')!.schema.required).not.toContain('refineMetric');
+});

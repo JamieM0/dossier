@@ -1,0 +1,87 @@
+{
+  "version": "refine-signal-v1",
+  "hypothesis": "Within-bucket pairwise choices add useful information and improve user control.",
+  "fixtures": {
+    "original": {
+      "path": "apps/dossier-cli/src/lab/real-tmdb-v1.json",
+      "sha256": "8d9c1e10bcd3c7841cefe68e25d90355e02a2cf3bb8cf6b6a5c777c7298c3bdc"
+    },
+    "confirmation": {
+      "path": "apps/dossier-cli/src/lab/new-viewers-v1.json",
+      "sha256": "7ef2d024fc4c51c34ff87a2ec0741819eaf6477196d4c9a16a1a92463ba22e04"
+    },
+    "override": {
+      "path": "apps/dossier-cli/src/lab/override-viewers-v1.json",
+      "sha256": "786ad5296cb74a0095722521e8592a72f8b2b86dc83c92dbeb4d407cda57f7ec"
+    },
+    "hard": {
+      "path": "apps/dossier-cli/src/lab/hard-v1.json",
+      "sha256": "8707494b1b553f8762c316a9df48c37eefabe8b5ef1ea64a50c25e1f56d7c835"
+    },
+    "synthetic": {
+      "path": "apps/dossier-cli/src/lab/hard-v2-refine.json",
+      "sha256": "3d9e4b12a83cdad719228a2eb7170e86c5b86a4891445199d5ce8fd9d79aaf66"
+    }
+  },
+  "generatorHash": "28351cad849bf946435ae6f1f151fe04fd3689850ed98d58e03a24f0bdfd2ade",
+  "arms": [
+    "ratings_only",
+    "stored_noop",
+    "axis_metric",
+    "axis_cluster_metric"
+  ],
+  "seeds": [
+    11,
+    29,
+    47,
+    83
+  ],
+  "ratings": 20,
+  "ratingControl": 30,
+  "comparisons": [
+    0,
+    3,
+    10,
+    20
+  ],
+  "primaryComparisons": 10,
+  "selection": "A candidate must pass every gate on recorded viewers and independently on sealed synthetic viewers; choose the largest recorded mean gain.",
+  "learning": {
+    "iterations": 80,
+    "step": 0.12,
+    "temperature": 0.1,
+    "axisRegularisation": 0.15,
+    "clusterRegularisation": 0.3,
+    "minComparisons": 3,
+    "minDistinctItems": 4,
+    "axisBounds": [
+      0.25,
+      4
+    ],
+    "clusterBounds": [
+      0.5,
+      2
+    ]
+  },
+  "pairPolicy": "Only non-neutral items in exactly the same stored rating bucket. Sort by increasing lens cosine, then stable item keys. Evaluator ties abstain; no oracle filtering before prompting. Exhaust available pairs to meet answer budget.",
+  "correction": "Reverse the tenth answered comparison with refine.correct; compare the corrected pair through suggest.list in an isolated replay. Measure score direction, strict ordering reversal, and collateral movement.",
+  "bootstrap": "Average four sessions within each viewer, then bootstrap viewers 5000 times. Report cohorts separately; synthetic and recorded viewers are never pooled.",
+  "gates": {
+    "minimumGain": 0.02,
+    "positiveLowerBound": 0,
+    "worstDecileMinimumDelta": -0.01,
+    "noiseWorstDecileMinimumDelta": -0.01,
+    "correctionReversalRate": 1,
+    "equalBudget": "Positive lower AUC or nDCG10 bound against 30 ratings at ten answered comparisons."
+  },
+  "privacy": "Remove public-score fields and evaluator truth before the CLI boundary. All arms use qualityWeight=0 and popularityBias=0. Candidate fit reads only features, ratings, stored comparisons, and taste clusters.",
+  "geometry": "Current greedy geometry. Experiment 1 rejected both deterministic candidates.",
+  "limits": [
+    "Recorded cohorts were evaluated before; they are regressions, not independent confirmation.",
+    "Recorded within-bucket stars differ only in extreme rating buckets; ties count as unanswered prompts.",
+    "hard-v1 contains no continuous truth: all within-bucket pairs abstain.",
+    "New synthetic sealed viewers provide independent synthetic confirmation only.",
+    "Ranking tests do not test retrieval.",
+    "Claims remain unchanged; metric confidence is not a calibrated probability."
+  ]
+}

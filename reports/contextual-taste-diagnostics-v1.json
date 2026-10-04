@@ -1,0 +1,2772 @@
+{
+  "version": "contextual-taste-diagnostics-v1",
+  "sourceHash": "111bd27d2b57ebeb8015cd7e03f7f386382fb8a7a49e931a1ba3ac025ed88ca9",
+  "scriptHash": "3d201d97181f31473d4d08762622f5486e11c7b9689b296d4231129ad20c2b8e",
+  "limitation": "Exploratory overwrite-baseline audit. Frozen global and recency arms retain repeated observations; the current library overwrites the same item. This audit does not change candidates, gates, or decisions.",
+  "cohorts": {
+    "synthetic_movies_development": {
+      "viewers": 24,
+      "overwriteGlobal": {
+        "mean": 0.7664,
+        "median": 0.6895,
+        "p10": 0.5061,
+        "p90": 0.9984,
+        "sd": 0.2143
+      },
+      "overwriteRecency": {
+        "mean": 0.7569,
+        "median": 0.6618,
+        "p10": 0.5035,
+        "p90": 0.9966,
+        "sd": 0.2141
+      },
+      "sharedGainOverOverwrite": {
+        "mean": -0.0163,
+        "lower": -0.0816,
+        "upper": 0.0488,
+        "viewers": 24
+      },
+      "sharedGainOverOverwriteRecency": {
+        "mean": -0.0068,
+        "lower": -0.0766,
+        "upper": 0.0595,
+        "viewers": 24
+      },
+      "pooledMinusOverwrite": {
+        "mean": 0.0057,
+        "lower": 0.0008,
+        "upper": 0.0117,
+        "viewers": 24
+      },
+      "duplicateObservations": 13.375
+    },
+    "synthetic_movies_sealed": {
+      "viewers": 24,
+      "overwriteGlobal": {
+        "mean": 0.7622,
+        "median": 0.6921,
+        "p10": 0.5108,
+        "p90": 0.9998,
+        "sd": 0.2032
+      },
+      "overwriteRecency": {
+        "mean": 0.7626,
+        "median": 0.6694,
+        "p10": 0.512,
+        "p90": 0.9978,
+        "sd": 0.2096
+      },
+      "sharedGainOverOverwrite": {
+        "mean": -0.0231,
+        "lower": -0.0856,
+        "upper": 0.0292,
+        "viewers": 24
+      },
+      "sharedGainOverOverwriteRecency": {
+        "mean": -0.0235,
+        "lower": -0.1038,
+        "upper": 0.0402,
+        "viewers": 24
+      },
+      "pooledMinusOverwrite": {
+        "mean": 0.0048,
+        "lower": 0.0015,
+        "upper": 0.0089,
+        "viewers": 24
+      },
+      "duplicateObservations": 12.666666666666666
+    },
+    "synthetic_books_development": {
+      "viewers": 24,
+      "overwriteGlobal": {
+        "mean": 0.7076,
+        "median": 0.6431,
+        "p10": 0.518,
+        "p90": 0.942,
+        "sd": 0.1536
+      },
+      "overwriteRecency": {
+        "mean": 0.6904,
+        "median": 0.6128,
+        "p10": 0.5178,
+        "p90": 0.9072,
+        "sd": 0.1587
+      },
+      "sharedGainOverOverwrite": {
+        "mean": 0.1063,
+        "lower": 0.0631,
+        "upper": 0.154,
+        "viewers": 24
+      },
+      "sharedGainOverOverwriteRecency": {
+        "mean": 0.1235,
+        "lower": 0.0761,
+        "upper": 0.1738,
+        "viewers": 24
+      },
+      "pooledMinusOverwrite": {
+        "mean": 0.0048,
+        "lower": 0.0004,
+        "upper": 0.0092,
+        "viewers": 24
+      },
+      "duplicateObservations": 13.375
+    },
+    "synthetic_books_sealed": {
+      "viewers": 24,
+      "overwriteGlobal": {
+        "mean": 0.7157,
+        "median": 0.674,
+        "p10": 0.5161,
+        "p90": 0.9353,
+        "sd": 0.1494
+      },
+      "overwriteRecency": {
+        "mean": 0.697,
+        "median": 0.6446,
+        "p10": 0.5146,
+        "p90": 0.9018,
+        "sd": 0.1494
+      },
+      "sharedGainOverOverwrite": {
+        "mean": 0.1049,
+        "lower": 0.0662,
+        "upper": 0.1477,
+        "viewers": 24
+      },
+      "sharedGainOverOverwriteRecency": {
+        "mean": 0.1235,
+        "lower": 0.0822,
+        "upper": 0.1679,
+        "viewers": 24
+      },
+      "pooledMinusOverwrite": {
+        "mean": 0.0056,
+        "lower": 0.0024,
+        "upper": 0.0091,
+        "viewers": 24
+      },
+      "duplicateObservations": 12.666666666666666
+    }
+  },
+  "types": {
+    "axis_switch": {
+      "viewers": 16,
+      "overwriteGlobal": {
+        "mean": 0.7273,
+        "median": 0.674,
+        "p10": 0.5519,
+        "p90": 0.9684,
+        "sd": 0.148
+      },
+      "overwriteRecency": {
+        "mean": 0.7099,
+        "median": 0.6618,
+        "p10": 0.5542,
+        "p90": 0.9645,
+        "sd": 0.1511
+      },
+      "sharedGainOverOverwrite": {
+        "mean": 0.1759,
+        "lower": 0.0997,
+        "upper": 0.2508,
+        "viewers": 16
+      },
+      "sharedGainOverOverwriteRecency": {
+        "mean": 0.1933,
+        "lower": 0.1164,
+        "upper": 0.2677,
+        "viewers": 16
+      },
+      "pooledMinusOverwrite": {
+        "mean": 0.0033,
+        "lower": -0.002,
+        "upper": 0.0089,
+        "viewers": 16
+      },
+      "duplicateObservations": 14.875
+    },
+    "interaction_switch": {
+      "viewers": 16,
+      "overwriteGlobal": {
+        "mean": 0.5168,
+        "median": 0.5159,
+        "p10": 0.4984,
+        "p90": 0.5287,
+        "sd": 0.0164
+      },
+      "overwriteRecency": {
+        "mean": 0.513,
+        "median": 0.5098,
+        "p10": 0.5,
+        "p90": 0.5179,
+        "sd": 0.0158
+      },
+      "sharedGainOverOverwrite": {
+        "mean": 0.0975,
+        "lower": 0.0709,
+        "upper": 0.1215,
+        "viewers": 16
+      },
+      "sharedGainOverOverwriteRecency": {
+        "mean": 0.1013,
+        "lower": 0.0743,
+        "upper": 0.1258,
+        "viewers": 16
+      },
+      "pooledMinusOverwrite": {
+        "mean": 0.0002,
+        "lower": -0.0011,
+        "upper": 0.0015,
+        "viewers": 16
+      },
+      "duplicateObservations": 13.5
+    },
+    "stable": {
+      "viewers": 16,
+      "overwriteGlobal": {
+        "mean": 0.9796,
+        "median": 0.9775,
+        "p10": 0.942,
+        "p90": 1,
+        "sd": 0.0237
+      },
+      "overwriteRecency": {
+        "mean": 0.9504,
+        "median": 0.9531,
+        "p10": 0.8461,
+        "p90": 1,
+        "sd": 0.0552
+      },
+      "sharedGainOverOverwrite": {
+        "mean": 0.0096,
+        "lower": 0.0018,
+        "upper": 0.0196,
+        "viewers": 16
+      },
+      "sharedGainOverOverwriteRecency": {
+        "mean": 0.0388,
+        "lower": 0.0178,
+        "upper": 0.0624,
+        "viewers": 16
+      },
+      "pooledMinusOverwrite": {
+        "mean": 0.0031,
+        "lower": -0.0002,
+        "upper": 0.0068,
+        "viewers": 16
+      },
+      "duplicateObservations": 15.25
+    },
+    "drift": {
+      "viewers": 16,
+      "overwriteGlobal": {
+        "mean": 0.9002,
+        "median": 0.9037,
+        "p10": 0.7926,
+        "p90": 0.9863,
+        "sd": 0.0762
+      },
+      "overwriteRecency": {
+        "mean": 0.9374,
+        "median": 0.9476,
+        "p10": 0.8683,
+        "p90": 0.9966,
+        "sd": 0.0498
+      },
+      "sharedGainOverOverwrite": {
+        "mean": -0.1251,
+        "lower": -0.2254,
+        "upper": -0.0351,
+        "viewers": 16
+      },
+      "sharedGainOverOverwriteRecency": {
+        "mean": -0.1623,
+        "lower": -0.2728,
+        "upper": -0.0653,
+        "viewers": 16
+      },
+      "pooledMinusOverwrite": {
+        "mean": 0.0145,
+        "lower": 0.0074,
+        "upper": 0.0226,
+        "viewers": 16
+      },
+      "duplicateObservations": 16
+    },
+    "sparse": {
+      "viewers": 16,
+      "overwriteGlobal": {
+        "mean": 0.7015,
+        "median": 0.6552,
+        "p10": 0.5381,
+        "p90": 0.9365,
+        "sd": 0.1439
+      },
+      "overwriteRecency": {
+        "mean": 0.6654,
+        "median": 0.6083,
+        "p10": 0.5285,
+        "p90": 0.8568,
+        "sd": 0.1341
+      },
+      "sharedGainOverOverwrite": {
+        "mean": 0.0906,
+        "lower": 0.0423,
+        "upper": 0.1338,
+        "viewers": 16
+      },
+      "sharedGainOverOverwriteRecency": {
+        "mean": 0.1268,
+        "lower": 0.0791,
+        "upper": 0.1714,
+        "viewers": 16
+      },
+      "pooledMinusOverwrite": {
+        "mean": 0.0023,
+        "lower": -0.001,
+        "upper": 0.0052,
+        "viewers": 16
+      },
+      "duplicateObservations": 3.25
+    },
+    "hidden_switch": {
+      "viewers": 16,
+      "overwriteGlobal": {
+        "mean": 0.6025,
+        "median": 0.6015,
+        "p10": 0.5437,
+        "p90": 0.6375,
+        "sd": 0.0362
+      },
+      "overwriteRecency": {
+        "mean": 0.5842,
+        "median": 0.5909,
+        "p10": 0.529,
+        "p90": 0.616,
+        "sd": 0.0383
+      },
+      "sharedGainOverOverwrite": {
+        "mean": 0.0092,
+        "lower": -0.0026,
+        "upper": 0.0206,
+        "viewers": 16
+      },
+      "sharedGainOverOverwriteRecency": {
+        "mean": 0.0275,
+        "lower": 0.0116,
+        "upper": 0.0439,
+        "viewers": 16
+      },
+      "pooledMinusOverwrite": {
+        "mean": 0.0081,
+        "lower": 0.0036,
+        "upper": 0.0125,
+        "viewers": 16
+      },
+      "duplicateObservations": 15.25
+    }
+  },
+  "viewerResults": [
+    {
+      "viewer": "contexts-movies-1",
+      "cohort": "synthetic_movies_development",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.69645,
+          "overwriteRecency": 0.6679250000000001,
+          "shared": 0.7175,
+          "pooledGlobal": 0.7167000000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.68265,
+          "overwriteRecency": 0.65565,
+          "shared": 0.6734249999999999,
+          "pooledGlobal": 0.709625
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-2",
+      "cohort": "synthetic_movies_development",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.51675,
+          "overwriteRecency": 0.5162,
+          "shared": 0.539725,
+          "pooledGlobal": 0.51615
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.51885,
+          "overwriteRecency": 0.5129,
+          "shared": 0.5365,
+          "pooledGlobal": 0.5178499999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-3",
+      "cohort": "synthetic_movies_development",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 81,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 1,
+          "shared": 1,
+          "pooledGlobal": 1
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 81,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 1,
+          "shared": 1,
+          "pooledGlobal": 1
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-4",
+      "cohort": "synthetic_movies_development",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 77,
+          "overwriteGlobal": 0.9268749999999999,
+          "overwriteRecency": 0.9894000000000001,
+          "shared": 0.46005,
+          "pooledGlobal": 0.9858750000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 77,
+          "overwriteGlobal": 0.9497,
+          "overwriteRecency": 0.9697,
+          "shared": 0.44870000000000004,
+          "pooledGlobal": 0.994625
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-5",
+      "cohort": "synthetic_movies_development",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 50,
+          "overwriteGlobal": 0.601475,
+          "overwriteRecency": 0.5374,
+          "shared": 0.787675,
+          "pooledGlobal": 0.603325
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 50,
+          "overwriteGlobal": 0.596575,
+          "overwriteRecency": 0.5367750000000001,
+          "shared": 0.787675,
+          "pooledGlobal": 0.603325
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-6",
+      "cohort": "synthetic_movies_development",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.6029249999999999,
+          "overwriteRecency": 0.597925,
+          "shared": 0.6305499999999999,
+          "pooledGlobal": 0.6171500000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.595925,
+          "overwriteRecency": 0.603575,
+          "shared": 0.6312,
+          "pooledGlobal": 0.61745
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-7",
+      "cohort": "synthetic_movies_development",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.98585,
+          "overwriteRecency": 0.9653,
+          "shared": 0.97165,
+          "pooledGlobal": 0.985725
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.985525,
+          "overwriteRecency": 0.9687499999999999,
+          "shared": 0.9724,
+          "pooledGlobal": 0.985725
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-8",
+      "cohort": "synthetic_movies_development",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.49745000000000006,
+          "overwriteRecency": 0.49192500000000006,
+          "shared": 0.5749250000000001,
+          "pooledGlobal": 0.49745
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.4994,
+          "overwriteRecency": 0.49455,
+          "shared": 0.5547249999999999,
+          "pooledGlobal": 0.49615000000000004
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-9",
+      "cohort": "synthetic_movies_development",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.997925,
+          "overwriteRecency": 0.9897,
+          "shared": 0.99225,
+          "pooledGlobal": 0.9985999999999999
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.997925,
+          "overwriteRecency": 0.981725,
+          "shared": 0.99225,
+          "pooledGlobal": 0.9985999999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-10",
+      "cohort": "synthetic_movies_development",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.998425,
+          "overwriteRecency": 0.996625,
+          "shared": 0.9666250000000001,
+          "pooledGlobal": 0.998425
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.998425,
+          "overwriteRecency": 0.996625,
+          "shared": 0.9857,
+          "pooledGlobal": 0.998425
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-11",
+      "cohort": "synthetic_movies_development",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.95095,
+          "overwriteRecency": 0.8620000000000001,
+          "shared": 0.8140499999999999,
+          "pooledGlobal": 0.943775
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.95095,
+          "overwriteRecency": 0.8516250000000001,
+          "shared": 0.8140499999999999,
+          "pooledGlobal": 0.943775
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-12",
+      "cohort": "synthetic_movies_development",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.5527250000000001,
+          "overwriteRecency": 0.561275,
+          "shared": 0.547275,
+          "pooledGlobal": 0.548975
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.547425,
+          "overwriteRecency": 0.553775,
+          "shared": 0.547275,
+          "pooledGlobal": 0.548975
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-13",
+      "cohort": "synthetic_movies_development",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.553275,
+          "overwriteRecency": 0.559075,
+          "shared": 0.9709750000000001,
+          "pooledGlobal": 0.550975
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.5506,
+          "overwriteRecency": 0.54935,
+          "shared": 0.9709750000000001,
+          "pooledGlobal": 0.550975
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-14",
+      "cohort": "synthetic_movies_development",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.51955,
+          "overwriteRecency": 0.51665,
+          "shared": 0.584775,
+          "pooledGlobal": 0.51815
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.5218499999999999,
+          "overwriteRecency": 0.51745,
+          "shared": 0.584775,
+          "pooledGlobal": 0.51815
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-15",
+      "cohort": "synthetic_movies_development",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 1,
+          "shared": 1,
+          "pooledGlobal": 1
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 1,
+          "shared": 1,
+          "pooledGlobal": 1
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-16",
+      "cohort": "synthetic_movies_development",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.9724999999999999,
+          "overwriteRecency": 0.949125,
+          "shared": 0.6548499999999999,
+          "pooledGlobal": 0.99805
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.99485,
+          "overwriteRecency": 0.951375,
+          "shared": 0.6548499999999999,
+          "pooledGlobal": 0.99805
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-17",
+      "cohort": "synthetic_movies_development",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 52,
+          "overwriteGlobal": 0.506075,
+          "overwriteRecency": 0.503475,
+          "shared": 0.49567500000000003,
+          "pooledGlobal": 0.506075
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 52,
+          "overwriteGlobal": 0.506075,
+          "overwriteRecency": 0.503475,
+          "shared": 0.49567500000000003,
+          "pooledGlobal": 0.506075
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-18",
+      "cohort": "synthetic_movies_development",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 80,
+          "overwriteGlobal": 0.5928,
+          "overwriteRecency": 0.593575,
+          "shared": 0.613625,
+          "pooledGlobal": 0.6003000000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 80,
+          "overwriteGlobal": 0.6023000000000001,
+          "overwriteRecency": 0.589675,
+          "shared": 0.61355,
+          "pooledGlobal": 0.6003
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-19",
+      "cohort": "synthetic_movies_development",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.9736499999999999,
+          "overwriteRecency": 0.981475,
+          "shared": 0.9594500000000001,
+          "pooledGlobal": 0.9759249999999999
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.9785999999999999,
+          "overwriteRecency": 0.973975,
+          "shared": 0.9594500000000001,
+          "pooledGlobal": 0.9759249999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-20",
+      "cohort": "synthetic_movies_development",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 89,
+          "overwriteGlobal": 0.5,
+          "overwriteRecency": 0.5,
+          "shared": 0.5642,
+          "pooledGlobal": 0.5
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 89,
+          "overwriteGlobal": 0.5,
+          "overwriteRecency": 0.5,
+          "shared": 0.5642,
+          "pooledGlobal": 0.5
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-21",
+      "cohort": "synthetic_movies_development",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 1,
+          "shared": 1,
+          "pooledGlobal": 1
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 1,
+          "shared": 1,
+          "pooledGlobal": 1
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-22",
+      "cohort": "synthetic_movies_development",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 82,
+          "overwriteGlobal": 0.9516,
+          "overwriteRecency": 0.9809,
+          "shared": 0.7362499999999998,
+          "pooledGlobal": 0.9868
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 82,
+          "overwriteGlobal": 0.9487,
+          "overwriteRecency": 0.9743,
+          "shared": 0.7076499999999999,
+          "pooledGlobal": 0.9868
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-23",
+      "cohort": "synthetic_movies_development",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 48,
+          "overwriteGlobal": 0.93855,
+          "overwriteRecency": 0.9109,
+          "shared": 0.9251499999999999,
+          "pooledGlobal": 0.93855
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 48,
+          "overwriteGlobal": 0.93725,
+          "overwriteRecency": 0.8967,
+          "shared": 0.9251499999999999,
+          "pooledGlobal": 0.93855
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-24",
+      "cohort": "synthetic_movies_development",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.541675,
+          "overwriteRecency": 0.541875,
+          "shared": 0.5394,
+          "pooledGlobal": 0.541375
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.545675,
+          "overwriteRecency": 0.5363249999999999,
+          "shared": 0.5394,
+          "pooledGlobal": 0.541375
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-25",
+      "cohort": "synthetic_movies_sealed",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.694375,
+          "overwriteRecency": 0.6785,
+          "shared": 0.693625,
+          "pooledGlobal": 0.6864
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.689825,
+          "overwriteRecency": 0.66025,
+          "shared": 0.70665,
+          "pooledGlobal": 0.6892750000000001
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-26",
+      "cohort": "synthetic_movies_sealed",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 89,
+          "overwriteGlobal": 0.5358,
+          "overwriteRecency": 0.5377000000000001,
+          "shared": 0.5244,
+          "pooledGlobal": 0.5386
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 89,
+          "overwriteGlobal": 0.5326500000000001,
+          "overwriteRecency": 0.5284,
+          "shared": 0.5244,
+          "pooledGlobal": 0.5386
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-27",
+      "cohort": "synthetic_movies_sealed",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 0.996875,
+          "shared": 1,
+          "pooledGlobal": 0.9991
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 0.99865,
+          "shared": 1,
+          "pooledGlobal": 0.9991
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-28",
+      "cohort": "synthetic_movies_sealed",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.757,
+          "overwriteRecency": 0.996475,
+          "shared": 0.31895,
+          "pooledGlobal": 0.833925
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.8310249999999999,
+          "overwriteRecency": 0.997125,
+          "shared": 0.31895,
+          "pooledGlobal": 0.833925
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-29",
+      "cohort": "synthetic_movies_sealed",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 51,
+          "overwriteGlobal": 0.53055,
+          "overwriteRecency": 0.53105,
+          "shared": 0.7530999999999999,
+          "pooledGlobal": 0.546925
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 51,
+          "overwriteGlobal": 0.5456749999999999,
+          "overwriteRecency": 0.525975,
+          "shared": 0.7530999999999999,
+          "pooledGlobal": 0.546925
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-30",
+      "cohort": "synthetic_movies_sealed",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.602975,
+          "overwriteRecency": 0.6013999999999999,
+          "shared": 0.611875,
+          "pooledGlobal": 0.61315
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.60375,
+          "overwriteRecency": 0.6088,
+          "shared": 0.611875,
+          "pooledGlobal": 0.61315
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-31",
+      "cohort": "synthetic_movies_sealed",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 81,
+          "overwriteGlobal": 0.9679499999999999,
+          "overwriteRecency": 0.9360999999999999,
+          "shared": 0.98525,
+          "pooledGlobal": 0.9651000000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 81,
+          "overwriteGlobal": 0.9688749999999999,
+          "overwriteRecency": 0.9308,
+          "shared": 0.9843999999999999,
+          "pooledGlobal": 0.9704249999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-32",
+      "cohort": "synthetic_movies_sealed",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.4978,
+          "overwriteRecency": 0.49815,
+          "shared": 0.6066499999999999,
+          "pooledGlobal": 0.5
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.4978,
+          "overwriteRecency": 0.5041,
+          "shared": 0.6018749999999999,
+          "pooledGlobal": 0.49915
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-33",
+      "cohort": "synthetic_movies_sealed",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.991825,
+          "overwriteRecency": 0.991825,
+          "shared": 0.9914999999999999,
+          "pooledGlobal": 0.991825
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.991825,
+          "overwriteRecency": 0.991825,
+          "shared": 0.9914999999999999,
+          "pooledGlobal": 0.991825
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-34",
+      "cohort": "synthetic_movies_sealed",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.999825,
+          "overwriteRecency": 0.9984,
+          "shared": 0.956225,
+          "pooledGlobal": 1
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.999825,
+          "overwriteRecency": 0.99875,
+          "shared": 0.956225,
+          "pooledGlobal": 1
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-35",
+      "cohort": "synthetic_movies_sealed",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.912275,
+          "overwriteRecency": 0.9226749999999999,
+          "shared": 0.9210499999999999,
+          "pooledGlobal": 0.92415
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.9290500000000002,
+          "overwriteRecency": 0.9232,
+          "shared": 0.9254499999999999,
+          "pooledGlobal": 0.9256749999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-36",
+      "cohort": "synthetic_movies_sealed",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.6019,
+          "overwriteRecency": 0.5624,
+          "shared": 0.5900749999999999,
+          "pooledGlobal": 0.60345
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.6011500000000001,
+          "overwriteRecency": 0.56665,
+          "shared": 0.5900749999999999,
+          "pooledGlobal": 0.60345
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-37",
+      "cohort": "synthetic_movies_sealed",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.540875,
+          "overwriteRecency": 0.525475,
+          "shared": 0.667025,
+          "pooledGlobal": 0.5440750000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.5574,
+          "overwriteRecency": 0.5399,
+          "shared": 0.667025,
+          "pooledGlobal": 0.5440750000000001
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-38",
+      "cohort": "synthetic_movies_sealed",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.51105,
+          "overwriteRecency": 0.51355,
+          "shared": 0.613275,
+          "pooledGlobal": 0.512
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.5105000000000001,
+          "overwriteRecency": 0.5105000000000001,
+          "shared": 0.613275,
+          "pooledGlobal": 0.512
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-39",
+      "cohort": "synthetic_movies_sealed",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 1,
+          "shared": 1,
+          "pooledGlobal": 1
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 1,
+          "shared": 1,
+          "pooledGlobal": 1
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-40",
+      "cohort": "synthetic_movies_sealed",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.9862500000000001,
+          "overwriteRecency": 0.9307,
+          "shared": 0.6622,
+          "pooledGlobal": 0.9904
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.9862500000000001,
+          "overwriteRecency": 0.964525,
+          "shared": 0.6622,
+          "pooledGlobal": 0.9904
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-41",
+      "cohort": "synthetic_movies_sealed",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 50,
+          "overwriteGlobal": 0.6134499999999999,
+          "overwriteRecency": 0.592775,
+          "shared": 0.6357750000000001,
+          "pooledGlobal": 0.6168499999999999
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 50,
+          "overwriteGlobal": 0.614625,
+          "overwriteRecency": 0.5977750000000001,
+          "shared": 0.6357750000000001,
+          "pooledGlobal": 0.6168499999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-42",
+      "cohort": "synthetic_movies_sealed",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.6367499999999999,
+          "overwriteRecency": 0.626125,
+          "shared": 0.622,
+          "pooledGlobal": 0.652425
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.6396499999999999,
+          "overwriteRecency": 0.64655,
+          "shared": 0.622,
+          "pooledGlobal": 0.652425
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-43",
+      "cohort": "synthetic_movies_sealed",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.9599500000000001,
+          "overwriteRecency": 0.9644999999999999,
+          "shared": 0.9261,
+          "pooledGlobal": 0.9532499999999999
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.9532499999999999,
+          "overwriteRecency": 0.9644999999999999,
+          "shared": 0.9261,
+          "pooledGlobal": 0.9532499999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-44",
+      "cohort": "synthetic_movies_sealed",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.5,
+          "overwriteRecency": 0.5,
+          "shared": 0.525675,
+          "pooledGlobal": 0.49999999999999994
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.5,
+          "overwriteRecency": 0.5,
+          "shared": 0.525675,
+          "pooledGlobal": 0.49999999999999994
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-45",
+      "cohort": "synthetic_movies_sealed",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 1,
+          "shared": 1,
+          "pooledGlobal": 1
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 1,
+          "overwriteRecency": 1,
+          "shared": 1,
+          "pooledGlobal": 1
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-46",
+      "cohort": "synthetic_movies_sealed",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.9494,
+          "overwriteRecency": 0.9956,
+          "shared": 0.6044499999999999,
+          "pooledGlobal": 0.9494
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.912,
+          "overwriteRecency": 0.9956,
+          "shared": 0.6044499999999999,
+          "pooledGlobal": 0.9494
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-47",
+      "cohort": "synthetic_movies_sealed",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.9310499999999999,
+          "overwriteRecency": 0.8371999999999999,
+          "shared": 0.963775,
+          "pooledGlobal": 0.9392
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.942,
+          "overwriteRecency": 0.8548499999999999,
+          "shared": 0.963775,
+          "pooledGlobal": 0.9392
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-movies-48",
+      "cohort": "synthetic_movies_sealed",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.52435,
+          "overwriteRecency": 0.5236500000000001,
+          "shared": 0.56035,
+          "pooledGlobal": 0.5447000000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.5352,
+          "overwriteRecency": 0.5344249999999999,
+          "shared": 0.56035,
+          "pooledGlobal": 0.5447000000000001
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-1",
+      "cohort": "synthetic_books_development",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.6380750000000001,
+          "overwriteRecency": 0.606525,
+          "shared": 0.9501750000000001,
+          "pooledGlobal": 0.6593249999999999
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.6482,
+          "overwriteRecency": 0.6191749999999999,
+          "shared": 0.9501750000000001,
+          "pooledGlobal": 0.6593249999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-2",
+      "cohort": "synthetic_books_development",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.529,
+          "overwriteRecency": 0.51705,
+          "shared": 0.6814,
+          "pooledGlobal": 0.524175
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.52845,
+          "overwriteRecency": 0.518575,
+          "shared": 0.6814,
+          "pooledGlobal": 0.524175
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-3",
+      "cohort": "synthetic_books_development",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 81,
+          "overwriteGlobal": 0.977025,
+          "overwriteRecency": 0.941675,
+          "shared": 0.98005,
+          "pooledGlobal": 0.977
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 81,
+          "overwriteGlobal": 0.977925,
+          "overwriteRecency": 0.9547749999999999,
+          "shared": 0.97745,
+          "pooledGlobal": 0.9779499999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-4",
+      "cohort": "synthetic_books_development",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 77,
+          "overwriteGlobal": 0.9037,
+          "overwriteRecency": 0.8985,
+          "shared": 0.914725,
+          "pooledGlobal": 0.8971
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 77,
+          "overwriteGlobal": 0.9037,
+          "overwriteRecency": 0.8662,
+          "shared": 0.914725,
+          "pooledGlobal": 0.8971
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-5",
+      "cohort": "synthetic_books_development",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 50,
+          "overwriteGlobal": 0.6085250000000001,
+          "overwriteRecency": 0.5857749999999999,
+          "shared": 0.7650250000000001,
+          "pooledGlobal": 0.6158
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 50,
+          "overwriteGlobal": 0.6067750000000001,
+          "overwriteRecency": 0.588925,
+          "shared": 0.7650250000000001,
+          "pooledGlobal": 0.6158
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-6",
+      "cohort": "synthetic_books_development",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.6359,
+          "overwriteRecency": 0.588875,
+          "shared": 0.6134249999999999,
+          "pooledGlobal": 0.653875
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.639,
+          "overwriteRecency": 0.59285,
+          "shared": 0.6134249999999999,
+          "pooledGlobal": 0.653875
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-7",
+      "cohort": "synthetic_books_development",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.70025,
+          "overwriteRecency": 0.6941,
+          "shared": 0.949075,
+          "pooledGlobal": 0.6783
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.693025,
+          "overwriteRecency": 0.67425,
+          "shared": 0.949075,
+          "pooledGlobal": 0.6783
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-8",
+      "cohort": "synthetic_books_development",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.5113,
+          "overwriteRecency": 0.4993,
+          "shared": 0.62295,
+          "pooledGlobal": 0.51825
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.5224,
+          "overwriteRecency": 0.5011500000000001,
+          "shared": 0.62295,
+          "pooledGlobal": 0.51825
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-9",
+      "cohort": "synthetic_books_development",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.9420499999999999,
+          "overwriteRecency": 0.8632,
+          "shared": 0.97655,
+          "pooledGlobal": 0.9467
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.9420499999999999,
+          "overwriteRecency": 0.8908499999999999,
+          "shared": 0.97655,
+          "pooledGlobal": 0.9467
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-10",
+      "cohort": "synthetic_books_development",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.76115,
+          "overwriteRecency": 0.883025,
+          "shared": 0.86675,
+          "pooledGlobal": 0.7776000000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.76115,
+          "overwriteRecency": 0.87815,
+          "shared": 0.86675,
+          "pooledGlobal": 0.7776000000000001
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-11",
+      "cohort": "synthetic_books_development",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.639325,
+          "overwriteRecency": 0.6668000000000001,
+          "shared": 0.7705000000000001,
+          "pooledGlobal": 0.6277
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.64125,
+          "overwriteRecency": 0.6635500000000001,
+          "shared": 0.7705000000000001,
+          "pooledGlobal": 0.6277
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-12",
+      "cohort": "synthetic_books_development",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.586225,
+          "overwriteRecency": 0.557125,
+          "shared": 0.6224500000000001,
+          "pooledGlobal": 0.588325
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.5937250000000001,
+          "overwriteRecency": 0.5473,
+          "shared": 0.6224500000000001,
+          "pooledGlobal": 0.588325
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-13",
+      "cohort": "synthetic_books_development",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.67395,
+          "overwriteRecency": 0.62245,
+          "shared": 0.9443499999999999,
+          "pooledGlobal": 0.6933
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.65655,
+          "overwriteRecency": 0.6130500000000001,
+          "shared": 0.9443499999999999,
+          "pooledGlobal": 0.6933
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-14",
+      "cohort": "synthetic_books_development",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.51475,
+          "overwriteRecency": 0.506725,
+          "shared": 0.6631499999999999,
+          "pooledGlobal": 0.516575
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.5162,
+          "overwriteRecency": 0.50475,
+          "shared": 0.6631499999999999,
+          "pooledGlobal": 0.516575
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-15",
+      "cohort": "synthetic_books_development",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.977475,
+          "overwriteRecency": 0.95115,
+          "shared": 0.98035,
+          "pooledGlobal": 0.9888
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.977475,
+          "overwriteRecency": 0.9551000000000001,
+          "shared": 0.98035,
+          "pooledGlobal": 0.9888
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-16",
+      "cohort": "synthetic_books_development",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.8449,
+          "overwriteRecency": 0.9123,
+          "shared": 0.7644249999999999,
+          "pooledGlobal": 0.8471
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.84855,
+          "overwriteRecency": 0.9021,
+          "shared": 0.7664,
+          "pooledGlobal": 0.847825
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-17",
+      "cohort": "synthetic_books_development",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 52,
+          "overwriteGlobal": 0.6623249999999999,
+          "overwriteRecency": 0.5907499999999999,
+          "shared": 0.83315,
+          "pooledGlobal": 0.66975
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 52,
+          "overwriteGlobal": 0.6623249999999999,
+          "overwriteRecency": 0.5907499999999999,
+          "shared": 0.83315,
+          "pooledGlobal": 0.66975
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-18",
+      "cohort": "synthetic_books_development",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 80,
+          "overwriteGlobal": 0.6345500000000001,
+          "overwriteRecency": 0.593,
+          "shared": 0.6156,
+          "pooledGlobal": 0.6508
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 80,
+          "overwriteGlobal": 0.61195,
+          "overwriteRecency": 0.5651,
+          "shared": 0.6156,
+          "pooledGlobal": 0.6508
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-19",
+      "cohort": "synthetic_books_development",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.5793,
+          "overwriteRecency": 0.55915,
+          "shared": 0.9646250000000001,
+          "pooledGlobal": 0.603375
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.618,
+          "overwriteRecency": 0.615675,
+          "shared": 0.9646250000000001,
+          "pooledGlobal": 0.603375
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-20",
+      "cohort": "synthetic_books_development",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 89,
+          "overwriteGlobal": 0.517975,
+          "overwriteRecency": 0.5173,
+          "shared": 0.6741,
+          "pooledGlobal": 0.5237
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 89,
+          "overwriteGlobal": 0.517975,
+          "overwriteRecency": 0.5185,
+          "shared": 0.6741,
+          "pooledGlobal": 0.5237
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-21",
+      "cohort": "synthetic_books_development",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.9735750000000001,
+          "overwriteRecency": 0.941825,
+          "shared": 0.997575,
+          "pooledGlobal": 0.96455
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 84,
+          "overwriteGlobal": 0.9675499999999999,
+          "overwriteRecency": 0.9301,
+          "shared": 0.997575,
+          "pooledGlobal": 0.96455
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-22",
+      "cohort": "synthetic_books_development",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 82,
+          "overwriteGlobal": 0.8697499999999999,
+          "overwriteRecency": 0.853075,
+          "shared": 0.895675,
+          "pooledGlobal": 0.8736
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 82,
+          "overwriteGlobal": 0.8697499999999999,
+          "overwriteRecency": 0.8554,
+          "shared": 0.895675,
+          "pooledGlobal": 0.8736
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-23",
+      "cohort": "synthetic_books_development",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 48,
+          "overwriteGlobal": 0.655975,
+          "overwriteRecency": 0.61675,
+          "shared": 0.80515,
+          "pooledGlobal": 0.6687000000000001
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 48,
+          "overwriteGlobal": 0.654525,
+          "overwriteRecency": 0.5998,
+          "shared": 0.80515,
+          "pooledGlobal": 0.6687000000000001
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-24",
+      "cohort": "synthetic_books_development",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.63615,
+          "overwriteRecency": 0.611925,
+          "shared": 0.682875,
+          "pooledGlobal": 0.631675
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.6315500000000001,
+          "overwriteRecency": 0.61385,
+          "shared": 0.682875,
+          "pooledGlobal": 0.631675
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-25",
+      "cohort": "synthetic_books_sealed",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.6340999999999999,
+          "overwriteRecency": 0.5984750000000001,
+          "shared": 0.959575,
+          "pooledGlobal": 0.63335
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.632925,
+          "overwriteRecency": 0.623275,
+          "shared": 0.959575,
+          "pooledGlobal": 0.63335
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-26",
+      "cohort": "synthetic_books_sealed",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 89,
+          "overwriteGlobal": 0.5693,
+          "overwriteRecency": 0.565175,
+          "shared": 0.7026,
+          "pooledGlobal": 0.5644
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 89,
+          "overwriteGlobal": 0.5644500000000001,
+          "overwriteRecency": 0.5584,
+          "shared": 0.7026,
+          "pooledGlobal": 0.5644
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-27",
+      "cohort": "synthetic_books_sealed",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.974225,
+          "overwriteRecency": 0.89455,
+          "shared": 0.980425,
+          "pooledGlobal": 0.9757
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.974225,
+          "overwriteRecency": 0.9022,
+          "shared": 0.980425,
+          "pooledGlobal": 0.9757
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-28",
+      "cohort": "synthetic_books_sealed",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.9364,
+          "overwriteRecency": 0.9605,
+          "shared": 0.887975,
+          "pooledGlobal": 0.9566
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.9341,
+          "overwriteRecency": 0.9581,
+          "shared": 0.887975,
+          "pooledGlobal": 0.9566
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-29",
+      "cohort": "synthetic_books_sealed",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 51,
+          "overwriteGlobal": 0.6969,
+          "overwriteRecency": 0.666625,
+          "shared": 0.8127500000000001,
+          "pooledGlobal": 0.6918249999999999
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 51,
+          "overwriteGlobal": 0.69865,
+          "overwriteRecency": 0.6665,
+          "shared": 0.8127500000000001,
+          "pooledGlobal": 0.6918249999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-30",
+      "cohort": "synthetic_books_sealed",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.678925,
+          "overwriteRecency": 0.671825,
+          "shared": 0.635675,
+          "pooledGlobal": 0.6714749999999999
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 86,
+          "overwriteGlobal": 0.6624000000000001,
+          "overwriteRecency": 0.649475,
+          "shared": 0.635675,
+          "pooledGlobal": 0.6714749999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-31",
+      "cohort": "synthetic_books_sealed",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 81,
+          "overwriteGlobal": 0.7102,
+          "overwriteRecency": 0.6890499999999999,
+          "shared": 0.9081750000000001,
+          "pooledGlobal": 0.7007
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 81,
+          "overwriteGlobal": 0.6849749999999999,
+          "overwriteRecency": 0.663975,
+          "shared": 0.9081750000000001,
+          "pooledGlobal": 0.7007
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-32",
+      "cohort": "synthetic_books_sealed",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.51545,
+          "overwriteRecency": 0.516775,
+          "shared": 0.68805,
+          "pooledGlobal": 0.5153000000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.5163749999999999,
+          "overwriteRecency": 0.515575,
+          "shared": 0.68805,
+          "pooledGlobal": 0.5153000000000001
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-33",
+      "cohort": "synthetic_books_sealed",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.9627249999999999,
+          "overwriteRecency": 0.8286,
+          "shared": 0.9608,
+          "pooledGlobal": 0.957725
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.96,
+          "overwriteRecency": 0.85585,
+          "shared": 0.9608,
+          "pooledGlobal": 0.957725
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-34",
+      "cohort": "synthetic_books_sealed",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.7912999999999999,
+          "overwriteRecency": 0.900725,
+          "shared": 0.891475,
+          "pooledGlobal": 0.8025249999999999
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.7939499999999999,
+          "overwriteRecency": 0.902775,
+          "shared": 0.891475,
+          "pooledGlobal": 0.8025249999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-35",
+      "cohort": "synthetic_books_sealed",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.6072,
+          "overwriteRecency": 0.551675,
+          "shared": 0.759825,
+          "pooledGlobal": 0.608825
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.60025,
+          "overwriteRecency": 0.5551999999999999,
+          "shared": 0.759825,
+          "pooledGlobal": 0.608825
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-36",
+      "cohort": "synthetic_books_sealed",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.61745,
+          "overwriteRecency": 0.61625,
+          "shared": 0.62675,
+          "pooledGlobal": 0.616525
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.618825,
+          "overwriteRecency": 0.6158499999999999,
+          "shared": 0.62675,
+          "pooledGlobal": 0.616525
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-37",
+      "cohort": "synthetic_books_sealed",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.6878749999999999,
+          "overwriteRecency": 0.6954750000000001,
+          "shared": 0.9621999999999999,
+          "pooledGlobal": 0.6726749999999999
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.660125,
+          "overwriteRecency": 0.6809750000000001,
+          "shared": 0.9621999999999999,
+          "pooledGlobal": 0.6726749999999999
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-38",
+      "cohort": "synthetic_books_sealed",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.516075,
+          "overwriteRecency": 0.5105000000000001,
+          "shared": 0.6454500000000001,
+          "pooledGlobal": 0.51935
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.516125,
+          "overwriteRecency": 0.509025,
+          "shared": 0.6454500000000001,
+          "pooledGlobal": 0.51935
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-39",
+      "cohort": "synthetic_books_sealed",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.91505,
+          "overwriteRecency": 0.84155,
+          "shared": 0.9852000000000001,
+          "pooledGlobal": 0.9383250000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.9203,
+          "overwriteRecency": 0.85075,
+          "shared": 0.9852000000000001,
+          "pooledGlobal": 0.9383250000000001
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-40",
+      "cohort": "synthetic_books_sealed",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.8164750000000001,
+          "overwriteRecency": 0.863875,
+          "shared": 0.927075,
+          "pooledGlobal": 0.831975
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.818725,
+          "overwriteRecency": 0.8727,
+          "shared": 0.927075,
+          "pooledGlobal": 0.831975
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-41",
+      "cohort": "synthetic_books_sealed",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 50,
+          "overwriteGlobal": 0.678,
+          "overwriteRecency": 0.6359,
+          "shared": 0.8142750000000001,
+          "pooledGlobal": 0.68295
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 50,
+          "overwriteGlobal": 0.678,
+          "overwriteRecency": 0.6359,
+          "shared": 0.8142750000000001,
+          "pooledGlobal": 0.68295
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-42",
+      "cohort": "synthetic_books_sealed",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.596125,
+          "overwriteRecency": 0.5457,
+          "shared": 0.621175,
+          "pooledGlobal": 0.6016750000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.57465,
+          "overwriteRecency": 0.48347500000000004,
+          "shared": 0.621175,
+          "pooledGlobal": 0.6016750000000001
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-43",
+      "cohort": "synthetic_books_sealed",
+      "type": "axis_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.658,
+          "overwriteRecency": 0.6182000000000001,
+          "shared": 0.936075,
+          "pooledGlobal": 0.669475
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 87,
+          "overwriteGlobal": 0.658,
+          "overwriteRecency": 0.621125,
+          "shared": 0.936075,
+          "pooledGlobal": 0.669475
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-44",
+      "cohort": "synthetic_books_sealed",
+      "type": "interaction_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.5121,
+          "overwriteRecency": 0.507675,
+          "shared": 0.63205,
+          "pooledGlobal": 0.50815
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 83,
+          "overwriteGlobal": 0.510425,
+          "overwriteRecency": 0.5073749999999999,
+          "shared": 0.63205,
+          "pooledGlobal": 0.50815
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-45",
+      "cohort": "synthetic_books_sealed",
+      "type": "stable",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.96265,
+          "overwriteRecency": 0.9388000000000001,
+          "shared": 0.98335,
+          "pooledGlobal": 0.983375
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.96265,
+          "overwriteRecency": 0.92185,
+          "shared": 0.98335,
+          "pooledGlobal": 0.983375
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-46",
+      "cohort": "synthetic_books_sealed",
+      "type": "drift",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.89645,
+          "overwriteRecency": 0.9102,
+          "shared": 0.9037999999999999,
+          "pooledGlobal": 0.90005
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 88,
+          "overwriteGlobal": 0.8932,
+          "overwriteRecency": 0.895,
+          "shared": 0.9037999999999999,
+          "pooledGlobal": 0.90005
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-47",
+      "cohort": "synthetic_books_sealed",
+      "type": "sparse",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.6791750000000001,
+          "overwriteRecency": 0.6493500000000001,
+          "shared": 0.8150499999999999,
+          "pooledGlobal": 0.6755
+        },
+        {
+          "seed": 29,
+          "observations": 53,
+          "uniqueItems": 49,
+          "overwriteGlobal": 0.672575,
+          "overwriteRecency": 0.639775,
+          "shared": 0.8150499999999999,
+          "pooledGlobal": 0.6755
+        }
+      ]
+    },
+    {
+      "viewer": "contexts-books-48",
+      "cohort": "synthetic_books_sealed",
+      "type": "hidden_switch",
+      "sessions": [
+        {
+          "seed": 11,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.6131,
+          "overwriteRecency": 0.57785,
+          "shared": 0.6531,
+          "pooledGlobal": 0.6324000000000001
+        },
+        {
+          "seed": 29,
+          "observations": 100,
+          "uniqueItems": 85,
+          "overwriteGlobal": 0.62095,
+          "overwriteRecency": 0.61595,
+          "shared": 0.6531,
+          "pooledGlobal": 0.6324000000000001
+        }
+      ]
+    }
+  ]
+}

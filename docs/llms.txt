@@ -15,3 +15,8 @@
 
 - [Override experiment](override-experiment.md): Test protection for unusual tastes using supplied ratings, with fixed baselines and failure regressions.
 - [Stable geometry experiment](stable-geometry-experiment.md): Test whether identical rating evidence should produce identical taste structure and recommendation scores.
+- [Personal lens experiment](personal-lens-experiment.md): Test confirmed personal distinctions, corrections, representation limits, and encrypted portability.
+- [Experiment 4.5](personal-lens-45-experiment.md): Compare broader personal questions with native and matched-strength confirmed-claim controls.
+- [Contextual taste experiment](contextual-taste-experiment.md): Compare global taste, recency, separate contexts, and scoped residuals with control and portability checks.
+
+- [Preparation baseline](preparation-baseline.md): Immutable model and outcome reference before effective correction.

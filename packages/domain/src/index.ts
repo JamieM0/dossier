@@ -10,7 +10,12 @@ export * from "./codec/portable.js";
 export * from "./taste-space.js";
 export * from "./taste-claims.js";
 export * from "./recommender.js";
+export * from "./refine-metric.js";
 export * from "./calibration.js";
 export * from "./application.js";
 export * from "./discovery.js";
 export * from "./capabilities.js";
+export * from "./personal-lens.js";
+export * from "./personal-lens-45.js";
+
+export * from "./contextual-taste.js";

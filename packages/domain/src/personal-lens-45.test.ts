@@ -1,0 +1,44 @@
+import { expect, test } from 'vitest';
+import { AXIS_KEYS, type FeatureVector } from './lens.js';
+import { emptyPersonalLens, personalLensQueue, personalLensEvidence } from './personal-lens.js';
+import { broadLensQueue, emptyLens45, answerBroadLens, claimConditionsForRule, projectConfirmedClaims, matchedStrengthClaimAdjustment } from './personal-lens-45.js';
+import { deriveTasteClaims } from './taste-claims.js';
+import type { RatingEntry } from './store/model.js';
+const entry=(id:number,positive:boolean):RatingEntry=>({rating:positive?1:-1,ts:0,item:{key:`movie:${id}`,id,medium:'movie',title:'Test',year:positive?1985:2020,posterPath:null,voteAverage:null,genres:['Drama'],keywords:positive?['epistolary-form']:[],creatorIds:positive?[42]:[7],features:Object.fromEntries(AXIS_KEYS.map(a=>[a,positive?.7:-.5])) as FeatureVector}});
+const entries=Array.from({length:8},(_,i)=>entry(i+1,i<4));
+test('broader questions reach supported contrasts outside the old geometry and retire explained pairs',()=>{
+ expect(personalLensQueue(entries,emptyPersonalLens())).toEqual([]);
+ const queue=broadLensQueue(entries,emptyLens45());
+ expect(queue.length).toBeGreaterThan(0);expect(queue.every(q=>q.support>=3&&q.contrast>=3)).toBe(true);
+ expect(queue).toEqual(broadLensQueue(entries.slice().reverse(),emptyLens45()));
+ const question=queue.find(q=>q.choices[0]!.conditions.length===1&&q.choices[0]!.conditions[0]!.kind==='tag')!;
+ expect(question.similarity).toBeLessThan(.97);
+ const lens=answerBroadLens(emptyLens45(),question,'confirm',entries);
+ expect(broadLensQueue(entries,lens)).toEqual([]);
+});
+test('rejected patterns do not claim absent metadata; unknown factors cap confidence',()=>{
+ const q=broadLensQueue(entries,emptyLens45())[0]!;
+ const rejected=answerBroadLens(emptyLens45(),q,'none',entries);
+ expect(rejected.limitations).toEqual([]);expect(rejected.rejected).toHaveLength(1);
+ expect(broadLensQueue(entries,rejected).some(x=>x.id===q.id)).toBe(false);
+ const unknown=answerBroadLens(emptyLens45(),q,'unknown',entries);
+ expect(personalLensEvidence(entries[0]!.item,entries,unknown).confidence).toBeLessThanOrEqual(.35);
+ expect(()=>answerBroadLens(unknown,q,'unknown',entries)).toThrow();
+});
+test('native confirmation keeps claim confidence; corrections replace polarity; identical predicates isolate score strength',()=>{
+ const q=broadLensQueue(entries,emptyLens45()).find(q=>q.choices[0]!.conditions.length===1&&q.choices[0]!.conditions[0]!.kind==='tag')!;
+ const lens=answerBroadLens(emptyLens45(),q,'confirm',entries),base=deriveTasteClaims(entries);
+ const projected=projectConfirmedClaims(entries,base,lens,false);
+ expect(projected.applied).toHaveLength(1);
+ const confirmed=projected.claims.find(c=>c.provenance==='user_confirmed')!;
+ expect(confirmed.confidence).toBe(base.find(c=>c.id===confirmed.id)!.confidence);
+ expect(matchedStrengthClaimAdjustment(entries[0]!.item,lens)).toBe(personalLensEvidence(entries[0]!.item,entries,lens).adjustment);
+ const corrected={...lens,features:lens.features.map(f=>({...f,effect:-1 as const}))};
+ const next=projectConfirmedClaims(entries,base,corrected,false);
+ expect(next.claims.find(c=>c.id===confirmed.id)!.active).toBe(false);
+ expect(next.claims.some(c=>c.effect==='negative'&&c.provenance==='user_confirmed')).toBe(true);
+ expect(projectConfirmedClaims(entries,[],lens,false).unavailable).toHaveLength(1);
+ expect(projectConfirmedClaims(entries,[],lens,true).applied).toHaveLength(1);
+ const decade=broadLensQueue(entries,emptyLens45()).find(q=>q.choices[0]!.conditions[0]!.kind==='decade')!;
+ expect(claimConditionsForRule(decade.choices[0]!)).toBe(null);
+});

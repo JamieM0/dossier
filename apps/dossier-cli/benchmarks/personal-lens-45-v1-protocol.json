@@ -1,0 +1,102 @@
+{
+  "version": "personal-lens-45-v1",
+  "experiment": "4.5",
+  "hypothesis": "Broader supported-pattern questions improve discovery. Native and matched-strength existing-claim controls separate explicit feedback, score strength, and predicate language.",
+  "fixtures": {
+    "original": {
+      "path": "apps/dossier-cli/src/lab/real-tmdb-v1.json",
+      "sha256": "8d9c1e10bcd3c7841cefe68e25d90355e02a2cf3bb8cf6b6a5c777c7298c3bdc"
+    },
+    "confirmation": {
+      "path": "apps/dossier-cli/src/lab/new-viewers-v1.json",
+      "sha256": "7ef2d024fc4c51c34ff87a2ec0741819eaf6477196d4c9a16a1a92463ba22e04"
+    },
+    "override": {
+      "path": "apps/dossier-cli/src/lab/override-viewers-v1.json",
+      "sha256": "786ad5296cb74a0095722521e8592a72f8b2b86dc83c92dbeb4d407cda57f7ec"
+    },
+    "hard": {
+      "path": "apps/dossier-cli/src/lab/hard-v1.json",
+      "sha256": "8707494b1b553f8762c316a9df48c37eefabe8b5ef1ea64a50c25e1f56d7c835"
+    },
+    "refine_regression": {
+      "path": "apps/dossier-cli/src/lab/hard-v2-refine.json",
+      "sha256": "3d9e4b12a83cdad719228a2eb7170e86c5b86a4891445199d5ce8fd9d79aaf66"
+    },
+    "questions_regression": {
+      "path": "apps/dossier-cli/src/lab/hard-v3-questions.json",
+      "sha256": "b22f69f56794037171cdf0eec6655471ae81785fc51dd6bb56ef12a1a8fb69cd"
+    },
+    "lens4_regression": {
+      "path": "apps/dossier-cli/src/lab/hard-v4-personal-lens.json",
+      "sha256": "6f474e9c015b5bb2dbf476213cea65ba45de290d0f6ab78c7d6d851185b85718"
+    },
+    "synthetic": {
+      "path": "apps/dossier-cli/src/lab/hard-v45-personal-lens.json",
+      "sha256": "99714c1a01b0f33344b9abb44b643ab24a698cd5e984ef0ae710fd933690dced"
+    }
+  },
+  "generatorHash": "b95a25f13b92c4bc48a7908454c8f98b4ed573a836cff5b79bd5ea00f3bef94f",
+  "arms": [
+    "inferred",
+    "narrow_personal",
+    "broad_personal",
+    "broad_shared",
+    "broad_native_claims",
+    "broad_authored_claims",
+    "broad_claims_equal_strength"
+  ],
+  "seeds": [
+    11,
+    29
+  ],
+  "ratings": 40,
+  "maxPrompts": 10,
+  "questionBudgets": [
+    0,
+    3,
+    10
+  ],
+  "candidate": {
+    "minSupport": 3,
+    "minContrast": 3,
+    "maxAtoms": 120,
+    "supportPrior": 4,
+    "conjunctionPenalty": 0.04,
+    "maxPrompts": 10,
+    "maxFeatures": 6
+  },
+  "privacy": "Allowlist descriptive metadata and fixed features at the CLI boundary. No public scores, other viewers, hidden rules, utility, domain labels, or held-out items enter question selection. qualityWeight=0 and popularityBias=0.",
+  "bootstrap": "Average two sessions per person, then bootstrap viewers 5000 times. Report each domain and partition independently; previous cohorts are regressions.",
+  "questions": "Narrow repeats experiment 4. Broad questions use supported one- or two-predicate patterns across all rated items, require three supporting and three contrasting examples, and rank by smoothed polarity separation. No cosine eligibility gate. Each prompt offers one pattern. Retire pairs explained by accepted features. Rejected patterns do not imply absent metadata.",
+  "answers": "Synthetic people confirm exact predicates with matching polarity. Other represented rules answer none. Missing-factor synthetic people answer unknown. Recorded and earlier multi-rule people answer none because causal explanations are unavailable. All broad scoring arms share identical questions and answers.",
+  "controls": "Native existing claims confirm only matching already-inferred claims. Authored claims use the same existing language and native scoring but add missing claims from supplied evidence. Decades are unsupported. Native axes use 0.3 thresholds; personal axes use 0.35. Shared personal and equal-strength claim controls exclude decades and axes, retain identical feedback, and add 0.3 contributions capped at 0.6.",
+  "gates": {
+    "minimumGain": 0.02,
+    "worstDecileMinimumDelta": -0.01,
+    "maxSinglePromptLoss": 0.05,
+    "correctionReversalRate": 0.9,
+    "minimumRuleRecovery": 0.5,
+    "minimumExplanationPrecision": 0.95,
+    "minimumConfidenceErrorReduction": 0,
+    "minimumQuestionCoverage": 0.5,
+    "minimumCoverageGain": 0.1,
+    "minimumAttributionGain": 0.02,
+    "sharedScoreTolerance": 0.001
+  },
+  "selection": "Broader discovery must improve represented-rule recovery over narrow questions by at least ten percentage points, recover at least 50 percent, improve AUC with positive lower bounds, preserve p10 within one point, beat 50 ratings, and preserve correction, removal, portability, and prompt safety in each fresh sealed domain. Shared personal and matched-strength claim scores must agree. A language-expansion claim additionally requires positive lower gains over native authored claims and the shared personal arm, with at least two AUC points over shared personal. Passing supports human confirmation only; no default change.",
+  "previousEvidence": "Experiment 4 viewers and catalogues were inspected. They provide regressions. Only 48 fresh reserved synthetic people support the new confirmation gates.",
+  "limits": [
+    "Synthetic confirmers have exact knowledge of one causal rule and no response noise.",
+    "Invented metadata collisions are a targeted stress test, not a representative catalogue.",
+    "No new human confirmation cohort; real users cannot supply causal rule labels.",
+    "Unknown preferences are absent from metadata and cannot be recovered.",
+    "Confidence is a proxy, not a probability.",
+    "Frozen-catalogue ranking does not test retrieval.",
+    "The generic rule language supports at most two predicates and a bounded additive contribution.",
+    "Exact synthetic explanations cannot establish human benefit.",
+    "Threshold differences prevent clean axis attribution; shared controls exclude axes.",
+    "Native existing-claim availability can limit its control, so a native authored-claim arm tests the same language without the inference cutoff.",
+    "The study retains one main synthetic rule and does not establish robustness to misleading confirmations."
+  ]
+}

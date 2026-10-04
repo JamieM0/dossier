@@ -1,0 +1,96 @@
+{
+  "version": "contextual-taste-v1",
+  "experiment": "5",
+  "generatorHash": "0935aaa08caaf44883e15079a0a02467a97109292b51adaf53e6d5de5f13ecb9",
+  "fixtures": {
+    "original": {
+      "path": "apps/dossier-cli/src/lab/real-tmdb-v1.json",
+      "sha256": "8d9c1e10bcd3c7841cefe68e25d90355e02a2cf3bb8cf6b6a5c777c7298c3bdc"
+    },
+    "confirmation": {
+      "path": "apps/dossier-cli/src/lab/new-viewers-v1.json",
+      "sha256": "7ef2d024fc4c51c34ff87a2ec0741819eaf6477196d4c9a16a1a92463ba22e04"
+    },
+    "override": {
+      "path": "apps/dossier-cli/src/lab/override-viewers-v1.json",
+      "sha256": "786ad5296cb74a0095722521e8592a72f8b2b86dc83c92dbeb4d407cda57f7ec"
+    },
+    "hard": {
+      "path": "apps/dossier-cli/src/lab/hard-v1.json",
+      "sha256": "8707494b1b553f8762c316a9df48c37eefabe8b5ef1ea64a50c25e1f56d7c835"
+    },
+    "refine_regression": {
+      "path": "apps/dossier-cli/src/lab/hard-v2-refine.json",
+      "sha256": "3d9e4b12a83cdad719228a2eb7170e86c5b86a4891445199d5ce8fd9d79aaf66"
+    },
+    "questions_regression": {
+      "path": "apps/dossier-cli/src/lab/hard-v3-questions.json",
+      "sha256": "b22f69f56794037171cdf0eec6655471ae81785fc51dd6bb56ef12a1a8fb69cd"
+    },
+    "lens4_regression": {
+      "path": "apps/dossier-cli/src/lab/hard-v4-personal-lens.json",
+      "sha256": "6f474e9c015b5bb2dbf476213cea65ba45de290d0f6ab78c7d6d851185b85718"
+    },
+    "synthetic": {
+      "path": "apps/dossier-cli/src/lab/hard-v5-contexts.json",
+      "sha256": "8783db9052d84c9f547cf1ce81ad4d803e0ad43db4e5bc622579e4c73efa415e"
+    },
+    "lens45_regression": {
+      "path": "apps/dossier-cli/src/lab/hard-v45-personal-lens.json",
+      "sha256": "99714c1a01b0f33344b9abb44b643ab24a698cd5e984ef0ae710fd933690dced"
+    }
+  },
+  "arms": [
+    "global",
+    "recency",
+    "separate",
+    "shared"
+  ],
+  "seeds": [
+    11,
+    29
+  ],
+  "contexts": [
+    "solo",
+    "family",
+    "comfort",
+    "challenging"
+  ],
+  "budgets": [
+    0,
+    1,
+    3,
+    5,
+    10,
+    20
+  ],
+  "globalRatings": 20,
+  "candidate": {
+    "ridge": 6,
+    "prior": 8,
+    "minRatings": 3,
+    "maxResidual": 0.8,
+    "recencyStrength": 1
+  },
+  "gates": {
+    "minimumContextGain": 0.02,
+    "worstDecileMinimumDelta": -0.01,
+    "stableNoninferiority": -0.01,
+    "maxSingleRatingLoss": 0.05,
+    "minimumCorrectionDirection": 0.9,
+    "minimumClaimPrecision": 0.6
+  },
+  "privacy": "Catalogue allowlist includes descriptive metadata only. Scorers never receive utilities, hidden factors, held-out labels, public scores, other-person data, or synthetic type.",
+  "bootstrap": "Average sessions and contexts within each person; bootstrap people 5000 times. Sealed domains pass separately.",
+  "hypothesis": "Explicit context can explain situated contradictions while preserving global taste, sparse-context fallback, scoped control, and portability.",
+  "design": "Twenty explicitly global ratings plus up to twenty ratings per context. Shared anchors on global evidence and fits ridge residuals in existing axes. Global and recency pool all events. Separate uses scoped evidence only. No cross-context residual pooling.",
+  "selection": "Require contextual gains over global and recency, sparse-context gains over separate, stable-taste noninferiority, p10 protection, update safety, directional corrections, scope isolation, claim precision, deterministic replay, and encrypted roundtrip. Passing supports human confirmation only.",
+  "limits": [
+    "Fresh cohorts provide synthetic confirmation only.",
+    "Synthetic movies reuse the existing descriptive lens; books use invented vectors.",
+    "Residuals cannot learn metadata interactions or absent factors.",
+    "Contexts are supplied correctly; context discovery and prompt cost are not tested.",
+    "Global anchoring deliberately trades pooled learning for scope stability.",
+    "Recorded people have no context labels; they support no-context regressions only."
+  ]
+}

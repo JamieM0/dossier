@@ -59,3 +59,15 @@ apps/dossier-ui/.svelte-kit/
 tools/catalogue-builder/data/
 
 archive/
+
+# Keep the lossless compressed question trace report in git.
+/reports/question-policy-v1.json
+
+# Keep the lossless compressed personal-lens trace report in git.
+/reports/personal-lens-v1.json
+
+# Keep the lossless compressed experiment 4.5 trace report in git.
+/reports/personal-lens-45-v1.json
+
+# Keep the lossless compressed experiment 5 trace report in git.
+/reports/contextual-taste-v1.json

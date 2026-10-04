@@ -1,0 +1,263 @@
+{
+  "version": "question-policy-diagnostics-v1",
+  "postHoc": true,
+  "purpose": "Describe evidence coverage, claim errors, and post-cold-start losses. These diagnostics cannot change frozen gates or establish causation.",
+  "sourceReportHash": "b00249a5cb7c8bbc07277d7d098314320e5d04c7b6be5e97537c09979896e052",
+  "diagnosticHash": "8011f6bb7487c7f3b935955e0d9d0dfdb9fc22464e1fdd42c7ae86c7f711c303",
+  "diagnostics": {
+    "recorded": {
+      "active": {
+        "post10WorstAnswerLoss": -0.3625,
+        "observedGenreEntropy": {
+          "mean": 3.0306,
+          "median": 3.0827,
+          "p10": 2.565,
+          "p90": 3.4738,
+          "sd": 0.3758
+        },
+        "highConfidenceClaimErrorRate": {
+          "mean": 0.478,
+          "median": 0.4511,
+          "p10": 0.3297,
+          "p90": 0.6517,
+          "sd": 0.1437
+        },
+        "claimEvaluatedViewers": 85,
+        "activeClaims": {
+          "mean": 20.8704,
+          "median": 24,
+          "p10": 13,
+          "p90": 24,
+          "sd": 5.6994
+        }
+      },
+      "balanced_random": {
+        "post10WorstAnswerLoss": -0.3167,
+        "observedGenreEntropy": {
+          "mean": 3.3953,
+          "median": 3.4321,
+          "p10": 3.1452,
+          "p90": 3.5783,
+          "sd": 0.1853
+        },
+        "highConfidenceClaimErrorRate": {
+          "mean": 0.4738,
+          "median": 0.4765,
+          "p10": 0.3249,
+          "p90": 0.6111,
+          "sd": 0.1147
+        },
+        "claimEvaluatedViewers": 96,
+        "activeClaims": {
+          "mean": 21.8843,
+          "median": 24,
+          "p10": 17.5,
+          "p90": 24,
+          "sd": 3.8131
+        }
+      },
+      "disagreement": {
+        "post10WorstAnswerLoss": -0.2834,
+        "observedGenreEntropy": {
+          "mean": 3.2983,
+          "median": 3.3316,
+          "p10": 2.9734,
+          "p90": 3.5494,
+          "sd": 0.2129
+        },
+        "highConfidenceClaimErrorRate": {
+          "mean": 0.4977,
+          "median": 0.4736,
+          "p10": 0.3312,
+          "p90": 0.6743,
+          "sd": 0.154
+        },
+        "claimEvaluatedViewers": 99,
+        "activeClaims": {
+          "mean": 22.0787,
+          "median": 24,
+          "p10": 16.5,
+          "p90": 24,
+          "sd": 3.7461
+        }
+      },
+      "counterfactual": {
+        "post10WorstAnswerLoss": -0.3346,
+        "observedGenreEntropy": {
+          "mean": 3.2084,
+          "median": 3.2358,
+          "p10": 2.8616,
+          "p90": 3.4779,
+          "sd": 0.2526
+        },
+        "highConfidenceClaimErrorRate": {
+          "mean": 0.4931,
+          "median": 0.4778,
+          "p10": 0.3333,
+          "p90": 0.6395,
+          "sd": 0.1381
+        },
+        "claimEvaluatedViewers": 89,
+        "activeClaims": {
+          "mean": 20.5139,
+          "median": 23.5,
+          "p10": 12,
+          "p90": 24,
+          "sd": 5.1816
+        }
+      },
+      "counterfactual_no_stop": {
+        "post10WorstAnswerLoss": -0.3346,
+        "observedGenreEntropy": {
+          "mean": 3.2509,
+          "median": 3.2745,
+          "p10": 2.926,
+          "p90": 3.501,
+          "sd": 0.2207
+        },
+        "highConfidenceClaimErrorRate": {
+          "mean": 0.4957,
+          "median": 0.478,
+          "p10": 0.3434,
+          "p90": 0.6395,
+          "sd": 0.138
+        },
+        "claimEvaluatedViewers": 93,
+        "activeClaims": {
+          "mean": 21.9861,
+          "median": 24,
+          "p10": 17,
+          "p90": 24,
+          "sd": 3.8003
+        }
+      }
+    },
+    "synthetic_sealed": {
+      "active": {
+        "post10WorstAnswerLoss": -0.131,
+        "observedGenreEntropy": {
+          "mean": 1.6237,
+          "median": 1.7592,
+          "p10": 0.813,
+          "p90": 2.1358,
+          "sd": 0.5443
+        },
+        "highConfidenceClaimErrorRate": {
+          "mean": 0.2483,
+          "median": 0.2254,
+          "p10": 0,
+          "p90": 0.4395,
+          "sd": 0.178
+        },
+        "claimEvaluatedViewers": 18,
+        "activeClaims": {
+          "mean": 18.9792,
+          "median": 21,
+          "p10": 9,
+          "p90": 24,
+          "sd": 5.3414
+        }
+      },
+      "balanced_random": {
+        "post10WorstAnswerLoss": -0.1474,
+        "observedGenreEntropy": {
+          "mean": 2.8222,
+          "median": 2.8365,
+          "p10": 2.5599,
+          "p90": 2.9959,
+          "sd": 0.182
+        },
+        "highConfidenceClaimErrorRate": {
+          "mean": 0.1711,
+          "median": 0.1667,
+          "p10": 0,
+          "p90": 0.275,
+          "sd": 0.0874
+        },
+        "claimEvaluatedViewers": 18,
+        "activeClaims": {
+          "mean": 17.1875,
+          "median": 17.5,
+          "p10": 11,
+          "p90": 22,
+          "sd": 4.8365
+        }
+      },
+      "disagreement": {
+        "post10WorstAnswerLoss": -0.1214,
+        "observedGenreEntropy": {
+          "mean": 1.9152,
+          "median": 1.8939,
+          "p10": 1.6335,
+          "p90": 2.0871,
+          "sd": 0.1975
+        },
+        "highConfidenceClaimErrorRate": {
+          "mean": 0.2862,
+          "median": 0.2207,
+          "p10": 0.1486,
+          "p90": 0.4533,
+          "sd": 0.1414
+        },
+        "claimEvaluatedViewers": 22,
+        "activeClaims": {
+          "mean": 21.0833,
+          "median": 22.5,
+          "p10": 16.5,
+          "p90": 24,
+          "sd": 3.2903
+        }
+      },
+      "counterfactual": {
+        "post10WorstAnswerLoss": -0.131,
+        "observedGenreEntropy": {
+          "mean": 1.8593,
+          "median": 1.9012,
+          "p10": 1.5589,
+          "p90": 2.0916,
+          "sd": 0.2773
+        },
+        "highConfidenceClaimErrorRate": {
+          "mean": 0.3029,
+          "median": 0.2741,
+          "p10": 0.138,
+          "p90": 0.4325,
+          "sd": 0.1476
+        },
+        "claimEvaluatedViewers": 22,
+        "activeClaims": {
+          "mean": 20.7292,
+          "median": 21,
+          "p10": 17,
+          "p90": 24,
+          "sd": 2.993
+        }
+      },
+      "counterfactual_no_stop": {
+        "post10WorstAnswerLoss": -0.131,
+        "observedGenreEntropy": {
+          "mean": 1.9226,
+          "median": 1.9475,
+          "p10": 1.5589,
+          "p90": 2.1368,
+          "sd": 0.2409
+        },
+        "highConfidenceClaimErrorRate": {
+          "mean": 0.301,
+          "median": 0.2963,
+          "p10": 0.1404,
+          "p90": 0.4,
+          "sd": 0.1429
+        },
+        "claimEvaluatedViewers": 23,
+        "activeClaims": {
+          "mean": 21.9167,
+          "median": 22.5,
+          "p10": 20,
+          "p90": 24,
+          "sd": 2.5806
+        }
+      }
+    }
+  }
+}

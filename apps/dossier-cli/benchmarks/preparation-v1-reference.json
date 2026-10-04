@@ -1,0 +1,89 @@
+{
+  "version": "preparation-v1",
+  "purpose": "Current scorer reference before effective correction. Archive outcomes remain immutable.",
+  "libraryBehavior": "Latest rating replaces the previous rating for the same key; clearing removes it.",
+  "sourceHashes": {
+    "apps/dossier-cli/src/actions.ts": "0c03d952ad17d931662d3fc51edc0d0dc946c7e5e94468e4f8150d703909b6cb",
+    "apps/dossier-cli/src/lab/question-policy.ts": "d74754b619351cd13ed3402e98bd3d02cb559bd48d3e594cf28e491eeae95e97",
+    "packages/domain/src/application.ts": "90291df9056ff39e5434ba5150748d8bcd3233c5e028e751d242fefc573b0299",
+    "packages/domain/src/calibration.ts": "55fed1f9ff34e322cb4cc0d334f7503c06a0883ef8544146cc2b4f58f954de04",
+    "packages/domain/src/capabilities.ts": "8ea28a551b433dc51f08872543d17ccfd30c6629ba7ccae2249da7dc79babcc2",
+    "packages/domain/src/codec/portable.ts": "e3b2baab2bca7bc0fbdd7817c82c3fb68a42d6909e2efd317424d7d28f91b62c",
+    "packages/domain/src/contextual-taste.ts": "3dc611a68cbbc5b5bb81827b651333b3f3bc3692e7817f67e24597dd49db9197",
+    "packages/domain/src/discovery.ts": "5865aa5880bac0117fd52a69321a63e228b324410d2d2b1426485e3bb0024eaa",
+    "packages/domain/src/index.ts": "cd4ba7c1eddb9143637503f1f0e304a47c3a0515f24792f6403208552cd892b3",
+    "packages/domain/src/lens.ts": "eb193a00eb8e93ec8babffcb41014d4a845e6bcf959aba84001ea9923b193556",
+    "packages/domain/src/personal-lens-45.ts": "739f29723cdfce8b02b637692a367a68adc6f25e6f0cc65ee031d99b7f15af65",
+    "packages/domain/src/personal-lens.ts": "67303eb27f421dbad36471af62f6e679f00fbd1e93f0b6b77f3f9ec88994602a",
+    "packages/domain/src/recommender.ts": "faf719619a8b656cdd400bb285746a5242c9412b838c82335a7bcf41f2a053e5",
+    "packages/domain/src/refine-metric.ts": "6db2b1c7df1fd6483ed56a3ae5b12a40603aa2f426a601825cac684e875071f7",
+    "packages/domain/src/store/model.ts": "2ba304d783f4c770d2b8f56b8baf3e8f7c42632f75c03300ecc5605720ff6093",
+    "packages/domain/src/taste-claims.ts": "606df9c72c200718cd9a6625efcb61fb6280d9667e1097a3494dd9812f99f939",
+    "packages/domain/src/taste-space.ts": "022b000446779eda22660ed31e1e0fe38ed294c3d7d694658751b3490cf79f87",
+    "packages/domain/src/tmdb/client.ts": "4d0995dd69841b58e044bbd75a09934b7785d5f0f7e95d6c40ad311c844f2bf5",
+    "packages/domain/src/tmdb/types.ts": "7e240a0c5f7c46fcb8b0145727e4b92af1b8495d3a0f2e669a3fab0e2e2a61f3"
+  },
+  "archiveHashes": {
+    "apps/dossier-cli/benchmarks/confirmation-v1-protocol.json": "fbedee59371920add84026be4f1ea22f929e11b19d6008135f47e07e188ce129",
+    "apps/dossier-cli/benchmarks/contextual-taste-v1-protocol.json": "9507da9ea9d0db9e648c174d65ab59c46d8affbe1b95dcb14049c53c78701250",
+    "apps/dossier-cli/benchmarks/override-v1-protocol.json": "28545adaa659c5f82a67118c3f028668ae62426e34e4eef4152ffd6dc9186134",
+    "apps/dossier-cli/benchmarks/personal-lens-45-v1-protocol.json": "baa773918929824eae321f51c98759779ddbfb1b97c40ff63b179d6f353d495f",
+    "apps/dossier-cli/benchmarks/personal-lens-v1-protocol.json": "5be200ef8e6d87a658d4f40de2f3f3f3855f09aa6623bebdc90070c4795cb40d",
+    "apps/dossier-cli/benchmarks/question-policy-v1-protocol.json": "c0709037d5ad8d3a087a1181c3816c1811a17c679d588b13ed31149621fe161e",
+    "apps/dossier-cli/benchmarks/refine-signal-v1-protocol.json": "64106590e8f0eef90edbb020b012dc00af3ba48339599ca840e2e6348118fac6",
+    "apps/dossier-cli/benchmarks/stable-geometry-v1-protocol.json": "b5fe70d20771d6e5da81ad1ab23118f9bd8cae366de4a28a7e98ccd241eb160f",
+    "apps/dossier-cli/src/lab/hard-v1.json": "8707494b1b553f8762c316a9df48c37eefabe8b5ef1ea64a50c25e1f56d7c835",
+    "apps/dossier-cli/src/lab/hard-v2-refine.json": "3d9e4b12a83cdad719228a2eb7170e86c5b86a4891445199d5ce8fd9d79aaf66",
+    "apps/dossier-cli/src/lab/hard-v3-questions.json": "b22f69f56794037171cdf0eec6655471ae81785fc51dd6bb56ef12a1a8fb69cd",
+    "apps/dossier-cli/src/lab/hard-v4-personal-lens.json": "6f474e9c015b5bb2dbf476213cea65ba45de290d0f6ab78c7d6d851185b85718",
+    "apps/dossier-cli/src/lab/hard-v45-personal-lens.json": "99714c1a01b0f33344b9abb44b643ab24a698cd5e984ef0ae710fd933690dced",
+    "apps/dossier-cli/src/lab/hard-v5-contexts.json": "8783db9052d84c9f547cf1ce81ad4d803e0ad43db4e5bc622579e4c73efa415e",
+    "apps/dossier-cli/src/lab/new-viewers-v1.json": "7ef2d024fc4c51c34ff87a2ec0741819eaf6477196d4c9a16a1a92463ba22e04",
+    "apps/dossier-cli/src/lab/override-viewers-v1.json": "786ad5296cb74a0095722521e8592a72f8b2b86dc83c92dbeb4d407cda57f7ec",
+    "apps/dossier-cli/src/lab/real-tmdb-v1.json": "8d9c1e10bcd3c7841cefe68e25d90355e02a2cf3bb8cf6b6a5c777c7298c3bdc",
+    "apps/dossier-cli/src/lab/real-v1.json": "f1f52a04d5448a5fcf71078d61bb85ff6c5a69cd71c1cccd9f2626662c63f7ff",
+    "reports/backwards-learning-diagnosis-v1.json": "785fc057d8acea75cac1b1fc99b5d53c425637cb16297ef2ce55c174f6e3eb6a",
+    "reports/contextual-taste-v1.json.gz": "26345d8d45a868a56838bb6c4f629c0a25470294bf385ff44ca8fd200ad479be",
+    "reports/dossier-learning-study-tmdb.json": "738a1c098672ce45fef1258d97f69d1985d7b53dfef7190be467d86ee588e2f1",
+    "reports/dossier-real-v1-baseline.json": "9731a36c2ab9205f1befec62592bbc089f20a0dfeb17dee32dfb25b59eec9e9d",
+    "reports/observed-rating-override-v1.json": "84c75821bc0e4080bcf6bd75666af8171010a43b42a38bb837c227676d1d67bf",
+    "reports/personal-lens-45-v1.json.gz": "9f5710eeb58d125fb129a1f8212f464837293d8dc41767e9c2aae244ab038767",
+    "reports/personal-lens-v1.json.gz": "a3f692333abfd62e1450897a441867e9b98e37b55407d6c8151342af20101311",
+    "reports/question-policy-v1.json.gz": "cf815864e75fdda639a94d0ae1a1b07c112f42085669e600baf441d53e61a829",
+    "reports/refine-signal-v1.json": "555debff748ccb86c9e416e8c79a583853be0bd68233eac428b6d8c2ff23ef22",
+    "reports/reviews-plus-tags-confirmation-v1.json": "ecae95ea6c375ba68a26709da5d80fdecb788ab1b24d8bf2785d72c0643ccad3",
+    "reports/stable-geometry-v1.json": "bdd5d2efe2abcc437f22cc7c15beca4e56a20d5228c58a2219fc549bb95c7164"
+  },
+  "failures": [
+    {
+      "viewer": "movielens-21",
+      "seed": 83,
+      "auc10": 0.6721,
+      "auc40": 0.3766
+    },
+    {
+      "viewer": "movielens-177",
+      "seed": 11,
+      "auc10": 0.7937,
+      "auc40": 0.5547
+    },
+    {
+      "viewer": "movielens-483",
+      "seed": 83,
+      "auc10": 0.5114,
+      "auc40": 0.2828
+    },
+    {
+      "viewer": "movielens-21",
+      "seed": 11,
+      "auc10": 0.6867,
+      "auc40": 0.4627
+    },
+    {
+      "viewer": "movielens-603",
+      "seed": 29,
+      "auc10": 0.7041,
+      "auc40": 0.4898
+    }
+  ]
+}

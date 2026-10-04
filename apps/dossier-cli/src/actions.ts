@@ -7,8 +7,12 @@ import {
   isValidRating, rankDissonantCandidates, rankRateProbes, resetLibraryPreferences,
   scoreCandidates, setLibraryClaimFeedback, setLibraryRating, setLibrarySkipped,
   tasteSnapshot, tasteClaimId, updateLibrarySettings, withDefaults, type PersistedState, type TmdbItem,
-  type TmdbMedium, type TasteClaim, type TasteClaimCondition, type ScoringParams, type TasteClusterStrategy
+  type TmdbMedium, type TasteClaim, type TasteClaimCondition, type ScoringParams, type TasteClusterStrategy, type RefineMetricMode
 } from "@dossier/domain";
+import { readPersonalLens, personalLensQueue, answerPersonalLens, personalLensEvidence } from "@dossier/domain";
+import { emptyLens45, broadLensQueue, answerBroadLens, scoreLens45, LENS45_MODES, type Lens45State, type Lens45Mode } from "@dossier/domain";
+import { readContexts, contextClaims, scoreContexts, CONTEXT_ARMS, type ContextArm } from "@dossier/domain";
+import { rankExperimentalQuestions, type QuestionPolicy } from "./lab/question-policy.js";
 import { createTmdbClient } from "@dossier/store";
 import { CliStorage, newProfile, publicProfile, type Profile, type Vault } from "./storage.js";
 
@@ -75,6 +79,7 @@ function snapshot(item: TmdbItem) {
 }
 function validImport(state: PersistedState): PersistedState {
   if (!state || typeof state !== "object" || !state.ratings || typeof state.ratings !== "object" || !Array.isArray(state.pairwise) || !Array.isArray(state.skipped) || !Array.isArray(state.tasteClaims)) throw new ActionError("INVALID_IMPORT", "Use a valid Dossier export");
+  try { readContexts(state.settings?.experimentalContexts); } catch { throw new ActionError("INVALID_IMPORT", "Invalid experimental context profile"); }
   return state;
 }
 const settingTypes: Record<string, "boolean" | "number" | "object"> = {
@@ -157,8 +162,94 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
   if (name === "profile.unarchive") { revision(profile, args); profile.archived = false; profile.revision++; storage.save(vault); storage.audit("profile.unarchive", profile.id); return publicProfile(profile); }
   if (name === "profile.delete") { revision(profile, args); if (args.dryRun === true) return { profile: publicProfile(profile), dryRun: true }; requireYes(args); vault.profiles = vault.profiles.filter((entry) => entry.id !== profile.id); if (vault.activeId === profile.id) vault.activeId = null; storage.save(vault); storage.audit("profile.delete", profile.id); return { deleted: profile.id }; }
   if (name === "profile.export" || name === "library.export") { const path = string(args, "path"); writeFileSync(path, JSON.stringify(await exportLibrary(state, string(args, "passphrase"))), { mode: 0o600, flag: "wx" }); storage.audit("profile.export", profile.id); return { file: path }; }
-  if (name === "profile.reset") { revision(profile, args); if (args.dryRun === true) return { ratings: Object.keys(state.ratings).length }; requireYes(args); return { revision: mutate(storage, vault, profile, args, resetLibraryPreferences(state)) }; }
+  if (name === "profile.reset") { revision(profile, args); if (args.dryRun === true) return { ratings: Object.keys(state.ratings).length }; requireYes(args); return { revision: mutate(storage, vault, profile, args, resetLibraryPreferences({ ...state, settings: Object.fromEntries(Object.entries(state.settings).filter(([key]) => !["experimentalPersonalLens", "experimentalPersonalLens45", "experimentalContexts"].includes(key))) })) }; }
   if (name === "library.import") { revision(profile, args); const imported = validImport(await importLibrary(readFileSync(string(args, "path"), "utf8"), string(args, "passphrase"))); if (args.dryRun === true) return { ratings: Object.keys(imported.ratings).length }; requireYes(args); const nextRevision = mutate(storage, vault, profile, args, imported); storage.audit("library.import", profile.id); return { revision: nextRevision }; }
+  if (name.startsWith("context.")) {
+    let contexts;
+    try { contexts = readContexts(state.settings.experimentalContexts); }
+    catch { throw new ActionError("INVALID_ARGUMENT", "Invalid experimental context profile"); }
+    if (name === "context.inspect") return { contexts, claims: contextClaims(entries(profile), contexts) };
+    if (name === "context.suggest") {
+      const arm = args.arm ?? "shared";
+      if (!(CONTEXT_ARMS as readonly unknown[]).includes(arm)) throw new ActionError("INVALID_ARGUMENT", "Use global, recency, separate, or shared arm");
+      const scope = args.context === undefined ? undefined : string(args, "context");
+      if (scope !== undefined && !contexts.contexts.some(c=>c.id===scope)) throw new ActionError("CONTEXT_NOT_FOUND", "Create or inspect the context");
+      const which=medium(args), offset=args.cursor ? Number(Buffer.from(string(args,"cursor"),"base64url").toString()) : 0;
+      if (!Number.isSafeInteger(offset) || offset < 0) throw new ActionError("INVALID_CURSOR", "Start again without cursor");
+      const source=await candidates(storage,profile,which,Math.floor(offset/20)+1,"suggest",catalogue);
+      const rated=new Set([...Object.keys(state.ratings),...contexts.contexts.flatMap(c=>Object.keys(c.ratings)),...state.skipped]);
+      const result=scoreContexts(source.filter(i=>!rated.has(`${i.medium}:${i.id}`)),entries(profile),state.tasteClaims,contexts,scope,arm as ContextArm);
+      return {...page(result.available ? result.rows.map(r=>({...compact(r.item),score:r.score,contextEvidence:r.contextEvidence})) : [],args),available:result.available};
+    }
+    revision(profile,args);
+    const scope=string(args,"context");
+    if (name === "context.create") {
+      if (scope === "global" || !/^[a-z][a-z0-9_-]{0,39}$/.test(scope) || contexts.contexts.length>=16 || contexts.contexts.some(c=>c.id===scope)) throw new ActionError("INVALID_ARGUMENT", "Use a unique context ID and at most 16 contexts");
+      contexts.contexts.push({id:scope,name:profileName(args),ratings:{}});
+    } else {
+      const context=contexts.contexts.find(c=>c.id===scope);
+      if (!context && !(name === "context.rate" && scope === "global")) throw new ActionError("CONTEXT_NOT_FOUND", "Create or inspect the context");
+      if (name === "context.rename") context!.name=profileName(args);
+      else if (name === "context.remove") contexts.contexts=contexts.contexts.filter(c=>c.id!==scope);
+      else if (name === "context.rate" || name === "context.clear") {
+        const key=string(args,"key"),parsed=itemKey(key);
+        if (name === "context.clear") delete context!.ratings[key];
+        else {
+          if (!isValidRating(args.value)) throw new ActionError("INVALID_ARGUMENT", "Use a valid Dossier rating");
+          const ts=args.observedAt===undefined?Date.now():args.observedAt;
+          if(typeof ts!=="number" || !Number.isSafeInteger(ts) || ts<0) throw new ActionError("INVALID_ARGUMENT", "observedAt must be a nonnegative integer timestamp");
+          const item=snapshot(await(catalogue?catalogue.detail(parsed.medium,parsed.id):(await tmdb(storage)).detail(parsed.medium,parsed.id)));
+          if(scope==="global") return {revision:mutate(storage,vault,profile,args,setLibraryRating(state,key,args.value,item,ts))};
+          context!.ratings[key]={rating:args.value,item,ts};
+        }
+      } else throw new ActionError("UNKNOWN_ACTION", "Run dossier help --json");
+    }
+    return {contexts,revision:mutate(storage,vault,profile,args,updateLibrarySettings(state,{experimentalContexts:contexts}))};
+  }
+  if (name.startsWith("lens45.")) {
+    const stored = state.settings.experimentalPersonalLens45 as Lens45State | undefined;
+    const lens = stored ?? emptyLens45();
+    readPersonalLens(lens);
+    if (!Array.isArray(lens.rejected) || !lens.initialEffects || typeof lens.initialEffects !== "object") throw new ActionError("INVALID_ARGUMENT", "Invalid experiment 4.5 profile");
+    if (name === "lens45.inspect") return { lens };
+    if (name === "lens45.queue") return page(broadLensQueue(entries(profile), lens), args);
+    revision(profile, args);
+    if (name === "lens45.answer") {
+      const question = broadLensQueue(entries(profile), lens).find(q => q.id === string(args, "id"));
+      if (!question) throw new ActionError("QUESTION_NOT_FOUND", "Refresh the experiment 4.5 queue");
+      const answer = string(args, "answer");
+      if (!["confirm", "none", "unknown"].includes(answer)) throw new ActionError("INVALID_ARGUMENT", "Use confirm, none, or unknown");
+      const next = answerBroadLens(lens, question, answer as "confirm" | "none" | "unknown", entries(profile));
+      return { lens: next, revision: mutate(storage, vault, profile, args, updateLibrarySettings(state, { experimentalPersonalLens45: next })) };
+    }
+    const id = string(args, "id");
+    if (!lens.features.some(f => f.id === id)) throw new ActionError("FEATURE_NOT_FOUND", "Inspect the experiment 4.5 profile");
+    if (name === "lens45.correct" && !["positive", "negative"].includes(String(args.effect))) throw new ActionError("INVALID_ARGUMENT", "Use positive or negative effect");
+    const features = name === "lens45.remove" ? lens.features.filter(f => f.id !== id) : lens.features.map(f => f.id === id ? { ...f, effect: (args.effect === "positive" ? 1 : -1) as 1 | -1 } : f);
+    const next = { ...lens, features };
+    return { lens: next, revision: mutate(storage, vault, profile, args, updateLibrarySettings(state, { experimentalPersonalLens45: next })) };
+  }
+  if (name.startsWith("lens.")) {
+    const lens = readPersonalLens(state.settings.experimentalPersonalLens);
+    if (name === "lens.inspect") return { lens };
+    if (name === "lens.queue") return page(personalLensQueue(entries(profile), lens), args);
+    revision(profile, args);
+    if (name === "lens.answer") {
+      const question = personalLensQueue(entries(profile), lens).find(q => q.id === string(args, "id"));
+      if (!question) throw new ActionError("QUESTION_NOT_FOUND", "Refresh the experimental lens queue");
+      const choice = string(args, "choice");
+      if (choice !== "none" && !question.choices.some(f => f.id === choice)) throw new ActionError("INVALID_ARGUMENT", "Select an offered distinction or none");
+      const next = answerPersonalLens(lens, question, choice === "none" ? null : choice, entries(profile));
+      return { lens: next, revision: mutate(storage, vault, profile, args, updateLibrarySettings(state, { experimentalPersonalLens: next })) };
+    }
+    const id = string(args, "id");
+    const feature = lens.features.find(f => f.id === id);
+    if (!feature) throw new ActionError("FEATURE_NOT_FOUND", "Inspect the experimental personal lens");
+    if (name === "lens.correct" && args.effect !== "positive" && args.effect !== "negative") throw new ActionError("INVALID_ARGUMENT", "Use positive or negative effect");
+    const features = name === "lens.remove" ? lens.features.filter(f => f.id !== id) : lens.features.map(f => f.id === id ? { ...f, effect: (args.effect === "positive" ? 1 : -1) as 1 | -1 } : f);
+    const next = { ...lens, features };
+    return { lens: next, revision: mutate(storage, vault, profile, args, updateLibrarySettings(state, { experimentalPersonalLens: next })) };
+  }
   if (name === "settings.get") return args.key ? { [string(args, "key")]: state.settings[string(args, "key")] ?? null } : { settings: state.settings };
   if (name === "settings.set") {
     const key = string(args, "key"), value = args.value;
@@ -188,6 +279,18 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
     let items: Array<{ id: string; title: string; year: number | null; score?: number; reason?: string }>;
     if (name === "rate.queue") {
       const mode = args.mode ?? "standard";
+      if (args.questionPolicy !== undefined) {
+        if (!["balanced_random", "disagreement", "counterfactual"].includes(String(args.questionPolicy))) throw new ActionError("INVALID_ARGUMENT", "Unknown experimental question policy");
+        if (args.mode !== undefined && mode !== "active") throw new ActionError("INVALID_ARGUMENT", "Use active mode with questionPolicy");
+        const seed = number(args, "questionSeed", 11, 0, 2147483647);
+        if (args.questionStop !== undefined && ![true, false, "true", "false"].includes(args.questionStop as boolean | string)) throw new ActionError("INVALID_ARGUMENT", "questionStop must be true or false");
+        const allowStop = args.questionStop !== false && args.questionStop !== "false";
+        const skippedItems = source.filter(item => state.skipped.includes(`${item.medium}:${item.id}`));
+        const result = rankExperimentalQuestions(filtered, entries(profile), state.tasteClaims, skippedItems, args.questionPolicy as QuestionPolicy, seed, allowStop);
+        const rows = result.questions.map(row => ({ ...compact(row.item), recognition: row.recognition,
+          disagreement: row.disagreement, predictedValue: row.predictedValue, stabilityRisk: row.stabilityRisk }));
+        return { ...page(rows, args), stopped: result.stopped, uncertainty: result.uncertainty };
+      }
       if (mode === "active" || mode === "focused") items = rankRateProbes(filtered, entries(profile), typeof args.focus === "string" ? args.focus : undefined, state.tasteClaims, state.skipped).map((probe) => ({ ...compact(probe.item), reason: probe.reason }));
       else if (mode === "challenge") items = rankDissonantCandidates(filtered, entries(profile), state.tasteClaims).map(({ item, prediction }) => ({ ...compact(item), score: prediction.score / 100 }));
       else items = filtered.map((item) => compact(item));
@@ -198,7 +301,7 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
       const dials = typeof configuredDials === "object" && configuredDials !== null ? configuredDials as Partial<ScoringParams> : {};
       if (Object.entries(dials).some(([dial, setting]) => !(dial in DEFAULT_SCORING_PARAMS) || (dial !== "axisWeights" && (typeof setting !== "number" || !Number.isFinite(setting))))) throw new ActionError("INVALID_ARGUMENT", "Invalid recommendation dials");
       if (dials.axisWeights !== undefined && (!dials.axisWeights || typeof dials.axisWeights !== "object" || Object.values(dials.axisWeights).some((weight) => typeof weight !== "number" || !Number.isFinite(weight) || weight < 0))) throw new ActionError("INVALID_ARGUMENT", "Invalid axis weights");
-      const params = { ...DEFAULT_SCORING_PARAMS, ...dials };
+      const params = { ...DEFAULT_SCORING_PARAMS, ...dials, ...(args.personalLens === undefined ? {} : { qualityWeight: 0, popularityBias: 0 }) };
       const filters = typeof args.filters === "object" && args.filters !== null ? args.filters as { genres?: string[]; yearFrom?: number; yearTo?: number; minVoteAverage?: number } : {};
       if (filters.genres && (!Array.isArray(filters.genres) || filters.genres.some((genre) => typeof genre !== "string"))) throw new ActionError("INVALID_ARGUMENT", "filters.genres must be a string array");
       if ([filters.yearFrom, filters.yearTo, filters.minVoteAverage].some((value) => value !== undefined && (typeof value !== "number" || !Number.isFinite(value)))) throw new ActionError("INVALID_ARGUMENT", "Invalid recommendation filter");
@@ -209,10 +312,31 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
         (filters.minVoteAverage === undefined || (item.voteAverage !== null && item.voteAverage >= filters.minVoteAverage))
       );
       const strategy = clusterStrategy as TasteClusterStrategy;
+      const refineMetric = args.refineMetric;
+      if (refineMetric !== undefined && !["axis_metric", "axis_cluster_metric"].includes(String(refineMetric))) throw new ActionError("INVALID_ARGUMENT", "refineMetric must be axis_metric or axis_cluster_metric");
       const selectedClaims = strategy === "greedy"
         ? state.tasteClaims
         : reconcileTasteClaims(entries(profile), state.tasteClaims, buildTasteSpace(entries(profile), { clusterStrategy: strategy }));
-      items = scoreCandidates(narrowed, entries(profile), params, selectedClaims, { clusterStrategy: strategy }).map(({ item, score }) => compact(item, score));
+      const lensMode = args.personalLens;
+      if (lensMode !== undefined && !["fixed", "inferred", "personal"].includes(String(lensMode))) throw new ActionError("INVALID_ARGUMENT", "personalLens must be fixed, inferred, or personal");
+      const lens = lensMode === "personal" ? readPersonalLens(state.settings.experimentalPersonalLens) : readPersonalLens(undefined);
+      const experiment45 = args.experiment45;
+      if (experiment45 !== undefined && !(LENS45_MODES as readonly string[]).includes(String(experiment45))) throw new ActionError("INVALID_ARGUMENT", "Unknown experiment 4.5 scoring arm");
+      if (experiment45 !== undefined && (lensMode !== undefined || refineMetric !== undefined || strategy !== "greedy")) throw new ActionError("INVALID_ARGUMENT", "Use experiment45 without other experiment flags");
+      if (experiment45 !== undefined) {
+        const lens45 = (state.settings.experimentalPersonalLens45 as Lens45State | undefined) ?? emptyLens45();
+        readPersonalLens(lens45);
+        items = scoreLens45(narrowed, entries(profile), params, selectedClaims, lens45, experiment45 as Lens45Mode)
+          .map(({ item, score, lens45Evidence }) => ({ ...compact(item, score), lens45Evidence }));
+      } else items = scoreCandidates(narrowed, entries(profile), params, lensMode === "fixed" ? [] : selectedClaims, {
+        clusterStrategy: strategy,
+        ...(refineMetric === undefined ? {} : { refineMetric: refineMetric as RefineMetricMode, pairwise: state.pairwise })
+      }).map(({ item, score }) => {
+        if (lensMode === undefined) return compact(item, score);
+        const evidence = personalLensEvidence(item, entries(profile), lens);
+        return { ...compact(item, score + evidence.adjustment), lensEvidence: evidence };
+      });
+      if (lensMode !== undefined) items.sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
     }
     const limit = number(args, "limit", 10, 1, 20);
     const batch = catalogue ? items : items.slice(0, 20);
@@ -223,10 +347,14 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
   }
   if (name === "suggest.explain") {
     const parsed = itemKey(string(args, "key")); const item = await (catalogue ? catalogue.detail(parsed.medium, parsed.id) : (await tmdb(storage)).detail(parsed.medium, parsed.id));
-    const scored = scoreCandidates([item], entries(profile), DEFAULT_SCORING_PARAMS, state.tasteClaims)[0];
-    const related = state.tasteClaims.filter((claim) => claim.active && matchesTasteClaim(item, claim)).map((claim) => claim.id);
+    const lensMode = args.personalLens;
+    if (lensMode !== undefined && !["fixed", "inferred", "personal"].includes(String(lensMode))) throw new ActionError("INVALID_ARGUMENT", "personalLens must be fixed, inferred, or personal");
+    const params = lensMode === undefined ? DEFAULT_SCORING_PARAMS : { ...DEFAULT_SCORING_PARAMS, qualityWeight: 0, popularityBias: 0 };
+    const scored = scoreCandidates([item], entries(profile), params, lensMode === "fixed" ? [] : state.tasteClaims)[0];
+    const lensEvidence = lensMode === undefined ? undefined : personalLensEvidence(item, entries(profile), readPersonalLens(lensMode === "personal" ? state.settings.experimentalPersonalLens : undefined));
+    const related = (lensMode === "fixed" ? [] : state.tasteClaims).filter((claim) => claim.active && matchesTasteClaim(item, claim)).map((claim) => claim.id);
     const clusters = buildTasteSpace(entries(profile)).clusters.filter((cluster) => cluster.polarity === "liked").map((cluster) => ({ id: cluster.id, similarity: cosineSimilarity(item.features, cluster.centroid) })).sort((a, b) => b.similarity - a.similarity).slice(0, 3);
-    return { item: compact(item), score: scored?.score ?? null, evidence: { claims: related, clusters } };
+    return { item: compact(item), score: scored ? scored.score + (lensEvidence?.adjustment ?? 0) : null, ...(lensEvidence ? { lensEvidence } : {}), evidence: { claims: related, clusters } };
   }
   if (name === "refine.queue") {
     const size = number(args, "size", Number(state.settings.refineGroupSize) || 2, 2, 10);
