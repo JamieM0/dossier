@@ -28,6 +28,8 @@ export const registry: ActionSpec[] = [
   ["suggest.explain", ["key", "personalLens"], "read", "score,evidence", "Explain a recommendation"],
   ["correction.inspect", [], "read", "corrections", "Inspect experimental correction feedback"],
   ["correction.set", ["id", "kind", "conditions", "effect", "key", "winner", "loser", "expectedRevision"], "write", "corrections,revision", "Set experimental scoped feedback"],
+  ["correction.preview", ["id"], "read", "preview", "Preview supporting and conflicting ratings for a proposed preference"],
+  ["correction.review", ["id", "decision", "signature", "expectedRevision"], "write", "reviews,revision", "Apply, withdraw, or defer a previewed preference"],
   ["correction.remove", ["id", "expectedRevision"], "write", "corrections,revision", "Remove experimental scoped feedback"],
   ["correction.suggest", ["arm", "medium", "includeRated", "limit", "cursor"], "read", "items,next", "Compare experimental correction policies"],
   ["context.create", ["context", "name", "expectedRevision"], "write", "contexts,revision", "Create an experimental context"],

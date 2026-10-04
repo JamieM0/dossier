@@ -1,0 +1,64 @@
+{
+  "version": "guarded-correction-v1",
+  "experiment": "7",
+  "previousCommit": "041dd4c",
+  "fixture": {
+    "path": "apps/dossier-cli/src/lab/guarded-correction-v1.json",
+    "sha256": "7676580907fc4d4770fa7cd76d5dcb471ba17de9f706f2d24c3be132d35d2ff5"
+  },
+  "generatorHash": "01960e3c9194153a8385259dba411063672d060922e0a2ef94ce3e1e05588a86",
+  "arms": [
+    "current",
+    "bounded",
+    "scoped",
+    "guarded",
+    "reviewed"
+  ],
+  "candidate": {
+    "boundedStrength": 0.3,
+    "boundedCap": 0.6,
+    "priority": 2,
+    "withinScope": 0.1,
+    "pairMargin": 0.004
+  },
+  "protection": {
+    "minimumExamples": 4,
+    "maximumCounterexampleShare": 0.25
+  },
+  "seeds": [
+    17,
+    43
+  ],
+  "ratings": 40,
+  "maxPrompts": 8,
+  "checkpoints": [
+    0,
+    4,
+    8
+  ],
+  "confirmationViewers": 80,
+  "totalViewers": 160,
+  "cohort": "160 fresh synthetic people, 80 development and 80 reserved. Each partition has ten people in each of eight types; reserved people include three-rule combinations.",
+  "questions": "All policies receive a shared deterministic stream of up to eight broad questions. A review consumes one turn from the same eight-question budget. Follow-up answers can withdraw, defer, or apply a proposal; they cannot change ratings or propose new factors.",
+  "protectionMeaning": "Guarded leaves general proposals pending when fewer than four nonneutral matching ratings exist or at least one quarter contradict the effect. Reviewed asks a follow-up for such proposals and applies an explicit approval. Supported proposals apply directly. Exact title and pair controls use unchanged scoped priority.",
+  "actor": "Main noise follows experiment six. Follow-ups use a separate frozen RNG and can be wrong or unknown. Persistent-noise people always repeat their misleading main answer when asked again. Actor truth drives utterances only; no hidden ratings or rules reach a scorer, preview, or selector.",
+  "corrections": "General reversal trials use deliberate approval of both effects in the reviewed arm. Guarded cannot bypass its gate and any deferred reversal counts as failed control. All arms receive identical intentional title and pair reversals. Pending and withdrawn preferences must be visible and leave scores unchanged.",
+  "previews": "Preview returns supporting titles, counterexamples, reasons, and a signature tied to exact feedback and supplied ratings. Apply or withdraw is reversible. A changed proposal or rating evidence invalidates the approval.",
+  "gates": {
+    "minimumMeanGain": 0.02,
+    "worstDecileDelta": -0.01,
+    "noisyMeanDelta": -0.01,
+    "maxSinglePromptLoss": 0.05,
+    "minCorrectionRate": 0.9,
+    "minAnsweredViewers": 0.5,
+    "accurateGainRetention": 0.8
+  },
+  "selection": "Only reserved people decide eligibility. All original gain, positive lower bound, worst decile, noisy subgroup, single-turn safety, control, locality, removal, restoration, portability, defaults, and overwrite gates remain required. Both noisy types need a lower gain bound of at least minus one point. Preserve at least 80 percent of scoped gain in the multiple group when scoped gain is positive. Passing earns review, never automatic promotion.",
+  "limitations": [
+    "Synthetic films and explanations only.",
+    "Known candidate ranking, not retrieval or human comprehension.",
+    "Reviews can repeat a wrong answer; simulated approval is not a measure of actual usability.",
+    "Title and pair feedback is diagnostic on rated films; unseen-film gains come from general feedback only.",
+    "Eight-turn limits include follow-ups; deferral can cost useful information."
+  ]
+}

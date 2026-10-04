@@ -13,6 +13,7 @@ import { readPersonalLens, personalLensQueue, answerPersonalLens, personalLensEv
 import { emptyLens45, broadLensQueue, answerBroadLens, scoreLens45, LENS45_MODES, type Lens45State, type Lens45Mode } from "@dossier/domain";
 import { readContexts, contextClaims, scoreContexts, CONTEXT_ARMS, type ContextArm } from "@dossier/domain";
 import { readCorrections, setCorrection, removeCorrection, scoreCorrections, CORRECTION_ARMS, type CorrectionArm } from "@dossier/domain";
+import { correctionPreview, readCorrectionReviews, reviewCorrection, scoreProtectedCorrections, PROTECTED_ARMS, type ProtectedArm } from "@dossier/domain";
 import { rankExperimentalQuestions, type QuestionPolicy } from "./lab/question-policy.js";
 import { createTmdbClient } from "@dossier/store";
 import { CliStorage, newProfile, publicProfile, type Profile, type Vault } from "./storage.js";
@@ -80,7 +81,7 @@ function snapshot(item: TmdbItem) {
 }
 function validImport(state: PersistedState): PersistedState {
   if (!state || typeof state !== "object" || !state.ratings || typeof state.ratings !== "object" || !Array.isArray(state.pairwise) || !Array.isArray(state.skipped) || !Array.isArray(state.tasteClaims)) throw new ActionError("INVALID_IMPORT", "Use a valid Dossier export");
-  try { readContexts(state.settings?.experimentalContexts); readCorrections(state.settings?.experimentalCorrections); } catch { throw new ActionError("INVALID_IMPORT", "Invalid experimental context profile"); }
+  try { readContexts(state.settings?.experimentalContexts); readCorrections(state.settings?.experimentalCorrections); readCorrectionReviews(state.settings?.experimentalCorrectionReviews); } catch { throw new ActionError("INVALID_IMPORT", "Invalid experimental context profile"); }
   return state;
 }
 const settingTypes: Record<string, "boolean" | "number" | "object"> = {
@@ -163,7 +164,7 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
   if (name === "profile.unarchive") { revision(profile, args); profile.archived = false; profile.revision++; storage.save(vault); storage.audit("profile.unarchive", profile.id); return publicProfile(profile); }
   if (name === "profile.delete") { revision(profile, args); if (args.dryRun === true) return { profile: publicProfile(profile), dryRun: true }; requireYes(args); vault.profiles = vault.profiles.filter((entry) => entry.id !== profile.id); if (vault.activeId === profile.id) vault.activeId = null; storage.save(vault); storage.audit("profile.delete", profile.id); return { deleted: profile.id }; }
   if (name === "profile.export" || name === "library.export") { const path = string(args, "path"); writeFileSync(path, JSON.stringify(await exportLibrary(state, string(args, "passphrase"))), { mode: 0o600, flag: "wx" }); storage.audit("profile.export", profile.id); return { file: path }; }
-  if (name === "profile.reset") { revision(profile, args); if (args.dryRun === true) return { ratings: Object.keys(state.ratings).length }; requireYes(args); return { revision: mutate(storage, vault, profile, args, resetLibraryPreferences({ ...state, settings: Object.fromEntries(Object.entries(state.settings).filter(([key]) => !["experimentalPersonalLens", "experimentalPersonalLens45", "experimentalContexts", "experimentalCorrections"].includes(key))) })) }; }
+  if (name === "profile.reset") { revision(profile, args); if (args.dryRun === true) return { ratings: Object.keys(state.ratings).length }; requireYes(args); return { revision: mutate(storage, vault, profile, args, resetLibraryPreferences({ ...state, settings: Object.fromEntries(Object.entries(state.settings).filter(([key]) => !["experimentalPersonalLens", "experimentalPersonalLens45", "experimentalContexts", "experimentalCorrections", "experimentalCorrectionReviews"].includes(key))) })) }; }
   if (name === "library.import") { revision(profile, args); const imported = validImport(await importLibrary(readFileSync(string(args, "path"), "utf8"), string(args, "passphrase"))); if (args.dryRun === true) return { ratings: Object.keys(imported.ratings).length }; requireYes(args); const nextRevision = mutate(storage, vault, profile, args, imported); storage.audit("library.import", profile.id); return { revision: nextRevision }; }
   if (name.startsWith("context.")) {
     let contexts;
@@ -211,15 +212,29 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
     let correctionState;
     try { correctionState = readCorrections(state.settings.experimentalCorrections); }
     catch { throw new ActionError("INVALID_ARGUMENT", "Invalid experimental correction profile"); }
-    if (name === "correction.inspect") return { corrections: correctionState };
+    const reviews = readCorrectionReviews(state.settings.experimentalCorrectionReviews);
+    if (name === "correction.inspect") return { corrections: correctionState, reviews };
+    if (name === "correction.preview" || name === "correction.review") {
+      const feedback = correctionState.feedback.find(f => f.id === string(args,"id"));
+      if (!feedback) throw new ActionError("INVALID_ARGUMENT", "Correction not found");
+      try {
+        if (name === "correction.preview") return { preview:correctionPreview(feedback,entries(profile)) };
+        revision(profile,args);
+        const next = reviewCorrection(reviews,feedback,entries(profile),args.decision,args.signature);
+        return { reviews:next, revision:mutate(storage,vault,profile,args,updateLibrarySettings(state,{experimentalCorrectionReviews:next})) };
+      } catch (error) { if(error instanceof ActionError) throw error; throw new ActionError("INVALID_ARGUMENT", error instanceof Error ? error.message : "Invalid review"); }
+    }
     if (name === "correction.suggest") {
       const arm = string(args, "arm");
-      if (!(CORRECTION_ARMS as readonly string[]).includes(arm)) throw new ActionError("INVALID_ARGUMENT", "Unknown correction arm");
+      if (!([...CORRECTION_ARMS,...PROTECTED_ARMS] as readonly string[]).includes(arm)) throw new ActionError("INVALID_ARGUMENT", "Unknown correction arm");
       const source = await candidates(storage, profile, medium(args), 1, "suggest", catalogue);
       const includeRated = args.includeRated === true || args.includeRated === "true";
       if (args.includeRated !== undefined && ![true,false,"true","false"].includes(args.includeRated as boolean|string)) throw new ActionError("INVALID_ARGUMENT", "includeRated must be true or false");
       const pool = source.filter(item => !state.skipped.includes(`${item.medium}:${item.id}`) && (includeRated || !state.ratings[`${item.medium}:${item.id}`]));
-      const rows = scoreCorrections(pool, entries(profile), state.tasteClaims, correctionState, arm as CorrectionArm)
+      const scored = (PROTECTED_ARMS as readonly string[]).includes(arm)
+        ? scoreProtectedCorrections(pool,entries(profile),state.tasteClaims,correctionState,reviews,arm as ProtectedArm)
+        : scoreCorrections(pool, entries(profile), state.tasteClaims, correctionState, arm as CorrectionArm);
+      const rows = scored
         .map(({item,score,correctionEvidence}) => ({...compact(item,score),correctionEvidence}));
       return page(rows, args);
     }
@@ -237,7 +252,7 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
       const keys = f.kind === "exception" ? [f.key] : f.kind === "comparison" ? [f.winner,f.loser] : [];
       if (keys.some(key => !state.ratings[key])) throw new ActionError("INVALID_ARGUMENT", "Title feedback requires rated evidence");
     }
-    return {corrections:next,revision:mutate(storage,vault,profile,args,updateLibrarySettings(state,{experimentalCorrections:next}))};
+    return {corrections:next,revision:mutate(storage,vault,profile,args,updateLibrarySettings(state,{experimentalCorrections:next,experimentalCorrectionReviews:{version:1,reviews:reviews.reviews.filter(r=>next.feedback.some(f=>f.id===r.id))}}))};
   }
   if (name.startsWith("lens45.")) {
     const stored = state.settings.experimentalPersonalLens45 as Lens45State | undefined;

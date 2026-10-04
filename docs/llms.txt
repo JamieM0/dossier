@@ -21,3 +21,4 @@
 
 - [Preparation baseline](preparation-baseline.md): Immutable model and outcome reference before effective correction.
 - [Effective correction experiment](effective-correction-experiment.md): Frozen synthetic test of scoped explicit feedback.
+- [Guarded correction experiment](guarded-correction-experiment.md): Test evidence previews and follow-up review against misleading broad preferences.
