@@ -1,0 +1,73 @@
+{
+  "version": "impact-correction-v1",
+  "experiment": "8",
+  "previousCommit": "e4b7289",
+  "fixture": {
+    "path": "apps/dossier-cli/src/lab/impact-correction-v1.json",
+    "sha256": "242b58e3359a46fd87697be20b13427d5930a0280e63388db0cf7ae62b7f033f"
+  },
+  "generatorHash": "394b5306d373b717893d4aadf4ba55cbaeb27646c6a346b2893b046dec3c127d",
+  "arms": [
+    "current",
+    "scoped",
+    "guarded",
+    "reviewed",
+    "impact_guarded",
+    "impact_reviewed",
+    "impact_ranked"
+  ],
+  "candidate": {
+    "boundedStrength": 0.3,
+    "boundedCap": 0.6,
+    "priority": 2,
+    "withinScope": 0.1,
+    "pairMargin": 0.004
+  },
+  "protection": {
+    "minimumExamples": 4,
+    "maximumCounterexampleShare": 0.25
+  },
+  "impact": {
+    "relativeStrength": 0.1,
+    "minimumScale": 0.001,
+    "maximumChangedRelations": 3,
+    "maximumHalvings": 24
+  },
+  "seeds": [
+    23,
+    59
+  ],
+  "ratings": 40,
+  "maxPrompts": 8,
+  "checkpoints": [
+    0,
+    4,
+    8
+  ],
+  "confirmationViewers": 100,
+  "totalViewers": 200,
+  "cohort": "200 fresh synthetic people and 200 fresh films; 100 development and 100 reserved. Ten taste types per partition, ten people per type. Reserved preferences include additional three-rule combinations. Eighty films per person remain hidden.",
+  "questions": "Shared broad-question stream, at most eight actual questions per policy. Follow-ups consume the same budget. New reviewed candidates follow the same review schedule as the reviewed control; approval never removes a score or relation limit.",
+  "limits": "Score-limited candidates use one signed contribution of 10 percent of baseline interquartile spread, with a minimum scale of 0.001. The most specific active general preference wins; conflicting equally specific rules abstain. Contributions cannot stack. The ranked candidate halves all broad contributions until each film changes at most three raw or published score relations, then uses zero if needed after 24 halvings. Rank checks include consequences through existing narrow comparisons, against a baseline with those comparisons intact.",
+  "narrow": "Title exceptions and direct comparisons retain original scoped authority. Those explicit narrow changes do not count against the broad budget. Cycles expose conflicts. Removing feedback and restoring original feedback must restore scores exactly. Locality trials include reversals within populated multi-preference profiles.",
+  "actor": "Existing noise, partial, drift, exception, missing-factor, and conflicting-evidence types remain. A consistent-misleading type supplies a biased forty-film library favoring high-tone dislikes and lower-tone likes, then confirms unrelated axis descriptions and repeats them during review. Weak-rating people use plus or minus one without changing underlying preferences. No private truth or future ratings reach the model or selector.",
+  "publication": "The CLI publishes scores rounded to three decimals. Ranking-limit checks include both raw and published pair relations. General direction trials use published score changes; numerical changes that disappear in the CLI count as ineffective correction.",
+  "corrections": "Reviewed and both reviewed impact candidates deliberately approve both general effects in reversal trials. Guarded candidates receive no bypass. All candidates receive identical title and pair reversals. Eight-question quality paths never receive diagnostic feedback.",
+  "gates": {
+    "minimumMeanGain": 0.02,
+    "worstDecileDelta": -0.01,
+    "noisyMeanDelta": -0.01,
+    "maxSinglePromptLoss": 0.05,
+    "minCorrectionRate": 0.9,
+    "minAnsweredViewers": 0.5,
+    "accurateGainRetention": 0.8
+  },
+  "selection": "Reserved people only. Preserve every prior gain, uncertainty, worst-decile, five-point single-answer loss, coverage, 90-percent correction, locality, pending, reversibility, portability, default, and overwrite requirement. Both noisy groups and the consistent-misleading group need lower gain bounds of at least minus one point. Preserve at least 80 percent of scoped gain for accurate multiple preferences when positive. New candidates must obey their declared broad limits. Passing earns adoption review; no automatic default changes.",
+  "limitations": [
+    "Known synthetic film candidates only; no retrieval or human comprehension test.",
+    "A limit on changed relations does not guarantee a five-point accuracy loss for every possible hidden label distribution.",
+    "Candidate-pool composition affects the spread and relation budget; portability compares identical pools.",
+    "General direction can fail when a cap blocks a change or score publication hides it.",
+    "Narrow feedback is tested on rated diagnostic titles; unseen-film quality paths use general feedback only."
+  ]
+}

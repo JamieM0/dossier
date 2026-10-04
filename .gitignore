@@ -77,3 +77,6 @@ archive/
 
 # Keep the lossless guarded correction traces compressed.
 /reports/guarded-correction-v1.json
+
+# Keep the lossless impact correction traces compressed.
+/reports/impact-correction-v1.json

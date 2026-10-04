@@ -14,6 +14,7 @@ import { emptyLens45, broadLensQueue, answerBroadLens, scoreLens45, LENS45_MODES
 import { readContexts, contextClaims, scoreContexts, CONTEXT_ARMS, type ContextArm } from "@dossier/domain";
 import { readCorrections, setCorrection, removeCorrection, scoreCorrections, CORRECTION_ARMS, type CorrectionArm } from "@dossier/domain";
 import { correctionPreview, readCorrectionReviews, reviewCorrection, scoreProtectedCorrections, PROTECTED_ARMS, type ProtectedArm } from "@dossier/domain";
+import { scoreImpactCorrections, IMPACT_ARMS, type ImpactArm } from "@dossier/domain";
 import { rankExperimentalQuestions, type QuestionPolicy } from "./lab/question-policy.js";
 import { createTmdbClient } from "@dossier/store";
 import { CliStorage, newProfile, publicProfile, type Profile, type Vault } from "./storage.js";
@@ -226,12 +227,14 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
     }
     if (name === "correction.suggest") {
       const arm = string(args, "arm");
-      if (!([...CORRECTION_ARMS,...PROTECTED_ARMS] as readonly string[]).includes(arm)) throw new ActionError("INVALID_ARGUMENT", "Unknown correction arm");
+      if (!([...CORRECTION_ARMS,...PROTECTED_ARMS,...IMPACT_ARMS] as readonly string[]).includes(arm)) throw new ActionError("INVALID_ARGUMENT", "Unknown correction arm");
       const source = await candidates(storage, profile, medium(args), 1, "suggest", catalogue);
       const includeRated = args.includeRated === true || args.includeRated === "true";
       if (args.includeRated !== undefined && ![true,false,"true","false"].includes(args.includeRated as boolean|string)) throw new ActionError("INVALID_ARGUMENT", "includeRated must be true or false");
       const pool = source.filter(item => !state.skipped.includes(`${item.medium}:${item.id}`) && (includeRated || !state.ratings[`${item.medium}:${item.id}`]));
-      const scored = (PROTECTED_ARMS as readonly string[]).includes(arm)
+      const scored = (IMPACT_ARMS as readonly string[]).includes(arm)
+        ? scoreImpactCorrections(pool,entries(profile),state.tasteClaims,correctionState,reviews,arm as ImpactArm)
+        : (PROTECTED_ARMS as readonly string[]).includes(arm)
         ? scoreProtectedCorrections(pool,entries(profile),state.tasteClaims,correctionState,reviews,arm as ProtectedArm)
         : scoreCorrections(pool, entries(profile), state.tasteClaims, correctionState, arm as CorrectionArm);
       const rows = scored

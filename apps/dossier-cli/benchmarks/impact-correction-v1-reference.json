@@ -1,0 +1,20 @@
+{
+  "version": "impact-correction-v1-reference",
+  "previousCommit": "e4b7289",
+  "hashes": {
+    "apps/dossier-cli/benchmarks/preparation-v1-reference.json": "c09fcd5c9084e2db8f4b3befb6c9a65179fd9625d9131f3e2281b934e9fc019f",
+    "apps/dossier-cli/benchmarks/effective-correction-v1-protocol.json": "fc89acedbb8d16d83932917c6933844f38ee4fc20cab6e18eada23053b48a5f6",
+    "apps/dossier-cli/src/lab/effective-correction-v1.json": "cdb7e6f0744b9b6fa7626c717854404f69d135c32404bd94bf13cc5ec1e955a7",
+    "reports/effective-correction-v1.json.gz": "739ea4a5084b7ab217fd37719d4f8d4a5760faaa32b5eadb2d9ea6bd1f56c7f3",
+    "reports/effective-correction-analysis-v1.md": "63fa4abf41a91b585b34032145b12da2c23c293c76a872351ec99b66f6868d9b",
+    "reports/effective-correction-regression-v1.json": "c6d19396d9a5fc8d65bd913753a8ec6dd04721a8fe550e33ff7bca997a06ec07",
+    "apps/dossier-cli/benchmarks/guarded-correction-v1-protocol.json": "08554f29f2de83617d178a477d46437d00670bd0da9320eab86bd4cd83d8ac4d",
+    "apps/dossier-cli/src/lab/guarded-correction-v1.json": "7676580907fc4d4770fa7cd76d5dcb471ba17de9f706f2d24c3be132d35d2ff5",
+    "apps/dossier-cli/benchmarks/guarded-correction-v1-reference.json": "7397219881eafc4cbd920f22c2b58bb814a091acdf8aee00f9f517806a963b37",
+    "reports/guarded-correction-v1.json.gz": "eb41c6c38a552a2ec7731e98b0f687f5fd548f189e5a5c6513f36876c64b23d9",
+    "reports/guarded-correction-analysis-v1.md": "1733ee011ad3f270d8aff7b0f2334dc09555257a35262dbf7932c1067cea17bc",
+    "reports/guarded-correction-regression-v1.json": "cef3e10bff3f0aa692dce926134325d58ff1f4d52d2dc71085ed0431c6271ca5",
+    "apps/dossier-cli/benchmarks/impact-correction-v1-protocol.json": "a2e20dd5e649abfcb07597e2a01fb031a88ca443236d8d4afcd2d06eae9e8dad",
+    "apps/dossier-cli/src/lab/impact-correction-v1.json": "242b58e3359a46fd87697be20b13427d5930a0280e63388db0cf7ae62b7f033f"
+  }
+}

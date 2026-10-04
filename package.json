@@ -37,6 +37,7 @@
     "lab:contexts": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/contexts-suite.mjs",
     "lab:contexts-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/contexts-regressions.mjs",
     "lab:effective-correction": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/effective-correction-suite.mjs",
-    "lab:guarded-correction": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/guarded-correction-suite.mjs"
+    "lab:guarded-correction": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/guarded-correction-suite.mjs",
+    "lab:impact-correction": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/impact-correction-suite.mjs"
   }
 }
