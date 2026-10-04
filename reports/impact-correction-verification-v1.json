@@ -1,0 +1,88 @@
+{
+  "version": "impact-correction-verification-v1",
+  "protocolCommit": "6c4b37b",
+  "typingCommit": "a40bb9b",
+  "reproducibility": {
+    "status": "passed",
+    "completeRuns": 2,
+    "peoplePerRun": 200,
+    "sessionsPerRun": 400,
+    "identicalExceptDuration": true,
+    "first": {
+      "durationSeconds": 355.02,
+      "viewers": 200,
+      "sessions": 400,
+      "protocolHash": "a2e20dd5e649abfcb07597e2a01fb031a88ca443236d8d4afcd2d06eae9e8dad",
+      "referenceHash": "761832bb8882fce9388f743c361980288625a5ec7305dcbad7e80a4abbd95eb5",
+      "modelFingerprint": "a29d0663f2cc0b14c8e875eab7c1d0d9a378eab3581d6a447c5af2b06a1ace2e",
+      "evaluatorFingerprint": "d47763e202f2c8949f82b0b67f6d2a18cd59e1adc30268a8af63ba60d62f6784",
+      "normalizedSha256": "a2fe17f391572680b250b259684c90d7d98eaa112b17aa99826bf5d314135d16"
+    },
+    "repeated": {
+      "durationSeconds": 331.9,
+      "viewers": 200,
+      "sessions": 400,
+      "protocolHash": "a2e20dd5e649abfcb07597e2a01fb031a88ca443236d8d4afcd2d06eae9e8dad",
+      "referenceHash": "761832bb8882fce9388f743c361980288625a5ec7305dcbad7e80a4abbd95eb5",
+      "modelFingerprint": "a29d0663f2cc0b14c8e875eab7c1d0d9a378eab3581d6a447c5af2b06a1ace2e",
+      "evaluatorFingerprint": "d47763e202f2c8949f82b0b67f6d2a18cd59e1adc30268a8af63ba60d62f6784",
+      "normalizedSha256": "a2fe17f391572680b250b259684c90d7d98eaa112b17aa99826bf5d314135d16"
+    }
+  },
+  "validation": {
+    "typecheck": {
+      "passed": true,
+      "errors": 0,
+      "warnings": 0
+    },
+    "unitTests": {
+      "domain": 60,
+      "cli": 17,
+      "ui": 77,
+      "desktop": 2,
+      "total": 156
+    },
+    "previousExperimentAudits": {
+      "passed": 5
+    },
+    "impactReportAudits": {
+      "status": "passed",
+      "passed": 5,
+      "failed": 0,
+      "durationSeconds": 230.622,
+      "aggregationRetestPassed": true
+    },
+    "historicalRegression": {
+      "passed": true,
+      "report": "impact-correction-regression-v1.json"
+    },
+    "documentation": {
+      "files": 4,
+      "errors": 0,
+      "warnings": 0
+    },
+    "ordinaryDefaultsUnchanged": true
+  },
+  "executionNotes": [
+    "Explicit tuple types fix the shared UI checker; emitted impact-correction.js remains byte-for-byte identical.",
+    "Policies, cohort, thresholds, and evaluator remain frozen during confirmation.",
+    "The report audit compares reconstructed summaries after JSON serialization, which converts negative zero to zero. Metrics and decision logic remain unchanged.",
+    "After outcome inspection, changes cover report presentation, recorded conclusions, audit serialization, and test registration only; frozen runtime and evaluation fingerprints match both full runs."
+  ],
+  "archive": {
+    "lossless": true,
+    "rawSha256": "74c3c33d1b305797494c50e36a4c752699f4d0be56ab8e545a9bc0c97ba67fbe",
+    "decompressedSha256": "74c3c33d1b305797494c50e36a4c752699f4d0be56ab8e545a9bc0c97ba67fbe",
+    "protectedEarlierEvidenceUnchanged": true
+  },
+  "protocolHash": "a2e20dd5e649abfcb07597e2a01fb031a88ca443236d8d4afcd2d06eae9e8dad",
+  "referenceHash": "761832bb8882fce9388f743c361980288625a5ec7305dcbad7e80a4abbd95eb5",
+  "modelFingerprint": "a29d0663f2cc0b14c8e875eab7c1d0d9a378eab3581d6a447c5af2b06a1ace2e",
+  "evaluatorFingerprint": "d47763e202f2c8949f82b0b67f6d2a18cd59e1adc30268a8af63ba60d62f6784",
+  "checkedAt": "2026-10-04T23:07:50.045948+00:00",
+  "decision": {
+    "status": "do_not_promote",
+    "eligible": [],
+    "reason": "No candidate meets every frozen requirement. Keep ordinary recommendation defaults."
+  }
+}

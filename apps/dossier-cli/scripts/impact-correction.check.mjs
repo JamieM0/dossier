@@ -159,7 +159,8 @@ test('narrow controls, deliberate broad review, deferred scoring, and scope reco
  }
 });
 test('people aggregation and all frozen protection requirements determine adoption',()=>{
- for(const [p,summary]of Object.entries(report.cohorts))assert.deepEqual(summary,summarize(report.viewerResults.filter(v=>v.partition===p),protocol));
- for(const [type,summary]of Object.entries(report.types))assert.deepEqual(summary,summarize(report.viewerResults.filter(v=>v.partition==='sealed'&&v.type===type),protocol));
+ // Compare persisted summaries after JSON converts negative zero to zero.
+ for(const [p,summary]of Object.entries(report.cohorts))assert.deepEqual(summary,canonical(summarize(report.viewerResults.filter(v=>v.partition===p),protocol)));
+ for(const [type,summary]of Object.entries(report.types))assert.deepEqual(summary,canonical(summarize(report.viewerResults.filter(v=>v.partition==='sealed'&&v.type===type),protocol)));
  const actual=decide(report.viewerResults,protocol,Boolean(process.env.DOSSIER_IMPACT_REPORT));assert.deepEqual(report.candidateGates,actual.candidateGates);assert.deepEqual(report.decision,actual.decision);
 });

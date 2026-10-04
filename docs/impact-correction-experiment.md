@@ -131,3 +131,11 @@ The experiment tests known synthetic film candidates, rather than retrieval, tel
 The actor models limited error and sampling patterns. Approval does not establish explanation truth.
 Title and comparison controls use rated diagnostic films. Hidden-film quality paths receive broad feedback only.
 Published score precision and tied scores can block an otherwise directional change.
+
+## Recorded outcome
+
+No candidate passes every frozen adoption requirement. Ordinary recommendation defaults remain unchanged.
+Scaled influence reduces observed losses and preserves control, but its gain falls short of the required two ranking points.
+The shared ranking cap also fails correction and populated-profile scope requirements.
+Read the [executive decision](../reports/impact-correction-analysis-v1.md) for the project recommendation.
+Read the [measured results](../reports/impact-correction-v1.md) and [verification record](../reports/impact-correction-verification-v1.json) for evidence.
