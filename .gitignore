@@ -71,3 +71,6 @@ archive/
 
 # Keep the lossless compressed experiment 5 trace report in git.
 /reports/contextual-taste-v1.json
+
+# Keep the lossless effective correction traces compressed.
+/reports/effective-correction-v1.json

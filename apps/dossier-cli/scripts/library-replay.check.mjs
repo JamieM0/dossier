@@ -4,7 +4,7 @@ import { AXIS_KEYS, createDefaultState, setLibraryRating } from '@dossier/domain
 import { replayLibrary } from './library-replay.mjs';
 test('lab replay matches overwrite, timestamp, clear, and claim reconciliation', () => {
   const item = { id: 1, medium: 'movie', title: 'Evidence', year: 2020, posterPath: null,
-    voteAverage: null, genres: ['Drama'], keywords: [],
+    voteAverage: null, genres: ['Drama'], keywords: [], collection: null, directorIds: [], creatorIds: [],
     features: Object.fromEntries(AXIS_KEYS.map(a => [a, .4])) };
   const events = [{ key: 'movie:1', rating: 2, ts: 100 }, { key: 'movie:1', rating: -1, ts: 200 }];
   const replay = replayLibrary(events, new Map([['movie:1', item]]));

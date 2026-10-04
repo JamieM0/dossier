@@ -1,8 +1,8 @@
 export type ActionSpec = { name: string; args: string[]; schema: { type: "object"; properties: Record<string, { type: string }>; required: string[] }; safety: "read" | "write" | "destructive"; output: string; description: string };
 const argumentTypes: Record<string, string> = {
-  observedAt: "integer", expectedRevision: "integer", limit: "integer", size: "integer", value: "number|string|object", yes: "boolean", dryRun: "boolean", questionSeed: "integer", questionStop: "boolean", keys: "string[]", filters: "object", dials: "object", conditions: "object[]"
+  includeRated: "boolean", observedAt: "integer", expectedRevision: "integer", limit: "integer", size: "integer", value: "number|string|object", yes: "boolean", dryRun: "boolean", questionSeed: "integer", questionStop: "boolean", keys: "string[]", filters: "object", dials: "object", conditions: "object[]"
 };
-const optionalArguments = new Set(["limit", "cursor", "mode", "medium", "focus", "size", "filter", "dials", "filters", "dryRun", "fields", "effect", "conditions", "yes", "geometry", "refineMetric", "questionPolicy", "questionSeed", "questionStop", "personalLens", "experiment45", "arm", "context", "observedAt"]);
+const optionalArguments = new Set(["limit", "cursor", "mode", "medium", "focus", "size", "filter", "dials", "filters", "dryRun", "fields", "effect", "conditions", "yes", "geometry", "refineMetric", "questionPolicy", "questionSeed", "questionStop", "personalLens", "experiment45", "arm", "context", "observedAt", "includeRated"]);
 export const registry: ActionSpec[] = [
   ["profile.create", ["name"], "write", "profile", "Create a CLI profile"],
   ["profile.list", [], "read", "items,activeId", "List CLI profiles"],
@@ -26,6 +26,10 @@ export const registry: ActionSpec[] = [
   ["refine.rank", ["keys", "expectedRevision"], "write", "revision", "Record a ranking"],
   ["suggest.list", ["medium", "limit", "cursor", "filters", "dials", "geometry", "refineMetric", "personalLens", "experiment45"], "read", "items,next", "Get recommendations"],
   ["suggest.explain", ["key", "personalLens"], "read", "score,evidence", "Explain a recommendation"],
+  ["correction.inspect", [], "read", "corrections", "Inspect experimental correction feedback"],
+  ["correction.set", ["id", "kind", "conditions", "effect", "key", "winner", "loser", "expectedRevision"], "write", "corrections,revision", "Set experimental scoped feedback"],
+  ["correction.remove", ["id", "expectedRevision"], "write", "corrections,revision", "Remove experimental scoped feedback"],
+  ["correction.suggest", ["arm", "medium", "includeRated", "limit", "cursor"], "read", "items,next", "Compare experimental correction policies"],
   ["context.create", ["context", "name", "expectedRevision"], "write", "contexts,revision", "Create an experimental context"],
   ["context.rename", ["context", "name", "expectedRevision"], "write", "contexts,revision", "Rename an experimental context"],
   ["context.remove", ["context", "expectedRevision"], "write", "contexts,revision", "Remove an experimental context"],
@@ -74,7 +78,7 @@ export const registry: ActionSpec[] = [
   const argumentsList = args as string[];
   return {
     name: name as string, args: argumentsList,
-    schema: { type: "object" as const, properties: Object.fromEntries(argumentsList.map((argument) => [argument, { type: argumentTypes[argument] ?? "string" }])), required: argumentsList.filter((argument) => (!optionalArguments.has(argument) || argument === "context" && ["context.create", "context.rename", "context.remove", "context.rate", "context.clear"].includes(String(name))) && !(argument === "profile" && name === "profile.inspect") && !(argument === "key" && name === "settings.get") && !(argument === "query" && name === "library.list")) },
+    schema: { type: "object" as const, properties: Object.fromEntries(argumentsList.map((argument) => [argument, { type: argumentTypes[argument] ?? "string" }])), required: argumentsList.filter((argument) => !(name === "correction.set" && ["key", "winner", "loser"].includes(argument)) && (!optionalArguments.has(argument) || argument === "context" && ["context.create", "context.rename", "context.remove", "context.rate", "context.clear"].includes(String(name))) && !(argument === "profile" && name === "profile.inspect") && !(argument === "key" && name === "settings.get") && !(argument === "query" && name === "library.list")) },
     safety: safety as ActionSpec["safety"], output: output as string, description: description as string
   };
 });

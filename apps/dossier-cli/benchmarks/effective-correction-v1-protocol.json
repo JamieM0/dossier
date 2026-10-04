@@ -1,0 +1,57 @@
+{
+  "version": "effective-correction-v1",
+  "experiment": "6",
+  "preparationCommit": "669fc82",
+  "fixture": {
+    "path": "apps/dossier-cli/src/lab/effective-correction-v1.json",
+    "sha256": "cdb7e6f0744b9b6fa7626c717854404f69d135c32404bd94bf13cc5ec1e955a7"
+  },
+  "generatorHash": "88874dd4989cd5aee5fdfc5021ede46ce1aeacbe90d9ef64b7e444ef1224ab0c",
+  "arms": [
+    "current",
+    "native",
+    "bounded",
+    "scoped"
+  ],
+  "candidate": {
+    "boundedStrength": 0.3,
+    "boundedCap": 0.6,
+    "priority": 2,
+    "withinScope": 0.1,
+    "pairMargin": 0.004
+  },
+  "seeds": [
+    11,
+    29
+  ],
+  "ratings": 40,
+  "maxPrompts": 8,
+  "checkpoints": [
+    0,
+    4,
+    8
+  ],
+  "cohort": "120 synthetic movie people: 60 development and 60 reserved confirmation. Reserved people include unseen three-rule combinations.",
+  "privacy": "Only allowlisted public film metadata and revealed training ratings reach CLI actions. No public review scores, utilities, latent rules, or held-out ratings reach a scorer or question selector.",
+  "answers": "Reuse broad supported-pattern questions. Simulator confirms exact represented rules, sometimes gives misleading polarity or an unrelated rule, and sometimes abstains. Missing-factor people answer unknown. Same supplied answers for every arm.",
+  "scope": "General preference affects matching items. A title exception affects its exact key. A comparison affects its endpoints. Scoped priority is comparison, then exception, then most-specific general rule. Equal-specificity conflicts abstain. Latest feedback replaces the same target.",
+  "controls": "Current ignores experimental feedback. Native applies existing claim feedback and replaces title ratings through the current application transition; stored comparisons do not affect current scoring. Bounded adds 0.3 per general preference or exception with a combined 0.6 cap; comparisons add 0.3 to winner and subtract 0.3 from loser. Scoped replaces affected scores with signed priority 2 and a small within-scope baseline term. Comparisons enforce a 0.004 margin on an acyclic graph.",
+  "correction": "Diagnostic trials supply deliberate opposite feedback and require before-and-after ordering for direct pairs. General preferences require a signed score change; conflicting preferences must report ambiguity. General feedback does not promise every matching film beats every nonmatching film.",
+  "gates": {
+    "minimumMeanGain": 0.02,
+    "worstDecileDelta": -0.01,
+    "noisyMeanDelta": -0.01,
+    "maxSinglePromptLoss": 0.05,
+    "minCorrectionRate": 0.9,
+    "minAnsweredViewers": 0.5
+  },
+  "selection": "Each candidate must pass every gate on reserved movie people. Gain needs a positive viewer-bootstrap lower bound; noisy subgroup lower bound must stay above -0.01. Control, removal, restoration, locality, portability, and unchanged product defaults must pass. Passing earns an adoption review using the synthetic lab and Jamie usability checks. No automatic promotion.",
+  "limitations": [
+    "Movie simulations only; no book product validation.",
+    "Known films only; retrieval remains outside the experiment.",
+    "Synthetic explanations model a limited range of errors.",
+    "Source-pair correction trials diagnose control, not preference truth.",
+    "Single-update losses are worst observations, not typical outcomes.",
+    "Evidence strength is not calibrated confidence."
+  ]
+}

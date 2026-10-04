@@ -19,3 +19,5 @@ export * from "./personal-lens.js";
 export * from "./personal-lens-45.js";
 
 export * from "./contextual-taste.js";
+
+export * from "./effective-correction.js";

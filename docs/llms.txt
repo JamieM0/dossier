@@ -20,3 +20,4 @@
 - [Contextual taste experiment](contextual-taste-experiment.md): Compare global taste, recency, separate contexts, and scoped residuals with control and portability checks.
 
 - [Preparation baseline](preparation-baseline.md): Immutable model and outcome reference before effective correction.
+- [Effective correction experiment](effective-correction-experiment.md): Frozen synthetic test of scoped explicit feedback.

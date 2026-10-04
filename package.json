@@ -35,6 +35,7 @@
     "lab:personal-lens-45": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/personal-lens-45-suite.mjs",
     "lab:personal-lens-45-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/personal-lens-45-regressions.mjs",
     "lab:contexts": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/contexts-suite.mjs",
-    "lab:contexts-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/contexts-regressions.mjs"
+    "lab:contexts-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/contexts-regressions.mjs",
+    "lab:effective-correction": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/effective-correction-suite.mjs"
   }
 }
