@@ -59,6 +59,21 @@ The small claim effect in the original support-guard replay does not generalize 
 Recent matching's clean-history large-loss count exceeds timeless matching's count.
 Adaptation needs a separate requirement; reducing changes alone does not establish useful learning.
 
+## Beneficial updates also need protection
+
+For current scoring, `corroboration-sealed-biased_noise-0`, seed 89, observation 31, improves from 63.58% to 80.74% after earlier mistakes.
+Changes to earlier geometry add 11.92 points; inferred preferences add 4.02 points.
+Disliked catalogue 108 falls from 0.470 to 0.309, below liked catalogue 109 at 0.413.
+Freezing every earlier influence would discard this useful recovery.
+
+For timeless matching, `corroboration-sealed-repeated_noise-2`, seed 47, observation 11, improves from 65.82% to 85.73% in a clean history.
+The accurate negative rating lowers disliked catalogue 103 from 0.760 to 0.436, below liked catalogue 102 at 0.646.
+Their similarities to the new title are 0.897 and 0.153. Direct matching helps; normalization adds another 3.51 points.
+
+For recent matching, `corroboration-confirmation-isolated_noise-4`, seed 89, observation 29, improves from 69.79% to 91.43% after an earlier mistake.
+Liked catalogue 105 rises from -0.083 to 0.327, above disliked catalogue 101 at 0.230.
+Their similarities are 0.940 and -0.069. Direct matching adds 21.92 points; normalization removes 1.82 points.
+
 ## Representation limits and next test
 
 The replay record lists opposite preferences on identical feature vectors and identical non-identity metadata.

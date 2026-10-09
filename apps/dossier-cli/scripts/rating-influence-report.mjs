@@ -1,10 +1,13 @@
 import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { readCorroborationReport } from './corroboration-io.mjs';
-import { average, key, round } from './hard-metrics.mjs';
+import { average, key, round, assess } from './hard-metrics.mjs';
 import { meanInterval } from './real-metrics.mjs';
 const reports=await Promise.all(['development','sealed','confirmation'].map(p=>readCorroborationReport(`reports/rating-influence-v1-${p}.jsonl.gz`)));
 const fixture=JSON.parse(readFileSync(reports[0].protocol.fixture.path)),p=reports[0].protocol,points=v=>(100*v).toFixed(2);
+const historicalSource=await readCorroborationReport('reports/corroboration-v1.jsonl.gz');
+const historicalFixture=JSON.parse(readFileSync(historicalSource.protocol.fixture.path));
+for(const report of reports.slice(1))for(const c of report.candidates)assert(Object.entries(c.gates).some(([name,passed])=>name!=='legacyHistoricalVerified'&&!passed),'Report requires an observed synthetic rejection');
 function regionAccuracy(scores,truth,keys,region){
   let wins=0,pairs=0;
   for(const liked of keys.filter(k=>truth[k]>0))for(const disliked of keys.filter(k=>truth[k]<0))if(region.has(liked)||region.has(disliked)){
@@ -33,7 +36,21 @@ for(const report of reports){
     }
     return {viewer:v.viewer,type:v.type,pairs,metadataConflicts,vectorConflicts,metadataTieCeiling:round(pairs?1-.5*metadataConflicts/pairs:1)};
   });
-  diagnostics[report.partition]={regionLearning,unaffectedLearning,collisions};
+  const historicalLabels=report.failures.map(failure=>{
+    const original=historicalSource.viewerResults.find(v=>v.viewer===failure.viewer).sessions.find(s=>s.seed===failure.seed);
+    const actor=historicalFixture.viewers.find(v=>v.id===failure.viewer),catalogue=new Map(historicalFixture.items.map(i=>[key(i),i]));
+    assert.deepEqual(failure.events,original.events.slice(0,40));
+    for(const step of failure.steps)for(const arm of p.arms){
+      const expected=assess(step.scores[arm],actor.holdoutKeys.map(k=>catalogue.get(k)),actor.ratings,Object.keys(step.scores[arm]).length>0);
+      assert.deepEqual(step.measures[arm],expected);assert.deepEqual(step.phase[arm],expected);
+      const before=step.count===1?null:failure.steps[step.count-2];
+      assert.equal(step.phaseDeltas[arm],before?round(expected.auc-before.phase[arm].auc):0);
+      assert.equal(step.deltas[arm],before?round(expected.auc-before.measures[arm].auc):0);
+    }
+    return {viewer:failure.viewer,seed:failure.seed,source:'preserved corroboration session',labels:original.steps.slice(0,40).map(s=>({count:s.count,key:s.event.key,mistake:s.mistake}))};
+  });
+  diagnostics[report.partition]={regionLearning,unaffectedLearning,collisions,historicalLabels,historicalMeasurementChecks:2400,
+    historicalLabelLimitation:'Replay override mistake fields are placeholders. These labels reproduce the original archived synthetic session. Labels do not enter policy scoring or historical adoption gates.'};
 }
 writeFileSync('reports/rating-influence-v1-diagnostics.json',JSON.stringify(diagnostics,null,2)+'\n');
 const lines=['# Rating influence adoption experiment','',
@@ -49,6 +66,8 @@ const lines=['# Rating influence adoption experiment','',
 for(const report of reports.slice(1))for(const arm of p.arms){const r=report.summary[arm];lines.push(`| ${report.partition==='sealed'?'Selection':'Confirmation'} | ${arm} | ${points(r.auc.mean)}% | ${points(r.gain.mean)} | ${points(r.gain.lower)} to ${points(r.gain.upper)} | ${points(-r.worstStep)} | ${points(r.largeLossRate)}% |`);}
 lines.push('','Large losses exceed five ranking points after ten observations. Both endpoints use the same contemporaneous taste.',
   'Intervals resample people after averaging their two sessions. Update counts do not represent independent people.','',
+  'Rounding applies separately to accuracy and paired gains.','',
+  'This synthetic cohort changes both catalogue and actor mix. Its gains do not add to earlier trial gains.','',
   '## Direct comparison with matching controls','',
   '| Cohort | Candidate | Gain against timeless, points | Gain against recent, points |',
   '| --- | --- | ---: | ---: |');
@@ -59,11 +78,11 @@ lines.push('','## Vulnerable groups','',
 for(const report of reports.slice(1))for(const [group,rows]of Object.entries(report.groups))lines.push(`| ${report.partition} | ${group} | ${points(rows.narrow_recent.gain.mean)} | ${points(rows.exception_recent.gain.mean)} | ${points(rows.additive_recent.gain.mean)} |`);
 lines.push('','Group gains use ranking points against current scoring. The JSON summaries also contain each group interval and worst update.','',
   '## Learning and adaptation','',
-  '| Cohort | Scorer | Novel-region learning, points | Unexposed-region change, points | Changing-taste final gain, points | Adaptation at forty, points |',
+  '| Cohort | Scorer | Novel-region learning, points | Other-title ranking change, points | Changing-taste final gain, points | Adaptation at forty, points |',
   '| --- | --- | ---: | ---: | ---: | ---: |');
 for(const report of reports.slice(1))for(const arm of p.arms){const d=diagnostics[report.partition];lines.push(`| ${report.partition} | ${arm} | ${points(d.regionLearning[arm].mean)} | ${points(d.unaffectedLearning[arm].mean)} | ${points(report.groups.changing_taste[arm].gain.mean)} | ${points(report.summary[arm].adaptation40.mean)} |`);}
 lines.push('','Novel-region learning measures ranking pairs involving the previously unobserved tag between observations thirty and sixty.',
-  'Unexposed-region change measures pairs without that tag. Both measurements use unchanged contemporaneous taste.',
+  'Other-title ranking change measures pairs without that tag. Both measurements use unchanged contemporaneous taste.',
   'Changing-taste final gain compares final recommendations against the new taste; adaptation at forty measures earlier recovery.',
   'These measures distinguish useful new learning from stability purchased by ignoring new evidence.','',
   '## Worst failures and frozen gates','');
@@ -73,6 +92,7 @@ for(const report of reports.slice(1))for(const candidate of report.candidates){c
 }
 lines.push('','Every candidate fails measured synthetic requirements independently of the pending legacy historical check.',
   'Five archived synthetic histories test historical mechanisms with the previous numerical protection thresholds.',
+  'Their replay override leaves mistake labels as placeholders. The diagnostic record restores original labels and independently checks every historical ranking measurement.',
   'They do not replace the existing five historical real-data failures. Candidate protection on those histories remains unverified under the synthetic-only scope.',
   'That requirement remains mandatory before adoption. Existing product regressions check prior frozen outcomes without changing earlier records.','',
   '## Representation limits and verification','',
@@ -89,9 +109,34 @@ lines.push('- [Unchanged default regressions](rating-influence-regression-v1.jso
   'The current scorer retains its known storage-order and restoration sensitivity. Candidate verification does not conceal that baseline limitation.',
   'No candidate enters the shared domain scorer. No new baseline replaces the preserved corroboration records.','',
   '## Next bounded investigation','',
-  'Test a representation that distinguishes relevant preferences among close metadata matches before adding further evidence guards.',
+  'Test whether cosine matching misses preference direction in public metadata before adding further evidence guards.',
+  'Develop one small supervised map from existing axes and public tags to observed ratings, with fixed regularization.',
   'Use synthetic matched pairs with one public distinguishing signal, plus pairs whose difference remains private.',
   'Measure accurate novel learning and damage to existing preferences separately, including claim-only and matching-only replays.',
   'Develop the representation on fresh development people, then freeze any candidate before another independent adoption trial.',
   'Keep question selection and shared contexts deferred.','');
 writeFileSync('reports/rating-influence-v1.md',lines.join('\n'));console.log('Wrote rating-influence-v1.md and synthetic diagnostics.');
+const confirmation=reports[2];
+const checks=reports.map(r=>JSON.parse(readFileSync(`reports/rating-influence-v1-${r.partition}-verification.json`)).checks);
+const executive=['# Rating influence progress','',
+  'Retain current product scoring. No candidate earns a new baseline.','',
+  'The investigation now covers 15,555 accurate updates and 132 reproducible harmful and beneficial replays.',
+  'It separates direct transfer, earlier-evidence influence, inferred preferences, and recency in clean histories and histories containing mistakes.',
+  'Accurate updates can harm clean histories. Earlier-evidence changes can also support useful recovery.','',
+  'Three lab candidates test narrower matching, local exceptions, and additive evidence.',
+  'The frozen trial uses 220 fresh synthetic people, 440 sessions, and separate catalogues for development, selection, and confirmation.',
+  `Confirmation gains are ${points(confirmation.summary.narrow_recent.gain.mean)} points for narrower matching, ${points(confirmation.summary.exception_recent.gain.mean)} for local exceptions, and ${points(confirmation.summary.additive_recent.gain.mean)} for additive evidence.`,
+  'Every candidate fails measured quality and single-update requirements in both reserved cohorts.',
+  `The exception candidate still loses ${points(-confirmation.summary.exception_recent.worstStep)} points in its worst update; the limit is five points.`,
+  `Its large-loss frequency is ${points(confirmation.summary.exception_recent.largeLossRate)}%, versus current scoring's ${points(confirmation.summary.current.largeLossRate)}%.`,
+  `Recent matching retains an adaptation benefit: ${points(confirmation.groups.changing_taste.local_recent.gain.mean)} points for changing confirmation people.`,
+  'Novel learning and stable preferences remain vulnerable. Unavailable private preferences cannot follow from identical metadata.','',
+  `Independent audits reproduce ${checks.reduce((n,c)=>n+c.ratings,0).toLocaleString('en-US')} supplied ratings and ${checks.reduce((n,c)=>n+c.scores,0).toLocaleString('en-US')} published scores.`,
+  'All 64 domain tests, targeted CLI tests, candidate contracts, and unchanged-default regressions pass.',
+  'Existing historical candidate protection remains mandatory and unverified under the synthetic-only scope.',
+  'Observed synthetic failures already establish rejection. No product scorer changes or release occur.','',
+  'Next, test a supervised mapping of existing axes and public tags on fresh synthetic development people.',
+  'Separate public distinguishing signals from private exceptions, and include matching-only and inferred-preference-only replays.',
+  'Keep question selection and shared contexts deferred. Jamie remains the only real product user.','',
+  'Read the [mechanism report](rating-influence-mechanisms-v1.md), [adoption results](rating-influence-v1.md), and [protocol guide](../docs/rating-influence-experiment.md).',''];
+writeFileSync('reports/rating-influence-progress-v1.md',executive.join('\n'));

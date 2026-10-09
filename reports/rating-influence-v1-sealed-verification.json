@@ -1,0 +1,11 @@
+{
+  "reportHash": "150a7f79a7995678e27cf032d0a365970fbcac5fbc15c482d91e677a3a35f5b4",
+  "independentAuditPassed": true,
+  "checks": {
+    "ratings": 10560,
+    "scores": 4914720,
+    "rankings": 126720,
+    "sessions": 176,
+    "syntheticHistoricalSteps": 200
+  }
+}

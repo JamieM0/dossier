@@ -1,0 +1,5119 @@
+{
+  "development": {
+    "regionLearning": {
+      "current": {
+        "mean": 0.0791,
+        "lower": -0.0209,
+        "upper": 0.1567,
+        "viewers": 4
+      },
+      "local": {
+        "mean": 0.006,
+        "lower": -0.0573,
+        "upper": 0.0669,
+        "viewers": 4
+      },
+      "local_recent": {
+        "mean": -0.0106,
+        "lower": -0.0895,
+        "upper": 0.0682,
+        "viewers": 4
+      },
+      "narrow_recent": {
+        "mean": 0.0073,
+        "lower": -0.0759,
+        "upper": 0.0943,
+        "viewers": 4
+      },
+      "exception_recent": {
+        "mean": -0.0289,
+        "lower": -0.0925,
+        "upper": 0.0347,
+        "viewers": 4
+      },
+      "additive_recent": {
+        "mean": -0.0228,
+        "lower": -0.0852,
+        "upper": 0.0366,
+        "viewers": 4
+      }
+    },
+    "unaffectedLearning": {
+      "current": {
+        "mean": -0.0643,
+        "lower": -0.1089,
+        "upper": -0.0175,
+        "viewers": 4
+      },
+      "local": {
+        "mean": -0.0617,
+        "lower": -0.1109,
+        "upper": -0.028,
+        "viewers": 4
+      },
+      "local_recent": {
+        "mean": -0.1163,
+        "lower": -0.1728,
+        "upper": -0.0551,
+        "viewers": 4
+      },
+      "narrow_recent": {
+        "mean": -0.1182,
+        "lower": -0.1752,
+        "upper": -0.0612,
+        "viewers": 4
+      },
+      "exception_recent": {
+        "mean": -0.1184,
+        "lower": -0.1651,
+        "upper": -0.0717,
+        "viewers": 4
+      },
+      "additive_recent": {
+        "mean": -0.1341,
+        "lower": -0.2175,
+        "upper": -0.0506,
+        "viewers": 4
+      }
+    },
+    "collisions": [
+      {
+        "viewer": "influence-development-stable_axes-0",
+        "type": "stable_axes",
+        "pairs": 1248,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-development-stable_axes-1",
+        "type": "stable_axes",
+        "pairs": 1360,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-development-stable_axes-2",
+        "type": "stable_axes",
+        "pairs": 1088,
+        "metadataConflicts": 0,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-stable_axes-3",
+        "type": "stable_axes",
+        "pairs": 1292,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-interactions-0",
+        "type": "interactions",
+        "pairs": 1102,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-development-interactions-1",
+        "type": "interactions",
+        "pairs": 1122,
+        "metadataConflicts": 3,
+        "vectorConflicts": 5,
+        "metadataTieCeiling": 0.9987
+      },
+      {
+        "viewer": "influence-development-interactions-2",
+        "type": "interactions",
+        "pairs": 1218,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-interactions-3",
+        "type": "interactions",
+        "pairs": 1276,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-development-missing_factor-0",
+        "type": "missing_factor",
+        "pairs": 1521,
+        "metadataConflicts": 5,
+        "vectorConflicts": 11,
+        "metadataTieCeiling": 0.9984
+      },
+      {
+        "viewer": "influence-development-missing_factor-1",
+        "type": "missing_factor",
+        "pairs": 1440,
+        "metadataConflicts": 4,
+        "vectorConflicts": 8,
+        "metadataTieCeiling": 0.9986
+      },
+      {
+        "viewer": "influence-development-missing_factor-2",
+        "type": "missing_factor",
+        "pairs": 1443,
+        "metadataConflicts": 2,
+        "vectorConflicts": 8,
+        "metadataTieCeiling": 0.9993
+      },
+      {
+        "viewer": "influence-development-missing_factor-3",
+        "type": "missing_factor",
+        "pairs": 1520,
+        "metadataConflicts": 1,
+        "vectorConflicts": 6,
+        "metadataTieCeiling": 0.9997
+      },
+      {
+        "viewer": "influence-development-isolated_noise-0",
+        "type": "isolated_noise",
+        "pairs": 1326,
+        "metadataConflicts": 0,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-isolated_noise-1",
+        "type": "isolated_noise",
+        "pairs": 1178,
+        "metadataConflicts": 2,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-development-isolated_noise-2",
+        "type": "isolated_noise",
+        "pairs": 1110,
+        "metadataConflicts": 2,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 0.9991
+      },
+      {
+        "viewer": "influence-development-isolated_noise-3",
+        "type": "isolated_noise",
+        "pairs": 1056,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-development-repeated_noise-0",
+        "type": "repeated_noise",
+        "pairs": 1290,
+        "metadataConflicts": 1,
+        "vectorConflicts": 5,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-development-repeated_noise-1",
+        "type": "repeated_noise",
+        "pairs": 1050,
+        "metadataConflicts": 2,
+        "vectorConflicts": 6,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-development-repeated_noise-2",
+        "type": "repeated_noise",
+        "pairs": 1064,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-development-repeated_noise-3",
+        "type": "repeated_noise",
+        "pairs": 1110,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-development-biased_noise-0",
+        "type": "biased_noise",
+        "pairs": 1295,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-development-biased_noise-1",
+        "type": "biased_noise",
+        "pairs": 1271,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-biased_noise-2",
+        "type": "biased_noise",
+        "pairs": 1320,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-biased_noise-3",
+        "type": "biased_noise",
+        "pairs": 1025,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-changing_taste-0",
+        "type": "changing_taste",
+        "pairs": 1122,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-changing_taste-1",
+        "type": "changing_taste",
+        "pairs": 1280,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-development-changing_taste-2",
+        "type": "changing_taste",
+        "pairs": 1140,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-development-changing_taste-3",
+        "type": "changing_taste",
+        "pairs": 1344,
+        "metadataConflicts": 2,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9993
+      },
+      {
+        "viewer": "influence-development-weak_ratings-0",
+        "type": "weak_ratings",
+        "pairs": 1155,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-weak_ratings-1",
+        "type": "weak_ratings",
+        "pairs": 1224,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-weak_ratings-2",
+        "type": "weak_ratings",
+        "pairs": 1295,
+        "metadataConflicts": 2,
+        "vectorConflicts": 5,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-development-weak_ratings-3",
+        "type": "weak_ratings",
+        "pairs": 1312,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-novel_preference-0",
+        "type": "novel_preference",
+        "pairs": 1232,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-novel_preference-1",
+        "type": "novel_preference",
+        "pairs": 1480,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-novel_preference-2",
+        "type": "novel_preference",
+        "pairs": 1248,
+        "metadataConflicts": 2,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-development-novel_preference-3",
+        "type": "novel_preference",
+        "pairs": 1394,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-development-duplicate_evidence-0",
+        "type": "duplicate_evidence",
+        "pairs": 1332,
+        "metadataConflicts": 1,
+        "vectorConflicts": 5,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-development-duplicate_evidence-1",
+        "type": "duplicate_evidence",
+        "pairs": 1008,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-development-duplicate_evidence-2",
+        "type": "duplicate_evidence",
+        "pairs": 1326,
+        "metadataConflicts": 2,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-development-duplicate_evidence-3",
+        "type": "duplicate_evidence",
+        "pairs": 1160,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-development-metadata_matched-0",
+        "type": "metadata_matched",
+        "pairs": 1435,
+        "metadataConflicts": 1,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.9997
+      },
+      {
+        "viewer": "influence-development-metadata_matched-1",
+        "type": "metadata_matched",
+        "pairs": 1332,
+        "metadataConflicts": 3,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 0.9989
+      },
+      {
+        "viewer": "influence-development-metadata_matched-2",
+        "type": "metadata_matched",
+        "pairs": 1369,
+        "metadataConflicts": 3,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.9989
+      },
+      {
+        "viewer": "influence-development-metadata_matched-3",
+        "type": "metadata_matched",
+        "pairs": 1482,
+        "metadataConflicts": 2,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.9993
+      }
+    ],
+    "historicalLabels": [
+      {
+        "viewer": "corroboration-sealed-stable_axes-2",
+        "seed": 89,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200002",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200081",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200046",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200031",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200045",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200064",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200036",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200071",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200004",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200032",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200037",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200090",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200086",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200056",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200051",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200020",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200063",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200083",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200040",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200053",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200010",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200096",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200099",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200059",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200075",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200029",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200027",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200062",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200057",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200067",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200030",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200021",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200025",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200077",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200097",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-confirmation-stable_axes-0",
+        "seed": 47,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200001",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200077",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200064",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200067",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200078",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200003",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200048",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200085",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200087",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200005",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200061",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200043",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200083",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200002",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200023",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200021",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200046",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200006",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200089",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200088",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200082",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200037",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200093",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200068",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200007",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200035",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200069",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200099",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200096",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200013",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200065",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200071",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200066",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200019",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200063",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-confirmation-isolated_noise-4",
+        "seed": 89,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200018",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200008",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200019",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200044",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200024",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200077",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200029",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200088",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200001",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200092",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200061",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200027",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200015",
+            "mistake": true
+          },
+          {
+            "count": 15,
+            "key": "movie:9200093",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200085",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200070",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200023",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200079",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200074",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200083",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200053",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200035",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200086",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200022",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200082",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200012",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200043",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200009",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200066",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200040",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200005",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200075",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200047",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200050",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200096",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-sealed-missing_factor-1",
+        "seed": 47,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200076",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200062",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200020",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200014",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200078",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200068",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200081",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200050",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200016",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200088",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200056",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200017",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200055",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200007",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200071",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200005",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200063",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200039",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200008",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200036",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200006",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200037",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200031",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200045",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200004",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200091",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200015",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200066",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200057",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200075",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200010",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200080",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200046",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200048",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-sealed-missing_factor-7",
+        "seed": 89,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200055",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200023",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200050",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200022",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200032",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200029",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200084",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200087",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200003",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200098",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200024",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200042",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200067",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200060",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200047",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200082",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200013",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200017",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200034",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200074",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200090",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200036",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200085",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200002",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200033",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200056",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200001",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200026",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200057",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200079",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200041",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200020",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200076",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200006",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200075",
+            "mistake": false
+          }
+        ]
+      }
+    ],
+    "historicalMeasurementChecks": 2400,
+    "historicalLabelLimitation": "Replay override mistake fields are placeholders. These labels reproduce the original archived synthetic session. Labels do not enter policy scoring or historical adoption gates."
+  },
+  "sealed": {
+    "regionLearning": {
+      "current": {
+        "mean": 0.1748,
+        "lower": 0.1008,
+        "upper": 0.2574,
+        "viewers": 8
+      },
+      "local": {
+        "mean": 0.1219,
+        "lower": 0.0348,
+        "upper": 0.2035,
+        "viewers": 8
+      },
+      "local_recent": {
+        "mean": 0.0895,
+        "lower": -0.0067,
+        "upper": 0.1732,
+        "viewers": 8
+      },
+      "narrow_recent": {
+        "mean": 0.1065,
+        "lower": 0.0093,
+        "upper": 0.1829,
+        "viewers": 8
+      },
+      "exception_recent": {
+        "mean": 0.091,
+        "lower": -0.0071,
+        "upper": 0.1738,
+        "viewers": 8
+      },
+      "additive_recent": {
+        "mean": 0.0637,
+        "lower": -0.0347,
+        "upper": 0.1462,
+        "viewers": 8
+      }
+    },
+    "unaffectedLearning": {
+      "current": {
+        "mean": -0.0523,
+        "lower": -0.1051,
+        "upper": -0.0128,
+        "viewers": 8
+      },
+      "local": {
+        "mean": -0.0419,
+        "lower": -0.1045,
+        "upper": 0.0016,
+        "viewers": 8
+      },
+      "local_recent": {
+        "mean": -0.1021,
+        "lower": -0.2092,
+        "upper": -0.0176,
+        "viewers": 8
+      },
+      "narrow_recent": {
+        "mean": -0.083,
+        "lower": -0.1663,
+        "upper": -0.013,
+        "viewers": 8
+      },
+      "exception_recent": {
+        "mean": -0.095,
+        "lower": -0.1941,
+        "upper": -0.0169,
+        "viewers": 8
+      },
+      "additive_recent": {
+        "mean": -0.1158,
+        "lower": -0.2431,
+        "upper": -0.0129,
+        "viewers": 8
+      }
+    },
+    "collisions": [
+      {
+        "viewer": "influence-sealed-stable_axes-0",
+        "type": "stable_axes",
+        "pairs": 1240,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-stable_axes-1",
+        "type": "stable_axes",
+        "pairs": 1160,
+        "metadataConflicts": 0,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-stable_axes-2",
+        "type": "stable_axes",
+        "pairs": 988,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-stable_axes-3",
+        "type": "stable_axes",
+        "pairs": 1221,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-stable_axes-4",
+        "type": "stable_axes",
+        "pairs": 1216,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-stable_axes-5",
+        "type": "stable_axes",
+        "pairs": 1148,
+        "metadataConflicts": 3,
+        "vectorConflicts": 6,
+        "metadataTieCeiling": 0.9987
+      },
+      {
+        "viewer": "influence-sealed-stable_axes-6",
+        "type": "stable_axes",
+        "pairs": 1254,
+        "metadataConflicts": 2,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-sealed-stable_axes-7",
+        "type": "stable_axes",
+        "pairs": 1254,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-interactions-0",
+        "type": "interactions",
+        "pairs": 1443,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-interactions-1",
+        "type": "interactions",
+        "pairs": 1360,
+        "metadataConflicts": 2,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 0.9993
+      },
+      {
+        "viewer": "influence-sealed-interactions-2",
+        "type": "interactions",
+        "pairs": 1258,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-interactions-3",
+        "type": "interactions",
+        "pairs": 1050,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-sealed-interactions-4",
+        "type": "interactions",
+        "pairs": 1260,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-interactions-5",
+        "type": "interactions",
+        "pairs": 1248,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-interactions-6",
+        "type": "interactions",
+        "pairs": 1036,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-sealed-interactions-7",
+        "type": "interactions",
+        "pairs": 1085,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-missing_factor-0",
+        "type": "missing_factor",
+        "pairs": 1406,
+        "metadataConflicts": 2,
+        "vectorConflicts": 5,
+        "metadataTieCeiling": 0.9993
+      },
+      {
+        "viewer": "influence-sealed-missing_factor-1",
+        "type": "missing_factor",
+        "pairs": 1444,
+        "metadataConflicts": 4,
+        "vectorConflicts": 5,
+        "metadataTieCeiling": 0.9986
+      },
+      {
+        "viewer": "influence-sealed-missing_factor-2",
+        "type": "missing_factor",
+        "pairs": 1520,
+        "metadataConflicts": 3,
+        "vectorConflicts": 6,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-sealed-missing_factor-3",
+        "type": "missing_factor",
+        "pairs": 1320,
+        "metadataConflicts": 3,
+        "vectorConflicts": 5,
+        "metadataTieCeiling": 0.9989
+      },
+      {
+        "viewer": "influence-sealed-missing_factor-4",
+        "type": "missing_factor",
+        "pairs": 1482,
+        "metadataConflicts": 3,
+        "vectorConflicts": 8,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-sealed-missing_factor-5",
+        "type": "missing_factor",
+        "pairs": 1530,
+        "metadataConflicts": 4,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.9987
+      },
+      {
+        "viewer": "influence-sealed-missing_factor-6",
+        "type": "missing_factor",
+        "pairs": 1462,
+        "metadataConflicts": 3,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-sealed-missing_factor-7",
+        "type": "missing_factor",
+        "pairs": 1517,
+        "metadataConflicts": 2,
+        "vectorConflicts": 6,
+        "metadataTieCeiling": 0.9993
+      },
+      {
+        "viewer": "influence-sealed-isolated_noise-0",
+        "type": "isolated_noise",
+        "pairs": 1224,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-isolated_noise-1",
+        "type": "isolated_noise",
+        "pairs": 1330,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-isolated_noise-2",
+        "type": "isolated_noise",
+        "pairs": 1147,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-isolated_noise-3",
+        "type": "isolated_noise",
+        "pairs": 1221,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-isolated_noise-4",
+        "type": "isolated_noise",
+        "pairs": 930,
+        "metadataConflicts": 2,
+        "vectorConflicts": 6,
+        "metadataTieCeiling": 0.9989
+      },
+      {
+        "viewer": "influence-sealed-isolated_noise-5",
+        "type": "isolated_noise",
+        "pairs": 1014,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-isolated_noise-6",
+        "type": "isolated_noise",
+        "pairs": 1376,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-isolated_noise-7",
+        "type": "isolated_noise",
+        "pairs": 1248,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-repeated_noise-0",
+        "type": "repeated_noise",
+        "pairs": 1088,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-sealed-repeated_noise-1",
+        "type": "repeated_noise",
+        "pairs": 1360,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-repeated_noise-2",
+        "type": "repeated_noise",
+        "pairs": 1292,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-repeated_noise-3",
+        "type": "repeated_noise",
+        "pairs": 1320,
+        "metadataConflicts": 2,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-sealed-repeated_noise-4",
+        "type": "repeated_noise",
+        "pairs": 980,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-sealed-repeated_noise-5",
+        "type": "repeated_noise",
+        "pairs": 1092,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-repeated_noise-6",
+        "type": "repeated_noise",
+        "pairs": 1404,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-repeated_noise-7",
+        "type": "repeated_noise",
+        "pairs": 1271,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-biased_noise-0",
+        "type": "biased_noise",
+        "pairs": 1365,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-biased_noise-1",
+        "type": "biased_noise",
+        "pairs": 1188,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-biased_noise-2",
+        "type": "biased_noise",
+        "pairs": 1189,
+        "metadataConflicts": 2,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-sealed-biased_noise-3",
+        "type": "biased_noise",
+        "pairs": 925,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-biased_noise-4",
+        "type": "biased_noise",
+        "pairs": 1302,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-biased_noise-5",
+        "type": "biased_noise",
+        "pairs": 1080,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-sealed-biased_noise-6",
+        "type": "biased_noise",
+        "pairs": 1178,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-biased_noise-7",
+        "type": "biased_noise",
+        "pairs": 1184,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-changing_taste-0",
+        "type": "changing_taste",
+        "pairs": 1353,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9993
+      },
+      {
+        "viewer": "influence-sealed-changing_taste-1",
+        "type": "changing_taste",
+        "pairs": 1092,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-changing_taste-2",
+        "type": "changing_taste",
+        "pairs": 1020,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-changing_taste-3",
+        "type": "changing_taste",
+        "pairs": 1085,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-changing_taste-4",
+        "type": "changing_taste",
+        "pairs": 1131,
+        "metadataConflicts": 2,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9991
+      },
+      {
+        "viewer": "influence-sealed-changing_taste-5",
+        "type": "changing_taste",
+        "pairs": 1320,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-changing_taste-6",
+        "type": "changing_taste",
+        "pairs": 1221,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-sealed-changing_taste-7",
+        "type": "changing_taste",
+        "pairs": 1232,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-weak_ratings-0",
+        "type": "weak_ratings",
+        "pairs": 984,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-weak_ratings-1",
+        "type": "weak_ratings",
+        "pairs": 1332,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-weak_ratings-2",
+        "type": "weak_ratings",
+        "pairs": 1184,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-weak_ratings-3",
+        "type": "weak_ratings",
+        "pairs": 1040,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-sealed-weak_ratings-4",
+        "type": "weak_ratings",
+        "pairs": 1015,
+        "metadataConflicts": 2,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-sealed-weak_ratings-5",
+        "type": "weak_ratings",
+        "pairs": 1190,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-sealed-weak_ratings-6",
+        "type": "weak_ratings",
+        "pairs": 980,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-sealed-weak_ratings-7",
+        "type": "weak_ratings",
+        "pairs": 1332,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-novel_preference-0",
+        "type": "novel_preference",
+        "pairs": 1360,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-novel_preference-1",
+        "type": "novel_preference",
+        "pairs": 1364,
+        "metadataConflicts": 2,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9993
+      },
+      {
+        "viewer": "influence-sealed-novel_preference-2",
+        "type": "novel_preference",
+        "pairs": 1302,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-novel_preference-3",
+        "type": "novel_preference",
+        "pairs": 1320,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-novel_preference-4",
+        "type": "novel_preference",
+        "pairs": 1428,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-novel_preference-5",
+        "type": "novel_preference",
+        "pairs": 1320,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-novel_preference-6",
+        "type": "novel_preference",
+        "pairs": 1295,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-novel_preference-7",
+        "type": "novel_preference",
+        "pairs": 1144,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-duplicate_evidence-0",
+        "type": "duplicate_evidence",
+        "pairs": 1160,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-duplicate_evidence-1",
+        "type": "duplicate_evidence",
+        "pairs": 1344,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-duplicate_evidence-2",
+        "type": "duplicate_evidence",
+        "pairs": 1116,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-duplicate_evidence-3",
+        "type": "duplicate_evidence",
+        "pairs": 1200,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-duplicate_evidence-4",
+        "type": "duplicate_evidence",
+        "pairs": 1131,
+        "metadataConflicts": 2,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9991
+      },
+      {
+        "viewer": "influence-sealed-duplicate_evidence-5",
+        "type": "duplicate_evidence",
+        "pairs": 1260,
+        "metadataConflicts": 1,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-sealed-duplicate_evidence-6",
+        "type": "duplicate_evidence",
+        "pairs": 1131,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-duplicate_evidence-7",
+        "type": "duplicate_evidence",
+        "pairs": 961,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-sealed-metadata_matched-0",
+        "type": "metadata_matched",
+        "pairs": 1482,
+        "metadataConflicts": 4,
+        "vectorConflicts": 8,
+        "metadataTieCeiling": 0.9987
+      },
+      {
+        "viewer": "influence-sealed-metadata_matched-1",
+        "type": "metadata_matched",
+        "pairs": 1260,
+        "metadataConflicts": 3,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.9988
+      },
+      {
+        "viewer": "influence-sealed-metadata_matched-2",
+        "type": "metadata_matched",
+        "pairs": 1520,
+        "metadataConflicts": 3,
+        "vectorConflicts": 6,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-sealed-metadata_matched-3",
+        "type": "metadata_matched",
+        "pairs": 1443,
+        "metadataConflicts": 5,
+        "vectorConflicts": 6,
+        "metadataTieCeiling": 0.9983
+      },
+      {
+        "viewer": "influence-sealed-metadata_matched-4",
+        "type": "metadata_matched",
+        "pairs": 1505,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9997
+      },
+      {
+        "viewer": "influence-sealed-metadata_matched-5",
+        "type": "metadata_matched",
+        "pairs": 1476,
+        "metadataConflicts": 4,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.9986
+      },
+      {
+        "viewer": "influence-sealed-metadata_matched-6",
+        "type": "metadata_matched",
+        "pairs": 1599,
+        "metadataConflicts": 4,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.9987
+      },
+      {
+        "viewer": "influence-sealed-metadata_matched-7",
+        "type": "metadata_matched",
+        "pairs": 1540,
+        "metadataConflicts": 3,
+        "vectorConflicts": 8,
+        "metadataTieCeiling": 0.999
+      }
+    ],
+    "historicalLabels": [
+      {
+        "viewer": "corroboration-sealed-stable_axes-2",
+        "seed": 89,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200002",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200081",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200046",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200031",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200045",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200064",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200036",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200071",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200004",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200032",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200037",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200090",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200086",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200056",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200051",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200020",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200063",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200083",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200040",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200053",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200010",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200096",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200099",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200059",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200075",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200029",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200027",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200062",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200057",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200067",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200030",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200021",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200025",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200077",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200097",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-confirmation-stable_axes-0",
+        "seed": 47,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200001",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200077",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200064",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200067",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200078",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200003",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200048",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200085",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200087",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200005",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200061",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200043",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200083",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200002",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200023",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200021",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200046",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200006",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200089",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200088",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200082",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200037",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200093",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200068",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200007",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200035",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200069",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200099",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200096",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200013",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200065",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200071",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200066",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200019",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200063",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-confirmation-isolated_noise-4",
+        "seed": 89,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200018",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200008",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200019",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200044",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200024",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200077",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200029",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200088",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200001",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200092",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200061",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200027",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200015",
+            "mistake": true
+          },
+          {
+            "count": 15,
+            "key": "movie:9200093",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200085",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200070",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200023",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200079",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200074",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200083",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200053",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200035",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200086",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200022",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200082",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200012",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200043",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200009",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200066",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200040",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200005",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200075",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200047",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200050",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200096",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-sealed-missing_factor-1",
+        "seed": 47,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200076",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200062",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200020",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200014",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200078",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200068",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200081",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200050",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200016",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200088",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200056",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200017",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200055",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200007",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200071",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200005",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200063",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200039",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200008",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200036",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200006",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200037",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200031",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200045",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200004",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200091",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200015",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200066",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200057",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200075",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200010",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200080",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200046",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200048",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-sealed-missing_factor-7",
+        "seed": 89,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200055",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200023",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200050",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200022",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200032",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200029",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200084",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200087",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200003",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200098",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200024",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200042",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200067",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200060",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200047",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200082",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200013",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200017",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200034",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200074",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200090",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200036",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200085",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200002",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200033",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200056",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200001",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200026",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200057",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200079",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200041",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200020",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200076",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200006",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200075",
+            "mistake": false
+          }
+        ]
+      }
+    ],
+    "historicalMeasurementChecks": 2400,
+    "historicalLabelLimitation": "Replay override mistake fields are placeholders. These labels reproduce the original archived synthetic session. Labels do not enter policy scoring or historical adoption gates."
+  },
+  "confirmation": {
+    "regionLearning": {
+      "current": {
+        "mean": 0.0656,
+        "lower": 0.0017,
+        "upper": 0.114,
+        "viewers": 8
+      },
+      "local": {
+        "mean": 0.0419,
+        "lower": -0.0159,
+        "upper": 0.0928,
+        "viewers": 8
+      },
+      "local_recent": {
+        "mean": 0.0533,
+        "lower": 0.0006,
+        "upper": 0.108,
+        "viewers": 8
+      },
+      "narrow_recent": {
+        "mean": 0.0764,
+        "lower": 0.0223,
+        "upper": 0.143,
+        "viewers": 8
+      },
+      "exception_recent": {
+        "mean": 0.0531,
+        "lower": -0.0046,
+        "upper": 0.1161,
+        "viewers": 8
+      },
+      "additive_recent": {
+        "mean": 0.0363,
+        "lower": -0.0333,
+        "upper": 0.133,
+        "viewers": 8
+      }
+    },
+    "unaffectedLearning": {
+      "current": {
+        "mean": -0.0771,
+        "lower": -0.1564,
+        "upper": -0.0102,
+        "viewers": 8
+      },
+      "local": {
+        "mean": -0.1028,
+        "lower": -0.2121,
+        "upper": -0.011,
+        "viewers": 8
+      },
+      "local_recent": {
+        "mean": -0.1245,
+        "lower": -0.2218,
+        "upper": -0.0377,
+        "viewers": 8
+      },
+      "narrow_recent": {
+        "mean": -0.1181,
+        "lower": -0.1979,
+        "upper": -0.0451,
+        "viewers": 8
+      },
+      "exception_recent": {
+        "mean": -0.1247,
+        "lower": -0.2288,
+        "upper": -0.0352,
+        "viewers": 8
+      },
+      "additive_recent": {
+        "mean": -0.1291,
+        "lower": -0.2115,
+        "upper": -0.0541,
+        "viewers": 8
+      }
+    },
+    "collisions": [
+      {
+        "viewer": "influence-confirmation-stable_axes-0",
+        "type": "stable_axes",
+        "pairs": 1204,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-stable_axes-1",
+        "type": "stable_axes",
+        "pairs": 924,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-confirmation-stable_axes-2",
+        "type": "stable_axes",
+        "pairs": 1140,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-stable_axes-3",
+        "type": "stable_axes",
+        "pairs": 1326,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-stable_axes-4",
+        "type": "stable_axes",
+        "pairs": 1188,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-confirmation-stable_axes-5",
+        "type": "stable_axes",
+        "pairs": 1295,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-stable_axes-6",
+        "type": "stable_axes",
+        "pairs": 1184,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-stable_axes-7",
+        "type": "stable_axes",
+        "pairs": 1147,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-interactions-0",
+        "type": "interactions",
+        "pairs": 1088,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-confirmation-interactions-1",
+        "type": "interactions",
+        "pairs": 1363,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-interactions-2",
+        "type": "interactions",
+        "pairs": 1066,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-interactions-3",
+        "type": "interactions",
+        "pairs": 1316,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-interactions-4",
+        "type": "interactions",
+        "pairs": 1406,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-interactions-5",
+        "type": "interactions",
+        "pairs": 1224,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-confirmation-interactions-6",
+        "type": "interactions",
+        "pairs": 1085,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9995
+      },
+      {
+        "viewer": "influence-confirmation-interactions-7",
+        "type": "interactions",
+        "pairs": 1184,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-missing_factor-0",
+        "type": "missing_factor",
+        "pairs": 1254,
+        "metadataConflicts": 4,
+        "vectorConflicts": 8,
+        "metadataTieCeiling": 0.9984
+      },
+      {
+        "viewer": "influence-confirmation-missing_factor-1",
+        "type": "missing_factor",
+        "pairs": 1540,
+        "metadataConflicts": 4,
+        "vectorConflicts": 10,
+        "metadataTieCeiling": 0.9987
+      },
+      {
+        "viewer": "influence-confirmation-missing_factor-2",
+        "type": "missing_factor",
+        "pairs": 1440,
+        "metadataConflicts": 2,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 0.9993
+      },
+      {
+        "viewer": "influence-confirmation-missing_factor-3",
+        "type": "missing_factor",
+        "pairs": 1462,
+        "metadataConflicts": 4,
+        "vectorConflicts": 9,
+        "metadataTieCeiling": 0.9986
+      },
+      {
+        "viewer": "influence-confirmation-missing_factor-4",
+        "type": "missing_factor",
+        "pairs": 1435,
+        "metadataConflicts": 5,
+        "vectorConflicts": 8,
+        "metadataTieCeiling": 0.9983
+      },
+      {
+        "viewer": "influence-confirmation-missing_factor-5",
+        "type": "missing_factor",
+        "pairs": 1480,
+        "metadataConflicts": 3,
+        "vectorConflicts": 8,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-confirmation-missing_factor-6",
+        "type": "missing_factor",
+        "pairs": 1480,
+        "metadataConflicts": 5,
+        "vectorConflicts": 10,
+        "metadataTieCeiling": 0.9983
+      },
+      {
+        "viewer": "influence-confirmation-missing_factor-7",
+        "type": "missing_factor",
+        "pairs": 1560,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-isolated_noise-0",
+        "type": "isolated_noise",
+        "pairs": 1015,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-isolated_noise-1",
+        "type": "isolated_noise",
+        "pairs": 1024,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-isolated_noise-2",
+        "type": "isolated_noise",
+        "pairs": 1188,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-isolated_noise-3",
+        "type": "isolated_noise",
+        "pairs": 1216,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-isolated_noise-4",
+        "type": "isolated_noise",
+        "pairs": 1209,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-isolated_noise-5",
+        "type": "isolated_noise",
+        "pairs": 1394,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-isolated_noise-6",
+        "type": "isolated_noise",
+        "pairs": 1248,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-isolated_noise-7",
+        "type": "isolated_noise",
+        "pairs": 1332,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-repeated_noise-0",
+        "type": "repeated_noise",
+        "pairs": 1221,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-repeated_noise-1",
+        "type": "repeated_noise",
+        "pairs": 1147,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9991
+      },
+      {
+        "viewer": "influence-confirmation-repeated_noise-2",
+        "type": "repeated_noise",
+        "pairs": 992,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-repeated_noise-3",
+        "type": "repeated_noise",
+        "pairs": 1296,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-repeated_noise-4",
+        "type": "repeated_noise",
+        "pairs": 1320,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-repeated_noise-5",
+        "type": "repeated_noise",
+        "pairs": 891,
+        "metadataConflicts": 3,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 0.9983
+      },
+      {
+        "viewer": "influence-confirmation-repeated_noise-6",
+        "type": "repeated_noise",
+        "pairs": 1170,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-repeated_noise-7",
+        "type": "repeated_noise",
+        "pairs": 1024,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-biased_noise-0",
+        "type": "biased_noise",
+        "pairs": 1376,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-biased_noise-1",
+        "type": "biased_noise",
+        "pairs": 1295,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-confirmation-biased_noise-2",
+        "type": "biased_noise",
+        "pairs": 1365,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-biased_noise-3",
+        "type": "biased_noise",
+        "pairs": 1118,
+        "metadataConflicts": 0,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-biased_noise-4",
+        "type": "biased_noise",
+        "pairs": 1224,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-biased_noise-5",
+        "type": "biased_noise",
+        "pairs": 1160,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-biased_noise-6",
+        "type": "biased_noise",
+        "pairs": 1296,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-biased_noise-7",
+        "type": "biased_noise",
+        "pairs": 1144,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-changing_taste-0",
+        "type": "changing_taste",
+        "pairs": 1155,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-changing_taste-1",
+        "type": "changing_taste",
+        "pairs": 960,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-changing_taste-2",
+        "type": "changing_taste",
+        "pairs": 1376,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-changing_taste-3",
+        "type": "changing_taste",
+        "pairs": 891,
+        "metadataConflicts": 1,
+        "vectorConflicts": 4,
+        "metadataTieCeiling": 0.9994
+      },
+      {
+        "viewer": "influence-confirmation-changing_taste-4",
+        "type": "changing_taste",
+        "pairs": 1394,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-changing_taste-5",
+        "type": "changing_taste",
+        "pairs": 1122,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-changing_taste-6",
+        "type": "changing_taste",
+        "pairs": 1054,
+        "metadataConflicts": 2,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9991
+      },
+      {
+        "viewer": "influence-confirmation-changing_taste-7",
+        "type": "changing_taste",
+        "pairs": 1073,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-weak_ratings-0",
+        "type": "weak_ratings",
+        "pairs": 1122,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-weak_ratings-1",
+        "type": "weak_ratings",
+        "pairs": 1332,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-weak_ratings-2",
+        "type": "weak_ratings",
+        "pairs": 1248,
+        "metadataConflicts": 2,
+        "vectorConflicts": 5,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-confirmation-weak_ratings-3",
+        "type": "weak_ratings",
+        "pairs": 960,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-weak_ratings-4",
+        "type": "weak_ratings",
+        "pairs": 1085,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-weak_ratings-5",
+        "type": "weak_ratings",
+        "pairs": 1406,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-weak_ratings-6",
+        "type": "weak_ratings",
+        "pairs": 957,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-weak_ratings-7",
+        "type": "weak_ratings",
+        "pairs": 1404,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-novel_preference-0",
+        "type": "novel_preference",
+        "pairs": 1292,
+        "metadataConflicts": 1,
+        "vectorConflicts": 5,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-novel_preference-1",
+        "type": "novel_preference",
+        "pairs": 1302,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9992
+      },
+      {
+        "viewer": "influence-confirmation-novel_preference-2",
+        "type": "novel_preference",
+        "pairs": 966,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-novel_preference-3",
+        "type": "novel_preference",
+        "pairs": 1258,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-novel_preference-4",
+        "type": "novel_preference",
+        "pairs": 1350,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-novel_preference-5",
+        "type": "novel_preference",
+        "pairs": 900,
+        "metadataConflicts": 1,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 0.9994
+      },
+      {
+        "viewer": "influence-confirmation-novel_preference-6",
+        "type": "novel_preference",
+        "pairs": 1435,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-novel_preference-7",
+        "type": "novel_preference",
+        "pairs": 1170,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-duplicate_evidence-0",
+        "type": "duplicate_evidence",
+        "pairs": 1155,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-duplicate_evidence-1",
+        "type": "duplicate_evidence",
+        "pairs": 1116,
+        "metadataConflicts": 0,
+        "vectorConflicts": 1,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-duplicate_evidence-2",
+        "type": "duplicate_evidence",
+        "pairs": 1116,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-duplicate_evidence-3",
+        "type": "duplicate_evidence",
+        "pairs": 1435,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-duplicate_evidence-4",
+        "type": "duplicate_evidence",
+        "pairs": 1224,
+        "metadataConflicts": 1,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-duplicate_evidence-5",
+        "type": "duplicate_evidence",
+        "pairs": 1280,
+        "metadataConflicts": 1,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 0.9996
+      },
+      {
+        "viewer": "influence-confirmation-duplicate_evidence-6",
+        "type": "duplicate_evidence",
+        "pairs": 1120,
+        "metadataConflicts": 0,
+        "vectorConflicts": 2,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-duplicate_evidence-7",
+        "type": "duplicate_evidence",
+        "pairs": 1014,
+        "metadataConflicts": 0,
+        "vectorConflicts": 0,
+        "metadataTieCeiling": 1
+      },
+      {
+        "viewer": "influence-confirmation-metadata_matched-0",
+        "type": "metadata_matched",
+        "pairs": 1520,
+        "metadataConflicts": 4,
+        "vectorConflicts": 12,
+        "metadataTieCeiling": 0.9987
+      },
+      {
+        "viewer": "influence-confirmation-metadata_matched-1",
+        "type": "metadata_matched",
+        "pairs": 1344,
+        "metadataConflicts": 3,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.9989
+      },
+      {
+        "viewer": "influence-confirmation-metadata_matched-2",
+        "type": "metadata_matched",
+        "pairs": 1505,
+        "metadataConflicts": 2,
+        "vectorConflicts": 3,
+        "metadataTieCeiling": 0.9993
+      },
+      {
+        "viewer": "influence-confirmation-metadata_matched-3",
+        "type": "metadata_matched",
+        "pairs": 1444,
+        "metadataConflicts": 3,
+        "vectorConflicts": 5,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-confirmation-metadata_matched-4",
+        "type": "metadata_matched",
+        "pairs": 1406,
+        "metadataConflicts": 3,
+        "vectorConflicts": 8,
+        "metadataTieCeiling": 0.9989
+      },
+      {
+        "viewer": "influence-confirmation-metadata_matched-5",
+        "type": "metadata_matched",
+        "pairs": 1520,
+        "metadataConflicts": 3,
+        "vectorConflicts": 8,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-confirmation-metadata_matched-6",
+        "type": "metadata_matched",
+        "pairs": 1505,
+        "metadataConflicts": 3,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.999
+      },
+      {
+        "viewer": "influence-confirmation-metadata_matched-7",
+        "type": "metadata_matched",
+        "pairs": 1394,
+        "metadataConflicts": 3,
+        "vectorConflicts": 7,
+        "metadataTieCeiling": 0.9989
+      }
+    ],
+    "historicalLabels": [
+      {
+        "viewer": "corroboration-sealed-stable_axes-2",
+        "seed": 89,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200002",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200081",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200046",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200031",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200045",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200064",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200036",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200071",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200004",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200032",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200037",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200090",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200086",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200056",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200051",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200020",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200063",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200083",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200040",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200053",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200010",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200096",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200099",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200059",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200075",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200029",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200027",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200062",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200057",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200067",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200030",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200021",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200025",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200077",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200097",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-confirmation-stable_axes-0",
+        "seed": 47,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200001",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200077",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200064",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200067",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200078",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200003",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200048",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200085",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200087",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200005",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200061",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200043",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200083",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200002",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200023",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200021",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200046",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200006",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200089",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200088",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200082",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200037",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200093",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200068",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200007",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200035",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200069",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200099",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200096",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200013",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200065",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200071",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200066",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200019",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200063",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-confirmation-isolated_noise-4",
+        "seed": 89,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200018",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200008",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200019",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200044",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200024",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200077",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200029",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200088",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200001",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200092",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200061",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200027",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200015",
+            "mistake": true
+          },
+          {
+            "count": 15,
+            "key": "movie:9200093",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200085",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200070",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200023",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200079",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200074",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200083",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200053",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200035",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200086",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200022",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200082",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200012",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200043",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200009",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200066",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200040",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200005",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200075",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200047",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200050",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200096",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-sealed-missing_factor-1",
+        "seed": 47,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200076",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200062",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200020",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200014",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200078",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200068",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200081",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200050",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200016",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200088",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200056",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200017",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200055",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200007",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200049",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200071",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200005",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200063",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200039",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200008",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200036",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200006",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200037",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200031",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200045",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200004",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200091",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200015",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200066",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200057",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200075",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200010",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200080",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200046",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200048",
+            "mistake": false
+          }
+        ]
+      },
+      {
+        "viewer": "corroboration-sealed-missing_factor-7",
+        "seed": 89,
+        "source": "preserved corroboration session",
+        "labels": [
+          {
+            "count": 1,
+            "key": "movie:9200055",
+            "mistake": false
+          },
+          {
+            "count": 2,
+            "key": "movie:9200023",
+            "mistake": false
+          },
+          {
+            "count": 3,
+            "key": "movie:9200050",
+            "mistake": false
+          },
+          {
+            "count": 4,
+            "key": "movie:9200022",
+            "mistake": false
+          },
+          {
+            "count": 5,
+            "key": "movie:9200032",
+            "mistake": false
+          },
+          {
+            "count": 6,
+            "key": "movie:9200029",
+            "mistake": false
+          },
+          {
+            "count": 7,
+            "key": "movie:9200084",
+            "mistake": false
+          },
+          {
+            "count": 8,
+            "key": "movie:9200087",
+            "mistake": false
+          },
+          {
+            "count": 9,
+            "key": "movie:9200052",
+            "mistake": false
+          },
+          {
+            "count": 10,
+            "key": "movie:9200003",
+            "mistake": false
+          },
+          {
+            "count": 11,
+            "key": "movie:9200098",
+            "mistake": false
+          },
+          {
+            "count": 12,
+            "key": "movie:9200024",
+            "mistake": false
+          },
+          {
+            "count": 13,
+            "key": "movie:9200042",
+            "mistake": false
+          },
+          {
+            "count": 14,
+            "key": "movie:9200067",
+            "mistake": false
+          },
+          {
+            "count": 15,
+            "key": "movie:9200060",
+            "mistake": false
+          },
+          {
+            "count": 16,
+            "key": "movie:9200038",
+            "mistake": false
+          },
+          {
+            "count": 17,
+            "key": "movie:9200047",
+            "mistake": false
+          },
+          {
+            "count": 18,
+            "key": "movie:9200082",
+            "mistake": false
+          },
+          {
+            "count": 19,
+            "key": "movie:9200013",
+            "mistake": false
+          },
+          {
+            "count": 20,
+            "key": "movie:9200017",
+            "mistake": false
+          },
+          {
+            "count": 21,
+            "key": "movie:9200028",
+            "mistake": false
+          },
+          {
+            "count": 22,
+            "key": "movie:9200034",
+            "mistake": false
+          },
+          {
+            "count": 23,
+            "key": "movie:9200074",
+            "mistake": false
+          },
+          {
+            "count": 24,
+            "key": "movie:9200090",
+            "mistake": false
+          },
+          {
+            "count": 25,
+            "key": "movie:9200036",
+            "mistake": false
+          },
+          {
+            "count": 26,
+            "key": "movie:9200085",
+            "mistake": false
+          },
+          {
+            "count": 27,
+            "key": "movie:9200094",
+            "mistake": false
+          },
+          {
+            "count": 28,
+            "key": "movie:9200002",
+            "mistake": false
+          },
+          {
+            "count": 29,
+            "key": "movie:9200000",
+            "mistake": false
+          },
+          {
+            "count": 30,
+            "key": "movie:9200033",
+            "mistake": false
+          },
+          {
+            "count": 31,
+            "key": "movie:9200056",
+            "mistake": false
+          },
+          {
+            "count": 32,
+            "key": "movie:9200001",
+            "mistake": false
+          },
+          {
+            "count": 33,
+            "key": "movie:9200026",
+            "mistake": false
+          },
+          {
+            "count": 34,
+            "key": "movie:9200057",
+            "mistake": false
+          },
+          {
+            "count": 35,
+            "key": "movie:9200079",
+            "mistake": false
+          },
+          {
+            "count": 36,
+            "key": "movie:9200041",
+            "mistake": false
+          },
+          {
+            "count": 37,
+            "key": "movie:9200020",
+            "mistake": false
+          },
+          {
+            "count": 38,
+            "key": "movie:9200076",
+            "mistake": false
+          },
+          {
+            "count": 39,
+            "key": "movie:9200006",
+            "mistake": false
+          },
+          {
+            "count": 40,
+            "key": "movie:9200075",
+            "mistake": false
+          }
+        ]
+      }
+    ],
+    "historicalMeasurementChecks": 2400,
+    "historicalLabelLimitation": "Replay override mistake fields are placeholders. These labels reproduce the original archived synthetic session. Labels do not enter policy scoring or historical adoption gates."
+  }
+}
