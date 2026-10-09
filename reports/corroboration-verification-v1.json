@@ -1,0 +1,95 @@
+{
+  "version": "corroboration-v1",
+  "reportHash": "21ee58fd346cd34a533f2b9260aab59ccf85d798849e7191c02e7215b2f2731e",
+  "checks": {
+    "ratings": 19200,
+    "rankings": 268800,
+    "policyScores": 9006240,
+    "historicalSteps": 155
+  },
+  "independentAuditPassed": true,
+  "completeRun": {
+    "viewers": 160,
+    "sessions": 320,
+    "evaluationSeconds": 693.88,
+    "selectionPeople": 64,
+    "confirmationPeople": 64
+  },
+  "decision": {
+    "status": "do_not_promote",
+    "selected": null,
+    "reason": "No candidate passes every requirement in both reserved cohorts."
+  },
+  "validation": {
+    "domainUnitTestsPassed": 64,
+    "cliUnitTestsPassed": 18,
+    "uiUnitTestsPassed": 77,
+    "priorExperimentChecksPassed": 57,
+    "learningStabilityChecksPassed": 2,
+    "corroborationPolicyChecksPassed": 4,
+    "corroborationAuditChecksPassed": 2,
+    "typecheckErrors": 0,
+    "typecheckWarnings": 0,
+    "defaultRegressionsPassed": true,
+    "desktopLanPairing": "Earlier unchanged test times out after 20 seconds. Not modified or repeated in this work.",
+    "previouslyCommittedArchivesUnchanged": 7,
+    "documentationErrors": 0,
+    "documentationWarnings": 0,
+    "reportReproducesFromCommittedArchive": true
+  },
+  "developmentRepeat": {
+    "people": 1,
+    "sessions": 2,
+    "identicalTraces": true,
+    "transportRoundTripIdentical": true
+  },
+  "frozenInputs": {
+    "protocolHash": "8ece55dc55e609a9c680086f4a80f3ca7165e7a1f7e018001da14b90530b6595",
+    "referenceHash": "75cddc4ab49fd79ea5df7908e818b7c83dcbf3fd815e700b0cd0e58ced5936af",
+    "serializationAmendmentHash": "bd9d24024d75d40fbda207b06ac5c9f3e88b309c77be3c5e935d0b9e975aad0d"
+  },
+  "traces": {
+    "format": "ndjson-v1",
+    "index": "corroboration-v1.jsonl.gz",
+    "sha256": "21ee58fd346cd34a533f2b9260aab59ccf85d798849e7191c02e7215b2f2731e",
+    "shards": [
+      {
+        "path": "corroboration-v1-traces-1.jsonl.gz",
+        "sha256": "91fa8ff5ccebfc271e4a56c50e8f0cba7a5eee989be8d6b74d6c60cd93fd23c1"
+      },
+      {
+        "path": "corroboration-v1-traces-2.jsonl.gz",
+        "sha256": "b01f6fbe07717dbcddc07517270ecfe43fb14dcc02f1b4cc4e031d0ca9300e59"
+      },
+      {
+        "path": "corroboration-v1-traces-3.jsonl.gz",
+        "sha256": "6df531171f3a753864618f72d6274f16c085398f3d9ab2ac91018f7e3fadcd1e"
+      },
+      {
+        "path": "corroboration-v1-traces-4.jsonl.gz",
+        "sha256": "d50b67ed4ee2b72935805ba0c8264c50381ae1116b6ff90e14cb97e5dbbb9d73"
+      },
+      {
+        "path": "corroboration-v1-traces-5.jsonl.gz",
+        "sha256": "48f819e7f3ee5292a8f524d752e259d22245c75d5b48bf65e85b300443b56be2"
+      }
+    ]
+  },
+  "diagnostics": {
+    "postHoc": true,
+    "path": "corroboration-diagnostics-v1.json",
+    "sha256": "a8af0fcb38a4a7c5037924b787ca963f65b641573a1051efe2e63d345ed35cfa",
+    "decisionUnchanged": true
+  },
+  "executionNotes": [
+    "Candidates, synthetic fixture, measurement formulas, historical inputs, and adoption requirements froze before reserved evaluation and never changed.",
+    "The first full attempt stopped before report output or outcome inspection. Detailed previews exceeded safe single-string JSON serialization. A recorded output amendment preserves the original runner and writes lossless hashed trace shards.",
+    "The amended serializer reproduces the original development trace exactly. One complete run and repeated development checks do not claim two complete runs.",
+    "The default scorer retains its known order sensitivity. Experimental local policies restore published scores in every session; changed stored claim records alone do not establish recommendation failures.",
+    "Initial audit invocation used the repository root instead of the CLI directory. The corrected package-directory invocation passes all 63 prior and policy checks; the complete corroboration audit passes two additional checks."
+  ],
+  "planningDraft": {
+    "created": false,
+    "reason": "GitHub credential lacks Projects read scope."
+  }
+}

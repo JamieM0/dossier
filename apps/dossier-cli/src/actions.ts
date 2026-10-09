@@ -363,6 +363,11 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
         (filters.minVoteAverage === undefined || (item.voteAverage !== null && item.voteAverage >= filters.minVoteAverage))
       );
       const strategy = clusterStrategy as TasteClusterStrategy;
+      const localEvidence = args.localEvidence;
+      if (localEvidence !== undefined && !["timeless", "recent"].includes(String(localEvidence))) throw new ActionError("INVALID_ARGUMENT", "Unknown experimental local evidence mode");
+      if (localEvidence !== undefined && (strategy !== "greedy" || args.refineMetric !== undefined || args.personalLens !== undefined || args.experiment45 !== undefined || Object.keys(dials).some(key => key !== "qualityWeight"))) throw new ActionError("INVALID_ARGUMENT", "Use localEvidence without other experiments or matching dials");
+      const referenceTime = args.referenceTime;
+      if (referenceTime !== undefined && (localEvidence === undefined || typeof referenceTime !== "number" || !Number.isFinite(referenceTime))) throw new ActionError("INVALID_ARGUMENT", "referenceTime requires localEvidence and a finite timestamp");
       const refineMetric = args.refineMetric;
       if (refineMetric !== undefined && !["axis_metric", "axis_cluster_metric"].includes(String(refineMetric))) throw new ActionError("INVALID_ARGUMENT", "refineMetric must be axis_metric or axis_cluster_metric");
       const selectedClaims = strategy === "greedy"
@@ -381,6 +386,8 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
           .map(({ item, score, lens45Evidence }) => ({ ...compact(item, score), lens45Evidence }));
       } else items = scoreCandidates(narrowed, entries(profile), params, lensMode === "fixed" ? [] : selectedClaims, {
         clusterStrategy: strategy,
+        ...(localEvidence === undefined ? {} : { localEvidence: localEvidence as "timeless" | "recent" }),
+        ...(referenceTime === undefined ? {} : { referenceTime: referenceTime as number }),
         ...(refineMetric === undefined ? {} : { refineMetric: refineMetric as RefineMetricMode, pairwise: state.pairwise })
       }).map(({ item, score }) => {
         if (lensMode === undefined) return compact(item, score);
@@ -389,7 +396,7 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
       });
       if (lensMode !== undefined) items.sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
     }
-    const limit = number(args, "limit", 10, 1, 20);
+    const limit = number(args, "limit", 10, 1, catalogue ? 200 : 20);
     const batch = catalogue ? items : items.slice(0, 20);
     const end = offset % 20 + limit;
     const hasNext = catalogue ? offset + limit < batch.length : end < batch.length || source.length >= 20;

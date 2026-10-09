@@ -1,0 +1,24 @@
+{
+  "version": "corroboration-v1-output-amendment",
+  "referenceHash": "75cddc4ab49fd79ea5df7908e818b7c83dcbf3fd815e700b0cd0e58ced5936af",
+  "reason": "Detailed previews exceed the safe single-JSON-string size. Write lossless gzip JSON lines in 32-person shards with a hashed index, plus a small summary manifest.",
+  "noOutcomesInspected": true,
+  "firstFullAttemptStoppedBeforeReportOutput": true,
+  "unchanged": [
+    "candidate scorer",
+    "synthetic fixture",
+    "supplied ratings",
+    "measurement formulas",
+    "adoption gates",
+    "historical inputs",
+    "product model"
+  ],
+  "originalRunner": {
+    "path": "apps/dossier-cli/benchmarks/corroboration-v1-original-run.txt",
+    "sha256": "21ecbe99fe34d7dc171230f151820d4841ea6eee57ad45ff30171edb9b997c58"
+  },
+  "sourceHashes": {
+    "apps/dossier-cli/scripts/corroboration-run.mjs": "37f4311e8b6052d23de224cbf23bfb54319d8f0c7236f5030cd0e244a88e1280",
+    "apps/dossier-cli/scripts/corroboration-io.mjs": "7832824ae1d37c0bd41a037e076d43876e8943f6ae5414c5c1f6dfa93c1e606e"
+  }
+}

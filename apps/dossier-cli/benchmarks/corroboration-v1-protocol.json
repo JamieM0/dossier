@@ -1,0 +1,70 @@
+{
+  "version": "corroboration-v1",
+  "experiment": 10,
+  "fixture": {
+    "path": "apps/dossier-cli/src/lab/corroboration-v1.json",
+    "sha256": "74a270b159d922528ea2cb717a419d98cb6d6263f20db0db58a5b94ecbfa33bc"
+  },
+  "generatorHash": "c23a5df22d823969eda43c39136b2ffe9174e19cf0a9ebf708fefbad99534973",
+  "arms": [
+    "current",
+    "local",
+    "local_recent",
+    "supported_local",
+    "supported_recent",
+    "supported_claims_local",
+    "supported_claims_recent"
+  ],
+  "candidate": {
+    "power": 4,
+    "prior": 2,
+    "halfLifeDays": 30,
+    "duplicateCosine": 0.95
+  },
+  "seeds": [
+    47,
+    89
+  ],
+  "ratings": 60,
+  "changeAt": 30,
+  "checkpoints": [
+    10,
+    20,
+    30,
+    40,
+    60
+  ],
+  "permutations": 8,
+  "totalViewers": 160,
+  "selectionViewers": 64,
+  "confirmationViewers": 64,
+  "clock": {
+    "start": 1700000000000,
+    "stepDays": 2
+  },
+  "hypothesis": "Independent supporting ratings can reduce noisy generalization while retaining quality and adaptation. Claim guards isolate inference contributions from local matching.",
+  "model": "Use the existing power, prior, and recency. Divide near-duplicate same-polarity rating weight by its density at cosine 0.95, for both support and final kernel contributions. Each rating gets a leave-one-out gate support/(2+support+counter). Kernel candidates retain existing claims. Joint candidates also gate inferred claim confidence by support excluding its strongest independent contribution over 2+support+counter. User-confirmed claims and inactive tombstones retain their authority. No fitted settings.",
+  "boundary": "Only public metadata, supplied ratings, and stored claims enter scorers. Private utilities, error labels, cohort types, and future preferences stay in the evaluator. Policies are lab-only; no product source or scoring default changes.",
+  "actors": "Fresh catalogue and people. Three partitions: 32 development, 64 selection, and 64 independent confirmation. Accurate stable axes, interactions, missing factors, isolated noise at 14, repeated noise at 14 through 18, genre-biased noise at 11 through 30, changing taste, and weak ratings. Reserved people add a third axis preference. Metadata duplicates challenge apparent independence.",
+  "metrics": "Final ranking uses current taste. At every update, both old and new scores are evaluated against the same contemporaneous preference, including the change boundary. Changing taste uses earlier preferences through observation 30 and new preferences thereafter. Final adaptation at 40 and 60 is reported separately. Mistake windows and subsequent recovery use equal sixty-rating budgets.",
+  "controls": "Exact explicit ratings, overwrite, removal, restoration, encrypted portability, read-only scoring, user-confirmed and inactive-claim authority, score-order invariance, and unchanged historical defaults. Stored claims stay inspectable and unmodified. At least one development replay must reproduce exactly.",
+  "gates": {
+    "minimumMeanGain": 0.02,
+    "worstDecileDelta": -0.01,
+    "subgroupLowerDelta": -0.01,
+    "maxSingleRatingLoss": 0.05,
+    "largeLossRateRatio": 0.5,
+    "historicalFinalGain": 0.03,
+    "historicalTotalDecline": -0.03,
+    "retainedAdaptation": 0.8
+  },
+  "selection": "Each supported candidate must independently pass every requirement in both selection and confirmation: two-point final mean gain, positive gain lower bound, worst-tenth and stable/changing/noise subgroup lower bounds within minus one point; contemporaneous mean lower bound within minus one point; no update loss above five points after ten ratings and at least halved large-loss frequency; changing final gain retains 80 percent of positive unrestricted recent gain, and adaptation at forty loses at most one point against current; identical scores across eight rating-order permutations and all contracts. Every historical failure needs three-point final improvement, at most three-point overall decline, and no five-point update loss. No default adoption without passing independent audits and unchanged regression checks.",
+  "limitations": [
+    "Jamie is the only real product user.",
+    "Synthetic film ranking does not establish retrieval quality, television behavior, recognition, or question effort.",
+    "Different titles are not statistically independent; metadata density is a proxy for duplicate evidence.",
+    "Simulated two-day timing does not establish an optimal half-life.",
+    "Unavailable preferences cannot be reconstructed from metadata.",
+    "Reserved outcomes cannot tune this version or relax its requirements."
+  ]
+}

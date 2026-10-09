@@ -1,0 +1,1100 @@
+{
+  "version": "corroboration-diagnostics-v1",
+  "postHoc": true,
+  "sourceHash": "21ee58fd346cd34a533f2b9260aab59ccf85d798849e7191c02e7215b2f2731e",
+  "comparisons": {
+    "sealed": {
+      "categoryEffects": {
+        "accurate": {
+          "updates": 5429,
+          "arms": {
+            "current": {
+              "meanDelta": 0.0017,
+              "worstDelta": -0.236,
+              "largeLossRate": 0.0068
+            },
+            "local": {
+              "meanDelta": 0.002,
+              "worstDelta": -0.142,
+              "largeLossRate": 0.0053
+            },
+            "local_recent": {
+              "meanDelta": 0.0023,
+              "worstDelta": -0.187,
+              "largeLossRate": 0.0134
+            },
+            "supported_local": {
+              "meanDelta": 0.0019,
+              "worstDelta": -0.1357,
+              "largeLossRate": 0.0079
+            },
+            "supported_recent": {
+              "meanDelta": 0.0023,
+              "worstDelta": -0.1956,
+              "largeLossRate": 0.0201
+            },
+            "supported_claims_local": {
+              "meanDelta": 0.0019,
+              "worstDelta": -0.1549,
+              "largeLossRate": 0.0083
+            },
+            "supported_claims_recent": {
+              "meanDelta": 0.0023,
+              "worstDelta": -0.2197,
+              "largeLossRate": 0.0245
+            }
+          }
+        },
+        "mistakes": {
+          "updates": 171,
+          "arms": {
+            "current": {
+              "meanDelta": -0.0272,
+              "worstDelta": -0.3518,
+              "largeLossRate": 0.1696
+            },
+            "local": {
+              "meanDelta": -0.0227,
+              "worstDelta": -0.2147,
+              "largeLossRate": 0.1637
+            },
+            "local_recent": {
+              "meanDelta": -0.0362,
+              "worstDelta": -0.3384,
+              "largeLossRate": 0.3099
+            },
+            "supported_local": {
+              "meanDelta": -0.0192,
+              "worstDelta": -0.2367,
+              "largeLossRate": 0.1287
+            },
+            "supported_recent": {
+              "meanDelta": -0.0318,
+              "worstDelta": -0.3644,
+              "largeLossRate": 0.269
+            },
+            "supported_claims_local": {
+              "meanDelta": -0.0191,
+              "worstDelta": -0.2258,
+              "largeLossRate": 0.1228
+            },
+            "supported_claims_recent": {
+              "meanDelta": -0.0321,
+              "worstDelta": -0.2951,
+              "largeLossRate": 0.2807
+            }
+          }
+        },
+        "earlierTaste": {
+          "updates": 320,
+          "arms": {
+            "current": {
+              "meanDelta": 0.0017,
+              "worstDelta": -0.1018,
+              "largeLossRate": 0.0094
+            },
+            "local": {
+              "meanDelta": 0.0018,
+              "worstDelta": -0.0735,
+              "largeLossRate": 0.0156
+            },
+            "local_recent": {
+              "meanDelta": 0.0017,
+              "worstDelta": -0.1014,
+              "largeLossRate": 0.0219
+            },
+            "supported_local": {
+              "meanDelta": 0.0034,
+              "worstDelta": -0.1016,
+              "largeLossRate": 0.0156
+            },
+            "supported_recent": {
+              "meanDelta": 0.0035,
+              "worstDelta": -0.1341,
+              "largeLossRate": 0.025
+            },
+            "supported_claims_local": {
+              "meanDelta": 0.0032,
+              "worstDelta": -0.0887,
+              "largeLossRate": 0.0156
+            },
+            "supported_claims_recent": {
+              "meanDelta": 0.0033,
+              "worstDelta": -0.115,
+              "largeLossRate": 0.025
+            }
+          }
+        },
+        "adaptation": {
+          "updates": 480,
+          "arms": {
+            "current": {
+              "meanDelta": 0.0103,
+              "worstDelta": -0.0462,
+              "largeLossRate": 0
+            },
+            "local": {
+              "meanDelta": 0.0104,
+              "worstDelta": -0.0281,
+              "largeLossRate": 0
+            },
+            "local_recent": {
+              "meanDelta": 0.0161,
+              "worstDelta": -0.0933,
+              "largeLossRate": 0.0063
+            },
+            "supported_local": {
+              "meanDelta": 0.01,
+              "worstDelta": -0.0429,
+              "largeLossRate": 0
+            },
+            "supported_recent": {
+              "meanDelta": 0.0163,
+              "worstDelta": -0.1203,
+              "largeLossRate": 0.0187
+            },
+            "supported_claims_local": {
+              "meanDelta": 0.0101,
+              "worstDelta": -0.04,
+              "largeLossRate": 0
+            },
+            "supported_claims_recent": {
+              "meanDelta": 0.0168,
+              "worstDelta": -0.1085,
+              "largeLossRate": 0.0208
+            }
+          }
+        }
+      },
+      "componentGains": {
+        "supported_local": {
+          "control": "local",
+          "gain": {
+            "mean": -0.0067,
+            "lower": -0.0117,
+            "upper": -0.0016,
+            "viewers": 64
+          }
+        },
+        "supported_recent": {
+          "control": "local_recent",
+          "gain": {
+            "mean": -0.0034,
+            "lower": -0.0073,
+            "upper": 0.0004,
+            "viewers": 64
+          }
+        },
+        "supported_claims_local": {
+          "control": "supported_local",
+          "gain": {
+            "mean": -0.0008,
+            "lower": -0.0019,
+            "upper": 0.0004,
+            "viewers": 64
+          }
+        },
+        "supported_claims_recent": {
+          "control": "supported_recent",
+          "gain": {
+            "mean": 0.0003,
+            "lower": -0.0027,
+            "upper": 0.0038,
+            "viewers": 64
+          }
+        }
+      },
+      "curves": {
+        "10": {
+          "current": {
+            "mean": 0,
+            "lower": 0,
+            "upper": 0,
+            "viewers": 64
+          },
+          "local": {
+            "mean": -0.0067,
+            "lower": -0.0174,
+            "upper": 0.0037,
+            "viewers": 64
+          },
+          "local_recent": {
+            "mean": -0.0067,
+            "lower": -0.0176,
+            "upper": 0.0039,
+            "viewers": 64
+          },
+          "supported_local": {
+            "mean": -0.0183,
+            "lower": -0.0328,
+            "upper": -0.0038,
+            "viewers": 64
+          },
+          "supported_recent": {
+            "mean": -0.0193,
+            "lower": -0.0342,
+            "upper": -0.0045,
+            "viewers": 64
+          },
+          "supported_claims_local": {
+            "mean": -0.0196,
+            "lower": -0.0347,
+            "upper": -0.0046,
+            "viewers": 64
+          },
+          "supported_claims_recent": {
+            "mean": -0.021,
+            "lower": -0.0362,
+            "upper": -0.0055,
+            "viewers": 64
+          }
+        },
+        "20": {
+          "current": {
+            "mean": 0,
+            "lower": 0,
+            "upper": 0,
+            "viewers": 64
+          },
+          "local": {
+            "mean": 0.0074,
+            "lower": -0.0016,
+            "upper": 0.0173,
+            "viewers": 64
+          },
+          "local_recent": {
+            "mean": -0.0046,
+            "lower": -0.0139,
+            "upper": 0.0044,
+            "viewers": 64
+          },
+          "supported_local": {
+            "mean": 0.0091,
+            "lower": -0.0034,
+            "upper": 0.0231,
+            "viewers": 64
+          },
+          "supported_recent": {
+            "mean": -0.0039,
+            "lower": -0.0197,
+            "upper": 0.0107,
+            "viewers": 64
+          },
+          "supported_claims_local": {
+            "mean": 0.0096,
+            "lower": -0.0035,
+            "upper": 0.0244,
+            "viewers": 64
+          },
+          "supported_claims_recent": {
+            "mean": -0.0044,
+            "lower": -0.0202,
+            "upper": 0.0112,
+            "viewers": 64
+          }
+        },
+        "30": {
+          "current": {
+            "mean": 0,
+            "lower": 0,
+            "upper": 0,
+            "viewers": 64
+          },
+          "local": {
+            "mean": 0.007,
+            "lower": -0.0018,
+            "upper": 0.0157,
+            "viewers": 64
+          },
+          "local_recent": {
+            "mean": 0.0049,
+            "lower": -0.0058,
+            "upper": 0.0156,
+            "viewers": 64
+          },
+          "supported_local": {
+            "mean": 0.0031,
+            "lower": -0.0074,
+            "upper": 0.0137,
+            "viewers": 64
+          },
+          "supported_recent": {
+            "mean": -0.0017,
+            "lower": -0.0146,
+            "upper": 0.0108,
+            "viewers": 64
+          },
+          "supported_claims_local": {
+            "mean": 0.0029,
+            "lower": -0.0082,
+            "upper": 0.014,
+            "viewers": 64
+          },
+          "supported_claims_recent": {
+            "mean": -0.0026,
+            "lower": -0.0166,
+            "upper": 0.0112,
+            "viewers": 64
+          }
+        },
+        "40": {
+          "current": {
+            "mean": 0,
+            "lower": 0,
+            "upper": 0,
+            "viewers": 64
+          },
+          "local": {
+            "mean": 0.0046,
+            "lower": -0.0053,
+            "upper": 0.0142,
+            "viewers": 64
+          },
+          "local_recent": {
+            "mean": 0.0192,
+            "lower": 0.0087,
+            "upper": 0.0309,
+            "viewers": 64
+          },
+          "supported_local": {
+            "mean": 0.0006,
+            "lower": -0.0119,
+            "upper": 0.012,
+            "viewers": 64
+          },
+          "supported_recent": {
+            "mean": 0.0147,
+            "lower": 0.0029,
+            "upper": 0.0281,
+            "viewers": 64
+          },
+          "supported_claims_local": {
+            "mean": 0.0014,
+            "lower": -0.0117,
+            "upper": 0.0132,
+            "viewers": 64
+          },
+          "supported_claims_recent": {
+            "mean": 0.0186,
+            "lower": 0.0045,
+            "upper": 0.0349,
+            "viewers": 64
+          }
+        },
+        "60": {
+          "current": {
+            "mean": 0,
+            "lower": 0,
+            "upper": 0,
+            "viewers": 64
+          },
+          "local": {
+            "mean": 0.0102,
+            "lower": 0.0013,
+            "upper": 0.0186,
+            "viewers": 64
+          },
+          "local_recent": {
+            "mean": 0.0306,
+            "lower": 0.0133,
+            "upper": 0.052,
+            "viewers": 64
+          },
+          "supported_local": {
+            "mean": 0.0035,
+            "lower": -0.0075,
+            "upper": 0.0137,
+            "viewers": 64
+          },
+          "supported_recent": {
+            "mean": 0.0272,
+            "lower": 0.0098,
+            "upper": 0.0486,
+            "viewers": 64
+          },
+          "supported_claims_local": {
+            "mean": 0.0027,
+            "lower": -0.0087,
+            "upper": 0.0136,
+            "viewers": 64
+          },
+          "supported_claims_recent": {
+            "mean": 0.0275,
+            "lower": 0.0084,
+            "upper": 0.051,
+            "viewers": 64
+          }
+        }
+      },
+      "worst": {
+        "current": {
+          "viewer": "corroboration-sealed-repeated_noise-2",
+          "type": "repeated_noise",
+          "seed": 89,
+          "count": 17,
+          "event": {
+            "key": "movie:9200085",
+            "rating": 2,
+            "ts": 1702937600000
+          },
+          "mistake": true,
+          "before": 0.8819,
+          "after": 0.5301,
+          "delta": -0.3518
+        },
+        "local": {
+          "viewer": "corroboration-sealed-repeated_noise-5",
+          "type": "repeated_noise",
+          "seed": 47,
+          "count": 16,
+          "event": {
+            "key": "movie:9200041",
+            "rating": 3,
+            "ts": 1702764800000
+          },
+          "mistake": true,
+          "before": 0.8571,
+          "after": 0.6424,
+          "delta": -0.2147
+        },
+        "local_recent": {
+          "viewer": "corroboration-sealed-repeated_noise-5",
+          "type": "repeated_noise",
+          "seed": 89,
+          "count": 18,
+          "event": {
+            "key": "movie:9200030",
+            "rating": -2,
+            "ts": 1703110400000
+          },
+          "mistake": true,
+          "before": 0.7796,
+          "after": 0.4412,
+          "delta": -0.3384
+        },
+        "supported_local": {
+          "viewer": "corroboration-sealed-repeated_noise-5",
+          "type": "repeated_noise",
+          "seed": 89,
+          "count": 18,
+          "event": {
+            "key": "movie:9200030",
+            "rating": -2,
+            "ts": 1703110400000
+          },
+          "mistake": true,
+          "before": 0.9261,
+          "after": 0.6894,
+          "delta": -0.2367
+        },
+        "supported_recent": {
+          "viewer": "corroboration-sealed-repeated_noise-5",
+          "type": "repeated_noise",
+          "seed": 89,
+          "count": 18,
+          "event": {
+            "key": "movie:9200030",
+            "rating": -2,
+            "ts": 1703110400000
+          },
+          "mistake": true,
+          "before": 0.9171,
+          "after": 0.5527,
+          "delta": -0.3644
+        },
+        "supported_claims_local": {
+          "viewer": "corroboration-sealed-repeated_noise-5",
+          "type": "repeated_noise",
+          "seed": 89,
+          "count": 18,
+          "event": {
+            "key": "movie:9200030",
+            "rating": -2,
+            "ts": 1703110400000
+          },
+          "mistake": true,
+          "before": 0.8829,
+          "after": 0.6571,
+          "delta": -0.2258
+        },
+        "supported_claims_recent": {
+          "viewer": "corroboration-sealed-repeated_noise-5",
+          "type": "repeated_noise",
+          "seed": 89,
+          "count": 18,
+          "event": {
+            "key": "movie:9200030",
+            "rating": -2,
+            "ts": 1703110400000
+          },
+          "mistake": true,
+          "before": 0.8245,
+          "after": 0.5294,
+          "delta": -0.2951
+        }
+      }
+    },
+    "confirmation": {
+      "categoryEffects": {
+        "accurate": {
+          "updates": 5414,
+          "arms": {
+            "current": {
+              "meanDelta": 0.0017,
+              "worstDelta": -0.1908,
+              "largeLossRate": 0.0054
+            },
+            "local": {
+              "meanDelta": 0.0017,
+              "worstDelta": -0.0991,
+              "largeLossRate": 0.0035
+            },
+            "local_recent": {
+              "meanDelta": 0.002,
+              "worstDelta": -0.1446,
+              "largeLossRate": 0.0115
+            },
+            "supported_local": {
+              "meanDelta": 0.0019,
+              "worstDelta": -0.1649,
+              "largeLossRate": 0.0076
+            },
+            "supported_recent": {
+              "meanDelta": 0.0023,
+              "worstDelta": -0.1602,
+              "largeLossRate": 0.0188
+            },
+            "supported_claims_local": {
+              "meanDelta": 0.002,
+              "worstDelta": -0.1819,
+              "largeLossRate": 0.0081
+            },
+            "supported_claims_recent": {
+              "meanDelta": 0.0023,
+              "worstDelta": -0.1807,
+              "largeLossRate": 0.0205
+            }
+          }
+        },
+        "mistakes": {
+          "updates": 186,
+          "arms": {
+            "current": {
+              "meanDelta": -0.0187,
+              "worstDelta": -0.3077,
+              "largeLossRate": 0.1398
+            },
+            "local": {
+              "meanDelta": -0.0162,
+              "worstDelta": -0.1795,
+              "largeLossRate": 0.1022
+            },
+            "local_recent": {
+              "meanDelta": -0.0263,
+              "worstDelta": -0.2523,
+              "largeLossRate": 0.1774
+            },
+            "supported_local": {
+              "meanDelta": -0.0146,
+              "worstDelta": -0.1576,
+              "largeLossRate": 0.1237
+            },
+            "supported_recent": {
+              "meanDelta": -0.0262,
+              "worstDelta": -0.2874,
+              "largeLossRate": 0.1882
+            },
+            "supported_claims_local": {
+              "meanDelta": -0.0148,
+              "worstDelta": -0.1465,
+              "largeLossRate": 0.1237
+            },
+            "supported_claims_recent": {
+              "meanDelta": -0.0278,
+              "worstDelta": -0.248,
+              "largeLossRate": 0.2151
+            }
+          }
+        },
+        "earlierTaste": {
+          "updates": 320,
+          "arms": {
+            "current": {
+              "meanDelta": 0.0017,
+              "worstDelta": -0.0712,
+              "largeLossRate": 0.0094
+            },
+            "local": {
+              "meanDelta": 0.0011,
+              "worstDelta": -0.0921,
+              "largeLossRate": 0.0156
+            },
+            "local_recent": {
+              "meanDelta": 0.0009,
+              "worstDelta": -0.1108,
+              "largeLossRate": 0.0187
+            },
+            "supported_local": {
+              "meanDelta": 0.0017,
+              "worstDelta": -0.1711,
+              "largeLossRate": 0.0094
+            },
+            "supported_recent": {
+              "meanDelta": 0.0016,
+              "worstDelta": -0.1641,
+              "largeLossRate": 0.0281
+            },
+            "supported_claims_local": {
+              "meanDelta": 0.002,
+              "worstDelta": -0.1421,
+              "largeLossRate": 0.0094
+            },
+            "supported_claims_recent": {
+              "meanDelta": 0.0017,
+              "worstDelta": -0.1484,
+              "largeLossRate": 0.0313
+            }
+          }
+        },
+        "adaptation": {
+          "updates": 480,
+          "arms": {
+            "current": {
+              "meanDelta": 0.0117,
+              "worstDelta": -0.0555,
+              "largeLossRate": 0.0021
+            },
+            "local": {
+              "meanDelta": 0.0124,
+              "worstDelta": -0.0498,
+              "largeLossRate": 0
+            },
+            "local_recent": {
+              "meanDelta": 0.0174,
+              "worstDelta": -0.0832,
+              "largeLossRate": 0.0083
+            },
+            "supported_local": {
+              "meanDelta": 0.0127,
+              "worstDelta": -0.0711,
+              "largeLossRate": 0.0021
+            },
+            "supported_recent": {
+              "meanDelta": 0.017,
+              "worstDelta": -0.1302,
+              "largeLossRate": 0.0083
+            },
+            "supported_claims_local": {
+              "meanDelta": 0.0127,
+              "worstDelta": -0.0932,
+              "largeLossRate": 0.0021
+            },
+            "supported_claims_recent": {
+              "meanDelta": 0.0174,
+              "worstDelta": -0.1819,
+              "largeLossRate": 0.0083
+            }
+          }
+        }
+      },
+      "componentGains": {
+        "supported_local": {
+          "control": "local",
+          "gain": {
+            "mean": -0.0021,
+            "lower": -0.0067,
+            "upper": 0.003,
+            "viewers": 64
+          }
+        },
+        "supported_recent": {
+          "control": "local_recent",
+          "gain": {
+            "mean": -0.0077,
+            "lower": -0.0118,
+            "upper": -0.004,
+            "viewers": 64
+          }
+        },
+        "supported_claims_local": {
+          "control": "supported_local",
+          "gain": {
+            "mean": -0.0002,
+            "lower": -0.0014,
+            "upper": 0.0011,
+            "viewers": 64
+          }
+        },
+        "supported_claims_recent": {
+          "control": "supported_recent",
+          "gain": {
+            "mean": 0.0001,
+            "lower": -0.0027,
+            "upper": 0.0029,
+            "viewers": 64
+          }
+        }
+      },
+      "curves": {
+        "10": {
+          "current": {
+            "mean": 0,
+            "lower": 0,
+            "upper": 0,
+            "viewers": 64
+          },
+          "local": {
+            "mean": 0.0038,
+            "lower": -0.0036,
+            "upper": 0.011,
+            "viewers": 64
+          },
+          "local_recent": {
+            "mean": 0.0052,
+            "lower": -0.0028,
+            "upper": 0.0132,
+            "viewers": 64
+          },
+          "supported_local": {
+            "mean": -0.0147,
+            "lower": -0.0262,
+            "upper": -0.0035,
+            "viewers": 64
+          },
+          "supported_recent": {
+            "mean": -0.0156,
+            "lower": -0.0277,
+            "upper": -0.0042,
+            "viewers": 64
+          },
+          "supported_claims_local": {
+            "mean": -0.0165,
+            "lower": -0.0291,
+            "upper": -0.004,
+            "viewers": 64
+          },
+          "supported_claims_recent": {
+            "mean": -0.0181,
+            "lower": -0.0313,
+            "upper": -0.005,
+            "viewers": 64
+          }
+        },
+        "20": {
+          "current": {
+            "mean": 0,
+            "lower": 0,
+            "upper": 0,
+            "viewers": 64
+          },
+          "local": {
+            "mean": 0.0119,
+            "lower": 0.0033,
+            "upper": 0.0217,
+            "viewers": 64
+          },
+          "local_recent": {
+            "mean": 0.0052,
+            "lower": -0.0048,
+            "upper": 0.0154,
+            "viewers": 64
+          },
+          "supported_local": {
+            "mean": 0.0086,
+            "lower": -0.0032,
+            "upper": 0.0214,
+            "viewers": 64
+          },
+          "supported_recent": {
+            "mean": 0.002,
+            "lower": -0.0108,
+            "upper": 0.0154,
+            "viewers": 64
+          },
+          "supported_claims_local": {
+            "mean": 0.0082,
+            "lower": -0.0041,
+            "upper": 0.0214,
+            "viewers": 64
+          },
+          "supported_claims_recent": {
+            "mean": -0.001,
+            "lower": -0.0154,
+            "upper": 0.0141,
+            "viewers": 64
+          }
+        },
+        "30": {
+          "current": {
+            "mean": 0,
+            "lower": 0,
+            "upper": 0,
+            "viewers": 64
+          },
+          "local": {
+            "mean": 0.0075,
+            "lower": -0.001,
+            "upper": 0.0166,
+            "viewers": 64
+          },
+          "local_recent": {
+            "mean": 0.0017,
+            "lower": -0.011,
+            "upper": 0.0141,
+            "viewers": 64
+          },
+          "supported_local": {
+            "mean": 0.0019,
+            "lower": -0.0087,
+            "upper": 0.0125,
+            "viewers": 64
+          },
+          "supported_recent": {
+            "mean": -0.0085,
+            "lower": -0.0277,
+            "upper": 0.008,
+            "viewers": 64
+          },
+          "supported_claims_local": {
+            "mean": 0.0013,
+            "lower": -0.0098,
+            "upper": 0.0124,
+            "viewers": 64
+          },
+          "supported_claims_recent": {
+            "mean": -0.0126,
+            "lower": -0.0344,
+            "upper": 0.0063,
+            "viewers": 64
+          }
+        },
+        "40": {
+          "current": {
+            "mean": 0,
+            "lower": 0,
+            "upper": 0,
+            "viewers": 64
+          },
+          "local": {
+            "mean": 0.0053,
+            "lower": -0.0054,
+            "upper": 0.0145,
+            "viewers": 64
+          },
+          "local_recent": {
+            "mean": 0.0186,
+            "lower": 0.0081,
+            "upper": 0.0306,
+            "viewers": 64
+          },
+          "supported_local": {
+            "mean": 0.0033,
+            "lower": -0.005,
+            "upper": 0.0118,
+            "viewers": 64
+          },
+          "supported_recent": {
+            "mean": 0.0179,
+            "lower": 0.0026,
+            "upper": 0.0354,
+            "viewers": 64
+          },
+          "supported_claims_local": {
+            "mean": 0.0023,
+            "lower": -0.0065,
+            "upper": 0.0113,
+            "viewers": 64
+          },
+          "supported_claims_recent": {
+            "mean": 0.0185,
+            "lower": 0.0009,
+            "upper": 0.0387,
+            "viewers": 64
+          }
+        },
+        "60": {
+          "current": {
+            "mean": 0,
+            "lower": 0,
+            "upper": 0,
+            "viewers": 64
+          },
+          "local": {
+            "mean": 0.008,
+            "lower": 0.0011,
+            "upper": 0.0153,
+            "viewers": 64
+          },
+          "local_recent": {
+            "mean": 0.027,
+            "lower": 0.0105,
+            "upper": 0.0474,
+            "viewers": 64
+          },
+          "supported_local": {
+            "mean": 0.006,
+            "lower": -0.0012,
+            "upper": 0.0138,
+            "viewers": 64
+          },
+          "supported_recent": {
+            "mean": 0.0193,
+            "lower": 0.0021,
+            "upper": 0.0401,
+            "viewers": 64
+          },
+          "supported_claims_local": {
+            "mean": 0.0058,
+            "lower": -0.002,
+            "upper": 0.0142,
+            "viewers": 64
+          },
+          "supported_claims_recent": {
+            "mean": 0.0194,
+            "lower": 0.0003,
+            "upper": 0.042,
+            "viewers": 64
+          }
+        }
+      },
+      "worst": {
+        "current": {
+          "viewer": "corroboration-confirmation-repeated_noise-6",
+          "type": "repeated_noise",
+          "seed": 89,
+          "count": 14,
+          "event": {
+            "key": "movie:9200040",
+            "rating": 2,
+            "ts": 1702419200000
+          },
+          "mistake": true,
+          "before": 0.6471,
+          "after": 0.3394,
+          "delta": -0.3077
+        },
+        "local": {
+          "viewer": "corroboration-confirmation-repeated_noise-6",
+          "type": "repeated_noise",
+          "seed": 47,
+          "count": 16,
+          "event": {
+            "key": "movie:9200041",
+            "rating": 3,
+            "ts": 1702764800000
+          },
+          "mistake": true,
+          "before": 0.7399,
+          "after": 0.5604,
+          "delta": -0.1795
+        },
+        "local_recent": {
+          "viewer": "corroboration-confirmation-repeated_noise-6",
+          "type": "repeated_noise",
+          "seed": 47,
+          "count": 16,
+          "event": {
+            "key": "movie:9200041",
+            "rating": 3,
+            "ts": 1702764800000
+          },
+          "mistake": true,
+          "before": 0.7051,
+          "after": 0.4528,
+          "delta": -0.2523
+        },
+        "supported_local": {
+          "viewer": "corroboration-confirmation-changing_taste-0",
+          "type": "changing_taste",
+          "seed": 47,
+          "count": 11,
+          "event": {
+            "key": "movie:9200051",
+            "rating": -2,
+            "ts": 1701900800000
+          },
+          "mistake": false,
+          "before": 0.6773,
+          "after": 0.5062,
+          "delta": -0.1711
+        },
+        "supported_recent": {
+          "viewer": "corroboration-confirmation-biased_noise-2",
+          "type": "biased_noise",
+          "seed": 89,
+          "count": 24,
+          "event": {
+            "key": "movie:9200025",
+            "rating": 3,
+            "ts": 1704147200000
+          },
+          "mistake": true,
+          "before": 0.5323,
+          "after": 0.2449,
+          "delta": -0.2874
+        },
+        "supported_claims_local": {
+          "viewer": "corroboration-confirmation-isolated_noise-4",
+          "type": "isolated_noise",
+          "seed": 89,
+          "count": 22,
+          "event": {
+            "key": "movie:9200083",
+            "rating": 2,
+            "ts": 1703801600000
+          },
+          "mistake": false,
+          "before": 0.8,
+          "after": 0.6181,
+          "delta": -0.1819
+        },
+        "supported_claims_recent": {
+          "viewer": "corroboration-confirmation-biased_noise-2",
+          "type": "biased_noise",
+          "seed": 89,
+          "count": 19,
+          "event": {
+            "key": "movie:9200037",
+            "rating": 2,
+            "ts": 1703283200000
+          },
+          "mistake": true,
+          "before": 0.45,
+          "after": 0.202,
+          "delta": -0.248
+        }
+      }
+    }
+  },
+  "restoration": {
+    "sessions": 320,
+    "changedClaimRecords": 269,
+    "scoreMismatches": {
+      "current": 147,
+      "local": 0,
+      "local_recent": 0,
+      "supported_local": 0,
+      "supported_recent": 0,
+      "supported_claims_local": 0,
+      "supported_claims_recent": 0
+    }
+  },
+  "accurateUpdateSwap": {
+    "viewer": "corroboration-confirmation-isolated_noise-4",
+    "seed": 89,
+    "count": 22,
+    "event": {
+      "key": "movie:9200083",
+      "rating": 2,
+      "ts": 1703801600000
+    },
+    "mistake": false,
+    "before": 0.8,
+    "onlyNewTitleWithOldEvidenceAndClaims": 0.7105,
+    "allEvidenceReweightedWithOldClaims": 0.6192,
+    "after": 0.6181,
+    "limitation": "One exploratory accurate-update replay. The component path isolates new-title evidence, recomputation of previous evidence weights, and effective claim changes. It is not a validated replacement policy."
+  },
+  "decisionUnchanged": true,
+  "limitation": "Category averages count updates and are descriptive. Component and curve intervals average sessions within people. These post-hoc summaries diagnose the recorded run; they do not tune candidates or relax its frozen adoption requirements."
+}

@@ -1,0 +1,119 @@
+{
+  "version": "learning-stability-diagnostics-v1",
+  "postHoc": true,
+  "sourceHash": "bed5decc36a8a4767112f70283d7dacf0981b2d5739aa210d7c4873a4d261f97",
+  "phaseAware": {
+    "current": {
+      "updates": 6000,
+      "worst": {
+        "viewer": "stability-sealed-noisy_ratings-8",
+        "type": "noisy_ratings",
+        "seed": 73,
+        "count": 14,
+        "delta": -0.1521
+      },
+      "largeLossRate": 0.0128
+    },
+    "canonical_greedy": {
+      "updates": 6000,
+      "worst": {
+        "viewer": "stability-sealed-noisy_ratings-8",
+        "type": "noisy_ratings",
+        "seed": 73,
+        "count": 14,
+        "delta": -0.1521
+      },
+      "largeLossRate": 0.0122
+    },
+    "canonical_complete_link": {
+      "updates": 6000,
+      "worst": {
+        "viewer": "stability-sealed-noisy_ratings-8",
+        "type": "noisy_ratings",
+        "seed": 73,
+        "count": 14,
+        "delta": -0.1521
+      },
+      "largeLossRate": 0.0112
+    },
+    "local": {
+      "updates": 6000,
+      "worst": {
+        "viewer": "stability-sealed-noisy_ratings-8",
+        "type": "noisy_ratings",
+        "seed": 73,
+        "count": 14,
+        "delta": -0.1068
+      },
+      "largeLossRate": 0.0037
+    },
+    "local_recent": {
+      "updates": 6000,
+      "worst": {
+        "viewer": "stability-sealed-noisy_ratings-8",
+        "type": "noisy_ratings",
+        "seed": 73,
+        "count": 14,
+        "delta": -0.1779
+      },
+      "largeLossRate": 0.0195
+    }
+  },
+  "restoration": {
+    "sessions": 240,
+    "changedClaimRecords": 193,
+    "scoreMismatches": {
+      "local": 0,
+      "local_recent": 0
+    }
+  },
+  "cases": [
+    {
+      "arm": "local",
+      "viewer": "stability-sealed-changing_taste-0",
+      "type": "changing_taste",
+      "seed": 31,
+      "count": 21,
+      "event": {
+        "key": "movie:9100079",
+        "rating": -2,
+        "ts": 1703628800000
+      },
+      "before": 0.5015,
+      "after": 0.3695,
+      "delta": -0.132,
+      "suppliedPhase": "earlier_taste",
+      "beforeUnderSuppliedPhase": 0.8008,
+      "afterUnderSuppliedPhase": 0.8381,
+      "newKernelOldClaims": 0.3669,
+      "oldKernelNewClaims": 0.4995,
+      "claimsChanged": true,
+      "claimCountBefore": 24,
+      "claimCountAfter": 24
+    },
+    {
+      "arm": "local_recent",
+      "viewer": "stability-sealed-noisy_ratings-8",
+      "type": "noisy_ratings",
+      "seed": 73,
+      "count": 14,
+      "event": {
+        "key": "movie:9100098",
+        "rating": 2,
+        "ts": 1702419200000
+      },
+      "before": 0.8239,
+      "after": 0.646,
+      "delta": -0.1779,
+      "suppliedPhase": "current_taste",
+      "beforeUnderSuppliedPhase": 0.8239,
+      "afterUnderSuppliedPhase": 0.646,
+      "newKernelOldClaims": 0.7136,
+      "oldKernelNewClaims": 0.7964,
+      "claimsChanged": true,
+      "claimCountBefore": 8,
+      "claimCountAfter": 11
+    }
+  ],
+  "limitation": "Phase-aware summaries revisit all reserved updates without replacing frozen requirements. Component swaps diagnose the two largest frozen-metric local losses. These analyses are exploratory replays, not independent confirmation, candidate selection, or deployable fixes. Recency time advance belongs to the kernel component."
+}

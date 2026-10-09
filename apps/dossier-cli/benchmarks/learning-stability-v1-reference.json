@@ -1,0 +1,19 @@
+{
+  "version": "learning-stability-v1",
+  "sourceHashes": {
+    "packages/domain/src/local-evidence.ts": "054e6cae8b0b27be16c9de94b72df73d7983fa7b91ff0ee964b7b74994c470a9",
+    "packages/domain/src/recommender.ts": "9189abb4f0df731c16b8651e5e9c19aa7d657d63b9590644cde0428aaf6937d2",
+    "apps/dossier-cli/src/actions.ts": "ea021ace7458e0509357336eee7cb31cc754d00200cf2fa2f7492b0be996ef0b",
+    "apps/dossier-cli/scripts/learning-stability-run.mjs": "5f456aab382978ac5ecd4a0c146a40040329a7150d9b89606f0dad47be4ef416",
+    "apps/dossier-cli/scripts/learning-stability-metrics.mjs": "7a4abb63aeb048de66786d228405869c135dbd21252040a2516895b05fe197f2",
+    "apps/dossier-cli/scripts/hard-metrics.mjs": "ed41aa4200e6d0517d69b0496f2b8e25e0a37edb89483f646e0044f7700b1f58",
+    "apps/dossier-cli/scripts/real-metrics.mjs": "834f5792efc46dcb88571751d0a8bff5952c53c3c26101686084cd3470c0f67c",
+    "apps/dossier-cli/scripts/library-replay.mjs": "3b497a8205e38917cbb61bb2d0db4a8ba3b252b864b7c1d75269fb0373189191",
+    "apps/dossier-cli/benchmarks/learning-stability-v1-protocol.json": "4cc1d17239ace17258d1abf9294dfbef1c5426e5b318a686ec26e389c0cf9ad5"
+  },
+  "modelFingerprint": "397d85bdcf5f4f01ebfadd2564ed455ca1fda60d637ff223cfd47731f77fb7b5",
+  "historicalHashes": {
+    "apps/dossier-cli/src/lab/real-tmdb-v1.json": "8d9c1e10bcd3c7841cefe68e25d90355e02a2cf3bb8cf6b6a5c777c7298c3bdc",
+    "reports/backwards-learning-diagnosis-v1.json": "785fc057d8acea75cac1b1fc99b5d53c425637cb16297ef2ce55c174f6e3eb6a"
+  }
+}

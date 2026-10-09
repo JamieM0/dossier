@@ -38,6 +38,10 @@
     "lab:contexts-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/contexts-regressions.mjs",
     "lab:effective-correction": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/effective-correction-suite.mjs",
     "lab:guarded-correction": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/guarded-correction-suite.mjs",
-    "lab:impact-correction": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/impact-correction-suite.mjs"
+    "lab:impact-correction": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/impact-correction-suite.mjs",
+    "lab:learning-stability": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/learning-stability-suite.mjs",
+    "lab:learning-stability-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/learning-stability-regressions.mjs",
+    "lab:corroboration": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/corroboration-suite.mjs",
+    "lab:corroboration-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/corroboration-regressions.mjs"
   }
 }

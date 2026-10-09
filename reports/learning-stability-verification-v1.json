@@ -1,0 +1,50 @@
+{
+  "version": "learning-stability-v1",
+  "reportHash": "bed5decc36a8a4767112f70283d7dacf0981b2d5739aa210d7c4873a4d261f97",
+  "checks": {
+    "ratingChecks": 14400,
+    "rankingChecks": 72000,
+    "localChecks": 2261600
+  },
+  "independentAuditPassed": true,
+  "developmentRepeat": {
+    "people": 1,
+    "sessions": 2,
+    "identicalTraces": true
+  },
+  "validation": {
+    "domainUnitTestsPassed": 64,
+    "cliUnitTestsPassed": 18,
+    "uiUnitTestsPassed": 77,
+    "desktopBackendTestsPassed": 1,
+    "existingExperimentAuditsPassed": 57,
+    "typecheckErrors": 0,
+    "typecheckWarnings": 0,
+    "defaultRegressionsPassed": true,
+    "desktopLanPairing": "Unchanged test times out after 20 seconds; other domain, CLI, UI, and baseline checks pass."
+  },
+  "executionNotes": [
+    "The first complete attempt stopped during development on a negative-zero neutral rating that JSON export restores as zero. Neutral ratings now normalize to zero. No reserved outcomes were reached before the mechanical fix.",
+    "Candidates, cohort, and requirements did not change after reserved inspection. Only analysis, independent auditing, and report presentation changed.",
+    "One complete run plus a repeated development person, with independent reconstruction of all supplied ratings and local contributions. This is not a claim of two complete runs.",
+    "Order tests and scorer isolation retain original claims and timestamps. Separate restoration diagnostics find changed claim records in 193 sessions but identical restored published scores for both local policies in all 240 sessions."
+  ],
+  "decision": {
+    "status": "do_not_promote",
+    "selected": null,
+    "reason": "No candidate passes every frozen requirement."
+  },
+  "protocolHash": "4cc1d17239ace17258d1abf9294dfbef1c5426e5b318a686ec26e389c0cf9ad5",
+  "referenceHash": "9a2d9d2c53b05a83e7494bb5be3dae55950fdc717660bf4c35352a9784655768",
+  "completeRun": {
+    "viewers": 120,
+    "sessions": 240,
+    "durationSeconds": 804.58
+  },
+  "diagnostics": {
+    "postHoc": true,
+    "path": "learning-stability-diagnostics-v1.json",
+    "sha256": "5a7bded6edf936f5d8110e725857e8bcd87c6098b84ddd3b1f83e73b73c4f817",
+    "frozenDecisionUnchanged": true
+  }
+}

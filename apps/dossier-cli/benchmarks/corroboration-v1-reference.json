@@ -1,0 +1,19 @@
+{
+  "version": "corroboration-v1",
+  "sourceHashes": {
+    "apps/dossier-cli/scripts/corroboration-policy.mjs": "c6bb29104b7045bfd236af19721045a11c245e9900621b5ebecafc0cda056df5",
+    "apps/dossier-cli/scripts/corroboration-run.mjs": "21ecbe99fe34d7dc171230f151820d4841ea6eee57ad45ff30171edb9b997c58",
+    "apps/dossier-cli/scripts/corroboration-metrics.mjs": "745536814a4980be2c35229ee3abe2227663f3da8cb57bb527ffaae3339b9384",
+    "apps/dossier-cli/scripts/hard-metrics.mjs": "ed41aa4200e6d0517d69b0496f2b8e25e0a37edb89483f646e0044f7700b1f58",
+    "apps/dossier-cli/scripts/real-metrics.mjs": "834f5792efc46dcb88571751d0a8bff5952c53c3c26101686084cd3470c0f67c",
+    "apps/dossier-cli/scripts/library-replay.mjs": "3b497a8205e38917cbb61bb2d0db4a8ba3b252b864b7c1d75269fb0373189191",
+    "apps/dossier-cli/benchmarks/corroboration-v1-protocol.json": "8ece55dc55e609a9c680086f4a80f3ca7165e7a1f7e018001da14b90530b6595"
+  },
+  "modelFingerprint": "397d85bdcf5f4f01ebfadd2564ed455ca1fda60d637ff223cfd47731f77fb7b5",
+  "historicalHashes": {
+    "apps/dossier-cli/src/lab/real-tmdb-v1.json": "8d9c1e10bcd3c7841cefe68e25d90355e02a2cf3bb8cf6b6a5c777c7298c3bdc",
+    "reports/backwards-learning-diagnosis-v1.json": "785fc057d8acea75cac1b1fc99b5d53c425637cb16297ef2ce55c174f6e3eb6a",
+    "apps/dossier-cli/benchmarks/learning-stability-v1-reference.json": "9a2d9d2c53b05a83e7494bb5be3dae55950fdc717660bf4c35352a9784655768",
+    "reports/learning-stability-v1.json.gz": "bed5decc36a8a4767112f70283d7dacf0981b2d5739aa210d7c4873a4d261f97"
+  }
+}

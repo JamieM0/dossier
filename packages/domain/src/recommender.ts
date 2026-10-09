@@ -37,6 +37,7 @@ import { tasteClaimScoreAdjustment } from "./taste-claims.js";
 import type { TasteClaim } from "./store/model.js";
 import type { PairwiseChoice } from "./store/model.js";
 import { learnRefineMetric, type RefineMetricMode } from "./refine-metric.js";
+import { scoreLocalEvidence, type LocalEvidenceMode } from "./local-evidence.js";
 
 /** The minimum an item needs to be scored: a lens vector and a quality
  * signal. Both TmdbItem and the stored RatedItem snapshot satisfy it.
@@ -233,6 +234,7 @@ export function scoreCandidate(
 export type Recommendation = { item: TmdbItem; score: number };
 
 export type RecommendationExperimentOptions = {
+  localEvidence?: LocalEvidenceMode;
   /** Experiment-only cluster strategy. Omit this option in product code. */
   clusterStrategy?: TasteClusterStrategy;
   refineMetric?: RefineMetricMode;
@@ -263,6 +265,8 @@ export function scoreCandidates(
   claims: readonly TasteClaim[] = [],
   experiment: RecommendationExperimentOptions = {}
 ): Recommendation[] {
+  if (experiment.localEvidence) return scoreLocalEvidence(candidates, entries, claims,
+    experiment.localEvidence, params.qualityWeight, experiment.referenceTime ?? Date.now());
   const tasteSpace = buildTasteSpace(entries, {
     clusterMergeThreshold: params.clusterMergeThreshold,
     ratingRecencyStrength: params.ratingRecencyStrength,

@@ -1,0 +1,64 @@
+{
+  "version": "learning-stability-v1",
+  "experiment": 9,
+  "previousCommit": "09b3e82",
+  "fixture": {
+    "path": "apps/dossier-cli/src/lab/learning-stability-v1.json",
+    "sha256": "4b41741747c26716447b98c5e30a4cc3ad949d4775678eed75ca0649f7120afb"
+  },
+  "generatorHash": "b83984651dad61f028e15f1e45232ea83ae7ccec08b231307af98dc4a33c5918",
+  "arms": [
+    "current",
+    "canonical_greedy",
+    "canonical_complete_link",
+    "local",
+    "local_recent"
+  ],
+  "candidate": {
+    "power": 4,
+    "prior": 2,
+    "halfLifeDays": 30
+  },
+  "seeds": [
+    31,
+    73
+  ],
+  "ratings": 60,
+  "checkpoints": [
+    10,
+    20,
+    40,
+    60
+  ],
+  "permutations": 8,
+  "totalViewers": 120,
+  "confirmationViewers": 60,
+  "clock": {
+    "start": 1700000000000,
+    "stepDays": 2
+  },
+  "hypothesis": "Direct local evidence removes centroid movement and top-K dilution. Recency can preserve adaptation when older preferences change.",
+  "model": "Local candidates sum signed cosine-to-the-fourth evidence, weighted by rating strength, over a prior plus total local weight. Recent uses a fixed 30-day half-life. Both retain current inferred claim contributions. No candidate strength tuning.",
+  "boundary": "Only public metadata and revealed ratings enter the CLI. Hidden ratings, viewer types, private utility, and future ratings stay in the evaluator. Synthetic public quality is absent. Historical checks retain default public quality. No calibration selection or explicit correction policy changes.",
+  "actors": "Six types with ten people per partition. Reserved people add a third axis preference. Noisy ratings flip 15 percent of revealed values. Changing people reveal opposite first-axis preferences for the first 30 ratings, then current taste. Missing factors stay outside metadata.",
+  "updates": "Sixty chronological ratings, plus one rerating, clearing, and restoration through the app transition. Deterministic observation timestamps replace the wall clock in the lab immediately after the action. Held-out target taste remains fixed throughout each learning curve.",
+  "order": "Eight permutations of the identical final library retain timestamps and stored claims. This isolates scorer order sensitivity, rather than treating chronological evidence as interchangeable. Actual learning sessions retain ordinary claim reconciliation.",
+  "gates": {
+    "minimumMeanGain": 0.02,
+    "worstDecileDelta": -0.01,
+    "subgroupLowerDelta": -0.01,
+    "maxSingleRatingLoss": 0.05,
+    "largeLossRateRatio": 0.5,
+    "historicalFinalGain": 0.03,
+    "historicalTotalDecline": -0.03
+  },
+  "selection": "Reserved people only; positive gain lower bound, two-point mean gain, worst-tenth protection, stable and changing-taste lower bounds above minus one point, zero order spread, at least halved large-loss frequency, and at most five-point loss after ten ratings. Every historical severe failure must improve final accuracy three points, limit total decline to three points, and avoid five-point step losses. Restoration, overwrite, CLI parity, archive integrity, and unchanged default comparisons must pass. Passing earns adoption review, not an automatic default change.",
+  "limitations": [
+    "Synthetic ranking on known film candidates, not retrieval or television.",
+    "Noisy ratings differ from noisy explanations; previous correction experiments cover explanation errors.",
+    "Recency uses simulated two-day intervals; no optimal half-life claim.",
+    "Order tests hold claims and timestamps fixed and do not claim inference history independence.",
+    "Local similarity cannot recover factors absent from metadata.",
+    "Jamie remains the only real product user."
+  ]
+}

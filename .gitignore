@@ -80,3 +80,9 @@ archive/
 
 # Keep the lossless impact correction traces compressed.
 /reports/impact-correction-v1.json
+
+# Keep the lossless learning stability traces compressed.
+/reports/learning-stability-v1.json
+
+# Keep the lossless corroboration traces compressed.
+/reports/corroboration-v1.json

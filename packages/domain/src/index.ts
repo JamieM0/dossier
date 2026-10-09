@@ -25,3 +25,4 @@ export * from "./effective-correction.js";
 export * from './protected-correction.js';
 
 export * from './impact-correction.js';
+export * from './local-evidence.js';
