@@ -25,3 +25,4 @@
 - [Impact correction experiment](impact-correction-experiment.md): Test scaled broad influence and ranking limits while preserving exact narrow controls.
 - [Learning stability experiment](learning-stability-experiment.md): Test local evidence, recency, update losses, and historical failures before adopting a new model.
 - [Corroboration experiment](corroboration-experiment.md): Test supporting ratings, inferred influence, present taste, and independent confirmation.
+- [Rating influence experiment](rating-influence-experiment.md): Diagnose accurate-update damage and test three frozen synthetic candidates across separate catalogues.

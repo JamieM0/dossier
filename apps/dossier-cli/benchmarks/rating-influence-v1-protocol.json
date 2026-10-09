@@ -1,0 +1,75 @@
+{
+  "version": "rating-influence-v1",
+  "experiment": 11,
+  "fixture": {
+    "path": "apps/dossier-cli/src/lab/rating-influence-v1.json",
+    "sha256": "ec650ba97285350b173885e0a8bd824789fff163e36963f52a9ce38f7184e89b"
+  },
+  "generatorHash": "c6ab2351d3f2272a7214244ee61fd1ae883ef1505cf9942399c79a43525fa5f2",
+  "arms": [
+    "current",
+    "local",
+    "local_recent",
+    "narrow_recent",
+    "exception_recent",
+    "additive_recent"
+  ],
+  "candidate": {
+    "prior": 2,
+    "halfLifeDays": 30,
+    "narrowPower": 8,
+    "exceptionCosine": 0.85,
+    "exceptionMargin": 0.15,
+    "exceptionMass": 1
+  },
+  "seeds": [
+    53,
+    97
+  ],
+  "ratings": 60,
+  "changeAt": 30,
+  "checkpoints": [
+    10,
+    20,
+    30,
+    40,
+    60
+  ],
+  "permutations": 8,
+  "totalViewers": 220,
+  "selectionViewers": 88,
+  "confirmationViewers": 88,
+  "clock": {
+    "start": 1700000000000,
+    "stepDays": 2
+  },
+  "hypothesis": "Narrow transfer tests broad similarity; chronological local exceptions test surprising preferences; additive evidence tests denominator redistribution.",
+  "model": "Three recent candidates only: cosine power eight; cosine power four with contradictory observations restricted to cosine >= .85 using their preceding public history; cosine power four with fixed denominator two. Claims remain unchanged. No fitted settings.",
+  "boundary": "Only public metadata, supplied ratings, and stored claims enter scorers. Private utilities, error labels, cohort types, and future preferences stay in the evaluator. Policies are lab-only; no product source or scoring default changes.",
+  "actors": "Fresh synthetic people and three separate catalogues. Eleven types include novel preferences, duplicate evidence, metadata-matched opposite tastes, noise and changing taste.",
+  "metrics": "Final ranking uses current taste. At every update, both old and new scores are evaluated against the same contemporaneous preference, including the change boundary. Changing taste uses earlier preferences through observation 30 and new preferences thereafter. Final adaptation at 40 and 60 is reported separately. Mistake windows and subsequent recovery use equal sixty-rating budgets.",
+  "controls": "Exact explicit ratings, overwrite, removal, restoration, encrypted portability, read-only scoring, user-confirmed and inactive-claim authority, score-order invariance, and unchanged historical defaults. Stored claims stay inspectable and unmodified. At least one development replay must reproduce exactly. Novel preference learning measures before and after first exposure; unchanged regions and collision ceilings are reported. Fresh confirmation catalogue has disjoint title keys.",
+  "gates": {
+    "minimumMeanGain": 0.02,
+    "worstDecileDelta": -0.01,
+    "subgroupLowerDelta": -0.01,
+    "maxSingleRatingLoss": 0.05,
+    "largeLossRateRatio": 0.5,
+    "historicalFinalGain": 0.03,
+    "historicalTotalDecline": -0.03,
+    "retainedAdaptation": 0.8
+  },
+  "selection": "Retain all corroboration gates; evaluate every listed actor type. Compare all three candidates against current, timeless and recent matching. Freeze before reserved evaluation. No tuning against reserved outcomes.",
+  "limitations": [
+    "Jamie is the only real product user.",
+    "Synthetic film ranking does not establish retrieval quality, television behavior, recognition, or question effort.",
+    "Different titles are not statistically independent; metadata density is a proxy for duplicate evidence.",
+    "Simulated two-day timing does not establish an optimal half-life.",
+    "Unavailable preferences cannot be reconstructed from metadata.",
+    "Reserved outcomes cannot tune this version or relax its requirements."
+  ],
+  "development": "Use 44 development people with two sessions each. No parameter search is required. Inspect mechanism and learning outcomes before freeze; any revised policy requires a new version.",
+  "historicalScope": "All new candidate evaluation is synthetic. Five archived synthetic failures add regression coverage. The existing five historical real-data candidate gates remain mandatory and unverified in this version. Synthetic cases cannot waive legacy historical protection. Existing frozen regressions check unchanged product defaults.",
+  "learningRequirement": "Novel-preference people must show positive mean ranking improvement from observation 30 to 60, alongside subgroup quality and adaptation gates.",
+  "confirmationCatalogue": "Each partition uses a separate generated catalogue with disjoint title keys. Freeze all sources and criteria before reserved scoring. No tuning after selection or confirmation."
+}

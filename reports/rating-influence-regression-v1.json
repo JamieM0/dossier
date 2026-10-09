@@ -1,0 +1,91 @@
+{
+  "version": "rating-influence-regression-v1",
+  "checkedAt": "2026-10-09T15:47:11.751Z",
+  "synthetic": {
+    "viewers": 48,
+    "completed": true,
+    "metrics": {
+      "coldStart": {
+        "3": {
+          "hit10": 0.596,
+          "ndcg10": 0.629,
+          "randomBaseline": 0.445,
+          "recommendationCoverage": 0.771
+        },
+        "5": {
+          "hit10": 0.74,
+          "ndcg10": 0.774,
+          "randomBaseline": 0.445,
+          "recommendationCoverage": 0.917
+        },
+        "10": {
+          "hit10": 0.912,
+          "ndcg10": 0.927,
+          "randomBaseline": 0.445,
+          "recommendationCoverage": 1
+        },
+        "20": {
+          "hit10": 0.94,
+          "ndcg10": 0.953,
+          "randomBaseline": 0.448,
+          "recommendationCoverage": 1
+        },
+        "40": {
+          "hit10": 0.95,
+          "ndcg10": 0.964,
+          "randomBaseline": 0.448,
+          "recommendationCoverage": 1
+        }
+      },
+      "calibrationAt20": {
+        "activeHit10": 0.908,
+        "randomHit10": 0.94
+      },
+      "incorrectClaimRateAt20": 0.004,
+      "claimCorrectionRate": 1,
+      "correctionEligibleUsers": 44,
+      "wrongClaimsAfterBiasedEvidence": 10,
+      "cloneTop10Overlap": 0.685,
+      "cloneHit10Range": 0.041
+    }
+  },
+  "hard": {
+    "exactBaselineMetrics": true,
+    "comparison": {
+      "deltaMeanAuc20": 0,
+      "deltaColdAuc3": 0,
+      "deltaHit10At20": 0,
+      "deltaBeliefCorrectionRate": 0,
+      "deltaCalibrationAuc20": 0,
+      "deltaHardestSixAuc20": 0,
+      "deltaEasiestSixAuc20": 0,
+      "regressed": [],
+      "improved": []
+    }
+  },
+  "tmdb": {
+    "exactBaselineMetrics": true,
+    "comparison": {
+      "deltaAuc20": 0,
+      "deltaAuc3": 0,
+      "deltaTop10": 0,
+      "deltaBeliefCorrection": 0,
+      "deltaQuestionBenefit20": 0,
+      "improved": [],
+      "regressed": []
+    }
+  },
+  "confirmation": {
+    "exactBaselineSessions": true,
+    "viewers": 47
+  },
+  "override": {
+    "exactBaselineSessions": true,
+    "viewers": 108,
+    "compatibilityReplay": true,
+    "limitation": "The frozen override runner rejects any changed model fingerprint. A temporary copy omits only that identity guard; fixture and scorer guards remain intact.",
+    "frozenModelFingerprint": "ad335fbe3e79c6412492d8b0eca53b1f8c2fa7df480db40576d070f6909a24d3",
+    "currentModelFingerprint": "19cbd3d5c04a7acdc4b352cc5a901a9c74cca7153a55e6a33d7a477ab5b8cd38"
+  },
+  "passed": true
+}

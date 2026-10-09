@@ -42,6 +42,8 @@
     "lab:learning-stability": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/learning-stability-suite.mjs",
     "lab:learning-stability-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/learning-stability-regressions.mjs",
     "lab:corroboration": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/corroboration-suite.mjs",
-    "lab:corroboration-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/corroboration-regressions.mjs"
+    "lab:corroboration-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/corroboration-regressions.mjs",
+    "lab:rating-influence": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/rating-influence-suite.mjs",
+    "lab:rating-influence-regressions": "pnpm --filter @dossier/cli build:bundle && node apps/dossier-cli/scripts/rating-influence-regressions.mjs"
   }
 }
