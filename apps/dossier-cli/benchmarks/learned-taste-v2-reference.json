@@ -1,0 +1,39 @@
+{
+  "sources": {
+    "packages/domain/src/learned-taste.ts": "2bbb5f84aceef21411491769556d2189b9be4c35e828a508533f90d9f86acebd",
+    "packages/domain/src/balanced-taste.ts": "fbeafa2d275563c44615638e8e7c898abd18d409cd87492273c1dc8961c525ee",
+    "packages/domain/src/lens.ts": "eb193a00eb8e93ec8babffcb41014d4a845e6bcf959aba84001ea9923b193556",
+    "packages/domain/src/recommender.ts": "9189abb4f0df731c16b8651e5e9c19aa7d657d63b9590644cde0428aaf6937d2",
+    "packages/domain/src/taste-space.ts": "022b000446779eda22660ed31e1e0fe38ed294c3d7d694658751b3490cf79f87",
+    "packages/domain/src/taste-claims.ts": "606df9c72c200718cd9a6625efcb61fb6280d9667e1097a3494dd9812f99f939",
+    "packages/domain/src/application.ts": "90291df9056ff39e5434ba5150748d8bcd3233c5e028e751d242fefc573b0299",
+    "packages/domain/src/store/model.ts": "2ba304d783f4c770d2b8f56b8baf3e8f7c42632f75c03300ecc5605720ff6093",
+    "apps/dossier-cli/src/actions.ts": "6b00cb0ea7e241fe0308507ee767992cb914e8cd6f99bbaed1dce010f8b24674",
+    "apps/dossier-cli/scripts/hard-metrics.mjs": "ed41aa4200e6d0517d69b0496f2b8e25e0a37edb89483f646e0044f7700b1f58",
+    "apps/dossier-cli/scripts/corroboration-ranking.mjs": "04eeb2f1992171926ad171530e34ccfa8d6942532306e5cb48856d70e07b6e3e",
+    "apps/dossier-cli/scripts/real-metrics.mjs": "834f5792efc46dcb88571751d0a8bff5952c53c3c26101686084cd3470c0f67c",
+    "apps/dossier-cli/scripts/balanced-taste-trial.mjs": "5a2f40835fbae075a5c8a68ad16805650aef1cbb40d375d0538bc7bc056d9cf2"
+  },
+  "fixture": "3bceb34fccf54ffa6189c0635e0207dddd94128afe267930fbb49d4a639b897d",
+  "config": {
+    "evidencePrior": 10
+  },
+  "arms": [
+    "current",
+    "balanced_descriptive",
+    "balanced_comparisons"
+  ],
+  "developmentPath": "reports/learned-taste-v2-development-corrected.json",
+  "development": "b9561d1ee922082da8fd771702fdc24a26ef25e73c1641c58ca9e3827bb53b91",
+  "requirements": {
+    "minimumMeanGain": 0.02,
+    "positiveInterval": true,
+    "minimumWorstTenthDelta": -0.02,
+    "minimumGroupDelta": -0.03,
+    "missingFactorDelta": -0.05,
+    "updateLossFrequency": "No more frequent than current after ten ratings",
+    "maximumUpdateLoss": "No worse than current",
+    "learning": "Preserve explicit ratings and learn corrected comparisons; no public-weight increase",
+    "confirmation": "Same frozen method must pass two fresh cohorts; historical failures remain visible"
+  }
+}

@@ -2,7 +2,7 @@
  * recommender started scoring against real TMDB keyword tags, AND for
  * ratings whose snapshots predate `RatedItem.keywords` being persisted.
  *
- * Three things get upgraded:
+ * Four things get upgraded:
  *  1. The lens vector — list-sourced snapshots carry the coarse
  *     genre+overview-only vector rather than the full per-item vector
  *     a detail() fetch carries (see discovery.ts:enrichItem, lens.ts).
@@ -12,6 +12,7 @@
  *     those titles.
  *  3. Structural relationships — collection/franchise, director, and TV
  *     creator IDs added to the same cached TMDB detail response.
+ *  4. Genres used by the personal distinction learner.
  *
  * Walks the rated library and re-saves any entry whose freshly-fetched
  * vector, keyword list, OR structural metadata differs from what's stored. detail() is
@@ -52,13 +53,13 @@ export async function upgradeExistingRatings(
     const enriched = await enrichItem(ratedToTmdbItem(entry.item));
     const featuresChanged = !featuresEqual(entry.item.features, enriched.features);
     const keywordsChanged = !keywordsEqual(entry.item.keywords, enriched.keywords);
+    const genresChanged = !keywordsEqual(entry.item.genres, enriched.genres);
     const structureChanged =
       (entry.item.collection?.id ?? null) !== (enriched.collection?.id ?? null) ||
       !idsEqual(entry.item.directorIds, enriched.directorIds) ||
       !idsEqual(entry.item.creatorIds, enriched.creatorIds);
-    if (featuresChanged || keywordsChanged || structureChanged) {
-      await preferences.setRating(enriched, entry.rating);
-      upgraded++;
+    if (featuresChanged || keywordsChanged || genresChanged || structureChanged) {
+      if (await preferences.refreshRatingItem(enriched, entry.ts)) upgraded++;
     }
     processed++;
     onProgress?.(processed, total, upgraded);

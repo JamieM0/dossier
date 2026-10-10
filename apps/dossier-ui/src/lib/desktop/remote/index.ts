@@ -71,6 +71,8 @@ export function installRemoteApi(): void {
       get: () => api<PreferencesPayload>("/preferences"),
       setRating: (key: string, rating: Rating | null, item?: RatedItem) =>
         api<{ ratings: Record<string, RatingEntry>; tasteClaims: TasteClaim[] }>("/preferences/rating", body({ key, rating, item }, "PUT")),
+      refreshRatingItem: (key: string, item: RatedItem, expectedTs: number) =>
+        api<{ ratings: Record<string, RatingEntry>; tasteClaims: TasteClaim[] }>("/preferences/rating-item", body({ key, item, expectedTs }, "PUT")),
       setClaimFeedback: (claim: TasteClaim, provenance: Exclude<TasteClaimProvenance, "inferred">) =>
         api<{ tasteClaims: TasteClaim[] }>("/preferences/claim-feedback", body({ claim, provenance }, "PUT")),
       addPairwise: (winnerKey: string, loserKey: string) =>

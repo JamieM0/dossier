@@ -1,0 +1,225 @@
+import type { FeatureVector } from "../lens.js";
+import type { TmdbCollection, TmdbMedium } from "../tmdb/types.js";
+
+/** The persisted library data model — shared by the desktop app's
+ * keychain-encrypted store and the web build's passphrase-encrypted store,
+ * and the payload of the portable `.dossier` export/import file. Pure data:
+ * no Node or browser APIs here. */
+
+export const SCHEMA_VERSION = 2;
+
+/** A single film rating, encoded as a signed sentinel. The Rate screen's
+ *  main action is a 7-point scale (-3..3); watchlist/not_interested are
+ *  two further sentinels outside that scale, carried over unchanged from
+ *  before it existed.
+ *
+ *  -3   = extremely negative
+ *  -2   = fairly negative
+ *  -1   = slightly negative (the original "dislike" sentinel, full
+ *                             negative weight)
+ *   0   = neutral           (no recommender weight either way)
+ *  +1   = slightly positive (the original "like" sentinel, full
+ *                             positive weight)
+ *  +2   = fairly positive
+ *  +3   = extremely positive
+ *  +0.5 = watchlist      ("Add to watchlist" — mapped to 15% positive weight
+ *                          by ratingWeight(), since it signals interest
+ *                          rather than confirmed taste)
+ *  -0.5 = not_interested ("Don't show again" — stored as -0.5 but the
+ *                          recommender maps this to -1 via ratingWeight(),
+ *                          giving it the same effectiveness as dislike)
+ *
+ *  The stored value is a stable identity; ratingWeight() in the domain layer
+ *  translates these sentinels to the recommender's actual weights. This
+ *  means existing records (all -1/-0.5/0.5/1 under the old binary scheme)
+ *  automatically get the current weighting without data migration; 0/±2/±3
+ *  are new sentinels introduced alongside the 7-point scale. */
+export type Rating = -3 | -2 | -1 | -0.5 | 0 | 0.5 | 1 | 2 | 3;
+
+export const RATING_LIKE: Rating = 1;
+export const RATING_DISLIKE: Rating = -1;
+export const RATING_WATCHLIST: Rating = 0.5;
+export const RATING_NOT_INTERESTED: Rating = -0.5;
+
+const VALID_RATINGS = new Set<number>([-3, -2, -1, -0.5, 0, 0.5, 1, 2, 3]);
+
+export function isValidRating(value: unknown): value is Rating {
+  return typeof value === "number" && VALID_RATINGS.has(value);
+}
+
+export type RatingKind = "like" | "dislike" | "watchlist" | "not_interested" | "neutral";
+
+export function ratingKind(rating: Rating): RatingKind {
+  if (rating === RATING_WATCHLIST) return "watchlist";
+  if (rating === RATING_NOT_INTERESTED) return "not_interested";
+  if (rating === 0) return "neutral";
+  return rating > 0 ? "like" : "dislike";
+}
+
+/** Translate persisted rating sentinels into their recommender weights.
+ * Kept in domain so every consumer builds taste evidence identically. */
+export function ratingWeight(rating: Rating): number {
+  if (rating === RATING_NOT_INTERESTED) return -1;
+  if (rating === RATING_WATCHLIST) return 0.15;
+  if (rating === -3) return -2;
+  if (rating === -2) return -1.5;
+  if (rating === 2) return 1.5;
+  if (rating === 3) return 2;
+  return rating;
+}
+
+/** A compact snapshot of a rated item, stored alongside its rating so
+ * the taste profile and Library work fully offline — no TMDB re-fetch
+ * needed to recompute the user's profile or render rated items. */
+export type RatedItem = {
+  /** "movie:27205" | "tv:1396" — medium-qualified to avoid TMDB's
+   * movie/tv id-space collision. */
+  key: string;
+  medium: TmdbMedium;
+  id: number;
+  title: string;
+  year: number | null;
+  posterPath: string | null;
+  voteAverage: number | null;
+  genres: string[];
+  /** TMDB keyword tags at rating time (e.g. "swordplay", "donghua").
+   *  Empty for snapshots written before this field existed —
+   *  enrich-ratings backfills them on first launch. Used by the Rate
+   *  screen's tag dials + "adjust your dials?" pattern prompt. */
+  keywords: string[];
+  /** Structural TMDB relationships captured by the canonical detail
+   * fetch. Missing in older libraries and filled by withDefaults(). */
+  collection?: TmdbCollection | null;
+  directorIds?: number[];
+  creatorIds?: number[];
+  /** Entertainment lens vector at rating time. */
+  features: FeatureVector;
+};
+
+export type RatingEntry = {
+  rating: Rating;
+  item: RatedItem;
+  ts: number;
+};
+
+/** key -> rating entry. */
+export type RatingsMap = Record<string, RatingEntry>;
+
+export type PairwiseChoice = {
+  /** item key of the preferred item */
+  winnerKey: string;
+  /** item key of the less-preferred item */
+  loserKey: string;
+  /** unix-ms timestamp */
+  ts: number;
+};
+
+export type TasteClaimConditionKind =
+  | "genre"
+  | "tag"
+  | "feature_axis"
+  | "collection"
+  | "director"
+  | "creator";
+
+/** One inspectable predicate in a preference claim. Claims deliberately
+ * stop at two predicates so they remain understandable and testable. */
+export type TasteClaimCondition = {
+  kind: TasteClaimConditionKind;
+  /** Stable value used for matching (names for genres/tags, numeric ids for
+   * structural relationships, and an axis key for feature-axis claims). */
+  value: string | number;
+  label: string;
+  /** Only feature-axis conditions use a side. */
+  side?: "low" | "high";
+};
+
+export type TasteClaimEvidence = {
+  supportingItemKeys: string[];
+  counterexampleItemKeys: string[];
+  tasteSpaceClusterIds: string[];
+  supportingWeight: number;
+  counterexampleWeight: number;
+  matchedItemCount: number;
+};
+
+export type TasteClaimProvenance =
+  | "inferred"
+  | "user_confirmed"
+  | "explicitly_rejected"
+  | "corrected";
+
+export type TasteClaim = {
+  /** Deterministic identity derived from effect + canonical conditions. */
+  id: string;
+  conditions: [TasteClaimCondition] | [TasteClaimCondition, TasteClaimCondition];
+  effect: "positive" | "negative";
+  confidence: number;
+  evidence: TasteClaimEvidence;
+  provenance: TasteClaimProvenance;
+  /** False for rejection/correction tombstones. Kept explicitly instead of
+   * inferred from provenance so portable exports remain self-describing. */
+  active: boolean;
+  /** Unix-ms timestamp only for direct user feedback. Inferred claims omit
+   * it, keeping rating-derived output deterministic. */
+  feedbackAt?: number;
+};
+
+export type PersistedState = {
+  schemaVersion: number;
+  settings: Record<string, unknown>;
+  /** itemKey -> rating entry. */
+  ratings: RatingsMap;
+  /** Append-only log of pairwise refinement choices. */
+  pairwise: PairwiseChoice[];
+  /** Item keys the user has explicitly skipped ("haven't seen"). Kept so
+   * the rating queue doesn't re-show them next session. */
+  skipped: string[];
+  /** Deterministically inferred claims plus authoritative user feedback.
+   * Rejected/corrected claims remain here as inactive tombstones. */
+  tasteClaims: TasteClaim[];
+};
+
+export function createDefaultState(): PersistedState {
+  return {
+    schemaVersion: SCHEMA_VERSION,
+    settings: {},
+    ratings: {},
+    pairwise: [],
+    skipped: [],
+    tasteClaims: []
+  };
+}
+
+/** Merge missing top-level fields onto loaded state so older on-disk
+ * files (written before ratings/pairwise/skipped existed) get filled in
+ * with empty defaults instead of crashing on read. Also fills
+ * per-RatedItem `keywords` (added later than the snapshot format) so
+ * downstream readers can assume the field is always present. */
+export function withDefaults(state: PersistedState): PersistedState {
+  const ratings: RatingsMap = {};
+  for (const [k, entry] of Object.entries(state.ratings ?? {})) {
+    if (!entry?.item) {
+      ratings[k] = entry;
+      continue;
+    }
+    ratings[k] = {
+      ...entry,
+      item: {
+        ...entry.item,
+        keywords: entry.item.keywords ?? [],
+        collection: entry.item.collection ?? null,
+        directorIds: entry.item.directorIds ?? [],
+        creatorIds: entry.item.creatorIds ?? []
+      }
+    };
+  }
+  return {
+    schemaVersion: state.schemaVersion ?? SCHEMA_VERSION,
+    settings: state.settings ?? {},
+    ratings,
+    pairwise: state.pairwise ?? [],
+    skipped: state.skipped ?? [],
+    tasteClaims: Array.isArray(state.tasteClaims) ? state.tasteClaims : []
+  };
+}

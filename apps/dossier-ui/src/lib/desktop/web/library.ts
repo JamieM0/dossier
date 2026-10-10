@@ -14,6 +14,7 @@ import {
   exportLibrary as exportLibraryEnvelope,
   importLibrary as importLibraryState,
   reconcileTasteClaims,
+  refreshLibraryRatingItem,
   serializeEnvelope,
   withDefaults,
   withTasteClaimFeedback,
@@ -179,6 +180,16 @@ class WebLibrary {
     vault.state.ratings = ratings;
     vault.state.tasteClaims = reconcileTasteClaims(Object.values(ratings), vault.state.tasteClaims);
     await this.save();
+    return this.getRatings();
+  }
+
+  async refreshRatingItem(key: string, item: RatedItem, expectedTs: number): Promise<RatingsMap> {
+    const vault = this.requireVault();
+    const next = refreshLibraryRatingItem(vault.state, key, item, expectedTs);
+    if (next !== vault.state) {
+      vault.state = next;
+      await this.save();
+    }
     return this.getRatings();
   }
 

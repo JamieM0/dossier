@@ -17,6 +17,7 @@ import type {
 } from "$lib/types";
 import { itemKey, parseItemKey, ratingKind, ratingWeight, toRatedItem } from "$lib/types";
 import { enrichItem } from "$lib/discovery";
+import { tasteClaimsForDisplay } from "@dossier/domain";
 
 class PreferencesState {
   ratings = $state<Record<string, RatingEntry>>({});
@@ -39,7 +40,7 @@ class PreferencesState {
       this.ratings = payload.ratings ?? {};
       this.pairwise = payload.pairwise ?? [];
       this.skipped = payload.skipped ?? [];
-      this.tasteClaims = payload.tasteClaims ?? [];
+      this.tasteClaims = tasteClaimsForDisplay(payload.tasteClaims ?? []);
     } catch (err) {
       this.error = `Backend call failed: ${err instanceof Error ? err.message : String(err)}. Restart the desktop app so the new preferences endpoints are loaded.`;
     } finally {
@@ -77,7 +78,7 @@ class PreferencesState {
       rating === null ? undefined : toRatedItem(alreadyDetailed ? item : await enrichItem(item));
     const { ratings, tasteClaims } = await window.dossier.preferences.setRating(key, rating, snapshot);
     this.ratings = ratings;
-    this.tasteClaims = tasteClaims;
+    this.tasteClaims = tasteClaimsForDisplay(tasteClaims);
   }
 
   /** Clear a rating by key (used by the Library where we may only hold
@@ -86,7 +87,16 @@ class PreferencesState {
     if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
     const { ratings, tasteClaims } = await window.dossier.preferences.setRating(key, null);
     this.ratings = ratings;
-    this.tasteClaims = tasteClaims;
+    this.tasteClaims = tasteClaimsForDisplay(tasteClaims);
+  }
+
+  async refreshRatingItem(item: TmdbItem, expectedTs: number): Promise<boolean> {
+    const key = itemKey(item.medium, item.id);
+    if (!window.dossier?.preferences || this.ratings[key]?.ts !== expectedTs) return false;
+    const { ratings, tasteClaims } = await window.dossier.preferences.refreshRatingItem(key, toRatedItem(item), expectedTs);
+    this.ratings = ratings;
+    this.tasteClaims = tasteClaimsForDisplay(tasteClaims);
+    return ratings[key]?.ts === expectedTs;
   }
 
   async setClaimFeedback(
@@ -95,7 +105,7 @@ class PreferencesState {
   ): Promise<void> {
     if (!window.dossier?.preferences) throw new Error("preferences bridge unavailable");
     const { tasteClaims } = await window.dossier.preferences.setClaimFeedback(claim, provenance);
-    this.tasteClaims = tasteClaims;
+    this.tasteClaims = tasteClaimsForDisplay(tasteClaims);
   }
 
   activeClaims(): TasteClaim[] {

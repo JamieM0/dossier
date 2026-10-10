@@ -51,18 +51,18 @@ describe("upgradeExistingRatings", () => {
         runtime: 100, keywords: ["revenge"], features: feats
       };
     });
-    const setRating = vi.fn(async (key: string, rating: RatingEntry["rating"], item?: RatingEntry["item"]) => {
-      if (item) preferences.ratings = { ...preferences.ratings, [key]: { rating, item, ts: Date.now() } };
-      return { ratings: preferences.ratings };
+    const refreshRatingItem = vi.fn(async (key: string, item: RatingEntry["item"], expectedTs: number) => {
+      if (preferences.ratings[key]?.ts === expectedTs) preferences.ratings = { ...preferences.ratings, [key]: { ...preferences.ratings[key], item } };
+      return { ratings: preferences.ratings, tasteClaims: [] };
     });
-    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { setRating } } };
+    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { refreshRatingItem } } };
 
     const result = await upgradeExistingRatings(4);
 
     expect(result.total).toBe(2);
     expect(result.upgraded).toBe(1);
     // Only the stale entry's key should have been re-saved through the bridge.
-    const savedKeys = setRating.mock.calls.map((c) => c[0]);
+    const savedKeys = refreshRatingItem.mock.calls.map((c) => c[0]);
     expect(savedKeys).toEqual([stale.item.key]);
   });
 
@@ -78,17 +78,17 @@ describe("upgradeExistingRatings", () => {
       popularity: 1, genreIds: [], genres: ["Drama"], posterPath: null, overview: "",
       runtime: 100, keywords: ["swordplay", "donghua"], features: features({ tone: -0.9 })
     }));
-    const setRating = vi.fn(async (key: string, rating: RatingEntry["rating"], item?: RatingEntry["item"]) => {
-      if (item) preferences.ratings = { ...preferences.ratings, [key]: { rating, item, ts: Date.now() } };
-      return { ratings: preferences.ratings };
+    const refreshRatingItem = vi.fn(async (key: string, item: RatingEntry["item"], expectedTs: number) => {
+      if (preferences.ratings[key]?.ts === expectedTs) preferences.ratings = { ...preferences.ratings, [key]: { ...preferences.ratings[key], item } };
+      return { ratings: preferences.ratings, tasteClaims: [] };
     });
-    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { setRating } } };
+    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { refreshRatingItem } } };
 
     const result = await upgradeExistingRatings(4);
     expect(result.upgraded).toBe(1);
-    expect(setRating).toHaveBeenCalledTimes(1);
-    expect(setRating.mock.calls[0][0]).toBe(noKeywords.item.key);
-    expect(setRating.mock.calls[0][2]?.keywords).toEqual(["swordplay", "donghua"]);
+    expect(refreshRatingItem).toHaveBeenCalledTimes(1);
+    expect(refreshRatingItem.mock.calls[0][0]).toBe(noKeywords.item.key);
+    expect(refreshRatingItem.mock.calls[0][1]?.keywords).toEqual(["swordplay", "donghua"]);
   });
 
   it("backfills collection and creator structure without requiring a separate fetch", async () => {
@@ -102,15 +102,15 @@ describe("upgradeExistingRatings", () => {
         id: 50, name: "A Franchise", posterPath: null, backdropPath: null
       }, directorIds: [42], creatorIds: [], features: features({ tone: -0.9 })
     }));
-    const setRating = vi.fn(async (_key: string, _rating: RatingEntry["rating"], item?: RatingEntry["item"]) => ({
-      ratings: item ? { [item.key]: { item, rating: 1, ts: 1 } } : {}
+    const refreshRatingItem = vi.fn(async (_key: string, item: RatingEntry["item"], expectedTs: number) => ({
+      ratings: { [item.key]: { item, rating: 1, ts: expectedTs } }, tasteClaims: []
     }));
-    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { setRating } } };
+    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { refreshRatingItem } } };
 
     const result = await upgradeExistingRatings(4);
     expect(result.upgraded).toBe(1);
     expect(detail).toHaveBeenCalledTimes(1);
-    expect(setRating.mock.calls[0][2]).toMatchObject({
+    expect(refreshRatingItem.mock.calls[0][1]).toMatchObject({
       collection: { id: 50 },
       directorIds: [42]
     });
@@ -125,12 +125,12 @@ describe("upgradeExistingRatings", () => {
       popularity: 1, genreIds: [], genres: ["Drama"], posterPath: null, overview: "",
       runtime: 100, keywords: [], features: features({ tone: -0.9 })
     }));
-    const setRating = vi.fn();
-    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { setRating } } };
+    const refreshRatingItem = vi.fn();
+    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { refreshRatingItem } } };
 
     const result = await upgradeExistingRatings(4);
     expect(result.upgraded).toBe(0);
-    expect(setRating).not.toHaveBeenCalled();
+    expect(refreshRatingItem).not.toHaveBeenCalled();
   });
 
   it("reports progress for every entry, including an initial 0/total call, even with nothing to upgrade", async () => {
@@ -144,7 +144,7 @@ describe("upgradeExistingRatings", () => {
       // Same features as stored — nothing should be upgraded.
       runtime: 100, keywords: [], features: id === 1 ? features({ tone: -0.9 }) : features({ tone: 0.5 })
     }));
-    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { setRating: vi.fn() } } };
+    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { refreshRatingItem: vi.fn() } } };
 
     const calls: Array<[number, number]> = [];
     const result = await upgradeExistingRatings(4, (processed, total) => calls.push([processed, total]));
@@ -155,8 +155,37 @@ describe("upgradeExistingRatings", () => {
     expect(calls.length).toBe(3); // initial + one per entry
   });
 
+  it("refreshes changed genres without changing feedback time", async () => {
+    const old = entry(1, features({ tone: .8 }));
+    old.ts = 123;
+    old.item.genres = ['Comedy'];
+    preferences.ratings = { [old.item.key]: old };
+    const detail = vi.fn(async () => ({ ...old.item, genres: ['Drama'], runtime: 100, genreIds: [], overview: '', voteCount: 10, popularity: 1 }));
+    const refreshRatingItem = vi.fn(async (key: string, item: RatingEntry['item'], expectedTs: number) => ({
+      ratings: { [key]: { ...old, item, ts: expectedTs } }, tasteClaims: []
+    }));
+    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { refreshRatingItem } } };
+    expect((await upgradeExistingRatings()).upgraded).toBe(1);
+    expect(preferences.ratings[old.item.key]).toMatchObject({ rating: 1, ts: 123, item: { genres: ['Drama'] } });
+  });
+
+  it("does not restore feedback cleared while metadata loads", async () => {
+    const old = entry(1, features({ tone: 0 }));
+    preferences.ratings = { [old.item.key]: old };
+    const refreshRatingItem = vi.fn();
+    const detail = vi.fn(async () => {
+      preferences.ratings = {};
+      return { ...old.item, voteCount: 10, popularity: 1, genreIds: [], overview: '', runtime: 100,
+        features: features({ tone: .8 }), keywords: ['quiet'] };
+    });
+    (globalThis as any).window = { dossier: { tmdb: { detail }, preferences: { refreshRatingItem } } };
+    expect((await upgradeExistingRatings()).upgraded).toBe(0);
+    expect(refreshRatingItem).not.toHaveBeenCalled();
+    expect(preferences.ratings).toEqual({});
+  });
+
   it("reports 0/0 immediately when there are no ratings at all", async () => {
-    (globalThis as any).window = { dossier: { tmdb: { detail: vi.fn() }, preferences: { setRating: vi.fn() } } };
+    (globalThis as any).window = { dossier: { tmdb: { detail: vi.fn() }, preferences: { refreshRatingItem: vi.fn() } } };
     const calls: Array<[number, number]> = [];
     const result = await upgradeExistingRatings(4, (processed, total) => calls.push([processed, total]));
     expect(result).toEqual({ upgraded: 0, total: 0 });

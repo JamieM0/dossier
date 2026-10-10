@@ -2,7 +2,7 @@ export type ActionSpec = { name: string; args: string[]; schema: { type: "object
 const argumentTypes: Record<string, string> = {
   includeRated: "boolean", observedAt: "integer", expectedRevision: "integer", limit: "integer", size: "integer", value: "number|string|object", yes: "boolean", dryRun: "boolean", questionSeed: "integer", questionStop: "boolean", keys: "string[]", filters: "object", dials: "object", conditions: "object[]"
 };
-const optionalArguments = new Set(["limit", "cursor", "mode", "medium", "focus", "size", "filter", "dials", "filters", "dryRun", "fields", "effect", "conditions", "yes", "geometry", "refineMetric", "questionPolicy", "questionSeed", "questionStop", "personalLens", "experiment45", "arm", "context", "observedAt", "includeRated"]);
+const optionalArguments = new Set(["limit", "cursor", "mode", "medium", "focus", "size", "filter", "dials", "filters", "dryRun", "fields", "effect", "conditions", "yes", "geometry", "refineMetric", "learnedTaste", "questionPolicy", "questionSeed", "questionStop", "personalLens", "experiment45", "arm", "context", "observedAt", "includeRated"]);
 export const registry: ActionSpec[] = [
   ["profile.create", ["name"], "write", "profile", "Create a CLI profile"],
   ["profile.list", [], "read", "items,activeId", "List CLI profiles"],
@@ -24,8 +24,8 @@ export const registry: ActionSpec[] = [
   ["refine.choose", ["winner", "loser", "expectedRevision"], "write", "revision", "Record a pairwise choice"],
   ["refine.correct", ["winner", "loser", "expectedRevision"], "write", "revision", "Correct a pairwise choice"],
   ["refine.rank", ["keys", "expectedRevision"], "write", "revision", "Record a ranking"],
-  ["suggest.list", ["medium", "limit", "cursor", "filters", "dials", "geometry", "refineMetric", "personalLens", "experiment45"], "read", "items,next", "Get recommendations"],
-  ["suggest.explain", ["key", "personalLens"], "read", "score,evidence", "Explain a recommendation"],
+  ["suggest.list", ["medium", "limit", "cursor", "filters", "dials", "geometry", "refineMetric", "learnedTaste", "personalLens", "experiment45"], "read", "items,next", "Get recommendations"],
+  ["suggest.explain", ["key", "personalLens", "learnedTaste"], "read", "score,evidence", "Explain a recommendation"],
   ["correction.inspect", [], "read", "corrections", "Inspect experimental correction feedback"],
   ["correction.set", ["id", "kind", "conditions", "effect", "key", "winner", "loser", "expectedRevision"], "write", "corrections,revision", "Set experimental scoped feedback"],
   ["correction.preview", ["id"], "read", "preview", "Preview supporting and conflicting ratings for a proposed preference"],
@@ -50,6 +50,7 @@ export const registry: ActionSpec[] = [
   ["lens.correct", ["id", "effect", "expectedRevision"], "write", "lens,revision", "Correct an experimental personal distinction"],
   ["lens.remove", ["id", "expectedRevision"], "write", "lens,revision", "Remove an experimental personal distinction"],
   ["taste.areas", [], "read", "areas", "Inspect taste areas"],
+  ["taste.distinctions", ["mode", "limit", "cursor"], "read", "items,ratings,comparisons", "Inspect learned personal distinction weights"],
   ["taste.claims", ["limit", "cursor"], "read", "items,next", "List taste claims"],
   ["taste.claim.inspect", ["id"], "read", "claim", "Inspect claim evidence"],
   ["taste.claim.confirm", ["id", "expectedRevision"], "write", "claim,revision", "Confirm a claim"],

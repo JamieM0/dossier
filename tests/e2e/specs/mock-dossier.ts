@@ -26,6 +26,7 @@ export async function dismissEnrichmentModal(page: Page): Promise<void> {
 export type MockDossierSeed = {
   /** Marks this many pool movies (from the front of the pool) as liked. */
   likedMovies?: number;
+  personalEvidence?: boolean;
   refineGroupSize?: number;
   /** Pre-seeds this many synthetic "swordplay"-tagged titles already
    *  rated "not interested", and skips the pool's first 6 titles so the
@@ -97,6 +98,15 @@ export function installMockDossier(seed?: MockDossierSeed): void {
   let skipped: string[] = [];
   let tasteClaims: Array<Record<string, unknown>> = [];
   const list = (items: unknown[]) => Promise.resolve({ page: 1, totalPages: 1, items });
+
+  if (seed?.personalEvidence) {
+    for (let i = 0; i < 20; i++) {
+      const id = 700000 + i, key = `movie:${id}`;
+      ratings[key] = { rating: i < 10 ? 3 : -0.5, ts: Date.now() - 10000 + i,
+        item: { ...pool[i % pool.length], id, key, title: `Personal evidence ${i}` } };
+    }
+    pairwise = [{ winnerKey: 'movie:700000', loserKey: 'movie:700001', ts: Date.now() }];
+  }
 
   if (seed?.likedMovies) {
     for (let i = 0; i < seed.likedMovies && i < pool.length; i++) {
@@ -235,6 +245,11 @@ export function installMockDossier(seed?: MockDossierSeed): void {
         return seed?.preferenceDelayMs
           ? new Promise((resolve) => setTimeout(() => resolve(persist()), seed.preferenceDelayMs))
           : Promise.resolve(persist());
+      },
+      refreshRatingItem: (key: string, item: unknown, expectedTs: number) => {
+        const current = ratings[key] as { ts: number; rating: number } | undefined;
+        if (current?.ts === expectedTs) ratings[key] = { ...current, item };
+        return Promise.resolve({ ratings, tasteClaims });
       },
       setClaimFeedback: (claim: Record<string, unknown>, provenance: string) => {
         const next = { ...claim, provenance, active: provenance === "user_confirmed", feedbackAt: Date.now() };

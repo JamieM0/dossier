@@ -187,7 +187,7 @@
         // network cost the first time each title is ever seen.
         const enriched = await enrichItems(newItems);
         pool = [...pool, ...enriched];
-        allRecs = [...allRecs, ...scoreCandidates(enriched, preferences.entries(), recommendationDials.params, preferences.activeClaims())];
+        allRecs = [...allRecs, ...scoreCandidates(enriched, preferences.entries(), recommendationDials.params, preferences.activeClaims(), preferences.pairwise)];
         return;
       }
     } catch (err) {
@@ -228,7 +228,7 @@
     recommendationDials.params;
     untrack(() => {
       if (pool.length === 0) return;
-      allRecs = scoreCandidates(pool, preferences.entries(), recommendationDials.params, preferences.activeClaims());
+      allRecs = scoreCandidates(pool, preferences.entries(), recommendationDials.params, preferences.activeClaims(), preferences.pairwise);
     });
   });
 

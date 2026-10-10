@@ -59,6 +59,7 @@ declare global {
           rating: Rating | null,
           item?: RatedItem
         ) => Promise<{ ratings: Record<string, RatingEntry>; tasteClaims: TasteClaim[] }>;
+        refreshRatingItem: (key: string, item: RatedItem, expectedTs: number) => Promise<{ ratings: Record<string, RatingEntry>; tasteClaims: TasteClaim[] }>;
         setClaimFeedback: (
           claim: TasteClaim,
           provenance: Exclude<TasteClaimProvenance, "inferred">

@@ -19,14 +19,14 @@ test('override experiment preserves its candidate, rule, new viewers, and hidden
   assert.deepEqual(fixture.items,old[0].items);
   for(const v of fixture.viewers){assert.ok(!used.has(v.sourceUserId));assert.ok(v.trainingRatings.length>=40);assert.equal(v.heldOutRatings.length,40);const train=new Set(v.trainingRatings.map(r=>r.filmKey));assert.ok(v.heldOutRatings.every(r=>!train.has(r.filmKey)));}
 });
-test('rating-validation scorer rebuilds the same model as a clean CLI profile',async()=>{
+test('rating-validation scorer rebuilds the frozen cluster baseline in a clean CLI profile',async()=>{
   let vault={activeId:null,profiles:[]};
   const storage={root:'/test-override',load:()=>vault,save:next=>{vault=next},audit:()=>{}};
   const candidates=fixture.viewers[0].heldOutRatings.slice(0,8).map(row=>byKey.get(row.filmKey));
   const catalogue={detail:async(medium,id)=>byKey.get(`${medium}:${id}`),candidates:async()=>candidates};
   let revision=(await execute(storage,'profile.create',{name:'Validation parity'},catalogue)).revision;
   for(const entry of entries)revision=(await execute(storage,'rate.set',{key:entry.item.key,value:entry.rating,expectedRevision:revision},catalogue)).revision;
-  const page=await execute(storage,'suggest.list',{limit:20},catalogue);
+  const page=await execute(storage,'suggest.list',{limit:20,learnedTaste:'clusters'},catalogue);
   assert.deepEqual(Object.fromEntries(page.items.map(row=>[row.id,row.score])),dossierScores(candidates,entries));
 });
 test('override rule abstains with sparse, one-sided, or public-review-aligned evidence',()=>{

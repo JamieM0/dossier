@@ -1,3 +1,6 @@
+import { tasteClaimsForDisplay } from "@dossier/domain";
+import { BASE_TASTE_POLICY, scorePersonalCandidates } from "@dossier/domain";
+import { scoreRecentTaste, recentTasteEvidence } from "@dossier/domain";
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { registry } from "@dossier/domain";
@@ -16,6 +19,8 @@ import { readCorrections, setCorrection, removeCorrection, scoreCorrections, COR
 import { correctionPreview, readCorrectionReviews, reviewCorrection, scoreProtectedCorrections, PROTECTED_ARMS, type ProtectedArm } from "@dossier/domain";
 import { scoreImpactCorrections, IMPACT_ARMS, type ImpactArm } from "@dossier/domain";
 import { rankExperimentalQuestions, type QuestionPolicy } from "./lab/question-policy.js";
+import { scoreLearnedTaste, learnTasteDistinctions, learnedTasteEvidence, type LearnedTasteMode } from "@dossier/domain";
+import { scoreBalancedTaste, balancedTasteInfluence, type BalancedTasteMode } from "@dossier/domain";
 import { createTmdbClient } from "@dossier/store";
 import { CliStorage, newProfile, publicProfile, type Profile, type Vault } from "./storage.js";
 
@@ -370,6 +375,10 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
       if (referenceTime !== undefined && (localEvidence === undefined || typeof referenceTime !== "number" || !Number.isFinite(referenceTime))) throw new ActionError("INVALID_ARGUMENT", "referenceTime requires localEvidence and a finite timestamp");
       const refineMetric = args.refineMetric;
       if (refineMetric !== undefined && !["axis_metric", "axis_cluster_metric"].includes(String(refineMetric))) throw new ActionError("INVALID_ARGUMENT", "refineMetric must be axis_metric or axis_cluster_metric");
+      const hasExperiment = args.geometry !== undefined || localEvidence !== undefined || refineMetric !== undefined || args.personalLens !== undefined || args.experiment45 !== undefined;
+      const learnedTaste = args.learnedTaste === 'clusters' ? undefined : args.learnedTaste ?? (hasExperiment ? undefined : BASE_TASTE_POLICY);
+      if (learnedTaste !== undefined && !["axes", "descriptive", "comparisons", "balanced_descriptive", "balanced_comparisons", "adaptive_comparisons"].includes(String(learnedTaste))) throw new ActionError("INVALID_ARGUMENT", "Unknown learned taste mode");
+      if (args.learnedTaste !== undefined && args.learnedTaste !== "clusters" && learnedTaste !== undefined && (strategy !== "greedy" || localEvidence !== undefined || refineMetric !== undefined || args.personalLens !== undefined || args.experiment45 !== undefined || (learnedTaste !== "adaptive_comparisons" && !String(learnedTaste).startsWith("balanced_") && Object.keys(dials).some(key => key !== "qualityWeight")))) throw new ActionError("INVALID_ARGUMENT", "Use learnedTaste without other experiments or matching dials");
       const selectedClaims = strategy === "greedy"
         ? state.tasteClaims
         : reconcileTasteClaims(entries(profile), state.tasteClaims, buildTasteSpace(entries(profile), { clusterStrategy: strategy }));
@@ -384,7 +393,11 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
         readPersonalLens(lens45);
         items = scoreLens45(narrowed, entries(profile), params, selectedClaims, lens45, experiment45 as Lens45Mode)
           .map(({ item, score, lens45Evidence }) => ({ ...compact(item, score), lens45Evidence }));
-      } else items = scoreCandidates(narrowed, entries(profile), params, lensMode === "fixed" ? [] : selectedClaims, {
+      } else if (learnedTaste === "adaptive_comparisons") items = scoreRecentTaste(narrowed, entries(profile), selectedClaims, state.pairwise, params).map(({ item, score }) => compact(item, score));
+      else if (args.learnedTaste === undefined && !hasExperiment) items = scorePersonalCandidates(narrowed, entries(profile), params, selectedClaims, state.pairwise).map(({ item, score }) => compact(item, score));
+      else if (String(learnedTaste).startsWith("balanced_")) items = scoreBalancedTaste(narrowed, entries(profile), selectedClaims, state.pairwise, learnedTaste as BalancedTasteMode, params).map(({ item, score }) => compact(item, score));
+      else if (learnedTaste !== undefined) items = scoreLearnedTaste(narrowed, entries(profile), selectedClaims, state.pairwise, learnedTaste as LearnedTasteMode, params.qualityWeight).map(({ item, score }) => compact(item, score));
+      else items = scoreCandidates(narrowed, entries(profile), params, lensMode === "fixed" ? [] : selectedClaims, {
         clusterStrategy: strategy,
         ...(localEvidence === undefined ? {} : { localEvidence: localEvidence as "timeless" | "recent" }),
         ...(referenceTime === undefined ? {} : { referenceTime: referenceTime as number }),
@@ -407,7 +420,25 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
     const parsed = itemKey(string(args, "key")); const item = await (catalogue ? catalogue.detail(parsed.medium, parsed.id) : (await tmdb(storage)).detail(parsed.medium, parsed.id));
     const lensMode = args.personalLens;
     if (lensMode !== undefined && !["fixed", "inferred", "personal"].includes(String(lensMode))) throw new ActionError("INVALID_ARGUMENT", "personalLens must be fixed, inferred, or personal");
-    const params = lensMode === undefined ? DEFAULT_SCORING_PARAMS : { ...DEFAULT_SCORING_PARAMS, qualityWeight: 0, popularityBias: 0 };
+    const learnedTaste = args.learnedTaste === 'clusters' ? undefined : args.learnedTaste ?? (lensMode === undefined && !((state.settings.recommendationDials as Partial<ScoringParams> | undefined)?.ratingRecencyStrength) ? BASE_TASTE_POLICY : undefined);
+    if (learnedTaste !== undefined) {
+      if (!["axes", "descriptive", "comparisons", "balanced_descriptive", "balanced_comparisons", "adaptive_comparisons"].includes(String(learnedTaste)) || lensMode !== undefined) throw new ActionError("INVALID_ARGUMENT", "Use a valid learned taste mode without personalLens");
+      const adaptive = learnedTaste === "adaptive_comparisons";
+      const balanced = adaptive || String(learnedTaste).startsWith("balanced_");
+      const mode = (adaptive ? "comparisons" : String(learnedTaste).replace("balanced_", "")) as LearnedTasteMode;
+      const configured = state.settings.recommendationDials as Partial<ScoringParams> | undefined;
+      const qualityWeight = configured?.qualityWeight ?? DEFAULT_SCORING_PARAMS.qualityWeight;
+      const taste = learnTasteDistinctions(entries(profile), state.pairwise, mode);
+      const scored = args.learnedTaste === undefined ? scorePersonalCandidates([item], entries(profile), { ...DEFAULT_SCORING_PARAMS, ...configured }, state.tasteClaims, state.pairwise)[0]
+        : adaptive ? scoreRecentTaste([item], entries(profile), state.tasteClaims, state.pairwise, { ...DEFAULT_SCORING_PARAMS, ...configured })[0]
+        : balanced ? scoreBalancedTaste([item], entries(profile), state.tasteClaims, state.pairwise, learnedTaste as BalancedTasteMode, { ...DEFAULT_SCORING_PARAMS, ...configured })[0]
+        : scoreLearnedTaste([item], entries(profile), state.tasteClaims, state.pairwise, mode, qualityWeight)[0];
+      return { item: compact(item), score: scored ? compact(item, scored.score).score : null,
+        evidence: { ...learnedTasteEvidence(item, taste),
+          ...(adaptive ? { recent: (() => { const e = recentTasteEvidence(entries(profile), state.pairwise); return { influence: e.influence, validationImprovement: e.validationImprovement, observedRatings: e.recent.length }; })() } : {}), ...(balanced ? { personalInfluence: balancedTasteInfluence(entries(profile)) } : {}), ratings: taste.ratings, comparisons: taste.comparisons,
+          limitation: "Weights describe conditional associations in your feedback; support counts do not measure accuracy." } };
+    }
+    const params = lensMode === undefined ? { ...DEFAULT_SCORING_PARAMS, ...(state.settings.recommendationDials as Partial<ScoringParams> | undefined) } : { ...DEFAULT_SCORING_PARAMS, qualityWeight: 0, popularityBias: 0 };
     const scored = scoreCandidates([item], entries(profile), params, lensMode === "fixed" ? [] : state.tasteClaims)[0];
     const lensEvidence = lensMode === undefined ? undefined : personalLensEvidence(item, entries(profile), readPersonalLens(lensMode === "personal" ? state.settings.experimentalPersonalLens : undefined));
     const related = (lensMode === "fixed" ? [] : state.tasteClaims).filter((claim) => claim.active && matchesTasteClaim(item, claim)).map((claim) => claim.id);
@@ -440,9 +471,17 @@ export async function execute(storage: CliStorage, name: string, args: Args, cat
     return { revision: mutate(storage, vault, profile, args, next) };
   }
   if (name === "taste.areas") return { areas: tasteSnapshot(entries(profile)) };
+  if (name === "taste.distinctions") {
+    const mode = args.mode ?? "comparisons";
+    if (!["axes", "descriptive", "comparisons"].includes(String(mode))) throw new ActionError("INVALID_ARGUMENT", "Unknown learned taste mode");
+    const taste = learnTasteDistinctions(entries(profile), state.pairwise, mode as LearnedTasteMode);
+    return { ...page(taste.distinctions.slice().sort((a,b) => Math.abs(b.weight) - Math.abs(a.weight)), args),
+      ratings: taste.ratings, comparisons: taste.comparisons,
+      limitation: "Weights describe conditional associations in your feedback; support counts do not measure accuracy." };
+  }
   if (name === "taste.coverage") { const space = buildTasteSpace(entries(profile)); return { ratings: entries(profile).length, claims: state.tasteClaims.length, clusters: space.clusters.length, weakRegions: space.weakRegions.length }; }
   if (name === "taste.claims") return page(state.tasteClaims.map((claim) => ({ id: claim.id, effect: claim.effect, confidence: claim.confidence, provenance: claim.provenance, active: claim.active })), args);
-  if (name === "taste.claim.inspect") return { claim: findClaim(profile, string(args, "id")) };
+  if (name === "taste.claim.inspect") return { claim: tasteClaimsForDisplay([findClaim(profile, string(args, "id"))])[0] };
   if (name.startsWith("taste.claim.")) {
     const claim = findClaim(profile, string(args, "id"));
     const provenance = name === "taste.claim.confirm" ? "user_confirmed" : name === "taste.claim.reject" ? "explicitly_rejected" : "corrected";

@@ -8,6 +8,7 @@ import {
   reconcileTasteClaims,
   withDefaults,
   setLibraryRating,
+  refreshLibraryRatingItem,
   setLibraryClaimFeedback,
   addLibraryPairwise,
   setLibrarySkipped,
@@ -83,6 +84,15 @@ export class DossierStoreService {
   setRating(key: string, rating: Rating | null, item?: RatedItem): RatingsMap {
     this.state = setLibraryRating(this.state, key, rating, item);
     this.encryptedStore.save(this.state);
+    return this.getRatings();
+  }
+
+  refreshRatingItem(key: string, item: RatedItem, expectedTs: number): RatingsMap {
+    const next = refreshLibraryRatingItem(this.state, key, item, expectedTs);
+    if (next !== this.state) {
+      this.state = next;
+      this.encryptedStore.save(this.state);
+    }
     return this.getRatings();
   }
 

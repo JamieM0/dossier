@@ -66,6 +66,26 @@ Use `--filters` for a JSON object with `genres`, `yearFrom`, `yearTo`, or `minVo
 pnpm cli suggest --filters '{"yearFrom":2000,"genres":["Science Fiction"]}' --limit 5
 ```
 
+## Inspect personal learning
+
+Ordinary recommendations learn distinctions from ratings, descriptive metadata, and saved Refine comparisons.
+They retain the existing public-rating weight.
+Recent feedback adjusts recommendations only when it predicts subsequent observed ratings better than older evidence.
+The learner uses no mood questionnaire.
+
+```sh
+pnpm cli taste distinctions --limit 10
+pnpm cli suggest explain movie:157336
+pnpm cli suggest --learned-taste clusters --limit 8
+```
+
+`taste distinctions` returns signed conditional associations and support counts.
+Support counts do not measure accuracy or establish causes.
+`suggest explain` includes personal influence and the current recent-feedback adjustment.
+Use `--learned-taste clusters` to inspect the historical cluster baseline.
+Experimental modes include `axes`, `descriptive`, `comparisons`, `balanced_descriptive`, `balanced_comparisons`, and `adaptive_comparisons`.
+Read the [personal learning review](../reports/personal-learning-review-v1.md) for results and limitations.
+
 ## Inspect and change the library
 
 Use item IDs from a queue, search result, or library list:

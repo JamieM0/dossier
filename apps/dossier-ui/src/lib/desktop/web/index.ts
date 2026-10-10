@@ -72,6 +72,8 @@ export function installWebApi(): void {
         webLibrary
           .setRating(key, rating, item as never)
           .then((ratings) => ({ ratings: ratings as Record<string, RatingEntry>, tasteClaims: webLibrary.getTasteClaims() })),
+      refreshRatingItem: (key: string, item: RatedItem, expectedTs: number) =>
+        webLibrary.refreshRatingItem(key, item, expectedTs).then(ratings => ({ ratings, tasteClaims: webLibrary.getTasteClaims() })),
       setClaimFeedback: (claim: TasteClaim, provenance: Exclude<TasteClaimProvenance, "inferred">) =>
         webLibrary.setTasteClaimFeedback(claim, provenance).then((tasteClaims) => ({ tasteClaims })),
       addPairwise: (winnerKey: string, loserKey: string): Promise<{ pairwise: PairwiseChoice[] }> =>

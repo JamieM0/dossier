@@ -81,6 +81,8 @@ export function installDesktopApi(): void {
         item?: RatedItem
       ): Promise<{ ratings: Record<string, RatingEntry>; tasteClaims: TasteClaim[] }> =>
         invoke("preferences_set_rating", { key, rating, item: item ?? null }),
+      refreshRatingItem: (key: string, item: RatedItem, expectedTs: number): Promise<{ ratings: Record<string, RatingEntry>; tasteClaims: TasteClaim[] }> =>
+        invoke("preferences_refresh_rating_item", { key, item, expectedTs }),
       setClaimFeedback: (
         claim: TasteClaim,
         provenance: Exclude<TasteClaimProvenance, "inferred">

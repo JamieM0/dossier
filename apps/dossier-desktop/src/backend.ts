@@ -124,6 +124,7 @@ type StoreServicePort = {
   getRatings: () => RatingsMap;
   getTasteClaims: () => TasteClaim[];
   setRating: (key: string, rating: Rating | null, item?: RatedItem) => RatingsMap;
+  refreshRatingItem: (key: string, item: RatedItem, expectedTs: number) => RatingsMap;
   setTasteClaimFeedback: (
     claim: TasteClaim,
     provenance: "user_confirmed" | "explicitly_rejected" | "corrected"
@@ -370,6 +371,20 @@ function createControlRequestHandler() {
         }
         sendJson(res, 200, {
           tasteClaims: storeService.setTasteClaimFeedback(body.claim, body.provenance!)
+        });
+        return;
+      }
+
+      if (method === "PUT" && path === "/control/preferences/rating-item") {
+        if (!storeService) throw new ControlError(500, "INTERNAL", "store unavailable");
+        const body = (await readJsonBody(req)) as { key?: string; item?: RatedItem; expectedTs?: number };
+        if (!body || typeof body.key !== "string" || !body.item || body.item.key !== body.key ||
+            typeof body.expectedTs !== "number" || !Number.isFinite(body.expectedTs)) {
+          throw new ControlError(400, "BAD_REQUEST", "key, matching item, and expectedTs required");
+        }
+        sendJson(res, 200, {
+          ratings: storeService.refreshRatingItem(body.key, body.item, body.expectedTs),
+          tasteClaims: storeService.getTasteClaims()
         });
         return;
       }

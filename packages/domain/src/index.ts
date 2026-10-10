@@ -26,3 +26,9 @@ export * from './protected-correction.js';
 
 export * from './impact-correction.js';
 export * from './local-evidence.js';
+export * from './learned-taste.js';
+export * from './balanced-taste.js';
+export * from './rating-metadata.js';
+export * from './personal-recommender.js';
+export * from './recent-taste.js';
+export * from './taste-labels.js';

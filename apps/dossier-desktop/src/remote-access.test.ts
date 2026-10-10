@@ -46,7 +46,9 @@ describe("LAN remote access", () => {
     mkdirSync(ui);
     writeFileSync(join(ui, "index.html"), "<!doctype html><html><head></head><body>Dossier</body></html>");
     let settings: Record<string, unknown> = {};
+    const requests: Array<{ path: string | undefined; method: string | undefined }> = [];
     const control = (req: IncomingMessage, res: ServerResponse) => {
+      requests.push({ path: req.url, method: req.method });
       expect(req.headers["x-dossier-control-token"]).toBe("control-test-token");
       res.writeHead(200, { "content-type": "application/json" });
       res.end(JSON.stringify({ ratings: {}, pairwise: [], skipped: [] }));
@@ -76,6 +78,7 @@ describe("LAN remote access", () => {
       const blockedPreferences = await request(`${ready.origin}/api/preferences`);
       expect(blockedPreferences.status).toBe(401);
       expect(JSON.parse(blockedPreferences.body).error.code).toBe("UNAUTHORIZED");
+      expect((await request(`${ready.origin}/api/preferences/rating-item`, "PUT", { key: "movie:1" })).status).toBe(401);
 
       const pairPage = await request(ready.pairingUrl!);
       expect(pairPage.status).toBe(200);
@@ -103,6 +106,11 @@ describe("LAN remote access", () => {
 
       const safe = await request(`${ready.origin}/api/preferences`, "GET", undefined, cookie);
       expect(safe.status).toBe(200);
+      const refreshed = await request(`${ready.origin}/api/preferences/rating-item`, "PUT", {
+        key: "movie:1", item: { key: "movie:1" }, expectedTs: 123
+      }, cookie);
+      expect(refreshed.status).toBe(200);
+      expect(requests.at(-1)).toEqual({ path: "/control/preferences/rating-item", method: "PUT" });
 
       const savedSettings = await request(`${ready.origin}/api/settings`, "PUT", {
         theme: "Parchment",

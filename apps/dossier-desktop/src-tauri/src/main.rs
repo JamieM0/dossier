@@ -817,6 +817,17 @@ async fn preferences_set_rating(
 }
 
 #[tauri::command]
+async fn preferences_refresh_rating_item(
+    key: String,
+    item: Value,
+    expected_ts: f64,
+    state: State<'_, RuntimeState>,
+) -> Result<Value, String> {
+    state.client.request(Method::PUT, "/control/preferences/rating-item",
+        Some(json!({ "key": key, "item": item, "expectedTs": expected_ts }))).await
+}
+
+#[tauri::command]
 async fn preferences_set_claim_feedback(
     claim: Value,
     provenance: String,
@@ -1265,6 +1276,7 @@ fn main() {
             settings_set_start_on_login,
             preferences_get,
             preferences_set_rating,
+            preferences_refresh_rating_item,
             preferences_set_claim_feedback,
             preferences_add_pairwise,
             preferences_skip,
